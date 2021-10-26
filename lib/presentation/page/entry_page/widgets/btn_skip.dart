@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,8 @@ class ButtonSkip extends StatelessWidget {
       alignment: Alignment.topRight,
       child: TextButton(
         onPressed: () {
-          // Navigator.push(context,
-          //     MaterialPageRoute(builder: (context) => LoginPage()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => LoginPage()));
         },
         child: const Text(
           "Keç",

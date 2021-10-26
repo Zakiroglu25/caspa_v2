@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'presentation/page/auth/login_page/login_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
@@ -25,8 +26,8 @@ class App extends StatelessWidget {
         },
           home:
               //MediaPage()
-              SplashPage(),
-          //LoginPage()
+              //SplashPage(),
+          LoginPage(),
         // LandingPage()
         //    HomePage()
           // HomePage()

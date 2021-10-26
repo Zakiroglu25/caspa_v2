@@ -2,12 +2,8 @@ import 'package:caspa_v2/presentation/page/entry_page/widgets/btn_skip.dart';
 import 'package:caspa_v2/presentation/page/entry_page/widgets/indicator_widget.dart';
 import 'package:caspa_v2/presentation/page/entry_page/widgets/page_view_three.dart';
 import 'package:caspa_v2/presentation/page/entry_page/widgets/page_view_two.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:flutter/material.dart';
-
 import 'widgets/bck_image_widget.dart';
 import 'widgets/page_view_one.dart';
 

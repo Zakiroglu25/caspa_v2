@@ -17,9 +17,10 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            textTheme: GoogleFonts.sairaTextTheme(
-            //  Theme.of(context).textTheme,
-            ),
+            // textTheme: GoogleFonts.sairaTextTheme(
+            // //  Theme.of(context).textTheme,
+            // ),
+            fontFamily: 'CoHeadline',
             primarySwatch: Colors.orange,
           ),
         builder: (context, widget) {
@@ -31,9 +32,10 @@ class App extends StatelessWidget {
              // SplashPage(),
        // RegisterPage(),
         // LoginPage(),
-        LandingPage()
+       // LandingPage()
         //    HomePage()
           // HomePage()
+        SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()
           ),

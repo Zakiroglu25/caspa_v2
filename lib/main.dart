@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,7 +9,7 @@ import 'infrastructure/configs/init.dart';
 void main() {
   init();
   SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+      SystemUiOverlayStyle(statusBarColor:  MyColors.mainColor));
   runApp(App());
 }
 

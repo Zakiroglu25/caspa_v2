@@ -1,5 +1,5 @@
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
-import 'package:caspa_v2/presentation/page/auth/register/register_pae.dart';
+import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';

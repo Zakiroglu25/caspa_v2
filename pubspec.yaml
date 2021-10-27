@@ -30,8 +30,8 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   google_fonts: ^2.1.0
   flutter_svg:
-
   cupertino_icons: ^1.0.2
+  focus_detector:
 
 dev_dependencies:
   flutter_test:

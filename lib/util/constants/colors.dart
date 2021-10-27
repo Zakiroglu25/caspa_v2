@@ -32,6 +32,7 @@ class MyColors {
   static const Color mainColor = Color(0xFF6F6FBF);
   static const Color mainGrey = Color(0xFFF5F5F5);
   static const Color textFieldLittleText = Color(0xFF999999);
+  static const Color textBlack = Color(0xFF222222);
 
 
 }

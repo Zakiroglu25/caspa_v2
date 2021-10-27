@@ -1,5 +1,7 @@
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
@@ -95,8 +97,7 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12))),
               onPressed: () {
-                // if (_formKey.currentState!.validate()) {
-                //   debugPrint("Valid");
+                NavigateUtils.pushReplacement(context, LandingPage());
               },
               child: const Text(
                 "Qeydiyyat",

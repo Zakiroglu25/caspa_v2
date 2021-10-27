@@ -28,7 +28,7 @@ class NotificationWidget extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             SvgPicture.asset(
-              'asset/svg/bell.svg',
+              'assets/svg/bell.svg',
               color: MyColors.mainOrange,
             ),
             Ellipse()

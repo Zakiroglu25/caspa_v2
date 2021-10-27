@@ -97,7 +97,7 @@ class _BusinessRegisterPageState extends State<BusinessRegisterPage> {
                 //   debugPrint("Valid");
               },
               child: const Text(
-                "Qydiyyatdan keç",
+                "Qeydiyyatdan keç",
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),

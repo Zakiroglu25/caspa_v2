@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'presentation/page/auth/login_page/login_page.dart';
+import 'presentation/page/landing_page/landing_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
@@ -29,8 +30,8 @@ class App extends StatelessWidget {
               //MediaPage()
              // SplashPage(),
        // RegisterPage(),
-         LoginPage(),
-        // LandingPage()
+        // LoginPage(),
+        LandingPage()
         //    HomePage()
           // HomePage()
           //CupertinoStoreHomePage()

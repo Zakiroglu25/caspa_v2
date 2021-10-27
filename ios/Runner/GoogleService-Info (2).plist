@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>622522519355-ague6e96fg1mlc49fvtbepp2dgeoq0p3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.622522519355-ague6e96fg1mlc49fvtbepp2dgeoq0p3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCuEKUfEtyXORuA6uw9F69d7-wJgCpdWnU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>622522519355</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>az.caspav2.caspaV2</string>
+	<key>PROJECT_ID</key>
+	<string>caspa-v2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>caspa-v2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:622522519355:ios:b991ade52f597a1955b11e</string>
+</dict>
+</plist>

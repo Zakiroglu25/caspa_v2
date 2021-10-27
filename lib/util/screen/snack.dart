@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +25,9 @@ class Snack {
       padding: const EdgeInsets.only(right: 10),
       content: BounceInUp(
         child: Container(
-          decoration: BoxDecoration(
-              gradient: (positive) ? Gradients.gBlues : Gradients.gReds,
+          decoration: const BoxDecoration(
+            color: MyColors.mainColor,
+              //gradient: (positive) ? Gradients.gBlues : Gradients.gReds,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
@@ -38,7 +40,7 @@ class Snack {
                 children: [
                   Flexible(
                     child: Container(
-                      //   color: Colors.indigo,
+                        //color: MyColors.mainColor,
                       //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
                       padding: EdgeInsets.only(
                           left: (!positive || showSuccessIcon) ? 50 : 16,
@@ -72,7 +74,7 @@ class Snack {
                           child: Row(
                             children: [
                               Flash(
-                                  child: Icon(
+                                  child: const Icon(
                                 Icons.check_sharp,
                                 color: Colors.white,
                               )),
@@ -86,7 +88,7 @@ class Snack {
                         child: Row(
                           children: [
                             Flash(
-                                child: Icon(
+                                child: const Icon(
                               Icons.error_outline_sharp,
                               color: Colors.white,
                             )),

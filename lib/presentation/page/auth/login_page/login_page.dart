@@ -1,5 +1,5 @@
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
-import 'package:caspa_v2/presentation/page/auth/register/register_pae.dart';
+import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
         onPressed: () {
-          NavigateUtils.pushNewRoot(context, StackOver());
+          NavigateUtils.pushNewRoot(context, RegisterPage());
           if (_formKey.currentState!.validate()) {
             debugPrint("Valid");
           }

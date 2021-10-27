@@ -6,6 +6,6 @@ import 'package:flutter_svg/svg.dart';
 class CaspaLogoWithName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FadeIn(child: SvgPicture.asset(Assets.caspaLogoWithName));
+    return FadeIn(child: SvgPicture.asset(Assets.svgCaspaLogoWithName));
   }
 }

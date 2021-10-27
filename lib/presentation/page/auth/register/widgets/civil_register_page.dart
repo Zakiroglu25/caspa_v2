@@ -99,7 +99,7 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
                 //   debugPrint("Valid");
               },
               child: const Text(
-                "Daxil Ol",
+                "Qeydiyyat",
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
             ),

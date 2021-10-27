@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,8 +27,9 @@ class App extends StatelessWidget {
         },
           home:
               //MediaPage()
-              //SplashPage(),
-          LoginPage(),
+             // SplashPage(),
+       // RegisterPage(),
+         LoginPage(),
         // LandingPage()
         //    HomePage()
           // HomePage()

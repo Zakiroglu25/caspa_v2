@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12))),
         onPressed: () {
-          NavigateUtils.pushNewRoot(context, StackOver());
+          NavigateUtils.pushNewRoot(context, RegisterPage());
           if (_formKey.currentState!.validate()) {
             debugPrint("Valid");
           }

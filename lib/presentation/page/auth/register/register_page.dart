@@ -6,15 +6,16 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/business_register_page.dart';
 import 'widgets/civil_register_page.dart';
 import 'widgets/drop_down_male.dart';
 
-class StackOver extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _StackOverState createState() => _StackOverState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _StackOverState extends State<StackOver>
+class _RegisterPageState extends State<RegisterPage>
     with SingleTickerProviderStateMixin {
 
 
@@ -40,6 +41,7 @@ class _StackOverState extends State<StackOver>
         title: 'Qeydiyyat',
         back: true,
         notification: false,
+        centerTitle: true,
         contextA: null,
       ),
       body: Padding(
@@ -71,7 +73,7 @@ class _StackOverState extends State<StackOver>
                 controller: _tabController,
                 children: [
                   CivilRegisterPage(),
-                  CivilRegisterPage(),
+                  BusinessRegisterPage(),
 
                 ],
               ),

@@ -20,10 +20,10 @@ class _LandingPageState extends State<LandingPage> {
 
   final pages = <Widget>[
     HomePage(),
-    PackagePage(),
-    PackagePage(),
+    MyHomePage(),
+    MyHomePage(),
     SilverAppBarExample(),
-    PackagePage(),
+    MyHomePage(),
   ];
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 

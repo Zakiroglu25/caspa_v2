@@ -15,6 +15,7 @@ class SilverAppBarExample extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             expandedHeight: 250.0,
             floating: true,
             pinned: false,
@@ -48,6 +49,10 @@ class SilverAppBarExample extends StatelessWidget {
       ),
     );
   }
+
+
+
+
 
   buildList(int count) {
     List<Widget>? listItems = [];

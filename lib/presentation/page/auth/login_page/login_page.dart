@@ -1,10 +1,14 @@
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/general/caspa_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -21,34 +25,33 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
 
-
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        key: _formKey,
+      resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding:
+            EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
         child: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 20),
           children: [
             MySizedBox.h100,
-            SvgPicture.asset("assets/svg/logosvg.svg"),
+            CaspaLogo(),
             MySizedBox.h30,
             buildEnterText(),
+            MySizedBox.h20,
             buildLittleText(),
-            RowLogin(),
             CaspaField(
-              suffixIcon: Padding(
-                  padding: EdgeInsets.only(right: 16.0),
-                  child: SvgPicture.asset("assets/svg/check.svg")),
+              title: "email",
               maxLines: 1,
               hint: 'E-mail',
               controller: loginEmailController,
             ),
             MySizedBox.h16,
-            RowPassword(),
-            MySizedBox.h4,
             CaspaField(
+              title: "password",
               suffixIcon: Padding(
                   padding: EdgeInsets.only(right: 16.0),
                   child: SvgPicture.asset("assets/svg/check.svg")),
@@ -60,8 +63,10 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>  ForgetPasswordPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ForgetPasswordPage()));
               },
               child: const Text(
                 "Şifrəni unutmuşam ?",
@@ -69,90 +74,49 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             MySizedBox.h110,
-            elevatedButton(),
+            loginButton(),
             MySizedBox.h16,
             registerButton(),
             MySizedBox.h50,
-
           ],
         ),
       ),
     );
   }
 
-  Padding elevatedButton() {
-    return Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(343, 52),
-                  primary: MyColors.mainColor,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12))),
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  debugPrint("Valid");
-                }
-              },
-              child: const Text(
-                "Daxil Ol",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-            ),
-          );
+  CaspaButton loginButton() {
+    return CaspaButton(
+      onTap: () {},
+      text: "login",
+    );
   }
-  Padding registerButton() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            minimumSize: const Size(343, 52),
-            primary: MyColors.mainGrey,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12))),
-        onPressed: () {
-          NavigateUtils.pushNewRoot(context, RegisterPage());
-          if (_formKey.currentState!.validate()) {
-            debugPrint("Valid");
-          }
-        },
-        child: const Text(
-          "Qeydiyyatdan keç",
-          style: TextStyle(color: MyColors.textBlack, fontSize: 18),
-        ),
+
+  CaspaButton registerButton() {
+    return CaspaButton(
+      color: MyColors.greyWhite,
+      textColor: MyColors.black,
+     // borderColor: MyColors.mainColor,
+      onTap: () {},
+      text: "registration",
+    );
+  }
+
+  Center buildLittleText() {
+    return Center(
+      child: Text(
+        MyText.loginText,
+        style: AppTextStyles.coHead400.copyWith(fontSize: 14),
+        textAlign: TextAlign.center,
       ),
     );
   }
 
-  Padding buildLittleText() {
-    return const Padding(
-            padding: EdgeInsets.fromLTRB(16, 16, 16, 40),
-            child: Text(
-              MyText.loginText,
-              maxLines: 4,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: MyColors.splashLittleText,
-                  fontSize: 14,
-                  fontFamily: "San Francisco"),
-            ),
-          );
-  }
-
-  Text buildEnterText() {
-    return const Text(
-            "Daxil olun",
-            style: TextStyle(
-              fontFamily: "CoHeadline",
-              fontWeight: FontWeight.w400,
-              fontSize: 25,
-              fontStyle: FontStyle.normal,
-              color: MyColors.mainBlue2,
-            ),
-            textAlign: TextAlign.center,
-          );
+  Center buildEnterText() {
+    return Center(
+      child: Text(
+        "Daxil olun",
+        style: AppTextStyles.coHead400.copyWith(fontSize: 25),
+      ),
+    );
   }
 }
-
-
-

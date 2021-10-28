@@ -49,11 +49,6 @@ class SilverAppBarExample extends StatelessWidget {
       ),
     );
   }
-
-
-
-
-
   buildList(int count) {
     List<Widget>? listItems = [];
 

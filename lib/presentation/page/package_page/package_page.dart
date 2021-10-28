@@ -1,6 +1,7 @@
 import 'package:caspa_v2/presentation/page/package_page/widget/sliver_appbar.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'widget/header.dart';
 import 'widget/package_waiting_page.dart';
 import 'widget/sliver_appbar_delegate.dart';
 
@@ -43,31 +44,7 @@ class _PackagePageState extends State<PackagePage>
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return [
               SliverAppBarWidget(),
-              SliverPersistentHeader(
-                floating: true,
-                pinned: true,
-                delegate: SliverAppBarDelegate(
-                  TabBar(
-                    controller: _tabController,
-                    indicator: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        12.0,
-                      ),
-                      color: MyColors.mainGrey,
-                    ),
-                    labelColor: MyColors.textBlack,
-                    unselectedLabelColor: MyColors.textFieldLittleText,
-                    tabs: const [
-                      Tab(
-                        text: 'Gözləmədə olan',
-                      ),
-                      Tab(
-                        text: 'Tarixcə',
-                      ),
-                    ],
-                  ),
-                ),
-              )
+              SliverPersistentHeaderWidget(tabController: _tabController,)
             ];
           },
           body: TabBarView(controller: _tabController, children: [

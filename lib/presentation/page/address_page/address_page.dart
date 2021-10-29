@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/package_page/widget/sliver_appbar_delegate.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/caspa_appbar/simple_appbar.dart';
@@ -6,49 +7,98 @@ import 'package:flutter_svg/svg.dart';
 
 import 'widget/copiable_field.dart';
 
-class SilverAppBarExample extends StatelessWidget {
+class SilverAppBarExample extends StatefulWidget {
+  @override
+  State<SilverAppBarExample> createState() => _SilverAppBarExampleState();
+}
+
+class _SilverAppBarExampleState extends State<SilverAppBarExample>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(vsync: this, length: 2);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CaspaAppbar(),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            automaticallyImplyLeading: false,
-            expandedHeight: 250.0,
-            floating: true,
-            pinned: false,
-            snap: true,
-            elevation: 0,
-            backgroundColor: Colors.white,
-            flexibleSpace: FlexibleSpaceBar(
-                centerTitle: true,
-                background: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Ünvanlar",
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      Image.asset("assets/png/globuspng.png"),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 32.0),
-                        child: Text(
-                            "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453"),
-                      ),
-
-                    ],
+      body: DefaultTabController(
+        length: 1,
+        child: CustomScrollView(
+          slivers: [
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              expandedHeight: 250.0,
+              floating: true,
+              pinned: false,
+              snap: true,
+              elevation: 0,
+              backgroundColor: Colors.white,
+              flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  background: Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Ünvanlar",
+                          style: TextStyle(fontSize: 25),
+                        ),
+                        Image.asset("assets/png/globuspng.png"),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 32.0),
+                          child: Text(
+                              "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453"),
+                        ),
+                      ],
+                    ),
+                  )),
+            ),
+            SliverPersistentHeader(
+              floating: true,
+              pinned: true,
+              delegate: SliverAppBarDelegate(
+                TabBar(
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  controller: _tabController,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(
+                      12.0,
+                    ),
+                    color: MyColors.mainGrey,
                   ),
-                )),
-          ),
-          SliverList(delegate: SliverChildListDelegate(buildList(1))),
-        ],
+                  labelColor: MyColors.textBlack,
+                  unselectedLabelColor: MyColors.textFieldLittleText,
+                  tabs: const [
+                    Tab(
+                      text: 'Türkiyə',
+                    ),
+                    Tab(
+                      text: 'Türkiyə',
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SliverList(delegate: SliverChildListDelegate(buildList(1))),
+          ],
+        ),
       ),
     );
   }
+
   buildList(int count) {
     List<Widget>? listItems = [];
 
@@ -58,22 +108,6 @@ class SilverAppBarExample extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 110,
-              height: 45,
-              decoration: BoxDecoration(
-                  color: MyColors.mainGrey,
-                  borderRadius: BorderRadius.circular(12)),
-              child: ListView(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                physics:
-                AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-                scrollDirection: Axis.horizontal,
-                children: [
-                  Text("Türkiyə"),
-                ],
-              ),
-            ),
             CopiableField(
               title: "İsim",
               data: "Bahtiyar",

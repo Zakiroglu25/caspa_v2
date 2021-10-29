@@ -33,7 +33,7 @@ class RowPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: const [
-        MySizedBox.w16,
+      //  MySizedBox.w16,
         Text(
           "Password",
           style: TextStyle(

@@ -15,6 +15,7 @@ class SliverPersistentHeaderWidget extends StatelessWidget {
       pinned: true,
       delegate: SliverAppBarDelegate(
         TabBar(
+          padding: EdgeInsets.only(left: 16,right: 16),
           controller: tabController,
           indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(

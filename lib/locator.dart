@@ -10,8 +10,8 @@ final locator = GetIt.I;
 
 Future<void> setupLocator() async {
   locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
-  final prefs = await PreferencesService.instance;
+  //final prefs = await PreferencesService.instance;
   //   locator.registerSingleton<PreferencesService>(prefs);
   // locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
-  locator.registerLazySingleton(() => prefs);
+  //locator.registerLazySingleton(() => prefs);
 }

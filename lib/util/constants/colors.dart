@@ -8,7 +8,9 @@ class MyColors {
   static const Color mainBlue01 =const Color.fromRGBO(64, 157, 209, 0.1);
   static const Color mainBlue02 =const Color.fromRGBO(64, 157, 209, 0.2);
   static const Color mainBlue03 =const Color.fromRGBO(64, 157, 209, 0.3);
+  static const Color greyWhite =const Color.fromRGBO(245, 245, 245, 1);
   static const Color white = Colors.white;
+  static const Color black = Colors.black;
   static const Color splashLittleText =const Color.fromRGBO(91, 89, 89, 1);
   static const Color orange =const Color.fromRGBO(248, 143, 102, 1);
   static const Color alternativ =const Color.fromRGBO(196, 142, 209, 1);

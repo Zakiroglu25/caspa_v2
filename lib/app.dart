@@ -1,5 +1,7 @@
+import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -35,7 +37,9 @@ class App extends StatelessWidget {
        // LandingPage()
         //    HomePage()
           // HomePage()
-          LoginPage()
+          BlocProvider(
+          create: (context)=>LoginCubit()
+          ,child: LoginPage())
         //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()

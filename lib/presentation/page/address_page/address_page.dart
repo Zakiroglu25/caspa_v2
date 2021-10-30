@@ -40,9 +40,6 @@ class _SilverAppBarExampleState extends State<SilverAppBarExample>
             SliverAppBar(
               automaticallyImplyLeading: false,
               expandedHeight: 250.0,
-              floating: true,
-              pinned: false,
-              snap: true,
               elevation: 0,
               backgroundColor: Colors.white,
               flexibleSpace: FlexibleSpaceBar(
@@ -67,8 +64,7 @@ class _SilverAppBarExampleState extends State<SilverAppBarExample>
                   )),
             ),
             SliverPersistentHeader(
-              floating: true,
-              pinned: true,
+
               delegate: SliverAppBarDelegate(
                 TabBar(
                   padding: EdgeInsets.only(left: 20, right: 20),

@@ -29,7 +29,7 @@ class NotificationWidget extends StatelessWidget {
           children: [
             SvgPicture.asset(
               'assets/svg/bell.svg',
-              color: MyColors.mainOrange,
+              color: MyColors.black,
             ),
             Ellipse()
             // BlocBuilder<HeaderCubit, HeaderState>(

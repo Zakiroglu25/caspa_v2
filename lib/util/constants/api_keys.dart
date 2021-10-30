@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/foundation.dart';
 
 class ApiKeys {
@@ -7,6 +8,7 @@ class ApiKeys {
   static const baseUrl = 'https://caspa.az/api';
   static const headers = {
     "Content-Type": "application/json",
+    "Accept":"application/json",
   };
 
   //reg and login
@@ -30,10 +32,13 @@ class ApiKeys {
   }) {
     //
     final map = {
-      "email": email,
-      "customerGuid": password,
-      "device_name": device_name,
+      "email":"esev.sv@gmail.com",
+      "password":"salam12345",
+      "device_name":"addd",
+      "deviceName":"addd"
     };
+
+    aaaa(map.toString());
     map.removeWhere(
             (key, value) => key == null || value == null || value == 'null');
     return map;

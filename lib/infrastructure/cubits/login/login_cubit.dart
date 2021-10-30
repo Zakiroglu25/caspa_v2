@@ -1,9 +1,14 @@
 // Dart imports:
+import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
+import 'package:caspa_v2/infrastructure/models/general/MyMessage.dart';
+import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
 // Package imports:
@@ -15,10 +20,7 @@ import 'package:rxdart/rxdart.dart';
 // Project imports:
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial()) {
-    emailController.addListener(() {});
-    passwordController.addListener(() {});
-  }
+  LoginCubit() : super(LoginInitial());
 
   bool emailValid = false;
 
@@ -64,10 +66,8 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-
   void login({bool? loading}) async {
+
     try {
       if (isPassIncorrect) {
         updatePass('');
@@ -81,17 +81,20 @@ class LoginCubit extends Cubit<LoginState> {
           emit(LoginInProgress());
         }
 
-        final result = await AuthProvider.login(
+        final response = await AuthProvider.login(
           email: uEmail.value,
           password: uPass.value,
         );
-        //tewst
 
-        if (result.message == 'created') {
-          emit(LoginSuccess(result));
+        if (isSuccess(response.statusCode)) {
+          emit(LoginSuccess(response.body));
+         // result=response.data;
         } else {
           emit(LoginError());
+         // result= MessageResponse.fromJson(response.data).message;
+          eeee("login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
         }
+
       } else {
         emit(LoginError(error: 'error'));
       }

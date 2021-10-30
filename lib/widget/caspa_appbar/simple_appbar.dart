@@ -25,7 +25,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.notification,
       this.exitButton,
       @required this.contextA,
-       this.centerTitle});
+      this.centerTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +36,46 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
         }
       },
       child: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
         titleSpacing: 0,
-        title: Text(title.toString()),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                (back ?? false)
+                    ? Material(
+                        color: Colors.white,
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios_rounded,
+                              color: MyColors.mainOrange,
+                            )),
+                      )
+                    : Container(
+                        width: 43,
+                      ),
+              ],
+            ),
+            Center(
+              child: Text(
+                title!,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                    color: MyColors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16),
+              ),
+            ),
+            rightButtonsRow(context),
+          ],
         ),
+      ),
     );
   }
 

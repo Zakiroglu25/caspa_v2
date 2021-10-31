@@ -32,10 +32,11 @@ class App extends StatelessWidget {
              // SplashPage(),
        // RegisterPage(),
         // LoginPage(),
-       //LandingPage()
+       // LandingPage()
         //    HomePage()
           // HomePage()
-        SplashPage()
+          LoginPage()
+        //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()
           ),

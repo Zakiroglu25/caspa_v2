@@ -17,8 +17,8 @@ class CaspaField extends StatelessWidget {
   TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
-  bool? upperCase = true;
-  Function? onChanged;
+  bool? upperCase ;
+  ValueChanged<String>? onChanged;
   Function? onTap;
   Widget? prefixIcon;
   Widget? suffixIcon;
@@ -36,6 +36,7 @@ class CaspaField extends StatelessWidget {
         this.suffixIcon,
         this.title,
         this.errorMessage,
+        this.textCapitalization,
 
         this.onChanged,
         this.onTap,
@@ -64,7 +65,7 @@ class CaspaField extends StatelessWidget {
                 obscureText: obscure??false,
                 maxLength: maxLenght,
                 maxLines: maxLines ?? null,
-                onChanged: onChanged?.call(),
+                onChanged: onChanged,
                 readOnly: readOnly ?? false,
                 expands: maxLines != null ? false : true,
                 onTap: onTap?.call(),

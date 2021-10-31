@@ -96,9 +96,7 @@ class _LoginPageState extends State<LoginPage> {
       color: MyColors.greyWhite,
       textColor: MyColors.black,
      // borderColor: MyColors.mainColor,
-      onTap: () {
-        NavigateUtils.pushNewRoot(context, RegisterPage());
-      },
+      onTap: () {},
       text: "registration",
     );
   }

@@ -6,16 +6,17 @@ import 'sliver_appbar_delegate.dart';
 class SliverPersistentHeaderWidget extends StatelessWidget {
 
   SliverPersistentHeaderWidget({Key? key,this.tabController}) : super(key: key);
-   late TabController? tabController;
+  late TabController? tabController;
 
   @override
   Widget build(BuildContext context) {
-    return SliverPersistentHeader(
-      floating: true,
+    return  SliverPersistentHeader(
+      floating: false,
       pinned: true,
       delegate: SliverAppBarDelegate(
         TabBar(
-          padding: EdgeInsets.only(left: 16,right: 16),
+          padding: EdgeInsets.only(
+              left: 16, right: 16, top: 0, bottom: 0),
           controller: tabController,
           indicator: BoxDecoration(
             borderRadius: BorderRadius.circular(
@@ -38,3 +39,4 @@ class SliverPersistentHeaderWidget extends StatelessWidget {
     );
   }
 }
+

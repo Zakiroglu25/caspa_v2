@@ -2,7 +2,6 @@ import 'package:caspa_v2/presentation/page/address_page/widget/copiable_field.da
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 
 import 'widget/turkey_anbar.dart';

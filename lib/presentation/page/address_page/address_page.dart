@@ -10,6 +10,7 @@ class SilverAppBarExample extends StatefulWidget {
   SilverAppBarExample({Key? key, this.title}) : super(key: key);
 
   final String? title;
+  //git update-index --skip-worktree
 
   @override
   _SilverAppBarExampleState createState() => new _SilverAppBarExampleState();

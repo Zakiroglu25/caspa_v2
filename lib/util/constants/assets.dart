@@ -3,6 +3,7 @@ class Assets {
 
   //--png
   static const String pngRocket = 'assets/png/rocket.png';
+  static const String pngGlobus = "assets/png/globuspng.png";
 
 
   //--svg

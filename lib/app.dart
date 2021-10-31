@@ -39,7 +39,7 @@ class App extends StatelessWidget {
         //    HomePage()
           // HomePage()
 
-          SilverAppBarExample()
+          SilverAppBarExample(),
           // BlocProvider(
           // create: (context)=>LoginCubit()
           // ,child: LoginPage())

@@ -36,6 +36,9 @@ dependencies:
   rxdart:
   logger: ^1.0.0
 
+  #view
+  customizable_space_bar: ^0.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

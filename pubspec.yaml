@@ -32,8 +32,6 @@ dependencies:
   flutter_svg:
   cupertino_icons: ^1.0.2
   focus_detector:
-#  firebase_core: ^1.8.0
-  random_color: ^1.0.5
 
 dev_dependencies:
   flutter_test:

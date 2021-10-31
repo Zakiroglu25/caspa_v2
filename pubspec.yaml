@@ -32,7 +32,9 @@ dependencies:
   flutter_svg:
   cupertino_icons: ^1.0.2
   focus_detector:
-
+  rxdart:
+  logger: ^1.0.0
+  dio: 4.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

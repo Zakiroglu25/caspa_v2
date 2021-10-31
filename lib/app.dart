@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
+import 'presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'presentation/page/auth/login_page/login_page.dart';
 import 'presentation/page/landing_page/landing_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
@@ -38,8 +40,12 @@ class App extends StatelessWidget {
        // LandingPage()
         //    HomePage()
           // HomePage()
+           BlocProvider(
 
-          SilverAppBarExample(),
+
+          create: (context) => ForgotPassCubit(),
+           child: ForgetPasswordPage())
+//          SilverAppBarExample(),
           // BlocProvider(
           // create: (context)=>LoginCubit()
           // ,child: LoginPage())

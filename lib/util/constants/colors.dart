@@ -21,6 +21,7 @@ class MyColors {
   static const Color textRED =  Color.fromRGBO(220, 1, 1, 1);
   static const Color errorRED =  Color.fromRGBO(238, 0, 4, 1);
   static const Color newGREEN =  Color.fromRGBO(40, 202, 46, 1);
+  static const Color green =  Color.fromRGBO(85, 169, 50, 1);
   static const Color halfBlack =  Color.fromRGBO(64, 70, 77, 1);
   static const Color secondMainColor =  Color.fromRGBO(228, 235, 241, 1);
   static const Color alertBlue =  Color.fromRGBO(140, 207, 255, 1);
@@ -29,6 +30,7 @@ class MyColors {
   static const Color halfGrey =  Color.fromRGBO(214, 214, 214, 1);
   //static Color purple = HexColor.fromHex('#b74093');
   static const Color grey165 =  Color.fromRGBO(168, 172, 185, 1);
+  static const Color grey226 =  Color.fromRGBO(226, 226, 226, 1);
 
   ///caspa new version Colors
   static const Color mainColor = Color(0xFF6F6FBF);

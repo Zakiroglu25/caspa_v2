@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "622522519355",
+    "project_id": "caspa-v2",
+    "storage_bucket": "caspa-v2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622522519355:android:06d74a7fc047b97255b11e",
+        "android_client_info": {
+          "package_name": "az.caspa_v2.caspa_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622522519355-m2koqi60lvmgrjq199rgbsetea5f6o8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAebxOtn10Y6ezJkNdslFgEmEpjjzC1iaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622522519355-m2koqi60lvmgrjq199rgbsetea5f6o8g.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "622522519355-2ojh7skj0gg2grf9ud796ibjk82m98sk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "az.caspa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

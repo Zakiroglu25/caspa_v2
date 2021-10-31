@@ -71,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  customizable_space_bar:
+    dependency: "direct main"
+    description:
+      name: customizable_space_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   dio:
     dependency: "direct main"
     description:

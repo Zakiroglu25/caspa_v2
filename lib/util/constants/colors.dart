@@ -37,12 +37,13 @@ class MyColors {
   static const Color mainGrey = Color(0xFFF5F5F5);
   static const Color textFieldLittleText = Color(0xFF999999);
   static const Color textBlack = Color(0xFF222222);
-
-  static const Color grid1 =  Color(0xFFFBE4E4);
+  ///GridViewList
+  static const Color grid1 = Color(0xFFFBE4E4);
   static const Color grid2 = Color(0xFFEBEEFD);
   static const Color grid3 = Color(0xFFFFF6E1);
   static const Color grid4 = Color(0xFFEFFDFC);
   static const Color grid5 = Color(0xFFEBFBE4);
   static const Color grid6 = Color(0xFFF8EBFD);
+
 
 }

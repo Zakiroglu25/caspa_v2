@@ -4,6 +4,7 @@ class Assets {
   //--png
   static const String pngRocket = 'assets/png/rocket.png';
   static const String pngGlobus = "assets/png/globuspng.png";
+  static const String pngbox = "assets/png/boxpng.png";
 
 
   //--svg

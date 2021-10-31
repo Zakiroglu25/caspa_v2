@@ -35,6 +35,9 @@ class MyColors {
   static const Color mainGrey = Color(0xFFF5F5F5);
   static const Color textFieldLittleText = Color(0xFF999999);
   static const Color textBlack = Color(0xFF222222);
+  ///all background color
+  static const Color bckColor = Color.fromRGBO(255, 255, 255, 0.7);
+
   ///GridViewList
   static const Color grid1 = Color(0xFFFBE4E4);
   static const Color grid2 = Color(0xFFEBEEFD);

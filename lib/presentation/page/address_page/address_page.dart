@@ -101,7 +101,7 @@ class _SilverAppBarExampleState extends State<SilverAppBarExample>
                               child: Padding(
                                 padding: const EdgeInsets.only(bottom: 30.0),
                                 child: Container(
-                                  width: MediaQuery.of(context).size.width,
+                                  width: MediaQuery.of(context).size.width-40,
                                   child: Text(
                                     "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453",
                                     // overflow: TextOverflow.ellipsis,

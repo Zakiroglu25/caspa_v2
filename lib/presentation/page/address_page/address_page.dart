@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 
 import 'widget/copiable_field.dart';
 
+
+///
 class SilverAppBarExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

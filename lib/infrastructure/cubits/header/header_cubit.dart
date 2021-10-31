@@ -13,7 +13,7 @@ import 'header_state.dart';
 class HeaderCubit extends Cubit<HeaderState> {
   HeaderCubit() : super(HeaderInitial());
 
-  // PreferencesService get _prefs => locator<PreferencesService>();
+  PreferencesService get _prefs => locator<PreferencesService>();
 
   void fetch({bool loading = true}) async {
     if (loading) {

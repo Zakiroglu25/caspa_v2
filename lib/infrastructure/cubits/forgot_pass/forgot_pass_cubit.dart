@@ -28,10 +28,7 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   ];
 
   void changeState(
-      {bool loading = true,
-      int? index,
-      bool back = false,
-      required BuildContext context}) async {
+      {bool loading = true, int? index, bool back = false, required BuildContext context}) async {
     if (loading) {
       emit(ForgotPassInProgress());
     }
@@ -72,7 +69,8 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
     emit(ForgotPassSuccess());
   }
 
-  Future<bool> operate(int currentIndex, BuildContext context) async {
+
+  Future<bool> operate(int currentIndex,BuildContext context) async {
     bool res = false;
     switch (currentIndex) {
       case 0:
@@ -87,6 +85,7 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
       case 3:
         break;
     }
+
 
     return res;
   }

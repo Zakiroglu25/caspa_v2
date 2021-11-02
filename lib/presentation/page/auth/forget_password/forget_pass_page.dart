@@ -139,33 +139,33 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             _activeStepIndex = index;
           });
         },
-        controlsBuilder: (context, {onStepContinue, onStepCancel}) {
-          final isLastStep = _activeStepIndex == stepList().length - 1;
-          return Container(
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: onStepContinue,
-                    child: (isLastStep)
-                        ? const Text('Submit')
-                        : const Text('Next'),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                if (_activeStepIndex > 0)
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: onStepCancel,
-                      child: const Text('Back'),
-                    ),
-                  )
-              ],
-            ),
-          );
-        },
+        // controlsBuilder: (context, {onStepContinue, onStepCancel}) {
+        //   final isLastStep = _activeStepIndex == stepList().length - 1;
+        //   return Container(
+        //     child: Row(
+        //       children: [
+        //         Expanded(
+        //           child: ElevatedButton(
+        //             onPressed: onStepContinue,
+        //             child: (isLastStep)
+        //                 ? const Text('Submit')
+        //                 : const Text('Next'),
+        //           ),
+        //         ),
+        //         const SizedBox(
+        //           width: 10,
+        //         ),
+        //         if (_activeStepIndex > 0)
+        //           Expanded(
+        //             child: ElevatedButton(
+        //               onPressed: onStepCancel,
+        //               child: const Text('Back'),
+        //             ),
+        //           )
+        //       ],
+        //     ),
+        //   );
+        // },
       ),
     );
   }

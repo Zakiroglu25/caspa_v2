@@ -16,6 +16,7 @@ class Assets {
   static const String svgMinus= "assets/svg/minus.svg";
   static const String svgCheck= "assets/svg/check.svg";
   static const String svgCopy= "assets/svg/copy.svg";
+  static const String tarifBox= "assets/svg/boxsvg.svg";
 
   //--anim
 

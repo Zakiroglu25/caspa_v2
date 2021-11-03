@@ -71,9 +71,10 @@ flutter:
         - asset: assets/fonts/coheadline.ttf
           style: normal
     - family: San Francisco
-      fonts:
-        - asset: assets/fonts/san_Francisco.otf
-          weight: 700
+#      fonts:
+#        - asset: assets/fonts/san_Francisco.otf
+#          style: normal
+#          weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

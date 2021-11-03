@@ -15,7 +15,7 @@ class LoginFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        EmailField(_emailController),
+        EmailFieldLogin(_emailController),
         MySizedBox.h16,
         PassField(_passController),
         MySizedBox.h16,

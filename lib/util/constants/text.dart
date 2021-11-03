@@ -11,5 +11,10 @@ class MyText {
   static const String pageViewTwo = "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik. Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik.";
   ///login
   static const String loginText = "Zəhmət olmasa daxil olmaq üçün aşağıda qeyd olunan bəndləri doldurun.";
+  ///baglamalar
+  static const String packageText = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+  /// esas sehife text
+  static const String homePageText = "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
 
 }
+

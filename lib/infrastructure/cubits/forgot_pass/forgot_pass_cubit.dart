@@ -7,8 +7,10 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 
 import '../../../locator.dart';
 import 'forgot_pass_state.dart';
@@ -17,6 +19,33 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   ForgotPassCubit() : super(ForgotPassEnterMail());
 
   PreferencesService get _prefs => locator<PreferencesService>();
+  String buttonText='send';
+
+  bool emailValid = false;
+  final BehaviorSubject<String> uEmail = BehaviorSubject<String>();
+
+  Stream<String> get emailStream => uEmail.stream;
+
+  updateEmail(String value) {
+    if (value == null || value.isEmpty) {
+      uEmail.value = '';
+      uEmail.sink.addError("email_address_is_not_correct");
+    } else {
+      emailValid = Validator.mail(value);
+      uEmail.sink.add(value);
+    }
+  }
+
+  bool get isEmailIncorrect => (!uEmail.hasValue ||
+      uEmail.value == null ||
+      uEmail.value.isEmpty ||
+      !emailValid);
+
+  @override
+  Future<void> close() {
+    uEmail.close();
+    return super.close();
+  }
 
   int currentIndex = 0;
 
@@ -28,7 +57,10 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   ];
 
   void changeState(
-      {bool loading = true, int? index, bool back = false, required BuildContext context}) async {
+      {bool loading = true,
+      int? index,
+      bool back = false,
+      required BuildContext context}) async {
     if (loading) {
       emit(ForgotPassInProgress());
     }
@@ -69,23 +101,24 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
     emit(ForgotPassSuccess());
   }
 
-
-  Future<bool> operate(int currentIndex,BuildContext context) async {
+  Future<bool> operate(int currentIndex, BuildContext context) async {
     bool res = false;
     switch (currentIndex) {
       case 0:
+        buttonText='send';
         Snack.display(context: context, message: "kod gonderildi");
         break;
       case 1:
+        buttonText='send';
         Snack.display(context: context, message: "kod duzgun daxil edildi");
         break;
       case 2:
+        buttonText='OK';
         Snack.display(context: context, message: "dirim dirim dirim");
         break;
       case 3:
         break;
     }
-
 
     return res;
   }

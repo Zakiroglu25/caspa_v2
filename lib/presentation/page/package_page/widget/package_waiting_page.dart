@@ -1,4 +1,6 @@
+import 'package:caspa_v2/presentation/page/package_page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -107,7 +109,7 @@ class WaitingPackagePage extends StatelessWidget {
             ) {
           return GestureDetector(
             onTap: () {
-              // Navigator.of(context).pushNamed(RouteName.GridViewCustom);
+              NavigateUtils.pushNewRoot(context, PackageDetailsPage());
             },
             child: Container(
               decoration: BoxDecoration(

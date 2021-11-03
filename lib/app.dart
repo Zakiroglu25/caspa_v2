@@ -37,14 +37,13 @@ class App extends StatelessWidget {
              // SplashPage(),
        // RegisterPage(),
         // LoginPage(),
-       // LandingPage()
+        LandingPage()
         //    HomePage()
-          // HomePage()
-           BlocProvider(
-
-
-          create: (context) => ForgotPassCubit(),
-           child: ForgetPasswordPage())
+          //  BlocProvider(
+          //
+          //
+          // create: (context) => ForgotPassCubit(),
+          //  child: ForgetPasswordPage())
 //          SilverAppBarExample(),
           // BlocProvider(
           // create: (context)=>LoginCubit()

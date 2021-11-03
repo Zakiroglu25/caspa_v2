@@ -8,6 +8,7 @@ import 'grid_list_model.dart';
 
 class WaitingPackagePage extends StatelessWidget {
    WaitingPackagePage({Key? key}) : super(key: key);
+
   List<GridListItems> items = [
     GridListItems(
         color: MyColors.grid1,
@@ -109,7 +110,7 @@ class WaitingPackagePage extends StatelessWidget {
             ) {
           return GestureDetector(
             onTap: () {
-              NavigateUtils.pushNewRoot(context, PackageDetailsPage());
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PackageDetailsPage()));
             },
             child: Container(
               decoration: BoxDecoration(

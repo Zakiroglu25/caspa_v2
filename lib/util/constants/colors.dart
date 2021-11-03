@@ -14,6 +14,7 @@ class MyColors {
   static const Color splashLittleText = Color.fromRGBO(91, 89, 89, 1);
   static const Color orange = Color.fromRGBO(248, 143, 102, 1);
   static const Color alternativ = Color.fromRGBO(196, 142, 209, 1);
+  static const Color green =  Color.fromRGBO(85, 169, 50, 1);
   static const LinearGradient gra = LinearGradient(colors: [Colors.blue, Colors.green]);
   static const Color mainRED =  Color.fromRGBO(222, 37, 55, 1);
   static const Color mainOrange =  Color.fromRGBO(246, 102, 46, 1);
@@ -37,6 +38,8 @@ class MyColors {
   static const Color textBlack = Color(0xFF222222);
   ///all background color
   static const Color bckColor = Color.fromRGBO(255, 255, 255, 0.7);
+  static const Color grey226 =  Color.fromRGBO(226, 226, 226, 1);
+
 
   ///GridViewList
   static const Color grid1 = Color(0xFFFBE4E4);

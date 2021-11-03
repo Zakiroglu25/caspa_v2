@@ -1,171 +1,113 @@
+import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_state.dart';
+import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/stepper.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/widget/caspa_appbar/simple_appbar.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'widgets/enter_code_body.dart';
+import 'widgets/enter_mail_body.dart';
+import 'widgets/enter_pssword_body.dart';
 
-class ForgetPasswordPage extends StatefulWidget {
+class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({Key? key}) : super(key: key);
 
   @override
-  _ForgetPasswordPageState createState() => _ForgetPasswordPageState();
-}
+  Widget build(BuildContext context) {
 
-class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
-  int _activeStepIndex = 0;
 
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController pass = TextEditingController();
-  TextEditingController address = TextEditingController();
-  TextEditingController pincode = TextEditingController();
 
-  List<Step> stepList() => [
-    Step(
-      state: _activeStepIndex <= 0 ? StepState.editing : StepState.complete,
-      isActive: _activeStepIndex >= 0,
-      title: const Text('Account'),
-      content: Container(
-        child: Column(
-          children: [
-            TextField(
-              controller: name,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Full Name',
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            TextField(
-              controller: email,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Email',
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            TextField(
-              controller: pass,
-              obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Password',
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    Step(
-        state:
-        _activeStepIndex <= 1 ? StepState.editing : StepState.complete,
-        isActive: _activeStepIndex >= 1,
-        title: const Text('Address'),
-        content: Container(
-          child: Column(
+    final forgotCubit=context.watch<ForgotPassCubit>();
+    return Scaffold(
+
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Container(
+          //color: Colors.red,
+          padding: Paddings.paddingH20,
+          child: Stack(
             children: [
-              const SizedBox(
-                height: 8,
+              Column(
+                children: [
+                  MySizedBox.h60,
+                  Container(
+                      height: 100,
+                      width: 100,
+                      // color: Colors.green,
+                      child: Image.asset('assets/png/qifil.png')),
+                  MySizedBox.h10,
+                  Text(
+                    'are_you_forgot_pass',
+                    style: AppTextStyles.coHead400.copyWith(fontSize: 25),
+                  ),
+                  MySizedBox.h16,
+                  Text(
+                    'are_you_forgot_pass',
+                    style: AppTextStyles.sanF400
+                        .copyWith(fontSize: 14, color: MyColors.grey165),
+                  ),
+
+                  ForgotPassStepper(
+                    stepCount: 4,
+                    current: forgotCubit.currentIndex,
+                  ),
+                  BlocBuilder<ForgotPassCubit, ForgotPassState>(
+                      builder: (context, state) {
+                        if (state is ForgotPassEnterMail) {
+                          return EnterMailBody();
+                        }
+                        if (state is ForgotPassEnterCode) {
+                          return EnterCodeBody();
+                        }
+                        if (state is ForgotPassNewPass) {
+                          return EnterPasswordBody();
+                        } else {
+                          return Container(
+                            padding: Paddings.paddingH20,
+                            child: Column(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "success",
+                                    style: AppTextStyles.coHead600,
+                                  ),
+                                ),
+                                CaspaButton(
+                                  text: "back",
+                                  onTap: () {
+                                    context
+                                        .read<ForgotPassCubit>()
+                                        .changeState(back: true, context: context);
+                                  },
+                                )
+                              ],
+                            ),
+                          );
+                        }
+                      })
+                ],
               ),
-              TextField(
-                controller: address,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Full House Address',
+              Positioned(
+                bottom:30,
+                left: 0,
+                right: 0,
+                child: CaspaButton(
+                  text: forgotCubit.buttonText,
+                  onTap: () {
+                    context.read<ForgotPassCubit>().changeState(context: context);
+                  },
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              TextField(
-                controller: pincode,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Pin Code',
-                ),
-              ),
+              )
+
             ],
           ),
-        )),
-    Step(
-        state: StepState.complete,
-        isActive: _activeStepIndex >= 2,
-        title: const Text('Confirm'),
-        content: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text('Name: ${name.text}'),
-                Text('Email: ${email.text}'),
-                const Text('Password: *****'),
-                Text('Address : ${address.text}'),
-                Text('PinCode : ${pincode.text}'),
-              ],
-            )))
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Stepper'),
-      ),
-      body: Stepper(
-        type: StepperType.horizontal,
-        currentStep: _activeStepIndex,
-        steps: stepList(),
-        onStepContinue: () {
-          if (_activeStepIndex < (stepList().length - 1)) {
-            setState(() {
-              _activeStepIndex += 1;
-            });
-          } else {
-            print('Submited');
-          }
-        },
-        onStepCancel: () {
-          if (_activeStepIndex == 0) {
-            return;
-          }
-
-          setState(() {
-            _activeStepIndex -= 1;
-          });
-        },
-        onStepTapped: (int index) {
-          setState(() {
-            _activeStepIndex = index;
-          });
-        },
-        // controlsBuilder: (context, {onStepContinue, onStepCancel}) {
-        //   final isLastStep = _activeStepIndex == stepList().length - 1;
-        //   return Container(
-        //     child: Row(
-        //       children: [
-        //         Expanded(
-        //           child: ElevatedButton(
-        //             onPressed: onStepContinue,
-        //             child: (isLastStep)
-        //                 ? const Text('Submit')
-        //                 : const Text('Next'),
-        //           ),
-        //         ),
-        //         const SizedBox(
-        //           width: 10,
-        //         ),
-        //         if (_activeStepIndex > 0)
-        //           Expanded(
-        //             child: ElevatedButton(
-        //               onPressed: onStepCancel,
-        //               child: const Text('Back'),
-        //             ),
-        //           )
-        //       ],
-        //     ),
-        //   );
-        // },
+        ),
       ),
     );
   }

@@ -22,6 +22,8 @@ class CaspaField extends StatelessWidget {
   Function? onTap;
   Widget? prefixIcon;
   Widget? suffixIcon;
+  //String tip
+
   TextInputType? textInputType;
 
   CaspaField(

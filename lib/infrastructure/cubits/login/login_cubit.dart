@@ -8,6 +8,7 @@ import 'package:caspa_v2/infrastructure/models/general/MyMessage.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -36,8 +37,7 @@ class LoginCubit extends Cubit<LoginState> {
       uEmail.value = '';
       uEmail.sink.addError("email_address_is_not_correct");
     } else {
-      emailValid = RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-          .hasMatch(value);
+      emailValid = Validator.mail(value);
       uEmail.sink.add(value);
     }
   }
@@ -67,7 +67,6 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void login({bool? loading}) async {
-
     try {
       if (isPassIncorrect) {
         updatePass('');
@@ -88,13 +87,13 @@ class LoginCubit extends Cubit<LoginState> {
 
         if (isSuccess(response.statusCode)) {
           emit(LoginSuccess(response.body));
-         // result=response.data;
+          // result=response.data;
         } else {
           emit(LoginError());
-         // result= MessageResponse.fromJson(response.data).message;
-          eeee("login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
+          // result= MessageResponse.fromJson(response.data).message;
+          eeee(
+              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
         }
-
       } else {
         emit(LoginError(error: 'error'));
       }

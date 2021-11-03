@@ -2,6 +2,7 @@
 
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
@@ -57,9 +58,11 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
                               color: MyColors.mainOrange,
                             )),
                       )
-                    : Container(
-                        width: 43,
-                      ),
+                    : WidgetOrEmpty(
+                        value: notification,
+                        child: Container(
+                          width: 43,
+                        )),
               ],
             ),
             Center(

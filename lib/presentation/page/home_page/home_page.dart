@@ -1,14 +1,9 @@
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/caspa_appbar/simple_appbar.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/home_header.dart';
 import 'widgets/news_list_widget.dart';
-import 'widgets/news_section.dart';
 import 'widgets/package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tarif_list_widget.dart';

@@ -30,7 +30,7 @@ dependencies:
   flutter_screenutil: ^5.0.0+2
   google_fonts: ^2.1.0
   flutter_svg:
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.3
   focus_detector:
   rxdart:
   logger: ^1.0.0
@@ -67,14 +67,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-#  fonts:
-#    - family: Co Headline
+  fonts:
+    - family: Co Headline
+      fonts:
+        - asset: assets/fonts/coheadline.ttf
+          style: normal
+    - family: San Francisco
 #      fonts:
-#        - asset: fonts/coheadline.ttf
+#        - asset: assets/fonts/san_Francisco.otf
 #          style: normal
-#    - family: San Francisco
-#      fonts:
-#        - asset: fonts/san_Francisco.otf
 #          weight: 700
   #
   # For details regarding fonts from package dependencies,

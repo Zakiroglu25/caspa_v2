@@ -21,7 +21,7 @@ class _LandingPageState extends State<LandingPage> {
   final pages = <Widget>[
     HomePage(),
     PackagePage(),
-    Text("burda sifarish olacq"),
+    PackagePage(),
     SilverAppBarExample(),
     PackagePage(),
   ];
@@ -34,8 +34,8 @@ class _LandingPageState extends State<LandingPage> {
     body: pages[index],
     bottomNavigationBar: Theme(
       data: ThemeData(
-        splashColor: MyColors.mainColor,
-        highlightColor: MyColors.mainColor,
+        splashColor: MyColors.mainBlue03,
+        highlightColor: MyColors.mainBlue02,
 
         // highlightColor: Colors.transparent,
       ),
@@ -78,7 +78,7 @@ class _LandingPageState extends State<LandingPage> {
         ],
         currentIndex: index,
         onTap: onChangedTab,
-        selectedItemColor: MyColors.mainColor,
+        selectedItemColor: MyColors.mainBlue,
       ),
     ),
 

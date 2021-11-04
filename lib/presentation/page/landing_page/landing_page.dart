@@ -22,7 +22,7 @@ class _LandingPageState extends State<LandingPage> {
     HomePage(),
     PackagePage(),
     PackagePage(),
-    SilverAppBarExample(),
+    AdressPage(),
     PackagePage(),
   ];
   final GlobalKey<ScaffoldState> _key = GlobalKey();

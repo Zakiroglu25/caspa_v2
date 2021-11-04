@@ -7,20 +7,19 @@ class SliverNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 10,
-      top: 8,
+      right: 8,
+      top: 6.5,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 0.0),
         child: Container(
-            height: 40,
-            width: 40,
+            height: 43,
+            width: 43,
             child: Stack(
               children: [
                 NotificationWidget(),
-                Positioned(
-
-                    right: 7,top: 6,
-                    child: SvgPicture.asset(Assets.svgEllipse))
+                // Positioned(
+                //     right: 7,top: 6,
+                //     child: SvgPicture.asset(Assets.svgEllipse))
               ],
             )),
       ),

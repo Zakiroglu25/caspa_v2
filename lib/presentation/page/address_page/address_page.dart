@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'widget/turkey_anbar.dart';
 
-class SilverAppBarExample extends StatelessWidget {
+class AdressPage extends StatelessWidget {
   final List<Widget> tabPages = <Widget>[
     TurkeyAnbar(),
     Text('second'),
@@ -19,10 +19,10 @@ class SilverAppBarExample extends StatelessWidget {
       height: 60,
     ),
     Tab(
-      text: 'Türkiyə',
+      text: 'Amerika',
     ),
     Tab(
-      text: 'Türkiyə',
+      text: 'Çin',
     ),
   ];
 

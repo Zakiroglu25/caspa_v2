@@ -35,8 +35,9 @@ class App extends StatelessWidget {
               // SplashPage(),
               // RegisterPage(),
               // LoginPage(),
-              LandingPage()
-          //    HomePage()
+          SilverAppBarExample()
+        //LandingPage()
+          //  //  HomePage()
           //  BlocProvider(
           //
           //

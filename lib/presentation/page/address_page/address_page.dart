@@ -10,7 +10,7 @@ class SilverAppBarExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CaspaAppbar(),
+      appBar: CaspaAppbar(contextA: null,title: 'Ünvanlar',),
         body: CustomScrollView(
           slivers:[
             SliverAppBar(

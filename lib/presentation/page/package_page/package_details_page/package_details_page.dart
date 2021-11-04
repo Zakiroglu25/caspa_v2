@@ -22,25 +22,28 @@ class _PackageDetailsPageState extends State<PackageDetailsPage>
         "Xarici anbara bəyan et ",
         "Bir sətirlik, müştəri üçün qısa məlumat.",
         MyColors.green,
-        "assets/svg/minus.svg"),
+        "assets/svg/shopping.svg",
+        true),
     StatusModel(2, "Xarici anbarda", "Bir sətirlik, müştəri üçün qısa məlumat.",
-        MyColors.green, "assets/svg/minus.svg"),
+        MyColors.green, "assets/svg/world.svg", true),
     StatusModel(
         3,
         "Smart Customs-a bəyan et ",
         "Bir sətirlik, müştəri üçün qısa məlumat.",
         MyColors.green,
-        "assets/svg/minus.svg"),
+        "assets/svg/smartcustom.svg",
+        true),
     StatusModel(4, "Yoldadır", "Bir sətirlik, müştəri üçün qısa məlumat.",
-        MyColors.green, "assets/svg/minus.svg"),
+        MyColors.green, "assets/svg/shopping.svg", true),
     StatusModel(5, "Gömrükdə", "Bir sətirlik, müştəri üçün qısa məlumat.",
-        MyColors.green, "assets/svg/minus.svg"),
+        MyColors.green, "assets/svg/shopping.svg", true),
     StatusModel(
         6,
         "Caspa Baku ofisində",
         "Bir sətirlik, müştəri üçün qısa məlumat.",
         MyColors.green,
-        "assets/svg/minus.svg"),
+        "assets/svg/coffee.svg",
+        true),
   ];
 
   @override
@@ -110,7 +113,12 @@ class _PackageDetailsPageState extends State<PackageDetailsPage>
                                   //   SvgPicture.asset("assets/svg/minus.svg"),
                                   CircleAvatar(
                                     radius: 14,
-                                    child: Text(hList[index].status.toString(),style: TextStyle(color: Colors.white),),
+                                    child: Text(
+                                      hList[index].status.toString(),
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'San Francisco'),
+                                    ),
                                     backgroundColor: Colors.grey[500],
                                   ),
                                   MySizedBox.w16,
@@ -167,7 +175,8 @@ class StatusModel {
   String? statusSubTitle;
   Color? color;
   String? icon;
+  bool? checked;
 
-  StatusModel(
-      this.status, this.statusName, this.statusSubTitle, this.color, this.icon);
+  StatusModel(this.status, this.statusName, this.statusSubTitle, this.color,
+      this.icon, this.checked);
 }

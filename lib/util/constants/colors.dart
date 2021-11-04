@@ -48,6 +48,9 @@ class MyColors {
   static const Color grid4 = Color(0xFFEFFDFC);
   static const Color grid5 = Color(0xFFEBFBE4);
   static const Color grid6 = Color(0xFFF8EBFD);
-
+  ///status colors
+  static const Color statusCheck = Color(0xFFEEF6EB);
+  static const Color statusWay = Color(0xFFFEF6E6);
+  static const Color statusError = Color.fromRGBO(211, 41, 45, 0.1);
 
 }

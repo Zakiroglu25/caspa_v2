@@ -25,7 +25,7 @@ class InkWrapper extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               splashColor: splashColor,
-              highlightColor: highlightColor,
+              highlightColor: highlightColor??Colors.white.withOpacity(.3),
               onTap: onTap,
               borderRadius: BorderRadius.circular(radius ?? 0),
             ),

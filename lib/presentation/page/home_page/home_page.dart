@@ -1,5 +1,7 @@
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/widget/caspa_appbar/simple_appbar.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/home_header.dart';
@@ -16,49 +18,48 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.bckColor,
-      appBar: AppBar(
-        backgroundColor: MyColors.bckColor,
-        elevation: 0,
-        leading: Icon(Icons.person),
-        title: Text("User Name"),
-        centerTitle: false,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 19.0),
-            child: Icon(Icons.add_alert),
-          )
-        ],
+      appBar: CaspaAppbar(
+        title: 'User Name',
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16.0),
+      body: SafeArea(
         child: ListView(
+          padding: Paddings.paddingV20,
           children: [
             HomeHeader(),
             MySizedBox.h24,
-            SectionName(title: "Yeniliklər və xəbərləri izləyin"),
+            SectionName(
+              title: "Yeniliklər və xəbərləri izləyin",
+              hP: 20,
+            ),
             MySizedBox.h16,
-            NewsListWidget(hList: [],),
+            NewsListWidget(
+              hList: [],
+            ),
             MySizedBox.h24,
-            SectionName(title: "Teriflərlə tanış olun",),
+            SectionName(
+              title: "Teriflərlə tanış olun",
+              hP: 20,
+            ),
             MySizedBox.h16,
-            TarifListWidget(hList: [],),
+            TarifListWidget(
+              hList: [],
+            ),
             MySizedBox.h24,
-            SectionName(title: "Mənim bağlamalarim",),
+            SectionName(
+              title: "Mənim bağlamalarim",
+              hP: 20,
+            ),
             MySizedBox.h24,
-            HomaPackageList(hList: [],),
-
+            HomaPackageList(
+              hList: [],
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-

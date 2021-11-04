@@ -10,10 +10,13 @@ class SectionName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title!,
-      style: TextStyle(
-          color: MyColors.textBlack, fontSize: 16, fontWeight: FontWeight.w600),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: hP??0,vertical: vP??0),
+      child: Text(
+        title!,
+        style: TextStyle(
+            color: MyColors.textBlack, fontSize: 16, fontWeight: FontWeight.w600),
+      ),
     );
   }
 }

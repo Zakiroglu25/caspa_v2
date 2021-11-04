@@ -1,5 +1,8 @@
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/widget/elements/tariff_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -22,34 +25,17 @@ class TarifListWidget extends StatelessWidget {
     return Container(
       height: 132,
       width: 284,
-      child: ListView.builder(
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return MySizedBox.w10;
+        },
         itemCount: hList.length,
-        physics: AlwaysScrollableScrollPhysics(
-          parent: BouncingScrollPhysics(),
-        ),
         scrollDirection: Axis.horizontal,
+        padding: Paddings.paddingH20,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Container(
-              width: 284,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: MyColors.mainGrey
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    SvgPicture.asset(Assets.tarifBox),
-                    Text(hList[index].tarifName.toString(),style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600),),
-                    Text(hList[index].price.toString()+"USD",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.green))
-                  ],
-                ),
-              ),
-            ),
+          return TariffCard(
+            tarifName: hList[index].tarifName,
+            price: hList[index].price,
           );
         },
       ),

@@ -39,7 +39,7 @@ class _RegisterPageState extends State<RegisterPage>
     return Scaffold(
       appBar: CaspaAppbar(
         title: 'Qeydiyyat',
-        back: true,
+        //back: true,
         notification: false,
         centerTitle: true,
         contextA: null,

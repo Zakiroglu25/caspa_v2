@@ -1,4 +1,8 @@
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:caspa_v2/widget/elements/news_card.dart';
 import 'package:flutter/material.dart';
 
 class NewsListWidget extends StatelessWidget {
@@ -38,49 +42,39 @@ class NewsListWidget extends StatelessWidget {
       ),
     ];
 
-
     return Container(
         height: 94,
-        width: 94,
-        child: ListView.builder(
+        //width: 94,
+        child: ListView.separated(
+          padding: Paddings.paddingH20,
+          separatorBuilder: (context, index) {
+            return MySizedBox.w12;
+          },
           itemCount: hList.length,
           physics: AlwaysScrollableScrollPhysics(
             parent: BouncingScrollPhysics(),
           ),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: Stack(
-                children: [
-                  Image.asset(Assets.news1),
-                  Positioned(
-                    bottom: 10,
-                    left: 10,
-                    right: 10,
-                    child: Text(
-                      "${hList[index].newsText}",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 11,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  )
-                ],
-              ),
+            return NewsCard(
+              url:
+                  'https://image.freepik.com/free-photo/arrangement-black-friday-clock-with-copy-space_23-2148665530.jpg',
+              newsText:
+                  'titile new new news campaigncampaign campaign campaign',
+              image:
+                  'https://image.freepik.com/free-photo/arrangement-black-friday-clock-with-copy-space_23-2148665530.jpg',
             );
           },
         ));
   }
 }
 
-
 class NewsModel {
   Image image;
   String? newsText;
 
   NewsModel(
-      this.image,
-      this.newsText,
-      );
+    this.image,
+    this.newsText,
+  );
 }

@@ -1,5 +1,6 @@
 // Flutter imports:
 
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
@@ -14,15 +15,17 @@ import 'widgets/notification_widget.dart';
 
 class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  final bool? back;
+  //final bool? back;
   final bool? notification;
   final bool? exitButton;
+  final bool? user;
   final BuildContext? contextA;
   final bool? centerTitle;
 
   CaspaAppbar(
       {@required this.title,
-      @required this.back,
+
+      @required this.user,
       this.notification,
       this.exitButton,
       @required this.contextA,
@@ -44,27 +47,26 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                (back ?? false)
-                    ? Material(
-                        color: Colors.white,
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios_rounded,
-                              color: MyColors.mainOrange,
-                            )),
-                      )
-                    : WidgetOrEmpty(
-                        value: notification,
-                        child: Container(
-                          width: 43,
+            (user ?? true)
+                ? Material(
+                    color: Colors.white,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: SvgPicture.asset(Assets.svgUser)),
+                  )
+                : Material(
+                    color: Colors.white,
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_rounded,
+                          color: MyColors.mainOrange,
                         )),
-              ],
-            ),
+                  ),
             Center(
               child: Text(
                 title!,

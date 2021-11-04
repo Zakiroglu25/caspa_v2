@@ -1,10 +1,13 @@
 import 'package:caspa_v2/presentation/page/package_page/widget/grid_list_model.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:caspa_v2/widget/elements/package_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:caspa_v2/util/constants/assets.dart';
-
 
 class HomaPackageList extends StatelessWidget {
   const HomaPackageList({
@@ -45,66 +48,23 @@ class HomaPackageList extends StatelessWidget {
     return Container(
       height: 170,
       width: 284,
-      child: ListView.builder(
+      child: ListView.separated(
+        padding: Paddings.paddingH20,
+        separatorBuilder: (context, index) {
+          return MySizedBox.w12;
+        },
         itemCount: hList.length,
         physics: AlwaysScrollableScrollPhysics(
           parent: BouncingScrollPhysics(),
         ),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              // Navigator.of(context).pushNamed(RouteName.GridViewCustom);
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 10.0),
-              child: Container(
-                width: 284,
-                decoration: BoxDecoration(
-                    color: hList[index].color,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20.0, 20, 20, 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      SvgPicture.asset("assets/svg/shop.svg"),
-                      Text(hList[index].shopName!,style: TextStyle(fontWeight: FontWeight.w600),),
-                      Row(
-                        children: [
-                          const Text(
-                            "Qiymət:",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                color: MyColors.textFieldLittleText),
-                          ),
-                          Text(hList[index].price!)
-                        ],
-                      ),
-                      Wrap(
-                        children: [
-                          const Text("İzləmə kodu:",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  color: MyColors.textFieldLittleText)),
-                          Text("${hList[index].trackingCode!}")
-                        ],
-                      ),
-                      Wrap(
-                        children: [
-                          Text("Status:",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  color: MyColors.textFieldLittleText)),
-                          Text(hList[index].status!,maxLines: 3,),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
+          return PackageCard(
+            color: hList[index].color,
+            shopName: hList[index].shopName,
+            price: hList[index].price,
+            trackingCode: hList[index].trackingCode,
+            status: hList[index].status,
           );
         },
       ),
@@ -117,7 +77,7 @@ class TarifModel {
   double? price;
 
   TarifModel(
-      this.tarifName,
-      this.price,
-      );
+    this.tarifName,
+    this.price,
+  );
 }

@@ -42,6 +42,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     return DefaultTabController(
         length: 3,
         child: NestedScrollView(
+          physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
@@ -50,12 +51,12 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   expandedHeight: widget.appbarHeight?? 300.0,
                   automaticallyImplyLeading: false,
                   pinned: true,
-                  stretch: true,
+                  stretch: false,
                   floating: true,
                   stretchTriggerOffset: widget.appbarHeight??300,
                   leadingWidth: 0,
                   elevation: 0,
-                  backwardsCompatibility: true,
+                  backwardsCompatibility: false,
                   backgroundColor: Colors.white,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Stack(
@@ -139,3 +140,12 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     return false;
   }
 }
+
+class NoScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(
+      BuildContext context, Widget child, ScrollableDetails details) {
+    return child;
+  }
+}
+

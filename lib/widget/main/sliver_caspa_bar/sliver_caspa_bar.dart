@@ -14,8 +14,8 @@ class SliverCaspaBar extends StatefulWidget {
 
   String? title;
   Widget? sliverChild;
-
-  SliverCaspaBar({this.tabs, this.tabPages, this.title, this.sliverChild});
+ double? appbarHeight;
+  SliverCaspaBar({this.tabs, this.tabPages, this.title, this.sliverChild,this.appbarHeight});
 
   @override
   State<SliverCaspaBar> createState() => _SliverCaspaBarState();
@@ -47,12 +47,12 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
               return <Widget>[
                 SliverAppBar(
                   leading: Container(),
-                  expandedHeight: 300.0,
+                  expandedHeight: widget.appbarHeight?? 300.0,
                   automaticallyImplyLeading: false,
                   pinned: true,
                   stretch: true,
                   floating: true,
-                  stretchTriggerOffset: 300,
+                  stretchTriggerOffset: widget.appbarHeight??300,
                   leadingWidth: 0,
                   elevation: 0,
                   backwardsCompatibility: true,
@@ -87,7 +87,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   delegate: _SliverAppBarDelegate(
                     TabBar(
                       padding: EdgeInsets.only(
-                          left: 20, right: 20, top: 0, bottom: 10),
+                          left: 20, right: 20, top: 5, bottom: 10),
                       controller: _tabController,
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(

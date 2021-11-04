@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -10,28 +11,8 @@ class AdressSliverAppbarBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Image.asset(Assets.pngGlobus),
-        Container(
-          // color: Colors.orange,
-          margin: EdgeInsets.only(left: 10),
-          width: MediaQuery.of(context).size.width - 40,
-          child: RichText(
-            text: TextSpan(
-              text:
-              "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt:",
-              children: [
-                TextSpan(
-                    text: ' *1453',
-                    style: AppTextStyles.coHead400
-                        .copyWith(
-                        color:
-                        MyColors.mainColor))
-              ],
-              style: AppTextStyles.coHead400.copyWith(
-                  fontSize: 16,
-                  color: MyColors.grey165),
-            ),
-          ),
-        )
+        SliverInfo(
+            "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt:")
       ],
     );
   }

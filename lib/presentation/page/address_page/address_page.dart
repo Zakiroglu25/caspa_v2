@@ -31,6 +31,7 @@ class AdressPage extends StatelessWidget {
     return new Scaffold(
         body: SafeArea(
           child: SliverCaspaBar(
+            appbarHeight: 265,
             tabs:tabs,
             tabPages: tabPages,
             title: '''Ünvanlar''',

@@ -1,7 +1,9 @@
+import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PageViewThree extends StatelessWidget {
   const PageViewThree({Key? key}) : super(key: key);
@@ -53,7 +55,9 @@ class PageViewThree extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12))),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => LoginPage()));
+                  builder: (context) => BlocProvider(
+               create: (context)=>LoginCubit()
+               ,child: LoginPage())));
             },
             child: const Text(
               "Başla",

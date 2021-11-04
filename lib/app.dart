@@ -33,11 +33,11 @@ class App extends StatelessWidget {
           },
           home:
               //MediaPage()
-              // SplashPage(),
+               SplashPage(),
               // RegisterPage(),
               // LoginPage(),
              // AdressPage()
-          LandingPage()
+          //LandingPage()
            // HomePage()
           //  BlocProvider(
           //

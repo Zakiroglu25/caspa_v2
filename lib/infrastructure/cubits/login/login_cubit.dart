@@ -5,8 +5,10 @@ import 'dart:io';
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/general/MyMessage.dart';
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:dio/dio.dart';
@@ -66,7 +68,7 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  void login({bool? loading}) async {
+  void login(BuildContext context,{bool? loading}) async {
     try {
       if (isPassIncorrect) {
         updatePass('');
@@ -87,6 +89,7 @@ class LoginCubit extends Cubit<LoginState> {
 
         if (isSuccess(response.statusCode)) {
           emit(LoginSuccess(response.body));
+          NavigateUtils.pushReplacement(context, LandingPage());
           // result=response.data;
         } else {
           emit(LoginError());

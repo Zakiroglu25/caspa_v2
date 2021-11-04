@@ -1,9 +1,11 @@
+import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/widgets/pass_field.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'email_field.dart';
 
@@ -21,7 +23,12 @@ class LoginFields extends StatelessWidget {
         MySizedBox.h16,
         CaspaTextButton(
           text: "forgot_pass",
-          onTap: () => NavigateUtils.pushNewRoot(context, ForgetPasswordPage()),
+          onTap: () => NavigateUtils.pushNewRoot(
+              context,
+              BlocProvider(
+                create: (context) => ForgotPassCubit(),
+                child: ForgetPasswordPage(),
+              )),
         ),
       ],
     );

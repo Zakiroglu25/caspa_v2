@@ -23,7 +23,7 @@ class TariffCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SvgPicture.asset(Assets.tarifBox),
+            SvgPicture.asset(Assets.svgTarifBox),
             Text(
               tarifName!,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),

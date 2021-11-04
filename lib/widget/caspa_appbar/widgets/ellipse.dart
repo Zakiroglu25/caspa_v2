@@ -8,7 +8,7 @@ class Ellipse extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       top: 3,
-      right: 0,
+      right: -1,
       child: Padding(
         padding: const EdgeInsets.all(1.0),
         child: Container(

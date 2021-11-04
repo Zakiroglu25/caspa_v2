@@ -20,7 +20,12 @@ class Assets {
   static const String svgMinus2= "assets/svg/minus-2.svg";
   static const String svgCheck= "assets/svg/check.svg";
   static const String svgCopy= "assets/svg/copy.svg";
-  static const String tarifBox= "assets/svg/boxsvg.svg";
+  static const String svgTarifBox= "assets/svg/boxsvg.svg";
+  static const String svgHome= "assets/svg/home.svg";
+  static const String svgBottomBox= 'assets/svg/box.svg';
+  static const String svgPlusCircle='assets/svg/pluscircle.svg';
+  static const String svgLocation='assets/svg/location.svg';
+  static const String svgOther="assets/svg/other.svg";
 
 //--anim
 

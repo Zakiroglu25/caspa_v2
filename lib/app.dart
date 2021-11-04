@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,26 +20,23 @@ class App extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: () => MaterialApp(
+          color: Colors.orange,
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
-            // textTheme: GoogleFonts.sairaTextTheme(
-            // //  Theme.of(context).textTheme,
-            // ),
-            fontFamily: 'CoHeadline',
-            primarySwatch: Colors.orange,
-          ),
-        builder: (context, widget) {
-          return ScrollConfiguration(
-              behavior: ScrollBehaviorModified(), child: widget!);
-        },
+              fontFamily: 'CoHeadline',
+              scaffoldBackgroundColor: MyColors.white),
+          builder: (context, widget) {
+            return ScrollConfiguration(
+                behavior: ScrollBehaviorModified(), child: widget!);
+          },
           home:
               //MediaPage()
-             // SplashPage(),
-       // RegisterPage(),
-        // LoginPage(),
-        LandingPage()
-        //    HomePage()
+              // SplashPage(),
+              // RegisterPage(),
+              // LoginPage(),
+              LandingPage()
+          //    HomePage()
           //  BlocProvider(
           //
           //
@@ -48,7 +46,7 @@ class App extends StatelessWidget {
           // BlocProvider(
           // create: (context)=>LoginCubit()
           // ,child: LoginPage())
-        //SplashPage()
+          //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()
           ),

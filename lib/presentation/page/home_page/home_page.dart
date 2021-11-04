@@ -10,18 +10,10 @@ import 'widgets/package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tarif_list_widget.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
+class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.bckColor,
+
       appBar: CaspaAppbar(
         title: 'User Name',
       ),

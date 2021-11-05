@@ -32,7 +32,10 @@ class MyColors {
   static const Color grey165 =  Color.fromRGBO(168, 172, 185, 1);
 
   ///caspa new version Colors
-  static const Color mainColor = Color(0xFF6F6FBF);
+  static const Color mainColor = Color.fromRGBO(111, 111, 191, 1);
+  static const Color mainColor01 = Color.fromRGBO(111, 111, 191, 0.1);
+  static const Color mainColor02 = Color.fromRGBO(111, 111, 191, 0.2);
+  static const Color mainColor03 = Color.fromRGBO(111, 111, 191, 0.3);
   static const Color mainGrey = Color(0xFFF5F5F5);
   static const Color textFieldLittleText = Color(0xFF999999);
   static const Color textBlack = Color(0xFF222222);
@@ -48,6 +51,9 @@ class MyColors {
   static const Color grid4 = Color(0xFFEFFDFC);
   static const Color grid5 = Color(0xFFEBFBE4);
   static const Color grid6 = Color(0xFFF8EBFD);
-
+  ///status colors
+  static const Color statusCheck = Color(0xFFEEF6EB);
+  static const Color statusWay = Color(0xFFFEF6E6);
+  static const Color statusError = Color.fromRGBO(211, 41, 45, 0.1);
 
 }

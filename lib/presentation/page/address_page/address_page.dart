@@ -1,118 +1,42 @@
-import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/widget/caspa_appbar/simple_appbar.dart';
+import 'package:caspa_v2/presentation/page/address_page/widget/adress_sliver_body.dart';
+import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import 'widget/copiable_field.dart';
+import 'widget/turkey_anbar.dart';
 
-class SilverAppBarExample extends StatelessWidget {
+class AdressPage extends StatelessWidget {
+  final List<Widget> tabPages = <Widget>[
+    TurkeyAnbar(),
+    Text('second'),
+    Text('third')
+  ];
+
+
+  final List<Widget> tabs = const [
+    Tab(
+      text: 'Türkiyə',
+      height: 60,
+    ),
+    Tab(
+      text: 'Amerika',
+    ),
+    Tab(
+      text: 'Çin',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CaspaAppbar(),
-        body: CustomScrollView(
-          slivers:[
-            SliverAppBar(
-              expandedHeight: 220.0,
-              floating: true,
-              pinned: false,
-              snap: true,
-              elevation: 0,
-              backgroundColor: Colors.white,
-              flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  background: Padding(
-                    padding: const EdgeInsets.only(left:16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Ünvanlar",style: TextStyle(fontSize: 25),),
-                        Image.asset("assets/png/globuspng.png"),
-                        Padding(
-                          padding: const EdgeInsets.only(right:32.0),
-                          child: Text("Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453"),
-                        ),
-                      ],
-                    ),
-                  )
-              ),
-            ),
-             SliverList(
-                delegate:  SliverChildListDelegate(
-                    buildList(1))
-            ),
-          ],
-        ),
-
-    );
-  }
-  //test
-
-   buildList(int count) {
-    List<Widget>? listItems = [];
-
-    for (int i = 0; i < count; i++) {
-      listItems.add( Padding(padding:  const EdgeInsets.all(20.0),
-          child:  Column(
-            children: [
-              CopiableField(
-                title: "İsim",
-                data: "Bahtiyar",
-              ),
-              CopiableField(
-                title: "Soy isim",
-                data: "Bahtiyarli",
-              ),
-              CopiableField(
-                title: "İlçe",
-                data: "Ataşehir",
-              ),
-              CopiableField(
-                title: "Adres satır 1",
-                maxLines: 2,
-                data: "İnönü Cad.no:9/3, Yeni Sahra BN:f7fe27 34746  C111141",
-              ),
-              CopiableField(
-                title: "İl:",
-                data: "İstanbul ",
-              ),
-              CopiableField(
-                maxLines: 1,
-                title: "Mahalle",
-                data:
-                "Yenisahra",
-              ),
-              CopiableField(
-                maxLines: 1,
-                title: "Telefon:",
-                data:
-                "05437750818",
-              ),
-              CopiableField(
-                maxLines: 1,
-                title: "Tc kimlik:",
-                data:
-                "31583104656",
-              ),
-              CopiableField(
-                maxLines: 1,
-                title: "Posta Kodu:",
-                data:
-                "34746",
-              ),
-              CopiableField(
-                maxLines: 1,
-                title: "Adres Başlığı:",
-                data:
-                "CASPA",
-              ),
-              MySizedBox.h100
-            ],
+    return new Scaffold(
+        body: SafeArea(
+          child: SliverCaspaBar(
+            appbarHeight: 265,
+            tabs:tabs,
+            tabPages: tabPages,
+            title: '''Ünvanlar''',
+            sliverChild: AdressSliverAppbarBody(),
           ),
-      ));
-    }
-
-    return listItems;
+        ));
   }
 }

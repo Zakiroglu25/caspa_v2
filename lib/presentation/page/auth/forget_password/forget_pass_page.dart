@@ -47,10 +47,10 @@ class ForgetPasswordPage extends StatelessWidget {
                       return FadeInRight(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
-                      return FadeInRightBig(key: Key("b"), child: EnterCodeBody());
+                      return FadeInRight(key: Key("b"), child: EnterCodeBody());
                     }
                     if (state is ForgotPassNewPass) {
-                      return FadeInRightBig(
+                      return FadeInRight(
                           key: Key("c"), child: EnterPasswordBody());
                     } else {
                       return Container(

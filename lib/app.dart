@@ -33,14 +33,14 @@ class App extends StatelessWidget {
               // LandingPage()
               // Example08()
               // HomePage()
-               BlocProvider(
-
-
-              create: (context) => ForgotPassCubit(),
-               child: ForgetPasswordPage())
+              //  BlocProvider(
+              //
+              //
+              // create: (context) => ForgotPassCubit(),
+              //  child: ForgetPasswordPage())
 //          SilverAppBarExample(),
-//               BlocProvider(
-//                   create: (context) => LoginCubit(), child: LoginPage())
+              BlocProvider(
+                  create: (context) => LoginCubit(), child: LoginPage())
           //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()

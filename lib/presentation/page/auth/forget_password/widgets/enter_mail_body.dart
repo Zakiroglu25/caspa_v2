@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
@@ -17,29 +18,30 @@ class EnterMailBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     // height: double.maxFinite,
-     // color: Colors.blue,
-     // padding: Paddings.paddingH20,
       child: Stack(
         children: [
           Column(
             children: [
+              MySizedBox.h30,
+              Text(
+                MyText.are_you_forgot_pass,
+                style: AppTextStyles.coHead400.copyWith(fontSize: 25),
+              ),
+              MySizedBox.h16,
+              Text(
+                MyText.we_will_send_new_pass,
+                textAlign: TextAlign.center,
+                style: AppTextStyles.sanF400
+                    .copyWith(fontSize: 14, color: MyColors.grey165),
+              ),
               MySizedBox.h16,
               EmailFieldForgot(emailController),
               Container(
                 child: Text(
-                  "mail",
+                  MyText.email,
                   style: AppTextStyles.coHead600,
                 ),
               ),
-              CaspaButton(
-                text: "back",
-                onTap: () {
-                  context
-                      .read<ForgotPassCubit>()
-                      .changeState(back: true, context: context);
-                },
-              )
             ],
           ),
         ],

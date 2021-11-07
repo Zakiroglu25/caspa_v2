@@ -5,6 +5,7 @@ import 'dart:io';
 // Package imports:
 
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
@@ -19,11 +20,12 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   ForgotPassCubit() : super(ForgotPassEnterMail());
 
   PreferencesService get _prefs => locator<PreferencesService>();
-  String buttonText='send';
+  String buttonText=MyText.send;
 
+
+  ///////uEmail
   bool emailValid = false;
   final BehaviorSubject<String> uEmail = BehaviorSubject<String>();
-
   Stream<String> get emailStream => uEmail.stream;
 
   updateEmail(String value) {
@@ -41,9 +43,30 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
       uEmail.value.isEmpty ||
       !emailValid);
 
+
+  ///////uCode
+  final BehaviorSubject<String> uCode = BehaviorSubject<String>();
+  Stream<String> get codeStream => uCode.stream;
+
+  updateCode(String value) {
+    if (value == null || value.isEmpty) {
+      uCode.value = '';
+      uCode.sink.addError("fill_correctly");
+    } else {
+      uCode.sink.add(value);
+    }
+  }
+
+  bool get isCodeIncorrect =>
+      (!uCode.hasValue || uCode.value == null || uCode.value.isEmpty);
+
+
+
+
   @override
   Future<void> close() {
     uEmail.close();
+    uCode.close();
     return super.close();
   }
 
@@ -105,15 +128,15 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
     bool res = false;
     switch (currentIndex) {
       case 0:
-        buttonText='send';
+        buttonText=MyText.send;
         Snack.display(context: context, message: "kod gonderildi");
         break;
       case 1:
-        buttonText='send';
+        buttonText=MyText.send;
         Snack.display(context: context, message: "kod duzgun daxil edildi");
         break;
       case 2:
-        buttonText='OK';
+        buttonText=MyText.ok;
         Snack.display(context: context, message: "dirim dirim dirim");
         break;
       case 3:

@@ -97,7 +97,7 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12))),
               onPressed: () {
-                Go.pushReplacement(context, LandingPage());
+                Go.replace(context, LandingPage());
               },
               child: const Text(
                 "Qeydiyyat",

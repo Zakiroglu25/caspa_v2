@@ -1,19 +1,13 @@
+import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
-
-//class EnterCodeBody extends StatelessWidget {
-
-
-
-import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/src/provider.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'fields/code_field_forgot.dart';
 
 class EnterCodeBody extends StatelessWidget {
-  const EnterCodeBody({Key? key}) : super(key: key);
+  TextEditingController codeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,26 +15,20 @@ class EnterCodeBody extends StatelessWidget {
       padding: Paddings.paddingH20,
       child: Column(
         children: [
-          Container(
-            child: Text(
-              "code",
-              style: AppTextStyles.coHead600,
-            ),
+          MySizedBox.h30,
+          Text(
+            MyText.there_is_code_on_mail,
+            style: AppTextStyles.coHead400.copyWith(fontSize: 25),
           ),
-          CaspaButton(
-            text: "enter mail code",
-            onTap: () {
-              context.read<ForgotPassCubit>().changeState(context: context);
-            },
+          MySizedBox.h16,
+          Text(
+            MyText.please_enter_code,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.sanF400
+                .copyWith(fontSize: 14, color: MyColors.grey165),
           ),
-          CaspaButton(
-            text: "back",
-            onTap: () {
-              context
-                  .read<ForgotPassCubit>()
-                  .changeState(back: true,context: context);
-            },
-          )
+          MySizedBox.h16,
+          CodeFieldForgot(codeController),
         ],
       ),
     );

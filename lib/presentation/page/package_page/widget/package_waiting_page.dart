@@ -7,84 +7,86 @@ import 'package:flutter/material.dart';
 
 import 'grid_list_model.dart';
 
+List<GridListItems> packaeBoxes = [
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'H&M',
+      price: "25TL",
+      trackingCode: 12,
+      status: "Xarici anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Massimo Dutti',
+      price: "25TL",
+      trackingCode: 1234,
+      status: "Yerli anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Pull and Bear',
+      price: "25TL",
+      trackingCode: 12345,
+      status: "Yolda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Zara',
+      price: "25TL",
+      trackingCode: 123456,
+      status: "Gomrukdedir"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Mavi',
+      price: "25TL",
+      trackingCode: 1234567,
+      status: "Xarici anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Trendyol Shop',
+      price: "25TL",
+      trackingCode: 12345678,
+      status: "Yolda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'H&M',
+      price: "25TL",
+      trackingCode: 123456789,
+      status: "Xarici anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Massimo Dutti',
+      price: "25TL",
+      trackingCode: 12345678910,
+      status: "Yerli anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Pull and Bear',
+      price: "25TL",
+      trackingCode: 234,
+      status: "Yolda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Zara',
+      price: "25TL",
+      trackingCode: 23283052058025804,
+      status: "Gomrukdedir"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Mavi',
+      price: "25TL",
+      trackingCode: 234,
+      status: "Xarici anbarda"),
+  GridListItems(
+      color: Rndm.color,
+      shopName: 'Trendyol Shop',
+      price: "25TL",
+      trackingCode: 234,
+      status: "Yolda"),
+];
+
 class WaitingPackagePage extends StatelessWidget {
    WaitingPackagePage({Key? key}) : super(key: key);
 
 
-  List<GridListItems> items = [
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'H&M',
-        price: "25TL",
-        trackingCode: 12,
-        status: "Xarici anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Massimo Dutti',
-        price: "25TL",
-        trackingCode: 1234,
-        status: "Yerli anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Pull and Bear',
-        price: "25TL",
-        trackingCode: 12345,
-        status: "Yolda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Zara',
-        price: "25TL",
-        trackingCode: 123456,
-        status: "Gomrukdedir"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Mavi',
-        price: "25TL",
-        trackingCode: 1234567,
-        status: "Xarici anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Trendyol Shop',
-        price: "25TL",
-        trackingCode: 12345678,
-        status: "Yolda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'H&M',
-        price: "25TL",
-        trackingCode: 123456789,
-        status: "Xarici anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Massimo Dutti',
-        price: "25TL",
-        trackingCode: 12345678910,
-        status: "Yerli anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Pull and Bear',
-        price: "25TL",
-        trackingCode: 234,
-        status: "Yolda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Zara',
-        price: "25TL",
-        trackingCode: 23283052058025804,
-        status: "Gomrukdedir"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Mavi',
-        price: "25TL",
-        trackingCode: 234,
-        status: "Xarici anbarda"),
-    GridListItems(
-        color: Rndm.color,
-        shopName: 'Trendyol Shop',
-        price: "25TL",
-        trackingCode: 234,
-        status: "Yolda"),
-  ];
+
 
 
   @override
@@ -99,7 +101,7 @@ class WaitingPackagePage extends StatelessWidget {
       child: GridView.builder(
         padding: Paddings.paddingA20,
         physics: Physics.never,
-        itemCount: items.length,
+        itemCount: packaeBoxes.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: MediaQuery.of(context).orientation ==
               Orientation.landscape
@@ -113,7 +115,7 @@ class WaitingPackagePage extends StatelessWidget {
             context,
             index,
             ) {
-          return PackageBox(items[index],sW);
+          return PackageBox(packaeBoxes[index],w: sW,);
         },
       ),
     );

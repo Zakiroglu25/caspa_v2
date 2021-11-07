@@ -5,28 +5,34 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PackageBox extends StatelessWidget {
   GridListItems item;
-  double sW;
+  double? w;
 
-  PackageBox(this.item, this.sW);
+  PackageBox(this.item, {this.w});
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWrapper(
+      highlightColor: MyColors.white.withOpacity(.4),
+      radius: 12,
+      splashColor: Colors.transparent,
       onTap: () {
-        Go.to(context, PackageDetailsPage(name: item.shopName,));
+        //  Go.to(context, PackageDetailsPage(name: item.shopName,));
       },
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
             .copyWith(fontSize: 14.sp, color: MyColors.black),
-        child: BounceInUp(
+        child: FadeInUp(
           child: Container(
+            width: w,
+
             decoration: BoxDecoration(
                 color: item.color, borderRadius: BorderRadius.circular(12)),
             child: Padding(

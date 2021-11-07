@@ -43,8 +43,9 @@ class App extends StatelessWidget {
                //SplashPage(),
               // RegisterPage(),
               // LoginPage(),
-             PackageDetailsPage(name: "Kitabacanan",)
-         // Example08()
+          //   PackageDetailsPage(name: "Kitabacanan",)
+        LandingPage()
+        // Example08()
            // HomePage()
           //  BlocProvider(
           //

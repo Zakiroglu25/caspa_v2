@@ -19,6 +19,7 @@ class HomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: ListView(
+          shrinkWrap: true,
           padding: Paddings.paddingV20,
           children: [
             HomeHeader(),
@@ -47,7 +48,6 @@ class HomePage extends StatelessWidget {
             ),
             MySizedBox.h24,
             HomaPackageList(
-              hList: [],
             ),
           ],
         ),

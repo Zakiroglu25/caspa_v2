@@ -83,43 +83,38 @@ List<GridListItems> packageBoxes = [
 ];
 
 class WaitingPackagePage extends StatelessWidget {
-   WaitingPackagePage({Key? key}) : super(key: key);
-
-
-
-
+  WaitingPackagePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    final sW=size.width;
-
+    final sW = size.width;
 
     return ScrollConfiguration(
-        behavior: NoScrollBehavior(),
+      behavior: NoScrollBehavior(),
       child: GridView.builder(
         padding: Paddings.paddingA20,
         physics: Physics.never,
         itemCount: packageBoxes.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: MediaQuery.of(context).orientation ==
-              Orientation.landscape
-              ? 3
-              : 2,
+          crossAxisCount:
+              MediaQuery.of(context).orientation == Orientation.landscape
+                  ? 3
+                  : 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           childAspectRatio: (1 / 1),
         ),
         itemBuilder: (
-            context,
-            index,
-            ) {
-          return PackageBox(packageBoxes[index],w: sW,);
+          context,
+          index,
+        ) {
+          return PackageBox(
+            packageBoxes[index],
+            w: sW,
+          );
         },
       ),
     );
   }
-
-
-
 }

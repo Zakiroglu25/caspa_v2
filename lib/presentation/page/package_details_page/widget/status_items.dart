@@ -52,10 +52,6 @@ class StatusTab extends StatelessWidget {
               child: Row(
                 children: [
                   MySizedBox.w20,
-                  // if (hList[index].status == 1)
-                  //   SvgPicture.asset("assets/svg/check.svg"),
-                  // if (hList[index].status == 2)
-                  //   SvgPicture.asset("assets/svg/minus.svg"),
                   if (hList[index].statusChanged == 0)
                     CircleAvatar(
                       radius: 14,

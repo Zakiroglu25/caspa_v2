@@ -17,6 +17,7 @@ import 'presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'presentation/page/auth/login_page/login_page.dart';
 import 'presentation/page/home_page/home_page.dart';
 import 'presentation/page/landing_page/landing_page.dart';
+import 'presentation/page/package_details_page/in_product_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 

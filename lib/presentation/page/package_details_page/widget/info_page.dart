@@ -56,21 +56,24 @@ List<StaggeredModel> listProduct = [
       color: "Black",
       productNum: 09090910,
       count: 1,
-      allPrice: 350.00), StaggeredModel(
+      allPrice: 350.00),
+  StaggeredModel(
       name: "Chelsea Bot  Chelsea  Chelsea Chelsea Chelsea ChelseaBotChelsea BotChelsea BotChelsea Bot",
       price: 345,
       body: 41,
       color: "Black",
       productNum: 09090910,
       count: 1,
-      allPrice: 350.00), StaggeredModel(
+      allPrice: 350.00),
+  StaggeredModel(
       name: "Chelsea Bot  Chelsea BotChelsea BotChelsea BotChelsea Bot",
       price: 345,
       body: 41,
       color: "Black",
       productNum: 09090910,
       count: 1,
-      allPrice: 350.00), StaggeredModel(
+      allPrice: 350.00),
+  StaggeredModel(
       name: "Chelsea Bot   BotChelsea BotChelsea BotChelsea Bot",
       price: 345,
       body: 41,

@@ -1,14 +1,9 @@
-import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/random.dart';
 import 'package:caspa_v2/widget/main/package_box.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'dart:math' as math;
 
 import 'grid_list_model.dart';
 
@@ -102,7 +97,7 @@ class WaitingPackagePage extends StatelessWidget {
     return ScrollConfiguration(
         behavior: NoScrollBehavior(),
       child: GridView.builder(
-        padding: Paddings.paddingH20,
+        padding: Paddings.paddingA20,
         physics: Physics.never,
         itemCount: items.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

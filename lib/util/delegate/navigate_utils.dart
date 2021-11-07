@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Package imports:
 
 
-class NavigateUtils {
+class Go {
   // static pushPage(BuildContext context, Widget page) async {
   //   Navigator.push(
   //       context,
@@ -19,7 +19,7 @@ class NavigateUtils {
         context, MaterialPageRoute(builder: (context) => page));
   }
 
-  static pushNewRoot(BuildContext context, Widget page) async {
+  static to(BuildContext context, Widget page) async {
     Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
       builder: (context) => page,
     ));

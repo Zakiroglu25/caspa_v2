@@ -1,123 +1,72 @@
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class InfoHeader extends StatelessWidget {
-  const InfoHeader({Key? key}) : super(key: key);
+class ProductProperties extends StatelessWidget {
+
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0, top: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Container(
+      //color: Rndm.color,
+      child: Stack(
+        alignment: Alignment.center,
+        fit: StackFit.loose,
         children: [
-          const Text(
-            "Ümumi məlumat",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: MyColors.textBlack),
+          ...boxes,
+          Container(
+            padding: Paddings.paddingH16,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ProductPropertyV(name: "Mağazanın adı", value: "Massimo dutti"),
+                ProductPropertyV(name: "Qiymət", value: "764 TL"),
+                ProductPropertyV(name: "İzləmə kodu", value: "252442"),
+                ProductPropertyV(
+                  name: "Status",
+                  value: "Yoldadır",
+                  statusId: 1,
+                ),
+                ProductPropertyV(name: "Məhsulun sayı", value: "4"),
+              ],
+            ),
           ),
-          MySizedBox.h10,
-          const Text(
-            "Mağazanın adı",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: MyColors.grey153),
-          ),
-          const Text(
-            "Massimo dutti",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: MyColors.textBlack),
-          ),
-          MySizedBox.h20,
-          const Text(
-            "Qiymət",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: MyColors.grey153),
-          ),
-          const Text(
-            "764 TL",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: MyColors.textBlack),
-          ),
-          MySizedBox.h20,
-          const Text(
-            "İzləmə kodu",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: MyColors.grey153),
-          ),
-          const Text(
-            "252442",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: MyColors.textBlack),
-          ),
-          MySizedBox.h20,
-          const Text(
-            "Status",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: MyColors.grey153),
-          ),
-          Row(
-            children: const [
-              MySizedBox.w5,
-              Icon(
-                Icons.circle,
-                size: 12,
-                color: Color.fromRGBO(242, 187, 68, 1),
-              ),
-              MySizedBox.w12,
-              Text(
-                "Yoldadır",
-                style: TextStyle(
-                    fontFamily: "San Francisco",
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                    color: MyColors.textBlack),
-              ),
-            ],
-          ),
-          MySizedBox.h20,
-          const Text(
-            "Məhsulun sayı",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: MyColors.grey153),
-          ),
-          const Text(
-            "4",
-            style: TextStyle(
-                fontFamily: "San Francisco",
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
-                color: MyColors.textBlack),
-          )
         ],
       ),
     );
   }
+
+
+  List boxes = [ Positioned(
+      right: (-80),
+      child: Container(
+        width: 150,
+        height: 150,
+        child: Opacity(opacity: .3,
+          child: Image.asset(
+            Assets.pngBox,
+            fit: BoxFit.cover,
+            width: 150,
+            height: 150,
+          ),
+        ),
+      )),
+    Positioned(
+        left: (-80),
+        child: Container(
+          width: 150,
+          height: 150,
+          child: Opacity(
+            opacity: .3,
+            child: Image.asset(
+              Assets.pngBox,
+              fit: BoxFit.cover,
+              width: 150,
+              height: 150
+            ),
+          ),
+        )),
+  ];
 }

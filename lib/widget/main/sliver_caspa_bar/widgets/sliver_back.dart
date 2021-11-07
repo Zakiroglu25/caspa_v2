@@ -1,13 +1,25 @@
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/caspa_appbar/widgets/user_button.dart';
 import 'package:flutter/material.dart';
 
 class SliverBack extends StatelessWidget {
+
+  final bool? back ;
+
+
+  SliverBack({this.back});
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
       left: 0,
       top: 4,
-      child: UserButton(),
+      child: WidgetOrEmpty(
+        value: back,
+        child: BackButton(),
+        elseChild: UserButton(),
+
+      ),
     );
   }
 }

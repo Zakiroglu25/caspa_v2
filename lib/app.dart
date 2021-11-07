@@ -43,7 +43,7 @@ class App extends StatelessWidget {
                //SplashPage(),
               // RegisterPage(),
               // LoginPage(),
-             PackageDetailsPage()
+             PackageDetailsPage(name: "Kitabacanan",)
          // Example08()
            // HomePage()
           //  BlocProvider(

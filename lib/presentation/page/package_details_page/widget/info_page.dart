@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -11,20 +12,25 @@ import 'info_header.dart';
 
 
 
-class Info extends StatelessWidget {
-  Info({Key? key}) : super(key: key);
+class InfoTab extends StatelessWidget {
+  InfoTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return         Container(
      // color: MyColors.white ,
-      padding: Paddings.paddingH16,
+      //padding: Paddings.paddingH16,
       child: ListView(
         shrinkWrap: true,
         children: [
-          InfoHeader(),
+          SectionName(title: 'Ümumi məlumat',hP: 16,),
+          ProductProperties(),
+          MySizedBox.h16,
+          SectionName(title: 'Məhsullar',hP: 16,),
+          MySizedBox.h16,
           StaggeredGridView.countBuilder(
             primary: false,
+            padding:  Paddings.paddingH16,
             crossAxisCount: 4,
             shrinkWrap: true,
             itemCount: listProduct.length,

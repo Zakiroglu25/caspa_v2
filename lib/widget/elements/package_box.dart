@@ -19,7 +19,7 @@ class PackageBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Go.to(context, PackageDetailsPage());
+        Go.to(context, PackageDetailsPage(name: item.shopName,));
       },
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,

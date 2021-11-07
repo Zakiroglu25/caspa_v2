@@ -3,8 +3,8 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class StatusItems extends StatelessWidget {
-   StatusItems({Key? key}) : super(key: key);
+class StatusTab extends StatelessWidget {
+   StatusTab({Key? key}) : super(key: key);
 
   List<StatusModel> hList = [
     StatusModel(

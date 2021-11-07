@@ -1,3 +1,5 @@
+import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_main_text.dart';
+import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_second_text.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -16,17 +18,9 @@ class EnterCodeBody extends StatelessWidget {
       child: Column(
         children: [
           MySizedBox.h30,
-          Text(
-            MyText.there_is_code_on_mail,
-            style: AppTextStyles.coHead400.copyWith(fontSize: 25),
-          ),
+          ForgotMainText(MyText.there_is_code_on_mail),
           MySizedBox.h16,
-          Text(
-            MyText.please_enter_code,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.sanF400
-                .copyWith(fontSize: 14, color: MyColors.grey165),
-          ),
+          ForgotSecondText(MyText.please_enter_code),
           MySizedBox.h16,
           CodeFieldForgot(codeController),
         ],

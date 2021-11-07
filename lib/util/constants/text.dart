@@ -32,6 +32,8 @@ class MyText {
   static const String confirm_your_email = 'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.';
   static const String there_is_code_on_mail = 'Email-a kod gəlib';
   static const String please_enter_code = 'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
+  static const String set_new_pass = 'Yeni şifrə təyin edin';
+  static const String your_pass_reseted = 'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
   static const String code = 'Kod';
   static const String send = 'Göndər';
   static const String ok = 'OK';

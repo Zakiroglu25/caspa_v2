@@ -1,5 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/fields/email_field_forgot.dart';
+import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_main_text.dart';
+import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_second_text.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/widgets/email_field.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -23,25 +25,11 @@ class EnterMailBody extends StatelessWidget {
           Column(
             children: [
               MySizedBox.h30,
-              Text(
-                MyText.are_you_forgot_pass,
-                style: AppTextStyles.coHead400.copyWith(fontSize: 25),
-              ),
+              ForgotMainText(MyText.are_you_forgot_pass),
               MySizedBox.h16,
-              Text(
-                MyText.we_will_send_new_pass,
-                textAlign: TextAlign.center,
-                style: AppTextStyles.sanF400
-                    .copyWith(fontSize: 14, color: MyColors.grey165),
-              ),
+              ForgotSecondText(MyText.we_will_send_new_pass),
               MySizedBox.h16,
               EmailFieldForgot(emailController),
-              Container(
-                child: Text(
-                  MyText.email,
-                  style: AppTextStyles.coHead600,
-                ),
-              ),
             ],
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_state.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/stepper.dart';
@@ -43,13 +44,14 @@ class ForgetPasswordPage extends StatelessWidget {
                   BlocBuilder<ForgotPassCubit, ForgotPassState>(
                       builder: (context, state) {
                     if (state is ForgotPassEnterMail) {
-                      return EnterMailBody();
+                      return FadeInRight(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
-                      return EnterCodeBody();
+                      return FadeInRightBig(key: Key("b"), child: EnterCodeBody());
                     }
                     if (state is ForgotPassNewPass) {
-                      return EnterPasswordBody();
+                      return FadeInRightBig(
+                          key: Key("c"), child: EnterPasswordBody());
                     } else {
                       return Container(
                         padding: Paddings.paddingH20,

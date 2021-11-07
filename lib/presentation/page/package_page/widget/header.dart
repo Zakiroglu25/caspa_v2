@@ -24,7 +24,7 @@ class SliverPersistentHeaderWidget extends StatelessWidget {
             color: MyColors.mainGrey,
           ),
           labelColor: MyColors.textBlack,
-          unselectedLabelColor: MyColors.textFieldLittleText,
+          unselectedLabelColor: MyColors.grey153,
           tabs: const [
             Tab(
               text: 'Gözləmədə olan',

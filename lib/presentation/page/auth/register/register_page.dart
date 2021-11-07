@@ -57,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage>
                 color: MyColors.mainColor,
               ),
               labelColor: Colors.white,
-              unselectedLabelColor: MyColors.textFieldLittleText,
+              unselectedLabelColor: MyColors.grey153,
               tabs: const [
                 Tab(
                   text: 'Vətəndaş qeydiyyatı',

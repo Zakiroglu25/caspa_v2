@@ -5,18 +5,11 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'widget/in_product_image_list.dart';
 import 'widget/in_product_info_widget.dart';
 
 class InProductPage extends StatelessWidget {
   InProductPage({Key? key}) : super(key: key);
-
-  List<dynamic> assets = [
-    Assets.svgBottomBox,
-    Assets.svgShop,
-    Assets.svgUser,
-    Assets.svgBottomBox,
-    Assets.svgBottomBox,
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,71 +28,7 @@ class InProductPage extends StatelessWidget {
           children: [
             SectionName(title: "Foto"),
             MySizedBox.h16,
-            Wrap(
-              spacing: 8,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 6.0),
-                  child: Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: MyColors.mainGrey,
-                    ),
-                    child: Center(child: SvgPicture.asset(Assets.svgShop)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6.0),
-                  child: Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: MyColors.mainGrey,
-                    ),
-                    child: Center(child: SvgPicture.asset(Assets.svgShop)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6.0),
-                  child: Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: MyColors.mainGrey,
-                    ),
-                    child: Center(child: SvgPicture.asset(Assets.svgShop)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6.0),
-                  child: Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: MyColors.mainGrey,
-                    ),
-                    child: Center(child: SvgPicture.asset(Assets.svgShop)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 6.0),
-                  child: Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: MyColors.mainGrey,
-                    ),
-                    child: Center(child: SvgPicture.asset(Assets.svgShop)),
-                  ),
-                ),
-              ],
-            ),
+            InProductImageList(),
             MySizedBox.h48,
             SectionName(title: "Məlumat"),
             MySizedBox.h20,

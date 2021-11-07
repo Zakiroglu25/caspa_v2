@@ -21,6 +21,7 @@ class EmailFieldForgot extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
+          infoMessage: 'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.',
           controller: emailController,
           onChanged: (value) =>
               BlocProvider.of<ForgotPassCubit>(context).updateEmail(value),

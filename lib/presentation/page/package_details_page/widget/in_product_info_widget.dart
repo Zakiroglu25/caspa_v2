@@ -15,7 +15,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -32,7 +32,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -49,7 +49,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -66,7 +66,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -83,7 +83,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -100,7 +100,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(
@@ -117,7 +117,7 @@ class InProductInfoWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         Text(

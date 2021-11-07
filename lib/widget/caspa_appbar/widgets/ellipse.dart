@@ -6,8 +6,8 @@ class Ellipse extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 4,
-      right: -1,
+      top: 3,
+      right: -2,
       child: Padding(
         padding: const EdgeInsets.all(1.0),
         child: Container(
@@ -16,7 +16,7 @@ class Ellipse extends StatelessWidget {
           padding: const EdgeInsets.all(2.0),
           child: SvgPicture.asset(
             'assets/svg/ellipse.svg',
-            color: MyColors.mainOrange,
+            color: MyColors.mainColor,
           ),
         ),
       ),

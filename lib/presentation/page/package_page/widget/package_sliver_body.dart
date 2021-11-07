@@ -13,7 +13,6 @@ class PackageSliverBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-
           //height: 90,width: 90,
             child: Image.asset(Assets.pngBox)),
         SliverInfo(

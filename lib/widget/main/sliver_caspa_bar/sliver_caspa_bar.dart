@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/caspa_appbar/widgets/notification_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -16,12 +17,16 @@ class SliverCaspaBar extends StatefulWidget {
   String? title;
   Widget? sliverChild;
   double? appbarHeight;
+  bool? back;
+
 
   SliverCaspaBar(
       {this.tabs,
       this.tabPages,
       this.title,
+      this.back,
       this.sliverChild,
+
       this.appbarHeight});
 
   @override
@@ -32,15 +37,18 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: widget.tabs!.length);
+
+
   }
 
   @override
   void dispose() {
-    _tabController?.dispose();
+   _tabController?.dispose();
     super.dispose();
   }
 
@@ -50,6 +58,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
         length: widget.tabs!.length,
         child: NestedScrollView(
             physics: Physics.never,
+
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
@@ -69,7 +78,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                     background: Stack(
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
-                          SliverBack(),
+                          SliverBack(back: widget.back),
                           SliverNotification(),
                           SliverTitle(widget.title),
                           SliverBody(widget.sliverChild),
@@ -82,7 +91,9 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                       child: Stack(
                           alignment: Alignment.topCenter,
                           children: <Widget>[
-                            SliverBack(),
+                            SliverBack(
+                              back: widget.back,
+                            ),
                             SliverNotification(),
                             SliverTitleTop(widget.title)
                           ]),
@@ -104,7 +115,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                         color: MyColors.mainGrey,
                       ),
                       labelColor: MyColors.textBlack,
-                      unselectedLabelColor: MyColors.textFieldLittleText,
+                      unselectedLabelColor: MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                     ),
@@ -113,7 +124,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
               ];
             },
             body: TabBarView(
-              physics: Physics.never,
+              physics: Physics.alwaysBounce,
               controller: _tabController,
               children: widget.tabPages!.map((Widget widget) {
                 return widget;

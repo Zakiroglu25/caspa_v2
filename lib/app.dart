@@ -42,9 +42,9 @@ class App extends StatelessWidget {
               //MediaPage()
                //SplashPage(),
               // RegisterPage(),
-              // LoginPage(),
+            //   LoginPage(),
           //   PackageDetailsPage(name: "Kitabacanan",)
-        LandingPage()
+       // LandingPage()
         // Example08()
            // HomePage()
           //  BlocProvider(
@@ -53,9 +53,9 @@ class App extends StatelessWidget {
           // create: (context) => ForgotPassCubit(),
           //  child: ForgetPasswordPage())
 //          SilverAppBarExample(),
-          // BlocProvider(
-          // create: (context)=>LoginCubit()
-          // ,child: LoginPage())
+          BlocProvider(
+          create: (context)=>LoginCubit()
+          ,child: LoginPage())
           //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()

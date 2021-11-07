@@ -33,14 +33,14 @@ class HomaPackageList extends StatelessWidget {
           return MySizedBox.w12;
         },
         shrinkWrap: true,
-        itemCount: packaeBoxes.length,
+        itemCount: packageBoxes.length,
         physics: AlwaysScrollableScrollPhysics(
           parent: BouncingScrollPhysics(),
         ),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return PackageBox(
-              packaeBoxes[index],w: 284.sp,
+              packageBoxes[index],w: 284.sp,
           );
         },
       ),

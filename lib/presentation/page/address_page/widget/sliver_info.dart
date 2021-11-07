@@ -26,7 +26,7 @@ class SliverInfo extends StatelessWidget {
                     MyColors.mainColor))
           ],
           style: AppTextStyles.coHead400.copyWith(
-              fontSize: 16,
+              fontSize: 14,
               color: MyColors.grey165),
         ),
       ),

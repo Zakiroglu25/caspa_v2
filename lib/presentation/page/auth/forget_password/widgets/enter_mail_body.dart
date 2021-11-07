@@ -26,10 +26,6 @@ class EnterMailBody extends StatelessWidget {
             children: [
               MySizedBox.h16,
               EmailFieldForgot(emailController),
-              Text(
-                "EmailFieldForgot EmailFieldFor gotEmailFieldForgot EmailField",
-                style: AppTextStyles.sanF400.copyWith(color: MyColors.orange),
-              ),
               Container(
                 child: Text(
                   "mail",

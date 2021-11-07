@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 import 'grid_list_model.dart';
 
-List<GridListItems> packaeBoxes = [
+List<GridListItems> packageBoxes = [
   GridListItems(
       color: Rndm.color,
       shopName: 'H&M',
@@ -94,14 +94,13 @@ class WaitingPackagePage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     final sW=size.width;
 
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-    final double itemWidth = size.width / 2;
+
     return ScrollConfiguration(
         behavior: NoScrollBehavior(),
       child: GridView.builder(
         padding: Paddings.paddingA20,
         physics: Physics.never,
-        itemCount: packaeBoxes.length,
+        itemCount: packageBoxes.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: MediaQuery.of(context).orientation ==
               Orientation.landscape
@@ -115,7 +114,7 @@ class WaitingPackagePage extends StatelessWidget {
             context,
             index,
             ) {
-          return PackageBox(packaeBoxes[index],w: sW,);
+          return PackageBox(packageBoxes[index],w: sW,);
         },
       ),
     );

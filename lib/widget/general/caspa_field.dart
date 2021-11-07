@@ -54,7 +54,7 @@ class CaspaField extends StatelessWidget {
           title??"",
           style: TextStyle(
               fontSize: 14,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
         MySizedBox.h3,

@@ -44,7 +44,7 @@ class PackageBox extends StatelessWidget {
                     children: [
                       const Text(
                         "Qiymət: ",
-                        style: TextStyle(color: MyColors.textFieldLittleText),
+                        style: TextStyle(color: MyColors.grey153),
                       ),
                       Text(item.price!)
                     ],
@@ -53,7 +53,7 @@ class PackageBox extends StatelessWidget {
                     children: [
                       const Text("İzləmə kodu: ",
 
-                          style: TextStyle(color: MyColors.textFieldLittleText)),
+                          style: TextStyle(color: MyColors.grey153)),
                       Text("${item.trackingCode!}")
                     ],
                   ),
@@ -61,7 +61,7 @@ class PackageBox extends StatelessWidget {
                     children: [
                       const Text("Status: ",
                           style:  TextStyle(
-                              color:  MyColors.textFieldLittleText)),
+                              color:  MyColors.grey153)),
                       Text(
                         item.status!,
                         maxLines: 3,

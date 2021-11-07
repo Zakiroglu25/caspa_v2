@@ -16,7 +16,7 @@ class RowLogin extends StatelessWidget {
           "Login",
           style: TextStyle(
               fontSize: 14,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
       ],
@@ -38,7 +38,7 @@ class RowPassword extends StatelessWidget {
           "Password",
           style: TextStyle(
               fontSize: 14,
-              color: MyColors.textFieldLittleText,
+              color: MyColors.grey153,
               fontFamily: "San Francisco"),
         ),
       ],

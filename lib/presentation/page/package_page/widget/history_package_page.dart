@@ -53,7 +53,7 @@ class _HistoryPackageState extends State<HistoryPackage> {
                         hList[index].date.toString(),
                         style: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: MyColors.textFieldLittleText,
+                            color: MyColors.grey153,
                             fontSize: 12),
                       ),
                     ],

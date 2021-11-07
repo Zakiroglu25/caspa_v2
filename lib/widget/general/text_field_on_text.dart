@@ -15,7 +15,7 @@ class CaspaTextFieldUnder extends StatelessWidget {
       padding: const EdgeInsets.only(left: 16.0,bottom: 4,top: 16),
       child: Text(
         "$text",
-        style: TextStyle(color: MyColors.textFieldLittleText,fontWeight: FontWeight.w400,fontSize: 14),
+        style: TextStyle(color: MyColors.grey153,fontWeight: FontWeight.w400,fontSize: 14),
       ),
     );
   }

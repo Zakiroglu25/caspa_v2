@@ -104,7 +104,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                         color: MyColors.mainGrey,
                       ),
                       labelColor: MyColors.textBlack,
-                      unselectedLabelColor: MyColors.textFieldLittleText,
+                      unselectedLabelColor: MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                     ),

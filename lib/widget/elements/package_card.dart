@@ -49,7 +49,7 @@ class PackageCard extends StatelessWidget {
                       "Qiymət:",
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
-                          color: MyColors.textFieldLittleText),
+                          color: MyColors.grey153),
                     ),
                     Text('${price}')
                   ],
@@ -59,7 +59,7 @@ class PackageCard extends StatelessWidget {
                     const Text("İzləmə kodu:",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: MyColors.textFieldLittleText)),
+                            color: MyColors.grey153)),
                     Text("${trackingCode!}")
                   ],
                 ),
@@ -68,7 +68,7 @@ class PackageCard extends StatelessWidget {
                     Text("Status:",
                         style: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: MyColors.textFieldLittleText)),
+                            color: MyColors.grey153)),
                     Text(status!,maxLines: 3,),
                   ],
                 )

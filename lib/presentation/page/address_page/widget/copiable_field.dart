@@ -62,7 +62,7 @@ class CopiableField extends StatelessWidget {
                           //  overflow: TextOverflow.ellipsis,
                           //maxLines: maxLines ?? 1,
                           style: TextStyle(
-                              color: MyColors.textFieldLittleText,
+                              color: MyColors.grey153,
                               fontSize: 14,
                               fontWeight: FontWeight.w400),
                         ),

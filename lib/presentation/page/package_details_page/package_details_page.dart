@@ -1,15 +1,11 @@
-import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/info_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/info_staggerd_gridview_items.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/status_items.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/history_package_page.dart';
-import 'package:caspa_v2/presentation/page/test/lebedun.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'widget/info_page.dart';
+import 'widget/status_items.dart';
 
 
 
@@ -70,7 +66,7 @@ class _PackageDetailsPageState extends State<PackageDetailsPage>
                     color: MyColors.mainGrey,
                   ),
                   labelColor: MyColors.textBlack,
-                  unselectedLabelColor: MyColors.textFieldLittleText,
+                  unselectedLabelColor: MyColors.grey153,
                   tabs: const [
                     Tab(
                       text: 'Status',

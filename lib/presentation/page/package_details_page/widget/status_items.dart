@@ -90,7 +90,7 @@ class StatusItems extends StatelessWidget {
                         hList[index].statusSubTitle.toString(),
                         style: const TextStyle(
                             fontWeight: FontWeight.w400,
-                            color: MyColors.textFieldLittleText,
+                            color: MyColors.grey153,
                             fontSize: 12),
                       ),
                     ],

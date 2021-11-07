@@ -44,7 +44,7 @@ class HomeHeader extends StatelessWidget {
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           MySizedBox.h14,
           CaspaButton(

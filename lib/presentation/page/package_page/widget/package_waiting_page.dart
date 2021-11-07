@@ -1,7 +1,7 @@
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/delegate/random.dart';
-import 'package:caspa_v2/widget/main/package_box.dart';
+import 'package:caspa_v2/widget/elements/package_box.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 

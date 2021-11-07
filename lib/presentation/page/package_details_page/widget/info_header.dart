@@ -27,7 +27,7 @@ class InfoHeader extends StatelessWidget {
                 fontFamily: "San Francisco",
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           const Text(
             "Massimo dutti",
@@ -44,7 +44,7 @@ class InfoHeader extends StatelessWidget {
                 fontFamily: "San Francisco",
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           const Text(
             "764 TL",
@@ -61,7 +61,7 @@ class InfoHeader extends StatelessWidget {
                 fontFamily: "San Francisco",
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           const Text(
             "252442",
@@ -78,7 +78,7 @@ class InfoHeader extends StatelessWidget {
                 fontFamily: "San Francisco",
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           Row(
             children: const [
@@ -106,7 +106,7 @@ class InfoHeader extends StatelessWidget {
                 fontFamily: "San Francisco",
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: MyColors.textFieldLittleText),
+                color: MyColors.grey153),
           ),
           const Text(
             "4",

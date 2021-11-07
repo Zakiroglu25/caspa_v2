@@ -44,7 +44,7 @@ class ForgetPasswordPage extends StatelessWidget {
                   BlocBuilder<ForgotPassCubit, ForgotPassState>(
                       builder: (context, state) {
                     if (state is ForgotPassEnterMail) {
-                      return FadeInRight(key: Key("a"), child: EnterMailBody());
+                      return FadeIn(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
                       return FadeInRight(key: Key("b"), child: EnterCodeBody());

@@ -23,7 +23,7 @@ class PackageBox extends StatelessWidget {
       radius: 12,
       splashColor: Colors.transparent,
       onTap: () {
-        //  Go.to(context, PackageDetailsPage(name: item.shopName,));
+          Go.to(context, PackageDetailsPage(name: item.shopName,));
       },
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,

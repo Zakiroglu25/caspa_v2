@@ -22,7 +22,7 @@ class PackagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return  Scaffold(
         body: SafeArea(
       child: SliverCaspaBar(
         appbarHeight: 355,

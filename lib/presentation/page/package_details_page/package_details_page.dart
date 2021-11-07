@@ -1,6 +1,9 @@
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/info_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/info_staggerd_gridview_items.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_details_page/widget/status_items.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/history_package_page.dart';
+import 'package:caspa_v2/presentation/page/test/lebedun.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -8,9 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'widget/info_header.dart';
-import 'widget/info_page.dart';
-import 'widget/status_items.dart';
+
 
 class PackageDetailsPage extends StatefulWidget {
   const PackageDetailsPage({Key? key}) : super(key: key);
@@ -37,7 +38,10 @@ class _PackageDetailsPageState extends State<PackageDetailsPage>
           elevation: 0,
           backgroundColor: MyColors.grid6,
           actions: [
-            Icon(Icons.all_inclusive)
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: SvgPicture.asset(Assets.menuAppbar),
+            )
           ],
         ),
         body: Container(
@@ -80,7 +84,7 @@ class _PackageDetailsPageState extends State<PackageDetailsPage>
                   controller: _controller,
                   children: [
                     StatusItems(),
-                    Info()
+                    Info(),
                   ],
                 ),
               ),

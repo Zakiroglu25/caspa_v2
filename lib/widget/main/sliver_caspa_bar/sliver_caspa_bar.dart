@@ -1,4 +1,5 @@
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/widget/caspa_appbar/widgets/notification_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,8 +15,14 @@ class SliverCaspaBar extends StatefulWidget {
 
   String? title;
   Widget? sliverChild;
- double? appbarHeight;
-  SliverCaspaBar({this.tabs, this.tabPages, this.title, this.sliverChild,this.appbarHeight});
+  double? appbarHeight;
+
+  SliverCaspaBar(
+      {this.tabs,
+      this.tabPages,
+      this.title,
+      this.sliverChild,
+      this.appbarHeight});
 
   @override
   State<SliverCaspaBar> createState() => _SliverCaspaBarState();
@@ -40,20 +47,20 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: widget.tabs!.length,
         child: NestedScrollView(
-          physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+            physics: Physics.never,
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
                 SliverAppBar(
                   leading: Container(),
-                  expandedHeight: widget.appbarHeight?? 300.0,
+                  expandedHeight: widget.appbarHeight ?? 300.0,
                   automaticallyImplyLeading: false,
                   pinned: true,
                   stretch: false,
                   floating: true,
-                  stretchTriggerOffset: widget.appbarHeight??300,
+                  stretchTriggerOffset: widget.appbarHeight ?? 300,
                   leadingWidth: 0,
                   elevation: 0,
                   backwardsCompatibility: false,
@@ -98,6 +105,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                       ),
                       labelColor: MyColors.textBlack,
                       unselectedLabelColor: MyColors.textFieldLittleText,
+                      physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                     ),
                   ),
@@ -105,6 +113,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
               ];
             },
             body: TabBarView(
+              physics: Physics.never,
               controller: _tabController,
               children: widget.tabPages!.map((Widget widget) {
                 return widget;
@@ -148,4 +157,3 @@ class NoScrollBehavior extends ScrollBehavior {
     return child;
   }
 }
-

@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
         Timer(
             const Duration(seconds: 3),
             () =>
-                NavigateUtils.pushReplacement(context, const PageViewEntry()));
+                Go.pushReplacement(context, const PageViewEntry()));
       },
       child: Scaffold(
         backgroundColor: MyColors.mainColor,

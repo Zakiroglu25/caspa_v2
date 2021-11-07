@@ -7,10 +7,10 @@ class UserButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: Colors.transparent,
       child: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            //Navigator.pop(context);
           },
           icon: SvgPicture.asset(Assets.svgUser)),
     )

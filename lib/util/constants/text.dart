@@ -16,5 +16,14 @@ class MyText {
   /// esas sehife text
   static const String homePageText = "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
 
+
+
+  //login
+  static const String login = "login";
+  static const String email = "email";
+  static const String password = "password";
+  static const String forgot_pass = "forgot_pass";
+  static const String registration = "registration";
+
 }
 

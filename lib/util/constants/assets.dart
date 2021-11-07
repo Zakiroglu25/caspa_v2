@@ -27,6 +27,7 @@ class Assets {
   static const String svgPlusCircle='assets/svg/pluscircle.svg';
   static const String svgLocation='assets/svg/location.svg';
   static const String svgOther="assets/svg/other.svg";
+  static const String menuAppbar="assets/svg/menu.svg";
 
 //--anim
 

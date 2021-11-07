@@ -1,4 +1,5 @@
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class TurkeyAnbar extends StatelessWidget {
     return     ScrollConfiguration(
       behavior: NoScrollBehavior(),
       child: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: Physics.never,
         padding: Paddings.paddingH20,
         shrinkWrap: true,
         children: [

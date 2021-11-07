@@ -8,4 +8,11 @@ class Physics {
   static const ScrollPhysics alwaysBounce =
   const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics());
 
+  static const ScrollPhysics alwaysClamp =
+  const AlwaysScrollableScrollPhysics(parent: ClampingScrollPhysics());
+
+
+  static const ScrollPhysics never =
+  const NeverScrollableScrollPhysics();
+
 }

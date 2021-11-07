@@ -23,7 +23,7 @@ class LoginFields extends StatelessWidget {
         MySizedBox.h16,
         CaspaTextButton(
           text: "forgot_pass",
-          onTap: () => NavigateUtils.pushNewRoot(
+          onTap: () => Go.to(
               context,
               BlocProvider(
                 create: (context) => ForgotPassCubit(),

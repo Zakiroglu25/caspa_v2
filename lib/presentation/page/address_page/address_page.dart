@@ -1,8 +1,6 @@
 import 'package:caspa_v2/presentation/page/address_page/widget/adress_sliver_body.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
-
 import 'package:flutter/material.dart';
-
 import 'widget/turkey_anbar.dart';
 
 class AdressPage extends StatelessWidget {
@@ -11,7 +9,6 @@ class AdressPage extends StatelessWidget {
     Text('second'),
     Text('third')
   ];
-
 
   final List<Widget> tabs = const [
     Tab(

@@ -89,7 +89,7 @@ class LoginCubit extends Cubit<LoginState> {
 
         if (isSuccess(response.statusCode)) {
           emit(LoginSuccess(response.body));
-          Go.pushReplacement(context, LandingPage());
+          Go.replace(context, LandingPage());
           // result=response.data;
         } else {
           emit(LoginError());

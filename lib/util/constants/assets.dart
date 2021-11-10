@@ -29,7 +29,7 @@ class Assets {
   static const String svgOther="assets/svg/other.svg";
   static const String menuAppbar="assets/svg/menu.svg";
 
-//--anim
+  //--anim
 
 }
 

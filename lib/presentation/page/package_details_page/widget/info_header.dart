@@ -15,7 +15,7 @@ class ProductProperties extends StatelessWidget {
         alignment: Alignment.center,
         fit: StackFit.loose,
         children: [
-          ...boxes,
+         // ...boxes,
           Container(
             padding: Paddings.paddingH16,
             child: Column(

@@ -99,7 +99,8 @@ class CaspaField extends StatelessWidget {
                   filled: true,
                   fillColor: MyColors.mainGrey,
                   contentPadding:
-                      const EdgeInsets.only(left: 14.0, bottom: 6.0, top: 8.0),
+                       EdgeInsets.only(left: 14.0, bottom: 6.0, top: 8.0,
+                      right: (suffixIcon!=null) ? 40 : 0),
                 ),
               ),
             ),

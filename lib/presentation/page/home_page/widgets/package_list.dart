@@ -11,7 +11,7 @@ class HomaPackageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    height: 180.sm,
+    height: 116.sm,
      // width: 284,
       child: ListView.separated(
         padding: Paddings.paddingH20,

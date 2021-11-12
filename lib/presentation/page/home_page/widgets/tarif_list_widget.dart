@@ -21,29 +21,31 @@ class TarifListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-    return
-         Container(
-          height: 132.sp,
-          child: ListView.separated(
-            separatorBuilder: (context, index) {
-              return MySizedBox.w10;
-            },
-            shrinkWrap: true,
-            itemCount: hList.length,
-            scrollDirection: Axis.horizontal,
-            padding: Paddings.paddingH20,
-            itemBuilder: (context, index) {
-              return TariffCard(
-                tarifName: hList[index].tarifName,
-                price: hList[index].price,
-              );
-            },
-          ),
-        );
-      }
-
+    List<TarifModel> hList = [
+      TarifModel("0.001 - 0.10 kq qədər", 0.95),
+      TarifModel("0.001 - 0.10 kq qədər", 0.95),
+      TarifModel("0.001 - 0.10 kq qədər", 0.95),
+      TarifModel("0.001 - 0.10 kq qədər", 0.95),
+    ];
+    return Container(
+      height: 92.sp,
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return MySizedBox.w10;
+        },
+        shrinkWrap: true,
+        itemCount: hList.length,
+        scrollDirection: Axis.horizontal,
+        padding: Paddings.paddingH20,
+        itemBuilder: (context, index) {
+          return TariffCard(
+            tarifName: hList[index].tarifName,
+            price: hList[index].price,
+          );
+        },
+      ),
+    );
+  }
 }
 
 class TarifModel {

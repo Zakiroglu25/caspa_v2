@@ -4,6 +4,7 @@ import 'package:caspa_v2/presentation/page/package_page/widget/grid_list_model.d
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -36,43 +37,59 @@ class PackageBox extends StatelessWidget {
                 color: item.color, borderRadius: BorderRadius.circular(12)),
             child: Padding(
               padding: EdgeInsets.all(20.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              child: Row(
                 children: [
-                  SvgPicture.asset(Assets.svgShop),
-                  Text(
-                    item.shopName!,
-                    style: AppTextStyles.sanF500,
-                  ),
-                  Row(
-                    children: [
-                      const Text(
-                        "Qiymət: ",
-                        style: TextStyle(color: MyColors.grey153),
-                      ),
-                      Text(item.price!)
-                    ],
-                  ),
-                  Wrap(
-                    children: [
-                      const Text("İzləmə kodu: ",
+                  Container(
+                    width: 60,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SvgPicture.asset(Assets.svgShop),
+                        Text(
+                          item.shopName!,
+                          style: AppTextStyles.sanF500,
+                          maxLines: 2,
+                        ),
 
-                          style: TextStyle(color: MyColors.grey153)),
-                      Text("${item.trackingCode!}")
-                    ],
+                      ],
+                    ),
                   ),
-                  Wrap(
+                  Spacer(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text("Status: ",
-                          style:  TextStyle(
-                              color:  MyColors.grey153)),
-                      Text(
-                        item.status!,
-                        maxLines: 3,
+                      Row(
+                        children: [
+                          const Text(
+                            "Qiymət: ",
+                            style: TextStyle(color: MyColors.grey153),
+                          ),
+                          Text(item.price!)
+                        ],
                       ),
+                      Row(
+                        children: [
+                          const Text("İzləmə kodu: ",
+                              style: TextStyle(color: MyColors.grey153)),
+                          Text("${item.trackingCode!}")
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Text("Status: ",
+                              style:  TextStyle(
+                                  color:  MyColors.grey153)),
+                          Text(
+                            item.status!,
+                            maxLines: 3,
+                          ),
+                        ],
+                      )
                     ],
                   )
+
                 ],
               ),
             ),

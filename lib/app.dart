@@ -42,7 +42,7 @@ class App extends StatelessWidget {
           home:
               //MediaPage()
                //SplashPage(),
-              // RegisterPage(),
+               //RegisterPage(),
             //   LoginPage(),
           //   PackageDetailsPage(name: "Kitabacanan",)
         LandingPage()

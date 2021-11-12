@@ -17,10 +17,7 @@ class LogRegButtons extends StatelessWidget {
       children: [
         loginButton(context),
         MySizedBox.h16,
-        BlocProvider(
-          create: (context) => RegisterCubit(),
-          child: registerButton(context),
-        ),
+        registerButton(context),
         MySizedBox.h50,
       ],
     );

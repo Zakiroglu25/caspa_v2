@@ -40,11 +40,8 @@ class HomePage extends StatelessWidget {
               hP: 20,
             ),
             MySizedBox.h16,
-            BlocProvider(
-              create: (context) => TarifCubit(),
-              child: TarifListWidget(
-                hList: [],
-              ),
+            TarifListWidget(
+              hList: [],
             ),
             MySizedBox.h24,
             SectionName(

@@ -9,7 +9,7 @@ class RegisterRequestModel {
   String? phone;
   String? id_number;
   String? fin;
-  DateTime? birthday;
+  String? birthday;
   String? gender;
   int? wareHouse;
   int? accept;
@@ -39,7 +39,7 @@ class RegisterRequestModel {
     phone = json['name'] as String;
     id_number = json['name'] as String;
     fin = json['name'] as String;
-    birthday = DateTime.parse(json["birthday"].toString());
+    birthday = json["birthday"] as String;
     gender = json['name'] as String;
     wareHouse = json['name'] as int;
     accept = json['name'] as int;

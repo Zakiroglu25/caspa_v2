@@ -9,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TariffCard extends StatelessWidget {
   String? tarifName;
-  double? price;
+  String? price;
 
 
   TariffCard({this.tarifName, this.price});

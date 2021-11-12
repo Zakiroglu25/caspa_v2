@@ -1,32 +1,28 @@
-// import 'dart:developer';
-//
-// import 'package:bloc/bloc.dart';
-// import 'package:caspa_v2/infrastructure/data_source/tarif_reopisotory.dart';
-// import 'package:caspa_v2/infrastructure/models/response/tarif_response_model.dart';
-// import 'package:equatable/equatable.dart';
-// import 'package:flutter/material.dart';
-//
-// part 'tarif_state.dart';
-//
-// class TarifCubit extends Cubit<TarifState> {
-//   TarifCubit() : super(TarifInitial());
-//
-//   Future<void> getTarif(BuildContext context) async {
-//     final TarifRepository repo = TarifRepository();
-//     emit(TarifLoading());
-//
-//     try {
-//       final PriceModel response = await repo.getPrice();
-//       if (response.data! ==null) {
-//         emit(TarifSuccess(response));
-//         print(response);
-//       } else {
-//         emit(TarifFailed("Data yoxdur"));
-//       }
-//     } catch (e) {
-//       emit(TarifFailed("Bilinməyən xəta baş verdi"));
-//     }
-//     log("3");
-//
-//   }
-// }
+import 'dart:io';
+
+import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
+import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class TarifCubit extends Cubit<TarifState> {
+  TarifCubit() : super(TarifInitial());
+
+  void fetch([bool loading = true]) async {
+    if (loading) {
+      emit(TarifInProgress());
+    }
+    try {
+      final result = await TarifProvider.getTarif();
+      if (result.data != null) {
+        emit(TarifSuccess(result));
+      } else {
+        emit(TarifError());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(TarifError());
+    } catch (e) {
+      emit(TarifError());
+    }
+  }
+}

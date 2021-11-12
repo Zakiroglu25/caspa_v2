@@ -21,6 +21,8 @@ class ApiKeys {
   static const defaultJPG = "/hqdefault.jpg";
   static const watch = "/watch?v=";
 
+  //get tarif
+  static const getTarif = "$baseUrl/public/prices";
  // vi96JAj3ffdIw/default.jpg
 
 

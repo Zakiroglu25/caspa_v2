@@ -3,6 +3,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/elements/package_box.dart';
+import 'package:caspa_v2/widget/elements/package_box_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +26,7 @@ class HomaPackageList extends StatelessWidget {
         ),
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return PackageBox(
+          return PackageBoxHome(
               packageBoxes[index],w: 284.sp,
           );
         },

@@ -1,28 +1,16 @@
-// part of 'tarif_cubit.dart';
-//
-// abstract class TarifState extends Equatable {
-//   const TarifState();
-//
-//   @override
-//   List<Object> get props => [];
-// }
-//
-// class TarifInitial extends TarifState {}
-//
-// class TarifLoading extends TarifState {}
-//
-// class TarifSuccess extends TarifState {
-//   final PriceModel data;
-//
-//   const TarifSuccess(this.data);
-//
-//   @override
-//   List<Object> get props => [data];
-// }
-//
-// class TarifFailed extends TarifState {
-//   final String message;
-//   const TarifFailed(this.message);
-//   @override
-//   List<Object> get props => [message];
-// }
+import 'package:caspa_v2/infrastructure/models/response/tarif_response_model.dart';
+
+abstract class TarifState {}
+
+class TarifInitial extends TarifState {}
+
+class TarifInProgress extends TarifState {}
+
+class TarifUpdating extends TarifState {}
+
+class TarifError extends TarifState {}
+
+class TarifSuccess extends TarifState {
+  TarifSuccess(this.tarif);
+  final PriceModel  tarif;
+}

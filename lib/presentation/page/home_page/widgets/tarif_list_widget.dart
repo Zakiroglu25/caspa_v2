@@ -12,21 +12,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TarifListWidget extends StatelessWidget {
-  const TarifListWidget({
-    Key? key,
-    required this.hList,
-  }) : super(key: key);
+  final List<PriceModel> hList;
 
-  final List<TarifModel> hList;
+   TarifListWidget({Key? key, required this.hList,});
 
   @override
   Widget build(BuildContext context) {
-    List<TarifModel> hList = [
-      TarifModel("0.001 - 0.10 kq qədər", 0.95),
-      TarifModel("0.001 - 0.10 kq qədər", 0.95),
-      TarifModel("0.001 - 0.10 kq qədər", 0.95),
-      TarifModel("0.001 - 0.10 kq qədər", 0.95),
-    ];
     return Container(
       height: 92.sp,
       child: ListView.separated(
@@ -38,9 +29,10 @@ class TarifListWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: Paddings.paddingH20,
         itemBuilder: (context, index) {
+          PriceModel priceModel = hList[index];
           return TariffCard(
-            tarifName: hList[index].tarifName,
-            price: hList[index].price,
+            tarifName: priceModel.data![index].description,
+            price: priceModel.data![index].price,
           );
         },
       ),

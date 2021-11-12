@@ -1,4 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
+import 'package:caspa_v2/infrastructure/models/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -15,7 +17,6 @@ import 'widgets/tarif_list_widget.dart';
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: CaspaAppbar(
         title: 'User Name',
       ),
@@ -40,8 +41,29 @@ class HomePage extends StatelessWidget {
               hP: 20,
             ),
             MySizedBox.h16,
-            TarifListWidget(
-              hList: [],
+            BlocProvider(
+              create: (context) => TarifCubit()..fetch(),
+              child: BlocBuilder<TarifCubit, TarifState>(
+                builder: (context, state) {
+                  if (state is TarifSuccess) {
+                    List<Data>? result = state.tarif.data;
+                    return TarifListWidget(
+                      ///bura baxarsan gor harda sehv elemisem?
+                      ///resultu bura soxanniram
+                      hList: [],
+                    );
+                  } else if (state is TarifError) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is TarifUpdating) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  return SizedBox.shrink();
+                },
+              ),
             ),
             MySizedBox.h24,
             SectionName(
@@ -49,8 +71,7 @@ class HomePage extends StatelessWidget {
               hP: 20,
             ),
             MySizedBox.h24,
-            HomaPackageList(
-            ),
+            HomaPackageList(),
           ],
         ),
       ),

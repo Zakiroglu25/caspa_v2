@@ -1,10 +1,12 @@
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
+
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'caspa_drop_down.dart';
 import 'drop_down_male.dart';
@@ -17,6 +19,10 @@ class CivilRegisterPage extends StatefulWidget {
 }
 
 class _CivilRegisterPageState extends State<CivilRegisterPage> {
+  var selectedDate = '~';
+  late ValueNotifier<String> _gender = ValueNotifier('C');
+  final formKey = GlobalKey<FormState>();
+
   final TextEditingController _civilName = TextEditingController();
   final TextEditingController _civilSurname = TextEditingController();
   final TextEditingController _civilNumber = TextEditingController();
@@ -26,6 +32,37 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
   final TextEditingController _civilConfrimPassword = TextEditingController();
   final TextEditingController _civilFin = TextEditingController();
   final TextEditingController _civilBirthday = TextEditingController();
+
+  // Future<void> registration() async {
+  //   RegisterRepository authRepository = RegisterRepository();
+  //   RegisterRequestModel registerReqModel = RegisterRequestModel(
+  //       name: _civilName.text,
+  //       surname: _civilSurname.text,
+  //       email: _civilEmail.text,
+  //       birthday: selectedDate,
+  //       gender: _gender.value,
+  //       phone: "number",
+  //       id_number: _civilFin.text,
+  //       wareHouse: 1,
+  //       accept: 1,
+  //       address: _civilAddress.text,
+  //       fin: _civilFin.text,
+  //       password: _civilConfrimPassword.text,
+  //       password_confirmation: _civilConfrimPassword.text
+  //       //deviceId: deviceId,
+  //       // deviceType: deviceType);
+  //       );
+  //
+  //   RegisterResponseModel response =
+  //       (await authRepository.registerCivil(registerReqModel));
+  //   log("6");
+  //
+  //   if (response.message =="The given data was invalid" ) {
+  //     Go.to(context, LoginPage());
+  //   } else {
+  //     snackBarOpen("egor", context);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +134,7 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12))),
               onPressed: () {
-                Go.pushReplacement(context, LandingPage());
+               // registration();
               },
               child: const Text(
                 "Qeydiyyat",
@@ -110,4 +147,14 @@ class _CivilRegisterPageState extends State<CivilRegisterPage> {
       ),
     );
   }
+}
+
+void snackBarOpen(String message, BuildContext context,
+    {Color color = Colors.red}) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+    ),
+  );
 }

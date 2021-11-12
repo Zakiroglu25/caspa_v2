@@ -25,5 +25,25 @@ class MyText {
   static const String forgot_pass = "forgot_pass";
   static const String registration = "registration";
 
+
+  //forgot pass
+  static const String are_you_forgot_pass = "Şifrəni unutmusan ?";
+  static const String we_will_send_new_pass = "Hörmətli müştəri, şifrə unudulduğu halda biz sizin qeydiyyat zamanı daxil etdiyiniz Email unvanınıza yeni şirfə göndərəcəyik.";
+  static const String confirm_your_email = 'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.';
+  static const String there_is_code_on_mail = 'Email-a kod gəlib';
+  static const String please_enter_code = 'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
+  static const String set_new_pass = 'Yeni şifrə təyin edin';
+  static const String new_pass = 'Yeni şifrə';
+  static const String enter_new_pass = 'Yeni şifrəni daxil edin';
+  static const String enter_new_pass_again = 'Yeni şifrəni təkrar daxil edin';
+  static const String your_pass_reseted = 'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
+  static const String code = 'Kod';
+  static const String send = 'Göndər';
+  static const String ok = 'OK';
+
+
+  //general
+  static const String back = "Geri";
+
 }
 

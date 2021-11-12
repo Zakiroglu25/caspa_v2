@@ -5,27 +5,27 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class EmailFieldForgot extends StatelessWidget {
-  final emailController;
+class CodeFieldForgot extends StatelessWidget {
+  final passController;
 
-  EmailFieldForgot(this.emailController); //= new TextEditingController();
+  CodeFieldForgot(this.passController); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
-      stream: BlocProvider.of<ForgotPassCubit>(context).emailStream,
+      stream: BlocProvider.of<ForgotPassCubit>(context).codeStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.email,
+          title: MyText.password,
           maxLines: 1,
-          hint: MyText.email,
+          hint: MyText.password,
           upperCase: false,
-          textInputType: TextInputType.emailAddress,
+          textInputType: TextInputType.phone,
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          infoMessage: MyText.confirm_your_email,
-          controller: emailController,
+          //infoMessage: MyText.confirm_your_email,
+          controller: passController,
           onChanged: (value) =>
-              BlocProvider.of<ForgotPassCubit>(context).updateEmail(value),
+              BlocProvider.of<ForgotPassCubit>(context).updateCode(value),
         );
       },
     );

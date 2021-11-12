@@ -21,7 +21,7 @@ import 'presentation/page/package_details_page/in_product_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
-import 'package:transparent_image/transparent_image.dart';
+
 
 class App extends StatelessWidget {
   @override
@@ -42,10 +42,10 @@ class App extends StatelessWidget {
           home:
               //MediaPage()
                //SplashPage(),
-              // RegisterPage(),
+               //RegisterPage(),
             //   LoginPage(),
           //   PackageDetailsPage(name: "Kitabacanan",)
-       // LandingPage()
+        LandingPage()
         // Example08()
            // HomePage()
           //  BlocProvider(
@@ -54,9 +54,9 @@ class App extends StatelessWidget {
           // create: (context) => ForgotPassCubit(),
           //  child: ForgetPasswordPage())
 //          SilverAppBarExample(),
-          BlocProvider(
-          create: (context)=>LoginCubit()
-          ,child: LoginPage())
+//           BlocProvider(
+//           create: (context)=>LoginCubit()
+//           ,child: LoginPage())
           //SplashPage()
           //CupertinoStoreHomePage()
           //CircularHomePage()

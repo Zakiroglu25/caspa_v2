@@ -10,12 +10,8 @@ import 'widget/info_page.dart';
 import 'widget/status_items.dart';
 
 class PackageDetailsPage extends StatelessWidget {
-
   String ? name;
-
-
   PackageDetailsPage({required this.name});
-
   final tabs = [
     Tab(
       text: 'Status',

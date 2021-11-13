@@ -15,6 +15,9 @@ class MyText {
   static const String packageText = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
   /// esas sehife text
   static const String homePageText = "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
+  ///kuryer page
+  static const String kuryerTxt = "Xahiş edirik sadəcə yerləşdiyiniz ünvanı qeyd edəsiniz, və sizə gətiriləcək bağlamaları.️";
+
 
 
 

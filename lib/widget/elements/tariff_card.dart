@@ -1,7 +1,9 @@
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +19,7 @@ class TariffCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 284,
+      width: 284.sp,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: MyColors.mainGrey),
@@ -29,14 +31,14 @@ class TariffCard extends StatelessWidget {
           children: [
             Text(
               tarifName!,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
             ),
-            MySizedBox.h4,
+            MySizedBox.h5,
             Text(price.toString() + "USD",
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.green))
+                style: AppTextStyles.sanF600.copyWith(
+                  color: MyColors.green,
+                  fontSize: 16.sm
+                ))
           ],
         ),
       ),

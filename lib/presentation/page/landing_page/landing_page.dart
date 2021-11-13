@@ -1,9 +1,12 @@
+import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widget/bottom_element.dart';
@@ -19,7 +22,7 @@ class _LandingPageState extends State<LandingPage> {
   int index = 0;
 
   final pages = <Widget>[
-    HomePage(),
+    Pager.home,
     PackagePage(),
     PackagePage(),
     AdressPage(),
@@ -48,10 +51,10 @@ class _LandingPageState extends State<LandingPage> {
             items: [
               BottomNavigationBarItem(
                 backgroundColor: Colors.white,
-                activeIcon:
-                    Container(
-                        margin: EdgeInsets.only(bottom: 0),
-                        child: SvgPicture.asset(Assets.svgHome, color: MyColors.mainColor)),
+                activeIcon: Container(
+                    margin: EdgeInsets.only(bottom: 0),
+                    child: SvgPicture.asset(Assets.svgHome,
+                        color: MyColors.mainColor)),
                 icon: SvgPicture.asset(Assets.svgHome),
                 label: 'Əsas',
               ),
@@ -105,4 +108,3 @@ class _LandingPageState extends State<LandingPage> {
     });
   }
 }
-

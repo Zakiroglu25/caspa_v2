@@ -4,21 +4,22 @@ import 'dart:developer';
 import 'package:caspa_v2/infrastructure/models/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 class TarifProvider {
-  static Future<PriceModel> getTarif() async {
-    late PriceModel priceModel;
+  static Future<TariffData> getTarif() async {
+    late TariffData priceModel;
     final api = ApiKeys.getTarif;
     final headers = ApiKeys.headers;
     var url = Uri.parse(api);
-    log(url.toString());
+    llll(api);
     final response = await http.get(url, headers: headers);
-    if (response.statusCode == ResultKey.success) {
-      var gelenCavabJson = jsonDecode(response.body);
-      priceModel = PriceModel.fromJson(gelenCavabJson);
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = jsonDecode(response.body);
+      priceModel = TariffData.fromJson(gelenCavabJson);
     } else {
-      log("bad url :$url,response: ${response.body}");
+      eeee("bad url :$url,response: ${response}");
     }
     return priceModel;
   }

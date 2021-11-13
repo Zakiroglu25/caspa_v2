@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TarifListWidget extends StatelessWidget {
-  final List<PriceModel> hList;
+  final List<Tariff> hList;
 
    TarifListWidget({Key? key, required this.hList,});
 
@@ -29,23 +29,13 @@ class TarifListWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: Paddings.paddingH20,
         itemBuilder: (context, index) {
-          PriceModel priceModel = hList[index];
+          Tariff tariff = hList[index];
           return TariffCard(
-            tarifName: priceModel.data![index].description,
-            price: priceModel.data![index].price,
+            tarifName: tariff.description,
+            price: tariff.price,
           );
         },
       ),
     );
   }
-}
-
-class TarifModel {
-  String? tarifName;
-  double? price;
-
-  TarifModel(
-    this.tarifName,
-    this.price,
-  );
 }

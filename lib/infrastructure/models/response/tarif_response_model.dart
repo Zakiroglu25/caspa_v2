@@ -1,33 +1,38 @@
-class PriceModel {
-  List<Data>? data;
+class TariffData {
+  List<Tariff>? tariffList;
 
-  PriceModel({this.data});
+  TariffData({this.tariffList});
 
-  PriceModel.fromJson(Map<String, dynamic> json) {
+  TariffData.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      tariffList = <Tariff>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        tariffList!.add(Tariff.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    if (this.tariffList != null) {
+      data['data'] = this.tariffList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'PriceModel{data: $tariffList}';
+  }
 }
 
-class Data {
+class Tariff {
   String? price;
   String? description;
 
-  Data({this.price, this.description});
+  Tariff({this.price, this.description});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Tariff.fromJson(Map<String, dynamic> json) {
     price = json['price'];
     description = json['description'];
   }
@@ -37,5 +42,10 @@ class Data {
     data['price'] = this.price;
     data['description'] = this.description;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'Data{price: $price, description: $description}';
   }
 }

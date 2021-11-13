@@ -6,11 +6,11 @@ class TarifInitial extends TarifState {}
 
 class TarifInProgress extends TarifState {}
 
-class TarifUpdating extends TarifState {}
 
 class TarifError extends TarifState {}
+class TarifNetworkError extends TarifState {}
 
 class TarifSuccess extends TarifState {
-  TarifSuccess(this.tarif);
-  final PriceModel  tarif;
+  TarifSuccess(this.tarifList);
+  final List<Tariff>  tarifList;
 }

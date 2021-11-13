@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TarifCubit extends Cubit<TarifState> {
@@ -13,8 +14,8 @@ class TarifCubit extends Cubit<TarifState> {
     }
     try {
       final result = await TarifProvider.getTarif();
-      if (result.data != null) {
-        emit(TarifSuccess(result));
+      if (result.tariffList!= null) {
+        emit(TarifSuccess(result.tariffList!));
       } else {
         emit(TarifError());
       }

@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TariffCard extends StatelessWidget {
   String? tarifName;
-  double? price;
+  String? price;
 
 
   TariffCard({this.tarifName, this.price});
@@ -24,13 +25,13 @@ class TariffCard extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(Assets.svgTarifBox),
             Text(
               tarifName!,
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
+            MySizedBox.h4,
             Text(price.toString() + "USD",
                 style: TextStyle(
                     fontSize: 16,

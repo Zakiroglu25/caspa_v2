@@ -12,38 +12,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TarifListWidget extends StatelessWidget {
-  const TarifListWidget({
-    Key? key,
-    required this.hList,
-  }) : super(key: key);
+  final List<PriceModel> hList;
 
-  final List<TarifModel> hList;
+   TarifListWidget({Key? key, required this.hList,});
 
   @override
   Widget build(BuildContext context) {
-
-
-    return
-         Container(
-          height: 132.sp,
-          child: ListView.separated(
-            separatorBuilder: (context, index) {
-              return MySizedBox.w10;
-            },
-            shrinkWrap: true,
-            itemCount: hList.length,
-            scrollDirection: Axis.horizontal,
-            padding: Paddings.paddingH20,
-            itemBuilder: (context, index) {
-              return TariffCard(
-                tarifName: hList[index].tarifName,
-                price: hList[index].price,
-              );
-            },
-          ),
-        );
-      }
-
+    return Container(
+      height: 92.sp,
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return MySizedBox.w10;
+        },
+        shrinkWrap: true,
+        itemCount: hList.length,
+        scrollDirection: Axis.horizontal,
+        padding: Paddings.paddingH20,
+        itemBuilder: (context, index) {
+          PriceModel priceModel = hList[index];
+          return TariffCard(
+            tarifName: priceModel.data![index].description,
+            price: priceModel.data![index].price,
+          );
+        },
+      ),
+    );
+  }
 }
 
 class TarifModel {

@@ -48,13 +48,13 @@ List<GridListItems> packageBoxes = [
       color: Rndm.color,
       shopName: 'H&M',
       price: "25TL",
-      trackingCode: 123456789,
+      trackingCode: 1234567,
       status: "Xarici anbarda"),
   GridListItems(
       color: Rndm.color,
       shopName: 'Massimo Dutti',
       price: "25TL",
-      trackingCode: 12345678910,
+      trackingCode: 1234567,
       status: "Yerli anbarda"),
   GridListItems(
       color: Rndm.color,
@@ -66,7 +66,7 @@ List<GridListItems> packageBoxes = [
       color: Rndm.color,
       shopName: 'Zara',
       price: "25TL",
-      trackingCode: 23283052058025804,
+      trackingCode: 232830,
       status: "Gomrukdedir"),
   GridListItems(
       color: Rndm.color,

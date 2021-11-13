@@ -2,14 +2,13 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SliverTitle extends StatelessWidget {
- String ?title;
+  String? title;
 
-
- SliverTitle(this.title);
+  SliverTitle(this.title);
 
   @override
   Widget build(BuildContext context) {
-    return                                 Positioned(
+    return Positioned(
       //left: 0,
       //right: 0,
       top: 70,
@@ -20,8 +19,8 @@ class SliverTitle extends StatelessWidget {
             softWrap: true,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.coHead400.copyWith(
-                color: Colors.black, fontSize: 24)),
+            style: AppTextStyles.sanF600
+                .copyWith(color: Colors.black, fontSize: 24)),
       ),
     );
   }

@@ -1,81 +1,42 @@
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widgets/business_register_page.dart';
-import 'widgets/civil_register_page.dart';
+import 'widgets/business_register_tab.dart';
+import 'widgets/civil_register_tab.dart';
 
-class RegisterPage extends StatefulWidget {
-  @override
-  _RegisterPageState createState() => _RegisterPageState();
-}
+class RegisterPage extends StatelessWidget {
+  final List<Widget> tabPages = <Widget>[
+    CivilRegisterTab(),
+    BusinessRegisterTab(),
+  ];
 
-class _RegisterPageState extends State<RegisterPage>
-    with SingleTickerProviderStateMixin {
-
-
-  late TabController _tabController;
-
-  @override
-  void initState() {
-    _tabController = TabController(length: 2, vsync: this);
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _tabController.dispose();
-  }
+  final List<Widget> tabs = const [
+    Tab(
+      text: 'Vətəndaş qeydiyyatı',
+      height: 55,
+    ),
+    Tab(
+      text: 'Biznes qeydiyyat',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CaspaAppbar(
-        title: 'Qeydiyyat',
-        //back: true,
+        body: SafeArea(
+      child: SliverCaspaBar(
+        appbarHeight: 1,
+        tabs: tabs,
         notification: false,
-        centerTitle: true,
-        contextA: null,
+        back: true,
+        tabbarPadding: Paddings.paddingH16 + Paddings.paddingV4,
+        tabPages: tabPages,
+        selectedLabelColor: MyColors.white,
+        selectedTabColor: MyColors.mainColor,
+        title: '''Bağlamalar''',
+        sliverChild: Container(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TabBar(
-              controller: _tabController,
-              indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                  9.0,
-                ),
-                color: MyColors.mainColor,
-              ),
-              labelColor: Colors.white,
-              unselectedLabelColor: MyColors.grey153,
-              tabs: const [
-                Tab(
-                  text: 'Vətəndaş qeydiyyatı',
-                ),
-                Tab(
-                  text: 'Bizness qeydiyyat',
-                ),
-              ],
-            ),
-            // tab bar view here
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  CivilRegisterPage(),
-                  BusinessRegisterPage(),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+    ));
   }
 }

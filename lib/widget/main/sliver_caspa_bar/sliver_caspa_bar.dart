@@ -13,18 +13,28 @@ import 'widgets/sliver_title_top.dart';
 class SliverCaspaBar extends StatefulWidget {
   List<Widget>? tabs;
   List<Widget>? tabPages;
+  EdgeInsets? tabbarPadding;
+  Color? selectedTabColor;
+  Color? selectedLabelColor;
+  Color? unSelectedLabelColor;
 
   String? title;
   Widget? sliverChild;
   double? appbarHeight;
   bool? back;
+  bool? notification;
 
 
   SliverCaspaBar(
       {this.tabs,
       this.tabPages,
       this.title,
+      this.tabbarPadding,
+      this.selectedTabColor,
+      this.unSelectedLabelColor,
+      this.selectedLabelColor,
       this.back,
+      this.notification,
       this.sliverChild,
 
       this.appbarHeight});
@@ -79,7 +89,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
                           SliverBack(back: widget.back),
-                          SliverNotification(),
+                          SliverNotification(widget.notification),
                           SliverTitle(widget.title),
                           SliverBody(widget.sliverChild),
                         ]),
@@ -94,7 +104,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                             SliverBack(
                               back: widget.back,
                             ),
-                            SliverNotification(),
+                            SliverNotification(widget.notification),
                             SliverTitleTop(widget.title)
                           ]),
                     ),
@@ -105,17 +115,17 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   pinned: true,
                   delegate: _SliverAppBarDelegate(
                     TabBar(
-                      padding: EdgeInsets.only(
+                      padding: widget.tabbarPadding??EdgeInsets.only(
                           left: 20, right: 20, top: 5, bottom: 10),
                       controller: _tabController,
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                           12.0,
                         ),
-                        color: MyColors.mainGrey,
+                        color:widget.selectedTabColor?? MyColors.mainGrey,
                       ),
-                      labelColor: MyColors.textBlack,
-                      unselectedLabelColor: MyColors.grey153,
+                      labelColor:widget.selectedLabelColor?? MyColors.textBlack,
+                      unselectedLabelColor:widget.unSelectedLabelColor?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                     ),

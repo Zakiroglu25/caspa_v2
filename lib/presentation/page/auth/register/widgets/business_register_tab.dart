@@ -4,17 +4,15 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 
-import 'caspa_drop_down.dart';
-import 'drop_down_male.dart';
 
-class BusinessRegisterPage extends StatefulWidget {
-  const BusinessRegisterPage({Key? key}) : super(key: key);
+class BusinessRegisterTab extends StatefulWidget {
+  const BusinessRegisterTab({Key? key}) : super(key: key);
 
   @override
-  _BusinessRegisterPageState createState() => _BusinessRegisterPageState();
+  _BusinessRegisterTabState createState() => _BusinessRegisterTabState();
 }
 
-class _BusinessRegisterPageState extends State<BusinessRegisterPage> {
+class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
   final TextEditingController _businessName = TextEditingController();
   final TextEditingController _voen = TextEditingController();
   final TextEditingController _businessPersonalName = TextEditingController();

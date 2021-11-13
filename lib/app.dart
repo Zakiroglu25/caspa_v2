@@ -21,51 +21,47 @@ import 'presentation/page/package_details_page/in_product_page.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
-
-
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: () => MaterialApp(
-          color: Colors.orange,
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-              fontFamily: 'CoHeadline',
-              scaffoldBackgroundColor: MyColors.white),
-          builder: (context, widget) {
-            return ScrollConfiguration(
-                behavior: ScrollBehaviorModified(), child: widget!);
-          },
-          home:
-              //MediaPage()
-               //SplashPage(),
-               //RegisterPage(),
-            //   LoginPage(),
-          //   PackageDetailsPage(name: "Kitabacanan",)
-        LandingPage()
+        color: Colors.orange,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            fontFamily: 'CoHeadline', scaffoldBackgroundColor: MyColors.white),
+        builder: (context, widget) {
+          return ScrollConfiguration(
+              behavior: ScrollBehaviorModified(), child: widget!);
+        },
+        home:
+            //MediaPage()
+            RegisterPage(),
+        //RegisterPage(),
+        //   LoginPage(),
+        //   PackageDetailsPage(name: "Kitabacanan",)
+        // LandingPage()
         // Example08()
-           // HomePage()
-          //  BlocProvider(
-          //
-          //
-          // create: (context) => ForgotPassCubit(),
-          //  child: ForgetPasswordPage())
+        // HomePage()
+        //  BlocProvider(
+        //
+        //
+        // create: (context) => ForgotPassCubit(),
+        //  child: ForgetPasswordPage())
 //          SilverAppBarExample(),
 //           BlocProvider(
 //           create: (context)=>LoginCubit()
 //           ,child: LoginPage())
-          //SplashPage()
-          //CupertinoStoreHomePage()
-          //CircularHomePage()
-          ),
+        //SplashPage()
+        //CupertinoStoreHomePage()
+        //CircularHomePage()
+      ),
     );
   }
 }
 //
-
 
 class Example08 extends StatelessWidget {
   @override
@@ -80,14 +76,11 @@ class Example08 extends StatelessWidget {
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
         itemBuilder: (context, index) => Container(
-          height: 100*(index%2)+20,
+          height: 100 * (index % 2) + 20,
           color: Colors.orange,
-
         ),
         staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
       ),
     );
   }
 }
-
-

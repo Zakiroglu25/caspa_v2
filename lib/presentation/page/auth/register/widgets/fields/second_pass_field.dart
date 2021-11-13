@@ -1,33 +1,42 @@
+import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
+import 'package:caspa_v2/widget/icons/invisible_icon.dart';
+import 'package:caspa_v2/widget/icons/visible_icon.dart';
+import 'package:flutter/material.dart';
+
+//class SecondPassFieldForgot extends StatelessWidget {
+
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
-import 'package:caspa_v2/widget/icons/invisible_icon.dart';
-import 'package:caspa_v2/widget/icons/visible_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPassFieldForgot extends StatefulWidget {
+class SecondPassFieldRegister extends StatefulWidget {
   final controller;
 
-  MainPassFieldForgot({this.controller});
+  SecondPassFieldRegister({this.controller});
 
   @override
-  State<MainPassFieldForgot> createState() => _MainPassFieldForgotState();
+  State<SecondPassFieldRegister> createState() => _SecondPassFieldRegisterState();
 }
 
-class _MainPassFieldForgotState extends State<MainPassFieldForgot> {
+class _SecondPassFieldRegisterState extends State<SecondPassFieldRegister> {
   bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
-      stream: BlocProvider.of<ForgotPassCubit>(context).passMainStream,
+      stream: BlocProvider.of<RegisterCubit>(context).passSecondStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.new_pass,
+          title: MyText.password,
           maxLines: 1,
-          hint: MyText.enter_new_pass,
+          hint: MyText.enter_new_pass_again,
+          upperCase: false,
+          textInputType: TextInputType.phone,
+          textCapitalization: TextCapitalization.none,
+          obscure: obscure,
           suffixIcon: Material(
             color: Colors.transparent,
             child: GestureDetector(
@@ -39,15 +48,11 @@ class _MainPassFieldForgotState extends State<MainPassFieldForgot> {
               },
             ),
           ),
-          upperCase: false,
-          obscure: obscure,
-          textInputType: TextInputType.phone,
-          textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          controller: widget.controller,
+          //controller: widget.controller,
           onChanged: (value) =>
-              BlocProvider.of<ForgotPassCubit>(context).updateMainPass(value),
+              BlocProvider.of<RegisterCubit>(context).updateSecondPass(value),
         );
       },
     );

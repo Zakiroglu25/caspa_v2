@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/icons/invisible_icon.dart';
@@ -7,22 +8,22 @@ import 'package:caspa_v2/widget/icons/visible_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPassFieldForgot extends StatefulWidget {
+class MainPassFieldRegister extends StatefulWidget {
   final controller;
 
-  MainPassFieldForgot({this.controller});
+  MainPassFieldRegister({this.controller});
 
   @override
-  State<MainPassFieldForgot> createState() => _MainPassFieldForgotState();
+  State<MainPassFieldRegister> createState() => _MainPassFieldRegisterState();
 }
 
-class _MainPassFieldForgotState extends State<MainPassFieldForgot> {
+class _MainPassFieldRegisterState extends State<MainPassFieldRegister> {
   bool obscure = true;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
-      stream: BlocProvider.of<ForgotPassCubit>(context).passMainStream,
+      stream: BlocProvider.of<RegisterCubit>(context).passMainStream,
       builder: (context, snapshot) {
         return CaspaField(
           title: MyText.new_pass,
@@ -45,9 +46,9 @@ class _MainPassFieldForgotState extends State<MainPassFieldForgot> {
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          controller: widget.controller,
+         // controller: widget.controller,
           onChanged: (value) =>
-              BlocProvider.of<ForgotPassCubit>(context).updateMainPass(value),
+              BlocProvider.of<RegisterCubit>(context).updateMainPass(value),
         );
       },
     );

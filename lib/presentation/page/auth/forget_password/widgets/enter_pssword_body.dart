@@ -23,9 +23,9 @@ class EnterPasswordBody extends StatelessWidget {
           MySizedBox.h16,
           ForgotSecondText(MyText.your_pass_reseted),
           MySizedBox.h16,
-          MainPassFieldForgot(mainPassController),
+          MainPassFieldForgot(controller:mainPassController),
           MySizedBox.h8,
-          SecondPassFieldForgot(secondPassController),
+          SecondPassFieldForgot(controller:secondPassController),
         ],
       ),
     );

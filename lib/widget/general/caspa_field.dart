@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/formatter/lower_case_formatter.dart';
 import 'package:caspa_v2/util/formatter/upper_case_formatter.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CaspaField extends StatelessWidget {
@@ -18,10 +19,13 @@ class CaspaField extends StatelessWidget {
   String? infoMessage;
   int? maxLenght;
   int? maxLines;
+  double? topMargin;
   TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
   bool? upperCase;
+  List<TextInputFormatter>? formatters;
+
 
   ValueChanged<String>? onChanged;
   Function? onTap;
@@ -37,10 +41,12 @@ class CaspaField extends StatelessWidget {
       this.label,
       this.hint,
       this.maxLenght,
+      this.topMargin,
       this.maxLines,
       this.obscure,
       this.readOnly,
       this.upperCase,
+      this.formatters,
       this.suffixIcon,
       this.title,
       this.infoMessage,
@@ -56,6 +62,8 @@ class CaspaField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+
+       // SizedBox(height:topMargin?? 6,),
         Text(
           title ?? "",
           style: TextStyle(
@@ -75,19 +83,22 @@ class CaspaField extends StatelessWidget {
                 obscureText: obscure ?? false,
                 maxLength: maxLenght,
                 maxLines: maxLines ?? null,
+
                 onChanged: onChanged,
                 readOnly: readOnly ?? false,
                 expands: maxLines != null ? false : true,
-                onTap: onTap?.call(),
+                onTap: ()=>onTap?.call(),
                 keyboardType: textInputType ?? TextInputType.text,
                 textCapitalization:
                     textCapitalization ?? TextCapitalization.sentences,
                 inputFormatters: [
                   (upperCase ?? true) == true
                       ? UpperCaseFormatter()
-                      : LowerCaseInputFormatter()
+                      : LowerCaseInputFormatter(),
+                  ...?formatters
                 ],
                 decoration: InputDecoration(
+                  counterText: '',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide(
@@ -97,6 +108,7 @@ class CaspaField extends StatelessWidget {
                   ),
                   hintText: hint ?? "",
                   filled: true,
+                  prefixIcon: prefixIcon,
                   fillColor: MyColors.mainGrey,
                   contentPadding:
                        EdgeInsets.only(left: 14.0, bottom: 6.0, top: 8.0,

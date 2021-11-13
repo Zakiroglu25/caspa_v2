@@ -1,4 +1,5 @@
-import 'package:caspa_v2/infrastructure/models/response/tarif_response_model.dart';
+
+import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 
 abstract class TarifState {}
 

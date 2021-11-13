@@ -13,9 +13,9 @@ Future<void> init() async {
 //  print("--------------------------------------------------");
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarBrightness: Brightness.light,
-    systemNavigationBarColor:MyColors.mainColor,
-    statusBarColor: MyColors.mainColor, // status bar color
+    statusBarBrightness: Brightness.dark,
+    systemNavigationBarColor:MyColors.white,
+    statusBarColor: MyColors.white, // status bar color
   ));
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);

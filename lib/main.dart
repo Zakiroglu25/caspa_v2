@@ -8,8 +8,7 @@ import 'infrastructure/configs/init.dart';
 
 void main() {
   init();
-  SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor:  MyColors.mainColor));
+
   runApp(App());
 }
 

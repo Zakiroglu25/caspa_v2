@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SecondPassFieldForgot extends StatefulWidget {
-  final codeController;
+  final controller;
 
-  SecondPassFieldForgot(this.codeController);
+  SecondPassFieldForgot({this.controller});
 
   @override
   State<SecondPassFieldForgot> createState() => _SecondPassFieldForgotState();
@@ -49,7 +49,7 @@ class _SecondPassFieldForgotState extends State<SecondPassFieldForgot> {
           ),
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          controller: widget.codeController,
+          controller: widget.controller,
           onChanged: (value) =>
               BlocProvider.of<ForgotPassCubit>(context).updateSecondPass(value),
         );

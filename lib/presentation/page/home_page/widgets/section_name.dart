@@ -1,4 +1,5 @@
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SectionName extends StatelessWidget {
@@ -14,8 +15,7 @@ class SectionName extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: hP??0,vertical: vP??0),
       child: Text(
         title!,
-        style: TextStyle(
-            color: MyColors.textBlack, fontSize: 16, fontWeight: FontWeight.w600),
+        style: UITextStyle.tW600Black,
       ),
     );
   }

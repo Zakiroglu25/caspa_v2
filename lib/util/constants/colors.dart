@@ -56,5 +56,8 @@ class MyColors {
   static const Color statusCheck = Color(0xFFEEF6EB);
   static const Color statusWay = Color(0xFFFEF6E6);
   static const Color statusError = Color.fromRGBO(211, 41, 45, 0.1);
+  ///kuryer package selected color
+  static const Color mainOpacity =Color.fromRGBO(241, 241, 249,1);
+
 
 }

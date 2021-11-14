@@ -1,3 +1,5 @@
+import 'package:caspa_v2/presentation/page/home_page/widgets/news_details_page.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +18,8 @@ class NewsCard extends StatelessWidget {
       splashColor: Colors.transparent,
       radius: 12,
       onTap: () {
-        launch(url!);
+        Go.to(context, NewsDetails());
+       // launch(url!);
       },
       child: Container(
         height: 94,

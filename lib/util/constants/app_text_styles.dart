@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'colors.dart';
+
 abstract class AppTextStyles {
   static const coHead600 = TextStyle(
     fontFamily: 'CoHeadline',
@@ -28,10 +30,19 @@ abstract class AppTextStyles {
     fontFamily: 'San Francisco',
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.normal,
-  ); static const sanF500 = TextStyle(
+  );
+  static const sanF400Grey = TextStyle(
+    fontFamily: 'San Francisco',
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    color: MyColors.grey153
+  );
+
+  static const sanF500 = TextStyle(
     fontFamily: 'San Francisco',
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
+
   ); static const sanF600 = TextStyle(
     fontFamily: 'San Francisco',
     fontWeight: FontWeight.w600,

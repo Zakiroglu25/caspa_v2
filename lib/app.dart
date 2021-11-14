@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import 'presentation/page/landing_page/landing_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
       designSize: Size(375, 812),
       builder: () =>
           MaterialApp(
-            color: Colors.orange,
+            //color: Colors.orange,
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
@@ -28,14 +29,14 @@ class App extends StatelessWidget {
             },
             home:
             //MediaPage()
-            BlocProvider(
-               create: (context) => RegisterCubit(),
-              child: RegisterPage(),
-            ),
+            // BlocProvider(
+            //    create: (context) => RegisterCubit(),
+            //   child: RegisterPage(),
+            // ),
             //RegisterPage(),
             //   LoginPage(),
             //   PackageDetailsPage(name: "Kitabacanan",)
-            // LandingPage()
+            LandingPage()
             // Example08()
             // HomePage()
             //  BlocProvider(

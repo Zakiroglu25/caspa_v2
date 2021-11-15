@@ -19,21 +19,19 @@ class EnterMailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Column(
-            children: [
-              MySizedBox.h30,
-              ForgotMainText(MyText.are_you_forgot_pass),
-              MySizedBox.h16,
-              ForgotSecondText(MyText.we_will_send_new_pass),
-              MySizedBox.h16,
-              EmailFieldForgot(emailController),
-            ],
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        Column(
+          children: [
+            MySizedBox.h30,
+            ForgotMainText(MyText.are_you_forgot_pass),
+            MySizedBox.h16,
+            ForgotSecondText(MyText.we_will_send_new_pass),
+            MySizedBox.h16,
+            EmailFieldForgot(emailController),
+          ],
+        ),
+      ],
     );
   }
 }

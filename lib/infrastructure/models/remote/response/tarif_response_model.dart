@@ -14,8 +14,8 @@ class TariffData {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.tariffList != null) {
-      data['data'] = this.tariffList!.map((v) => v.toJson()).toList();
+    if (tariffList != null) {
+      data['data'] = tariffList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -38,9 +38,9 @@ class Tariff {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['price'] = this.price;
-    data['description'] = this.description;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['price'] = price;
+    data['description'] = description;
     return data;
   }
 

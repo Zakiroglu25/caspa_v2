@@ -87,9 +87,9 @@ class _KuryerPageState extends State<KuryerPage> {
                 MySizedBox.h24,
                 SectionName(title: "Çatdırılma məlumatları"),
                 MySizedBox.h16,
-                CaspaTextFieldUnder("Əlaqə nömrəsi"),
                 CaspaField(
                   hint: '+994 ... .. ..',
+                  title: 'Nomre',
                 ),
                 CaspaTextFieldUnder("Rayon"),
                 CaspaField(

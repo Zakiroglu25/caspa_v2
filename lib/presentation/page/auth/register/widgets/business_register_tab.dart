@@ -4,7 +4,6 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 
-
 class BusinessRegisterTab extends StatefulWidget {
   const BusinessRegisterTab({Key? key}) : super(key: key);
 
@@ -16,12 +15,14 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
   final TextEditingController _businessName = TextEditingController();
   final TextEditingController _voen = TextEditingController();
   final TextEditingController _businessPersonalName = TextEditingController();
-  final TextEditingController _businessPersonalSurName = TextEditingController();
+  final TextEditingController _businessPersonalSurName =
+      TextEditingController();
   final TextEditingController _businessAddress = TextEditingController();
   final TextEditingController _businessEmail = TextEditingController();
   final TextEditingController _businessNumber = TextEditingController();
   final TextEditingController _businessPassword = TextEditingController();
-  final TextEditingController _businessConfrimPassword = TextEditingController();
+  final TextEditingController _businessConfrimPassword =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,37 +51,35 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
             hint: 'VÖEN',
             controller: _businessEmail,
           ),
-          CaspaTextFieldUnder("Ünvan"),
           CaspaField(
+            title: "Ünvan",
             hint: 'Ünvan',
             controller: _businessAddress,
           ),
-          CaspaTextFieldUnder("Email"),
           CaspaField(
+            title: "Email",
             hint: 'Email',
             controller: _businessEmail,
             textInputType: TextInputType.emailAddress,
-
           ),
-          CaspaTextFieldUnder("Telefon"),
           CaspaField(
+            title: 'Telefon',
             hint: 'Telefon',
             controller: _businessNumber,
             textInputType: TextInputType.number,
           ),
-          CaspaTextFieldUnder("Şifrə"),
           CaspaField(
+            title: 'Şifrə',
             hint: 'Şifrə',
             controller: _businessPassword,
             textInputType: TextInputType.visiblePassword,
           ),
-          CaspaTextFieldUnder("Şifrə təsdiqlə"),
           CaspaField(
+            title: 'Şifrəni təsdiqlə',
             hint: 'Şifrəni təsdiqlə',
             controller: _businessConfrimPassword,
             textInputType: TextInputType.visiblePassword,
           ),
-
           MySizedBox.h30,
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16),
@@ -101,7 +100,6 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
             ),
           ),
           MySizedBox.h30,
-
         ],
       ),
     );

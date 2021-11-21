@@ -26,11 +26,11 @@ class CaspaField extends StatelessWidget {
   bool? upperCase;
   List<TextInputFormatter>? formatters;
 
-
   ValueChanged<String>? onChanged;
   Function? onTap;
   Widget? prefixIcon;
   Widget? suffixIcon;
+  String? suffixText;
 
   //String tip
 
@@ -55,6 +55,7 @@ class CaspaField extends StatelessWidget {
       this.onChanged,
       this.onTap,
       this.prefixIcon,
+      this.suffixText,
       this.textInputType});
 
   @override
@@ -62,8 +63,7 @@ class CaspaField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-
-       // SizedBox(height:topMargin?? 6,),
+        // SizedBox(height:topMargin?? 6,),
         Text(
           title ?? "",
           style: TextStyle(
@@ -83,11 +83,10 @@ class CaspaField extends StatelessWidget {
                 obscureText: obscure ?? false,
                 maxLength: maxLenght,
                 maxLines: maxLines ?? null,
-
                 onChanged: onChanged,
                 readOnly: readOnly ?? false,
                 expands: maxLines != null ? false : true,
-                onTap: ()=>onTap?.call(),
+                onTap: () => onTap?.call(),
                 keyboardType: textInputType ?? TextInputType.text,
                 textCapitalization:
                     textCapitalization ?? TextCapitalization.sentences,
@@ -107,12 +106,15 @@ class CaspaField extends StatelessWidget {
                     ),
                   ),
                   hintText: hint ?? "",
+                  suffixText: suffixText ?? "",
                   filled: true,
                   prefixIcon: prefixIcon,
                   fillColor: MyColors.mainGrey,
-                  contentPadding:
-                       EdgeInsets.only(left: 14.0, bottom: 6.0, top: 8.0,
-                      right: (suffixIcon!=null) ? 40 : 0),
+                  contentPadding: EdgeInsets.only(
+                      left: 14.0,
+                      bottom: 6.0,
+                      top: 8.0,
+                      right: (suffixIcon != null) ? 40 : 0),
                 ),
               ),
             ),
@@ -143,11 +145,12 @@ class CaspaField extends StatelessWidget {
           child: FadeIn(
             key: Key("b"),
             child: Text(
-              errorMessage??"",
+              errorMessage ?? "",
               style: AppTextStyles.sanF400.copyWith(color: MyColors.errorRED),
             ),
           ),
-          elseChild: FadeIn(key: Key("a"),
+          elseChild: FadeIn(
+            key: Key("a"),
             child: Text(
               (infoMessage ?? ""),
               style: AppTextStyles.sanF400.copyWith(color: MyColors.orange),

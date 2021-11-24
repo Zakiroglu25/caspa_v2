@@ -1,7 +1,6 @@
 import 'package:caspa_v2/presentation/page/package_page/widget/package_waiting_page.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/elements/package_box.dart';
 import 'package:caspa_v2/widget/elements/package_box_home.dart';
 import 'package:flutter/material.dart';

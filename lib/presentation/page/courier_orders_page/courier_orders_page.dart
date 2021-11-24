@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_unicorn.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -10,30 +11,21 @@ class CourierOrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(
+    return Scaffold(
+        body: SafeArea(
       child: Container(
         color: MyColors.backMainColor,
         child: ListView(
           padding: Paddings.paddingH16,
           children: [
-
             MySizedBox.h20,
-            UnicornOutlineButton(
-              strokeWidth: 1.5,
-              radius: 16,
-              gradient: LinearGradient(colors: [MyColors.gradientBlue,MyColors.gradientCyan,MyColors.gradientRed,MyColors.gradientOrange,]),
-              child: Column(
-                children: [
-                  ProductPropertyV(h: 5,name: "Mağaza dfdfdf fdfds fsdfd dsdffd sdfffd fggdgfdfsdff", value: "Massimo Dutti"),
-                  ProductPropertyV(h: 5,name: "Mağaza dfdfdf fdfds fsdfd dsdffd sdfffd fggdgfdfsdff", value: "Massimo Dutti"),
-                  ProductPropertyV(h: 5,name: "Mağaza dfdfdf fdfds fsdfd dsdffd sdfffd fggdgfdfsdff", value: "Massimo Dutti"),
-                  ProductPropertyV(h: 5,name: "Mağaza dfdfdf fdfds fsdfd dsdffd sdfffd fggdgfdfsdff", value: "Massimo Dutti"),
-
-                ],
-              ),
-              onPressed: () {},
+            OrderUnicorn(
+              sellerName: "Trendyol",
+              trackingCode: '545678',
+              statusId: 1,
+              deliveryPrice: '45.89 AZN',
+              price: '87.0 AZN',
             ),
-
           ],
         ),
       ),

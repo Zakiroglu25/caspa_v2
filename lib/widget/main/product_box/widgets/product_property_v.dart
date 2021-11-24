@@ -1,8 +1,6 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/extensions/smart.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,16 +10,22 @@ class ProductPropertyV extends StatelessWidget {
   final String? name;
   final dynamic? value;
   final double? h;
+  final Color? mainColor;
+  final Color? titleColor;
+
 
   final int? statusId;
 
   ProductPropertyV(
-      {required this.name, required this.value, this.h, this.statusId});
+      {required this.name, required this.value, this.h, this.statusId,this.mainColor,this.titleColor});
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Container(
-      width: MediaQuery.of(context).size.width-50,
+      //width: MediaQuery.of(context).size.width-50,
       child: DefaultTextStyle(
         style: TextStyle(fontSize: 16.sm),
         child: Padding(
@@ -31,15 +35,18 @@ class ProductPropertyV extends StatelessWidget {
             children: [
               Text(
                 name! + ": ",
-                style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+                style: AppTextStyles.sanF400.copyWith(color: titleColor??MyColors.grey153,fontSize: 14.sm,
+                ),
                 overflow: TextOverflow.ellipsis,
+
               ),
+              MySizedBox.h2,
               Row(
                 children: [
                   PropertyIndicator(statusId),
                   Text(
                     "$value",
-                    style: AppTextStyles.sanF400.copyWith(color: MyColors.black),
+                    style: AppTextStyles.sanF400.copyWith(color: mainColor??MyColors.black),
                   ),
                 ],
               )

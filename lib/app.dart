@@ -10,6 +10,7 @@ import 'infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'infrastructure/cubits/login/login_cubit.dart';
 import 'presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'presentation/page/auth/login_page/login_page.dart';
+import 'presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'presentation/page/landing_page/landing_page.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
@@ -37,7 +38,7 @@ class App extends StatelessWidget {
         //RegisterPage(),
         //]]   LoginPage(),
         //   PackageDetailsPage(name: "Kitabacanan",)
-         LandingPage()
+        CourierOrdersPage()
         // Example08()
         // HomePage()
         //  BlocProvider(

@@ -46,7 +46,12 @@ class MyColors {
 
 
   ///GridViewList
+  static const Color gradientBlue = Color(0xFF5D5FEF);
+  static const Color gradientCyan = Color(0xFF27E3D8);
+  static const Color gradientRed = Color(0xFFE32E2E);
+  static const Color gradientOrange = Color(0xFFFEB201);
   static const Color grid1 = Color(0xFFFBE4E4);
+
   static const Color grid2 = Color(0xFFEBEEFD);
   static const Color grid3 = Color(0xFFFFF6E1);
   static const Color grid4 = Color(0xFFEFFDFC);

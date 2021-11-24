@@ -21,6 +21,7 @@ class MySizedBox {
   static const SizedBox h26 = SizedBox(height: 26);
 
   static const SizedBox h30 = SizedBox(height: 30);
+  static const SizedBox h32 = SizedBox(height: 32);
   static const SizedBox h35 = SizedBox(height: 35);
   static const SizedBox h40 = SizedBox(height: 49);
   static const SizedBox h48 = SizedBox(height: 48);

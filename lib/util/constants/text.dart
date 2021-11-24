@@ -17,6 +17,8 @@ class MyText {
   static const String homePageText = "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
   ///kuryer page
   static const String kuryerTxt = "Xahiş edirik sadəcə yerləşdiyiniz ünvanı qeyd edəsiniz, və sizə gətiriləcək bağlamaları.️";
+  ///linkpage
+  static const String linkTxt = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
 
 
 

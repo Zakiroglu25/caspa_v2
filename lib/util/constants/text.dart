@@ -19,6 +19,9 @@ class MyText {
   static const String kuryerTxt = "Xahiş edirik sadəcə yerləşdiyiniz ünvanı qeyd edəsiniz, və sizə gətiriləcək bağlamaları.️";
   ///linkpage
   static const String linkTxt = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+  ///otherpage
+  static const String otherPage = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+  static const String otherShop = "Yeni! Sifarişləri bizim mağaza \nbölməsindən sifariş edə \nilərsiniz. Artıq əlavə tətbiqlərə \ngərək qalmadı 😎 ";
 
 
 

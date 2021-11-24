@@ -10,6 +10,7 @@ class Assets {
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
   static const String news3 = "assets/png/news3.png";
+  static const String linkGirl = "assets/png/linkgirl.png";
 
 
   //--svg
@@ -31,6 +32,7 @@ class Assets {
   static const String svgEyeOff="assets/svg/eye-off.svg";
   static const String svgEyeOn="assets/svg/eye-on.svg";
   static const String menuAppbar="assets/svg/menu.svg";
+  static const String trash="assets/svg/trash.svg";
 
   //--anim
 

@@ -20,27 +20,31 @@ class ProductPropertyV extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: TextStyle(fontSize: 16.sm),
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: h ?? 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              name! + ": ",
-              style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-            ),
-            Row(
-              children: [
-                PropertyIndicator(statusId),
-                Text(
-                  "$value",
-                  style: AppTextStyles.sanF400.copyWith(color: MyColors.black),
-                ),
-              ],
-            )
-          ],
+    return Container(
+      width: MediaQuery.of(context).size.width-50,
+      child: DefaultTextStyle(
+        style: TextStyle(fontSize: 16.sm),
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: h ?? 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name! + ": ",
+                style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+                overflow: TextOverflow.ellipsis,
+              ),
+              Row(
+                children: [
+                  PropertyIndicator(statusId),
+                  Text(
+                    "$value",
+                    style: AppTextStyles.sanF400.copyWith(color: MyColors.black),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

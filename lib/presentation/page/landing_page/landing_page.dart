@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
+import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -27,7 +28,7 @@ class _LandingPageState extends State<LandingPage> {
     PackagePage(),
     NewOrderPage(),
     AdressPage(),
-    PackagePage(),
+    OtherPage(),
   ];
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 

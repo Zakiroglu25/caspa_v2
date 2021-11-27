@@ -60,7 +60,7 @@ class LinkPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SectionName(title: "Məhsul 1"),
-                  InkWell(onTap: () {}, child: SvgPicture.asset(Assets.trash))
+                  InkWell(onTap: () {}, child: SvgPicture.asset(Assets.svgTrash))
                 ],
               ),
               MySizedBox.h16,

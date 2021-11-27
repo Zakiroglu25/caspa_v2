@@ -6,6 +6,7 @@ class Assets {
   static const String pngGlobus = "assets/png/globuspng.png";
   static const String pngBox = "assets/png/boxpng.png";
   static const String pngbox = "assets/png/boxpng.png";
+  static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String homeDino = "assets/png/homeDinopng.png";
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
@@ -34,8 +35,8 @@ class Assets {
   static const String svgOther="assets/svg/other.svg";
   static const String svgEyeOff="assets/svg/eye-off.svg";
   static const String svgEyeOn="assets/svg/eye-on.svg";
-  static const String menuAppbar="assets/svg/menu.svg";
-  static const String trash="assets/svg/trash.svg";
+  static const String svgMenuAppbar="assets/svg/menu.svg";
+  static const String svgTrash="assets/svg/trash.svg";
 
   //--anim
 

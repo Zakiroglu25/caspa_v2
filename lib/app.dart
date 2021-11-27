@@ -12,6 +12,7 @@ import 'presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'presentation/page/auth/login_page/login_page.dart';
 import 'presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'presentation/page/landing_page/landing_page.dart';
+import 'util/delegate/pager.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
 class App extends StatelessWidget {
@@ -41,7 +42,8 @@ class App extends StatelessWidget {
        // CourierOrdersPage()
         // Example08()
         // HomePage()
-        LandingPage()
+      //  LandingPage()
+        Pager.order_success
         //  BlocProvider(
         // create: (context) => ForgotPassCubit(),
         //  child: ForgetPasswordPage())

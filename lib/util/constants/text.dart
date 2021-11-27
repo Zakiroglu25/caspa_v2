@@ -54,6 +54,21 @@ class MyText {
   //general
   static const String back = "Geri";
   static const String pay = "Ödəniş et";
+  static const String not_pay = "Ödənilməyib";
+  static const String confirm = "Təsdiq";
+  static const String phone_number = "Telefon nömrəsi";
+  static const String note = "Qeyd";
+  static const String confirming = "Təsdiq edirəm";
+  static const String total_price = "Toplam məbləğ";
+  static const String delivery_adress = "Çatdırılma ünvanı";
+  static const String general_info = "Ümumi məlumat";
+
+
+  //order success
+  static const String congrats = "Təbriklər 🎉";
+  static const String orderOnTheWay = "Bağlama(lar) yoldadır";
+  static const String orderOnTheWayInfo = "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
+  static const String goToHomePage = "Ana səhifəyə keç";
 
 
 }

@@ -6,8 +6,9 @@ class SectionName extends StatelessWidget {
   String? title;
   double? hP;
   double? vP;
+  double? size;
 
-  SectionName({@required this.title,this.vP,this.hP});
+  SectionName({@required this.title,this.vP,this.hP,this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class SectionName extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: hP??0,vertical: vP??0),
       child: Text(
         title!,
-        style: UITextStyle.tW600Black,
+        style: UITextStyle.tW600Black.copyWith(fontSize: size??16),
       ),
     );
   }

@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
@@ -101,80 +102,77 @@ class _KuryerPageState extends State<KuryerPage> {
                 ),
                 SectionName(title: "Bağlamanı seçin"),
                 MySizedBox.h20,
-                Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        child: ListView.builder(
-                          itemCount: tools.length,
-                          itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  selectedTool = index;
-                                });
-                              },
-                              child: FadeInUp(
-                                delay: Duration(milliseconds: index * 100),
-                                child: AnimatedContainer(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 16),
-                                  margin: EdgeInsets.only(bottom: 20),
-                                  duration: Duration(milliseconds: 200),
-                                  decoration: BoxDecoration(
-                                    color: selectedTool == index
-                                        ? MyColors.mainOpacity
-                                        : Colors.white,
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                        color: selectedTool == index
-                                            ? MyColors.mainColor
-                                            : MyColors.grey153,
-                                        width: selectedTool == index ? 2 : 1),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            //ySizedBox.h16,
-                                            Text(tools[index]['name'],
-                                                style: AppTextStyles.sanF600
-                                                    .copyWith(fontSize: 16)),
-                                            MySizedBox.h4,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height/2,
+                      child: ListView.builder(
+                        itemCount: tools.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                selectedTool = index;
+                              });
+                            },
+                            child: FadeInUp(
+                              delay: Duration(milliseconds: index * 100),
+                              child: AnimatedContainer(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 16),
+                                margin: EdgeInsets.only(bottom: 20),
+                                duration: Duration(milliseconds: 200),
+                                decoration: BoxDecoration(
+                                  color: selectedTool == index
+                                      ? MyColors.mainOpacity
+                                      : Colors.white,
+                                  borderRadius: BorderRadius.circular(12),
+                                  border: Border.all(
+                                      color: selectedTool == index
+                                          ? MyColors.mainColor
+                                          : MyColors.grey153,
+                                      width: selectedTool == index ? 2 : 1),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          //ySizedBox.h16,
+                                          Text(tools[index]['name'],
+                                              style: AppTextStyles.sanF600
+                                                  .copyWith(fontSize: 16)),
+                                          MySizedBox.h4,
 
-                                            Text(tools[index]['date'],
-                                                style:
-                                                    AppTextStyles.sanF400Grey),
-                                            // MySizedBox.h16,
-                                          ],
-                                        ),
+                                          Text(tools[index]['date'],
+                                              style: AppTextStyles.sanF400Grey),
+                                          // MySizedBox.h16,
+                                        ],
                                       ),
-                                      Text("7 264.00 TL",
-                                          style: AppTextStyles.sanF600
-                                              .copyWith(fontSize: 16)),
-                                      MySizedBox.w20,
-                                      Icon(
-                                        Icons.circle,
-                                        color: selectedTool == index
-                                            ? MyColors.mainColor
-                                            : Colors.white,
-                                      ),
-
-                                    ],
-                                  ),
+                                    ),
+                                    Text("7 264.00 TL",
+                                        style: AppTextStyles.sanF600
+                                            .copyWith(fontSize: 16)),
+                                    MySizedBox.w20,
+                                    Icon(
+                                      Icons.circle,
+                                      color: selectedTool == index
+                                          ? MyColors.mainColor
+                                          : Colors.white,
+                                    ),
+                                  ],
                                 ),
                               ),
-                            );
-                          },
-                        ),
-                      )
-                    ],
-                  ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    CaspaButton()
+                  ],
                 ),
               ],
             ),

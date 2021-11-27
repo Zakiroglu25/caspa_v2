@@ -52,6 +52,8 @@ class MyText {
 
   //general
   static const String back = "Geri";
+  static const String pay = "Ödəniş et";
+
 
 }
 

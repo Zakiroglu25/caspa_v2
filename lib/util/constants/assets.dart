@@ -13,6 +13,7 @@ class Assets {
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
+  static const String posTerminal = "assets/png/payment.png";
 
 
   //--svg

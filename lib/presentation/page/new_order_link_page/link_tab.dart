@@ -1,6 +1,7 @@
 import 'package:caspa_v2/app.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/caspa_drop_down.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -8,6 +9,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -67,6 +69,7 @@ class LinkPage extends StatelessWidget {
                 hint: "Məhsulun linkini daxil edin",
               ),
               CaspaField(
+                textInputType: TextInputType.text,
                 title: "Məhsulun sayı",
                 hint: "Məhsulun sayı",
                 suffixText: "Ədəd   ",
@@ -75,6 +78,7 @@ class LinkPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CaspaField(
+                      textInputType: TextInputType.text,
                       title: "Qiymət",
                       hint: "Qiymət",
                     ),
@@ -122,6 +126,9 @@ class LinkPage extends StatelessWidget {
               ),
               //davametin yaninda toplam qiymet olacaq
               CaspaButton(
+                onTap: (){
+                  Go.to(context, NewOrderPaymentPage());
+                },
                 text: "Davam et",
               ),
               MySizedBox.h32,

@@ -1,27 +1,19 @@
-import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/physics.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
-import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import 'widgets/declare_tab.dart';
-import 'widgets/link_tab.dart';
 
 class NewOrderPage extends StatefulWidget {
   @override
   State<NewOrderPage> createState() => _NewOrderPageState();
 }
 
-class _NewOrderPageState extends State<NewOrderPage>{
-
-
+class _NewOrderPageState extends State<NewOrderPage> {
   @override
   void initState() {
     // initialise your tab controller here
@@ -73,7 +65,7 @@ class _NewOrderPageState extends State<NewOrderPage>{
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   Go.to(context, LinkPage());
                 },
                 child: Container(
@@ -92,7 +84,8 @@ class _NewOrderPageState extends State<NewOrderPage>{
                                 AppTextStyles.coHead600.copyWith(fontSize: 16)),
                         Text(
                           "Sizin əvəzinizə biz alırıq, yalız linki verməniz gərəkdi.",
-                          style: AppTextStyles.sanF400.copyWith(fontSize: 12,color: MyColors.grey153),
+                          style: AppTextStyles.sanF400
+                              .copyWith(fontSize: 12, color: MyColors.grey153),
                         )
                       ],
                     ),
@@ -115,7 +108,8 @@ class _NewOrderPageState extends State<NewOrderPage>{
                               AppTextStyles.coHead600.copyWith(fontSize: 16)),
                       Text(
                         "Məhsulu siz alırsız biz isə seçdiyiniz ünvana qədər çatdırırıq.",
-                        style: AppTextStyles.sanF400.copyWith(fontSize: 12,color: MyColors.grey153),
+                        style: AppTextStyles.sanF400
+                            .copyWith(fontSize: 12, color: MyColors.grey153),
                       )
                     ],
                   ),

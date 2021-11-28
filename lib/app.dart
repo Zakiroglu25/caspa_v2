@@ -41,7 +41,7 @@ class App extends StatelessWidget {
         // Example08()
         // HomePage()
       //  LandingPage()
-        Pager.splash
+        Pager.register
         //  BlocProvider(
         // create: (context) => ForgotPassCubit(),
         //  child: ForgetPasswordPage())

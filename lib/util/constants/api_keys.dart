@@ -13,7 +13,7 @@ class ApiKeys {
 
   //reg and login
   static final login = "/user/login";
-  static final register = "/user/register";
+  static final register = "$baseUrl/user/register";
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -48,7 +48,7 @@ class ApiKeys {
   }
 
 
-  static registrationBody({
+  static registrationBusinessBody({
     required String? name,
     required String? surname,
     required String? address,
@@ -73,6 +73,45 @@ class ApiKeys {
       "accept":"addd",
       "company_name":"addd",
       "tax_number":"addd"
+    };
+
+    aaaa(map.toString());
+    map.removeWhere(
+            (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+
+  static registrationPersonalBody({
+    required String? name,
+    required String? surname,
+    required String? address,
+    required String? email,
+    required String? password,
+    required String? password_confirmation,
+    required String? phone,
+    required String? accept,
+    required String? id_number,
+    required String? fin,
+    required String? birthday,
+    required String? gender,
+    required String? ware_house,
+
+  }) {
+    //
+    final map = {
+      "name":"esev.sv@gmail.com",
+      "surname":"salam12345",
+      "address":"addd",
+      "email":"addd",
+      "password":"addd",
+      "password_confirmation ":"addd",
+      "phone":"addd",
+      "accept":"addd",
+      "id_number":"addd",
+      "fin":"addd",
+      "birthday":"addd",
+      "gender":"addd",
+      "ware_house":"addd",
     };
 
     aaaa(map.toString());

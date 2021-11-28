@@ -93,12 +93,12 @@ class AuthProvider {
     required String? password,
     required String? password_confirmation,
     required String? phone,
-    required String? accept,
+    required int? accept,
     required String? id_number,
     required String? fin,
     required String? birthday,
     required String? gender,
-    required String? ware_house,
+    required int? ware_house,
   }) async {
     var api = ApiKeys.register;
     var url = Uri.parse(api);
@@ -121,6 +121,15 @@ class AuthProvider {
 
     final response =
     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+
+      bbbb("response personla register: :"+response.body);
+    if (response.statusCode == ResultKey.responseSuccess) {
+      var dataGelenCavabJSON = jsonDecode(response.body);
+      //print("addComment result: $dataGelenCavabJSON");
+      //addComment = AddComment.fromJson(dataGelenCavabJSON);
+    } else {
+      eeee("addComment result bad:  url: $url  ,  response: ${response.body}");
+    }
 
     // Response? response ;
     // // try {response= await DioX.client

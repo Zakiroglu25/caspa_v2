@@ -10,22 +10,38 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
-  void register(RegisterRequestModel body) async {
+  void registerBusiness(RegisterRequestModel body) async {
     emit(RegisterLoading());
-    // try {
-    //   final response = await AuthProvider.registrationBusiness(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
-    //   if (response.message == null) {
-    //     emit(RegisterSuccess(response.message!));
-    //   } else {
-    //     emit(RegisterFailed(response.message!));
-    //   }
-    // } on DioError catch (e) {
-    //   print(e.response!.data.toString());
-    //   emit(RegisterFailed(e.response!.data.toString()));
-    // } catch (e, s) {
-    //   emit(RegisterFailed("Errorlari doshuyecem"));
-    // }
+    try {
+      final response = await AuthProvider.registrationPersonal(name: uName.valueOrNull, surname: surName.valueOrNull, address: adress.valueOrNull, email: uEmail.valueOrNull, password: uPassMain.value, password_confirmation: uPassSecond.value, phone: phone.value, accept: 1,birthday: birthDate.value,fin: fin.value,id_number: idNumber.value,gender: gender.value,ware_house: 1);
+
+     bbbb("register bloc result: "+response.toString());
+      // if (response.message == null) {
+      //   emit(RegisterSuccess(response.message!));
+      // } else {
+      //   emit(RegisterFailed(response.message!));
+      // }
+    }  catch (e, s) {
+      emit(RegisterFailed("Errorlari doshuyecem"));
+    }
   }
+
+// void registerPersonal(RegisterRequestModel body) async {
+//     emit(RegisterLoading());
+//     try {
+//       final response = await AuthProvider.registrationBusiness(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
+//       if (response.message == null) {
+//         emit(RegisterSuccess(response.message!));
+//       } else {
+//         emit(RegisterFailed(response.message!));
+//       }
+//     } on DioError catch (e) {
+//       print(e.response!.data.toString());
+//       emit(RegisterFailed(e.response!.data.toString()));
+//     } catch (e, s) {
+//       emit(RegisterFailed("Errorlari doshuyecem"));
+//     }
+//   }
 
 
   //////VALUES///////////VALUES//////////VALUES/////////////VALUES///////////////////
@@ -44,6 +60,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isEmailIncorrect => (!uEmail.hasValue ||
@@ -63,6 +80,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uName.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isNameIncorrect =>
@@ -80,6 +98,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       surName.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isSurNameIncorrect =>
@@ -97,6 +116,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       phone.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isPhoneIncorrect =>
@@ -114,6 +134,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       adress.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isAdressIncorrect =>
@@ -131,6 +152,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       anbar.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isAnbarIncorrect =>
@@ -148,9 +170,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uPassMain.sink.add(value);
     }
+    isUserInfoValid();
   }
 
-  bool get isMainPassCorrect => (!uPassMain.hasValue ||
+  bool get isMainPassInCorrect => (!uPassMain.hasValue ||
       uPassMain.value == null ||
       uPassMain.value.isEmpty);
 
@@ -166,9 +189,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uPassSecond.sink.add(value);
     }
+    isUserInfoValid();
   }
 
-  bool get isSecondPassCorrect => (!uPassSecond.hasValue ||
+  bool get isSecondPassInCorrect => (!uPassSecond.hasValue ||
       uPassSecond.value == null ||
       uPassSecond.value.isEmpty||uPassSecond.value!=uPassMain.value);
 
@@ -185,6 +209,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       fin.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isFinIncorrect =>
@@ -202,6 +227,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       idNumber.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isIdNumberIncorrect =>
@@ -219,6 +245,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       gender.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isGenderIncorrect =>
@@ -236,6 +263,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       birthDate.sink.add(value);
     }
+    isUserInfoValid();
   }
 
   bool get isBirthDateIncorrect =>
@@ -256,6 +284,42 @@ class RegisterCubit extends Cubit<RegisterState> {
     anbar.close();
     phone.close();
     return super.close();
+  }
+  bool isUserInfoValid() {
+
+    bbbb("---- isNameIncorrect:  $isNameIncorrect");
+    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
+    bbbb("---- isFinIncorrect:  $isFinIncorrect");
+    bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
+    bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
+    bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
+    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
+
+    if (!isNameIncorrect &&
+        !isGenderIncorrect &&
+        !isSurNameIncorrect&&
+        !isBirthDateIncorrect &&
+        !isFinIncorrect &&
+        !isIdNumberIncorrect &&
+        !isMainPassInCorrect &&
+        //!isAnbarIncorrect &&
+        !isSecondPassInCorrect &&
+        // !isBirtdayIncorrect &&
+        !isGenderIncorrect &&
+        !isEmailIncorrect &&
+        !isPhoneIncorrect) {
+      emit(RegisterButtonActive());
+
+      bbbb("---- true");
+      return true;
+    } else {
+      bbbb("---- false");
+      return false;
+    }
   }
 
 }

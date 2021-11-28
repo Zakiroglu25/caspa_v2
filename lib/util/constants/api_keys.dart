@@ -89,12 +89,12 @@ class ApiKeys {
     required String? password,
     required String? password_confirmation,
     required String? phone,
-    required String? accept,
+    required int? accept,
     required String? id_number,
     required String? fin,
     required String? birthday,
     required String? gender,
-    required String? ware_house,
+    required int? ware_house,
 
   }) {
     //

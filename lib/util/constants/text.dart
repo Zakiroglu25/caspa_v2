@@ -70,6 +70,12 @@ class MyText {
   static const String orderOnTheWayInfo = "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
   static const String goToHomePage = "Ana səhifəyə keç";
 
+  //courier
+  static const String therIsYourData = " Sizin məlumatlarınız bizdə var 😊";
+  static const String deliveryInfo = "Çatdırılma məlumatları";
+  static const String selectOrder = "Bağlamanı seçin";
+  static const String goOn = "Davam et";
+
 
 }
 

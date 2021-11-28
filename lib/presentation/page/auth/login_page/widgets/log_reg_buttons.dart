@@ -6,6 +6,7 @@ import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +44,7 @@ class LogRegButtons extends StatelessWidget {
       // borderColor: MyColors.mainColor,
       onTap: () {
         //context.read<RegisterCubit>().register(context);
-        Go.to(context, RegisterPage());
+        Go.to(context, Pager.register);
       },
       text: "registration",
     );

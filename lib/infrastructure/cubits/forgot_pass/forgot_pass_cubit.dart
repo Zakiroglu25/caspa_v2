@@ -166,11 +166,11 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
         break;
       case 1:
         buttonText = MyText.send;
-        Snack.display(context: context, message: "kod duzgun daxil edildi");
+        //Snack.display(context: context, message: "kod duzgun daxil edildi");
         break;
       case 2:
         buttonText = MyText.ok;
-        Snack.display(context: context, message: "dirim dirim dirim");
+       // Snack.display(context: context, message: "dirim dirim dirim");
         break;
       case 3:
         break;

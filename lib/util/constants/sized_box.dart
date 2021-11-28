@@ -24,6 +24,7 @@ class MySizedBox {
   static const SizedBox h32 = SizedBox(height: 32);
   static const SizedBox h35 = SizedBox(height: 35);
   static const SizedBox h40 = SizedBox(height: 49);
+  static const SizedBox h45 = SizedBox(height: 45);
   static const SizedBox h48 = SizedBox(height: 48);
   static const SizedBox h50 = SizedBox(height: 50);
   static const SizedBox h55 = SizedBox(height: 55);
@@ -49,6 +50,7 @@ class MySizedBox {
   static const SizedBox w24 = SizedBox(width: 24);
   static const SizedBox w30 = SizedBox(width: 30);
   static const SizedBox w40 = SizedBox(width: 40);
+  static const SizedBox w45 = SizedBox(width: 45);
   static const SizedBox w48 = SizedBox(width: 48);
   static const SizedBox w50 = SizedBox(width: 50);
   static const SizedBox w60 = SizedBox(width: 60);

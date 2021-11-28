@@ -32,9 +32,7 @@ class App extends StatelessWidget {
         },
         home:
             //MediaPage()
-       //      BlocProvider(
-       //    create: (context) => RegisterCubit(),
-       //    child: RegisterPage(),
+       //     c
        // ),
         //RegisterPage(),
         //]]   LoginPage(),
@@ -43,7 +41,7 @@ class App extends StatelessWidget {
         // Example08()
         // HomePage()
       //  LandingPage()
-        Pager.order_success
+        Pager.splash
         //  BlocProvider(
         // create: (context) => ForgotPassCubit(),
         //  child: ForgetPasswordPage())

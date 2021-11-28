@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:rxdart/rxdart.dart';
@@ -10,23 +11,36 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
-  void registerBusiness(RegisterRequestModel body) async {
+  void registerPersonal() async {
     emit(RegisterLoading());
     try {
-      final response = await AuthProvider.registrationPersonal(name: uName.valueOrNull, surname: surName.valueOrNull, address: adress.valueOrNull, email: uEmail.valueOrNull, password: uPassMain.value, password_confirmation: uPassSecond.value, phone: phone.value, accept: 1,birthday: birthDate.value,fin: fin.value,id_number: idNumber.value,gender: gender.value,ware_house: 1);
+      final response = await AuthProvider.registrationPersonal(
+          name: uName.valueOrNull,
+          surname: surName.valueOrNull,
+          address: adress.valueOrNull,
+          email: uEmail.valueOrNull,
+          password: uPassMain.value,
+          password_confirmation: uPassSecond.value,
+          phone: phone.value,
+          accept: 1,
+          birthday: birthDate.value,
+          fin: fin.value,
+          id_number: idNumber.value,
+          gender: gender.value,
+          ware_house: 1);
 
-     bbbb("register bloc result: "+response.toString());
+      bbbb("register bloc result: " + response.toString());
       // if (response.message == null) {
       //   emit(RegisterSuccess(response.message!));
       // } else {
       //   emit(RegisterFailed(response.message!));
       // }
-    }  catch (e, s) {
+    } catch (e, s) {
       emit(RegisterFailed("Errorlari doshuyecem"));
     }
   }
 
-// void registerPersonal(RegisterRequestModel body) async {
+// void registerBusiness(RegisterRequestModel body) async {
 //     emit(RegisterLoading());
 //     try {
 //       final response = await AuthProvider.registrationBusiness(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
@@ -42,7 +56,6 @@ class RegisterCubit extends Cubit<RegisterState> {
 //       emit(RegisterFailed("Errorlari doshuyecem"));
 //     }
 //   }
-
 
   //////VALUES///////////VALUES//////////VALUES/////////////VALUES///////////////////
 
@@ -131,6 +144,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     if (value == null || value.isEmpty) {
       adress.value = '';
       adress.sink.addError("field_is_not_correct");
+    } else if (value.length < 10) {
+      adress.sink.addError(MyText.adress_minumum_10);
     } else {
       adress.sink.add(value);
     }
@@ -171,6 +186,10 @@ class RegisterCubit extends Cubit<RegisterState> {
       uPassMain.sink.add(value);
     }
     isUserInfoValid();
+    if (uPassSecond.hasValue && value != uPassSecond.value) {
+      uPassSecond.sink.addError(MyText.every_past_must_be_same);
+    } else
+      uPassSecond.sink.add(uPassSecond.value);
   }
 
   bool get isMainPassInCorrect => (!uPassMain.hasValue ||
@@ -186,6 +205,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     if (value == null || value.isEmpty) {
       uPassSecond.value = '';
       uPassSecond.sink.addError("fill_correctly");
+    } else if (value != uPassMain.value) {
+      uPassSecond.sink.addError(MyText.every_past_must_be_same);
     } else {
       uPassSecond.sink.add(value);
     }
@@ -194,8 +215,8 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   bool get isSecondPassInCorrect => (!uPassSecond.hasValue ||
       uPassSecond.value == null ||
-      uPassSecond.value.isEmpty||uPassSecond.value!=uPassMain.value);
-
+      uPassSecond.value.isEmpty ||
+      uPassSecond.value != uPassMain.value);
 
   //fin
   final BehaviorSubject<String> fin = BehaviorSubject<String>();
@@ -266,8 +287,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     isUserInfoValid();
   }
 
-  bool get isBirthDateIncorrect =>
-      (!birthDate.hasValue || birthDate.value == null || birthDate.value.isEmpty);
+  bool get isBirthDateIncorrect => (!birthDate.hasValue ||
+      birthDate.value == null ||
+      birthDate.value.isEmpty);
 
   @override
   Future<void> close() {
@@ -285,23 +307,23 @@ class RegisterCubit extends Cubit<RegisterState> {
     phone.close();
     return super.close();
   }
-  bool isUserInfoValid() {
 
-    bbbb("---- isNameIncorrect:  $isNameIncorrect");
-    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
-    bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
-    bbbb("---- isFinIncorrect:  $isFinIncorrect");
-    bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
-    bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
-    bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
-    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
-    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
+  bool isUserInfoValid() {
+    // bbbb("---- isNameIncorrect:  $isNameIncorrect");
+    // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    // bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
+    // bbbb("---- isFinIncorrect:  $isFinIncorrect");
+    // bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
+    // bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
+    // bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
+    // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
     if (!isNameIncorrect &&
         !isGenderIncorrect &&
-        !isSurNameIncorrect&&
+        !isSurNameIncorrect &&
         !isBirthDateIncorrect &&
         !isFinIncorrect &&
         !isIdNumberIncorrect &&
@@ -314,12 +336,11 @@ class RegisterCubit extends Cubit<RegisterState> {
         !isPhoneIncorrect) {
       emit(RegisterButtonActive());
 
-      bbbb("---- true");
+      //bbbb("---- true");
       return true;
     } else {
-      bbbb("---- false");
+      //bbbb("---- false");
       return false;
     }
   }
-
 }

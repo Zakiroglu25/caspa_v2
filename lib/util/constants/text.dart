@@ -34,6 +34,10 @@ class MyText {
   static const String forgot_pass = "forgot_pass";
   static const String registration = "registration";
 
+  //registration
+  static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";
+  static const String every_past_must_be_same = "Hər iki şifrə eyni olmalıdır";
+
 
   //forgot pass
   static const String are_you_forgot_pass = "Şifrəni unutmusan ?";

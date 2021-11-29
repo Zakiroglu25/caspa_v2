@@ -24,4 +24,7 @@ class Go {
       builder: (context) => page,
     ));
   }
+  static andRemove(BuildContext context, Widget page) async {
+    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(MaterialPageRoute(builder:(context)=>page), (route) => false);
+  }
 }

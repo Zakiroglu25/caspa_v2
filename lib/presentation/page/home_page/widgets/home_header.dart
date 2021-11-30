@@ -31,7 +31,7 @@ class HomeHeader extends StatelessWidget {
           SizedBox(
             width: 120,
             height: 120,
-            child: Image.asset(Assets.homeDino),
+            child: Image.asset(Assets.homeDino2),
           ),
           MySizedBox.h16,
           Text("Çatdırılmanı bizdən edin", style: AppTextStyles.coHead600),

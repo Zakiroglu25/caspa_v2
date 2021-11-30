@@ -3,7 +3,7 @@ class Assets {
 
   //--png
   static const String pngRocket = 'assets/png/rocket.png';
-  static const String pngGlobus = "assets/png/globuspng.png";
+  static const String pngGlobus = "assets/png/globusv2.png";
   static const String pngBox = "assets/png/boxpng.png";
   static const String pngbox = "assets/png/boxpng.png";
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
@@ -11,6 +11,7 @@ class Assets {
   static const String pngMoto = 'assets/png/moto.png';
 
   static const String homeDino = "assets/png/homeDinopng.png";
+  static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
   static const String news3 = "assets/png/news3.png";

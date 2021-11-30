@@ -7,11 +7,16 @@ import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/general/caspa_page_head_image.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class KuryerPage extends StatefulWidget {
@@ -51,62 +56,40 @@ class _KuryerPageState extends State<KuryerPage> {
       ),
       body: ListView(
         children: [
-          Stack(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height / 2,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/png/bck.png"),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 65,
-                left: 65,
-                right: 65,
-                child: SizedBox(
-                  child: Image.asset(
-                    'assets/png/moto.png',
-                  ),
-                ),
-              ),
-            ],
-          ),
+          CaspaPageHeadImage(Assets.pngMoto),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SectionName(title: "Sizin məlumatlarınız bizdə var 😊"),
+                SectionName(title: MyText.therIsYourData),
                 MySizedBox.h12,
                 Text(
                   MyText.kuryerTxt,
                   style: UITextStyle.tW400Grey,
                 ),
                 MySizedBox.h24,
-                SectionName(title: "Çatdırılma məlumatları"),
+                SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,
                 CaspaField(
                   hint: '+994 ... .. ..',
                   title: 'Nomre',
                 ),
-                CaspaTextFieldUnder("Rayon"),
                 CaspaField(
+                  title: "Rayon",
                   hint: 'Rayonu daxil edin',
                 ),
-                CaspaTextFieldUnder("Ünvan"),
                 CaspaField(
+                  title: "Ünvan",
                   hint: 'Burada ünvanı qeyd edə bilərsiniz',
                 ),
-                SectionName(title: "Bağlamanı seçin"),
+                SectionName(title: MyText.selectOrder),
                 MySizedBox.h20,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height/2,
+                      height: MediaQuery.of(context).size.height / 2,
                       child: ListView.builder(
                         itemCount: tools.length,
                         itemBuilder: (context, index) {
@@ -171,6 +154,10 @@ class _KuryerPageState extends State<KuryerPage> {
                         },
                       ),
                     ),
+                    CaspaButton(
+                      text: MyText.goOn,
+                      onTap: () => Go.to(context, Pager.courier_order),
+                    )
                   ],
                 ),
               ],

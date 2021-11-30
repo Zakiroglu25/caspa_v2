@@ -8,6 +8,8 @@ class RegisterInitial extends RegisterState {}
 
 class RegisterLoading extends RegisterState {}
 
+class RegisterButtonActive extends RegisterState {}
+
 class RegisterSuccess extends RegisterState {
   final String message;
 

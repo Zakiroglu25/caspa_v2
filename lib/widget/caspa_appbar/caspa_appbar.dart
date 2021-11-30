@@ -70,7 +70,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   Row rightButtonsRow(BuildContext contextZ) {
     return Row(
       children: [
-        (notification ?? true) ? NotificationWidget() : Container(),
+        (notification ?? true) ? NotificationWidget() : MySizedBox.w45,
         MySizedBox.w8
       ],
     );

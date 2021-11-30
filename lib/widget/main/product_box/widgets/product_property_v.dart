@@ -44,9 +44,11 @@ class ProductPropertyV extends StatelessWidget {
               Row(
                 children: [
                   PropertyIndicator(statusId),
-                  Text(
-                    "$value",
-                    style: AppTextStyles.sanF400.copyWith(color: mainColor??MyColors.black),
+                  Flexible(
+                    child: Text(
+                      "$value",
+                      style: AppTextStyles.sanF400.copyWith(color: mainColor??MyColors.black),
+                    ),
                   ),
                 ],
               )

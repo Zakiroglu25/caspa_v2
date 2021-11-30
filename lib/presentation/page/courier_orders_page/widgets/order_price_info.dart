@@ -18,13 +18,14 @@ class OrderPriceInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return             Container(
       width: double.maxFinite,
-      height: 60,
+      height: 55,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-              width: MediaQuery.of(context).size.width / 3,
+              //color: MyColors.mainRED,
+              width: MediaQuery.of(context).size.width / 2,
               child: WidgetOrEmpty(
                 value: statusId==2,
                 child: ProductPropertyV(
@@ -35,19 +36,22 @@ class OrderPriceInfo extends StatelessWidget {
                 ), elseChild: ProductPropertyV(
                   h: 8,
                   name: "Çatdırılma xidməti",
-                  value: deliveryPrice,
+                  value: deliveryPrice! +" - "+ MyText.not_pay,
                   mainColor:  MyColors.errorRED,
                 ),
               )),
-          Container(
-            width: 91.sm,
-            height: 44.sm,
-            child: CaspaButton(
-              color: MyColors.black,
-              textColor: MyColors.white,
-              borderRadius: 12,
-              textSize: 14.sm,
-              text: MyText.pay,
+          WidgetOrEmpty(
+            value: statusId==1,
+            child: Container(
+              width: 91.sm,
+              height: 40.sm,
+              child: CaspaButton(
+                color: MyColors.black,
+                textColor: MyColors.white,
+                borderRadius: 12,
+                textSize: 14.sm,
+                text: MyText.pay,
+              ),
             ),
           ),
         ],

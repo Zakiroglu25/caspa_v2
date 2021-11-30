@@ -3,6 +3,7 @@ import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page
 import 'package:caspa_v2/presentation/page/auth/login_page/widgets/pass_field.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,10 +26,7 @@ class LoginFields extends StatelessWidget {
           text: "forgot_pass",
           onTap: () => Go.to(
               context,
-              BlocProvider(
-                create: (context) => ForgotPassCubit(),
-                child: ForgetPasswordPage(),
-              )),
+Pager.forgotPass),
         ),
       ],
     );

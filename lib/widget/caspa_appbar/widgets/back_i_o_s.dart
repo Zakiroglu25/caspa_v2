@@ -12,7 +12,7 @@ class BackIOS extends StatelessWidget {
           },
           icon: Icon(
             Icons.arrow_back_ios_rounded,
-            color: MyColors.mainOrange,
+            color: MyColors.black,
           )),
     );
   }

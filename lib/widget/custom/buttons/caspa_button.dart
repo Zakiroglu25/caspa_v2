@@ -50,9 +50,9 @@ class CaspaButton extends StatelessWidget {
       height: h ?? 52,
       width: w ?? double.infinity,
       decoration: BoxDecoration(
-          color: (active)?(color ?? MyColors.mainColor): (passiveButtonColor??MyColors.greyPassiveBody),
+          color: (active)?(color ?? MyColors.mainColor): (passiveButtonColor??MyColors.greyPassiveBodyMainColor),
           border:
-              Border.all(color: active?(borderColor ?? (color ?? MyColors.mainColor)):(passiveButtonColor??MyColors.greyPassiveBody)),
+              Border.all(color: active?(borderColor ?? (color ?? MyColors.mainColor)):(passiveButtonColor??MyColors.greyPassiveBodyMainColor)),
           borderRadius: BorderRadius.circular(borderRadius ?? 12)),
       child: Material(
         color: Colors.transparent,
@@ -68,7 +68,7 @@ class CaspaButton extends StatelessWidget {
                     Text(
                       text ?? "",
                       style: TextStyle(
-                          color: active?(textColor ?? Colors.white):(passiveButtonColor??MyColors.greyPassiveContent),
+                          color: active?(textColor ?? Colors.white):(passiveButtonColor??MyColors.greyPassiveContentWhite),
                           fontSize: textSize ?? 18,
                           fontWeight: fontWeight ?? FontWeight.w400),
                     )),

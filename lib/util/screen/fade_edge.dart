@@ -48,13 +48,15 @@ class FadeEdge extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            height: 120,
+            height: 140,
             decoration: new BoxDecoration(
               gradient: new LinearGradient(
                 colors: [
-                  Color.fromRGBO(240, 243, 248, 1),
-                  Color.fromRGBO(240, 243, 248, 1).withOpacity(0.9),
-                  Color.fromRGBO(240, 243, 248, 1).withOpacity(0.0),
+                  MyColors.white,
+                  MyColors.white,
+                  MyColors.white.withOpacity(0.9),
+                  MyColors.white.withOpacity(0.9),
+                  MyColors.white.withOpacity(0.0),
                 ],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,

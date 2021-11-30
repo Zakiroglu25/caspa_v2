@@ -75,10 +75,11 @@ class MyText {
   static const String goToHomePage = "Ana səhifəyə keç";
 
   //courier
-  static const String therIsYourData = " Sizin məlumatlarınız bizdə var 😊";
+  static const String therIsYourData = "Sizin məlumatlarınız bizdə var 😊";
   static const String deliveryInfo = "Çatdırılma məlumatları";
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
+  static const String courierOrder = "Kuryer sifarişi";
 
 
 }

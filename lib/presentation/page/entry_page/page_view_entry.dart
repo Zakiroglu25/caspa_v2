@@ -37,7 +37,6 @@ class _PageViewEntryState extends State<PageViewEntry>
             const BackgroundImage(),
             Indicator(curr: curr),
             if(curr != 3)
-             ButtonSkip(),
             SizedBox(
                 child: PageView.builder(
                   onPageChanged: (num) async {
@@ -57,6 +56,8 @@ class _PageViewEntryState extends State<PageViewEntry>
                   },
                   itemCount: 3,
                 )),
+
+            ButtonSkip(),
           ],
         ),
       ),

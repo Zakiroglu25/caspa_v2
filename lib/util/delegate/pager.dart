@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
@@ -34,7 +35,7 @@ class Pager {
 
   static get courier => MultiBlocProvider(providers: [
         BlocProvider.value(
-          value: TarifCubit()..fetch(),
+          value: CourierCubit(),
         )
       ], child: KuryerPage());
 

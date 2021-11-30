@@ -50,6 +50,8 @@ class LoginCubit extends Cubit<LoginState> {
       uPass.sink.addError("fill_correctly");
     } else {
       uPass.sink.add(value);
+      uEmail.sink.add("esev.sv@gmail.com");
+      uPass.sink.add("salam12345");
     }
   }
 
@@ -68,7 +70,7 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  void login(BuildContext context,{bool? loading}) async {
+  void login(BuildContext context, {bool? loading}) async {
     try {
       if (isPassIncorrect) {
         updatePass('');
@@ -99,6 +101,34 @@ class LoginCubit extends Cubit<LoginState> {
         }
       } else {
         emit(LoginError(error: 'error'));
+      }
+    } on SocketException catch (_) {
+      emit(LoginError(error: 'network_error'));
+    } catch (e) {
+      emit(LoginError(error: e.toString()));
+    }
+  }
+
+  void testLogin(BuildContext context, {bool? loading}) async {
+    try {
+      if (loading ?? true) {
+        emit(LoginInProgress());
+      }
+
+      final response = await AuthProvider.login(
+        email: "esev.sv@gmail.com",
+        password: 'salam12345',
+      );
+
+      if (isSuccess(response.statusCode)) {
+        emit(LoginSuccess(response.body));
+        Go.replace(context, LandingPage());
+        // result=response.data;
+      } else {
+        emit(LoginError());
+        // result= MessageResponse.fromJson(response.data).message;
+        eeee(
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
       }
     } on SocketException catch (_) {
       emit(LoginError(error: 'network_error'));

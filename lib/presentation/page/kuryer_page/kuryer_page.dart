@@ -171,7 +171,6 @@ class _KuryerPageState extends State<KuryerPage> {
                         },
                       ),
                     ),
-                    CaspaButton()
                   ],
                 ),
               ],

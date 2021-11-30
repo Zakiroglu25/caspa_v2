@@ -31,24 +31,25 @@ class App extends StatelessWidget {
         },
         home:
             //MediaPage()
-       //      BlocProvider(
-       //    create: (context) => RegisterCubit(),
-       //    child: RegisterPage(),
-       // ),
-        //RegisterPage(),
-        //]]   LoginPage(),
-        //   PackageDetailsPage(name: "Kitabacanan",)
-       // CourierOrdersPage()
-        // Example08()
-        // HomePage()
+            //      BlocProvider(
+            //    create: (context) => RegisterCubit(),
+            //    child: RegisterPage(),
+            // ),
+            //RegisterPage(),
+            //]]   LoginPage(),
+            //   PackageDetailsPage(name: "Kitabacanan",)
+            // CourierOrdersPage()
+            // Example08()
+            // HomePage()
+
         LandingPage()
         //  BlocProvider(
         // create: (context) => ForgotPassCubit(),
         //  child: ForgetPasswordPage())
-         //SilverAppBarExample(),
-         //  BlocProvider(
-         //  create: (context)=>LoginCubit()
-         //  ,child: LoginPage())
+        //SilverAppBarExample(),
+        //  BlocProvider(
+        //  create: (context)=>LoginCubit()
+        //  ,child: LoginPage())
         //SplashPage()
         //CupertinoStoreHomePage()
         //CircularHomePage()

@@ -34,7 +34,6 @@ class Assets {
   static const String svgOther="assets/svg/other.svg";
   static const String svgEyeOff="assets/svg/eye-off.svg";
   static const String svgEyeOn="assets/svg/eye-on.svg";
-  static const String menuAppbar="assets/svg/menu.svg";
   static const String trash="assets/svg/trash.svg";
 
   //--anim

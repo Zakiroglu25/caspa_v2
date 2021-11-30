@@ -63,7 +63,11 @@ class _OtherPageState extends State<OtherPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("Mağazalar "),
-                        Text(MyText.otherShop,textAlign: TextAlign.start,style: TextStyle(fontSize: 12.sp),),
+                        Text(
+                          MyText.otherShop,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(fontSize: 12.sp),
+                        ),
                       ],
                     ),
                   ),

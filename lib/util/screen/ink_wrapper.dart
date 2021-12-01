@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class InkWrapper extends StatelessWidget {
@@ -24,8 +25,8 @@ class InkWrapper extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              splashColor: splashColor,
-              highlightColor: highlightColor??Colors.white.withOpacity(.3),
+              splashColor: splashColor??MyColors.transparent,
+              highlightColor: highlightColor??Colors.white.withOpacity(.4),
               onTap: onTap,
               borderRadius: BorderRadius.circular(radius ?? 0),
             ),

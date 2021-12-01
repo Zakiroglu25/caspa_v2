@@ -7,8 +7,11 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'widget/menu_box_big.dart';
 
 class OtherPage extends StatefulWidget {
   const OtherPage({Key? key}) : super(key: key);
@@ -39,104 +42,38 @@ class _OtherPageState extends State<OtherPage> {
               ),
             ),
             MySizedBox.h30,
-            Container(
-              width: ScreenUtil().setWidth(343),
-              height: ScreenUtil().setHeight(140),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Color.fromRGBO(251, 228, 228, 1)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16.0, top: 19, bottom: 19),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Mağazalar ",
-                          style: AppTextStyles.sanF600.copyWith(fontSize: 16),
-                        ),
-                        MySizedBox.h6,
-                        Container(
-                          width: 165,
-                          height: 72,
-                          child: Text(
-                            MyText.otherShop,
-                            textAlign: TextAlign.start,
-                            style: AppTextStyles.sanF400Grey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Spacer(),
-                  Image.asset(Assets.shopMobile),
-                  MySizedBox.w16
-                ],
-              ),
+            MenuBoxBig(
+              title: "Mağazalar ",
+              color: MyColors.shop,
+              content:
+                  "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎",
+              image: "assets/png/shopmobile.png",
             ),
             MySizedBox.h16,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    // Go.to(context, LinkPage());
-                  },
-                  child: Container(
-                    width: 167,
-                    height: 140,
-                    decoration: BoxDecoration(
-                        color: Color.fromRGBO(234, 251, 221, 1),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Etibarnamə 📑️",
-                              style: AppTextStyles.coHead600
-                                  .copyWith(fontSize: 16)),
-                          MySizedBox.h6,
-                          Text(
-                            "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                            style: AppTextStyles.sanF400.copyWith(
-                                fontSize: 12, color: MyColors.grey153),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
+                MenuBox(
+                  title: "Promokod 🎉",
+                  content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                  color: MyColors.promokodColor,
                 ),
-                Container(
-                  width: 167,
-                  height: 140,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(241, 241, 249, 1),
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Ayarlar ⚙️",
-                            style:
-                                AppTextStyles.coHead600.copyWith(fontSize: 16)),
-                        MySizedBox.h6,
-                        Text(
-                          "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                          style: AppTextStyles.sanF400
-                              .copyWith(fontSize: 12, color: MyColors.grey153),
-                        )
-                      ],
-                    ),
-                  ),
+                MenuBox(
+                  title: "Partnyorlar ⚙️",
+                  content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                  color: MyColors.partnyoColor,
                 ),
               ],
-            )
+            ),
+            MySizedBox.h16,
+
+            MenuBoxBig(
+              title: "Mağazalar ",
+              color: MyColors.settings,
+              content:
+                  "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎",
+              image: '',
+            ),
           ],
         ),
       ),

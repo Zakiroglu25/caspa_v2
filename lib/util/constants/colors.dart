@@ -69,6 +69,19 @@ class MyColors {
   static const Color statusError = Color.fromRGBO(211, 41, 45, 0.1);
   ///kuryer package selected color
   static const Color mainOpacity =Color.fromRGBO(241, 241, 249,1);
+  ///other page colors
+  static const Color promokodColor =Color.fromRGBO(255, 246, 225,1);
+  static const Color partnyoColor =Color.fromRGBO(241, 241, 249,1);
+  static const Color shop =Color.fromRGBO(251, 228, 228,1);
+  static const Color settings =Color.fromRGBO(245, 245, 245 ,1);
+
+
+
+  //soft color
+  static const Color softGreen235 =Color.fromRGBO(235, 251, 228, 1);
+  static const Color softPurple241 =Color.fromRGBO(241, 241, 249, 1);
+
+
 
 
 }

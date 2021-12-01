@@ -10,6 +10,7 @@ import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
+import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,4 +55,10 @@ class Pager {
   static get splash => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: SplashPage());
+
+
+
+  static get newOrder => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => ForgotPassCubit())],
+      child: NewOrderPage());
 }

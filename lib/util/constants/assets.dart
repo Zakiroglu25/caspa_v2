@@ -5,7 +5,7 @@ class Assets {
   static const String pngRocket = 'assets/png/rocket.png';
   static const String pngGlobus = "assets/png/globusv2.png";
   static const String pngBox = "assets/png/boxpng.png";
-  static const String pngbox = "assets/png/boxpng.png";
+  static const String pngSebet = 'assets/png/sebet3x.png';
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String pngColorfulBack = "assets/png/bck.png";
   static const String pngMoto = 'assets/png/moto.png';

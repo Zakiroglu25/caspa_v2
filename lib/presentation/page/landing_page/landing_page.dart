@@ -48,6 +48,7 @@ class _LandingPageState extends State<LandingPage> {
             elevation: 10,
             unselectedFontSize: 11,
             selectedFontSize: 11,
+
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
             type: BottomNavigationBarType.fixed,
             items: [

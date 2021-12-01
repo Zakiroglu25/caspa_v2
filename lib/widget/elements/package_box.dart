@@ -22,9 +22,11 @@ class PackageBox extends StatelessWidget {
       highlightColor: MyColors.white.withOpacity(.4),
       radius: 12,
       splashColor: Colors.transparent,
-      onTap: () {
-          Go.to(context, PackageDetailsPage(name: item.shopName,));
-      },
+      onTap: () => Go.to(
+          context,
+          PackageDetailsPage(
+            name: item.shopName,
+          )),
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
@@ -58,7 +60,6 @@ class PackageBox extends StatelessWidget {
                   Wrap(
                     children: [
                       const Text("İzləmə kodu: ",
-
                           style: TextStyle(color: MyColors.grey153)),
                       Text("${item.trackingCode!}")
                     ],
@@ -66,8 +67,7 @@ class PackageBox extends StatelessWidget {
                   Wrap(
                     children: [
                       const Text("Status: ",
-                          style:  TextStyle(
-                              color:  MyColors.grey153)),
+                          style: TextStyle(color: MyColors.grey153)),
                       Text(
                         item.status!,
                         maxLines: 3,

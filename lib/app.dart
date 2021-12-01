@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/poxx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,38 +22,42 @@ class App extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: () => MaterialApp(
-        //color: Colors.orange,
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-            fontFamily: 'CoHeadline', scaffoldBackgroundColor: MyColors.white),
-        builder: (context, widget) {
-          return ScrollConfiguration(
-              behavior: ScrollBehaviorModified(), child: widget!);
-        },
-        home:
-            //MediaPage()
-       //     c
-       // ),
-        //RegisterPage(),
-        //]]   LoginPage(),
-        //   PackageDetailsPage(name: "Kitabacanan",)
-       // CourierOrdersPage()
-        // Example08()
-        // HomePage()
-      //  LandingPage()
-        Pager.splash
-        //  BlocProvider(
-        // create: (context) => ForgotPassCubit(),
-        //  child: ForgetPasswordPage())
-         //SilverAppBarExample(),
-         //  BlocProvider(
-         //  create: (context)=>LoginCubit()
-         //  ,child: LoginPage())
-        //SplashPage()
-        //CupertinoStoreHomePage()
-        //CircularHomePage()
-      ),
+          //color: Colors.orange,
+
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+              fontFamily: 'CoHeadline',
+              scaffoldBackgroundColor: MyColors.white),
+          builder: (context, widget) {
+            return ScrollConfiguration(
+                behavior: ScrollBehaviorModified(), child: widget!);
+          },
+          home:
+              //MediaPage()
+              //     c
+              // ),
+              //RegisterPage(),
+              //]]   LoginPage(),
+              //   PackageDetailsPage(name: "Kitabacanan",)
+              // CourierOrdersPage()
+              // Example08()
+              // HomePage()
+              //  LandingPage()
+              Pager.newOrder
+          //Kam*77
+          //k.mamtiyev
+          //  BlocProvider(
+          // create: (context) => ForgotPassCubit(),
+          //  child: ForgetPasswordPage())
+          //SilverAppBarExample(),
+          //  BlocProvider(
+          //  create: (context)=>LoginCubit()
+          //  ,child: LoginPage())
+          //SplashPage()
+          //CupertinoStoreHomePage()
+          //CircularHomePage()
+          ),
     );
   }
 }

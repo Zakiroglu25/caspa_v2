@@ -82,5 +82,15 @@ class MyText {
   static const String courierOrder = "Kuryer sifarişi";
 
 
+  //new order
+  static const String weBuyForYou = "Sizin əvəzinizə biz alarıq, yalnız bağlantını göndərrməyiniz kifayətdir.";
+  static const String youMustBuyProduct = "Məhsulu siz alırsınız, biz isə seçdiyiniz ünvana qədər çatdırırıq";
+  static const String viaLink = "Link ilə 🎁 ";
+  static const String declareIt = "Bəyan et 📦";
+  static const String newOrder = "Yeni sifariş";
+
+
+
+
 }
 

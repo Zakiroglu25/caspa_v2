@@ -22,7 +22,7 @@ class MyText {
   static const String paymentLinkTxt = "Sürətli ödəniş etmək üçün balansınızda vəsait saxlamağı tövsiyyə edirik. ";
   ///otherpage
   static const String otherPage = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
-  static const String otherShop = "Yeni! Sifarişləri bizim mağaza \nbölməsindən sifariş edə \nilərsiniz. Artıq əlavə tətbiqlərə \ngərək qalmadı 😎 ";
+  static const String otherShop = "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
 
 
 

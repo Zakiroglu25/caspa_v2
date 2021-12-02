@@ -19,11 +19,10 @@ class NewOrderPage extends StatelessWidget {
       body: ListView(
         padding: Paddings.paddingH16,
         children: <Widget>[
-          Text(
-            MyText.newOrder,
-            style: UITextStyle.tW400BigBlack,
+          ColorfullBackImage(
+            path: Assets.pngSebet,
+            title: MyText.newOrder,
           ),
-          ColorfullBackImage(path: Assets.pngSebet),
           ViaLinkAndBeyanEtButtons()
         ],
       ),

@@ -1,16 +1,21 @@
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ColorFullyBackImage extends StatelessWidget {
-  const ColorFullyBackImage({Key? key}) : super(key: key);
+class ColorfullBackImage extends StatelessWidget {
+  String? path;
+  double? w;
+  double? h;
+
+  ColorfullBackImage({required this.path});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height / 2,
+          width: w ?? 375.sp, // MediaQuery.of(context).size.width,
+          height: h ?? 375.sp, //MediaQuery.of(context).size.height / 2,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(Assets.pngColorfulBack),
@@ -23,7 +28,7 @@ class ColorFullyBackImage extends StatelessWidget {
           right: 65,
           child: SizedBox(
             child: Image.asset(
-              Assets.pngSebet,
+              path!,
             ),
           ),
         ),

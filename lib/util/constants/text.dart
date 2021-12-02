@@ -88,6 +88,9 @@ class MyText {
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareIt = "Bəyan et 📦";
   static const String newOrder = "Yeni sifariş";
+  //userCabinet
+  static const String userCabinet = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+
 
 
 

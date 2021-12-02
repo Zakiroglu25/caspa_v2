@@ -74,6 +74,13 @@ class MyColors {
   static const Color partnyoColor =Color.fromRGBO(241, 241, 249,1);
   static const Color shop =Color.fromRGBO(251, 228, 228,1);
   static const Color settings =Color.fromRGBO(245, 245, 245 ,1);
+  static const Color etibarname =Color.fromRGBO(250, 241, 254 ,1);
+  static const Color contact =Color.fromRGBO(235, 251, 228 ,1);
+  static const Color kuryer =Color.fromRGBO(239, 253, 252 ,1);
+  static const Color partner =Color.fromRGBO(241, 241, 249 ,1);
+  ///userAccountCabinet
+  static const Color balans =Color.fromRGBO(235, 238, 253 ,1);
+
 
 
 

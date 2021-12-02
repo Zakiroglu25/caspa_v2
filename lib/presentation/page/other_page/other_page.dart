@@ -11,7 +11,7 @@ import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widget/menu_box_big.dart';
+import 'widget/other_shop_widget.dart';
 
 class OtherPage extends StatefulWidget {
   const OtherPage({Key? key}) : super(key: key);
@@ -27,55 +27,62 @@ class _OtherPageState extends State<OtherPage> {
       appBar: CaspaAppbar(
         title: "",
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 0.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 16, left: 16),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Digər",
-                  style: UITextStyle.tW400BigBlack,
-                ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 16, left: 16),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Menu",
+                style: UITextStyle.tW400BigBlack,
               ),
             ),
-            MySizedBox.h30,
-            MenuBoxBig(
-              title: "Mağazalar ",
-              color: MyColors.shop,
-              content:
-                  "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎",
-              image: "assets/png/shopmobile.png",
-            ),
-            MySizedBox.h16,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                MenuBox(
+          ),
+          MySizedBox.h14,
+          const OtherShopWidget(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MenuBox(
                   title: "Promokod 🎉",
                   content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                  color: MyColors.promokodColor,
-                ),
-                MenuBox(
+              color: MyColors.promokodColor,),
+              MenuBox(
                   title: "Partnyorlar ⚙️",
                   content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                  color: MyColors.partnyoColor,
-                ),
-              ],
-            ),
-            MySizedBox.h16,
-
-            MenuBoxBig(
-              title: "Mağazalar ",
-              color: MyColors.settings,
-              content:
-                  "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎",
-              image: '',
-            ),
-          ],
-        ),
+              color: MyColors.partnyoColor,),
+            ],
+          ),
+          MySizedBox.h16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MenuBox(
+                title: "Etibarnamə ⚙️",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.etibarname,),
+              MenuBox(
+                title: "Əlaqə ☎️",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.contact,),
+            ],
+          ),
+          MySizedBox.h16,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              MenuBox(
+                title: "Kuryer 🕺🏻",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.kuryer,),
+              MenuBox(
+                title: "Ayarlar ⚙️",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.settings,),
+            ],
+          )
+        ],
       ),
     );
   }

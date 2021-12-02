@@ -91,4 +91,12 @@ class MyColors {
 
 
 
+
+  //soft color
+  static const Color softGreen235 =Color.fromRGBO(235, 251, 228, 1);
+  static const Color softPurple241 =Color.fromRGBO(241, 241, 249, 1);
+
+
+
+
 }

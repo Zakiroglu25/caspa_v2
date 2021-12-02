@@ -3,6 +3,7 @@ import 'package:caspa_v2/presentation/page/entry_page/widgets/indicator_widget.d
 import 'package:caspa_v2/presentation/page/entry_page/widgets/page_view_three.dart';
 import 'package:caspa_v2/presentation/page/entry_page/widgets/page_view_two.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
+import 'package:caspa_v2/util/screen/image_rotate_animation.dart';
 import 'package:flutter/material.dart';
 import 'widgets/bck_image_widget.dart';
 import 'widgets/page_view_one.dart';
@@ -34,29 +35,29 @@ class _PageViewEntryState extends State<PageViewEntry>
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            const BackgroundImage(),
+            ImageAnimateRotate(index: curr, child: BackgroundImage()),
             Indicator(curr: curr),
-            if(curr != 3)
-            SizedBox(
-                child: PageView.builder(
-                  onPageChanged: (num) async {
-                    setState(() {
-                      curr = num + 1;
-                    });
-                  },
-                  controller: controller,
-                  itemBuilder: (context, position) {
-                    if (position == 0) {
-                      return const PageViewOne();
-                    } else if (position == 1) {
-                      return const PageViewTwo();
-                    } else {
-                      return const PageViewThree();
-                    }
-                  },
-                  itemCount: 3,
-                )),
+            if (curr != 3)
+              SizedBox(
+                  child: PageView.builder(
+                onPageChanged: (num) async {
+                  setState(() {
+                    curr = num + 1;
+                  });
 
+                },
+                controller: controller,
+                itemBuilder: (context, position) {
+                  if (position == 0) {
+                    return const PageViewOne();
+                  } else if (position == 1) {
+                    return const PageViewTwo();
+                  } else {
+                    return const PageViewThree();
+                  }
+                },
+                itemCount: 3,
+              )),
             ButtonSkip(),
           ],
         ),

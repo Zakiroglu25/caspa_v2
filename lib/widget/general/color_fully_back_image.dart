@@ -4,6 +4,7 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/screen/image_rotate_animation.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,26 +37,29 @@ class ColorfullBackImage extends StatelessWidget {
             style: AppTextStyles.coHead400.copyWith(fontSize: 25),
           ),
         ),
-        Center(
-          child: Stack(alignment: Alignment.center,
-            children: [
-              Container(
-                width: w ?? 355.sp, // MediaQuery.of(context).size.width,
-                height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(Assets.pngColorfulBack),
+        ImageAnimateRotate(
+          index: 2,
+          child: Center(
+            child: Stack(alignment: Alignment.center,
+              children: [
+                Container(
+                  width: w ?? 355.sp, // MediaQuery.of(context).size.width,
+                  height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(Assets.pngColorfulBack),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                height: 210.sp,
-                width: 210.sp,
-                child: Image.asset(
-                  path!,
+                Container(
+                  height: 210.sp,
+                  width: 210.sp,
+                  child: Image.asset(
+                    path!,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
        // MySizedBox.h16,

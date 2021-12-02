@@ -78,7 +78,7 @@ List<StaggeredModel> listProduct = [
       price: 345,
       body: 41,
       color: "Black",
-      productNum: 0978785435589090910,
+      productNum: 0978785,
       count: 1,
       allPrice: 350.00),
   StaggeredModel(

@@ -43,8 +43,10 @@ class App extends StatelessWidget {
               // CourierOrdersPage()
               // Example08()
               // HomePage()
+                LandingPage()
+              //Pager.newOrder
               //  LandingPage()
-              Pager.newOrder
+             // Pager.newOrder
           //Kam*77
           //k.mamtiyev
           //  BlocProvider(

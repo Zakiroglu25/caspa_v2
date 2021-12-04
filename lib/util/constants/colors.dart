@@ -95,7 +95,4 @@ class MyColors {
   static const Color softPurple241 =Color.fromRGBO(241, 241, 249, 1);
 
 
-
-
-
 }

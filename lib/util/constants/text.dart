@@ -23,7 +23,9 @@ class MyText {
   ///otherpage
   static const String otherPage = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
   static const String otherShop = "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
-
+///beyan et
+  static const String declareText = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+  static const String factura = "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
 
 
 

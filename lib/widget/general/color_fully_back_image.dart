@@ -37,29 +37,26 @@ class ColorfullBackImage extends StatelessWidget {
             style: AppTextStyles.coHead400.copyWith(fontSize: 25),
           ),
         ),
-        ImageAnimateRotate(
-          index: 2,
-          child: Center(
-            child: Stack(alignment: Alignment.center,
-              children: [
-                Container(
-                  width: w ?? 355.sp, // MediaQuery.of(context).size.width,
-                  height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(Assets.pngColorfulBack),
-                    ),
+        Center(
+          child: Stack(alignment: Alignment.center,
+            children: [
+              Container(
+                width: w ?? 355.sp, // MediaQuery.of(context).size.width,
+                height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(Assets.pngColorfulBack),
                   ),
                 ),
-                Container(
-                  height: 210.sp,
-                  width: 210.sp,
-                  child: Image.asset(
-                    path!,
-                  ),
+              ),
+              Container(
+                height: 210.sp,
+                width: 210.sp,
+                child: Image.asset(
+                  path!,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
        // MySizedBox.h16,

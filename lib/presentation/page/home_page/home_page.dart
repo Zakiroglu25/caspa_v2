@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
-          padding: Paddings.paddingV20,
+          padding: Paddings.paddingB12+Paddings.paddingT14,
           children: [
             HomeHeader(),
             MySizedBox.h24,

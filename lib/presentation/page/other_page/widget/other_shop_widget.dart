@@ -10,49 +10,46 @@ class OtherShopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: Container(
-        width: ScreenUtil().setWidth(343),
-        height: ScreenUtil().setHeight(140),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Color.fromRGBO(251, 228, 228, 1)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding:
-              const EdgeInsets.only(left: 16.0, top: 19, bottom: 19),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Mağazalar ",
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+    return   Container(
+      width: ScreenUtil().setWidth(343),
+      height: ScreenUtil().setHeight(140),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Color.fromRGBO(251, 228, 228, 1)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding:
+            const EdgeInsets.only(left: 16.0, top: 19, bottom: 19),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Mağazalar ",
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                ),
+                MySizedBox.h6,
+                Container(
+                  width: 165,
+                  height: 72,
+                  child: Text(
+                    MyText.otherShop,
+                    textAlign: TextAlign.start,
+                    style: AppTextStyles.sanF400Grey.copyWith(fontSize: 12.sp),
                   ),
-                  MySizedBox.h6,
-                  Container(
-                    width: 165,
-                    height: 72,
-                    child: Text(
-                      MyText.otherShop,
-                      textAlign: TextAlign.start,
-                      style: AppTextStyles.sanF400Grey.copyWith(fontSize: 12.sp),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Spacer(),
-            Container(
-                height: 120.sp,
-                width: 120.sp,
-                child: Image.asset(Assets.shopMobile)),
-            MySizedBox.w16
-          ],
-        ),
+          ),
+          Spacer(),
+          Container(
+              height: 120.sp,
+              width: 120.sp,
+              child: Image.asset(Assets.shopMobile)),
+          MySizedBox.w16
+        ],
       ),
     );
   }

@@ -16,7 +16,7 @@ class ButtonSkip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WidgetOrEmpty(
-
+//
       value: index!=3,
       child: Align(
         alignment: Alignment.topRight,

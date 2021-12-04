@@ -99,6 +99,13 @@ class MyText {
   static const String welcome = "Xoş gəlmişsiniz";
 
 
+  //user cabinet
+  static const String settings = "Tənzimləmələr";
+  static const String cancel = 'Ləğv et';
+  static const String increaseBalance = '+ Balansı artır';
+  static const String last30days = "Son 30 gündə";
+  static const String countOfOrders = "Bağalamalar sayı";
+
 
 }
 

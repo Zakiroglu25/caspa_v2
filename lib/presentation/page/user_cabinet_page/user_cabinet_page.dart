@@ -6,13 +6,11 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'widget/cabinet_header.dart';
 
 class UserCabinetPage extends StatelessWidget {
@@ -33,10 +31,10 @@ class UserCabinetPage extends StatelessWidget {
                 CupertinoActionSheetAction(
                   child: Row(
                     children: [
-                      SvgPicture.asset("assets/svg/file.svg"),
+                      SvgPicture.asset(Assets.svgFile),
                       MySizedBox.w20,
                       Text(
-                        "Tənzimləmələr",
+                        MyText.settings,
                         style: AppTextStyles.sanF400.copyWith(
                             color: Colors.black, fontSize: 17.sp),
                       ),
@@ -50,7 +48,7 @@ class UserCabinetPage extends StatelessWidget {
               ],
               cancelButton: CupertinoActionSheetAction(
                 child: Text(
-                  'Ləğv et',
+                  MyText.cancel,
                   style: AppTextStyles.sanF400
                       .copyWith(color: Colors.black, fontSize: 16.sp),
                 ),
@@ -74,7 +72,7 @@ class UserCabinetPage extends StatelessWidget {
                 price: "120.00₼ ",
                 subtitle: "(Daşınma)",
                 color: MyColors.balansCargo,
-                btnText: "+ Balansı artır",
+                btnText: MyText.increaseBalance,
                 colorbtn: MyColors.btnBlanceCargo,
               ),
               MySizedBox.h16,
@@ -83,7 +81,7 @@ class UserCabinetPage extends StatelessWidget {
                 price: "120.00₼ ",
                 subtitle: "(Sifariş)",
                 color: MyColors.balansOrder,
-                btnText: "+ Balansı artır",
+                btnText: MyText.increaseBalance,
                 colorbtn: MyColors.btnBlanceOrder,
               ),
               MySizedBox.h16,
@@ -91,7 +89,7 @@ class UserCabinetPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   BalansMiniBox(
-                    title: "Son 30 gündə",
+                    title: MyText.last30days,
                     content: "8.00",
                     color: MyColors.shop,
                     priceColor: MyColors.balanceBoxRed,
@@ -99,7 +97,7 @@ class UserCabinetPage extends StatelessWidget {
                   ),
                   MySizedBox.w16,
                   BalansMiniBox(
-                    title: "Bağalamalar sayı",
+                    title: MyText.countOfOrders,
                     content: "4",
                     color: MyColors.balanceCountPackage,
                     priceColor: MyColors.balanceBoxOrange,

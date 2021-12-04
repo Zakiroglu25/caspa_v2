@@ -30,7 +30,7 @@ class OtherShopWidget extends StatelessWidget {
                 children: [
                   Text(
                     "Mağazalar ",
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16),
+                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                   ),
                   MySizedBox.h6,
                   Container(
@@ -39,14 +39,17 @@ class OtherShopWidget extends StatelessWidget {
                     child: Text(
                       MyText.otherShop,
                       textAlign: TextAlign.start,
-                      style: AppTextStyles.sanF400Grey,
+                      style: AppTextStyles.sanF400Grey.copyWith(fontSize: 12.sp),
                     ),
                   ),
                 ],
               ),
             ),
             Spacer(),
-            Image.asset(Assets.shopMobile),
+            Container(
+                height: 120.sp,
+                width: 120.sp,
+                child: Image.asset(Assets.shopMobile)),
             MySizedBox.w16
           ],
         ),

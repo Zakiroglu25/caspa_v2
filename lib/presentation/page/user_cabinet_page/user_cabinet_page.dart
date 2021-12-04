@@ -77,48 +77,53 @@ class UserCabinetPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, right: 16),
-        child: ListView(
-          children: [
-            MySizedBox.h32,
-            CabinetHeaderWidget(),
-            BalanceBox(
-              title: "Balans TL",
-              price: "120.00₼ ",
-              subtitle: "(Daşınma)",
-              color: MyColors.balansCargo,
-              btnText: "+ Balansı artır",
-              colorbtn: MyColors.btnBlanceCargo,
-            ),
-            MySizedBox.h16,
-            BalanceBox(
-              title: "Balans TL",
-              price: "120.00₼ ",
-              subtitle: "(Sifariş)",
-              color: MyColors.balansOrder,
-              btnText: "+ Balansı artır",
-              colorbtn: MyColors.btnBlanceOrder,
-            ),
-            MySizedBox.h16,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BalansMiniBox(
-                  title: "Son 30 gündə",
-                  content: "8.00",
-                  color: MyColors.shop,
-                  priceColor: MyColors.balanceBoxRed,
-                  icon: const Icon(null),
-                ),
-                BalansMiniBox(
-                  title: "Bağalamalar sayı",
-                  content: "4",
-                  color: MyColors.balanceCountPackage,
-                  priceColor: MyColors.balanceBoxOrange,
-                  icon: SvgPicture.asset(Assets.balanceUp),
-                ),
-              ],
-            )
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MySizedBox.h32,
+              CabinetHeaderWidget(),
+              BalanceBox(
+                title: "Balans TL",
+                price: "120.00₼ ",
+                subtitle: "(Daşınma)",
+                color: MyColors.balansCargo,
+                btnText: "+ Balansı artır",
+                colorbtn: MyColors.btnBlanceCargo,
+              ),
+              MySizedBox.h16,
+              BalanceBox(
+                title: "Balans TL",
+                price: "120.00₼ ",
+                subtitle: "(Sifariş)",
+                color: MyColors.balansOrder,
+                btnText: "+ Balansı artır",
+                colorbtn: MyColors.btnBlanceOrder,
+              ),
+              MySizedBox.h16,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BalansMiniBox(
+                    title: "Son 30 gündə",
+                    content: "8.00",
+                    color: MyColors.shop,
+                    priceColor: MyColors.balanceBoxRed,
+                    icon: const Icon(null),
+                  ),
+                  MySizedBox.w16,
+                  BalansMiniBox(
+                    title: "Bağalamalar sayı",
+                    content: "4",
+                    color: MyColors.balanceCountPackage,
+                    priceColor: MyColors.balanceBoxOrange,
+                    icon: SvgPicture.asset(Assets.balanceUp),
+                  ),
+                ],
+              ),
+              MySizedBox.h50,
+            ],
+          ),
         ),
       ),
     );

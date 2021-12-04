@@ -93,6 +93,9 @@ class MyText {
 
 
 
+  //home
+  static const String welcome = "Xoş gəlmişsiniz";
+
 
 
 }

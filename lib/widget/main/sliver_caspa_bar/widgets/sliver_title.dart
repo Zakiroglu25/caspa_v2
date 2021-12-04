@@ -19,8 +19,8 @@ class SliverTitle extends StatelessWidget {
             softWrap: true,
             textAlign: TextAlign.center,
             overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.sanF600
-                .copyWith(color: Colors.black, fontSize: 24)),
+            style: AppTextStyles.coHead400
+                .copyWith(color: Colors.black, fontSize: 25)),
       ),
     );
   }

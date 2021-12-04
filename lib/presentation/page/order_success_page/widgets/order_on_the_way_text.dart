@@ -4,18 +4,23 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 
-class OrderOnTheWayText extends StatelessWidget {
-  const OrderOnTheWayText({Key? key}) : super(key: key);
+class ColorfullyBackImageInfo extends StatelessWidget {
+
+  String ? infoTitle;
+  String ? infoContent;
+
+
+  ColorfullyBackImageInfo({required this.infoTitle,required this.infoContent});
 
   @override
   Widget build(BuildContext context) {
     return                   Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionName(title: MyText.orderOnTheWay),
+        SectionName(title: infoTitle,vP: 0,),
         MySizedBox.h12,
         Text(
-          MyText.orderOnTheWayInfo,
+          infoContent??'',
           style: AppTextStyles.sanF400Grey,
         )
       ],

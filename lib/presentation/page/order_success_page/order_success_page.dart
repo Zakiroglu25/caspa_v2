@@ -2,6 +2,8 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/material.dart';
 import 'widgets/congrats_text.dart';
 import 'widgets/go_home_button.dart';
@@ -21,16 +23,14 @@ class OrderSuccessPage extends StatelessWidget {
           padding: Paddings.paddingH16,
           child: Stack(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CongratsText(),
-                  Image.asset(Assets.pngFlyingGirl),
-                  MySizedBox.h16,
-                  OrderOnTheWayText(),
-                ],
+              ColorfullBackImage(
+                path: Assets.pngFlyingGirl,
+                title: MyText.congrats,
+                infoContent: MyText.orderOnTheWayInfo,
+                infoTitle: MyText.orderOnTheWay,
               ),
-              GoHomeButton()            ],
+              GoHomeButton()
+            ],
           ),
         ));
   }

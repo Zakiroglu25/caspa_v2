@@ -39,6 +39,7 @@ class MenuBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title!,
+
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp)),
               MySizedBox.h4,
               Text(

@@ -17,6 +17,7 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/caspa_page_head_image.dart';
+import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -91,16 +92,12 @@ class _KuryerPageState extends State<KuryerPage> {
         child: ListView(
           padding: Paddings.paddingH16,
           children: [
-            CaspaPageHeadImage(Assets.pngMoto),
+
+            ColorfullBackImage(path: Assets.pngMoto,infoTitle: MyText.therIsYourData,infoContent: MyText.kuryerTxt,),
+
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SectionName(title: MyText.therIsYourData),
-                MySizedBox.h12,
-                Text(
-                  MyText.kuryerTxt,
-                  style: UITextStyle.tW400Grey,
-                ),
                 MySizedBox.h24,
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,

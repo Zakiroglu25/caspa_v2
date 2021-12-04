@@ -43,9 +43,9 @@ class App extends StatelessWidget {
               // CourierOrdersPage()
               // Example08()
               // HomePage()
-                LandingPage()
+            //  Pager.splash
               //Pager.newOrder
-              //  LandingPage()
+                LandingPage()
              // Pager.newOrder
           //Kam*77
           //k.mamtiyev

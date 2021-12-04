@@ -5,6 +5,8 @@ import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'moto_image.dart';
+
 class PageViewThree extends StatelessWidget {
   const PageViewThree({Key? key}) : super(key: key);
 
@@ -12,13 +14,7 @@ class PageViewThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width:SizeConfig.safeBlockHorizontal! * 200,
-          height: SizeConfig.safeBlockVertical! *50,
-          child: Image.asset(
-            'assets/png/moto.png',
-          ),
-        ),
+        MotoImage(),
         Spacer(),
         const Center(
           child: Text(

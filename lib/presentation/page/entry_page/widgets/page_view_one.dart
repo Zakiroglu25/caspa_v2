@@ -14,11 +14,7 @@ class PageViewOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width: SizeConfig.safeBlockHorizontal! * 200,
-          height: SizeConfig.safeBlockVertical! * 50,
-          child: RocketImage(),
-        ),
+        RocketImage(),
         Spacer(),
         Center(
           child: Padding(

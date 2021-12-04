@@ -1,7 +1,9 @@
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:caspa_v2/widget/general/copy_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,10 +16,7 @@ class CopiableField extends StatelessWidget {
   int? maxLines = 1;
 
   CopiableField(
-      {@required this.title,
-      @required this.data,
-      this.copyText,
-      this.maxLines});
+      {required this.title, required this.data, this.copyText, this.maxLines});
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +27,7 @@ class CopiableField extends StatelessWidget {
         children: [
           MySizedBox.h8,
           GestureDetector(
-            onTap: () {
-              Clipboard.setData(ClipboardData(text: data ?? "")).then((_) {
-                Snack.display(
-                    context: context,
-                    message: copyText ?? "coppied",
-                    showSuccessIcon: true,
-                    positive: true);
-              });
-            },
+            onTap: () => StringOperations.copy(data!, context),
             child: Container(
               //height: 72 + (((maxLines ?? 1) - 1) * 20.0),
               width: double.infinity,
@@ -70,14 +61,7 @@ class CopiableField extends StatelessWidget {
                     ),
                   ),
                   MySizedBox.w10,
-                  SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: SvgPicture.asset(
-                        Assets.svgCopy,
-                        color: MyColors.textBlack,
-                      ))
-                ],
+                  CopyButton(data)                ],
               ),
               decoration: BoxDecoration(
                   color: MyColors.mainGrey,

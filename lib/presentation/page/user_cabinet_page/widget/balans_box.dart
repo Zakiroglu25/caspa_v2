@@ -10,8 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class BalanceBox extends StatelessWidget {
   final Function? onTap;
   final Color? color;
+  final Color? colorbtn;
+
   final String? title;
   final String? subtitle;
+  final String? btnText;
   final String? price;
   final double? h;
 
@@ -19,7 +22,9 @@ class BalanceBox extends StatelessWidget {
 
   BalanceBox(
       {this.onTap,
+      this.btnText,
       this.color,
+      this.colorbtn,
       required this.title,
       required this.price,
       required this.subtitle,
@@ -31,35 +36,47 @@ class BalanceBox extends StatelessWidget {
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(
-        width: w ?? MediaQuery.of(context).size.width.sp,
+        width: w ?? 343.sp,
         height: h ?? 96.sp,
         decoration: BoxDecoration(
             color: color ?? MyColors.mainColor,
             borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(16.0),
           child: Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title!,
-                      style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp,color: MyColors.textBlack)),
+                  Text(subtitle!,
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp)),
                   MySizedBox.h6,
                   Text(
                     price!,
-                    style: AppTextStyles.sanF400
-                        .copyWith(fontSize: 12, color: MyColors.grey153),
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 16.sp, color: colorbtn!),
                   )
                 ],
               ),
-              Container(
-                width: w ?? 117.sp,
-                height: h ?? 44,
-                decoration: BoxDecoration(
-                    color: color ?? MyColors.mainGrey,
-                    borderRadius: BorderRadius.circular(12)),
-              )
+              Spacer(),
+              ConstrainedBox(
+                constraints:
+                    BoxConstraints.tightFor(width: 117.sp, height: 44.sp),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      elevation: MaterialStateProperty.all(0),
+                      backgroundColor: MaterialStateProperty.all(colorbtn!),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.0),
+                      ))),
+                  onPressed: () {},
+                  child: Text(btnText!,
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 14.sp)),
+                ),
+              ),
             ],
           ),
         ),

@@ -79,7 +79,13 @@ class MyColors {
   static const Color kuryer =Color.fromRGBO(239, 253, 252 ,1);
   static const Color partner =Color.fromRGBO(241, 241, 249 ,1);
   ///userAccountCabinet
-  static const Color balans =Color.fromRGBO(235, 238, 253 ,1);
+  static const Color balansCargo =Color.fromRGBO(235, 238, 253 ,1);
+  static const Color balansOrder =Color.fromRGBO(235, 251, 228 ,1);
+  static const Color btnBlanceCargo =Color.fromRGBO(111, 111, 191 ,1);
+  static const Color btnBlanceOrder =Color.fromRGBO(85, 169, 50 ,1);
+  static const Color balanceBoxRed =Color.fromRGBO(211, 41, 45 ,1);
+  static const Color balanceBoxOrange =Color.fromRGBO(249, 160, 0 ,1);
+  static const Color balanceCountPackage =Color.fromRGBO(255, 246, 225 ,1);
 
 
 

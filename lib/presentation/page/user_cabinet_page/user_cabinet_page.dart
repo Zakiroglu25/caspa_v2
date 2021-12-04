@@ -1,12 +1,18 @@
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
+import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'widget/cabinet_header.dart';
 
 class UserCabinetPage extends StatelessWidget {
   const UserCabinetPage({Key? key}) : super(key: key);
@@ -18,6 +24,7 @@ class UserCabinetPage extends StatelessWidget {
         iconTheme: const IconThemeData(color: MyColors.textBlack),
         automaticallyImplyLeading: true,
         backgroundColor: Colors.white,
+        centerTitle: true,
         elevation: 0,
         title: Text(
           "Şəxsi kabinet",
@@ -25,7 +32,47 @@ class UserCabinetPage extends StatelessWidget {
               .copyWith(color: MyColors.textBlack, fontSize: 16),
         ),
         actions: [
-          SvgPicture.asset(Assets.svgMenuAppbar),
+          InkWell(
+              onTap: () {
+                showCupertinoModalPopup(
+                  context: context,
+                  builder: (BuildContext context) => CupertinoActionSheet(
+                      actions: <Widget>[
+                        CupertinoActionSheetAction(
+                          child: Row(
+                            children: [
+                              SvgPicture.asset("assets/svg/file.svg"),
+                              MySizedBox.w20,
+                              Text(
+                                "Tənzimləmələr",
+                                style: AppTextStyles.sanF400.copyWith(
+                                    color: Colors.black, fontSize: 17.sp),
+                              ),
+                            ],
+                          ),
+                          onPressed: () {
+                            ///Settings User Info
+                            Navigator.pop(context);
+                          },
+                        )
+                      ],
+                      cancelButton: CupertinoActionSheetAction(
+                        child: Text(
+                          'Ləğv et',
+                          style: AppTextStyles.sanF400
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
+                        ),
+                        isDefaultAction: true,
+                        onPressed: () {
+                          Navigator.pop(context, 'Cancel');
+                        },
+                      )),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: SvgPicture.asset(Assets.svgMenuAppbar),
+              )),
         ],
       ),
       body: Padding(
@@ -33,49 +80,43 @@ class UserCabinetPage extends StatelessWidget {
         child: ListView(
           children: [
             MySizedBox.h32,
-            CircleAvatar(
-              radius: 64,
-              child: Image.asset(Assets.pngMoto),
-              backgroundColor: MyColors.grey153,
+            CabinetHeaderWidget(),
+            BalanceBox(
+              title: "Balans TL",
+              price: "120.00₼ ",
+              subtitle: "(Daşınma)",
+              color: MyColors.balansCargo,
+              btnText: "+ Balansı artır",
+              colorbtn: MyColors.btnBlanceCargo,
             ),
             MySizedBox.h16,
-            Align(
-              alignment: Alignment.center,
-              child: Text(
-                "Baxtiyar Zakiroglu",
-                style: AppTextStyles.coHead400.copyWith(
-                  fontSize: 25,
-                  fontStyle: FontStyle.normal,
-                ),
-              ),
+            BalanceBox(
+              title: "Balans TL",
+              price: "120.00₼ ",
+              subtitle: "(Sifariş)",
+              color: MyColors.balansOrder,
+              btnText: "+ Balansı artır",
+              colorbtn: MyColors.btnBlanceOrder,
             ),
             MySizedBox.h16,
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "ID:" + "C11111",
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16),
+                BalansMiniBox(
+                  title: "Son 30 gündə",
+                  content: "8.00",
+                  color: MyColors.shop,
+                  priceColor: MyColors.balanceBoxRed,
+                  icon: const Icon(null),
                 ),
-                //Text("C11111"),
-                MySizedBox.w16,
-                SvgPicture.asset(
-                  Assets.svgCopy,
-                  color: MyColors.grey153,
+                BalansMiniBox(
+                  title: "Bağalamalar sayı",
+                  content: "4",
+                  color: MyColors.balanceCountPackage,
+                  priceColor: MyColors.balanceBoxOrange,
+                  icon: SvgPicture.asset(Assets.balanceUp),
                 ),
               ],
-            ),
-            MySizedBox.h16,
-            Text(
-              MyText.userCabinet,
-              textAlign: TextAlign.center,
-              style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-            ),
-            BalanceBox(
-              title: "Dasinma",
-              price: "120",
-              subtitle: "Daşınma",
-              color: MyColors.balans
             )
           ],
         ),

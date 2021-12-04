@@ -40,8 +40,6 @@ class MenuBox extends StatelessWidget {
             children: [
               Text(title!,
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
-              MySizedBox.h6,
-                  style: AppTextStyles.sanF400.copyWith(fontSize: 16)),
               MySizedBox.h4,
               Text(
                 content!,

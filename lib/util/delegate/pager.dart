@@ -13,6 +13,7 @@ import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Pager {
@@ -61,4 +62,9 @@ class Pager {
   static get newOrder => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: NewOrderPage());
+
+
+  static get userSettingsPage => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => ForgotPassCubit())],
+      child: UserSettingsPage());
 }

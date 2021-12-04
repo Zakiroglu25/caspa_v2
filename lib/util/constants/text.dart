@@ -106,6 +106,11 @@ class MyText {
   static const String last30days = "Son 30 gündə";
   static const String countOfOrders = "Bağalamalar sayı";
 
+  //orders
+  static const String packagesWillDeliverToYou = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt:";
+  static const String orderNewPackages = "Yeni bağlama sifarişi";
+
+
 
 }
 

@@ -17,7 +17,7 @@ class NewOrderPage extends StatelessWidget {
         contextA: context,
       ),
       body: ListView(
-        padding: Paddings.paddingH16,
+        padding: Paddings.paddingH16 + Paddings.paddingT14,
         children: <Widget>[
           ColorfullBackImage(
             path: Assets.pngSebet,

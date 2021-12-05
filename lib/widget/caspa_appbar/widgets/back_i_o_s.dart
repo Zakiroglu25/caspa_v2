@@ -1,5 +1,7 @@
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class BackIOS extends StatelessWidget {
   @override
@@ -10,10 +12,7 @@ class BackIOS extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
-            Icons.arrow_back_ios_rounded,
-            color: MyColors.black,
-          )),
+          icon: SvgPicture.asset(Assets.svgBackArrow)),
     );
   }
 }

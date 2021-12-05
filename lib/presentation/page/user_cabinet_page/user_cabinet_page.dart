@@ -26,6 +26,7 @@ class UserCabinetPage extends StatelessWidget {
         contextA: context,
         centerTitle: true,
         notification: false,
+        user: false,
         onTapActions: () {
           showCupertinoModalPopup(
             context: context,

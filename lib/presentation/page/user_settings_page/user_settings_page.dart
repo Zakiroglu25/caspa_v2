@@ -17,6 +17,7 @@ class UserSettingsPage extends StatelessWidget {
       appBar: CaspaAppbar(
         title: MyText.settings,
         notification: false,
+        user: false,
       ),
       body: Stack(
         children: [

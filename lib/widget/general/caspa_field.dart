@@ -115,6 +115,8 @@ class CaspaField extends StatelessWidget {
                       ),
                     ),
                     hintText: hint ?? "",
+                    hintStyle: AppTextStyles.sanF400.copyWith(fontSize: 16,
+                    color: MyColors.grey153),
                     suffixText: suffixText ?? "",
                     filled: true,
                     prefixIcon: prefixIcon,

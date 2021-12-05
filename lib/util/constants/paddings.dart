@@ -46,6 +46,10 @@ class Paddings {
   static const EdgeInsets paddingB16 = const EdgeInsets.only(bottom: 16);
   static const EdgeInsets paddingB20 = const EdgeInsets.only(bottom: 20);
   static const EdgeInsets paddingB24 = const EdgeInsets.only(bottom: 24);
+  static const EdgeInsets paddingB50 = const EdgeInsets.only(bottom: 50);
+  static const EdgeInsets paddingB60 = const EdgeInsets.only(bottom: 60);
+  static const EdgeInsets paddingB70 = const EdgeInsets.only(bottom: 70);
+  static const EdgeInsets paddingB90 = const EdgeInsets.only(bottom: 90);
 
   //only bottom
   static const EdgeInsets paddingT4 = const EdgeInsets.only (top: 4);
@@ -55,4 +59,8 @@ class Paddings {
   static const EdgeInsets paddingT16 = const EdgeInsets.only(top: 16);
   static const EdgeInsets paddingT20 = const EdgeInsets.only(top: 20);
   static const EdgeInsets paddingT24 = const EdgeInsets.only(top: 24);
+  static const EdgeInsets paddingT50 = const EdgeInsets.only(top: 50);
+  static const EdgeInsets paddingT60 = const EdgeInsets.only(top: 60);
+  static const EdgeInsets paddingT70 = const EdgeInsets.only(top: 70);
+  static const EdgeInsets paddingT90 = const EdgeInsets.only(top: 90);
 }

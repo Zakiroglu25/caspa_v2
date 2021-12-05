@@ -29,7 +29,7 @@ class _OtherPageState extends State<OtherPage> {
         title: "",
       ),
       body: ListView(
-        padding: Paddings.paddingA16,
+        padding: Paddings.paddingA16+Paddings.paddingB90,
         children: [
           Align(
             alignment: Alignment.topLeft,

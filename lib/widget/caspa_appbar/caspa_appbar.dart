@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:focus_detector/focus_detector.dart';
 
+import 'widgets/actions_button.dart';
 import 'widgets/back_i_o_s.dart';
 import 'widgets/notification_widget.dart';
 
@@ -23,6 +24,8 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   final bool? exitButton;
   final bool? user;
   final BuildContext? contextA;
+  final bool? actions;
+  final Function? onTapActions;
   final bool? centerTitle;
 
   CaspaAppbar(
@@ -30,6 +33,8 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
       @required this.user,
       this.notification,
       this.exitButton,
+      this.actions,
+      this.onTapActions,
       @required this.contextA,
       this.centerTitle});
 
@@ -70,8 +75,13 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   Row rightButtonsRow(BuildContext contextZ) {
     return Row(
       children: [
-        (notification ?? true) ? NotificationWidget() : MySizedBox.w45,
-        MySizedBox.w8
+        (notification ?? true)
+            ? NotificationWidget()
+            : (onTapActions == null ? MySizedBox.w40 : Container()),
+        MySizedBox.w8,
+        ActionsButton(
+          onTap: onTapActions,
+        ),
       ],
     );
   }

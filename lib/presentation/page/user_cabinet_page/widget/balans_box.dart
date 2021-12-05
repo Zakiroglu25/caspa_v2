@@ -4,6 +4,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +50,8 @@ class BalanceBox extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(title!,
-                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp,color: MyColors.textBlack)),
+                      style: AppTextStyles.sanF400.copyWith(
+                          fontSize: 12.sp, color: MyColors.textBlack)),
                   Text(subtitle!,
                       style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp)),
                   MySizedBox.h6,
@@ -61,21 +63,12 @@ class BalanceBox extends StatelessWidget {
                 ],
               ),
               Spacer(),
-              ConstrainedBox(
-                constraints:
-                    BoxConstraints.tightFor(width: 117.sp, height: 44.sp),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      elevation: MaterialStateProperty.all(0),
-                      backgroundColor: MaterialStateProperty.all(colorbtn!),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12.0),
-                      ))),
-                  onPressed: () {},
-                  child: Text(btnText!,
-                      style: AppTextStyles.sanF400.copyWith(fontSize: 14.sp)),
-                ),
+              CaspaButton(
+                text: btnText!,
+                w: 117.sm,
+                h: 44.sm,
+                textSize: 14.sm,
+                color: colorbtn,
               ),
             ],
           ),

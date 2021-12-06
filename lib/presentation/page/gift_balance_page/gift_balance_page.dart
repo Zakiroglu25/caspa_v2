@@ -7,17 +7,17 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PromoCodePage extends StatelessWidget {
-  PromoCodePage({Key? key}) : super(key: key);
+class GiftBalance extends StatelessWidget {
+   GiftBalance({Key? key}) : super(key: key);
+
 
   List<CodeModel> hList = [
-    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr"),
-    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr"),
-    CodeModel(code: "COSMOS3", date: "07.10.2021 13:50", confrim: "Beli"),
+    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
+    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
+    CodeModel(code: "COSMOS3", date: "07.10.2021 13:50", confrim: "Beli",balance: "4.00"),
   ];
 
   @override
@@ -25,7 +25,7 @@ class PromoCodePage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         user: false,
-        title: "Promokod 🎉",
+        title: "Hədiyyə balansı 💸",
         notification: false,
       ),
       body: Padding(
@@ -33,9 +33,9 @@ class PromoCodePage extends StatelessWidget {
         child: ListView(
           children: [
             ColorfullBackImage(
-              path: Assets.pngRocket,
-              infoTitle: MyText.littlePromo,
-              infoContent: MyText.infoPromo,
+              path: Assets.posTerminal,
+              infoTitle: MyText.littleGift,
+              infoContent: MyText.InfoGift,
             ),
             MySizedBox.h16,
             CaspaField(
@@ -54,6 +54,11 @@ class PromoCodePage extends StatelessWidget {
                 Spacer(),
                 Text(
                   "Tarix",
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                ),
+                Spacer(),
+                Text(
+                  "Edilib",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Spacer(),
@@ -86,8 +91,15 @@ class PromoCodePage extends StatelessWidget {
                               fontSize: 16.sp, color: MyColors.grey153),
                         ),
                         Spacer(),
+
                         Text(
                           hList[index].confrim!.toString(),
+                          style: AppTextStyles.sanF400.copyWith(
+                              fontSize: 16.sp, color: MyColors.grey153),
+                        ),
+                        Spacer(),
+                        Text(
+                          hList[index].balance!.toString(),
                           style: AppTextStyles.sanF400.copyWith(
                               fontSize: 16.sp, color: MyColors.grey153),
                         ),
@@ -108,6 +120,8 @@ class CodeModel {
   String? code;
   String? date;
   String? confrim;
+  String? balance;
 
-  CodeModel({this.code, this.date, this.confrim});
+  CodeModel({this.code, this.date, this.confrim,this.balance});
 }
+

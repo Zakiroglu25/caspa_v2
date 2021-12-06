@@ -29,6 +29,9 @@ class MyText {
   ///promocode
   static const String littlePromo = "Pulsuz bağlama aparın 😊";
   static const String infoPromo = "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+  ///giftbalance
+  static const String littleGift = "Biz pul-da paylayırıq 💸";
+  static const String InfoGift = "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
 
 
 

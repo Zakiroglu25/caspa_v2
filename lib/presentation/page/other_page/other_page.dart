@@ -1,4 +1,5 @@
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
+import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -53,9 +54,12 @@ class _OtherPageState extends State<OtherPage> {
                 },
               ),
               MenuBox(
-                title: "Partnyorlar ⚙️",
+                title: "Hədiyyə balansı 💸️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
                 color: MyColors.partnyoColor,
+                onTap: (){
+                  Go.to(context, GiftBalance());
+                },
               ),
             ],
           ),

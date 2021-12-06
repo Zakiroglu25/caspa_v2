@@ -24,7 +24,7 @@ class HomeHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Xoş gəlmisiniz",
+            MyText.welcome,
             style: UITextStyle.tW400BigBlack,
           ),
           MySizedBox.h26,

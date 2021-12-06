@@ -1,3 +1,4 @@
+import 'package:caspa_v2/presentation/page/entry_page/page_view_entry.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -13,7 +14,7 @@ class ImageAnimateRotate extends StatefulWidget {
 }
 
 class _ImageAnimateRotateState extends State<ImageAnimateRotate>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late final AnimationController _controller;
 
 
@@ -23,10 +24,23 @@ class _ImageAnimateRotateState extends State<ImageAnimateRotate>
     super.initState();
     _controller = AnimationController(
         vsync: this,
-        duration: Duration(seconds: 5),
-        upperBound: widget.index / 4,
-        lowerBound: (widget.index - 1) / 4)
-      ..forward(from: (widget.index - 1) / 4);
+        duration: Duration(milliseconds: 1000),
+        upperBound: indexValueNotifier.value / 4,
+        lowerBound: (indexValueNotifier.value - 1) / 4);
+      //..forward(from: (widget.index - 1) / 4);
+
+indexValueNotifier.addListener(() {
+
+
+    forwardAnimation();
+
+});
+  }
+
+  void forwardAnimation(){
+
+    _controller
+      .forward(from: (indexValueNotifier.value- 1) / 4);
   }
 
   @override

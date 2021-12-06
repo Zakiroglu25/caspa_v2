@@ -1,6 +1,7 @@
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
@@ -38,7 +39,7 @@ class BalansMiniBox extends StatelessWidget {
             color: color ?? MyColors.shop,
             borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: Paddings.paddingA16,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -51,7 +52,7 @@ class BalansMiniBox extends StatelessWidget {
                   icon,
                 ],
               ),
-              MySizedBox.h6,
+              //MySizedBox.h6,
               Text(
                 content!,
                 style: AppTextStyles.sanF600

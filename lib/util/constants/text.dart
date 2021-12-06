@@ -90,10 +90,35 @@ class MyText {
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareIt = "Bəyan et 📦";
   static const String newOrder = "Yeni sifariş";
+
+
   //userCabinet
-  static const String userCabinet = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+  static const String emergencyCall = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
 
 
+
+  //home
+  static const String welcome = "Xoş gəlmişsiniz";
+
+
+  //user cabinet
+  static const String settings = "Tənzimləmələr";
+  static const String cancel = 'Ləğv et';
+  static const String increaseBalance = '+ Balansı artır';
+  static const String last30days = "Son 30 gündə";
+  static const String countOfOrders = "Bağalamalar sayı";
+
+  //user settings
+  static const String main = "Əsas";
+  static const String name = "Ad";
+  static const String surname = "Soyad";
+  static const String currentPass = "Cari şifrə";
+  static const String technicInfo = "Texniki məlumatlar";
+  static const String nationality = "Vətandaşlıq";
+
+  //orders
+  static const String packagesWillDeliverToYou = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt:";
+  static const String orderNewPackages = "Yeni bağlama sifarişi";
 
 
 

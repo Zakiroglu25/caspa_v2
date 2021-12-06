@@ -1,7 +1,10 @@
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
+
+import 'sebet_image.dart';
 
 class PageViewTwo extends StatelessWidget {
   const PageViewTwo({Key? key}) : super(key: key);
@@ -10,13 +13,7 @@ class PageViewTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          width:SizeConfig.safeBlockHorizontal! * 200,
-          height: SizeConfig.safeBlockVertical! *50,
-          child: Image.asset(
-            'assets/png/car.png',
-          ),
-        ),
+        SebetImage(),
         Spacer(),
         const Center(
           child: Text(

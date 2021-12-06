@@ -5,7 +5,7 @@ class Assets {
   static const String pngRocket = 'assets/png/rocket.png';
   static const String pngGlobus = "assets/png/globusv2.png";
   static const String pngBox = "assets/png/boxpng.png";
-  static const String pngSebet = 'assets/png/sebet3x.png';
+  static const String pngSebet = 'assets/png/sebet.png';
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String pngColorfulBack = "assets/png/bck.png";
   static const String pngMoto = 'assets/png/moto.png';
@@ -40,6 +40,8 @@ class Assets {
   static const String svgEyeOff="assets/svg/eye-off.svg";
   static const String svgEyeOn="assets/svg/eye-on.svg";
   static const String svgMenuAppbar="assets/svg/menu.svg";
+  static const String svgFile="assets/svg/file.svg";
+  static const String svgCamera="assets/svg/camera.svg";
   static const String svgTrash="assets/svg/trash.svg";
   static const String balanceUp="assets/svg/balance_up.svg";
 

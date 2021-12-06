@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
@@ -13,6 +14,7 @@ import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Pager {
@@ -61,4 +63,9 @@ class Pager {
   static get newOrder => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: NewOrderPage());
+
+
+  static get userSettingsPage => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: UserSettingsPage());
 }

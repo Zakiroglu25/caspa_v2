@@ -24,7 +24,7 @@ class SliverFields extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
-      padding: Paddings.paddingH12 + Paddings.paddingV20,
+      padding: Paddings.paddingH12 + Paddings.paddingV20+Paddings.paddingB50,
       sliver: SliverList(
         delegate: SliverChildListDelegate(
           [

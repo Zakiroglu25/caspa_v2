@@ -1,10 +1,11 @@
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/screen/positioned_bottom_fade.dart';
 import 'package:caspa_v2/util/screen/positioned_fade.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/save_button.dart';
 import 'widgets/sliver_user_photo.dart';
 import 'widgets/sliver_fields.dart';
 
@@ -28,8 +29,9 @@ class UserSettingsPage extends StatelessWidget {
               SliverFields(),
             ],
           ),
-          PositionedFade()
-        ],
+          PositionedTopFade(),
+          PositionedBottomFade(),
+          SaveButton()],
       ),
     );
   }

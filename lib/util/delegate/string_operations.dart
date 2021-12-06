@@ -1,9 +1,11 @@
 // Flutter imports:
 import 'dart:io';
 import 'package:caspa_v2/util/constants/api_keys.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StringOperations {
@@ -30,5 +32,43 @@ class StringOperations {
           showSuccessIcon: true,
           positive: true);
     });
+  }
+
+  static String dateConvert(DateTime date, BuildContext context) {
+    var now = DateTime.now();
+
+    final today = DateTime(now.year, now.month, now.day);
+    final yesterday = DateTime(now.year, now.month, now.day - 1);
+
+    if (DateFormat('dd.MM.yyyy').format(today).toString() ==
+        DateFormat('dd.MM.yyyy').format(date).toString()) {
+      return MyText.today;
+    } else if (DateFormat('dd.MM.yyyy').format(yesterday).toString() ==
+        DateFormat('dd.MM.yyyy').format(date).toString()) {
+      return MyText.yesterday;
+    } else {
+      return DateFormat('dd.MM.yyyy').format(date).toString();
+    }
+  }
+
+  static List<int> stringListToIntList(String listAsString) {
+    List<int>? dataListAsInt;
+    try {
+      dataListAsInt =
+          listAsString.split(',').map((data) => int.parse(data)).toList();
+    } catch (e) {
+      print("stringListToIntList error: " + e.toString());
+    }
+    return dataListAsInt!;
+  }
+
+  static int platformId() {
+    if (Platform.isAndroid) {
+      return 1;
+    } else if (Platform.isIOS) {
+      return 2;
+    } else {
+      return 1;
+    }
   }
 }

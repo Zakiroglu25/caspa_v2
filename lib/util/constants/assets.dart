@@ -41,6 +41,8 @@ class Assets {
   static const String svgEyeOn="assets/svg/eye-on.svg";
   static const String svgMenuAppbar="assets/svg/menu.svg";
   static const String svgFile="assets/svg/file.svg";
+  static const String svgCalendar="assets/svg/calendar.svg";
+  static const String svgHelpCircle="assets/svg/help-circle.svg";
   static const String svgBackArrow="assets/svg/back_arrow.svg";
   static const String svgCamera="assets/svg/camera.svg";
   static const String svgTrash="assets/svg/trash.svg";

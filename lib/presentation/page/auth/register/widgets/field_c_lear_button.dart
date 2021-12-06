@@ -1,6 +1,8 @@
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class FieldCLearButton extends StatefulWidget {
   TextEditingController controller;
@@ -39,6 +41,7 @@ class _FieldCLearButtonState extends State<FieldCLearButton> {
           },
         ),
       ),
+      elseChild: SvgPicture.asset(Assets.svgCalendar) ,
     );
   }
 }

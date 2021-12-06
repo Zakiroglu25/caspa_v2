@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/poxx.dart';
 import 'package:flutter/material.dart';
@@ -42,10 +43,11 @@ class App extends StatelessWidget {
               //   PackageDetailsPage(name: "Kitabacanan",)
               // CourierOrdersPage()
               // Example08()
-              // HomePage()
-                Pager.splash
+               //HomePage()
+                //Pager.splash
               //Pager.newOrder
-             // LandingPage()
+              LandingPage()
+        //PackagePage(),
           // Pager.newOrder
           //Kam*77
           //k.mamtiyev

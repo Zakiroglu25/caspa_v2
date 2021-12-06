@@ -26,6 +26,11 @@ class MyText {
 ///beyan et
   static const String declareText = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
   static const String factura = "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
+  ///promocode
+  static const String littlePromo = "Pulsuz bağlama aparın 😊";
+  static const String infoPromo = "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+
+
 
 
 

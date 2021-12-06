@@ -1,4 +1,5 @@
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
+import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -29,7 +30,7 @@ class _OtherPageState extends State<OtherPage> {
         title: "",
       ),
       body: ListView(
-        padding: Paddings.paddingA16+Paddings.paddingB90,
+        padding: Paddings.paddingA16 + Paddings.paddingB90,
         children: [
           Align(
             alignment: Alignment.topLeft,
@@ -39,21 +40,26 @@ class _OtherPageState extends State<OtherPage> {
             ),
           ),
           MySizedBox.h14,
-          const OtherShopWidget(),
-          MySizedBox.h14,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuBox(
-                  title: "Promokod 🎉",
-                  content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-              color: MyColors.promokodColor,),
+                title: "Promokod 🎉",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.promokodColor,
+                onTap: () {
+                  Go.to(context, PromoCodePage());
+                },
+              ),
               MenuBox(
-                  title: "Partnyorlar ⚙️",
-                  content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-              color: MyColors.partnyoColor,),
+                title: "Partnyorlar ⚙️",
+                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                color: MyColors.partnyoColor,
+              ),
             ],
           ),
+          MySizedBox.h14,
+          const OtherShopWidget(),
           MySizedBox.h16,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -61,11 +67,13 @@ class _OtherPageState extends State<OtherPage> {
               MenuBox(
                 title: "Etibarnamə ⚙️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                color: MyColors.etibarname,),
+                color: MyColors.etibarname,
+              ),
               MenuBox(
                 title: "Əlaqə ☎️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                color: MyColors.contact,),
+                color: MyColors.contact,
+              ),
             ],
           ),
           MySizedBox.h16,
@@ -75,11 +83,13 @@ class _OtherPageState extends State<OtherPage> {
               MenuBox(
                 title: "Kuryer 🕺🏻",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                color: MyColors.kuryer,),
+                color: MyColors.kuryer,
+              ),
               MenuBox(
                 title: "Ayarlar ⚙️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
-                color: MyColors.settings,),
+                color: MyColors.settings,
+              ),
             ],
           )
         ],

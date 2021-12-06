@@ -1,4 +1,5 @@
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -15,17 +16,20 @@ class ActionsButton extends StatelessWidget {
     if (onTap !=null) {
       return InkWrapper(
         onTap: ()=>onTap?.call(),
-        child: Row(
-          children: [
-            SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: SvgPicture.asset(
-                    Assets.svgMenuAppbar,
+        child: Container(
+          color: MyColors.transparent,
+          child: Row(
+            children: [
+              SizedBox(
+                    width: 20,
+                    height: 40,
+                    child: SvgPicture.asset(
+                      Assets.svgMenuAppbar,
+                    ),
                   ),
-                ),
-            MySizedBox.w12,
-          ],
+              MySizedBox.w12,
+            ],
+          ),
         ),
       );
     } else {

@@ -37,7 +37,7 @@ class CabinetHeaderWidget extends StatelessWidget {
           ],
         ),
         MySizedBox.h16,
-        SliverInfo(MyText.emergencyCall),
+        SliverInfo(MyText.emergencyCall,align: TextAlign.center,),
         MySizedBox.h16,
       ],
     );

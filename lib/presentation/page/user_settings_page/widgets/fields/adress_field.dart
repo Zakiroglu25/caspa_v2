@@ -1,6 +1,7 @@
 
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,9 +16,9 @@ class AdressFieldUser extends StatelessWidget {
       stream: BlocProvider.of<UserCubit>(context).adressStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: "adress",
+          title: MyText.adress,
           maxLines: 1,
-          hint: 'adress',
+          hint: MyText.adress,
           upperCase: true,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,

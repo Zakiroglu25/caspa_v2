@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class Paddings {
   Paddings._();
 
+
+
   //all
+  static const EdgeInsets zero =
+  const EdgeInsets.all(0);
   static const EdgeInsets paddingA4 =
   const EdgeInsets.symmetric(vertical: 4, horizontal: 4);
   static const EdgeInsets paddingA8 =

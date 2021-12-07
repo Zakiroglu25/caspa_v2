@@ -32,6 +32,9 @@ class MyText {
   ///giftbalance
   static const String littleGift = "Biz pul-da paylayırıq 💸";
   static const String InfoGift = "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
+  ///etibarname
+  static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
+  static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
 
 
 

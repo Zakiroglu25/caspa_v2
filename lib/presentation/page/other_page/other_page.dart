@@ -1,4 +1,5 @@
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
+import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
@@ -57,7 +58,7 @@ class _OtherPageState extends State<OtherPage> {
                 title: "Hədiyyə balansı 💸️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
                 color: MyColors.partnyoColor,
-                onTap: (){
+                onTap: () {
                   Go.to(context, GiftBalance());
                 },
               ),
@@ -73,6 +74,9 @@ class _OtherPageState extends State<OtherPage> {
                 title: "Etibarnamə ⚙️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
                 color: MyColors.etibarname,
+                onTap: () {
+                  Go.to(context, EtibarnamePage());
+                },
               ),
               MenuBox(
                 title: "Əlaqə ☎️",

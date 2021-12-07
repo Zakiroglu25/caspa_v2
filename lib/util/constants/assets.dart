@@ -19,6 +19,7 @@ class Assets {
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
   static const String posTerminal = "assets/png/payment.png";
+  static const String etibarname = "assets/png/etibar.png";
 
 
   //--svg

@@ -126,11 +126,34 @@ class MyText {
   static const String currentPass = "Cari şifrə";
   static const String technicInfo = "Texniki məlumatlar";
   static const String nationality = "Vətandaşlıq";
+  static const String save = "Yadda saxla";
+  static const String adress = "Adres";
+  static const String warehouse = "Anbar";
+  static const String birthday = "Doğum tarixi";
+  static const String card_id = "card_id";
+  //static const String email = "E-poçt";
+  static const String fin = "FİN kod";
+  static const String gender = "Cinsiyyət";
+
 
   //orders
   static const String packagesWillDeliverToYou = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt:";
   static const String orderNewPackages = "Yeni bağlama sifarişi";
 
+//notification
+  static const String notification = "Biildiriş";
+  static const String notifications = "Biildirişlər";
+  static const String yesterday = "Dünən";
+  static const String today = "Bu gün";
+
+  //promocode page
+  static const String promoCodeX = "Promokod 🎉";
+  static const String promoCode = "Promokod";
+  static const String apply = "Tətbiq et";
+  static const String date = "Tarix";
+  static const String used ="İstifadə edilib";
+  static const String congrated ="Təbrik edirik!";
+  static const String operationIsSuccess ="Əməliyyat uğurlu oldu.";
 
 
 }

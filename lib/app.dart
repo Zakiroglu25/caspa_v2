@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/poxx.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
-import 'infrastructure/cubits/login/login_cubit.dart';
-import 'presentation/page/auth/forget_password/forget_pass_page.dart';
-import 'presentation/page/auth/login_page/login_page.dart';
-import 'presentation/page/courier_orders_page/courier_orders_page.dart';
-import 'presentation/page/landing_page/landing_page.dart';
+
 import 'util/delegate/pager.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
@@ -42,10 +38,11 @@ class App extends StatelessWidget {
               //   PackageDetailsPage(name: "Kitabacanan",)
               // CourierOrdersPage()
               // Example08()
-              // HomePage()
-                Pager.splash
+               //HomePage()
+                //Pager.splash
               //Pager.newOrder
-             // LandingPage()
+         Pager.promocode
+        //PackagePage(),
           // Pager.newOrder
           //Kam*77
           //k.mamtiyev

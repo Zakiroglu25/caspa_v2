@@ -19,6 +19,7 @@ class Assets {
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
   static const String posTerminal = "assets/png/payment.png";
+  static const String etibarname = "assets/png/etibar.png";
 
 
   //--svg
@@ -41,10 +42,15 @@ class Assets {
   static const String svgEyeOn="assets/svg/eye-on.svg";
   static const String svgMenuAppbar="assets/svg/menu.svg";
   static const String svgFile="assets/svg/file.svg";
+  static const String svgCalendar="assets/svg/calendar.svg";
+  static const String svgHelpCircle="assets/svg/help-circle.svg";
   static const String svgBackArrow="assets/svg/back_arrow.svg";
   static const String svgCamera="assets/svg/camera.svg";
   static const String svgTrash="assets/svg/trash.svg";
   static const String balanceUp="assets/svg/balance_up.svg";
+  static const String whatsapp="assets/svg/whatsapp.svg";
+  static const String telegram="assets/svg/telegram.svg";
+  static const String facebook="assets/svg/facebook.svg";
 
   //--anim
 

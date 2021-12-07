@@ -25,8 +25,8 @@ class UserCabinetPage extends StatelessWidget {
         title: "Şəxsi kabinet",
         contextA: context,
         centerTitle: true,
-        notification: false,
         user: false,
+        notification: false,
         onTapActions: () {
           showCupertinoModalPopup(
             context: context,
@@ -114,4 +114,6 @@ class UserCabinetPage extends StatelessWidget {
       ),
     );
   }
+  
+  
 }

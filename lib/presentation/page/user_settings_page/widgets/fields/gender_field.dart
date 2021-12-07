@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/selectable/gender_list.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/enums/gender_type.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -18,9 +19,9 @@ class GenderFieldUser extends StatelessWidget {
       stream: BlocProvider.of<UserCubit>(context).genderStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: "gender",
+          title: MyText.gender,
           maxLines: 1,
-          hint: 'gender',
+          hint: MyText.gender,
           upperCase: true,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,

@@ -40,6 +40,7 @@ class _MainPassFieldUserState extends State<MainPassFieldUser> {
             ),
           ),
           upperCase: false,
+
           obscure: obscure,
           textInputType: TextInputType.phone,
           textCapitalization: TextCapitalization.none,

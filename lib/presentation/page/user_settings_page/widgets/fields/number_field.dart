@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/plus994.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/formatter/phone_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,9 @@ class PhoneFieldUser extends StatelessWidget {
       stream: BlocProvider.of<UserCubit>(context).phoneStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: "phone",
+          title: MyText.phone_number,
           maxLines: 1,
-          hint: 'phone',
+          hint: MyText.phone_number,
           upperCase: true,
           textInputType: TextInputType.phone,
           formatters: [PhoneNumberFormatter()],

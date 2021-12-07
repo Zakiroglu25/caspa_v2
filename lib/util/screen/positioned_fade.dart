@@ -1,12 +1,12 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-class PositionedFade extends StatelessWidget {
-  const PositionedFade({Key? key}) : super(key: key);
+class PositionedTopFade extends StatelessWidget {
+  const PositionedTopFade({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return           Positioned(
+    return Positioned(
         top: 125,
         left: 0,
         right: 0,
@@ -32,7 +32,6 @@ class PositionedFade extends StatelessWidget {
               end: Alignment.bottomCenter,
             ),
           ),
-        ))
-;
+        ));
   }
 }

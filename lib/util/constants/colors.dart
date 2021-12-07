@@ -11,6 +11,7 @@ class MyColors {
   static const Color greyWhite = Color.fromRGBO(245, 245, 245, 1);
   static const Color white = Colors.white;
   static const Color black = Colors.black;
+  static const Color black34 = Color.fromRGBO(34, 34, 34, 1);
   static const Color transparent = Colors.transparent;
   static const Color splashLittleText = Color.fromRGBO(91, 89, 89, 1);
   static const Color orange = Color.fromRGBO(249, 160, 0, 1);
@@ -32,7 +33,9 @@ class MyColors {
   static const Color halfGrey =  Color.fromRGBO(214, 214, 214, 1);
   //static Color purple = HexColor.fromHex('#b74093');
   static const Color grey165 =  Color.fromRGBO(168, 172, 185, 1);
+  static const Color grey163 =  Color.fromRGBO(163, 165, 167, 1);
  static const Color greyPassiveBody =  Color.fromRGBO(216,216,216,1);
+ static const Color grey245 =  Color.fromRGBO(245, 245, 245, 1);
   static const Color greyPassiveContent =  Color.fromRGBO(142,142,142,1);
   static const Color greyPassiveContentWhite =  Colors.white;
   static const Color greyPassiveBodyMainColor =   Color.fromRGBO(212,212,236,1);

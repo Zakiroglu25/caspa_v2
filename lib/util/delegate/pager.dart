@@ -8,12 +8,15 @@ import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
+import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
+import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
@@ -75,4 +78,18 @@ class Pager {
   static get promocode => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: PromoCodePage());
+
+  static get contact => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: ContactPage());
+
+
+  static get other => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: OtherPage());
+
+
+  static get newOrderPayment => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: NewOrderPaymentPage());
 }

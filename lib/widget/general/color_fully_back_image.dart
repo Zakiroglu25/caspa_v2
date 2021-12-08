@@ -1,10 +1,6 @@
-import 'package:caspa_v2/presentation/page/order_success_page/widgets/congrats_text.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/widgets/order_on_the_way_text.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/screen/image_rotate_animation.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

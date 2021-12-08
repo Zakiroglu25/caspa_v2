@@ -1,8 +1,10 @@
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
+import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
+import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -96,11 +98,17 @@ class _OtherPageState extends State<OtherPage> {
                 title: "Kuryer 🕺🏻",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
                 color: MyColors.kuryer,
+                onTap: () {
+                 // Go.to(context, KuryerPage());
+                },
               ),
               MenuBox(
                 title: "Ayarlar ⚙️",
                 content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
                 color: MyColors.settings,
+                onTap: () {
+                  Go.to(context, SettingsPage());
+                },
               ),
             ],
           )

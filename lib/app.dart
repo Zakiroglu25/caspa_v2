@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/poxx.dart';
@@ -41,7 +42,8 @@ class App extends StatelessWidget {
                //HomePage()
                 //Pager.splash
               //Pager.newOrder
-         Pager.promocode
+        LandingPage(),
+         //Pager.promocode
         //PackagePage(),
           // Pager.newOrder
           //Kam*77

@@ -38,7 +38,9 @@ class EtibarnamePage extends StatelessWidget {
             },),
             MySizedBox.h32,
             SectionName(title: "Etibarnamə"),
-            OrderUnicorn()
+            OrderUnicorn(
+
+            )
           ],
         ),
       ),

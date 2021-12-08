@@ -55,8 +55,10 @@ class MySizedBox {
   static const SizedBox w48 = SizedBox(width: 48);
   static const SizedBox w50 = SizedBox(width: 50);
   static const SizedBox w60 = SizedBox(width: 60);
+  static const SizedBox w70 = SizedBox(width: 70);
   static const SizedBox w75 = SizedBox(width: 75);
   static const SizedBox w80 = SizedBox(width: 80);
+  static const SizedBox w90 = SizedBox(width: 90);
   static const SizedBox w100 = SizedBox(width: 100);
 
 //......

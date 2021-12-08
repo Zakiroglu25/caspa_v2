@@ -15,8 +15,8 @@ class GiftBalance extends StatelessWidget {
 
 
   List<CodeModel> hList = [
-    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
-    CodeModel(code: "COSMOS3", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
+    CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021 13:50", confrim: "Xeyr",balance: "4.00"),
+    CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
     CodeModel(code: "COSMOS3", date: "07.10.2021 13:50", confrim: "Beli",balance: "4.00"),
   ];
 
@@ -51,19 +51,20 @@ class GiftBalance extends StatelessWidget {
                   "Kod",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
-                Spacer(),
+                MySizedBox.w90,
                 Text(
                   "Tarix",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
-                Spacer(),
+                MySizedBox.w70,
+
                 Text(
                   "Edilib",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Spacer(),
                 Text(
-                  "İstifadə edilib",
+                  "Balans",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
               ],
@@ -79,16 +80,23 @@ class GiftBalance extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 40.0),
                     child: Row(
                       children: [
-                        Text(
-                          hList[index].code!.toString(),
-                          style: AppTextStyles.sanF400.copyWith(
-                              fontSize: 16.sp, color: MyColors.grey153),
+                        Container(
+                          width:110.sp,
+                          height: 72.sp,
+                          child: Text(
+                            hList[index].code!.toString(),
+                            style: AppTextStyles.sanF400.copyWith(
+                                fontSize: 16.sp, color: MyColors.grey153),
+                          ),
                         ),
-                        MySizedBox.w45,
-                        Text(
-                          hList[index].date!.toString(),
-                          style: AppTextStyles.sanF400.copyWith(
-                              fontSize: 16.sp, color: MyColors.grey153),
+                        Container(
+                          width:75.sp,
+                          height: 48.sp,
+                          child: Text(
+                            hList[index].date!.toString(),
+                            style: AppTextStyles.sanF400.copyWith(
+                                fontSize: 16.sp, color: MyColors.grey153),
+                          ),
                         ),
                         Spacer(),
 

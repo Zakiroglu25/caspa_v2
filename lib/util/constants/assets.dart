@@ -51,6 +51,8 @@ class Assets {
   static const String whatsapp="assets/svg/whatsapp.svg";
   static const String telegram="assets/svg/telegram.svg";
   static const String facebook="assets/svg/facebook.svg";
+  static const String help="assets/svg/help.svg";
+  static const String infoApp="assets/svg/info_app.svg";
 
   //--anim
 

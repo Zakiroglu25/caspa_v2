@@ -19,7 +19,6 @@ class OrderUnicorn extends StatelessWidget {
   final String? title;
   final String? deliveryPrice;
   final int? statusId;
-
   OrderUnicorn(
       {this.sellerName,
       this.trackingCode,

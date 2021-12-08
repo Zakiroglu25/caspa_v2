@@ -1,15 +1,8 @@
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
-import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
+
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/poxx.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-
 import 'util/delegate/pager.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
@@ -19,10 +12,8 @@ class App extends StatelessWidget {
     return ScreenUtilInit(
       designSize: Size(375, 812),
       builder: () => MaterialApp(
-          //color: Colors.orange,
-
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: MyText.messenger,
           theme: ThemeData(
               fontFamily: 'CoHeadline',
               scaffoldBackgroundColor: MyColors.white),
@@ -31,57 +22,11 @@ class App extends StatelessWidget {
                 behavior: ScrollBehaviorModified(), child: widget!);
           },
           home:
-              //MediaPage()
-              //     c
-              // ),
-              //RegisterPage(),
-              //]]   LoginPage(),
-              //   PackageDetailsPage(name: "Kitabacanan",)
-              // CourierOrdersPage()
-              // Example08()
-               //HomePage()
-                //Pager.splash
               //Pager.newOrder
-        LandingPage(),
-         //Pager.promocode
-        //PackagePage(),
-          // Pager.newOrder
-          //Kam*77
-          //k.mamtiyev
-          //  BlocProvider(
-          // create: (context) => ForgotPassCubit(),
-          //  child: ForgetPasswordPage())
-          //SilverAppBarExample(),
-          //  BlocProvider(
-          //  create: (context)=>LoginCubit()
-          //  ,child: LoginPage())
-          //SplashPage()
-          //CupertinoStoreHomePage()
-          //CircularHomePage()
-          ),
-    );
-  }
-}
-//
 
-class Example08 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('random dynamic tile sizes'),
-      ),
-      body: StaggeredGridView.countBuilder(
-        primary: false,
-        crossAxisCount: 4,
-        mainAxisSpacing: 4,
-        crossAxisSpacing: 4,
-        itemBuilder: (context, index) => Container(
-          height: 100 * (index % 2) + 20,
-          color: Colors.orange,
-        ),
-        staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
-      ),
+              Pager.newOrderPayment),
+
     );
   }
 }
+

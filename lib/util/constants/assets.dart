@@ -9,6 +9,7 @@ class Assets {
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String pngColorfulBack = "assets/png/bck.png";
   static const String pngMoto = 'assets/png/moto.png';
+  static const String pngSucs = 'assets/png/sucs.png';
 
   static const String homeDino = "assets/png/homeDinopng.png";
   static const String homeDino2 = "assets/png/dinov2.png";
@@ -18,8 +19,12 @@ class Assets {
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
+
+  static const String pngPosTerminal = "assets/png/payment.png";
+
   static const String posTerminal = "assets/png/payment.png";
   static const String etibarname = "assets/png/etibar.png";
+
 
 
   //--svg
@@ -50,9 +55,13 @@ class Assets {
   static const String balanceUp="assets/svg/balance_up.svg";
   static const String whatsapp="assets/svg/whatsapp.svg";
   static const String telegram="assets/svg/telegram.svg";
+
+  static const String messenger="assets/svg/facebook.svg";
+
   static const String facebook="assets/svg/facebook.svg";
   static const String help="assets/svg/help.svg";
   static const String infoApp="assets/svg/info_app.svg";
+
 
   //--anim
 

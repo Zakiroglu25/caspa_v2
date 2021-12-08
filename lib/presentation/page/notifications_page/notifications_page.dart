@@ -1,15 +1,11 @@
 import 'package:caspa_v2/infrastructure/cubits/notification/notification_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/notification/notification_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/notification_model.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
-import 'package:caspa_v2/widget/general/caspa_loading.dart';
-import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widgets/notifications_list.dart';
 
 class NotificationsPage extends StatelessWidget {

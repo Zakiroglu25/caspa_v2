@@ -1,6 +1,7 @@
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
@@ -33,19 +34,18 @@ class MenuBox extends StatelessWidget {
         decoration: BoxDecoration(
             color: color ?? MyColors.mainColor,
             borderRadius: BorderRadius.circular(12)),
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
+        child: Container(
+          padding: Paddings.paddingA20,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title!,
-
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp)),
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm)),
               MySizedBox.h4,
               Text(
                 content!,
                 style: AppTextStyles.sanF400
-                    .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+                    .copyWith(fontSize: 12.sm, color: MyColors.grey153),
               )
             ],
           ),

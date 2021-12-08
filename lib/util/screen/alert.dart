@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -41,7 +42,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: Image.asset('assets/png/sucs.png'),
+                        child: Image.asset(Assets.svgCalendar),
                         height: 120.sm,
                         width: 120.sm,
                       ),

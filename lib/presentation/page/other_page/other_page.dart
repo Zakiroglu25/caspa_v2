@@ -1,6 +1,9 @@
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
+import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
+
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
+
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -59,6 +62,9 @@ class OtherPage extends StatelessWidget {
                 title: MyText.powerOfAttorney,
                 content: MyText.forEditAppSettings,
                 color: MyColors.etibarname,
+                onTap: () {
+                  Go.to(context, EtibarnamePage());
+                },
               ),
               MenuBox(
                 title: MyText.contactX,
@@ -78,11 +84,17 @@ class OtherPage extends StatelessWidget {
                 title: MyText.courierX,
                 content: MyText.forEditAppSettings,
                 color: MyColors.kuryer,
+                onTap: () {
+                 // Go.to(context, KuryerPage());
+                },
               ),
               MenuBox(
                 title: MyText.settingsX,
                 content: MyText.forEditAppSettings,
                 color: MyColors.settings,
+                onTap: () {
+                  Go.to(context, SettingsPage());
+                },
               ),
             ],
           )

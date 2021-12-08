@@ -19,7 +19,12 @@ class Assets {
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
+
   static const String pngPosTerminal = "assets/png/payment.png";
+
+  static const String posTerminal = "assets/png/payment.png";
+  static const String etibarname = "assets/png/etibar.png";
+
 
 
   //--svg
@@ -50,7 +55,13 @@ class Assets {
   static const String balanceUp="assets/svg/balance_up.svg";
   static const String whatsapp="assets/svg/whatsapp.svg";
   static const String telegram="assets/svg/telegram.svg";
+
   static const String messenger="assets/svg/facebook.svg";
+
+  static const String facebook="assets/svg/facebook.svg";
+  static const String help="assets/svg/help.svg";
+  static const String infoApp="assets/svg/info_app.svg";
+
 
   //--anim
 

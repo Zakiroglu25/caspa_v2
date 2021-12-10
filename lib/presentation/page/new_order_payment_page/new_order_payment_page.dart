@@ -11,6 +11,8 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
+import 'package:caspa_v2/widget/general/page_top_small_image.dart';
+import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -43,20 +45,10 @@ class NewOrderPaymentPage extends StatelessWidget {
               ),
               MySizedBox.h26,
               //error verdi deye Asset. elemedim
-              Container(
-                  width: ScreenUtil().setWidth(120),
-                  height: ScreenUtil().setWidth(120),
-                  child: Image.asset(Assets.pngPosTerminal)),
-              MySizedBox.h12,
-              SectionName(title: MyText.makePayment),
-              MySizedBox.h12,
-              Padding(
-                padding: const EdgeInsets.only(right: 32.0),
-                child: Text(
-                  MyText.paymentLinkTxt,
-                  style:
-                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-                ),
+              SectionNameAndDefinition(
+                definition: MyText.paymentLinkTxt,
+                imagePath: Assets.pngPosTerminal,
+                name: MyText.makePayment,
               ),
               MySizedBox.h40,
               Row(

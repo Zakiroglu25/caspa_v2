@@ -77,6 +77,7 @@ class MyText {
   static const String note = "Qeyd";
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
+  static const String price = "Qiymət";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
@@ -177,6 +178,9 @@ class MyText {
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
+  static const String addProduct = "Məhsulları əlavə edin";
+  static const String comission = "Komissiya";
+  static const String productNumber = "Məhsulun sayı";
 
 
 

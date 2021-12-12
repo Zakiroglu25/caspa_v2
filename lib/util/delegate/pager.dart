@@ -13,6 +13,7 @@ import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_pa
 import 'package:caspa_v2/presentation/page/declare_page/declare_tab.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
@@ -110,4 +111,10 @@ class Pager {
   static get declare => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: DeclarePage());
+
+
+  static get landing => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: LandingPage());
+
 }

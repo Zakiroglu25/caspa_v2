@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>622522519355-ague6e96fg1mlc49fvtbepp2dgeoq0p3.apps.googleusercontent.com</string>
+	<string>461387793961-pno7hl2fltf3l13ceisllb51l437gf9g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.622522519355-ague6e96fg1mlc49fvtbepp2dgeoq0p3</string>
+	<string>com.googleusercontent.apps.461387793961-pno7hl2fltf3l13ceisllb51l437gf9g</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCuEKUfEtyXORuA6uw9F69d7-wJgCpdWnU</string>
+	<string>AIzaSyCNo8B3211bqDqGvE7WLbmfPu-feJ2waZA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>622522519355</string>
+	<string>461387793961</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>az.caspav2.caspaV2</string>
+	<string>az.caspa</string>
 	<key>PROJECT_ID</key>
-	<string>caspa-v2</string>
+	<string>caspaaz</string>
 	<key>STORAGE_BUCKET</key>
-	<string>caspa-v2.appspot.com</string>
+	<string>caspaaz.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:622522519355:ios:b991ade52f597a1955b11e</string>
+	<string>1:461387793961:ios:96908c98fcab6498fdbe38</string>
 </dict>
 </plist>

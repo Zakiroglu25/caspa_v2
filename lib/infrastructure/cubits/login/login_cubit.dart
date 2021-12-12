@@ -4,7 +4,9 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -20,6 +22,7 @@ import 'package:flutter/services.dart';
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../locator.dart';
 import 'login_state.dart';
 
 import 'package:rxdart/rxdart.dart';
@@ -29,6 +32,8 @@ import 'package:device_info_plus/device_info_plus.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
+
+  PreferencesService get _prefs => locator<PreferencesService>();
 
   bool emailValid = false;
 
@@ -98,6 +103,11 @@ class LoginCubit extends Cubit<LoginState> {
             lang: 'az');
 
         if (isSuccess(response.statusCode)) {
+          configureUserData(accessToken: 'jk',
+
+          fcmToken: 'ss'
+          );
+
           emit(LoginSuccess(response.body));
           Go.replace(context, LandingPage());
           // result=response.data;
@@ -118,7 +128,6 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   void testLogin(BuildContext context, {bool? loading}) async {
-
     try {
       if (loading ?? true) {
         emit(LoginInProgress());
@@ -133,6 +142,10 @@ class LoginCubit extends Cubit<LoginState> {
           lang: 'az');
 
       if (isSuccess(response.statusCode)) {
+        configureUserData(accessToken: 'jk',
+
+            fcmToken: 'ss'
+        );
         emit(LoginSuccess(response.body));
         Go.replace(context, LandingPage());
         // result=response.data;
@@ -157,6 +170,34 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  Future<void> configureUserData(
+      //MyUser user,
+      {required String fcmToken,
+      required String accessToken}) async {
+    //llll("configureUserData result result: " + user.toString());
 
+    // final userSave = MyUser(
+    //      id: result.result.id,
+    //      mobileCurrentLng: mobileCurrentLng,
+    //      email: result.result.email,
+    //      surname: result.result.surname,
+    //      genderId: result.result.genderId,
+    //      birthday: result.result.birthday,
+    //      phoneNumber: result.result.phoneNumber,
+    //      name: result.result.name,
+    //      haveCard: result.result.haveCard,
+    //      refreshToken: result.result.refreshToken,
+    //      accessToken: result.result.accessToken);
 
+    // await _prefs.save("user", userSave);
+    await _prefs.persistIsGuest(false);
+    await _prefs.persistIsLoggedIn(true);
+    //await _prefs.persistRefreshToken(refreshToken: user.result.refreshToken);
+    await _prefs.persistAccessToken(accessToken: accessToken);
+    await _prefs.persistFcmToken(fcmToken: fcmToken);
+
+    //llll("configureUserData result result: " + userSave.toString());
+
+    //wtf("new user: " + userSave.toString());
+  }
 }

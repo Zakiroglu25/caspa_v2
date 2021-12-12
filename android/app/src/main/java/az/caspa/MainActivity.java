@@ -1,4 +1,4 @@
-package az.caspa_v2.caspa_v2;
+package az.caspa;
 
 import io.flutter.embedding.android.FlutterActivity;
 

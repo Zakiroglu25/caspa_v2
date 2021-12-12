@@ -12,22 +12,21 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StatefulWrapper(
       onInit: () {
-        Timer(
-            const Duration(seconds: 3),
-            () =>
-                Go.replace(context,  Pager.onBoard));
+        // Timer(
+        //     const Duration(seconds: 3),
+        //     () =>
+        //         Go.replace(context,  Pager.onBoard));
       },
       child: Scaffold(
         backgroundColor: MyColors.mainColor,
-        body: SafeArea(
-            child: Container(
+        body: Container(
           width: double.maxFinite,
           height: double.maxFinite,
           child: Stack(
-            alignment: Alignment.center,
-            children: [CaspaLogoWithName(), CaspaAzText()],
+        alignment: Alignment.center,
+        children: [CaspaLogoWithName(), CaspaAzText()],
           ),
-        )),
+        ),
       ),
     );
   }

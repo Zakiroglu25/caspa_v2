@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
@@ -14,6 +15,7 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget/other_shop_widget.dart';
 
 class OtherPage extends StatelessWidget {
@@ -98,6 +100,19 @@ class OtherPage extends StatelessWidget {
                 },
               ),
             ],
+          ),
+          MySizedBox.h16,
+          MenuBox(
+            h: 80,
+            w:double.maxFinite ,
+            title: MyText.exit,
+            content: MyText.tapForExit,
+            color: MyColors.grey245,
+            onTap: () {
+
+              BlocProvider.of<AuthenticationCubit>(context)..logOut(context);
+
+            },
           )
         ],
       ),

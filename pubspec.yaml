@@ -45,6 +45,14 @@ dependencies:
   device_info_plus: ^3.1.1
   device_information: ^0.0.4
 
+  #firebase \\ notification:
+  firebase_messaging: ^11.2.3
+  firebase: ^9.0.2
+  firebase_core: ^1.10.5
+  awesome_notifications: ^0.0.6+12
+  bot_toast: ^4.0.1
+  flutter_local_notifications: ^8.2.0
+
 
 dev_dependencies:
   flutter_test:

@@ -10,27 +10,29 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class AuthProvider {
-  static Future<http.Response> login ({
-    @required String? password,
-    @required String? email,
-    @required String? deviceCode,
-    @required int? deviceType,
-    @required String? lang,
-  }) async {
+  static Future<http.Response> login({
+    required String? password,
+    required String? email,
+    required String? deviceCode,
+    required String? deviceName,
+    required int? deviceTypeId,
+    required String? lang,
 
-    var api = ApiKeys.baseUrl+ApiKeys.login;
+  }) async {
+    var api = ApiKeys.baseUrl + ApiKeys.login;
     var url = Uri.parse(api);
 
     var body = ApiKeys.loginBody(
-        password: password,
-        email: email,
-        //todo change test
-        device_name: "test");
+      password: password,
+      email: email,
+      device_name: deviceName,
+      language: lang,
+      deviceTypeId: deviceTypeId,
+      deviceCode: deviceCode,
+    );
 
-    final response = await http.post(url,
-           headers: ApiKeys.headers,
-           body: jsonEncode(body));
-
+    final response =
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -47,28 +49,35 @@ class AuthProvider {
     return response;
   }
 
-    static Future<http.Response> registrationBusiness ({
-      required String? name,
-      required String? surname,
-      required String? address,
-      required String? email,
-      required String? password,
-      required String? password_confirmation,
-      required String? phone,
-      required String? accept,
-      required String? company_name,
-      required String? tax_number,
+  static Future<http.Response> registrationBusiness({
+    required String? name,
+    required String? surname,
+    required String? address,
+    required String? email,
+    required String? password,
+    required String? password_confirmation,
+    required String? phone,
+    required String? accept,
+    required String? company_name,
+    required String? tax_number,
   }) async {
-
     var api = ApiKeys.register;
     var url = Uri.parse(api);
 
-    var body = ApiKeys.registrationBusinessBody(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
+    var body = ApiKeys.registrationBusinessBody(
+        name: name,
+        surname: surname,
+        address: address,
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+        phone: phone,
+        accept: accept,
+        company_name: company_name,
+        tax_number: tax_number);
 
-    final response = await http.post(url,
-           headers: ApiKeys.headers,
-           body: jsonEncode(body));
-
+    final response =
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -120,9 +129,9 @@ class AuthProvider {
     );
 
     final response =
-    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
-      bbbb("response personla register: :"+response.body);
+    bbbb("response personla register: :" + response.body);
     if (response.statusCode == ResultKey.responseSuccess) {
       var dataGelenCavabJSON = jsonDecode(response.body);
       //print("addComment result: $dataGelenCavabJSON");
@@ -145,7 +154,4 @@ class AuthProvider {
 
     return response;
   }
-
-
-
 }

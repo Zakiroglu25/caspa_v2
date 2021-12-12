@@ -29,23 +29,23 @@ class ApiKeys {
 
   static loginBody({
     required String? email,
-    String? password,
-    String? device_name,
-    String? language,
-    String? deviceTypeId,
-    String? deviceCode,
+    required String? password,
+  required  String? device_name,
+  required  String? language,
+  required  int? deviceTypeId,
+  required  String? deviceCode,
 
   }) {
     //
     final map = {
-      "email":"esev.sv@gmail.com",
-      "password":"salam12345",
-      "device_name":"addd",
-      "deviceName":"addd",
-      "deviceTypeId":1,
-      "deviceCode":"test12345",
-      "language":"az",
-      "deviceName":"addd"
+      "email":email,
+      "password":password,
+      "device_name":device_name,
+      "deviceName":device_name,
+      "deviceTypeId":deviceTypeId,
+      "deviceCode":deviceCode,
+      "language":language,
+
     };
 
     aaaa(map.toString());

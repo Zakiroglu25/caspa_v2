@@ -1,6 +1,6 @@
-import 'package:caspa_v2/presentation/page/entry_page/page_view_entry.dart';
 import 'package:flutter/material.dart';
 
+import '../onboard_page.dart';
 import 'page_view_one.dart';
 import 'page_view_three.dart';
 import 'page_view_two.dart';

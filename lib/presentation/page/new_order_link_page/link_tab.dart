@@ -82,16 +82,7 @@ class LinkPage extends StatelessWidget {
                     ),
                   ),
                   MySizedBox.w10,
-                  Container(
-                    width: 96,
-                    height: 48,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: MyColors.mainGrey),
-                    child: DropdownButton(
-                      items: [],
-                    ),
-                  ),
+
                 ],
               ),
               Text(

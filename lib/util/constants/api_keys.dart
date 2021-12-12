@@ -28,9 +28,12 @@ class ApiKeys {
 
 
   static loginBody({
-    String? email,
+    required String? email,
     String? password,
     String? device_name,
+    String? language,
+    String? deviceTypeId,
+    String? deviceCode,
 
   }) {
     //
@@ -38,6 +41,10 @@ class ApiKeys {
       "email":"esev.sv@gmail.com",
       "password":"salam12345",
       "device_name":"addd",
+      "deviceName":"addd",
+      "deviceTypeId":1,
+      "deviceCode":"test12345",
+      "language":"az",
       "deviceName":"addd"
     };
 

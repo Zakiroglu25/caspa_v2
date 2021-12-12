@@ -3,6 +3,7 @@ import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart'
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
+import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
 
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';

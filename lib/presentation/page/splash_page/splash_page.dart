@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:caspa_v2/presentation/page/entry_page/page_view_entry.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/state_full_wrapper.dart';
 import 'package:caspa_v2/widget/general/caspa_logo_with_name.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
         Timer(
             const Duration(seconds: 3),
             () =>
-                Go.replace(context,  PageViewEntry()));
+                Go.replace(context,  Pager.onBoard));
       },
       child: Scaffold(
         backgroundColor: MyColors.mainColor,

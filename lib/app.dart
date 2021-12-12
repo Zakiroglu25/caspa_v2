@@ -24,7 +24,7 @@ class App extends StatelessWidget {
           home:
               //Pager.newOrder
 
-              Pager.newOrderPayment),
+              Pager.onBoard),
 
     );
   }

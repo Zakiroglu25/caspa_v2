@@ -8,12 +8,16 @@ class ApiKeys {
   static const baseUrl = 'https://caspa.az/api';
   static const headers = {
     "Content-Type": "application/json",
-    "Accept":"application/json",
+    "Accept": "application/json",
   };
 
   //reg and login
   static final login = "/user/login";
   static final register = "$baseUrl/user/register";
+
+  //user
+
+  static final user = "$baseUrl/user/user";
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -24,36 +28,33 @@ class ApiKeys {
 
   //get tarif
   static const getTarif = "$baseUrl/public/prices";
- // vi96JAj3ffdIw/default.jpg
 
+  // vi96JAj3ffdIw/default.jpg
 
   static loginBody({
     required String? email,
     required String? password,
-  required  String? device_name,
-  required  String? language,
-  required  int? deviceTypeId,
-  required  String? deviceCode,
-
+    required String? device_name,
+    required String? language,
+    required int? deviceTypeId,
+    required String? deviceCode,
   }) {
     //
     final map = {
-      "email":email,
-      "password":password,
-      "device_name":device_name,
-      "deviceName":device_name,
-      "deviceTypeId":deviceTypeId,
-      "deviceCode":deviceCode,
-      "language":language,
-
+      "email": email,
+      "password": password,
+      "device_name": device_name,
+      "deviceName": device_name,
+      "deviceTypeId": deviceTypeId,
+      "deviceCode": deviceCode,
+      "language": language,
     };
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
-
 
   static registrationBusinessBody({
     required String? name,
@@ -66,25 +67,24 @@ class ApiKeys {
     required String? accept,
     required String? company_name,
     required String? tax_number,
-
   }) {
     //
     final map = {
-      "name":"esev.sv@gmail.com",
-      "surname":"salam12345",
-      "address":"addd",
-      "email":"addd",
-      "password":"addd",
-      "password_confirmation ":"addd",
-      "phone":"addd",
-      "accept":"addd",
-      "company_name":"addd",
-      "tax_number":"addd"
+      "name": "esev.sv@gmail.com",
+      "surname": "salam12345",
+      "address": "addd",
+      "email": "addd",
+      "password": "addd",
+      "password_confirmation ": "addd",
+      "phone": "addd",
+      "accept": "addd",
+      "company_name": "addd",
+      "tax_number": "addd"
     };
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -102,30 +102,42 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
-
   }) {
     //
     final map = {
-      "name":"esev.sv@gmail.com",
-      "surname":"salam12345",
-      "address":"addd",
-      "email":"addd",
-      "password":"addd",
-      "password_confirmation ":"addd",
-      "phone":"addd",
-      "accept":"addd",
-      "id_number":"addd",
-      "fin":"addd",
-      "birthday":"addd",
-      "gender":"addd",
-      "ware_house":"addd",
+      "name": "esev.sv@gmail.com",
+      "surname": "salam12345",
+      "address": "addd",
+      "email": "addd",
+      "password": "addd",
+      "password_confirmation ": "addd",
+      "phone": "addd",
+      "accept": "addd",
+      "id_number": "addd",
+      "fin": "addd",
+      "birthday": "addd",
+      "gender": "addd",
+      "ware_house": "addd",
     };
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
+  static header({
+    required String? token,
+  }) {
+    //
+    final map = {
+      'Authorization': 'Bearer $token',
+      "Content-Type": "application/json",
+    };
 
+    aaaa(map.toString());
+    map.removeWhere(
+        (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
 }

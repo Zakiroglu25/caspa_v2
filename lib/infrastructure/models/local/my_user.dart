@@ -95,6 +95,11 @@ class MyUser {
     data['companyName'] = this.companyName;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName}';
+  }
 }
 
 class City {
@@ -123,6 +128,11 @@ class City {
     data['price'] = this.price;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'City{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, price: $price}';
+  }
 }
 
 class WareHouse {
@@ -150,5 +160,10 @@ class WareHouse {
     data['city_id'] = this.cityId;
     data['name'] = this.name;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'WareHouse{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, cityId: $cityId, name: $name}';
   }
 }

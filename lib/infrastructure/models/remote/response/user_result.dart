@@ -16,4 +16,9 @@ class UserResult {
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'UserResult{data: $data}';
+  }
 }

@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_state.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -15,33 +14,32 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationCubit, AuthenticationState>(
         builder: (context, state) {
-           eeee(state.toString());
-          if (state is AuthenticationSplash) {
-            return SplashPage();
-          } else if (state is AuthenticationLoading) {
-            return Scaffold(
-              backgroundColor: MyColors.backMainColor,
-              body: CaspaLoading(),
-            );
-          } else if (state is AuthenticationServerError) {
-            return SafeArea(
-              child: Scaffold(
-                  body: NoData(
-                    text: "server_error",
-                    refreshButton: () {
-                      context.read<AuthenticationCubit>()
-                        ..startApp(context, showSplash: false);
-                    },
-                  )),
-            );
-          }
+      eeee(state.toString());
+      if (state is AuthenticationSplash) {
+        return SplashPage();
+      } else if (state is AuthenticationLoading) {
+        return Scaffold(
+          backgroundColor: MyColors.backMainColor,
+          body: CaspaLoading(),
+        );
+      } else if (state is AuthenticationServerError) {
+        return SafeArea(
+          child: Scaffold(
+              body: NoData(
+            text: "server_error",
+            refreshButton: () {
+              context.read<AuthenticationCubit>()
+                ..startApp(context, showSplash: false);
+            },
+          )),
+        );
+      }
 
-          if (state is AuthenticationUninitialized) {
-            return Pager.login;
-          } else {
-            return Pager.landing;
-          }
-        });
+      if (state is AuthenticationUninitialized) {
+        return Pager.login;
+      } else {
+        return Pager.landing;
+      }
+    });
   }
 }
-

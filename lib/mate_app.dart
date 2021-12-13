@@ -14,28 +14,24 @@ class MateApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-              create: (_) =>
-                  AuthenticationCubit()..startApp(_, showSplash: true))
-        ],
-        child: ScreenUtilInit(
-          designSize: Size(375, 812),
-          builder: () => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: MyText.messenger,
-              theme: ThemeData(
-                  fontFamily: 'CoHeadline',
-                  scaffoldBackgroundColor: MyColors.white),
-              builder: (context, widget) {
-                return ScrollConfiguration(
-                    behavior: ScrollBehaviorModified(), child: widget!);
-              },
-              home:
-                  //Pager.newOrder
+    return ScreenUtilInit(
+      designSize: Size(375, 812),
+      builder: () => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: MyText.messenger,
+          theme: ThemeData(
+              fontFamily: 'CoHeadline',
+              scaffoldBackgroundColor: MyColors.white),
+          builder: (context, widget) {
+            return ScrollConfiguration(
+                behavior: ScrollBehaviorModified(), child: widget!);
+          },
+          home:
+              //Pager.newOrder
 
-                 App()),
-        ));
+             BlocProvider(
+                 create: (context)=>AuthenticationCubit()..startApp(context, showSplash: true),
+                 child: App()))
+    );
   }
 }

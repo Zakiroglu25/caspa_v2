@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
@@ -11,6 +12,7 @@ import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
@@ -103,13 +105,10 @@ class LoginCubit extends Cubit<LoginState> {
             lang: 'az');
 
         if (isSuccess(response.statusCode)) {
-          configureUserData(accessToken: 'jk',
-
-          fcmToken: 'ss'
-          );
+          await configureUserData(accessToken: 'jk', fcmToken: 'ss');
 
           emit(LoginSuccess(response.body));
-          Go.replace(context, LandingPage());
+       //   Go.replace(context, Pager.landing);
           // result=response.data;
         } else {
           emit(LoginError());
@@ -142,12 +141,12 @@ class LoginCubit extends Cubit<LoginState> {
           lang: 'az');
 
       if (isSuccess(response.statusCode)) {
-        configureUserData(accessToken: 'jk',
-
-            fcmToken: 'ss'
-        );
+       await configureUserData(accessToken: 'jk', fcmToken: 'ss');
         emit(LoginSuccess(response.body));
-        Go.replace(context, LandingPage());
+        // Go.replace(context, Pager.landing);
+
+        context.read<AuthenticationCubit>()
+          .startApp(context, showSplash: false);
         // result=response.data;
       } else {
         emit(LoginError());

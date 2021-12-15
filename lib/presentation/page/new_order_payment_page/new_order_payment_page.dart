@@ -1,4 +1,3 @@
-import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_unicorn.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -12,6 +11,8 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
+import 'package:caspa_v2/widget/general/page_top_small_image.dart';
+import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,7 +28,7 @@ class NewOrderPaymentPage extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         title: const Text(
-          "Yeni sifariş",
+          MyText.newOrder,
           style: TextStyle(color: Colors.black),
         ),
         elevation: 0,
@@ -39,30 +40,20 @@ class NewOrderPaymentPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Addım 2/2",
+                MyText.step + " 2/2",
                 style: UITextStyle.tW400BigBlack,
               ),
               MySizedBox.h26,
               //error verdi deye Asset. elemedim
-              Container(
-                  width: ScreenUtil().setWidth(120),
-                  height: ScreenUtil().setWidth(120),
-                  child: Image.asset("assets/png/payment.png")),
-              MySizedBox.h12,
-              SectionName(title: "Ödəniş edin"),
-              MySizedBox.h12,
-              Padding(
-                padding: const EdgeInsets.only(right: 32.0),
-                child: Text(
-                  MyText.paymentLinkTxt,
-                  style:
-                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-                ),
+              SectionNameAndDefinition(
+                definition: MyText.paymentLinkTxt,
+                imagePath: Assets.pngPosTerminal,
+                name: MyText.makePayment,
               ),
               MySizedBox.h40,
               Row(
                 children: [
-                  SectionName(title: "Balansımnan"),
+                  SectionName(title: MyText.fromMyBalance),
 
                   ///radiobutton yeri
                 ],
@@ -82,27 +73,26 @@ class NewOrderPaymentPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Ödəniləcək cəmi məbləğ",
+                      MyText.total_price,
                       style: AppTextStyles.sanF400
                           .copyWith(color: MyColors.grey153),
                     ),
                     Text(
                       "382,00 AZN",
                       style: AppTextStyles.sanF400
-                          .copyWith(color: MyColors.textRED,fontSize: 16.sp),
+                          .copyWith(color: MyColors.textRED, fontSize: 16.sp),
                     ),
-
                     Text(""),
                     MySizedBox.h16,
                     CaspaField(
                       title: "Məbləğ",
                     ),
                     CaspaField(
-                      title: "Bonuslar",
+                      title: MyText.bonuses,
                     ),
                     CaspaField(
-                      title: "Promokod",
-                      hint: "Kodu daxil edin",
+                      title: MyText.promoCode,
+                      hint: MyText.enter_code,
                     )
                   ],
                 ),
@@ -111,7 +101,7 @@ class NewOrderPaymentPage extends StatelessWidget {
 
               Row(
                 children: [
-                  SectionName(title: "Kart ilə"),
+                  SectionName(title: MyText.byCard),
 
                   ///radiobutton yeri
                 ],
@@ -131,16 +121,15 @@ class NewOrderPaymentPage extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Ödəniləcək cəmi məbləğ",
+                      MyText.total_price,
                       style: AppTextStyles.sanF400
                           .copyWith(color: MyColors.grey153),
                     ),
                     Text(
                       "382,00 AZN",
                       style: AppTextStyles.sanF400
-                          .copyWith(color: MyColors.textRED,fontSize: 16.sp),
+                          .copyWith(color: MyColors.textRED, fontSize: 16.sp),
                     ),
-
                     Image.asset("assets/png/caspacard.png"),
                     CaspaField(
                       title: "Bonuslar",
@@ -163,7 +152,7 @@ class NewOrderPaymentPage extends StatelessWidget {
               MySizedBox.h50,
               CaspaButton(
                 text: "Davam et " + "545" + "TRY",
-                onTap: (){
+                onTap: () {
                   Go.to(context, OrderSuccessPage());
                 },
               ),

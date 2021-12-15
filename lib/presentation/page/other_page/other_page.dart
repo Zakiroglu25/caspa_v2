@@ -1,12 +1,9 @@
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
-import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
-import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
+
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
-import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
+
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -16,18 +13,9 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'widget/other_shop_widget.dart';
 
-class OtherPage extends StatefulWidget {
-  const OtherPage({Key? key}) : super(key: key);
-
-  @override
-  _OtherPageState createState() => _OtherPageState();
-}
-
-class _OtherPageState extends State<OtherPage> {
+class OtherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +28,7 @@ class _OtherPageState extends State<OtherPage> {
           Align(
             alignment: Alignment.topLeft,
             child: Text(
-              "Menu",
+              MyText.menu,
               style: UITextStyle.tW400BigBlack,
             ),
           ),
@@ -49,16 +37,14 @@ class _OtherPageState extends State<OtherPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuBox(
-                title: "Promokod 🎉",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.promoCodeX,
+                content: MyText.forEditAppSettings,
                 color: MyColors.promokodColor,
-                onTap: () {
-                  Go.to(context, PromoCodePage());
-                },
+                onTap: () => Go.to(context, PromoCodePage()),
               ),
               MenuBox(
-                title: "Hədiyyə balansı 💸️",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.giftBalanceX,
+                content: MyText.forEditAppSettings,
                 color: MyColors.partnyoColor,
                 onTap: () {
                   Go.to(context, GiftBalance());
@@ -73,16 +59,16 @@ class _OtherPageState extends State<OtherPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuBox(
-                title: "Etibarnamə ⚙️",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.powerOfAttorney,
+                content: MyText.forEditAppSettings,
                 color: MyColors.etibarname,
                 onTap: () {
                   Go.to(context, EtibarnamePage());
                 },
               ),
               MenuBox(
-                title: "Əlaqə ☎️",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.contactX,
+                content: MyText.forEditAppSettings,
                 color: MyColors.contact,
                 onTap: () {
                   Go.to(context, ContactPage());
@@ -95,16 +81,16 @@ class _OtherPageState extends State<OtherPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               MenuBox(
-                title: "Kuryer 🕺🏻",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.courierX,
+                content: MyText.forEditAppSettings,
                 color: MyColors.kuryer,
                 onTap: () {
                  // Go.to(context, KuryerPage());
                 },
               ),
               MenuBox(
-                title: "Ayarlar ⚙️",
-                content: "Tətbiqetmənin ayarlarında düzəliş etmək üçün",
+                title: MyText.settingsX,
+                content: MyText.forEditAppSettings,
                 color: MyColors.settings,
                 onTap: () {
                   Go.to(context, SettingsPage());

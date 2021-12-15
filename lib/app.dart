@@ -42,7 +42,7 @@ class App extends StatelessWidget {
                //HomePage()
                 //Pager.splash
               //Pager.newOrder
-        LandingPage(),
+        //LandingPage(),
          //Pager.promocode
         //PackagePage(),
           // Pager.newOrder
@@ -52,6 +52,7 @@ class App extends StatelessWidget {
           // create: (context) => ForgotPassCubit(),
           //  child: ForgetPasswordPage())
           //SilverAppBarExample(),
+        Pager.login
           //  BlocProvider(
           //  create: (context)=>LoginCubit()
           //  ,child: LoginPage())

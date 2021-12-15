@@ -11,9 +11,7 @@ class LoginSocketError extends LoginState {}
 
 
 class LoginError extends LoginState {
-
   String? error;
-
   LoginError({this.error});
 }
 

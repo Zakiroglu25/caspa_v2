@@ -27,7 +27,8 @@ class SplashPage extends StatelessWidget {
           height: double.maxFinite,
           child: Stack(
             alignment: Alignment.center,
-            children: [CaspaLogoWithName(), CaspaAzText()],
+            children: [CaspaLogoWithName(),
+              CaspaAzText()],
           ),
         )),
       ),

@@ -30,8 +30,7 @@ class LogRegButtons extends StatelessWidget {
         context.read<LoginCubit>().testLogin(context);
       },
       text: "login",
-      loading:
-      (context
+      loading: (context
           .watch<LoginCubit>()
           .state is LoginInProgress) ? true : false,
     );

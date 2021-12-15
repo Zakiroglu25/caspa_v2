@@ -24,7 +24,31 @@ class App extends StatelessWidget {
           home:
               //Pager.newOrder
 
-              Pager.newOrderPayment),
+        //LandingPage(),
+         //Pager.promocode
+        //PackagePage(),
+          // Pager.newOrder
+          //Kam*77
+          //k.mamtiyev
+          //  BlocProvider(
+          // create: (context) => ForgotPassCubit(),
+          //  child: ForgetPasswordPage())
+          //SilverAppBarExample(),
+       // Pager.login
+          //  BlocProvider(
+          //  create: (context)=>LoginCubit()
+          //  ,child: LoginPage())
+          //SplashPage()
+          //CupertinoStoreHomePage()
+          //CircularHomePage()
+          ),
+    );
+  }
+}
+//
+
+
+              //Pager.newOrderPayment),
 
     );
   }

@@ -25,7 +25,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     if (showSplash) {
       emit(AuthenticationSplash());
-    } else {
+    }
+    else {
       emit(AuthenticationLoading());
     }
     try {
@@ -68,22 +69,17 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     final result = await AccountProvider.fetchUserInfo(
         token: '201|h4MgubsbiWi39sLDgSbLaHe8LLpGk1J5tWrI1SrR');
 
-
-   await serverControl(result, () async {
+    await serverControl(result, () async {
       //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
       //server error sehifesini goterir
       await _prefs.persistUser(user: result?.data);
       await _prefs.persistIsGuest(false);
       await _prefs.persistIsLoggedIn(true);
     });
-
   }
 
-  Future<void> serverControl (StatusDynamic? result, Function isSuccess)async {
-
-
+  Future<void> serverControl(StatusDynamic? result, Function isSuccess) async {
     if (result != null) {
-
       if ((result.statusCode)! >= 500) {
         emit(AuthenticationServerError());
         goOn = false;

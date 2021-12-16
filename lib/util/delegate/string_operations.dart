@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
@@ -71,4 +72,24 @@ class StringOperations {
       return 1;
     }
   }
+
+
+  static Future<String> devicename() async {
+    String deviceName;
+
+    if (Platform.isAndroid) {
+      AndroidDeviceInfo androidDeviceInfo =
+      await DeviceInfoPlugin().androidInfo;
+      deviceName = '${androidDeviceInfo.brand!} ${androidDeviceInfo.model!} | Android: ${androidDeviceInfo.version.release}';
+    } else if (Platform.isIOS) {
+      IosDeviceInfo iosDeviceInfo = await DeviceInfoPlugin().iosInfo;
+      deviceName = '${iosDeviceInfo.name!} | iOS: ${iosDeviceInfo.systemVersion}';
+    } else {
+      deviceName = 'unknown device';
+    }
+    return deviceName;
+  }
+
+
+
 }

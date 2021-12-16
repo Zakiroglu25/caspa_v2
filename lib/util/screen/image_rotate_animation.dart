@@ -1,4 +1,4 @@
-import 'package:caspa_v2/presentation/page/entry_page/page_view_entry.dart';
+import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 

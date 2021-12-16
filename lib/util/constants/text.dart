@@ -77,6 +77,7 @@ class MyText {
   static const String note = "Qeyd";
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
+  static const String price = "Qiymət";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
@@ -148,12 +149,44 @@ class MyText {
 
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
+  static const String courierX = "Kuryer 🕺🏻";
+  static const String settingsX = 'Ayarlar ⚙️';
   static const String promoCode = "Promokod";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";
   static const String used ="İstifadə edilib";
   static const String congrated ="Təbrik edirik!";
   static const String operationIsSuccess ="Əməliyyat uğurlu oldu.";
+  static const String applyToCustomerService = "Müştəri xidmətinə \nmüraciyət edin";
+
+
+  //social
+  static const String whatsapp = "WhatsApp";
+  static const String telegram = "Telegram";
+  static const String messenger = "Messenger";
+  static const String caspa_azerbaijan = 'Caspa Azerbaijan';
+  static const String contact = 'Əlaqə';
+  static const String contactX = "Əlaqə ☎️";
+  static const String menu = 'Menu';
+  static const String forEditAppSettings = "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
+  static const String giftBalanceX = "Hədiyyə balansı 💸️";
+  static const String powerOfAttorney = "Etibarnamə ⚙️";
+  static const String shops = "Mağazalar";
+  static const String step = "Addım";
+  static const String makePayment = "Ödəniş edin";
+  static const String fromMyBalance = "Balansımdan";
+  static const String bonuses = "Bonuslar";
+  static const String enter_code = "Kodu daxil edin";
+  static const String byCard = "Kart ilə";
+  static const String addProduct = "Məhsulları əlavə edin";
+  static const String comission = "Komissiya";
+  static const String productNumber = "Məhsulun sayı";
+  static const String exit = "Çıxış";
+  static const String tapForExit = "Çıxış etmək üçün toxunun";
+  static const String start = "Başla";
+
+
+
 
 
 }

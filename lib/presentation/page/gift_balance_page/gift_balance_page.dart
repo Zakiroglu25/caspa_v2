@@ -33,7 +33,7 @@ class GiftBalance extends StatelessWidget {
         child: ListView(
           children: [
             ColorfullBackImage(
-              path: Assets.posTerminal,
+              path: Assets.pngPosTerminal,
               infoTitle: MyText.littleGift,
               infoContent: MyText.InfoGift,
             ),

@@ -1,7 +1,7 @@
 import 'package:caspa_v2/presentation/page/home_page/widgets/news_details_page.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
-import 'package:caspa_v2/widget/general/errorable_image.dart';
+import 'package:caspa_v2/util/screen/errorable_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

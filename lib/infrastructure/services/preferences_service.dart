@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 // Package imports:
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -61,6 +62,20 @@ class PreferencesService {
   }
 
   String get language => _preferences!.getString(SharedKeys.language) ?? "az";
+
+
+
+  //user
+  persistUser({required MyUser user}) async {
+    if (user == null) {
+      return await _preferences!.remove(SharedKeys.user);
+    } else
+      return await _preferences!.setString(
+          SharedKeys.user, json.encode(user.toJson()));
+  }
+
+  MyUser get user => MyUser.fromJson(json.decode(_preferences!.getString(SharedKeys.user)!)) ;
+
 
   //user
   // Future<void> persistUser({MyUser? user}) async {
@@ -124,4 +139,6 @@ class PreferencesService {
     final prefs = await SharedPreferences.getInstance();
     prefs.remove(key);
   }
+
+
 }

@@ -28,7 +28,7 @@ class _LandingPageState extends State<LandingPage> {
     PackagePage(),
     NewOrderPage(),
     AdressPage(),
-    OtherPage(),
+    Pager.other,
   ];
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 

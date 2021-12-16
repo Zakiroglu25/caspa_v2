@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class Paddings {
   Paddings._();
 
-
-
   //all
   static const EdgeInsets zero =
   const EdgeInsets.all(0);

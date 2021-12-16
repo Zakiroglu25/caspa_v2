@@ -21,6 +21,7 @@ class AppInfoPage extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Tətbiq haqqında",
+
           style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
         ),
       ),

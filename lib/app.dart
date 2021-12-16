@@ -12,6 +12,7 @@ import 'widget/general/no_data_widget.dart';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<AuthenticationCubit, AuthenticationState>(
         builder: (context, state) {
       eeee(state.toString());
@@ -34,6 +35,7 @@ class App extends StatelessWidget {
           )),
         );
       }
+
 
       if (state is AuthenticationUninitialized) {
         return Pager.login;

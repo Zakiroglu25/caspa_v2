@@ -22,6 +22,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.6+12"
+
   bloc:
     dependency: transitive
     description:
@@ -644,6 +645,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.3"
+
   timezone:
     dependency: transitive
     description:
@@ -651,6 +653,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.8.0"
+
   typed_data:
     dependency: transitive
     description:

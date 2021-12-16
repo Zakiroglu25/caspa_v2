@@ -3,27 +3,32 @@ import 'dart:convert';
 import 'dart:io';
 
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/util/constants/result_keys.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../locator.dart';
 import 'login_state.dart';
 
 import 'package:rxdart/rxdart.dart';
+
 // Project imports:
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
+
+  PreferencesService get _prefs => locator<PreferencesService>();
 
   bool emailValid = false;
 
@@ -85,19 +90,24 @@ class LoginCubit extends Cubit<LoginState> {
         }
 
         final response = await AuthProvider.login(
-          email: uEmail.value,
-          password: uPass.value,
-        );
+            email: uEmail.value,
+            password: uPass.value,
+            deviceTypeId: StringOperations.platformId(),
+            deviceCode: 'yoken',
+            deviceName: await StringOperations.devicename(),
+            lang: 'az');
 
-        if (isSuccess(response.statusCode)) {
-          emit(LoginSuccess(response.body));
-          Go.replace(context, LandingPage());
+        if (isSuccess(response?.statusCode)) {
+          await configureUserData(accessToken: response!.data, fcmToken: 'ss');
+
+          emit(LoginSuccess(response.data));
+          //   Go.replace(context, Pager.landing);
           // result=response.data;
         } else {
           emit(LoginError());
           // result= MessageResponse.fromJson(response.data).message;
           eeee(
-              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
+              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response!.data)).message}");
         }
       } else {
         emit(LoginError(error: 'error'));
@@ -116,19 +126,31 @@ class LoginCubit extends Cubit<LoginState> {
       }
 
       final response = await AuthProvider.login(
-        email: "esev.sv@gmail.com",
-        password: 'salam12345',
-      );
+          email: "esev.sv@gmail.com",
+          password: 'salam12345',
+          deviceTypeId: StringOperations.platformId(),
+          deviceCode: 'yoken',
+          deviceName: 'kk',
+          lang: 'az');
 
-      if (isSuccess(response.statusCode)) {
-        emit(LoginSuccess(response.body));
-        Go.replace(context, LandingPage());
+      //eeee("response: "+response.toString());
+
+      if (isSuccess(response?.statusCode)) {
+        await configureUserData(accessToken: response?.data, fcmToken: 'ss');
+        emit(LoginSuccess(''));
+        // Go.replace(context, Pager.landing);
+
+        print("button clicked");
+
+        context
+            .read<AuthenticationCubit>()
+            .startApp(context, showSplash: false);
         // result=response.data;
       } else {
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;
         eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
       }
     } on SocketException catch (_) {
       emit(LoginError(error: 'network_error'));
@@ -143,5 +165,41 @@ class LoginCubit extends Cubit<LoginState> {
     } else {
       return false;
     }
+  }
+
+  Future<void> configureUserData(
+      //MyUser user,
+      {required String fcmToken,
+      required String accessToken}) async {
+    //llll("configureUserData result result: " + user.toString());
+
+    //final result = await AccountProvider.fetchUserInfo(token: '201|h4MgubsbiWi39sLDgSbLaHe8LLpGk1J5tWrI1SrR');
+
+    //print("use rfetched");
+    // final userSave = MyUser(
+    //      id: result.result.id,
+    //      mobileCurrentLng: mobileCurrentLng,
+    //      email: result.result.email,
+    //      surname: result.result.surname,
+    //      genderId: result.result.genderId,
+    //      birthday: result.result.birthday,
+    //      phoneNumber: result.result.phoneNumber,
+    //      name: result.result.name,
+    //      haveCard: result.result.haveCard,
+    //      refreshToken: result.result.refreshToken,
+    //      accessToken: result.result.accessToken);
+
+    // await _prefs.save("user", userSave);
+    await _prefs.persistIsGuest(false);
+    await _prefs.persistIsLoggedIn(true);
+    //await _prefs.persistRefreshToken(refreshToken: user.result.refreshToken);
+    await _prefs.persistAccessToken(accessToken: accessToken);
+    await _prefs.persistFcmToken(fcmToken: fcmToken);
+
+    //llll("configureUserData result result: " + userSave.toString());
+
+    print("is logged int: " + _prefs.isLoggedIn.toString());
+
+    //wtf("new user: " + userSave.toString());
   }
 }

@@ -181,6 +181,10 @@ class MyText {
   static const String addProduct = "Məhsulları əlavə edin";
   static const String comission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
+  static const String exit = "Çıxış";
+  static const String tapForExit = "Çıxış etmək üçün toxunun";
+  static const String start = "Başla";
+
 
 
 

@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
@@ -13,10 +14,12 @@ import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_pa
 import 'package:caspa_v2/presentation/page/declare_page/declare_tab.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
+import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
 import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
@@ -92,7 +95,11 @@ class Pager {
 
 
   static get other => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserCubit())],
+      providers: [
+        BlocProvider(create: (context) => UserCubit()),
+    //    BlocProvider.value(value: AuthenticationCubit()),
+
+      ],
       child: OtherPage());
 
 
@@ -100,7 +107,19 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: NewOrderPaymentPage());
 
+
+
+  static get onBoard => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: OnboardPage());
+
   static get declare => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: DeclarePage());
+
+
+  static get landing => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child: LandingPage());
+
 }

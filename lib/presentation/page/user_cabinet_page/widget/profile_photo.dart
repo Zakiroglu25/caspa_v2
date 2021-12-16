@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -7,7 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../locator.dart';
+
 class ProfilePhoto extends StatelessWidget {
+  PreferencesService get _prefs => locator<PreferencesService>();
+
   final double? w;
   final double? h;
   final bool? editable;
@@ -16,6 +21,8 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Stack(
       children: [
         Container(
@@ -28,7 +35,7 @@ class ProfilePhoto extends StatelessWidget {
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
                     imageUrl:
-                        'https://upload.wikimedia.org/wikipedia/commons/1/13/Benedict_Cumberbatch_2011.png'))),
+                        (_prefs.user.avatar!+'?v=${DateTime.now().millisecondsSinceEpoch}')))),
         Positioned(
           bottom: 0,right: 2,
           child: WidgetOrEmpty(

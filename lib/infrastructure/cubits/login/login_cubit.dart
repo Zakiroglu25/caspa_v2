@@ -4,22 +4,16 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
-import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
-import 'package:device_information/device_information.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +24,6 @@ import 'login_state.dart';
 import 'package:rxdart/rxdart.dart';
 
 // Project imports:
-import 'package:device_info_plus/device_info_plus.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
@@ -104,17 +97,17 @@ class LoginCubit extends Cubit<LoginState> {
             deviceName: await StringOperations.devicename(),
             lang: 'az');
 
-        if (isSuccess(response.statusCode)) {
-          await configureUserData(accessToken: 'jk', fcmToken: 'ss');
+        if (isSuccess(response?.statusCode)) {
+          await configureUserData(accessToken: response!.data, fcmToken: 'ss');
 
-          emit(LoginSuccess(response.body));
-       //   Go.replace(context, Pager.landing);
+          emit(LoginSuccess(response.data));
+          //   Go.replace(context, Pager.landing);
           // result=response.data;
         } else {
           emit(LoginError());
           // result= MessageResponse.fromJson(response.data).message;
           eeee(
-              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
+              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response!.data)).message}");
         }
       } else {
         emit(LoginError(error: 'error'));
@@ -140,19 +133,24 @@ class LoginCubit extends Cubit<LoginState> {
           deviceName: 'kk',
           lang: 'az');
 
-      if (isSuccess(response.statusCode)) {
-       await configureUserData(accessToken: 'jk', fcmToken: 'ss');
-        emit(LoginSuccess(response.body));
+      //eeee("response: "+response.toString());
+
+      if (isSuccess(response?.statusCode)) {
+        await configureUserData(accessToken: response?.data, fcmToken: 'ss');
+        emit(LoginSuccess(''));
         // Go.replace(context, Pager.landing);
 
-        context.read<AuthenticationCubit>()
-          .startApp(context, showSplash: false);
+        print("button clicked");
+
+        context
+            .read<AuthenticationCubit>()
+            .startApp(context, showSplash: false);
         // result=response.data;
       } else {
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;
         eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.body)).message}");
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
       }
     } on SocketException catch (_) {
       emit(LoginError(error: 'network_error'));
@@ -175,6 +173,9 @@ class LoginCubit extends Cubit<LoginState> {
       required String accessToken}) async {
     //llll("configureUserData result result: " + user.toString());
 
+    //final result = await AccountProvider.fetchUserInfo(token: '201|h4MgubsbiWi39sLDgSbLaHe8LLpGk1J5tWrI1SrR');
+
+    //print("use rfetched");
     // final userSave = MyUser(
     //      id: result.result.id,
     //      mobileCurrentLng: mobileCurrentLng,
@@ -196,6 +197,8 @@ class LoginCubit extends Cubit<LoginState> {
     await _prefs.persistFcmToken(fcmToken: fcmToken);
 
     //llll("configureUserData result result: " + userSave.toString());
+
+    print("is logged int: " + _prefs.isLoggedIn.toString());
 
     //wtf("new user: " + userSave.toString());
   }

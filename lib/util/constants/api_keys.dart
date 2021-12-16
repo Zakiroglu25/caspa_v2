@@ -12,7 +12,7 @@ class ApiKeys {
   };
 
   //reg and login
-  static final login = "/user/login";
+  static final login = "$baseUrl/user/login";
   static final register = "$baseUrl/user/register";
 
   //user

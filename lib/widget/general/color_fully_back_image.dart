@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/presentation/page/order_success_page/widgets/order_on_the_way_text.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -36,12 +37,14 @@ class ColorfullBackImage extends StatelessWidget {
         Center(
           child: Stack(alignment: Alignment.center,
             children: [
-              Container(
-                width: w ?? 355.sp, // MediaQuery.of(context).size.width,
-                height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(Assets.pngColorfulBack),
+              FadeIn(
+                child: Container(
+                  width: w ?? 355.sp, // MediaQuery.of(context).size.width,
+                  height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(Assets.pngColorfulBack),
+                    ),
                   ),
                 ),
               ),

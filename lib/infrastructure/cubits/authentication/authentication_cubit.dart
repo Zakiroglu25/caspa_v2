@@ -25,15 +25,16 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     if (showSplash) {
       emit(AuthenticationSplash());
-    }
-    else {
+    } else {
       emit(AuthenticationLoading());
     }
     try {
       aaaa('2');
       configureFcm(context: context);
-      final bool isLoggedIn = _prefs.isLoggedIn;
-      eeee(isLoggedIn.toString());
+      final bool isLoggedIn = await _prefs.isLoggedIn;
+      final String accessToken = await _prefs.accessToken;
+
+      eeee(accessToken.toString());
       if (isLoggedIn) {
         //userin girish edib etmemeyi yoxlanilir
         aaaa('3');
@@ -41,7 +42,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
           // eyni zamanda konfiqurasiya edilir
-          configUserData(context)
+          configUserData(context: context,accessToken: accessToken)
         ]);
         // if (goOn!) {
         aaaa('4');
@@ -65,9 +66,11 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
   }
 
-  Future<void> configUserData(BuildContext context) async {
-    final result = await AccountProvider.fetchUserInfo(
-        token: '201|h4MgubsbiWi39sLDgSbLaHe8LLpGk1J5tWrI1SrR');
+  Future<void> configUserData({required BuildContext context,required accessToken}) async {
+
+
+    final result = await AccountProvider.fetchUserInfo(token: accessToken);
+    print("token: "+accessToken.toString());
 
     await serverControl(result, () async {
       //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
@@ -119,14 +122,14 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     emit(AuthenticationLoading());
 
-    _prefs.persistIsLoggedIn(false);
+    await _prefs.persistIsLoggedIn(false);
     final logOutRes = await _prefs.clear();
     //eeee("loooooog: " + logOutRes.toString());
     //eeee("ppp: " + _prefs.user.toString());
     PaintingBinding.instance!.imageCache!.clear();
 
     imageCache!.clear();
-    startApp(context);
+    //startApp(context);
     emit(AuthenticationUninitialized());
   }
 }

@@ -35,7 +35,10 @@ class ProfilePhoto extends StatelessWidget {
                 child: CachedNetworkImage(
                     fit: BoxFit.cover,
                     imageUrl:
-                        (_prefs.user.avatar!+'?v=${DateTime.now().millisecondsSinceEpoch}')))),
+                        (_prefs.user.avatar!
+                            //+'?v=${DateTime.now().millisecondsSinceEpoch}'
+
+                        )))),
         Positioned(
           bottom: 0,right: 2,
           child: WidgetOrEmpty(

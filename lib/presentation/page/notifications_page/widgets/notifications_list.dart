@@ -72,7 +72,7 @@ class NotificationsList extends StatelessWidget {
   Widget notificationContainer(BuildContext context, int index,
       {NotificationBody? notification}) {
     return FadeInUp(
-      duration: Duration(milliseconds: index * 200),
+      duration: Duration(milliseconds: StringOperations.getTime(index)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         child: NotificationElement(

@@ -29,9 +29,10 @@ class MateApp extends StatelessWidget {
           home:
               //Pager.newOrder
 
-             BlocProvider(
-                 create: (context)=>AuthenticationCubit()..startApp(context, showSplash: true),
-                 child: App()))
+
+          Pager.stores,
+          //Pager.app
+      )
     );
   }
 }

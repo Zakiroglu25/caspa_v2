@@ -186,6 +186,10 @@ class MyText {
   static const String start = "Başla";
 
 
+  //stores
+  static const String stores = "Mağazalar";
+
+
 
 
 

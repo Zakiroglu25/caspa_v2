@@ -29,7 +29,14 @@ class ApiKeys {
   //get tarif
   static const getTarif = "$baseUrl/public/prices";
 
+  //get address
+  static const getAddress = "$baseUrl/public/countries";
+
+ // vi96JAj3ffdIw/default.jpg
+
+
   // vi96JAj3ffdIw/default.jpg
+
 
   static loginBody({
     required String? email,

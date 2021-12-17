@@ -10,7 +10,7 @@ class TurkeyAnbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return     ScrollConfiguration(
+    return ScrollConfiguration(
       behavior: NoScrollBehavior(),
       child: ListView(
         physics: Physics.never,

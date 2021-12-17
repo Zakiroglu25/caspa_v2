@@ -16,6 +16,7 @@ class CabinetHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ProfilePhoto(),
         MySizedBox.h16,

@@ -1,12 +1,20 @@
+import 'package:caspa_v2/infrastructure/models/remote/response/address_model.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../locator.dart';
 import 'copiable_field.dart';
 
 class TurkeyAnbar extends StatelessWidget {
+  PreferencesService get _prefs => locator<PreferencesService>();
+  Adress adress;
+
+
+  TurkeyAnbar(this.adress);
 
   @override
   Widget build(BuildContext context) {
@@ -19,47 +27,47 @@ class TurkeyAnbar extends StatelessWidget {
         children: [
           CopiableField(
             title: "İsim",
-            data: "Bahtiyar",
+            data: _prefs.user.name,
           ),
           CopiableField(
-            title: "Soy isim",
-            data: "Bahtiyarli",
+            title: "Soyisim",
+            data: _prefs.user.surname,
           ),
           CopiableField(
             title: "İlçe",
-            data: "Ataşehir",
+            data: adress.fields?.ilce,
           ),
           CopiableField(
             title: "Adres satır 1",
-            data: "İnönü Cad.no:9/3, Yeni Sahra BN:f7fe27 34746  C111141",
+            data: "${adress.address} ${_prefs.user.username}",
           ),
           CopiableField(
             title: "İl:",
-            data: "İstanbul ",
+            data: "${adress.fields?.il}",
           ),
           CopiableField(
             title: "Mahalle",
-            data: "Yenisahra",
+            data: "${adress.fields?.mahalle}",
           ),
           CopiableField(
-            title: "Telefon:",
-            data: "05437750818",
+            title: "Telefon",
+            data: "${adress.fields?.telefon}",
           ),
           CopiableField(
-            title: "Tc kimlik:",
-            data: "31583104656",
+            title: "Tc kimlik",
+            data: "${adress.fields?.tcKimlik}",
           ),
           CopiableField(
-            title: "Posta Kodu:",
-            data: "34746",
+            title: "Posta Kodu",
+            data: "${adress.fields?.tcKimlik}",
           ),
           CopiableField(
             //  maxLines: 1,
-            title: "Adres Başlığı:",
+            title: "Adres Başlığı",
             data:
-            "CASPA bhjb dfjsnjkdgnjkdfg jfskjdgfhjkdgf skjfshjkgdfhjfbkjfskjdgfhjkdgfjfskjdgfhjkdgfjfskjdgfhjkdgf jfskjdgfhjkdgf",
+            "${adress.fields?.adresBashligi}",
           ),
-          MySizedBox.h100
+          MySizedBox.h50
         ],
       ),
     );

@@ -6,7 +6,9 @@ class CaspaLoading extends StatelessWidget {
   Color? color;
 
   CaspaLoading({this.color});
+
   CaspaLoading.blue({this.color = MyColors.mainColor});
+
   CaspaLoading.white({this.color = MyColors.white});
 
   @override
@@ -17,7 +19,7 @@ class CaspaLoading extends StatelessWidget {
       child: Container(
         height: 20,
         width: 20,
-       // color: Colors.green,
+        // color: Colors.green,
         child: CircularProgressIndicator(
           color: color ?? MyColors.mainColor,
         ),

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/address_provider.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,21 +12,26 @@ class AddressCubit extends Cubit<AddressState> {
   AddressCubit() : super(AddressInitial());
 
   void fetch([bool loading = true]) async {
+
     if (loading) {
       emit(AddressInProgress());
     }
+
+
+
     try {
       final result = await AddressProvider.getAddress();
-      if (result.data != null) {
-        emit(AddressSuccess(result.data!));
+      bbbb("uuu: "+result.adress.toString());
+      if (result.adress != null) {
+        emit(AddressSuccess(result.adress!));
       } else {
         emit(AddressError());
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(AddressError());
+      emit(AddressNetworkError());
     } catch (e) {
-      emit(AddressError());
+      emit(AddressError(error: e.toString()));
     }
   }
 }

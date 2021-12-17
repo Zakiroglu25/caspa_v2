@@ -129,6 +129,7 @@ class MyText {
   static const String nationality = "Vətandaşlıq";
   static const String save = "Yadda saxla";
   static const String adress = "Adres";
+  static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
   static const String card_id = "card_id";

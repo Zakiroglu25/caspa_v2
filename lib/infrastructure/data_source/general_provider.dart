@@ -19,18 +19,14 @@ class GeneralProvider {
 
     final response = await http.get(url, headers: ApiKeys.headers);
     statusDynamic.statusCode = response.statusCode;
-
     if (response.statusCode == ResultKey.successCode) {
-
       final gelenCavabJson = jsonDecode(response.body);
       ShopList userResult = ShopList.fromJson(gelenCavabJson);
-
       statusDynamic.data  = userResult.data ;
       bbbb("shop list: " + (statusDynamic.data).toString());
     } else {
       eeee("fetchShops bad url :$url,response: ${response}");
     }
-
     return statusDynamic;
   }
 }

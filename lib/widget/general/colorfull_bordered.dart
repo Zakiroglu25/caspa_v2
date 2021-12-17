@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 
 class UnicornOutlineButton extends StatelessWidget {
@@ -27,8 +28,8 @@ class UnicornOutlineButton extends StatelessWidget {
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: _callback,
-        child: InkWell(
-          borderRadius: BorderRadius.circular(_radius!),
+        child: InkWrapper(
+          radius: _radius!,
           onTap: _callback,
           child: Container(
             constraints: BoxConstraints(minWidth: 88, minHeight: 48),

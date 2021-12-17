@@ -10,6 +10,7 @@ class Assets {
   static const String pngColorfulBack = "assets/png/bck.png";
   static const String pngMoto = 'assets/png/moto.png';
   static const String pngSucs = 'assets/png/sucs.png';
+  static const String pngSad = 'assets/png/sad.png';
 
   static const String homeDino = "assets/png/homeDinopng.png";
   static const String homeDino2 = "assets/png/dinov2.png";
@@ -63,8 +64,13 @@ class Assets {
   static const String help="assets/svg/help.svg";
   static const String infoApp="assets/svg/info_app.svg";
 
+   //test url
+  static const String testImageURL=
+  "https://caspa.az/storage/stores/IVMOmydV4O1i81NXfpS3oC1DjSEutcZeiKw23kzT.png";
 
   //--anim
+  static const String animEmptyBox="assets/anim/empty_box.json";
+  static const String animSadFace="assets/anim/sad_face.json";
 
 }
 

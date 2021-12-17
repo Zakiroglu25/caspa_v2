@@ -11,9 +11,9 @@ import 'widget_or_empty.dart';
 
 class Snack {
   static display({
-    @required BuildContext? context,
+    required BuildContext? context,
     String? message,
-    bool positive = false,
+    bool? positive,
     bool showSuccessIcon = false,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
@@ -25,9 +25,10 @@ class Snack {
       padding: const EdgeInsets.only(right: 10),
       content: BounceInUp(
         child: Container(
-          decoration: const BoxDecoration(
-            color: MyColors.mainColor,
-              //gradient: (positive) ? Gradients.gBlues : Gradients.gReds,
+          decoration:  BoxDecoration(
+            //color: MyColors.mainColor,
+              color: (positive!)? MyColors.mainColor: MyColors.errorRED,
+             // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),

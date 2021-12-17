@@ -27,7 +27,7 @@ class ShopListView extends StatelessWidget {
           //change the number as you want
           itemBuilder: (context, index) {
             return FadeInUp(
-              duration: Duration(milliseconds: (index*100)<2000?index*100 : 400),
+              duration: Duration(milliseconds: (index*100)<1500?index*100 : 400),
               child: ShopUnicorn(
                 shop: shopList[index],
               ),

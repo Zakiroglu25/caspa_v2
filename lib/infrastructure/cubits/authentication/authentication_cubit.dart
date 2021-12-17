@@ -23,7 +23,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   bool? goOn;
 
   void startApp(BuildContext context, {bool showSplash = true}) async {
-    aaaa('1');
+    ///aaaa('1');
 
     if (showSplash) {
       emit(AuthenticationSplash());
@@ -31,7 +31,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
     try {
-      aaaa('2');
+    //  aaaa('2');
       configureFcm(context: context);
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String accessToken = await _prefs.accessToken;
@@ -39,7 +39,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       eeee(accessToken.toString());
       if (isLoggedIn) {
         //userin girish edib etmemeyi yoxlanilir
-        aaaa('3');
+      //  aaaa('3');
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
@@ -47,7 +47,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           configUserData(context: context,accessToken: accessToken)
         ]);
         // if (goOn!) {
-        aaaa('4');
+       // aaaa('4');
         emit(AuthenticationAuthenticated());
         //}
       } else {
@@ -55,7 +55,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           delay(showSplash),
           // configGuest(context),
         ]);
-        aaaa('5');
+       // aaaa('5');
         //  if (goOn!) {
         emit(AuthenticationUninitialized());
         // }

@@ -15,7 +15,7 @@ class App extends StatelessWidget {
 
     return BlocBuilder<AuthenticationCubit, AuthenticationState>(
         builder: (context, state) {
-          eeee(state.toString());
+
           if (state is AuthenticationSplash) {
             return SplashPage();
           } else if (state is AuthenticationLoading) {

@@ -1,6 +1,7 @@
 // Dart imports:
 import 'dart:convert';
 
+import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -10,16 +11,17 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class AuthProvider {
-  static Future<http.Response> login({
+  static Future<StatusDynamic?> login({
     required String? password,
     required String? email,
     required String? deviceCode,
     required String? deviceName,
     required int? deviceTypeId,
     required String? lang,
-
   }) async {
-    var api = ApiKeys.baseUrl + ApiKeys.login;
+    StatusDynamic statusDynamic = StatusDynamic();
+
+    var api = ApiKeys.login;
     var url = Uri.parse(api);
 
     var body = ApiKeys.loginBody(
@@ -32,7 +34,20 @@ class AuthProvider {
     );
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+
+
+
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.successCode) {
+
+      String accessToken = response.body;
+      statusDynamic.data = accessToken;
+      bbbb("new token: " + (statusDynamic.data).toString());
+    } else {
+      eeee("fetchUserInfo bad url :$url,response: ${response}");
+    }
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -46,7 +61,7 @@ class AuthProvider {
     // //
     // // }
 
-    return response;
+    return statusDynamic;
   }
 
   static Future<http.Response> registrationBusiness({
@@ -77,7 +92,7 @@ class AuthProvider {
         tax_number: tax_number);
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -129,7 +144,7 @@ class AuthProvider {
     );
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     bbbb("response personla register: :" + response.body);
     if (response.statusCode == ResultKey.responseSuccess) {

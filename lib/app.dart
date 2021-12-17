@@ -1,88 +1,47 @@
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
-import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/poxx.dart';
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_state.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-
+import 'presentation/page/splash_page/splash_page.dart';
+import 'util/constants/colors.dart';
 import 'util/delegate/pager.dart';
-import 'util/delegate/scroll_behaivor.dart';
+import 'widget/general/no_data_widget.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: Size(375, 812),
-      builder: () => MaterialApp(
-          //color: Colors.orange,
 
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(
-              fontFamily: 'CoHeadline',
-              scaffoldBackgroundColor: MyColors.white),
-          builder: (context, widget) {
-            return ScrollConfiguration(
-                behavior: ScrollBehaviorModified(), child: widget!);
-          },
-          home:
-              //MediaPage()
-              //     c
-              // ),
-              //RegisterPage(),
-              //]]   LoginPage(),
-              //   PackageDetailsPage(name: "Kitabacanan",)
-              // CourierOrdersPage()
-              // Example08()
-               //HomePage()
-                //Pager.splash
-              //Pager.newOrder
-        //LandingPage(),
-         //Pager.promocode
-        //PackagePage(),
-          // Pager.newOrder
-          //Kam*77
-          //k.mamtiyev
-          //  BlocProvider(
-          // create: (context) => ForgotPassCubit(),
-          //  child: ForgetPasswordPage())
-          //SilverAppBarExample(),
-        Pager.login
-          //  BlocProvider(
-          //  create: (context)=>LoginCubit()
-          //  ,child: LoginPage())
-          //SplashPage()
-          //CupertinoStoreHomePage()
-          //CircularHomePage()
-          ),
-    );
-  }
-}
-//
+    return BlocBuilder<AuthenticationCubit, AuthenticationState>(
+        builder: (context, state) {
+          eeee(state.toString());
+          if (state is AuthenticationSplash) {
+            return SplashPage();
+          } else if (state is AuthenticationLoading) {
+            return Scaffold(
+              backgroundColor: MyColors.backMainColor,
+              body: CaspaLoading(),
+            );
+          } else if (state is AuthenticationServerError) {
+            return SafeArea(
+              child: Scaffold(
+                  body: NoData(
+                    text: "server_error",
+                    refreshButton: () {
+                      context.read<AuthenticationCubit>()
+                        ..startApp(context, showSplash: false);
+                    },
+                  )),
+            );
+          }
 
-class Example08 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('random dynamic tile sizes'),
-      ),
-      body: StaggeredGridView.countBuilder(
-        primary: false,
-        crossAxisCount: 4,
-        mainAxisSpacing: 4,
-        crossAxisSpacing: 4,
-        itemBuilder: (context, index) => Container(
-          height: 100 * (index % 2) + 20,
-          color: Colors.orange,
-        ),
-        staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
-      ),
-    );
+
+          if (state is AuthenticationUninitialized) {
+            return Pager.login;
+          } else {
+            return Pager.landing;
+          }
+        });
   }
 }

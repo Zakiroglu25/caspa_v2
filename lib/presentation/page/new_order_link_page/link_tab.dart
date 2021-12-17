@@ -88,6 +88,7 @@ class LinkPage extends StatelessWidget {
                     ),
                   ),
                   MySizedBox.w10,
+
                   Container(
                     width: 96,
                     height: 48,
@@ -98,6 +99,7 @@ class LinkPage extends StatelessWidget {
                     //   items: [], onChanged: (Object? value) {  },
                     // ),
                   ),
+
                 ],
               ),
               Text(

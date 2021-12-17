@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ErrorableImage extends StatelessWidget {
   final String url;
@@ -27,7 +28,7 @@ class ErrorableImage extends StatelessWidget {
       height: h,
       placeholder: (context, url) => Center(
           child: SizedBox(
-              height: 10, width: 10, child: placeHolder ?? CaspaLoading())),
+              height: 10.sp, width: 10.sp, child: placeHolder ?? CaspaLoading())),
       errorWidget: (context, url, error) => errorIcon ?? Icon(Icons.error),
     );
   }

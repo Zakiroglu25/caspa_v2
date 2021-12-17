@@ -16,8 +16,10 @@ class ApiKeys {
   static final register = "$baseUrl/user/register";
 
   //user
-
   static final user = "$baseUrl/user/user";
+
+  //general
+  static final shop ='$baseUrl/public/stores';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -32,10 +34,6 @@ class ApiKeys {
   //get address
   static const getAddress = "$baseUrl/public/countries";
 
-  // vi96JAj3ffdIw/default.jpg
-
-
-  // vi96JAj3ffdIw/default.jpg
 
 
   static loginBody({

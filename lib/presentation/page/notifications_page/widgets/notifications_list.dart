@@ -12,9 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class NotificationsList extends StatelessWidget {
-  final  List<NotificationResult>? result;
+  final List<NotificationResult>? result;
 
   NotificationsList({@required this.result});
 
@@ -30,17 +29,17 @@ class NotificationsList extends StatelessWidget {
       itemBuilder: (context, index) {
         if (index < result!.length) {
           return Padding(
-            padding:Paddings.paddingH16,
+            padding: Paddings.paddingH16,
             child: Center(
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      StringOperations.dateConvert(result![index].date!, context),
+                      StringOperations.dateConvert(
+                          result![index].date!, context),
                       style: TextStyle(
-                          color: MyColors.grey163,
-                          fontWeight: FontWeight.w700),
+                          color: MyColors.grey163, fontWeight: FontWeight.w700),
                     ),
                     MySizedBox.h12,
                     ListView.builder(
@@ -72,18 +71,19 @@ class NotificationsList extends StatelessWidget {
 
   Widget notificationContainer(BuildContext context, int index,
       {NotificationBody? notification}) {
-    return FadeInRight(
-      duration: Duration(milliseconds: 400),
+    return FadeInUp(
+      duration: Duration(milliseconds: index * 200),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         child: NotificationElement(
           title: notification!.title,
           content: notification.text,
-          increase: index%2!=0,
+          increase: index % 2 != 0,
           onXTap: () {
             context.read<NotificationCubit>().removeNotificion(
-                notificationId: notification.id, loading: false,
-            context: context);
+                notificationId: notification.id,
+                loading: false,
+                context: context);
             //  context.read<NotificationCubit>().fetch(false);
           },
           // date: "2021-06-10T08:53:19.807",

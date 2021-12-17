@@ -188,6 +188,8 @@ class MyText {
 
   //stores
   static const String stores = "Mağazalar";
+  static const String no_result = "Heç bir nəticə tapılmadı.";
+  static const String error = "Əməliyyat zamanı xəta yarandı!";
 
 
 

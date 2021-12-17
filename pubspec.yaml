@@ -53,6 +53,7 @@ dependencies:
   bot_toast: ^4.0.1
   flutter_local_notifications: ^8.2.0
   image_picker: ^0.8.4+4
+  lottie: ^1.2.1
 
 
 
@@ -78,6 +79,7 @@ flutter:
   assets:
     - assets/png/
     - assets/svg/
+    - assets/anim/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

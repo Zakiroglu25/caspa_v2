@@ -26,6 +26,7 @@ class MyColors {
   static const Color errorRED211 =  Color.fromRGBO(211, 41, 45,  1);
   static const Color newGREEN =  Color.fromRGBO(40, 202, 46, 1);
   static const Color halfBlack =  Color.fromRGBO(64, 70, 77, 1);
+  static const Color black126 =  Color.fromRGBO(126, 130, 138, 1);
   static const Color secondMainColor =  Color.fromRGBO(228, 235, 241, 1);
   static const Color alertBlue =  Color.fromRGBO(140, 207, 255, 1);
   static const Color backMainColor =  Color.fromRGBO(240, 243, 248, 1);
@@ -60,6 +61,7 @@ class MyColors {
   static const Color gradientCyan = Color(0xFF27E3D8);
   static const Color gradientRed = Color(0xFFE32E2E);
   static const Color gradientOrange = Color(0xFFFEB201);
+
   static const Color grid1 = Color(0xFFFBE4E4);
 
   static const Color grid2 = Color(0xFFEBEEFD);
@@ -97,6 +99,13 @@ class MyColors {
   //soft color
   static const Color softGreen235 =Color.fromRGBO(235, 251, 228, 1);
   static const Color softPurple241 =Color.fromRGBO(241, 241, 249, 1);
+
+
+  // static const Color shopPurple =Color(0xFF5D5FEF);
+  // static const Color shopBlue =Color(0xFF27E3D8);
+  // static const Color shopRed =Color(0xFFE32E2E);
+  // static const Color shopYellow =Color(0xFFFEB201);
+
 
 
 }

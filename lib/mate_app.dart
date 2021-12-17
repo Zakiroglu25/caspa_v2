@@ -1,10 +1,6 @@
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'app.dart';
-import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'util/constants/colors.dart';
 import 'util/constants/text.dart';
 import 'util/delegate/scroll_behaivor.dart';
@@ -28,10 +24,8 @@ class MateApp extends StatelessWidget {
           },
           home:
               //Pager.newOrder
-
-
-          Pager.stores,
-          //Pager.app
+               // Pager.shops,
+              Pager.app
       )
     );
   }

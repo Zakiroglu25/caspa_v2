@@ -1,4 +1,5 @@
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
+import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/user_id.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -20,24 +21,12 @@ class CabinetHeaderWidget extends StatelessWidget {
         MySizedBox.h16,
         UserName(),
         MySizedBox.h16,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "ID:" + " C11111",
-              style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-            ),
-            //Text("C11111"),
-            MySizedBox.w16,
-            CopyButton(
-              'C11111',
-              h: 24.sm,
-              w: 24.sm,
-            ),
-          ],
-        ),
+        UserID(),
         MySizedBox.h16,
-        SliverInfo(MyText.emergencyCall,align: TextAlign.center,),
+        SliverInfo(
+          MyText.emergencyCall,
+          align: TextAlign.center,
+        ),
         MySizedBox.h16,
       ],
     );

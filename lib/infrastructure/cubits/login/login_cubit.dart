@@ -12,6 +12,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
   PreferencesService get _prefs => locator<PreferencesService>();
+  FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
 
   bool emailValid = false;
 
@@ -92,7 +94,7 @@ class LoginCubit extends Cubit<LoginState> {
         final response = await AuthProvider.login(
             email: uEmail.value,
             password: uPass.value,
-            deviceTypeId: StringOperations.platformId(),
+            deviceTypeId: await StringOperations.platformId(),
             deviceCode: 'yoken',
             deviceName: await StringOperations.devicename(),
             lang: 'az');
@@ -125,12 +127,15 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
+
+      final deviceCode = await _firebaseMessaging.getToken();
+
       final response = await AuthProvider.login(
           email: "esev.sv@gmail.com",
           password: 'salam12345',
           deviceTypeId: StringOperations.platformId(),
-          deviceCode: 'yoken',
-          deviceName: 'kk',
+          deviceCode: deviceCode,
+          deviceName: await StringOperations.devicename(),
           lang: 'az');
 
       //eeee("response: "+response.toString());

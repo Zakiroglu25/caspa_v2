@@ -32,7 +32,7 @@ class ApiKeys {
   //get address
   static const getAddress = "$baseUrl/public/countries";
 
- // vi96JAj3ffdIw/default.jpg
+  // vi96JAj3ffdIw/default.jpg
 
 
   // vi96JAj3ffdIw/default.jpg
@@ -59,7 +59,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -91,7 +91,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -129,7 +129,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -144,7 +144,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 }

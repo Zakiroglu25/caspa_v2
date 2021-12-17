@@ -34,7 +34,7 @@ class AuthProvider {
     );
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
 
 
@@ -92,7 +92,7 @@ class AuthProvider {
         tax_number: tax_number);
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -144,7 +144,7 @@ class AuthProvider {
     );
 
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     bbbb("response personla register: :" + response.body);
     if (response.statusCode == ResultKey.responseSuccess) {

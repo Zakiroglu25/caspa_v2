@@ -52,6 +52,9 @@ dependencies:
   awesome_notifications: ^0.0.6+12
   bot_toast: ^4.0.1
   flutter_local_notifications: ^8.2.0
+  image_picker: ^0.8.4+4
+
+
 
 
 dev_dependencies:

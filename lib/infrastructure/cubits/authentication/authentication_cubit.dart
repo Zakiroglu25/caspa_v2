@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
@@ -15,6 +16,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationUninitialized());
 
   PreferencesService get _prefs => locator<PreferencesService>();
+  MyUser ?userData =MyUser();
 
   //RenewTokenService get _token => locator<RenewTokenService>();
 
@@ -71,6 +73,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     final result = await AccountProvider.fetchUserInfo(token: accessToken);
     print("token: "+accessToken.toString());
+
+
+    userData=result?.data;
 
     await serverControl(result, () async {
       //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa

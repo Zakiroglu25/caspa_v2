@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
@@ -24,6 +23,7 @@ import 'package:caspa_v2/presentation/page/order_success_page/order_success_page
 import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -121,5 +121,9 @@ class Pager {
   static get landing => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: LandingPage());
+
+  static get userCabinet => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => UserCubit())],
+      child:  UserCabinetPage());
 
 }

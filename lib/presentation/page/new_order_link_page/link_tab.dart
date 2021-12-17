@@ -22,10 +22,16 @@ class LinkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CaspaAppbar(
-        title: MyText.newOrder,
-        user: false,contextA: context,
-
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black, //change your color here
+        ),
+        backgroundColor: Colors.white,
+        title: const Text(
+          "Yeni sifariş",
+          style: TextStyle(color: Colors.black),
+        ),
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16.0, top: 20, right: 16),
@@ -34,7 +40,7 @@ class LinkPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                MyText.step+" 1/2",
+                "Addım 1/2",
                 style: UITextStyle.tW400BigBlack,
               ),
               MySizedBox.h26,
@@ -43,7 +49,7 @@ class LinkPage extends StatelessWidget {
                   height: 120.sp,
                   child: Image.asset(Assets.linkGirl)),
               MySizedBox.h12,
-              SectionName(title: MyText.addProduct),
+              SectionName(title: "Məhsulları əlavə edin"),
               MySizedBox.h12,
               Padding(
                 padding: const EdgeInsets.only(right: 32.0),
@@ -68,8 +74,8 @@ class LinkPage extends StatelessWidget {
               ),
               CaspaField(
                 textInputType: TextInputType.text,
-                title: MyText.productNumber,
-                hint: MyText.productNumber,
+                title: "Məhsulun sayı",
+                hint: "Məhsulun sayı",
                 suffixText: "Ədəd   ",
               ),
               Row(
@@ -77,8 +83,8 @@ class LinkPage extends StatelessWidget {
                   Expanded(
                     child: CaspaField(
                       textInputType: TextInputType.text,
-                      title: MyText.price,
-                      hint: MyText.price,
+                      title: "Qiymət",
+                      hint: "Qiymət",
                     ),
                   ),
                   MySizedBox.w10,
@@ -97,7 +103,7 @@ class LinkPage extends StatelessWidget {
                 ],
               ),
               Text(
-                MyText.comission,
+                "Komissiya",
                 style: AppTextStyles.sanF400Grey,
               ),
               MySizedBox.h4,
@@ -120,8 +126,8 @@ class LinkPage extends StatelessWidget {
               ),
               MySizedBox.h16,
               CaspaField(
-                title: MyText.total_price,
-                hint: MyText.total_price,
+                title: "Toplam qiymət",
+                hint: "Toplam qiymət",
                 suffixText: "TRY  ",
               ),
               //davametin yaninda toplam qiymet olacaq
@@ -129,7 +135,7 @@ class LinkPage extends StatelessWidget {
                 onTap: (){
                   Go.to(context, NewOrderPaymentPage());
                 },
-                text: MyText.goOn,
+                text: "Davam et",
               ),
               MySizedBox.h32,
             ],

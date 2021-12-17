@@ -4,6 +4,7 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
+import 'package:caspa_v2/widget/general/user_photo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -24,18 +25,9 @@ class ProfilePhoto extends StatelessWidget {
 
 
     return Stack(
+
       children: [
-        Container(
-            height: h ?? 100.sp,
-            width: w ?? 100.sp,
-            decoration:
-                BoxDecoration(borderRadius: BorderRadius.circular(100.sp)),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(100.sp),
-                child: CachedNetworkImage(
-                    fit: BoxFit.cover,
-                    imageUrl:
-                        (_prefs.user.avatar!+'?v=${DateTime.now().millisecondsSinceEpoch}')))),
+        UserPhoto(),
         Positioned(
           bottom: 0,right: 2,
           child: WidgetOrEmpty(

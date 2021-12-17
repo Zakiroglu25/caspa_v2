@@ -136,21 +136,18 @@ class LoginCubit extends Cubit<LoginState> {
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
-          lang: 'az');
+          lang: _prefs.language);
 
       //eeee("response: "+response.toString());
 
       if (isSuccess(response?.statusCode)) {
         await configureUserData(accessToken: response?.data, fcmToken: 'ss');
         emit(LoginSuccess(''));
-        // Go.replace(context, Pager.landing);
-
-        print("button clicked");
 
         context
             .read<AuthenticationCubit>()
             .startApp(context, showSplash: false);
-        // result=response.data;
+
       } else {
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;

@@ -31,6 +31,7 @@ class Assets {
   static const String svgCaspaLogoWithName = "assets/svg/caspa_logo_with_name.svg";
   static const String svgMinus= "assets/svg/minus.svg";
   static const String svgUser= "assets/svg/user.svg";
+  static const String svgUserCircle= "assets/svg/user_circle.svg";
   static const String svgEllipse= "assets/svg/ellipse.svg";
   static const String svgShop= "assets/svg/shop.svg";
   static const String svgMinus2= "assets/svg/minus-2.svg";

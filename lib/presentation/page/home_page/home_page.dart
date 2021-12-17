@@ -1,7 +1,9 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +19,12 @@ class HomePage extends StatelessWidget {
   PreferencesService get _prefs => locator<PreferencesService>();
 
   Widget build(BuildContext context) {
+    // bbbb("cap et: "+(context.read<AuthenticationCubit>().userData?.name)!);
+    MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
-        title: _prefs.user.name!+" "+ _prefs.user.surname!,
+        // title: "d",
+        title: "${user.name!}" + " " + "${user.surname!}",
       ),
       body: SafeArea(
         child: ListView(

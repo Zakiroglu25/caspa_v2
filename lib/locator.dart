@@ -1,5 +1,6 @@
 // Package imports:
 import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'infrastructure/services/preferences_service.dart';
@@ -14,6 +15,7 @@ Future<void> setupLocator() async {
   locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
   final prefs = await PreferencesService.instance;
   //   locator.registerSingleton<PreferencesService>(prefs);
+  locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
   // locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
   locator.registerLazySingleton(() => prefs);
   // locator.registerLazySingleton<RegisterRepository>(() => RegisterS)

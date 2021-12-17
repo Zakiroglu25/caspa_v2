@@ -16,7 +16,7 @@ class AddressError extends AddressState {
 class AddressNetworkError extends AddressState {}
 
 class AddressSuccess extends AddressState {
-  AddressSuccess(this.data);
+  AddressSuccess(this.adress);
 
-  final List<Adress> data;
+  final List<Adress> adress;
 }

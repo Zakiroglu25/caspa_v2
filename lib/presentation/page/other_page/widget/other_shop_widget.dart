@@ -4,6 +4,8 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,7 +16,7 @@ class OtherShopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () {},
+      onTap: () =>Go.to(context, Pager.shops),
       child: Container(
         padding: Paddings.paddingA20,
         decoration: BoxDecoration(

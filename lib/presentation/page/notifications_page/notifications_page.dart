@@ -34,15 +34,28 @@ class NotificationsPage extends StatelessWidget {
             return FadeEdge(
               child: notificationsList(
                 [
-                  NotificationResult(date: DateTime.now(),
-                      notification: [
-                        NotificationBody(id: 1, title: "Bağlama: 252442", text: "Xarici anbara bəyan et"),
-                        NotificationBody(id: 2, title: "Bağlama: 252442", text: "Xarici anbara bəyan et"),
-                        NotificationBody(id: 3, title: "Bağlama: 252442", text: "Xarici anbara bəyan et"),
-                        NotificationBody(id: 4, title: "Bağlama: 252442", text: "Xarici anbara bəyan et"),
-                        NotificationBody(id: 5, title: "Bağlama: 252442", text: "Xarici anbara bəyan et"),
-
-                      ])
+                  NotificationResult(date: DateTime.now(), notification: [
+                    NotificationBody(
+                        id: 1,
+                        title: "Bağlama: 252442",
+                        text: "Xarici anbara bəyan et"),
+                    NotificationBody(
+                        id: 2,
+                        title: "Bağlama: 252442",
+                        text: "Xarici anbara bəyan et"),
+                    NotificationBody(
+                        id: 3,
+                        title: "Bağlama: 252442",
+                        text: "Xarici anbara bəyan et"),
+                    NotificationBody(
+                        id: 4,
+                        title: "Bağlama: 252442",
+                        text: "Xarici anbara bəyan et"),
+                    NotificationBody(
+                        id: 5,
+                        title: "Bağlama: 252442",
+                        text: "Xarici anbara bəyan et"),
+                  ])
                 ],
               ),
               bottomButton: cancelButton(300, context),

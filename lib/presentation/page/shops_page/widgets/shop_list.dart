@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 import 'package:caspa_v2/presentation/page/shops_page/widgets/shop_unicorn.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -25,8 +26,11 @@ class ShopListView extends StatelessWidget {
               crossAxisSpacing: 16.sp),
           //change the number as you want
           itemBuilder: (context, index) {
-            return ShopUnicorn(
-              shop: shopList[index],
+            return FadeInUp(
+              duration: Duration(milliseconds: (index*100)<2000?index*100 : 400),
+              child: ShopUnicorn(
+                shop: shopList[index],
+              ),
             );
           },
         ));

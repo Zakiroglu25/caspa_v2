@@ -1,4 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,16 +11,7 @@ class NotificationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
-        // NavigateUtils.pushNewRoot(
-        //     context,
-        //     BlocProvider(
-        //       create: (context) => NotificationCubit()..fetch(context: context),
-        //       child: NotificationPage(),
-        //     ));
-        // widget.onPush(NotificationPage());
-        //NavigateUtils.
-      },
+      onTap: () =>Go.to(context, Pager.notifications),
       child: Container(
         color: Colors.transparent,
         width: 43,

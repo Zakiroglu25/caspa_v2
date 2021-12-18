@@ -15,9 +15,11 @@ class App extends StatelessWidget {
         builder: (context, state) {
       if (state is AuthenticationSplash) {
         return SplashPage();
-      } else if (state is AuthenticationLoading) {
+      }
+
+      else if (state is AuthenticationLoading) {
         return Scaffold(
-          backgroundColor: MyColors.backMainColor,
+         // backgroundColor: MyColors.backMainColor,
           body: CaspaLoading(),
         );
       } else if (state is AuthenticationServerError) {

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'widget/cabinet_header.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserCabinetPage extends StatelessWidget {
   const UserCabinetPage({Key? key}) : super(key: key);
@@ -29,7 +31,7 @@ class UserCabinetPage extends StatelessWidget {
         onTapActions: () {
           showCupertinoModalPopup(
             context: context,
-            builder: (BuildContext context) => CupertinoActionSheet(
+            builder: (BuildContext contextA) => CupertinoActionSheet(
                 actions: <Widget>[
                   CupertinoActionSheetAction(
                     child: Row(
@@ -43,7 +45,7 @@ class UserCabinetPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () => Go.to(context, Pager.userSettingsPage),
+                    onPressed: () => Go.to(contextA, Pager.userSettingsPage),
                   ),
                   CupertinoActionSheetAction(
                     child: Row(
@@ -58,7 +60,8 @@ class UserCabinetPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                     // context.read<AuthenticationCubit>()..logOut(context);
+                     context.read<AuthenticationCubit>()..logOut(context);
+                   //  BlocProvider.of<AuthenticationCubit>(context).logOut(context);
                     },
                   )
                 ],
@@ -70,7 +73,7 @@ class UserCabinetPage extends StatelessWidget {
                   ),
                   isDefaultAction: true,
                   onPressed: () {
-                    Navigator.pop(context, 'Cancel');
+                    Navigator.pop(contextA, 'Cancel');
                   },
                 )),
           );

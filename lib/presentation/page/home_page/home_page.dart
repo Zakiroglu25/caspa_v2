@@ -35,12 +35,7 @@ class HomePage extends StatelessWidget {
           shrinkWrap: true,
           padding: Paddings.paddingB12 + Paddings.paddingT14,
           children: [
-            GestureDetector(
-                onTap: () {
-                  //   BlocProvider.of<AuthenticationCubit>(context).logOut(context);
-                  context.read<AuthenticationCubit>()..logOut(context);
-                },
-                child: HomeHeader()),
+            HomeHeader(),
             MySizedBox.h24,
             SectionName(
               title: "Yeniliklər və xəbərləri izləyin",

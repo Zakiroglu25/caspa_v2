@@ -60,7 +60,10 @@ class Pager {
       ], child: KuryerPage());
 
   static get login => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => LoginCubit())],
+      providers: [
+        BlocProvider(create: (context) => LoginCubit()),
+       // BlocProvider(create: (context) => AuthenticationCubit())
+      ],
       child: LoginPage());
 
   static get register => MultiBlocProvider(
@@ -120,9 +123,12 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: LandingPage());
 
-  static get userCabinet => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserCubit())],
-      child: UserCabinetPage());
+  static get userCabinet => MultiBlocProvider(providers: [
+        BlocProvider(create: (context) => UserCubit()),
+        // BlocProvider.value(
+        //   value: AuthenticationCubit(),
+        // )
+      ], child: UserCabinetPage());
 
   static get adress => MultiBlocProvider(providers: [
         BlocProvider.value(
@@ -136,8 +142,15 @@ class Pager {
         )
       ], child: ShopPage());
 
-  static get app => BlocProvider(
+ // static get app => App();
+
+  // static get app => BlocProvider(
+  //     create: (context) =>
+  //         AuthenticationCubit()..startApp(context, showSplash: true),
+  //     child: App());
+
+  static  app({bool? showSplash}) => BlocProvider(
       create: (context) =>
-          AuthenticationCubit()..startApp(context, showSplash: true),
+          AuthenticationCubit()..startApp(context, showSplash: showSplash?? true),
       child: App());
 }

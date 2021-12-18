@@ -6,6 +6,8 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,23 +33,24 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
     try {
-    //  aaaa('2');
+      //aaaa('2--');
       configureFcm(context: context);
       final bool isLoggedIn = await _prefs.isLoggedIn;
-      final String accessToken = await _prefs.accessToken;
 
-      eeee(accessToken.toString());
       if (isLoggedIn) {
         //userin girish edib etmemeyi yoxlanilir
-      //  aaaa('3');
+        //aaaa('--3');
+        final String accessToken = await _prefs.accessToken;
+        //eeee("-----"+isLoggedIn.toString());
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
           // eyni zamanda konfiqurasiya edilir
           configUserData(context: context,accessToken: accessToken)
         ]);
-        // if (goOn!) {
-       // aaaa('4');
+         // if (goOn!) {
+         // aaaa('4');
+
         emit(AuthenticationAuthenticated());
         //}
       } else {
@@ -55,9 +58,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           delay(showSplash),
           // configGuest(context),
         ]);
-       // aaaa('5');
+       // aaaa('5--');
         //  if (goOn!) {
         emit(AuthenticationUninitialized());
+        //Go.to(context, Pager.login);
         // }
       }
     } on SocketException catch (_) {
@@ -128,13 +132,15 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     emit(AuthenticationLoading());
 
     await _prefs.persistIsLoggedIn(false);
-    final logOutRes = await _prefs.clear();
+    //final logOutRes =
+    await _prefs.clear();
     //eeee("loooooog: " + logOutRes.toString());
     //eeee("ppp: " + _prefs.user.toString());
     PaintingBinding.instance!.imageCache!.clear();
 
     imageCache!.clear();
     //startApp(context);
+    Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
   }
 }

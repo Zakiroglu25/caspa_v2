@@ -103,25 +103,25 @@ class OtherPage extends StatelessWidget {
             ],
           ),
           MySizedBox.h16,
-          // MenuBox(
-          //   h: 80,
-          //   w: double.maxFinite,
-          //   title: MyText.exit,
-          //   content: MyText.tapForExit,
-          //   color: MyColors.grey245,
-          //   onTap: () {
-          //     // bbbb('ddd');
-          //     // context.read<AuthenticationCubit>()..logOut(context);
-          //
-          //     // BlocProvider.of<AuthenticationCubit>(context).logOut(
-          //     //     context);
-          //
-          //
-          //
-          //     context.read<AuthenticationCubit>()..logOut(context);
-          //
-          //   },
-          // )
+          MenuBox(
+            h: 80,
+            w: double.maxFinite,
+            title: MyText.exit,
+            content: MyText.tapForExit,
+            color: MyColors.grey245,
+            onTap: () {
+              // bbbb('ddd');
+              // context.read<AuthenticationCubit>()..logOut(context);
+
+              // BlocProvider.of<AuthenticationCubit>(context).logOut(
+              //     context);
+
+
+
+              context.read<AuthenticationCubit>()..logOut(context);
+
+            },
+          )
         ],
       )
     );

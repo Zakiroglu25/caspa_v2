@@ -9,8 +9,8 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 class AddressProvider {
-  static Future<AddressModel> getAddress() async {
-    late AddressModel addressModel;
+  static Future<AddressList> getAddress() async {
+    late AddressList addressModel;
     const api = ApiKeys.getAddress;
     const headers = ApiKeys.headers;
     var url = Uri.parse(api);
@@ -18,7 +18,7 @@ class AddressProvider {
     final response = await http.get(url, headers: headers);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = jsonDecode(response.body);
-      addressModel = AddressModel.fromJson(gelenCavabJson);
+      addressModel = AddressList.fromJson(gelenCavabJson);
     } else {
       eeee("bad url :$url,response: $response");
     }

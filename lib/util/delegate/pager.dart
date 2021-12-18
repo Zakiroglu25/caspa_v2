@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
@@ -7,6 +8,7 @@ import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
@@ -77,7 +79,6 @@ class Pager {
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: NewOrderPage());
 
-
   static get viaLink => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: LinkPage());
@@ -98,21 +99,14 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: ContactPage());
 
-
-  static get other => MultiBlocProvider(
-      providers: [
+  static get other => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
-    //    BlocProvider.value(value: AuthenticationCubit()),
-
-      ],
-      child: OtherPage());
-
+        //    BlocProvider.value(value: AuthenticationCubit()),
+      ], child: OtherPage());
 
   static get newOrderPayment => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: NewOrderPaymentPage());
-
-
 
   static get onBoard => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
@@ -122,26 +116,28 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: DeclarePage());
 
-
   static get landing => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: LandingPage());
 
   static get userCabinet => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
-      child:  UserCabinetPage());
+      child: UserCabinetPage());
 
+  static get adress => MultiBlocProvider(providers: [
+        BlocProvider.value(
+          value: AddressCubit()..fetch(),
+        )
+      ], child: AdressPage());
 
- static get shops => MultiBlocProvider(
-      providers: [BlocProvider(
-        create: (context) => ShopCubit()..fetch(),
+  static get shops => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => ShopCubit()..fetch(),
+        )
+      ], child: ShopPage());
 
-      )],
-      child:  ShopPage());
-
-
-  static get app=> BlocProvider(
-  create: (context)=>AuthenticationCubit()..startApp(context, showSplash: true),
-  child: App());
-
+  static get app => BlocProvider(
+      create: (context) =>
+          AuthenticationCubit()..startApp(context, showSplash: true),
+      child: App());
 }

@@ -6,12 +6,17 @@ class AddressInitial extends AddressState {}
 
 class AddressInProgress extends AddressState {}
 
-class AddressError extends AddressState {}
+class AddressError extends AddressState {
+
+  final String? error;
+
+  AddressError({this.error});
+}
 
 class AddressNetworkError extends AddressState {}
 
 class AddressSuccess extends AddressState {
-  AddressSuccess(this.data);
+  AddressSuccess(this.adress);
 
-  final List<Data> data;
+  final List<Adress> adress;
 }

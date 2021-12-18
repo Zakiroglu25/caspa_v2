@@ -69,10 +69,12 @@ class NotificationsList extends StatelessWidget {
     );
   }
 
+
+
   Widget notificationContainer(BuildContext context, int index,
       {NotificationBody? notification}) {
     return FadeInUp(
-      duration: Duration(milliseconds: index * 200),
+      duration: Duration(milliseconds: StringOperations.getTime(index)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         child: NotificationElement(
@@ -81,6 +83,8 @@ class NotificationsList extends StatelessWidget {
           increase: index % 2 != 0,
           onXTap: () {
             context.read<NotificationCubit>().removeNotificion(
+
+              
                 notificationId: notification.id,
                 loading: false,
                 context: context);

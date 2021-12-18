@@ -1,36 +1,36 @@
-class AddressModel {
-  List<Data>? data;
+class AddressList {
+  List<Adress>? adress;
 
-  AddressModel({required this.data});
+  AddressList({required this.adress});
 
-  AddressModel.fromJson(Map<String, dynamic> json) {
+  AddressList.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      adress = <Adress>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        adress!.add(Adress.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    if (this.adress != null) {
+      data['data'] = this.adress!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Data {
+class Adress {
   int? id;
   String? icon;
   String? name;
   String? address;
   Fields? fields;
 
-  Data({this.id, this.icon, this.name, this.address, this.fields});
+  Adress({this.id, this.icon, this.name, this.address, this.fields});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Adress.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     icon = json['icon'];
     name = json['name'];
@@ -50,45 +50,55 @@ class Data {
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'Data{id: $id, icon: $icon, name: $name, address: $address, fields: $fields}';
+  }
 }
 
 class Fields {
-  String? l;
-  String? lE;
+  String? il;
+  String? ilce;
   String? mahalle;
   String? telefon;
   String? tcKimlik;
   String? postaKodu;
-  String? adresBaL;
+  String? adresBashligi;
 
   Fields(
-      {this.l,
-        this.lE,
+      {this.il,
+        this.ilce,
         this.mahalle,
         this.telefon,
         this.tcKimlik,
         this.postaKodu,
-        this.adresBaL});
+        this.adresBashligi});
 
   Fields.fromJson(Map<String, dynamic> json) {
-    l = json['İl'];
-    lE = json['İlçe'];
+    il = json['İl'];
+    ilce = json['İlçe'];
     mahalle = json['Mahalle'];
     telefon = json['Telefon'];
     tcKimlik = json['Tc kimlik'];
     postaKodu = json['Posta Kodu'];
-    adresBaL = json['Adres Başlığı'];
+    adresBashligi = json['Adres Başlığı'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['İl'] = l;
-    data['İlçe'] = lE;
+    data['İl'] = il;
+    data['İlçe'] = ilce;
     data['Mahalle'] = mahalle;
     data['Telefon'] = telefon;
     data['Tc kimlik'] = tcKimlik;
     data['Posta Kodu'] = postaKodu;
-    data['Adres Başlığı'] = adresBaL;
+    data['Adres Başlığı'] = adresBashligi;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'Fields{l: $il, lE: $ilce, mahalle: $mahalle, telefon: $telefon, tcKimlik: $tcKimlik, postaKodu: $postaKodu, adresBaL: $adresBashligi}';
   }
 }

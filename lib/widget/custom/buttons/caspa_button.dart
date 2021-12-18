@@ -63,7 +63,7 @@ class CaspaButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius ?? 12),
           child: Center(
             child: (loading ?? false)
-                ? CaspaLoading()
+                ? CaspaLoading.white()
                 : (child ??
                     Text(
                       text ?? "",

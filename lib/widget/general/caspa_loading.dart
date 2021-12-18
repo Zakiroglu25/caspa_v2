@@ -7,19 +7,23 @@ class CaspaLoading extends StatelessWidget {
 
   CaspaLoading({this.color});
 
+  CaspaLoading.blue({this.color = MyColors.mainColor});
+
+  CaspaLoading.white({this.color = MyColors.white});
+
   @override
   Widget build(BuildContext context) {
     return Center(
         child: FadeIn(
-
-          duration: Duration(milliseconds: 800),
-          child: Container(
-      height: 20, width: 20,
-      //color: Colors.green,
-      child: CircularProgressIndicator(
-          color: color ?? MyColors.white,
+      duration: Duration(milliseconds: 800),
+      child: Container(
+        height: 20,
+        width: 20,
+        // color: Colors.green,
+        child: CircularProgressIndicator(
+          color: color ?? MyColors.mainColor,
+        ),
       ),
-    ),
-        ));
+    ));
   }
 }

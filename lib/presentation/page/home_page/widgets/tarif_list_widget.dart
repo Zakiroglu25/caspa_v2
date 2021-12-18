@@ -1,17 +1,22 @@
-
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/elements/tariff_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'tariff_details.dart';
+
 class TarifListWidget extends StatelessWidget {
   final List<Tariff> hList;
 
-   TarifListWidget({Key? key, required this.hList,});
+  TarifListWidget({
+    Key? key,
+    required this.hList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +32,10 @@ class TarifListWidget extends StatelessWidget {
         padding: Paddings.paddingH20,
         itemBuilder: (context, index) {
           Tariff tariff = hList[index];
-          return TariffCard(
-            tarifName: tariff.description,
-            price: tariff.price,
+          return  TariffCard(
+              tarifName: tariff.description,
+              price: tariff.price,
+
           );
         },
       ),

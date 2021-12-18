@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,6 +14,7 @@ import 'widgets/home_header.dart';
 import 'widgets/news_list_widget.dart';
 import 'widgets/package_list.dart';
 import 'widgets/section_name.dart';
+import 'widgets/tariff_details.dart';
 import 'widgets/tariffs.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,8 +25,10 @@ class HomePage extends StatelessWidget {
     MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
-        // title: "d",
-        title: "${user.name!}" + " " + "${user.surname!}",
+        title: "d",
+
+        ///bunlar null gelir
+        //title: user.name! + " " + user.surname!,
       ),
       body: SafeArea(
         child: ListView(
@@ -52,7 +56,11 @@ class HomePage extends StatelessWidget {
               hP: 20,
             ),
             MySizedBox.h16,
-            Tariffs(),
+            InkWell(
+                onTap: () {
+                  Go.to(context, TariffDetails(hList: [],));
+                },
+                child: Tariffs()),
             MySizedBox.h24,
             SectionName(
               title: "Mənim bağlamalarim",

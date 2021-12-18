@@ -115,6 +115,7 @@ class MyText {
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
+  static const String logout = "Cıxış et";
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
@@ -129,6 +130,7 @@ class MyText {
   static const String nationality = "Vətandaşlıq";
   static const String save = "Yadda saxla";
   static const String adress = "Adres";
+  static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
   static const String card_id = "card_id";

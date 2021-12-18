@@ -9,9 +9,10 @@ class CopyButton extends StatelessWidget {
   String? data;
   double? h;
   double? w;
+  Color? color;
 
 
-  CopyButton(this.data,{this.w,this.h});
+  CopyButton(this.data,{this.w,this.h,this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CopyButton extends StatelessWidget {
           height:h?? 20,
           child: SvgPicture.asset(
             Assets.svgCopy,
-            color: MyColors.grey153,
+            color: color?? MyColors.grey153,
           )),
     )
 ;

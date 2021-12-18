@@ -7,6 +7,7 @@ import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,71 +38,65 @@ class _LandingPageState extends State<LandingPage> {
         key: _key,
         extendBody: true,
         body: pages[index],
-        bottomNavigationBar: Theme(
-          data: ThemeData(
-            splashColor: MyColors.mainColor01,
-            highlightColor: MyColors.mainColor02,
-
-            // highlightColor: Colors.transparent,
-          ),
-          child: BottomNavigationBar(
-            elevation: 10,
-            unselectedFontSize: 11,
-            selectedFontSize: 11,
-
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                backgroundColor: Colors.white,
-                activeIcon: Container(
-                    margin: EdgeInsets.only(bottom: 0),
-                    child: SvgPicture.asset(Assets.svgHome,
-                        color: MyColors.mainColor)),
-                icon: SvgPicture.asset(Assets.svgHome),
-                label: 'Əsas',
+        bottomNavigationBar: CupertinoTabBar(
+          activeColor: MyColors.mainColor,
+          backgroundColor: Colors.white.withAlpha(85),
+          //elevation: 10,
+          // unselectedFontSize: 11,
+          // selectedFontSize: 11,
+          //
+          // selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
+          // type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              activeIcon: Container(
+                  margin: EdgeInsets.only(bottom: 0),
+                  child: SvgPicture.asset(Assets.svgHome,
+                      color: MyColors.mainColor)),
+              icon: SvgPicture.asset(Assets.svgHome),
+              label: 'Əsas',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              activeIcon: SvgPicture.asset(
+                Assets.svgBottomBox,
+                color: MyColors.mainColor,
               ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.white,
-                activeIcon: SvgPicture.asset(
-                  Assets.svgBottomBox,
-                  color: MyColors.mainColor,
-                ),
-                icon: SvgPicture.asset(Assets.svgBottomBox),
-                label: 'Bağlamalar',
+              icon: SvgPicture.asset(Assets.svgBottomBox),
+              label: 'Bağlamalar',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              activeIcon: SvgPicture.asset(Assets.svgPlusCircle,
+                  color: MyColors.mainColor),
+              icon: SvgPicture.asset(
+                Assets.svgPlusCircle,
               ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.white,
-                activeIcon: SvgPicture.asset(Assets.svgPlusCircle,
-                    color: MyColors.mainColor),
-                icon: SvgPicture.asset(
-                  Assets.svgPlusCircle,
-                ),
-                label: 'Yeni sifariş',
+              label: 'Yeni sifariş',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              activeIcon: SvgPicture.asset(Assets.svgLocation,
+                  color: MyColors.mainColor),
+              icon: SvgPicture.asset(
+                Assets.svgLocation,
               ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.white,
-                activeIcon: SvgPicture.asset(Assets.svgLocation,
-                    color: MyColors.mainColor),
-                icon: SvgPicture.asset(
-                  Assets.svgLocation,
-                ),
-                label: 'Ünvanlar',
+              label: 'Ünvanlar',
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: Colors.white,
+              activeIcon: SvgPicture.asset(Assets.svgOther,
+                  color: MyColors.mainColor),
+              icon: SvgPicture.asset(
+                Assets.svgOther,
               ),
-              BottomNavigationBarItem(
-                backgroundColor: Colors.white,
-                activeIcon: SvgPicture.asset(Assets.svgOther,
-                    color: MyColors.mainColor),
-                icon: SvgPicture.asset(
-                  Assets.svgOther,
-                ),
-                label: 'Digər',
-              ),
-            ],
-            currentIndex: index,
-            onTap: onChangedTab,
-            selectedItemColor: MyColors.black,
-          ),
+              label: 'Digər',
+            ),
+          ],
+          currentIndex: index,
+          onTap: onChangedTab,
+         // selectedItemColor: MyColors.black,
         ),
       );
 

@@ -63,6 +63,7 @@ class Assets {
   static const String facebook="assets/svg/facebook.svg";
   static const String help="assets/svg/help.svg";
   static const String infoApp="assets/svg/info_app.svg";
+  static const String logOut="assets/svg/logout.svg";
 
    //test url
   static const String testImageURL=

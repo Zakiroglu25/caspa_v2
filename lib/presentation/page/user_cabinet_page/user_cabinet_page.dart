@@ -1,4 +1,3 @@
-import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -45,6 +44,22 @@ class UserCabinetPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () => Go.to(context, Pager.userSettingsPage),
+                  ),
+                  CupertinoActionSheetAction(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.logOut),
+                        MySizedBox.w20,
+                        Text(
+                          MyText.logout,
+                          style: AppTextStyles.sanF400
+                              .copyWith(color: Colors.black, fontSize: 17.sp),
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                     // context.read<AuthenticationCubit>()..logOut(context);
+                    },
                   )
                 ],
                 cancelButton: CupertinoActionSheetAction(
@@ -114,6 +129,4 @@ class UserCabinetPage extends StatelessWidget {
       ),
     );
   }
-  
-  
 }

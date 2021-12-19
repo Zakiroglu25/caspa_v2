@@ -22,7 +22,7 @@ class LoginHeaders extends StatelessWidget {
   Center buildEnterText() {
     return Center(
       child: Text(
-        "login",
+        MyText.login,
         style: AppTextStyles.coHead400.copyWith(fontSize: 25),
       ),
     );

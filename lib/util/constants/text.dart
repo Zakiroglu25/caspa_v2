@@ -41,11 +41,12 @@ class MyText {
 
 
   //login
-  static const String login = "login";
-  static const String email = "email";
-  static const String password = "password";
-  static const String forgot_pass = "forgot_pass";
-  static const String registration = "registration";
+  static const String log_in = "Daxil ol";
+  static const String login = "Giriş";
+  static const String email = "E-poçt";
+  static const String password = "Şifrə";
+  static const String forgot_pass = "Şifrəni unutmuşam";
+  static const String registration = "Qeydiyyat";
 
   //registration
   static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";

@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/tariff_card.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,10 @@ class TariffDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
-        title: "Tarriflər",
+        title: MyText.tariffs,
         user: false,
         notification: false,
       ),
-
-      ///normalda bele olali deil ?
-
       body: ListView(
         children: [
           Container(

@@ -151,7 +151,7 @@ class LoginCubit extends Cubit<LoginState> {
         //     .read<AuthenticationCubit>()
         //     .startApp(context, showSplash: false);
 
-        Go.to(context, Pager.app(showSplash: true));
+        Go.andRemove(context, Pager.app(showSplash: true));
 
       } else {
         emit(LoginError());
@@ -205,7 +205,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     //llll("configureUserData result result: " + userSave.toString());
 
-    print("is logged int: " + _prefs.isLoggedIn.toString());
+   // print("is logged int: " + _prefs.isLoggedIn.toString());
 
     //wtf("new user: " + userSave.toString());
   }

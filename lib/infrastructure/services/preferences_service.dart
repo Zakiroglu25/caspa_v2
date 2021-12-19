@@ -51,7 +51,7 @@ class PreferencesService {
        await _preferences!.setString(SharedKeys.accessToken, accessToken);
   }
 
-  String get accessToken => _preferences!.getString(SharedKeys.accessToken)!;
+  String? get accessToken => _preferences!.getString(SharedKeys.accessToken);
 
   bool get hasAccessToken => (_preferences?.containsKey(SharedKeys.accessToken)) ??false;
 

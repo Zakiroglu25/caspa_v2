@@ -33,15 +33,15 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
     try {
-      //aaaa('2--');
+      aaaa('2--');
       configureFcm(context: context);
       final bool isLoggedIn = await _prefs.isLoggedIn;
-
-      if (isLoggedIn) {
+      final String? accessToken = await _prefs.accessToken;
+      eeee("-----"+(_prefs.accessToken!=null).toString());
+      if (isLoggedIn && accessToken!=null ) {
         //userin girish edib etmemeyi yoxlanilir
-        //aaaa('--3');
-        final String accessToken = await _prefs.accessToken;
-        //eeee("-----"+isLoggedIn.toString());
+        aaaa('--3');
+
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
@@ -133,9 +133,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     await _prefs.persistIsLoggedIn(false);
     //final logOutRes =
-    await _prefs.clear();
-    //eeee("loooooog: " + logOutRes.toString());
-    //eeee("ppp: " + _prefs.user.toString());
+    final cleaned=await _prefs.clear();
+
+    eeee("ppp: " + _prefs.isLoggedIn.toString());
+    eeee("cleanded: " + cleaned.toString());
     PaintingBinding.instance!.imageCache!.clear();
 
     imageCache!.clear();

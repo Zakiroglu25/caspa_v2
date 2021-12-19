@@ -3,9 +3,12 @@ import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
+import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,10 +28,10 @@ class HomePage extends StatelessWidget {
     MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
-        title: "d",
+        // title: "d",
 
         ///bunlar null gelir
-        //title: user.name! + " " + user.surname!,
+        title: user.name! + " " + user.surname!,
       ),
       body: SafeArea(
         child: ListView(
@@ -47,20 +50,27 @@ class HomePage extends StatelessWidget {
             ),
             MySizedBox.h24,
             SectionName(
-              title: "Teriflərlə tanış olun",
+              title: MyText.recognizeTariffs,
               hP: 20,
+              tile: MoreButton(
+                onTap: () {},
+              ),
             ),
             MySizedBox.h16,
             InkWell(
-                onTap: () {
-                  Go.to(context, TariffDetails(hList: [],));
-                },
+                onTap: () => Go.to(
+                    context,
+                    TariffDetails(
+                      hList: [],
+                    )),
                 child: Tariffs()),
             MySizedBox.h24,
             SectionName(
-              title: "Mənim bağlamalarim",
-              hP: 20,
-            ),
+                title: MyText.myPackages,
+                hP: 20,
+                tile: MoreButton(
+                  onTap: () {},
+                )),
             MySizedBox.h24,
             HomaPackageList(),
           ],

@@ -197,6 +197,8 @@ class MyText {
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
   static const String more = "Ətraflı";
+  static const String processing = "Əməliyyat aparılır...";
+  static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
 
 
 

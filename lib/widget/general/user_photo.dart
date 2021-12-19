@@ -20,7 +20,7 @@ class UserPhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return _prefs.user.avatar == null
         ? Container(
-            height: h, width: w, child: SvgPicture.asset(Assets.svgUserCircle))
+            height: h??100.sp, width: w??100.sp, child: SvgPicture.asset(Assets.svgUserCircle))
         : Container(
             height: h ?? 100.sp,
             width: w ?? 100.sp,

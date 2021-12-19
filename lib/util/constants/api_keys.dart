@@ -97,6 +97,9 @@ class ApiKeys {
     required String? name,
     required String? surname,
     required String? address,
+    required String? language,
+    required String? deviceCode,
+    required int? deviceTypeId,
     required String? email,
     required String? password,
     required String? password_confirmation,
@@ -131,7 +134,7 @@ class ApiKeys {
       "address": address,
       "email": email,
       "password": password,
-      "password_confirmation ": password_confirmation,
+      "password_confirmation": password_confirmation,
       "phone": phone,
       "accept": 1,
       "id_number": id_number,
@@ -139,6 +142,9 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": 1,
+    "deviceCode":deviceCode,
+    "deviceTypeId":deviceTypeId,
+    "language":language
     };
 
     aaaa(map.toString());

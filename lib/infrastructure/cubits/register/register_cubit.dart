@@ -188,10 +188,9 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
     isUserInfoValid();
     if (uPassSecond.hasValue) {
-
       // bbbb("second: "+uPassSecond.value);
       // bbbb("main: "+uPassMain.value);
-      if ( value != uPassSecond.value) {
+      if (value != uPassSecond.value) {
         uPassSecond.sink.addError(MyText.every_past_must_be_same);
       } else
         uPassSecond.sink.add(uPassSecond.value);
@@ -239,8 +238,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     isUserInfoValid();
   }
 
-  bool get isFinIncorrect =>
-      (!fin.hasValue || fin.value == null || fin.value.isEmpty || fin.value.length!=7);
+  bool get isFinIncorrect => (!fin.hasValue ||
+      fin.value == null ||
+      fin.value.isEmpty ||
+      fin.value.length != 7);
 
   //idNumber
   final BehaviorSubject<String> idNumber = BehaviorSubject<String>();
@@ -257,8 +258,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     isUserInfoValid();
   }
 
-  bool get isIdNumberIncorrect =>
-      (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty | !StringOperations.idCardSeriesControl(idNumber.value));
+  bool get isIdNumberIncorrect => (!idNumber.hasValue ||
+      idNumber.value == null ||
+      idNumber.value.isEmpty |
+          !StringOperations.idCardSeriesControl(idNumber.value));
 
   //gender
   final BehaviorSubject<String> gender = BehaviorSubject<String>();
@@ -286,7 +289,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateBirthDate(String value) {
     if (value == null || value.isEmpty) {
       birthDate.value = '';
-    //  birthDate.sink.addError("field_is_not_correct");
+      //  birthDate.sink.addError("field_is_not_correct");
     } else {
       birthDate.sink.add(value);
     }
@@ -328,21 +331,19 @@ class RegisterCubit extends Cubit<RegisterState> {
     // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
     if (!isNameIncorrect &&
-       // !isGenderIncorrect &&
+        // !isGenderIncorrect &&
         !isSurNameIncorrect &&
-        !isBirthDateIncorrect &&
+        // !isBirthDateIncorrect &&
         !isFinIncorrect &&
         !isIdNumberIncorrect &&
         !isMainPassInCorrect &&
         //!isAnbarIncorrect &&
         !isSecondPassInCorrect &&
         // !isBirtdayIncorrect &&
-      //  !isGenderIncorrect &&
+        //  !isGenderIncorrect &&
         !isEmailIncorrect &&
         !isPhoneIncorrect) {
       emit(RegisterButtonActive());
-
-
 
       //bbbb("---- true");
       return true;

@@ -47,17 +47,6 @@ class AuthProvider {
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 
-    // Response? response ;
-    // // try {response= await DioX.client
-    // //     .post(
-    // //       ApiKeys.login,
-    // //       data: jsonEncode(bo),
-    // //     );}
-    // // on DioError catch(e){
-    // //   print("dddfffdsdfsfd");
-    // //  // throw Exception(e.response?.data);
-    // //
-    // // }
 
     return statusDynamic;
   }
@@ -107,7 +96,7 @@ class AuthProvider {
     return response;
   }
 
-  static Future<http.Response> registrationPersonal({
+  static Future<StatusDynamic?> registrationPersonal({
     required String? name,
     required String? surname,
     required String? address,
@@ -122,6 +111,8 @@ class AuthProvider {
     required String? gender,
     required int? ware_house,
   }) async {
+
+    StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.register;
     var url = Uri.parse(api);
 
@@ -148,26 +139,17 @@ class AuthProvider {
     bbbb("response personla register: :" + response.body);
     bbbb(" personla register static body: :" + jsonEncode(body));
 
-    // if (response.statusCode == ResultKey.responseSuccess) {
-    //   var dataGelenCavabJSON = jsonDecode(response.body);
-    //   //print("addComment result: $dataGelenCavabJSON");
-    //   //addComment = AddComment.fromJson(dataGelenCavabJSON);
-    // } else {
-    //   eeee("addComment result bad:  url: $url  ,  response: ${response.body}");
-    // }
+    statusDynamic.statusCode = response.statusCode;
 
-    // Response? response ;
-    // // try {response= await DioX.client
-    // //     .post(
-    // //       ApiKeys.login,
-    // //       data: jsonEncode(bo),
-    // //     );}
-    // // on DioError catch(e){
-    // //   print("dddfffdsdfsfd");
-    // //  // throw Exception(e.response?.data);
-    // //
-    // // }
+    if (response.statusCode == ResultKey.successCode) {
+      String accessToken = response.body;
+      statusDynamic.data = accessToken;
+      bbbb("new token: " + (statusDynamic.data).toString());
+    } else {
+      eeee("fetchUserInfo bad url :$url,response: ${response}");
+    }
 
-    return response;
+
+    return statusDynamic;
   }
 }

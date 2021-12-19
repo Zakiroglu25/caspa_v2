@@ -1,10 +1,18 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'register_state.dart';
@@ -12,7 +20,7 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
-  void registerPersonal() async {
+  void registerPersonal(BuildContext context) async {
     emit(RegisterLoading());
     try {
       final response = await AuthProvider.registrationPersonal(
@@ -31,6 +39,24 @@ class RegisterCubit extends Cubit<RegisterState> {
           ware_house: 1);
 
       bbbb("register bloc result: " + response.toString());
+
+      if (isSuccess(response?.statusCode)) {
+        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: 'ss');
+        emit(RegisterSuccess(''));
+
+        // context
+        //     .read<AuthenticationCubit>()
+        //     .startApp(context, showSplash: false);
+
+        Go.andRemove(context, Pager.app(showSplash: true));
+
+      } else {
+        emit(RegisterFailed(''));
+        // result= MessageResponse.fromJson(response.data).message;
+        eeee(
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
+      }
+
       // if (response.message == null) {
       //   emit(RegisterSuccess(response.message!));
       // } else {

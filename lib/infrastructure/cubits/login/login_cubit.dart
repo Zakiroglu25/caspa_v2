@@ -199,14 +199,8 @@ class LoginCubit extends Cubit<LoginState> {
     // await _prefs.save("user", userSave);
     await _prefs.persistIsGuest(false);
     await _prefs.persistIsLoggedIn(true);
-    //await _prefs.persistRefreshToken(refreshToken: user.result.refreshToken);
     await _prefs.persistAccessToken(accessToken: accessToken);
     await _prefs.persistFcmToken(fcmToken: fcmToken);
 
-    //llll("configureUserData result result: " + userSave.toString());
-
-   // print("is logged int: " + _prefs.isLoggedIn.toString());
-
-    //wtf("new user: " + userSave.toString());
   }
 }

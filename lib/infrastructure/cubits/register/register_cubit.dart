@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -21,7 +22,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           email: uEmail.valueOrNull,
           password: uPassMain.value,
           password_confirmation: uPassSecond.value,
-          phone: phone.value,
+          phone: StringOperations.formatNumber(phone.value),
           accept: 1,
           birthday: birthDate.value,
           fin: fin.value,
@@ -186,10 +187,15 @@ class RegisterCubit extends Cubit<RegisterState> {
       uPassMain.sink.add(value);
     }
     isUserInfoValid();
-    if (uPassSecond.hasValue && value != uPassSecond.value) {
-      uPassSecond.sink.addError(MyText.every_past_must_be_same);
-    } else
-      uPassSecond.sink.add(uPassSecond.value);
+    if (uPassSecond.hasValue) {
+
+      // bbbb("second: "+uPassSecond.value);
+      // bbbb("main: "+uPassMain.value);
+      if ( value != uPassSecond.value) {
+        uPassSecond.sink.addError(MyText.every_past_must_be_same);
+      } else
+        uPassSecond.sink.add(uPassSecond.value);
+    }
   }
 
   bool get isMainPassInCorrect => (!uPassMain.hasValue ||
@@ -234,7 +240,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   bool get isFinIncorrect =>
-      (!fin.hasValue || fin.value == null || fin.value.isEmpty);
+      (!fin.hasValue || fin.value == null || fin.value.isEmpty || fin.value.length!=7);
 
   //idNumber
   final BehaviorSubject<String> idNumber = BehaviorSubject<String>();
@@ -252,14 +258,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   bool get isIdNumberIncorrect =>
-      (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty);
+      (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty | !StringOperations.idCardSeriesControl(idNumber.value));
 
   //gender
   final BehaviorSubject<String> gender = BehaviorSubject<String>();
 
   Stream<String> get genderStream => gender.stream;
 
-  updateGender(String value) {
+  updateGender(String? value) {
     if (value == null || value.isEmpty) {
       gender.value = '';
       gender.sink.addError("field_is_not_correct");
@@ -280,7 +286,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateBirthDate(String value) {
     if (value == null || value.isEmpty) {
       birthDate.value = '';
-      birthDate.sink.addError("field_is_not_correct");
+    //  birthDate.sink.addError("field_is_not_correct");
     } else {
       birthDate.sink.add(value);
     }
@@ -322,7 +328,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
     if (!isNameIncorrect &&
-        !isGenderIncorrect &&
+       // !isGenderIncorrect &&
         !isSurNameIncorrect &&
         !isBirthDateIncorrect &&
         !isFinIncorrect &&
@@ -331,10 +337,12 @@ class RegisterCubit extends Cubit<RegisterState> {
         //!isAnbarIncorrect &&
         !isSecondPassInCorrect &&
         // !isBirtdayIncorrect &&
-        !isGenderIncorrect &&
+      //  !isGenderIncorrect &&
         !isEmailIncorrect &&
         !isPhoneIncorrect) {
       emit(RegisterButtonActive());
+
+
 
       //bbbb("---- true");
       return true;

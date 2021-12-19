@@ -35,7 +35,9 @@ class GenderFieldUser extends StatelessWidget {
                 contextZ: context,
                 controller: controller,
                 onItemSelected: (a) {
-                  selected = a.type!;
+                 if (a!=null) {
+                   selected = a.type!;
+                 }
                 },
               )),
           controller: controller,

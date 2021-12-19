@@ -146,14 +146,14 @@ class AuthProvider {
     final response =
     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
-    bbbb("response personla register: :" + response.body);
-    if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.body);
-      //print("addComment result: $dataGelenCavabJSON");
-      //addComment = AddComment.fromJson(dataGelenCavabJSON);
-    } else {
-      eeee("addComment result bad:  url: $url  ,  response: ${response.body}");
-    }
+    bbbb("response personla register: :" + body);
+    // if (response.statusCode == ResultKey.responseSuccess) {
+    //   var dataGelenCavabJSON = jsonDecode(response.body);
+    //   //print("addComment result: $dataGelenCavabJSON");
+    //   //addComment = AddComment.fromJson(dataGelenCavabJSON);
+    // } else {
+    //   eeee("addComment result bad:  url: $url  ,  response: ${response.body}");
+    // }
 
     // Response? response ;
     // // try {response= await DioX.client

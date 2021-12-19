@@ -109,20 +109,36 @@ class ApiKeys {
     required int? ware_house,
   }) {
     //
-    final map = {
-      "name": "esev.sv@gmail.com",
-      "surname": "salam12345",
-      "address": "addd",
-      "email": "addd",
-      "password": "addd",
-      "password_confirmation ": "addd",
-      "phone": "addd",
-      "accept": "addd",
-      "id_number": "addd",
-      "fin": "addd",
-      "birthday": "addd",
-      "gender": "addd",
-      "ware_house": "addd",
+    // final map = {
+    //   "name": "esev.sv@gmail.com",
+    //   "surname": "salam12345",
+    //   "address": "addd",
+    //   "email": "addd",
+    //   "password": "addd",
+    //   "password_confirmation ": "addd",
+    //   "phone": "addd",
+    //   "accept": "addd",
+    //   "id_number": "addd",
+    //   "fin": "addd",
+    //   "birthday": "addd",
+    //   "gender": "addd",
+    //   "ware_house": "addd",
+    // };
+
+  final map = {
+      "name": name,
+      "surname": surname,
+      "address": address,
+      "email": email,
+      "password": password,
+      "password_confirmation ": password_confirmation,
+      "phone": phone,
+      "accept": 1,
+      "id_number": id_number,
+      "fin": fin,
+      "birthday": birthday,
+      "gender": gender,
+      "ware_house": 1,
     };
 
     aaaa(map.toString());

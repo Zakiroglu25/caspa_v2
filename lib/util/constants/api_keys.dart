@@ -6,6 +6,8 @@ class ApiKeys {
   ApiKeys._();
 
   static const baseUrl = 'https://caspa.az/api';
+  ///delete
+  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1';
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
@@ -34,7 +36,8 @@ class ApiKeys {
   //get address
   static const getAddress = "$baseUrl/public/countries";
 
-
+  ///delete
+  static const orderHistory = "$baseUrlTest/orders/histories";
 
   static loginBody({
     required String? email,

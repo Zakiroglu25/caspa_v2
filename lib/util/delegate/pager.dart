@@ -16,6 +16,7 @@ import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart'
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/declare_page/declare_tab.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
 import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
@@ -153,4 +154,9 @@ class Pager {
       create: (context) =>
           AuthenticationCubit()..startApp(context, showSplash: showSplash?? true),
       child: App());
+
+static get tarifDetails => BlocProvider(
+    create: (context) =>
+    TarifCubit()..fetch(),
+    child: TariffDetails(hList: [],));
 }

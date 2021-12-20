@@ -1,9 +1,18 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
 
 part 'register_state.dart';
@@ -11,7 +20,7 @@ part 'register_state.dart';
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
-  void registerPersonal() async {
+  void registerPersonal(BuildContext context) async {
     emit(RegisterLoading());
     try {
       final response = await AuthProvider.registrationPersonal(
@@ -21,7 +30,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           email: uEmail.valueOrNull,
           password: uPassMain.value,
           password_confirmation: uPassSecond.value,
-          phone: phone.value,
+          phone: StringOperations.formatNumber(phone.value),
           accept: 1,
           birthday: birthDate.value,
           fin: fin.value,
@@ -30,6 +39,24 @@ class RegisterCubit extends Cubit<RegisterState> {
           ware_house: 1);
 
       bbbb("register bloc result: " + response.toString());
+
+      if (isSuccess(response?.statusCode)) {
+        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: 'ss');
+        emit(RegisterSuccess(''));
+
+        // context
+        //     .read<AuthenticationCubit>()
+        //     .startApp(context, showSplash: false);
+
+        Go.andRemove(context, Pager.app(showSplash: true));
+
+      } else {
+        emit(RegisterFailed(''));
+        // result= MessageResponse.fromJson(response.data).message;
+        eeee(
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
+      }
+
       // if (response.message == null) {
       //   emit(RegisterSuccess(response.message!));
       // } else {
@@ -186,10 +213,14 @@ class RegisterCubit extends Cubit<RegisterState> {
       uPassMain.sink.add(value);
     }
     isUserInfoValid();
-    if (uPassSecond.hasValue && value != uPassSecond.value) {
-      uPassSecond.sink.addError(MyText.every_past_must_be_same);
-    } else
-      uPassSecond.sink.add(uPassSecond.value);
+    if (uPassSecond.hasValue) {
+      // bbbb("second: "+uPassSecond.value);
+      // bbbb("main: "+uPassMain.value);
+      if (value != uPassSecond.value) {
+        uPassSecond.sink.addError(MyText.every_past_must_be_same);
+      } else
+        uPassSecond.sink.add(uPassSecond.value);
+    }
   }
 
   bool get isMainPassInCorrect => (!uPassMain.hasValue ||
@@ -233,8 +264,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     isUserInfoValid();
   }
 
-  bool get isFinIncorrect =>
-      (!fin.hasValue || fin.value == null || fin.value.isEmpty);
+  bool get isFinIncorrect => (!fin.hasValue ||
+      fin.value == null ||
+      fin.value.isEmpty ||
+      fin.value.length != 7);
 
   //idNumber
   final BehaviorSubject<String> idNumber = BehaviorSubject<String>();
@@ -251,15 +284,17 @@ class RegisterCubit extends Cubit<RegisterState> {
     isUserInfoValid();
   }
 
-  bool get isIdNumberIncorrect =>
-      (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty);
+  bool get isIdNumberIncorrect => (!idNumber.hasValue ||
+      idNumber.value == null ||
+      idNumber.value.isEmpty |
+          !StringOperations.idCardSeriesControl(idNumber.value));
 
   //gender
   final BehaviorSubject<String> gender = BehaviorSubject<String>();
 
   Stream<String> get genderStream => gender.stream;
 
-  updateGender(String value) {
+  updateGender(String? value) {
     if (value == null || value.isEmpty) {
       gender.value = '';
       gender.sink.addError("field_is_not_correct");
@@ -280,7 +315,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateBirthDate(String value) {
     if (value == null || value.isEmpty) {
       birthDate.value = '';
-      birthDate.sink.addError("field_is_not_correct");
+      //  birthDate.sink.addError("field_is_not_correct");
     } else {
       birthDate.sink.add(value);
     }
@@ -322,16 +357,16 @@ class RegisterCubit extends Cubit<RegisterState> {
     // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
     if (!isNameIncorrect &&
-        !isGenderIncorrect &&
+        // !isGenderIncorrect &&
         !isSurNameIncorrect &&
-        !isBirthDateIncorrect &&
+        // !isBirthDateIncorrect &&
         !isFinIncorrect &&
         !isIdNumberIncorrect &&
         !isMainPassInCorrect &&
         //!isAnbarIncorrect &&
         !isSecondPassInCorrect &&
         // !isBirtdayIncorrect &&
-        !isGenderIncorrect &&
+        //  !isGenderIncorrect &&
         !isEmailIncorrect &&
         !isPhoneIncorrect) {
       emit(RegisterButtonActive());

@@ -6,6 +6,8 @@ class ApiKeys {
   ApiKeys._();
 
   static const baseUrl = 'https://caspa.az/api';
+  ///delete
+  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1';
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
@@ -34,7 +36,8 @@ class ApiKeys {
   //get address
   static const getAddress = "$baseUrl/public/countries";
 
-
+  ///delete
+  static const orderHistory = "$baseUrlTest/orders/histories";
 
   static loginBody({
     required String? email,
@@ -97,6 +100,9 @@ class ApiKeys {
     required String? name,
     required String? surname,
     required String? address,
+    required String? language,
+    required String? deviceCode,
+    required int? deviceTypeId,
     required String? email,
     required String? password,
     required String? password_confirmation,
@@ -109,20 +115,39 @@ class ApiKeys {
     required int? ware_house,
   }) {
     //
-    final map = {
-      "name": "esev.sv@gmail.com",
-      "surname": "salam12345",
-      "address": "addd",
-      "email": "addd",
-      "password": "addd",
-      "password_confirmation ": "addd",
-      "phone": "addd",
-      "accept": "addd",
-      "id_number": "addd",
-      "fin": "addd",
-      "birthday": "addd",
-      "gender": "addd",
-      "ware_house": "addd",
+    // final map = {
+    //   "name": "esev.sv@gmail.com",
+    //   "surname": "salam12345",
+    //   "address": "addd",
+    //   "email": "addd",
+    //   "password": "addd",
+    //   "password_confirmation ": "addd",
+    //   "phone": "addd",
+    //   "accept": "addd",
+    //   "id_number": "addd",
+    //   "fin": "addd",
+    //   "birthday": "addd",
+    //   "gender": "addd",
+    //   "ware_house": "addd",
+    // };
+
+  final map = {
+      "name": name,
+      "surname": surname,
+      "address": address,
+      "email": email,
+      "password": password,
+      "password_confirmation": password_confirmation,
+      "phone": phone,
+      "accept": 1,
+      "id_number": id_number,
+      "fin": fin,
+      "birthday": birthday,
+      "gender": gender,
+      "ware_house": 1,
+    "deviceCode":deviceCode,
+    "deviceTypeId":deviceTypeId,
+    "language":language
     };
 
     aaaa(map.toString());

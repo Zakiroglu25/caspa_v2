@@ -110,7 +110,11 @@ class MyText {
 
 
   //home
-  static const String welcome = "Xoş gəlmişsiniz";
+  static const String welcome = "Xoş gəlmişsiniz!";
+  static const String recognizeTariffs = "Teriflərlə tanış olun";
+  static const String myPackages = "Mənim bağlamalarim";
+  static const String tariffs = "Tarriflər";
+
 
 
   //user cabinet
@@ -192,6 +196,9 @@ class MyText {
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
+  static const String more = "Ətraflı";
+
+
 
 
 

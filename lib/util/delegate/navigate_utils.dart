@@ -20,7 +20,7 @@ class Go {
   }
 
   static to(BuildContext context, Widget page) async {
-    Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
+    Navigator.of(context, rootNavigator: false).push(MaterialPageRoute(
       builder: (context) => page,
     ));
   }

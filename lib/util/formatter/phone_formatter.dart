@@ -13,7 +13,7 @@ class PhoneNumberFormatter extends TextInputFormatter {
         oldValue.text.length >= 10 &&
         newValue.text.length != oldValue.text.length) {
       return TextEditingValue(
-        text: "",
+        text: "-",
         selection: TextSelection.collapsed(offset: 0),
       );
     }

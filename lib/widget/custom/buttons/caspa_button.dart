@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -44,22 +45,29 @@ class CaspaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-   bool active = isButtonActive??true;
+    bool active = isButtonActive ?? true;
     return Container(
       height: h ?? 52,
       width: w ?? double.infinity,
       decoration: BoxDecoration(
-          color: (active)?(color ?? MyColors.mainColor): (passiveButtonColor??MyColors.greyPassiveBodyMainColor),
-          border:
-              Border.all(color: active?(borderColor ?? (color ?? MyColors.mainColor)):(passiveButtonColor??MyColors.greyPassiveBodyMainColor)),
+          color: (active)
+              ? (color ?? MyColors.mainColor)
+              : (passiveButtonColor ?? MyColors.greyPassiveBodyMainColor),
+          border: Border.all(
+              color: active
+                  ? (borderColor ?? (color ?? MyColors.mainColor))
+                  : (passiveButtonColor ?? MyColors.greyPassiveBodyMainColor)),
           borderRadius: BorderRadius.circular(borderRadius ?? 12)),
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () => (active)?(onTap?.call()):null,
-          highlightColor: active?(highlightColor ?? MyColors.white.withOpacity(0.3)):MyColors.transparent,
-          splashColor: active?(splashColor ?? Colors.transparent):MyColors.transparent,
+          onTap: () => (active) ? (onTap?.call()) : null,
+          highlightColor: active
+              ? (highlightColor ?? MyColors.white.withOpacity(0.3))
+              : MyColors.transparent,
+          splashColor: active
+              ? (splashColor ?? Colors.transparent)
+              : MyColors.transparent,
           borderRadius: BorderRadius.circular(borderRadius ?? 12),
           child: Center(
             child: (loading ?? false)
@@ -67,8 +75,11 @@ class CaspaButton extends StatelessWidget {
                 : (child ??
                     Text(
                       text ?? "",
-                      style: TextStyle(
-                          color: active?(textColor ?? Colors.white):(passiveButtonColor??MyColors.greyPassiveContentWhite),
+                      style: AppTextStyles.sanF400.copyWith(
+                          color: active
+                              ? (textColor ?? Colors.white)
+                              : (passiveButtonColor ??
+                                  MyColors.greyPassiveContentWhite),
                           fontSize: textSize ?? 18,
                           fontWeight: fontWeight ?? FontWeight.w400),
                     )),

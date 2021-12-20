@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/selectable/gender_list.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/gender_type.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -36,7 +37,12 @@ class GenderFieldRegister extends StatelessWidget {
                 contextZ: context,
                 controller: controller,
                 onItemSelected: (a) {
-                  selected = a.type!;
+                 if (a!=null) {
+                   selected = a.type!;
+                 }
+                //  bbbb("selected: "+(a?.value) .toString());
+
+                  BlocProvider.of<RegisterCubit>(context).updateGender(a?.value);
                 },
               )),
           controller: controller,

@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:flutter/foundation.dart';
 
 // Package imports:
@@ -34,14 +35,11 @@ class AuthProvider {
     );
 
     final response =
-    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
-
-
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-
       String accessToken = response.body;
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
@@ -49,17 +47,6 @@ class AuthProvider {
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 
-    // Response? response ;
-    // // try {response= await DioX.client
-    // //     .post(
-    // //       ApiKeys.login,
-    // //       data: jsonEncode(bo),
-    // //     );}
-    // // on DioError catch(e){
-    // //   print("dddfffdsdfsfd");
-    // //  // throw Exception(e.response?.data);
-    // //
-    // // }
 
     return statusDynamic;
   }
@@ -92,7 +79,7 @@ class AuthProvider {
         tax_number: tax_number);
 
     final response =
-    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // Response? response ;
     // // try {response= await DioX.client
@@ -109,7 +96,7 @@ class AuthProvider {
     return response;
   }
 
-  static Future<http.Response> registrationPersonal({
+  static Future<StatusDynamic?> registrationPersonal({
     required String? name,
     required String? surname,
     required String? address,
@@ -124,49 +111,45 @@ class AuthProvider {
     required String? gender,
     required int? ware_house,
   }) async {
+
+    StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.register;
     var url = Uri.parse(api);
 
     var body = ApiKeys.registrationPersonalBody(
-      name: name,
-      surname: surname,
-      address: address,
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation,
-      phone: phone,
-      accept: accept,
-      ware_house: ware_house,
-      fin: fin,
-      birthday: birthday,
-      gender: gender,
-      id_number: id_number,
-    );
+        name: name,
+        surname: surname,
+        address: address,
+        email: email,
+        password: password,
+        password_confirmation: password,
+        phone: phone,
+        accept: accept,
+        ware_house: ware_house,
+        fin: fin,
+        birthday: birthday,
+        gender: gender,
+        id_number: id_number,
+        deviceCode: "dev",
+        deviceTypeId: StringOperations.platformId(),
+        language: 'az');
 
     final response =
-    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
-
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     bbbb("response personla register: :" + response.body);
-    if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.body);
-      //print("addComment result: $dataGelenCavabJSON");
-      //addComment = AddComment.fromJson(dataGelenCavabJSON);
+    bbbb(" personla register static body: :" + jsonEncode(body));
+
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.successCode) {
+      String accessToken = response.body;
+      statusDynamic.data = accessToken;
+      bbbb("new token: " + (statusDynamic.data).toString());
     } else {
-      eeee("addComment result bad:  url: $url  ,  response: ${response.body}");
+      eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 
-    // Response? response ;
-    // // try {response= await DioX.client
-    // //     .post(
-    // //       ApiKeys.login,
-    // //       data: jsonEncode(bo),
-    // //     );}
-    // // on DioError catch(e){
-    // //   print("dddfffdsdfsfd");
-    // //  // throw Exception(e.response?.data);
-    // //
-    // // }
 
-    return response;
+    return statusDynamic;
   }
 }

@@ -7,7 +7,7 @@ import 'package:caspa_v2/util/enums/gender_type.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-typedef OnItemSelected = void Function(Gender gender);
+typedef OnItemSelected = void Function(Gender? gender);
 
 class GenderList extends StatefulWidget {
   GenderList({
@@ -69,16 +69,19 @@ class _GenderListState extends State<GenderList> {
         widget.selected = GenderType.unselected;
         widget.controller!.text = '';
       });
+      widget.onItemSelected!(null);
     } else {
       BlocProvider.of<RegisterCubit>(widget.contextZ!)
           .updateGender(widget.selected.toString());
       setState(() {
         widget.selected = gender.type!;
         widget.controller!.text = gender.title!;
+
       });
+      widget.onItemSelected!(gender);
     }
 
-    widget.onItemSelected!(gender);
+
 
     // promoCodeIdController.text = selectedPromoCodes.toString();
   }

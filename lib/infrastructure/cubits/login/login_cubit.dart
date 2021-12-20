@@ -9,6 +9,8 @@ import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
@@ -103,7 +105,8 @@ class LoginCubit extends Cubit<LoginState> {
           await configureUserData(accessToken: response!.data, fcmToken: 'ss');
 
           emit(LoginSuccess(response.data));
-          //   Go.replace(context, Pager.landing);
+         // bbbb("auiui");
+           //  Go.replace(context, Pager.landing);
           // result=response.data;
         } else {
           emit(LoginError());
@@ -144,9 +147,11 @@ class LoginCubit extends Cubit<LoginState> {
         await configureUserData(accessToken: response?.data, fcmToken: 'ss');
         emit(LoginSuccess(''));
 
-        context
-            .read<AuthenticationCubit>()
-            .startApp(context, showSplash: false);
+        // context
+        //     .read<AuthenticationCubit>()
+        //     .startApp(context, showSplash: false);
+
+        Go.andRemove(context, Pager.app(showSplash: true));
 
       } else {
         emit(LoginError());
@@ -194,14 +199,8 @@ class LoginCubit extends Cubit<LoginState> {
     // await _prefs.save("user", userSave);
     await _prefs.persistIsGuest(false);
     await _prefs.persistIsLoggedIn(true);
-    //await _prefs.persistRefreshToken(refreshToken: user.result.refreshToken);
     await _prefs.persistAccessToken(accessToken: accessToken);
     await _prefs.persistFcmToken(fcmToken: fcmToken);
 
-    //llll("configureUserData result result: " + userSave.toString());
-
-    print("is logged int: " + _prefs.isLoggedIn.toString());
-
-    //wtf("new user: " + userSave.toString());
   }
 }

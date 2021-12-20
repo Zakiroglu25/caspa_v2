@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 
 class SectionName extends StatelessWidget {
@@ -7,16 +8,26 @@ class SectionName extends StatelessWidget {
   double? hP;
   double? vP;
   double? size;
+  Widget? tile;
 
-  SectionName({@required this.title,this.vP,this.hP,this.size});
+  SectionName({required this.title, this.vP, this.hP, this.size, this.tile});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: hP??0,vertical: vP??0),
-      child: Text(
-        title!,
-        style: UITextStyle.tW600Black.copyWith(fontSize: size??16),
+      padding: EdgeInsets.symmetric(horizontal: hP ?? 0, vertical: vP ?? 0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title!,
+            style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
+          ),
+          WidgetOrEmpty(
+            value: tile != null,
+            child: tile,
+          )
+        ],
       ),
     );
   }

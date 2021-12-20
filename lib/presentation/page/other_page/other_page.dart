@@ -93,10 +93,9 @@ class OtherPage extends StatelessWidget {
                   color: MyColors.kuryer,
                   onTap: () {
                     ///delete
-                    Go.to(context, BlocBuilder<OrderHistoryCubit, OrderHistoryState>(
-                      builder: (context, state) {
-                        return OrderHistoryPage(order_history_list: [],);
-                      },
+                    Go.to(context, BlocProvider(
+                      create: (context) => OrderHistoryCubit()..fetch(),
+                      child: OrderHistoryPage(order_history_list: [],),
                     ));
                   },
                 ),

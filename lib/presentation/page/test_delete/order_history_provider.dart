@@ -20,7 +20,7 @@ class OrderHistoryProvider {
     };
     var url = Uri.parse(api);
     final response = await http.get(url, headers: headers);
-
+    bbbb("rsult: "+response.statusCode.toString()  );
     if (response.statusCode == ResultKey.responseSuccess) {
       var gelenCavabJson = jsonDecode(response.body);
       try {

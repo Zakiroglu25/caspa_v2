@@ -1,10 +1,8 @@
-import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
-import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
-import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -12,17 +10,26 @@ import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
+import '../../../locator.dart';
 
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
+  FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
+
+  PreferencesService get _prefs => locator<PreferencesService>();
+
   void registerPersonal(BuildContext context) async {
     emit(RegisterLoading());
+    //emit(RegisterFailed(message:" errors.first"));
     try {
+      final deviceCode = await _firebaseMessaging.getToken();
+
       final response = await AuthProvider.registrationPersonal(
           name: uName.valueOrNull,
           surname: surName.valueOrNull,
@@ -30,40 +37,31 @@ class RegisterCubit extends Cubit<RegisterState> {
           email: uEmail.valueOrNull,
           password: uPassMain.value,
           password_confirmation: uPassSecond.value,
-          phone: StringOperations.formatNumber(phone.value),
+          phone: AppOperations.formatNumber(phone.value),
           accept: 1,
-          birthday: birthDate.value,
+          birthday: birthDate.valueOrNull,
           fin: fin.value,
           id_number: idNumber.value,
-          gender: gender.value,
+          gender: gender.valueOrNull,
+          deviceCode: deviceCode,
+          deviceTypeId: StringOperations.platformId(),
+          language: _prefs.language,
           ware_house: 1);
 
       bbbb("register bloc result: " + response.toString());
 
       if (isSuccess(response?.statusCode)) {
-        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: 'ss');
-        emit(RegisterSuccess(''));
-
-        // context
-        //     .read<AuthenticationCubit>()
-        //     .startApp(context, showSplash: false);
-
+        await UserOperations.configureUserData(
+            accessToken: response?.data, fcmToken: deviceCode!);
         Go.andRemove(context, Pager.app(showSplash: true));
-
+        emit(RegisterSuccess(''));
       } else {
-        emit(RegisterFailed(''));
-        // result= MessageResponse.fromJson(response.data).message;
-        eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
+        List<String> errors = response?.data;
+        emit(RegisterError(message: errors[0]));
       }
-
-      // if (response.message == null) {
-      //   emit(RegisterSuccess(response.message!));
-      // } else {
-      //   emit(RegisterFailed(response.message!));
-      // }
     } catch (e, s) {
-      emit(RegisterFailed("Errorlari doshuyecem"));
+      eeee("register cubit -> registrationPersonal ->catch : " + e.toString());
+      emit(RegisterError(message: e.toString()));
     }
   }
 
@@ -116,7 +114,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateName(String value) {
     if (value == null || value.isEmpty) {
       uName.value = '';
-      uName.sink.addError("field_is_not_correct");
+      uName.sink.addError(MyText.field_is_not_correct);
     } else {
       uName.sink.add(value);
     }
@@ -134,7 +132,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateSurName(String value) {
     if (value == null || value.isEmpty) {
       surName.value = '';
-      surName.sink.addError("field_is_not_correct");
+      surName.sink.addError(MyText.field_is_not_correct);
     } else {
       surName.sink.add(value);
     }
@@ -152,7 +150,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updatePhone(String value) {
     if (value == null || value.isEmpty) {
       phone.value = '';
-      phone.sink.addError("field_is_not_correct");
+      phone.sink.addError(MyText.field_is_not_correct);
     } else {
       phone.sink.add(value);
     }
@@ -170,7 +168,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateAdress(String value) {
     if (value == null || value.isEmpty) {
       adress.value = '';
-      adress.sink.addError("field_is_not_correct");
+      adress.sink.addError(MyText.field_is_not_correct);
     } else if (value.length < 10) {
       adress.sink.addError(MyText.adress_minumum_10);
     } else {
@@ -190,7 +188,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateAnbar(String value) {
     if (value == null || value.isEmpty) {
       anbar.value = '';
-      anbar.sink.addError("field_is_not_correct");
+      anbar.sink.addError(MyText.field_is_not_correct);
     } else {
       anbar.sink.add(value);
     }
@@ -257,17 +255,15 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateFin(String value) {
     if (value == null || value.isEmpty) {
       fin.value = '';
-      fin.sink.addError("field_is_not_correct");
+      fin.sink.addError(MyText.field_is_not_correct);
     } else {
       fin.sink.add(value);
     }
     isUserInfoValid();
   }
 
-  bool get isFinIncorrect => (!fin.hasValue ||
-      fin.value == null ||
-      fin.value.isEmpty ||
-      fin.value.length != 7);
+  bool get isFinIncorrect =>
+      (!fin.hasValue || fin.value == null || fin.value.isEmpty);
 
   //idNumber
   final BehaviorSubject<String> idNumber = BehaviorSubject<String>();
@@ -277,7 +273,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateIdNumber(String value) {
     if (value == null || value.isEmpty) {
       idNumber.value = '';
-      idNumber.sink.addError("field_is_not_correct");
+      idNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       idNumber.sink.add(value);
     }
@@ -287,7 +283,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool get isIdNumberIncorrect => (!idNumber.hasValue ||
       idNumber.value == null ||
       idNumber.value.isEmpty |
-          !StringOperations.idCardSeriesControl(idNumber.value));
+          !AppOperations.idCardSeriesControl(idNumber.value));
 
   //gender
   final BehaviorSubject<String> gender = BehaviorSubject<String>();
@@ -297,7 +293,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateGender(String? value) {
     if (value == null || value.isEmpty) {
       gender.value = '';
-      gender.sink.addError("field_is_not_correct");
+      gender.sink.addError(MyText.field_is_not_correct);
     } else {
       gender.sink.add(value);
     }
@@ -315,7 +311,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateBirthDate(String value) {
     if (value == null || value.isEmpty) {
       birthDate.value = '';
-      //  birthDate.sink.addError("field_is_not_correct");
+      //  birthDate.sink.addError(MyText.field_is_not_correct);
     } else {
       birthDate.sink.add(value);
     }

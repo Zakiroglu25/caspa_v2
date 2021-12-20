@@ -39,6 +39,9 @@ class MyColors {
  static const Color grey245 =  Color.fromRGBO(245, 245, 245, 1);
   static const Color greyPassiveContent =  Color.fromRGBO(142,142,142,1);
   static const Color greyPassiveContentWhite =  Colors.white;
+  static const Color greyWhite2 = Color.fromRGBO(255, 255, 255, 1);
+  static const Color white50 = const Color.fromRGBO(255, 255, 255, .5);
+  static const Color white70 = const Color.fromRGBO(255, 255, 255, .7);
   static const Color greyPassiveBodyMainColor =   Color.fromRGBO(212,212,236,1);
 
  // static const Color grey153 =  Color.fromRGBO(153, 153, 153, 1);

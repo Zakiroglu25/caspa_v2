@@ -18,6 +18,11 @@ class RegisterResponseModel {
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'RegisterResponseModel{message: $message, errors: $errors}';
+  }
 }
 
 class Errors {
@@ -42,5 +47,10 @@ class Errors {
     data['id_number'] = this.idNumber;
     data['fin'] = this.fin;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'Errors{email: $email, phone: $phone, idNumber: $idNumber, fin: $fin}';
   }
 }

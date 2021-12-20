@@ -14,6 +14,9 @@ class RegisterButton extends StatelessWidget {
       right: 16,
       child: CaspaButton(
         isButtonActive: context.watch<RegisterCubit>().isUserInfoValid(),
+        loading: (context
+            .watch<RegisterCubit>()
+            .state is RegisterLoading) ? true : false,
         text: 'Qeydiyyat',
         onTap: () => context.read<RegisterCubit>().registerPersonal(context),
       ),

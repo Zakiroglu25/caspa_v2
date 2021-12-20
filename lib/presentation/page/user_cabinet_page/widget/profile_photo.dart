@@ -22,31 +22,27 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Stack(
-
       children: [
         UserPhoto(),
         Positioned(
-          bottom: 0,right: 2,
+          bottom: 0,
+          right: 2,
           child: WidgetOrEmpty(
-              value: (editable??false), child: Container(
-            height: 36.sm,
-              width: 36.sm,
-             decoration: BoxDecoration(
-               color: MyColors.mainColor,
-               borderRadius: BorderRadius.circular(36.sm)
-             ),
-              padding: Paddings.paddingA4,
-              child: Center(
-                child: Container(
-
-                    height: 20.sm,
-                    width: 20.sm,
-
-                    child: SvgPicture.asset(Assets.svgCamera)),
-              ))),
+              value: (editable ?? false),
+              child: Container(
+                  height: 36.sm,
+                  width: 36.sm,
+                  decoration: BoxDecoration(
+                      color: MyColors.mainColor,
+                      borderRadius: BorderRadius.circular(36.sm)),
+                  padding: Paddings.paddingA4,
+                  child: Center(
+                    child: Container(
+                        height: 20.sm,
+                        width: 20.sm,
+                        child: SvgPicture.asset(Assets.svgCamera)),
+                  ))),
         )
       ],
     );

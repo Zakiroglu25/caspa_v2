@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/widgets/pass_field.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
@@ -23,7 +24,7 @@ class LoginFields extends StatelessWidget {
         PassField(_passController),
         MySizedBox.h16,
         CaspaTextButton(
-          text: "forgot_pass",
+          text: MyText.forgot_pass,
           onTap: () => Go.to(
               context,
 Pager.forgotPass),

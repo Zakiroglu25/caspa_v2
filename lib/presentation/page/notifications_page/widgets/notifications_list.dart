@@ -5,6 +5,7 @@ import 'package:caspa_v2/presentation/page/notifications_page/widgets/notificati
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:flutter/material.dart';
 
@@ -74,7 +75,7 @@ class NotificationsList extends StatelessWidget {
   Widget notificationContainer(BuildContext context, int index,
       {NotificationBody? notification}) {
     return FadeInUp(
-      duration: Duration(milliseconds: StringOperations.getTime(index)),
+      duration: Duration(milliseconds: AppOperations.getTime(index)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
         child: NotificationElement(

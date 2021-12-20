@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,9 +14,9 @@ class PassField extends StatelessWidget {
       stream: BlocProvider.of<LoginCubit>(context).passStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: "password",
+          title: MyText.password,
           maxLines: 1,
-          hint: 'password',
+          hint: MyText.password,
           upperCase: false,
           textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.none,

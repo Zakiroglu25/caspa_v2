@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -102,7 +103,7 @@ class LoginCubit extends Cubit<LoginState> {
             lang: 'az');
 
         if (isSuccess(response?.statusCode)) {
-          await configureUserData(accessToken: response!.data, fcmToken: 'ss');
+          await UserOperations.configureUserData(accessToken: response!.data, fcmToken: "");
 
           emit(LoginSuccess(response.data));
          // bbbb("auiui");
@@ -144,14 +145,9 @@ class LoginCubit extends Cubit<LoginState> {
       //eeee("response: "+response.toString());
 
       if (isSuccess(response?.statusCode)) {
-        await configureUserData(accessToken: response?.data, fcmToken: 'ss');
-        emit(LoginSuccess(''));
-
-        // context
-        //     .read<AuthenticationCubit>()
-        //     .startApp(context, showSplash: false);
-
+        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: deviceCode!);
         Go.andRemove(context, Pager.app(showSplash: true));
+        emit(LoginSuccess(''));
 
       } else {
         emit(LoginError());

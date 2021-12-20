@@ -1,9 +1,11 @@
 // Dart imports:
 import 'dart:convert';
 
+import 'package:caspa_v2/infrastructure/models/remote/response/error_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:flutter/foundation.dart';
@@ -108,8 +110,11 @@ class AuthProvider {
     required String? id_number,
     required String? fin,
     required String? birthday,
+    required String? deviceCode,
+    required String? language,
     required String? gender,
     required int? ware_house,
+    required int? deviceTypeId,
   }) async {
 
     StatusDynamic statusDynamic = StatusDynamic();
@@ -130,14 +135,14 @@ class AuthProvider {
         birthday: birthday,
         gender: gender,
         id_number: id_number,
-        deviceCode: "dev",
-        deviceTypeId: StringOperations.platformId(),
-        language: 'az');
+        deviceCode: deviceCode,
+        deviceTypeId: deviceTypeId,
+        language: language);
 
     final response =
         await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     bbbb("response personla register: :" + response.body);
-    bbbb(" personla register static body: :" + jsonEncode(body));
+    //bbbb(" personla register static body: :" + jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 
@@ -146,6 +151,7 @@ class AuthProvider {
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
+      statusDynamic.data=AppOperations.errorFromListOfListAsList(response.body);
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 

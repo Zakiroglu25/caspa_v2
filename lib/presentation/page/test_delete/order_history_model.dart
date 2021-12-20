@@ -8,7 +8,7 @@ class OrderHistoryModel {
     date = json['date'];
     if (json['orders'] != null) {
       orders = <Orders>[];
-      json['orders'].map((v) {
+      json['orders'].forEach((v) {
         orders!.add(Orders.fromJson(v));
       });
     }
@@ -32,7 +32,7 @@ class OrderHistoryModel {
 class Orders {
   int? id;
   String? deliveryStatus;
-  Null? clientName;
+  String? clientName;
   String? totalPrice;
   String? deliveryDate;
   String? deliveryTimeFrom;

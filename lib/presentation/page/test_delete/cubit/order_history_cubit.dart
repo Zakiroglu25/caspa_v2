@@ -20,7 +20,7 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
       final result = await OrderHistoryProvider.gerOrderList();
 
       ///ama gelir burda resultu null goturur
-
+//bbbb("result: "+result.toString());
       if (result != null) {
         emit(OrderHistorySuccess(result));
         log(result.toString());

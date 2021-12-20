@@ -7,6 +7,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Tariffs extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class Tariffs extends StatelessWidget {
             hList: tarifList,
           );
         } else if (state is TarifInProgress) {
-          return CaspaLoading();
+          return CaspaLoading(h: 92.sp,);
         } else if (state is TarifNetworkError) {
           return NoData();
         } else {

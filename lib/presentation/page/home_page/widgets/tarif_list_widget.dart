@@ -25,28 +25,30 @@ class TarifListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     isVertical ??= false;
-    return Container(
-      height: isVertical!? null:92.sp,
-      child: ListView.separated(
-        separatorBuilder: (context, index) {
-          return isVertical!?MySizedBox.h16: MySizedBox.w10;
-        },
-        shrinkWrap: true,
-        itemCount: hList.length,
-        scrollDirection: isVertical! ? Axis.vertical:Axis.horizontal,
-        padding: Paddings.paddingH20,
-        itemBuilder: (context, index) {
-          Tariff tariff = hList[index];
-          return FadeInUp(
-            duration: Duration(milliseconds: isVertical!?StringOperations.getTime(index):0),
-            child: TariffCard(
-              tarifName: tariff.description,
-              price: tariff.price,
-              isVertical: isVertical,
-              //w: (isVertical ?? false) ? null : 284.sp,
-            ),
-          );
-        },
+    return FadeIn(
+      child: SizedBox(
+        height: isVertical!? null:92.sp,
+        child: ListView.separated(
+          separatorBuilder: (context, index) {
+            return isVertical!?MySizedBox.h16: MySizedBox.w10;
+          },
+          shrinkWrap: true,
+          itemCount: hList.length,
+          scrollDirection: isVertical! ? Axis.vertical:Axis.horizontal,
+          padding: Paddings.paddingH20,
+          itemBuilder: (context, index) {
+            Tariff tariff = hList[index];
+            return FadeInUp(
+              duration: Duration(milliseconds: isVertical!?StringOperations.getTime(index):0),
+              child: TariffCard(
+                tarifName: tariff.description,
+                price: tariff.price,
+                isVertical: isVertical,
+                //w: (isVertical ?? false) ? null : 284.sp,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

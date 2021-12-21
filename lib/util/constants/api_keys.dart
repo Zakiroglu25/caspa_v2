@@ -7,7 +7,7 @@ class ApiKeys {
 
   static const baseUrl = 'https://caspa.az/api';
   ///delete
-  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1';
+  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1/couriers';
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",

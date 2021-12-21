@@ -16,19 +16,25 @@ class OrderHistoryProvider {
     const headers = {
       "Content-Type": "application/json",
       "Accept": "application/json",
-      'Authorization': 'Bearer 1804|XIWIN1t2e6rOeHeRI9rboFoKMW7sh75RkgYCXaOq',
+      'Authorization': 'Bearer 1838|6PLaw2nY2lq5IQeydNqXmUnfqCItp2HK6ANrNtcv',
     };
+    log("1provider");
     var url = Uri.parse(api);
+    log("2provider");
     final response = await http.get(url, headers: headers);
+    log("3provider"+url.toString());
     bbbb("rsult: "+response.statusCode.toString()  );
     if (response.statusCode == ResultKey.responseSuccess) {
+      log("4provider");
       var gelenCavabJson = jsonDecode(response.body);
+      log("5provider");
       try {
-        gelenCavabJson.map((item) {
-          OrderHistoryModel.fromJson(item);
-        });
+        log("6provider");
+        // gelenCavabJson.map((item) {
+        //   OrderHistoryModel.fromJson(item);
+        // });
         log("salam"+gelenCavabJson);
-        // orderHistoryModel = OrderHistoryModel.fromJson(gelenCavabJson);
+        orderHistoryModel = OrderHistoryModel.fromJson(gelenCavabJson) as List<OrderHistoryModel>?;
       } catch (e) {
         if (kDebugMode) {
           print(e.toString() + "orderHistoryModel");

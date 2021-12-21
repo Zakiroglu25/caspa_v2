@@ -17,20 +17,25 @@ class OrderHistoryCubit extends Cubit<OrderHistoryState> {
       emit(OrderHistoryProgress());
     }
     try {
+      log("1");
       final result = await OrderHistoryProvider.gerOrderList();
-
+      log("2");
       ///ama gelir burda resultu null goturur
 
       if (result != null) {
+        log("3");
         emit(OrderHistorySuccess(result));
         log(result.toString());
+        log("4");
       } else {
+        log("5 Error");
         emit(OrderHistoryError());
       }
     } on SocketException catch (_) {
       //network olacaq
       emit(OrderHistoryError());
     } catch (e) {
+      log("6");
       if (kDebugMode) {
         print(e);
       }

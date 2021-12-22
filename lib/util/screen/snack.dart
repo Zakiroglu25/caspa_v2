@@ -13,16 +13,17 @@ class Snack {
   static display({
     required BuildContext? context,
     String? message,
-    bool? positive,
+    bool? positive=false,
     bool showSuccessIcon = false,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
+    //positive ?? false;
     final snackbar = SnackBar(
       elevation: 0,
       dismissDirection: DismissDirection.horizontal,
       backgroundColor: Colors.transparent,
       behavior: SnackBarBehavior.floating,
-      padding: const EdgeInsets.only(right: 10),
+      padding: const EdgeInsets.only(right: 0),
       content: BounceInUp(
         child: Container(
           decoration:  BoxDecoration(
@@ -36,31 +37,24 @@ class Snack {
           height: 50.sp,
           child: Stack(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: Container(
-                        //color: MyColors.mainColor,
-                      //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
-                      padding: EdgeInsets.only(
-                          left: (!positive || showSuccessIcon) ? 50 : 16,
-                          right: (!positive || showSuccessIcon) ? 15 : 16),
-                      child: Center(
-                        child: Text(
-                          message ?? 'error_during_operation',
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: !showSuccessIcon ? 16.sp : 18.sp),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ),
-                    ),
+              Container(
+                  //color: MyColors.mainColor,
+                //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
+                padding: EdgeInsets.only(
+                    left: (!positive || showSuccessIcon) ? 34 : 16,
+                    right: (!positive || showSuccessIcon) ? 34 : 16),
+                child: Center(
+                  child: Text(
+                    message ?? 'error_during_operation',
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: !showSuccessIcon ? 14.sp : 16.sp),
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16),

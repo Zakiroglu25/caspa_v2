@@ -11,34 +11,6 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
 
-  void registerPersonal() async {
-    emit(UserLoading());
-    try {
-      final response = await AuthProvider.registrationPersonal(
-          name: uName.valueOrNull,
-          surname: surName.valueOrNull,
-          address: adress.valueOrNull,
-          email: uEmail.valueOrNull,
-          password: uPassMain.value,
-          password_confirmation: uPassSecond.value,
-          phone: phone.value,
-          accept: 1,
-          birthday: birthDate.value,
-          fin: fin.value,
-          id_number: idNumber.value,
-          gender: gender.value,
-          ware_house: 1);
-
-      bbbb("register bloc result: " + response.toString());
-      // if (response.message == null) {
-      //   emit(RegisterSuccess(response.message!));
-      // } else {
-      //   emit(RegisterFailed(response.message!));
-      // }
-    } catch (e, s) {
-      emit(UserFailed("Errorlari doshuyecem"));
-    }
-  }
 
 // void registerBusiness(RegisterRequestModel body) async {
 //     emit(RegisterLoading());

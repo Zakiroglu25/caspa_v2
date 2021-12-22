@@ -41,11 +41,12 @@ class MyText {
 
 
   //login
-  static const String login = "login";
-  static const String email = "email";
-  static const String password = "password";
-  static const String forgot_pass = "forgot_pass";
-  static const String registration = "registration";
+  static const String log_in = "Daxil ol";
+  static const String login = "Giriş";
+  static const String email = "E-poçt";
+  static const String password = "Şifrə";
+  static const String forgot_pass = "Şifrəni unutmuşam";
+  static const String registration = "Qeydiyyat";
 
   //registration
   static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";
@@ -113,7 +114,7 @@ class MyText {
   static const String welcome = "Xoş gəlmişsiniz!";
   static const String recognizeTariffs = "Teriflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
-  static const String tariffs = "Tarriflər";
+  static const String tariffs = "Tariflər";
 
 
 
@@ -197,6 +198,8 @@ class MyText {
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
   static const String more = "Ətraflı";
+  static const String processing = "Əməliyyat aparılır...";
+  static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
 
 
 

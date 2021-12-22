@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class CaspaLoading extends StatelessWidget {
   Color? color;
+  double? h;
 
-  CaspaLoading({this.color});
+  CaspaLoading({this.color,this.h});
 
   CaspaLoading.blue({this.color = MyColors.mainColor});
 
@@ -13,17 +14,20 @@ class CaspaLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: FadeIn(
-      duration: Duration(milliseconds: 800),
-      child: Container(
-        height: 20,
-        width: 20,
-        // color: Colors.green,
-        child: CircularProgressIndicator(
-          color: color ?? MyColors.mainColor,
+    return SizedBox(
+      height: h??null,
+      child: Center(
+          child: FadeIn(
+        duration: Duration(milliseconds: 800),
+        child: Container(
+          height: 20,
+          width: 20,
+          // color: Colors.green,
+          child: CircularProgressIndicator(
+            color: color ?? MyColors.mainColor,
+          ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 }

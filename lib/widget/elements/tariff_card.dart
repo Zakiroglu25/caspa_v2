@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:flutter/material.dart';
@@ -12,34 +13,35 @@ import 'package:flutter_svg/flutter_svg.dart';
 class TariffCard extends StatelessWidget {
   String? tarifName;
   String? price;
-
-  TariffCard({this.tarifName, this.price});
+  double? w;
+   bool? isVertical;
+  TariffCard({this.tarifName, this.price,this.w,this.isVertical});
 
   @override
   Widget build(BuildContext context) {
+    isVertical ??= false;
+
     return Container(
-      width: 284.sp,
+      width: (isVertical!) ? null :284.sp,
+      padding: isVertical! ? Paddings.paddingA20 :const EdgeInsets.only(left: 20.0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: MyColors.mainGrey),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              tarifName!,
-              style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
-            ),
-            MySizedBox.h5,
-            Text(price.toString() + "USD",
-                style: AppTextStyles.sanF600.copyWith(
-                  color: MyColors.green,
-                  fontSize: 16.sm
-                ))
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            tarifName!,
+            style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
+          ),
+          MySizedBox.h5,
+          Text(price.toString() + "USD",
+              style: AppTextStyles.sanF600.copyWith(
+                color: MyColors.green,
+                fontSize: 16.sm
+              ))
+        ],
       ),
     );
   }

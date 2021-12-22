@@ -11,6 +11,7 @@ class MoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CaspaTextButton(text: MyText.more,w: 50,
+      onTap:()=> onTap.call(),
     );
   }
 }

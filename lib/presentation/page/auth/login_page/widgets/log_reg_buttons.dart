@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
@@ -29,7 +30,7 @@ class LogRegButtons extends StatelessWidget {
       onTap: () {
         context.read<LoginCubit>().testLogin(context);
       },
-      text: "login",
+      text: MyText.log_in,
       loading: (context
           .watch<LoginCubit>()
           .state is LoginInProgress) ? true : false,
@@ -45,7 +46,7 @@ class LogRegButtons extends StatelessWidget {
         //context.read<RegisterCubit>().register(context);
         Go.to(context, Pager.register);
       },
-      text: "registration",
+      text: MyText.registration,
     );
   }
 }

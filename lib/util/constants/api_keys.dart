@@ -1,4 +1,8 @@
 // Flutter imports:
+
+
+import 'dart:io';
+
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/foundation.dart';
 
@@ -18,6 +22,9 @@ class ApiKeys {
   static final registerPersonal = "$baseUrl/user/register";
   static final registerCompany = "$baseUrl/user/company/register";
 
+  //report
+
+  static final report = "$baseUrl/user/report";
   //user
   static final user = "$baseUrl/user/user";
 
@@ -97,6 +104,32 @@ class ApiKeys {
       "language":language
     };
 
+    aaaa(map.toString());
+    map.removeWhere(
+            (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+  static reportBody({
+    required String? store,
+    required int? qty,
+    required int? category,
+    required String? tracking,
+    required double? price,
+    required String? currency,
+    required File? invoice,
+    required String? note,
+  }) {
+    //
+    final map = {
+      "store": store,
+      "qty": qty,
+      "category": category,
+      "tracking": tracking,
+      "price": price,
+      "currency": currency,
+      "invoice": invoice,
+      "note": note,
+    };
     aaaa(map.toString());
     map.removeWhere(
             (key, value) => key == null || value == null || value == 'null');

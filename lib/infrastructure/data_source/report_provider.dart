@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/models/remote/response/error_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
@@ -14,48 +15,37 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ReportProvider {
-
-  static Future<StatusDynamic?> registrationCompany({
-    required String? name,
-    required String? surname,
-    required String? address,
-    required String? email,
-    required String? password,
-    required String? password_confirmation,
-    required String? phone,
-    required int? accept,
-    required String? company_name,
-    required String? tax_number,
-    required int? deviceTypeId,
-    required String? deviceCode,
-    required String? language,
+  static Future<StatusDynamic?> report({
+    required String? store,
+    required int? qty,
+    required int? category,
+    required String? tracking,
+    required double? price,
+    required String? currency,
+    required File? invoice,
+    required String? token,
+    required String? note,
   }) async {
-
     StatusDynamic statusDynamic = StatusDynamic();
 
-    var api = ApiKeys.registerCompany;
+    var api = ApiKeys.report;
     var url = Uri.parse(api);
-
-    var body = ApiKeys.registrationBusinessBody(
-        name: name,
-        surname: surname,
-        address: address,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation,
-        phone: phone,
-        accept: accept,
-        company_name: company_name,
-        tax_number: tax_number,
-        deviceTypeId: deviceTypeId,
-        deviceCode: deviceCode,
-        language: language);
-
+    final headers = ApiKeys.header(token: token);
+    var body = ApiKeys.reportBody(
+      store: store,
+      qty: qty,
+      category: category,
+      tracking: tracking,
+      price: price,
+      currency: currency,
+      invoice: invoice,
+      note: note,
+    );
 
     final response =
-    await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+        await http.post(url, headers: headers, body: jsonEncode(body));
     // bbbb("response company register: :" + response.body);
-    bbbb(" registerCompany register static body: :" + jsonEncode(body));
+    bbbb(" report  static body: :" + jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 
@@ -66,11 +56,9 @@ class ReportProvider {
     } else {
       statusDynamic.data =
           AppOperations.errorFromListOfListAsList(response.body);
-      eeee("registrationCompany bad url :$url,response: ${response}");
+      eeee("report bad url :$url,response: ${response}");
     }
 
     return statusDynamic;
   }
-
-
 }

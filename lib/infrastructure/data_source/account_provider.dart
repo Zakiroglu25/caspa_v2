@@ -17,7 +17,6 @@ class AccountProvider {
     required String? token,
   }) async {
 
-    eeee('4567789');
     StatusDynamic statusDynamic =StatusDynamic();
     var api = ApiKeys.user;
     var url = Uri.parse(api);
@@ -25,7 +24,6 @@ class AccountProvider {
     final headers = ApiKeys.header(token: token);
     final response = await http.get(url, headers: headers);
 
-    eeee('uiuiui: '+response.body);
 
     llll(api);
     statusDynamic.statusCode = response.statusCode;

@@ -5,26 +5,26 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NameFieldRegister extends StatelessWidget {
+class CompanyNameFieldRegister extends StatelessWidget {
   final TextEditingController ?controller;
 
-  NameFieldRegister({this.controller}); //= new TextEditingController();
+  CompanyNameFieldRegister({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
-      stream: BlocProvider.of<RegisterCubit>(context).nameStream,
+      stream: BlocProvider.of<RegisterCubit>(context).companyName,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.name,
+          title: MyText.company_name,
           maxLines: 1,
-          hint: MyText.name,
+          hint: MyText.company_name,
           upperCase: true,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-        //  controller: controller,
+          //  controller: controller,
           onChanged: (value) =>
-              BlocProvider.of<RegisterCubit>(context).updateName(value),
+              BlocProvider.of<RegisterCubit>(context).updateCompany(value),
         );
       },
     );

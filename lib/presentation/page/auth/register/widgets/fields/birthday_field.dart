@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/spinner.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -21,9 +22,9 @@ class BirthdayFieldRegister extends StatelessWidget {
       stream: BlocProvider.of<RegisterCubit>(context).birthDateStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: "birthday",
+          title: MyText.birthday,
           maxLines: 1,
-          hint: 'birthday',
+          hint: MyText.birthday,
           upperCase: true,
           textInputType: TextInputType.datetime,
           textCapitalization: TextCapitalization.sentences,

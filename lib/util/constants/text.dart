@@ -61,6 +61,8 @@ class MyText {
   static const String please_enter_code = 'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
   static const String set_new_pass = 'Yeni şifrə təyin edin';
   static const String new_pass = 'Yeni şifrə';
+  static const String company_name = 'Şirkət adı';
+  static const String tax_number = 'VÖEN';
   static const String enter_new_pass = 'Yeni şifrəni daxil edin';
   static const String enter_new_pass_again = 'Yeni şifrəni təkrar daxil edin';
   static const String your_pass_reseted = 'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';

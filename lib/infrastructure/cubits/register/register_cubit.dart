@@ -180,6 +180,44 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool get isAdressIncorrect =>
       (!adress.hasValue || adress.value == null || adress.value.isEmpty);
 
+
+  //companyName
+  final BehaviorSubject<String> companyName = BehaviorSubject<String>();
+
+  Stream<String> get companyStream => companyName.stream;
+
+  updateCompany(String value) {
+    if (value == null || value.isEmpty) {
+      companyName.value = '';
+      companyName.sink.addError(MyText.field_is_not_correct);
+    } else {
+      companyName.sink.add(value);
+    }
+    isUserInfoValid();
+  }
+
+  bool get isCompanyIncorrect =>
+      (!companyName.hasValue || companyName.value == null || companyName.value.isEmpty);
+
+
+  //tax_number
+  final BehaviorSubject<String> taxNumber = BehaviorSubject<String>();
+
+  Stream<String> get taxStream => taxNumber.stream;
+
+  updateTaxNumber(String value) {
+    if (value == null || value.isEmpty) {
+      taxNumber.value = '';
+      taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      taxNumber.sink.add(value);
+    }
+    isUserInfoValid();
+  }
+
+  bool get isTaxNumberIncorrect =>
+      (!taxNumber.hasValue || taxNumber.value == null || taxNumber.value.isEmpty);
+
   //anbar
   final BehaviorSubject<String> anbar = BehaviorSubject<String>();
 

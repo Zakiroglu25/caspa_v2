@@ -62,7 +62,7 @@ class BirthdayFieldRegister extends StatelessWidget {
     await showModalBottomSheet(
       context: context,
       builder: (BuildContext contextZ) {
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).size.height / 3,
           child: Column(
             children: <Widget>[

@@ -1,17 +1,17 @@
-import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/company_name_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/tax_number_field.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/enums/register_type.dart';
+import 'package:caspa_v2/util/screen/full_screen_loading.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/single_child_bounce.dart';
-import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'fields/adress_field.dart';
-import 'fields/birthday_field.dart';
-import 'fields/cardIdField.dart';
 import 'fields/email_field.dart';
-import 'fields/finField.dart';
-import 'fields/gender_field.dart';
 import 'fields/main_pass_field.dart';
 import 'fields/name_field.dart';
 import 'fields/number_field.dart';
@@ -41,43 +41,68 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SingleChildBounce(
-            padding: Paddings.paddingH16 +
-                EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
-            child: Column(
-              children: [
-                MySizedBox.h24,
-                NameFieldRegister(),
-                MySizedBox.h3,
-                SurNameFieldRegister(),
-                MySizedBox.h3,
-                PhoneFieldRegister(),
-                MySizedBox.h3,
-                EmailFieldRegister(),
-                MySizedBox.h3,
-                // BirthdayFieldRegister(),
-                // MySizedBox.h3,
-                AdressFieldRegister(),
-                //MySizedBox.h3,
-                //AnbarFieldRegister(),
-                MySizedBox.h3,
-                MainPassFieldRegister(),
-                MySizedBox.h3,
-                SecondPassFieldRegister(),
-                MySizedBox.h3,
-                FinFieldRegister(),
-                MySizedBox.h3,
-                CardIdFieldRegister(),
-                MySizedBox.h3,
-                GenderFieldRegister(),
-                MySizedBox.h90,
-              ],
-            )),
-        RegisterButton()
-      ],
+    context.read<RegisterCubit>().registerType = RegisterType.company;
+    return BlocListener<RegisterCubit, RegisterState>(
+      listenWhen: (context, state) {
+        if (state is RegisterButtonActive)
+          return false;
+        else
+          return true;
+      },
+      listener: (context, state) {
+        if (state is RegisterLoading) {
+          FullScreenLoading.display(context, text: MyText.processing);
+        }
+        if (state is RegisterError) {
+          Snack.display(context: context, message: state.message);
+        }
+        if (state is RegisterSuccess) {
+          Snack.display(
+              context: context,
+              message: MyText.operationIsSuccess,
+              positive: true,
+              showSuccessIcon: true);
+        }
+      },
+      child: Stack(
+        children: [
+          SingleChildBounce(
+              padding: Paddings.paddingH16 +
+                  EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: Column(
+                children: [
+                  MySizedBox.h24,
+                  NameFieldRegister(),
+                  MySizedBox.h3,
+                  SurNameFieldRegister(),
+                  MySizedBox.h3,
+                  PhoneFieldRegister(),
+                  MySizedBox.h3,
+                  EmailFieldRegister(),
+                  MySizedBox.h3,
+                  // BirthdayFieldRegister(),
+                  // MySizedBox.h3,
+                  AdressFieldRegister(),
+                  //MySizedBox.h3,
+                  //AnbarFieldRegister(),
+                  MySizedBox.h3,
+                  MainPassFieldRegister(),
+                  MySizedBox.h3,
+                  SecondPassFieldRegister(),
+                  MySizedBox.h3,
+                  CompanyNameFieldRegister(),
+                  MySizedBox.h3,
+                  TaxNumberFieldRegister(),
+
+                  MySizedBox.h90,
+                ],
+              )),
+          RegisterButton(
+            registerType: RegisterType.company,
+          )
+        ],
+      ),
     );
   }
 }

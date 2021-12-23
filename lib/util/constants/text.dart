@@ -140,7 +140,7 @@ class MyText {
   static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
-  static const String card_id = "card_id";
+  static const String card_id = "ŞV-nin seriya və nömrəsi";
   //static const String email = "E-poçt";
   static const String fin = "FİN kod";
   static const String gender = "Cinsiyyət";

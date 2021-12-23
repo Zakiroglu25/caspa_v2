@@ -9,6 +9,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/delegate/user_operations.dart';
+import 'package:caspa_v2/util/enums/register_type.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,6 +24,17 @@ class RegisterCubit extends Cubit<RegisterState> {
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
 
   PreferencesService get _prefs => locator<PreferencesService>();
+  RegisterType _registerType = RegisterType.personal;
+
+  set registerType(RegisterType value) {
+    _registerType = value;
+  }
+
+
+  void register(BuildContext context){
+    if(_registerType==RegisterType.personal){registerPersonal(context);}
+    else registerCompany(context);
+  }
 
   void registerPersonal(BuildContext context) async {
     emit(RegisterLoading());
@@ -65,6 +77,45 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
   }
 
+  void registerCompany(BuildContext context) async {
+    emit(RegisterLoading());
+    //emit(RegisterFailed(message:" errors.first"));
+    try {
+      final deviceCode = await _firebaseMessaging.getToken();
+
+      final response = await AuthProvider.registrationCompany(
+        name: uName.valueOrNull,
+        surname: surName.valueOrNull,
+        address: adress.valueOrNull,
+        email: uEmail.valueOrNull,
+        password: uPassMain.valueOrNull,
+        password_confirmation: uPassSecond.valueOrNull,
+        phone: AppOperations.formatNumber(phone.value),
+        accept: 1,
+        deviceCode: deviceCode,
+        deviceTypeId: StringOperations.platformId(),
+        language: _prefs.language,
+        tax_number: taxNumber.valueOrNull,
+        company_name: companyName.valueOrNull,
+      );
+
+      bbbb("registerCompany bloc result: " + response.toString());
+
+      if (isSuccess(response?.statusCode)) {
+        await UserOperations.configureUserData(
+            accessToken: response?.data, fcmToken: deviceCode!);
+        Go.andRemove(context, Pager.app(showSplash: true));
+        emit(RegisterSuccess(''));
+      } else {
+        List<String> errors = response?.data;
+        emit(RegisterError(message: errors[0]));
+      }
+    } catch (e, s) {
+      eeee("register cubit -> registerCompany ->catch : " + e.toString());
+      emit(RegisterError(message: e.toString()));
+    }
+  }
+
 // void registerBusiness(RegisterRequestModel body) async {
 //     emit(RegisterLoading());
 //     try {
@@ -98,7 +149,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isEmailIncorrect => (!uEmail.hasValue ||
@@ -118,7 +169,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uName.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isNameIncorrect =>
@@ -136,7 +187,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       surName.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isSurNameIncorrect =>
@@ -154,7 +205,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       phone.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isPhoneIncorrect =>
@@ -174,12 +225,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       adress.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isAdressIncorrect =>
       (!adress.hasValue || adress.value == null || adress.value.isEmpty);
-
 
   //companyName
   final BehaviorSubject<String> companyName = BehaviorSubject<String>();
@@ -193,12 +243,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       companyName.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isCompanyIncorrect =>
-      (!companyName.hasValue || companyName.value == null || companyName.value.isEmpty);
-
+  bool get isCompanyNameIncorrect => (!companyName.hasValue ||
+      companyName.value == null ||
+      companyName.value.isEmpty);
 
   //tax_number
   final BehaviorSubject<String> taxNumber = BehaviorSubject<String>();
@@ -212,11 +262,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       taxNumber.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isTaxNumberIncorrect =>
-      (!taxNumber.hasValue || taxNumber.value == null || taxNumber.value.isEmpty);
+  bool get isTaxNumberIncorrect => (!taxNumber.hasValue ||
+      taxNumber.value == null ||
+      taxNumber.value.isEmpty);
 
   //anbar
   final BehaviorSubject<String> anbar = BehaviorSubject<String>();
@@ -230,7 +281,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       anbar.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isAnbarIncorrect =>
@@ -248,7 +299,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uPassMain.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
     if (uPassSecond.hasValue) {
       // bbbb("second: "+uPassSecond.value);
       // bbbb("main: "+uPassMain.value);
@@ -277,7 +328,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       uPassSecond.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isSecondPassInCorrect => (!uPassSecond.hasValue ||
@@ -297,7 +348,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       fin.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isFinIncorrect =>
@@ -315,7 +366,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       idNumber.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isIdNumberIncorrect => (!idNumber.hasValue ||
@@ -335,7 +386,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       gender.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isGenderIncorrect =>
@@ -353,7 +404,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     } else {
       birthDate.sink.add(value);
     }
-    isUserInfoValid();
+    isUserInfoValid(registerType: _registerType);
   }
 
   bool get isBirthDateIncorrect => (!birthDate.hasValue ||
@@ -377,7 +428,8 @@ class RegisterCubit extends Cubit<RegisterState> {
     return super.close();
   }
 
-  bool isUserInfoValid() {
+  //eslinde asagidaki regidster type funksiyada gondermeye ehtiyac yoxdu
+  bool isUserInfoValid({required RegisterType registerType}) {
     // bbbb("---- isNameIncorrect:  $isNameIncorrect");
     // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
     // bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
@@ -390,26 +442,48 @@ class RegisterCubit extends Cubit<RegisterState> {
     // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
     // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
-    if (!isNameIncorrect &&
-        // !isGenderIncorrect &&
-        !isSurNameIncorrect &&
-        // !isBirthDateIncorrect &&
-        !isFinIncorrect &&
-        !isIdNumberIncorrect &&
-        !isMainPassInCorrect &&
-        //!isAnbarIncorrect &&
-        !isSecondPassInCorrect &&
-        // !isBirtdayIncorrect &&
-        //  !isGenderIncorrect &&
-        !isEmailIncorrect &&
-        !isPhoneIncorrect) {
-      emit(RegisterButtonActive());
-
-      //bbbb("---- true");
-      return true;
+    if (_registerType == RegisterType.personal) {
+      if (!isNameIncorrect &&
+          // !isGenderIncorrect &&
+          !isSurNameIncorrect &&
+          // !isBirthDateIncorrect &&
+          !isFinIncorrect &&
+          !isIdNumberIncorrect &&
+          !isMainPassInCorrect &&
+          //!isAnbarIncorrect &&
+          !isSecondPassInCorrect &&
+          // !isBirtdayIncorrect &&
+          //  !isGenderIncorrect &&
+          !isEmailIncorrect &&
+          !isPhoneIncorrect) {
+        emit(RegisterButtonActive());
+        return true;
+      } else {
+        //bbbb("---- false");
+        return false;
+      }
     } else {
-      //bbbb("---- false");
-      return false;
+      if (!isNameIncorrect &&
+          // !isGenderIncorrect &&
+          !isSurNameIncorrect &&
+          // !isBirthDateIncorrect &&
+          //!isFinIncorrect &&
+          // !isIdNumberIncorrect &&
+          !isMainPassInCorrect &&
+          //!isAnbarIncorrect &&
+          !isSecondPassInCorrect &&
+          // !isBirtdayIncorrect &&
+          //  !isGenderIncorrect &&
+          !isEmailIncorrect &&
+          !isTaxNumberIncorrect &&
+          !isCompanyNameIncorrect &&
+          !isPhoneIncorrect) {
+        emit(RegisterButtonActive());
+        return true;
+      } else {
+        //bbbb("---- false");
+        return false;
+      }
     }
   }
 }

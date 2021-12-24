@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 class TarifProvider {
   static Future<TariffData> getTarif() async {
     late TariffData priceModel;
-    final api = ApiKeys.getTarif;
+    final api = ApiKeys.tariff;
     final headers = ApiKeys.headers;
     var url = Uri.parse(api);
     llll(api);

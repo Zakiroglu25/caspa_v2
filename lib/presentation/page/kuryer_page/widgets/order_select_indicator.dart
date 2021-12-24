@@ -4,20 +4,22 @@ import 'package:flutter/material.dart';
 
 class OrderSelectIndicator extends StatelessWidget {
   final bool? active;
+  final double? w;
+  final double? h;
 
-  OrderSelectIndicator({required this.active});
+  OrderSelectIndicator({required this.active,this.h,this.w});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 22,
-      height: 22,
+      width: w??22,
+      height:h?? 22,
       child: WidgetOrEmpty(
         value: active,
         child: Center(
           child: Container(
-            width: 16,
-            height: 16,
+            width: w==null? 16: w!-6,
+            height: h==null ?16:h!-6,
             decoration: BoxDecoration(
                 color: MyColors.mainColor,
                 borderRadius: BorderRadius.circular(100),

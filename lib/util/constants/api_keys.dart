@@ -39,7 +39,12 @@ class ApiKeys {
   static const watch = "/watch?v=";
 
   //get tarif
-  static const getTarif = "$baseUrl/public/prices";
+  static const tariff = "$baseUrl/public/prices";
+
+  //get category
+  static const categories = "$baseUrl/public/categories";
+
+
 
   //get address
   static const getAddress = "$baseUrl/public/countries";

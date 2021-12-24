@@ -203,6 +203,10 @@ class MyText {
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
 
+  //report
+  static const String report = "Bəyan et";
+  static const String category = "Kateqoriya";
+  static const String sub_category = "Alt kateqoriya";
 
 
 

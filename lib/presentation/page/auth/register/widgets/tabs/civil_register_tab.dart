@@ -1,47 +1,36 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
-import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/company_name_field.dart';
-import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/tax_number_field.dart';
+import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/birthday_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/cardIdField.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/finField.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/main_pass_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/number_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/second_pass_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/surname_field.dart';
+import 'package:caspa_v2/presentation/page/auth/register/widgets/register_button.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
 import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/single_child_bounce.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'fields/adress_field.dart';
-import 'fields/email_field.dart';
-import 'fields/main_pass_field.dart';
-import 'fields/name_field.dart';
-import 'fields/number_field.dart';
-import 'fields/second_pass_field.dart';
-import 'fields/surname_field.dart';
-import 'register_button.dart';
+import '../fields/adress_field.dart';
+import '../fields/email_field.dart';
+import '../fields/gender_field.dart';
+import '../fields/name_field.dart';
 
-class BusinessRegisterTab extends StatefulWidget {
-  const BusinessRegisterTab({Key? key}) : super(key: key);
-
-  @override
-  _BusinessRegisterTabState createState() => _BusinessRegisterTabState();
-}
-
-class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
-  final TextEditingController _businessName = TextEditingController();
-  final TextEditingController _voen = TextEditingController();
-  final TextEditingController _businessPersonalName = TextEditingController();
-  final TextEditingController _businessPersonalSurName =
-      TextEditingController();
-  final TextEditingController _businessAddress = TextEditingController();
-  final TextEditingController _businessEmail = TextEditingController();
-  final TextEditingController _businessNumber = TextEditingController();
-  final TextEditingController _businessPassword = TextEditingController();
-  final TextEditingController _businessConfrimPassword =
-      TextEditingController();
-
+class CivilRegisterTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    context.read<RegisterCubit>().registerType = RegisterType.company;
+
+    context.read<RegisterCubit>().registerType=RegisterType.personal;
+
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (context, state) {
         if (state is RegisterButtonActive)
@@ -55,13 +44,8 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
         }
         if (state is RegisterError) {
           Snack.display(context: context, message: state.message);
-        }
-        if (state is RegisterSuccess) {
-          Snack.display(
-              context: context,
-              message: MyText.operationIsSuccess,
-              positive: true,
-              showSuccessIcon: true);
+        } if (state is RegisterSuccess) {
+          Snack.display(context: context, message: MyText.operationIsSuccess,positive: true,showSuccessIcon: true);
         }
       },
       child: Stack(
@@ -81,8 +65,8 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
                   MySizedBox.h3,
                   EmailFieldRegister(),
                   MySizedBox.h3,
-                  // BirthdayFieldRegister(),
-                  // MySizedBox.h3,
+                  BirthdayFieldRegister(),
+                  MySizedBox.h3,
                   AdressFieldRegister(),
                   //MySizedBox.h3,
                   //AnbarFieldRegister(),
@@ -91,16 +75,15 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
                   MySizedBox.h3,
                   SecondPassFieldRegister(),
                   MySizedBox.h3,
-                  CompanyNameFieldRegister(),
+                  FinFieldRegister(),
                   MySizedBox.h3,
-                  TaxNumberFieldRegister(),
-
+                  CardIdFieldRegister(),
+                  MySizedBox.h3,
+                  GenderFieldRegister(),
                   MySizedBox.h90,
                 ],
               )),
-          RegisterButton(
-            registerType: RegisterType.company,
-          )
+          RegisterButton(registerType: RegisterType.personal,)
         ],
       ),
     );

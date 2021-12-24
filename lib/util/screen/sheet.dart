@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'widget_or_empty.dart';
+
 // Project imports:
+import '../../../widget/general/custom_bottom_sheet.dart' as bs;
 
 class Sheet {
   static display({
@@ -22,10 +24,11 @@ class Sheet {
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
 
-    showModalBottomSheet(
+    bs.showModalBottomSheet(
         useRootNavigator: true,
         enableDrag: true,
         isDismissible: true,
+        barrierColor: Colors.white.withOpacity(0),
 // barrierColor: Colors.red,
         isScrollControlled: true,
         shape: RoundedRectangleBorder(

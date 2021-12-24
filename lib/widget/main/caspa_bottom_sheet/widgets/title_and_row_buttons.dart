@@ -23,7 +23,8 @@ class TitleAndRowButtons extends StatelessWidget {
     // showConfirmButton=true;
     //showCloseButton=false;
     return Container(
-      //  color: Colors.blue,
+        //color: Colors.blue,
+    //  height: 48,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

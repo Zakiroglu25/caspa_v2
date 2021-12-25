@@ -13,17 +13,18 @@ class CaspaRadio extends StatelessWidget {
   int? id;
   bool? isActive;
 
-  CaspaRadio({required this.onTap, required this.title, this.id,required this.isActive});
+  CaspaRadio(
+      {required this.onTap,
+      required this.title,
+      this.id,
+      required this.isActive});
 
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
       child: Container(
         // height: 35,
-        padding: Paddings.paddingV8
-
-        //+Paddings.paddingH16
-        ,
+        padding: Paddings.paddingV8 + Paddings.paddingH16,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -42,7 +43,7 @@ class CaspaRadio extends StatelessWidget {
             //context.read<RegisterCubit>().
             MySizedBox.w5,
 
-                 FlipInY(
+            FlipInY(
                 duration: Duration(milliseconds: 500),
                 child: OrderSelectIndicator(
                   active: isActive,

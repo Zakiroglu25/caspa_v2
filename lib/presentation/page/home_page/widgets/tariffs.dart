@@ -20,7 +20,7 @@ class Tariffs extends StatelessWidget {
             hList: tarifList,
           );
         } else if (state is TarifInProgress) {
-          return CaspaLoading(h: 92.sp,);
+          return CaspaLoading(s: 92.sp,);
         } else if (state is TarifNetworkError) {
           return NoData();
         } else {

@@ -36,7 +36,7 @@ class Sheet {
               topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0)),
         ),
         context: context!,
-        builder: (context) => OptimalBottomSheet(
+        builder: (contextZ) => OptimalBottomSheet(
               child: child!,
               onConfirm: onConfirm,
               showCloseButton: showCloseButton,

@@ -35,9 +35,9 @@ class ApiKeys {
 
   //get address
   static const getAddress = "$baseUrl/public/countries";
+  //add Etibarname
+  static const addAttorneys = "$baseUrl/user/attorneys";
 
-  ///delete
-  static const orderHistory = "$baseUrlTest/orders/histories";
 
   static loginBody({
     required String? email,

@@ -2,9 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/elements/tariff_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -37,7 +40,7 @@ class TarifListWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             Tariff tariff = hList[index];
             return FadeInUp(
-              duration: Duration(milliseconds: isVertical!?StringOperations.getTime(index):0),
+              duration: Duration(milliseconds: isVertical!?AppOperations.getTime(index):0),
               child: TariffCard(
                 tarifName: tariff.description,
                 price: tariff.price,

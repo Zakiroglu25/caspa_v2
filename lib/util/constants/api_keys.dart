@@ -7,7 +7,7 @@ class ApiKeys {
 
   static const baseUrl = 'https://caspa.az/api';
   ///delete
-  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1';
+  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1/couriers';
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
@@ -35,9 +35,9 @@ class ApiKeys {
 
   //get address
   static const getAddress = "$baseUrl/public/countries";
+  //add Etibarname
+  static const addAttorneys = "$baseUrl/user/attorneys";
 
-  ///delete
-  static const orderHistory = "$baseUrlTest/orders/histories";
 
   static loginBody({
     required String? email,

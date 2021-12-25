@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_unicorn.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -9,8 +10,10 @@ import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'add_etibarname_page.dart';
+import 'widget/list_attornneys_unicorn.dart';
 
 class EtibarnamePage extends StatelessWidget {
   const EtibarnamePage({Key? key}) : super(key: key);
@@ -33,14 +36,25 @@ class EtibarnamePage extends StatelessWidget {
               infoContent: MyText.paymentLinkTxt,
             ),
             MySizedBox.h16,
-            CaspaButton(text: "Yeni etibarnamə",onTap: (){
-              Go.to(context, AddEtibarname());
+            CaspaButton(text: "Yeni etibarnamə", onTap: () {
+              Go.to(context, BlocProvider.value(
+                value: AddAttorneysCubit()
+                  ..addAttorney(),
+                child: AddEtibarname(),
+              ));
             },),
             MySizedBox.h32,
             SectionName(title: "Etibarnamə"),
-            OrderUnicorn(
-
-            )
+            // ListView.builder(
+            //
+            //     itemBuilder: (context, state) {
+            //       if()
+            //     })
+            // AttorneyUnicorn(
+            //   fullname: "Salam",
+            //   fin: "fin",
+            //   passport: "Salam",
+            // )
           ],
         ),
       ),

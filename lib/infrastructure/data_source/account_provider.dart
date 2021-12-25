@@ -22,10 +22,7 @@ class AccountProvider {
 
     final headers = ApiKeys.header(token: token);
     final response = await http.get(url, headers: headers);
-
     llll(api);
-
-
 
     statusDynamic.statusCode = response.statusCode;
 

@@ -63,7 +63,7 @@ class EtibarnamePage extends StatelessWidget {
                 );
               } else if (state is AttorneyListInProgress) {
                 return CaspaLoading(
-                  h: 92.sp,
+                  s: 92.sp,
                 );
               } else if (state is AttorneyListNetworkError) {
                 return NoData();

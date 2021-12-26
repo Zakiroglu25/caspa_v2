@@ -16,12 +16,15 @@ class AccountProvider {
   static Future<StatusDynamic?> fetchUserInfo({
     required String? token,
   }) async {
+
     StatusDynamic statusDynamic =StatusDynamic();
     var api = ApiKeys.user;
     var url = Uri.parse(api);
 
     final headers = ApiKeys.header(token: token);
     final response = await http.get(url, headers: headers);
+
+
     llll(api);
 
     statusDynamic.statusCode = response.statusCode;

@@ -61,6 +61,8 @@ class MyText {
   static const String please_enter_code = 'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
   static const String set_new_pass = 'Yeni şifrə təyin edin';
   static const String new_pass = 'Yeni şifrə';
+  static const String company_name = 'Şirkət adı';
+  static const String tax_number = 'VÖEN';
   static const String enter_new_pass = 'Yeni şifrəni daxil edin';
   static const String enter_new_pass_again = 'Yeni şifrəni təkrar daxil edin';
   static const String your_pass_reseted = 'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
@@ -79,6 +81,7 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String currency = "Valyuta";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
@@ -138,7 +141,7 @@ class MyText {
   static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
-  static const String card_id = "card_id";
+  static const String card_id = "ŞV-nin seriya və nömrəsi";
   //static const String email = "E-poçt";
   static const String fin = "FİN kod";
   static const String gender = "Cinsiyyət";
@@ -201,7 +204,23 @@ class MyText {
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
 
-
+  //report
+  static const String report = "Bəyan et";
+  static const String category = "Kateqoriya";
+  static const String tapForselectCategory = "Kateqoriya seçmək üçün toxunun";
+  static const String sub_category = "Alt kateqoriya";
+  static const String category_is_not_found = "Kateqoriya tapılmadı";
+  static const String none_category_is_found = "Heç bir kateqoriya tapılmadı";
+  static const String first_select_main_category = "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
+  static const String seller = "Satıcı";
+  static const String product_count = "Məhsul sayı";
+  static const String tracking_id = "İzləmə kodu";
+  static const String we_need_access_to_gallery = "Fotolara əlçatanlıq üçün icazə lazımdır.";
+  static const String we_will_redirect_to_settings = "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
+  static const String all_fields_must_be_filled = "Bütün xanalar doldurulmalıdır!";
+  static const String usd = "USD";
+  static const String tryy = "TRY";
+  //static const String note = "İzləmə kodu";
 
 
 

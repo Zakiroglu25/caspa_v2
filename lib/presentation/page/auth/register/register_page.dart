@@ -2,8 +2,8 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
-import 'widgets/business_register_tab.dart';
-import 'widgets/civil_register_tab.dart';
+import 'widgets/tabs/business_register_tab.dart';
+import 'widgets/tabs/civil_register_tab.dart';
 
 class RegisterPage extends StatelessWidget {
   final List<Widget> tabPages = <Widget>[

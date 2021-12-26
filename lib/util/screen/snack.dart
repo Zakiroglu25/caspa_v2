@@ -2,6 +2,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/gradients.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,8 +42,8 @@ class Snack {
                   //color: MyColors.mainColor,
                 //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
                 padding: EdgeInsets.only(
-                    left: (!positive || showSuccessIcon) ? 34 : 16,
-                    right: (!positive || showSuccessIcon) ? 34 : 16),
+                    left: (!positive || showSuccessIcon) ? 40 : 16,
+                    right: (!positive || showSuccessIcon) ? 40 : 16),
                 child: Center(
                   child: Text(
                     message ?? 'error_during_operation',
@@ -87,7 +88,7 @@ class Snack {
                               Icons.error_outline_sharp,
                               color: Colors.white,
                             )),
-                            // MySizedBox.w16,
+                        //     MySizedBox.w8,
                           ],
                         ),
                       )),

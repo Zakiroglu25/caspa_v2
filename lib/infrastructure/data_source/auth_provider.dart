@@ -49,11 +49,10 @@ class AuthProvider {
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 
-
     return statusDynamic;
   }
 
-  static Future<http.Response> registrationBusiness({
+  static Future<StatusDynamic?> registrationCompany({
     required String? name,
     required String? surname,
     required String? address,
@@ -61,11 +60,17 @@ class AuthProvider {
     required String? password,
     required String? password_confirmation,
     required String? phone,
-    required String? accept,
+    required int? accept,
     required String? company_name,
     required String? tax_number,
+    required int? deviceTypeId,
+    required String? deviceCode,
+    required String? language,
   }) async {
-    var api = ApiKeys.register;
+
+    StatusDynamic statusDynamic = StatusDynamic();
+
+    var api = ApiKeys.registerCompany;
     var url = Uri.parse(api);
 
     var body = ApiKeys.registrationBusinessBody(
@@ -78,24 +83,30 @@ class AuthProvider {
         phone: phone,
         accept: accept,
         company_name: company_name,
-        tax_number: tax_number);
+        tax_number: tax_number,
+        deviceTypeId: deviceTypeId,
+        deviceCode: deviceCode,
+        language: language);
+
 
     final response =
         await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+   // bbbb("response company register: :" + response.body);
+    bbbb(" registerCompany register static body: :" + jsonEncode(body));
 
-    // Response? response ;
-    // // try {response= await DioX.client
-    // //     .post(
-    // //       ApiKeys.login,
-    // //       data: jsonEncode(bo),
-    // //     );}
-    // // on DioError catch(e){
-    // //   print("dddfffdsdfsfd");
-    // //  // throw Exception(e.response?.data);
-    // //
-    // // }
+    statusDynamic.statusCode = response.statusCode;
 
-    return response;
+    if (response.statusCode == ResultKey.successCode) {
+      String accessToken = response.body;
+      statusDynamic.data = accessToken;
+      bbbb("new token: " + (statusDynamic.data).toString());
+    } else {
+      statusDynamic.data =
+          AppOperations.errorFromListOfListAsList(response.body);
+      eeee("registrationCompany bad url :$url,response: ${response}");
+    }
+
+    return statusDynamic;
   }
 
   static Future<StatusDynamic?> registrationPersonal({
@@ -110,15 +121,14 @@ class AuthProvider {
     required String? id_number,
     required String? fin,
     required String? birthday,
-    required String? deviceCode,
-    required String? language,
     required String? gender,
     required int? ware_house,
     required int? deviceTypeId,
+    required String? deviceCode,
+    required String? language,
   }) async {
-
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.register;
+    var api = ApiKeys.registerPersonal;
     var url = Uri.parse(api);
 
     var body = ApiKeys.registrationPersonalBody(
@@ -151,10 +161,10 @@ class AuthProvider {
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
-      statusDynamic.data=AppOperations.errorFromListOfListAsList(response.body);
-      eeee("fetchUserInfo bad url :$url,response: ${response}");
+      statusDynamic.data =
+          AppOperations.errorFromListOfListAsList(response.body);
+      eeee("registrationPersonal bad url :$url,response: ${response}");
     }
-
 
     return statusDynamic;
   }

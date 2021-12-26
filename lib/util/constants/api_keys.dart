@@ -32,6 +32,10 @@ class ApiKeys {
   //general
   static final shop ='$baseUrl/public/stores';
 
+
+  //packages
+  static final allPackages ='$baseUrl/user/packages';
+
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
   static const youtube = "https://youtube.com/";

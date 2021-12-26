@@ -26,7 +26,7 @@ class MenuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final boxW=(MediaQuery.of(context).size.width/2)-26;
+    final boxW=(MediaQuery.of(context).size.width/2)-24;
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(

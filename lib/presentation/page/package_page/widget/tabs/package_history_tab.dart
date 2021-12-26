@@ -3,14 +3,14 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class HistoryPackage extends StatefulWidget {
-  const HistoryPackage({Key? key}) : super(key: key);
+class PackageHistoryTab extends StatefulWidget {
+  const PackageHistoryTab({Key? key}) : super(key: key);
 
   @override
-  _HistoryPackageState createState() => _HistoryPackageState();
+  _PackageHistoryTabState createState() => _PackageHistoryTabState();
 }
 
-class _HistoryPackageState extends State<HistoryPackage> {
+class _PackageHistoryTabState extends State<PackageHistoryTab> {
   List<HistoryListModel> hList = [
     HistoryListModel(true, "Massimo Dutti", "27.08.2020", 86.46),
     HistoryListModel(false, "Pull and Bear", "27.07.2020", 86.46),

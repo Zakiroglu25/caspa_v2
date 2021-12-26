@@ -7,7 +7,12 @@ class ReportInitial extends ReportState {}
 class ReportInProgress extends ReportState {}
 
 
-class ReportError extends ReportState {}
+class ReportError extends ReportState {
+
+  String? error;
+
+  ReportError({this.error});
+}
 class TarifNetworkError extends ReportState {}
 
 class ReportSuccess extends ReportState {

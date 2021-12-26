@@ -13,7 +13,7 @@ class ViaLinkAndBeyanEtButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         MenuBox(
           content: MyText.weBuyForYou,

@@ -5,17 +5,22 @@ import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
 import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
@@ -168,4 +173,18 @@ class Pager {
       child: TariffDetails(
         hList: [],
       ));
+
+  static get waitingPackages => BlocProvider(
+      create: (context) => PackageCubit()..fetch(),
+      child:   WaitingPackageTab());
+
+
+  static get packagesHistory => BlocProvider(
+      create: (context) => PackageCubit()..fetch(),
+      child:   PackageHistoryTab());
+
+
+  static  packageDetails({ required Package package}) => BlocProvider(
+      create: (context) => PackageCubit()..fetch(),
+      child:   PackageDetailsPage(package: package,));
 }

@@ -1,20 +1,24 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/grid_list_model.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/random.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PackageBox extends StatelessWidget {
-  GridListItems item;
+  Package package;
   double? w;
 
-  PackageBox(this.item, {this.w});
+  PackageBox(this.package, {this.w});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,8 @@ class PackageBox extends StatelessWidget {
       splashColor: Colors.transparent,
       onTap: () => Go.to(
           context,
-          PackageDetailsPage(
-            name: item.shopName,
+          Pager.packageDetails(
+            package: package,
           )),
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
@@ -36,7 +40,7 @@ class PackageBox extends StatelessWidget {
             width: w,
 
             decoration: BoxDecoration(
-                color: item.color, borderRadius: BorderRadius.circular(12)),
+                color: Rndm.color, borderRadius: BorderRadius.circular(12)),
             child: Padding(
               padding: EdgeInsets.all(20.sp),
               child: Column(
@@ -45,31 +49,31 @@ class PackageBox extends StatelessWidget {
                 children: [
                   SvgPicture.asset(Assets.svgShop),
                   Text(
-                    item.shopName!,
+                    package.store!,
                     style: AppTextStyles.sanF500,
                   ),
                   Row(
                     children: [
                       const Text(
-                        "Qiymət: ",
+                        MyText.price + ": ",
                         style: TextStyle(color: MyColors.grey153),
                       ),
-                      Text(item.price!)
+                      Text(package.price!)
                     ],
                   ),
                   Wrap(
                     children: [
-                      const Text("İzləmə kodu: ",
+                      const Text(MyText.tracking_id + ": ",
                           style: TextStyle(color: MyColors.grey153)),
-                      Text("${item.trackingCode!}")
+                      Text("${package.tracking!}")
                     ],
                   ),
                   Wrap(
                     children: [
-                      const Text("Status: ",
+                      const Text(MyText.status + ": ",
                           style: TextStyle(color: MyColors.grey153)),
                       Text(
-                        item.status!,
+                        package.status!,
                         maxLines: 3,
                       ),
                     ],

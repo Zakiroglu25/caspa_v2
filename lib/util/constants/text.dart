@@ -81,6 +81,8 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String from_where = "Haradan";
+  static const String status = "Status";
   static const String currency = "Valyuta";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
@@ -117,6 +119,7 @@ class MyText {
   static const String welcome = "Xoş gəlmişsiniz!";
   static const String recognizeTariffs = "Teriflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
+  static const String packages = "Bağlamalar";
   static const String tariffs = "Tariflər";
 
 
@@ -213,8 +216,14 @@ class MyText {
   static const String none_category_is_found = "Heç bir kateqoriya tapılmadı";
   static const String first_select_main_category = "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
   static const String seller = "Satıcı";
+  static const String shop_name = "Mağaza adı:";
   static const String product_count = "Məhsul sayı";
+  static const String products = "Məhsullar";
   static const String tracking_id = "İzləmə kodu";
+  static const String product_kind = "Məhsulun növü";
+  static const String its_weight = "Çəkisi";
+  static const String shipping_price = "Çatdırılma haqqı";
+  static const String order_date = "Sifariş tarixi";
   static const String we_need_access_to_gallery = "Fotolara əlçatanlıq üçün icazə lazımdır.";
   static const String we_will_redirect_to_settings = "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
   static const String all_fields_must_be_filled = "Bütün xanalar doldurulmalıdır!";
@@ -227,10 +236,13 @@ class MyText {
  static const String reportSuccessContent = 'Bağlama bəyan olundu. Bağlamanın vaxtında əlavə olunması sifarişinizin sizə daha tez çatdırılmasına səbəb olacaq. Digər bağlamalar üçün prosesi təkrarlamaq istəsəniz "Prosesi təkrarla" butonuna toxunun.';
  static const String again_process = 'Prosesi təkrarla';
  static const String network_error = 'İnternet bağlantısı zamanı xəta yarandı!';
+
   //static const String note = "İzləmə kodu";
 
 
-
+//packages
+  static const String in_waiting = 'Gözləmədə olan';
+  static const String history = 'Tarixçə';
 
 
 }

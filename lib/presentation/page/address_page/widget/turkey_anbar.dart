@@ -59,7 +59,7 @@ class TurkeyAnbar extends StatelessWidget {
           ),
           CopiableField(
             title: "Posta Kodu",
-            data: "${adress.fields?.tcKimlik}",
+            data: "${adress.fields?.postaKodu}",
           ),
           CopiableField(
             //  maxLines: 1,

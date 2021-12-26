@@ -58,13 +58,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             MySizedBox.h16,
-            InkWell(
-                onTap: () => Go.to(
-                    context,
-                    TariffDetails(
-                      hList: [],
-                    )),
-                child: Tariffs()),
+            Tariffs(),
             MySizedBox.h24,
             SectionName(
                 title: MyText.myPackages,
@@ -73,7 +67,7 @@ class HomePage extends StatelessWidget {
                   onTap: () {},
                 )),
             MySizedBox.h24,
-            HomaPackageList(),
+            HomePackageList(),
           ],
         ),
       ),

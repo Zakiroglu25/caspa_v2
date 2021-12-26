@@ -41,7 +41,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: SvgPicture.asset(Assets.infoApp),
+                        child: SvgPicture.asset(Assets.svgInfoApp),
                         height: 120.sm,
                         width: 120.sm,
                       ),

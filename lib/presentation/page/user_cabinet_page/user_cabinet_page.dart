@@ -50,7 +50,7 @@ class UserCabinetPage extends StatelessWidget {
                   CupertinoActionSheetAction(
                     child: Row(
                       children: [
-                        SvgPicture.asset(Assets.logOut),
+                        SvgPicture.asset(Assets.svgLogOut),
                         MySizedBox.w20,
                         Text(
                           MyText.logout,
@@ -121,7 +121,7 @@ class UserCabinetPage extends StatelessWidget {
                     content: "4",
                     color: MyColors.balanceCountPackage,
                     priceColor: MyColors.balanceBoxOrange,
-                    icon: SvgPicture.asset(Assets.balanceUp),
+                    icon: SvgPicture.asset(Assets.svgBalanceUp),
                   ),
                 ],
               ),

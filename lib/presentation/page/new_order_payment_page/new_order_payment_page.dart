@@ -1,5 +1,5 @@
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
-import 'package:caspa_v2/presentation/page/order_success_page/order_success_page.dart';
+import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -11,7 +11,6 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
-import 'package:caspa_v2/widget/general/page_top_small_image.dart';
 import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -153,7 +152,7 @@ class NewOrderPaymentPage extends StatelessWidget {
               CaspaButton(
                 text: "Davam et " + "545" + "TRY",
                 onTap: () {
-                  Go.to(context, OrderSuccessPage());
+                  Go.to(context, SuccessPage());
                 },
               ),
               MySizedBox.h32,

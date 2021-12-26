@@ -25,7 +25,7 @@ class ApiKeys {
 
   //report
 
-  static final report = "$baseUrl/user/repohbhjrt";
+  static final report = "$baseUrl/user/report";
   //user
   static final user = "$baseUrl/user/user";
 

@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/categories_respon
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,14 +17,11 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import 'report_state.dart';
-import 'package:geolocator/geolocator.dart';
 
 class ReportCubit extends Cubit<ReportState> {
   ReportCubit() : super(ReportInitial());
 
   PreferencesService get _prefs => locator<PreferencesService>();
-
-
 
   Future<File?> checkAndPickImage(BuildContext context) async {
     try {
@@ -57,13 +55,11 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   void report(BuildContext context, [bool loading = true]) async {
-    if (loading) {
-      emit(ReportInProgress());
-    }
     try {
       if (isUserInfoValid()) {
-
-
+        if (loading) {
+          emit(ReportInProgress());
+        }
         final result = await ReportProvider.report(
           token: await _prefs.accessToken,
           seller: seller.valueOrNull,
@@ -75,20 +71,18 @@ class ReportCubit extends Cubit<ReportState> {
           invoice: image.valueOrNull,
           note: note.valueOrNull,
         );
-        // if (result.tariffList != null) {
-        //   emit(ReportSuccess(
-        //       //    result.tariffList!
-        //       ));
-        // } else {
-        //   emit(ReportError());
-        // }
+
+        if (isSuccess(result?.statusCode)) {
+          emit(ReportSuccess());
+        } else {
+          emit(ReportError(error: MyText.error + " ${result!.statusCode}"));
+        }
       } else {
-        Snack.display(
-            context: context, message: MyText.all_fields_must_be_filled);
+        emit(ReportError(error: MyText.all_fields_must_be_filled));
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(ReportError());
+      emit(ReportError(error: MyText.network_error));
     } catch (e) {
       emit(ReportError());
     }
@@ -190,8 +184,8 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<int> get productCountStream => productCount.stream;
 
   updateProductCount(int value) {
-    if (value == null ) {
-     // productCount.value = '';
+    if (value == null) {
+      // productCount.value = '';
       productCount.sink.addError(MyText.field_is_not_correct);
     } else {
       productCount.sink.add(value);
@@ -199,8 +193,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isProductCountIncorrect => (!productCount.hasValue ||
-      productCount.value == null );
+  bool get isProductCountIncorrect =>
+      (!productCount.hasValue || productCount.value == null);
 
 //note
   final BehaviorSubject<String> note = BehaviorSubject<String>();
@@ -226,8 +220,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<double> get priceStream => price.stream;
 
   updatePrice(double value) {
-    if (value == null ) {
-
+    if (value == null) {
       price.sink.addError(MyText.field_is_not_correct);
     } else {
       price.sink.add(value);
@@ -235,11 +228,11 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceIncorrect =>
-      (!price.hasValue || price.value == null );
+  bool get isPriceIncorrect => (!price.hasValue || price.value == null);
 
   //priceType
-  final BehaviorSubject<String> priceType = BehaviorSubject<String>.seeded(MyText.tryy);
+  final BehaviorSubject<String> priceType =
+      BehaviorSubject<String>.seeded(MyText.tryy);
 
   Stream<String> get priceTypeStream => priceType.stream;
 
@@ -253,14 +246,16 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceTypeIncorrect =>
-      (!priceType.hasValue || priceType.value == null || priceType.value.isEmpty);
+  bool get isPriceTypeIncorrect => (!priceType.hasValue ||
+      priceType.value == null ||
+      priceType.value.isEmpty);
 
   ////validation
   bool isUserInfoValid() {
     if (!isNoteIncorrect &&
         !isSellerIncorrect &&
         !isProductCountIncorrect &&
+        !isImageIncorrect &&
         !isPriceIncorrect &&
         !isPriceTypeIncorrect &&
         !isTrackingIDIncorrect &&
@@ -271,8 +266,10 @@ class ReportCubit extends Cubit<ReportState> {
       return false;
     }
   }
+
 //photo
   final BehaviorSubject<File?> image = BehaviorSubject<File>();
+
   Stream<File?> get imageStream => image.stream;
 
   updateImage(File value) {
@@ -285,6 +282,7 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   bool get isImageIncorrect => (!image.hasValue || image.value == null);
+
   @override
   Future<void> close() {
     selectedCategory.close();

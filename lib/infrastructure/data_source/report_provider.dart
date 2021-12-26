@@ -6,6 +6,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/error_model.dart'
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
@@ -37,42 +38,34 @@ class ReportProvider {
     final headers = ApiKeys.header(token: token);
 
     FormData? data;
-    try {
-      data = FormData.fromMap({
-        "invoice": await MultipartFile.fromFile(
-          invoice!.path,
-          filename: "invoice.png",
-        ),
-        "store": seller,
-        "qty": qty,
-        "category": category,
-        "tracking": tracking,
-        "price": price,
-        "currency": currency,
-        "note": note
-      });
-    } catch (e) {
-      eeee(":::: " + e.toString());
-    }
+    data = FormData.fromMap({
+      "invoice": await MultipartFile.fromFile(
+        invoice!.path,
+        filename: "invoice.png",
+      ),
+      "store": seller,
+      "qty": qty,
+      "category": category,
+      "tracking": tracking,
+      "price": price,
+      "currency": currency,
+      "note": note
+    });
+
     ;
 
     Dio dio = new Dio(BaseOptions(headers: headers));
-    final response=await dio.post(api, data: data).then((response) {
+    final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());
-
-      bbbb("jjjj: " + response.statusCode .toString());
+      statusDynamic.statusCode = response.statusCode;
+      bbbb("oio: " + statusDynamic.statusCode.toString());
     }).catchError((error) => print(error));
 
-    statusDynamic.statusCode = response.statusCode;
+    if (statusDynamic.statusCode == ResultKey.successCode) {
+      // statusDynamic.data=response['message'];
 
-    if (response.statusCode == ResultKey.successCode) {
-
-      // statusDynamic.data = accessToken;
-    //  bbbb("new token: " + (statusDynamic.data).toString());
     } else {
-      statusDynamic.data =
-          AppOperations.errorFromListOfListAsList(response.body);
-      eeee("report bad url :$url,response: ${response}");
+      statusDynamic.data=MyText.reportIsNotAdded;
     }
 
     return statusDynamic;

@@ -22,6 +22,9 @@ import 'widget/other_shop_widget.dart';
 class OtherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+
+    final boxW=(MediaQuery.of(context).size.width/2)-24;
     return Scaffold(
         appBar: CaspaAppbar(
           title: "",
@@ -38,15 +41,17 @@ class OtherPage extends StatelessWidget {
             ),
             MySizedBox.h14,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MenuBox(
+                  w: boxW,
                   title: MyText.promoCodeX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.promokodColor,
                   onTap: () => Go.to(context, PromoCodePage()),
                 ),
                 MenuBox(
+                  w: boxW,
                   title: MyText.giftBalanceX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.partnyoColor,
@@ -60,9 +65,10 @@ class OtherPage extends StatelessWidget {
             const OtherShopWidget(),
             MySizedBox.h16,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MenuBox(
+                  w: boxW,
                   title: MyText.powerOfAttorney,
                   content: MyText.forEditAppSettings,
                   color: MyColors.etibarname,
@@ -74,6 +80,7 @@ class OtherPage extends StatelessWidget {
                   },
                 ),
                 MenuBox(
+                  w: boxW,
                   title: MyText.contactX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.contact,
@@ -85,9 +92,9 @@ class OtherPage extends StatelessWidget {
             ),
             MySizedBox.h16,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MenuBox(
+                MenuBox(   w: boxW,
                   title: MyText.courierX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.kuryer,
@@ -99,7 +106,7 @@ class OtherPage extends StatelessWidget {
                     // ));
                   },
                 ),
-                MenuBox(
+                MenuBox(   w: boxW,
                   title: MyText.settingsX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.settings,

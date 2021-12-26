@@ -41,7 +41,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: SvgPicture.asset(Assets.svgInfoApp),
+                        child: SvgPicture.asset(Assets.infoApp),
                         height: 120.sm,
                         width: 120.sm,
                       ),
@@ -49,7 +49,7 @@ class Alert {
                     height: 10.sm,
                   ),
                   Text(
-                   title?? MyText.congrated,
+                    title?? MyText.congrated,
                     style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
                   ),
                   SizedBox(

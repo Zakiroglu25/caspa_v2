@@ -58,7 +58,7 @@ class SettingsPage extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  SvgPicture.asset(Assets.svgInfoApp),
+                  SvgPicture.asset(Assets.infoApp),
                   MySizedBox.w20,
                   Text(
                     "Tətbiq haqqında",

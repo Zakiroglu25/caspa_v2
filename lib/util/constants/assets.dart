@@ -55,13 +55,15 @@ class Assets {
   static const String svgCamera="assets/svg/camera.svg";
   static const String svgTrash="assets/svg/trash.svg";
   static const String balanceUp="assets/svg/balance_up.svg";
-  static const String svgWhatsapp="assets/svg/whatsapp.svg";
-  static const String svgTelegram="assets/svg/telegram.svg";
-  static const String svgMessenger="assets/svg/facebook.svg";
+  static const String whatsapp="assets/svg/whatsapp.svg";
+  static const String telegram="assets/svg/telegram.svg";
+  static const String svgEdit="assets/svg/edit.svg";
+
+  static const String messenger="assets/svg/facebook.svg";
 
   static const String facebook="assets/svg/facebook.svg";
   static const String help="assets/svg/help.svg";
-  static const String svgInfoApp="assets/svg/info_app.svg";
+  static const String infoApp="assets/svg/info_app.svg";
   static const String logOut="assets/svg/logout.svg";
 
    //test url

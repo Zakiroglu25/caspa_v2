@@ -71,7 +71,7 @@ class ReportCubit extends Cubit<ReportState> {
           category: selectedSubCategory.valueOrNull!.id,
           tracking: trackingID.valueOrNull,
           price: price.valueOrNull,
-          currency: priceType.valueOrNull,
+          currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
         );

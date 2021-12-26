@@ -36,13 +36,14 @@ class ShopUnicorn extends StatelessWidget {
         height: 150.sp,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ErrorableImage(
               url: shop.logo!,
               w: 78.sp,
               h: 78.sp,
             ),
-            SectionName(title: shop.name)
+            SectionName(title: shop.name,size: 16.sm,)
           ],
         ),
       ),

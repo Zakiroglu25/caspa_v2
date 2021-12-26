@@ -51,7 +51,7 @@ class OtherShopWidget extends StatelessWidget {
             ),
             MySizedBox.w12,
             Container(
-                height: 120.sm,
+                height: 120.sp,
                 width: (MediaQuery.of(context).size.width - 72 - 24) / 2,
                 child: Image.asset(Assets.shopMobile)),
           ],

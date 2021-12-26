@@ -94,6 +94,7 @@ class CaspaField extends StatelessWidget {
                   maxLines: maxLines ?? null,
                   onChanged: onChanged,
                   readOnly: readOnly ?? false,
+               //   enabled: false,
                   expands: maxLines != null ? false : true,
                   onTap: () => onTap?.call(),
                   keyboardType: textInputType ?? TextInputType.text,

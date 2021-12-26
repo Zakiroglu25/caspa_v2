@@ -12,16 +12,11 @@ class AddressCubit extends Cubit<AddressState> {
   AddressCubit() : super(AddressInitial());
 
   void fetch([bool loading = true]) async {
-
     if (loading) {
       emit(AddressInProgress());
     }
-
-
-
     try {
       final result = await AddressProvider.getAddress();
-      bbbb("uuu: "+result.adress.toString());
       if (result.adress != null) {
         emit(AddressSuccess(result.adress!));
       } else {

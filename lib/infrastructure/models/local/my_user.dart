@@ -17,7 +17,7 @@ class MyUser {
   City? city;
   int? business;
   WareHouse? wareHouse;
-  int? taxNumber;
+  String? taxNumber;
   String? companyName;
 
   MyUser(

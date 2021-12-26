@@ -1,5 +1,10 @@
 // Flutter imports:
+
+
+import 'dart:io';
+
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 class ApiKeys {
@@ -15,8 +20,12 @@ class ApiKeys {
 
   //reg and login
   static final login = "$baseUrl/user/login";
-  static final register = "$baseUrl/user/register";
+  static final registerPersonal = "$baseUrl/user/register";
+  static final registerCompany = "$baseUrl/user/company/register";
 
+  //report
+
+  static final report = "$baseUrl/user/repohbhjrt";
   //user
   static final user = "$baseUrl/user/user";
 
@@ -31,7 +40,12 @@ class ApiKeys {
   static const watch = "/watch?v=";
 
   //get tarif
-  static const getTarif = "$baseUrl/public/prices";
+  static const tariff = "$baseUrl/public/prices";
+
+  //get category
+  static const categories = "$baseUrl/public/categories";
+
+
 
   //get address
   static const getAddress = "$baseUrl/public/countries";
@@ -69,27 +83,59 @@ class ApiKeys {
     required String? surname,
     required String? address,
     required String? email,
+    required String? language,
+    required String? deviceCode,
+    required int? deviceTypeId,
     required String? password,
     required String? password_confirmation,
     required String? phone,
-    required String? accept,
+    required int? accept,
     required String? company_name,
     required String? tax_number,
   }) {
     //
     final map = {
-      "name": "esev.sv@gmail.com",
-      "surname": "salam12345",
-      "address": "addd",
-      "email": "addd",
-      "password": "addd",
-      "password_confirmation ": "addd",
-      "phone": "addd",
-      "accept": "addd",
-      "company_name": "addd",
-      "tax_number": "addd"
+      "name": name,
+      "surname": surname,
+      "address": address,
+      "email": email,
+      "password": password,
+      "password_confirmation": password_confirmation,
+      "phone": phone,
+      "accept": 1,
+      "company_name": company_name,
+      "tax_number": tax_number,
+      "deviceCode":deviceCode,
+      "deviceTypeId":deviceTypeId,
+      "language":language
     };
 
+    aaaa(map.toString());
+    map.removeWhere(
+            (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+  static reportBody({
+    required String? store,
+    required int? qty,
+    required int? category,
+    required String? tracking,
+    required double? price,
+    required String? currency,
+    required File? invoice,
+    required String? note,
+  }) {
+    //
+    final Map<String,dynamic> map = {
+      "store": store,
+      "qty": qty,
+      "category": category,
+      "tracking": tracking,
+      "price": price,
+      "currency": currency,
+
+      "note": note,
+    };
     aaaa(map.toString());
     map.removeWhere(
             (key, value) => key == null || value == null || value == 'null');

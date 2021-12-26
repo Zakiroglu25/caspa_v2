@@ -7,20 +7,19 @@ import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widget_or_empty.dart';
 // Project imports:
 
 class Alert {
   static show(BuildContext context,
-      {Widget? image, String? title, String? content,
-
-      Fi
-      }) {
+      {Widget? image, String? title, String? buttonText, String? content, Function? onTap}) {
     showDialog(
         context: context,
         useSafeArea: false,
@@ -42,7 +41,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: Image.asset(Assets.svgCalendar),
+                        child: SvgPicture.asset(Assets.svgInfoApp),
                         height: 120.sm,
                         width: 120.sm,
                       ),
@@ -50,14 +49,14 @@ class Alert {
                     height: 10.sm,
                   ),
                   Text(
-                    MyText.congrated,
+                   title?? MyText.congrated,
                     style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
                   ),
                   SizedBox(
                     height: 10.sm,
                   ),
                   Text(
-                 content??   MyText.operationIsSuccess,
+                    content ?? MyText.operationIsSuccess,
                     style: AppTextStyles.sanF400
                         .copyWith(fontSize: 14.sm, color: MyColors.grey163),
                   ),
@@ -65,7 +64,12 @@ class Alert {
                     height: 18.sm,
                   ),
                   CaspaButton(
-                    text: MyText.ok,
+                    text: buttonText??MyText.ok,
+                    onTap: () {
+                      if (onTap != null) {
+                        onTap.call();
+                      }  Go.pop(context);
+                    },
                   )
                 ],
               ),

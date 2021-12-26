@@ -1,6 +1,7 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SectionName extends StatelessWidget {
@@ -19,9 +20,12 @@ class SectionName extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            title!,
-            style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
+          Flexible(
+            child: Text(
+              title!,
+              overflow: TextOverflow.ellipsis,
+              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
+            ),
           ),
           WidgetOrEmpty(
             value: tile != null,

@@ -22,10 +22,10 @@ class ShopListView extends StatelessWidget {
           padding: Paddings.paddingA16,
           physics: BouncingScrollPhysics(),
           // if you want IOS bouncing effect, otherwise remove this line
-          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 164.sp,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+           //   maxCrossAxisExtent: 164.sp,
               mainAxisSpacing: 16.sp,
-              crossAxisSpacing: 16.sp),
+              crossAxisSpacing: 16.sp, crossAxisCount: 2),
           //change the number as you want
           itemBuilder: (context, index) {
             return FadeInUp(

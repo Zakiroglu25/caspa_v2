@@ -100,6 +100,8 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   Future<void> close() {
     uEmail.close();
     uCode.close();
+    uPassSecond.close();
+    uPassMain.close();
     return super.close();
   }
 

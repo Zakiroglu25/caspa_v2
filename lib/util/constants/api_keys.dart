@@ -4,6 +4,7 @@
 import 'dart:io';
 
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
 class ApiKeys {
@@ -24,7 +25,7 @@ class ApiKeys {
 
   //report
 
-  static final report = "$baseUrl/user/report";
+  static final report = "$baseUrl/user/repohbhjrt";
   //user
   static final user = "$baseUrl/user/user";
 
@@ -125,14 +126,14 @@ class ApiKeys {
     required String? note,
   }) {
     //
-    final map = {
+    final Map<String,dynamic> map = {
       "store": store,
       "qty": qty,
       "category": category,
       "tracking": tracking,
       "price": price,
       "currency": currency,
-      "invoice": invoice,
+
       "note": note,
     };
     aaaa(map.toString());

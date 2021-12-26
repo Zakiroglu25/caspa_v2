@@ -18,6 +18,9 @@ class Go {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => page));
   }
+  static pop(BuildContext context) async {
+    Navigator.pop(context);
+  }
 
   static to(BuildContext context, Widget page) async {
     Navigator.of(context, rootNavigator: false).push(MaterialPageRoute(

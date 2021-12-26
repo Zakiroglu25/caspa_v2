@@ -28,7 +28,7 @@ class Sheet {
         useRootNavigator: true,
         enableDrag: true,
         isDismissible: true,
-        barrierColor: Colors.white.withOpacity(0),
+        barrierColor: Colors.black.withOpacity(.2),
 // barrierColor: Colors.red,
         isScrollControlled: true,
         shape: RoundedRectangleBorder(

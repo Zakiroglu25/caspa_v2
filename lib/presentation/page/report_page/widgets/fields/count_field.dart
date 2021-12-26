@@ -12,7 +12,7 @@ class CountFieldReport extends StatelessWidget {
   CountFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<String>(
+    return StreamBuilder<int>(
       stream: BlocProvider.of<ReportCubit>(context).productCountStream,
       builder: (context, snapshot) {
         return CaspaField(
@@ -20,12 +20,12 @@ class CountFieldReport extends StatelessWidget {
           maxLines: 1,
           hint: MyText.product_count,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.phone,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,
           onChanged: (value) =>
-              BlocProvider.of<ReportCubit>(context).updateProductCount(value),
+              BlocProvider.of<ReportCubit>(context).updateProductCount(int.parse(value)),
         );
       },
     );

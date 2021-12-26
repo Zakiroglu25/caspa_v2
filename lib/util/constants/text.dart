@@ -81,6 +81,7 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String currency = "Valyuta";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
@@ -214,6 +215,11 @@ class MyText {
   static const String seller = "Satıcı";
   static const String product_count = "Məhsul sayı";
   static const String tracking_id = "İzləmə kodu";
+  static const String we_need_access_to_gallery = "Fotolara əlçatanlıq üçün icazə lazımdır.";
+  static const String we_will_redirect_to_settings = "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
+  static const String all_fields_must_be_filled = "Bütün xanalar doldurulmalıdır!";
+  static const String usd = "USD";
+  static const String tryy = "TRY";
   //static const String note = "İzləmə kodu";
 
 

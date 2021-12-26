@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -14,9 +15,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'widgets/fields/category_field.dart';
 import 'widgets/fields/count_field.dart';
 import 'widgets/fields/note_field.dart';
+import 'widgets/fields/price_field.dart';
+import 'widgets/fields/price_type_field.dart';
 import 'widgets/fields/seller_field.dart';
 import 'widgets/fields/tracking_id_field.dart';
 import 'widgets/photo_pickment.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ReportPage extends StatelessWidget {
   @override
@@ -35,26 +39,41 @@ class ReportPage extends StatelessWidget {
             MySizedBox.h24,
             SellerFieldReport(),
             CategoryFields(),
+
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                PriceFieldReport(),
+                PriceTypeFieldReport()
+              ],
+            ),
             CountFieldReport(),
             TrackingIdFieldReport(),
             NoteFieldReport(),
             SectionName(title: "Faktura"),
             MySizedBox.h16,
             PhotoPickment(),
+            // MySizedBox.h12,
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: CaspaButton(
+            //     text: "Fayl əlavə et",
+            //     w: 120.sp,
+            //     h: 44.sp,
+            //     textSize: 14.sp,
+            //   ),
+            // ),
             MySizedBox.h12,
             Text(
               MyText.factura,
               style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
             ),
-            MySizedBox.h12,
-            CaspaButton(
-              text: "Fayl əlavə et",
-              w: 110.sp,
-              h: 44.sp,
-              textSize: 14.sp,
-            ),
+
             MySizedBox.h24,
-            CaspaButton(text: "Davam et"),
+            CaspaButton(
+              text: "Davam et",
+             // isButtonActive: () => context.read<ReportCubit>().report(),
+              onTap: () => context.read<ReportCubit>().report(context),
+            ),
             MySizedBox.h40,
           ],
         ),

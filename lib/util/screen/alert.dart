@@ -42,7 +42,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: Image.asset(Assets.svgCalendar),
+                        child: Image.asset("${image!}"),
                         height: 120.sm,
                         width: 120.sm,
                       ),

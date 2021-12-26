@@ -57,6 +57,7 @@ class Assets {
   static const String balanceUp="assets/svg/balance_up.svg";
   static const String whatsapp="assets/svg/whatsapp.svg";
   static const String telegram="assets/svg/telegram.svg";
+  static const String svgEdit="assets/svg/edit.svg";
 
   static const String messenger="assets/svg/facebook.svg";
 

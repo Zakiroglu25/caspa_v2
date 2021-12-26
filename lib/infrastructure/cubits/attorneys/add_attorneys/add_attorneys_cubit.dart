@@ -4,8 +4,10 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_state.dart';
-import 'package:caspa_v2/infrastructure/data_source/add_attorneys_provider.dart';
+import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/screen/full_screen_alert.dart';
 import 'package:flutter/cupertino.dart';
 
 // Package imports:
@@ -60,4 +62,25 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
       emit(AddAttorneysError(error: ""));
     }
   }
+  ///delete ishlemedi
+  //
+  // Future<bool> deleteAttorney({int? id}) async {
+  //   try {
+  //     final result = await AddAttorneysProvider.deleteAttorney(
+  //         id: id, accessToken: _prefs.accessToken.toString());
+  //     if (result!.data != null) {
+  //       FullScreenAlert.of(ctx!).hideAlert();
+  //       return true;
+  //     } else {
+  //       // FullScreenAlert.of(ctx).hideAlert();
+  //       emit(AddAttorneysError(error: ''));
+  //     }
+  //     //FullScreenAlert.of(ctx).hideAlert();
+  //     //  return false;
+  //   } catch (e) {
+  //     eeee("deleteAttorney: $e");
+  //   }
+  //   FullScreenAlert.of(ctx!).hideAlert();
+  //   return false;
+  // }
 }

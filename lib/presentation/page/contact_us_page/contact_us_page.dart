@@ -33,19 +33,19 @@ class ContactPage extends StatelessWidget {
           MySizedBox.h32,
           SocialItem(
             name: MyText.whatsapp,
-            path: Assets.whatsapp,
+            path: Assets.svgWhatsapp,
             onTap: () {},
           ),
           MySizedBox.h16,
           SocialItem(
             name: MyText.telegram,
-            path: Assets.telegram,
+            path: Assets.svgTelegram,
             onTap: () {},
           ),
           MySizedBox.h16,
           SocialItem(
             name: MyText.messenger,
-            path: Assets.messenger,
+            path: Assets.svgMessenger,
             onTap: () {},
           )
         ],

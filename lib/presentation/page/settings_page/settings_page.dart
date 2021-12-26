@@ -42,7 +42,7 @@ class SettingsPage extends StatelessWidget {
             MySizedBox.h45,
             Row(
               children: [
-                SvgPicture.asset(Assets.help),
+                SvgPicture.asset(Assets.svgHelp),
                 MySizedBox.w20,
                 Text(
                   "Yardım",
@@ -58,7 +58,7 @@ class SettingsPage extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  SvgPicture.asset(Assets.infoApp),
+                  SvgPicture.asset(Assets.svgInfoApp),
                   MySizedBox.w20,
                   Text(
                     "Tətbiq haqqında",

@@ -49,7 +49,7 @@ class CourierOrdersPage extends StatelessWidget {
                     SectionName(title: MyText.general_info),
                     GeneralOrderInfo(),
                     MySizedBox.h40,
-                    CaspaButton(text: MyText.confirming,onTap: ()=>Go.to(context, Pager.order_success),),
+                    CaspaButton(text: MyText.confirming,onTap: ()=>Go.to(context, Pager.success()),),
                     MySizedBox.h10,
                   ],
                 ),

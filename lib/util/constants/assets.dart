@@ -11,8 +11,10 @@ class Assets {
   static const String pngMoto = 'assets/png/moto.png';
   static const String pngSucs = 'assets/png/sucs.png';
   static const String pngSad = 'assets/png/sad.png';
+  static const String pngPosTerminal = "assets/png/payment.png";
+  static const String pngEtibarname = "assets/png/etibar.png";
+  static const String pngDino = "assets/png/homeDinopng.png";
 
-  static const String homeDino = "assets/png/homeDinopng.png";
   static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
@@ -21,10 +23,6 @@ class Assets {
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopmobile.png";
 
-  static const String pngPosTerminal = "assets/png/payment.png";
-
-  static const String posTerminal = "assets/png/payment.png";
-  static const String etibarname = "assets/png/etibar.png";
 
 
 
@@ -54,17 +52,15 @@ class Assets {
   static const String svgBackArrow="assets/svg/back_arrow.svg";
   static const String svgCamera="assets/svg/camera.svg";
   static const String svgTrash="assets/svg/trash.svg";
-  static const String balanceUp="assets/svg/balance_up.svg";
-  static const String whatsapp="assets/svg/whatsapp.svg";
-  static const String telegram="assets/svg/telegram.svg";
+  static const String svgBalanceUp="assets/svg/balance_up.svg";
+  static const String svgWhatsapp="assets/svg/whatsapp.svg";
+  static const String svgTelegram="assets/svg/telegram.svg";
   static const String svgEdit="assets/svg/edit.svg";
-
-  static const String messenger="assets/svg/facebook.svg";
-
-  static const String facebook="assets/svg/facebook.svg";
-  static const String help="assets/svg/help.svg";
-  static const String infoApp="assets/svg/info_app.svg";
-  static const String logOut="assets/svg/logout.svg";
+  static const String svgMessenger="assets/svg/facebook.svg";
+  static const String svgFacebook="assets/svg/facebook.svg";
+  static const String svgHelp="assets/svg/help.svg";
+  static const String svgInfoApp="assets/svg/info_app.svg";
+  static const String svgLogOut="assets/svg/logout.svg";
 
    //test url
   static const String testImageURL=

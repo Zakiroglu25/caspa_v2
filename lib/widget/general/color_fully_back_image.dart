@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/presentation/page/order_success_page/widgets/order_on_the_way_text.dart';
+import 'package:caspa_v2/presentation/page/success_page/widgets/order_on_the_way_text.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';

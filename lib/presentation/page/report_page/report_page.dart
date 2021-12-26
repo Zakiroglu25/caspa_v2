@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/report/report_state.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -6,9 +7,14 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/full_screen_loading.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
+import 'package:caspa_v2/widget/general/single_child_bounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,60 +28,65 @@ import 'widgets/fields/tracking_id_field.dart';
 import 'widgets/photo_pickment.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'widgets/report_contiue_button.dart';
+
 class ReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(title: MyText.report, user: false, contextA: context),
       body: SafeArea(
-        child: ListView(
-          padding: Paddings.paddingH16,
-          children: [
-            SectionNameAndDefinition(
-              imagePath: Assets.otherBox,
-              name: MyText.addProduct,
-              definition: MyText.declareText,
-            ),
-            MySizedBox.h24,
-            SellerFieldReport(),
-            CategoryFields(),
-
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: BlocListener<ReportCubit, ReportState>(
+          listener: (context, state) {
+            if (state is ReportInProgress) {
+              FullScreenLoading.display(context);
+            } else if (state is ReportSuccess) {
+              Go.replace(
+                  context,
+                  Pager.success(
+                      infoTitle: MyText.reportSuccessTitle,
+                      infoContent: MyText.reportSuccessContent,
+                      againPage: Pager.report));
+            } else if (state is ReportError) {
+              if (state.error != null) {
+                Snack.display(context: context, message: state.error);
+              }
+            }
+          },
+          child: SingleChildBounce(
+            padding: Paddings.paddingH16,
+            child: Column(
               children: [
-                PriceFieldReport(),
-                PriceTypeFieldReport()
+                SectionNameAndDefinition(
+                  imagePath: Assets.otherBox,
+                  name: MyText.addProduct,
+                  definition: MyText.declareText,
+                ),
+                MySizedBox.h24,
+                SellerFieldReport(),
+                CategoryFields(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [PriceFieldReport(), PriceTypeFieldReport()],
+                ),
+                CountFieldReport(),
+                TrackingIdFieldReport(),
+                NoteFieldReport(),
+                SectionName(title: MyText.factura),
+                MySizedBox.h16,
+                PhotoPickment(),
+                MySizedBox.h12,
+                Text(
+                  MyText.facturaText,
+                  style:
+                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+                ),
+                MySizedBox.h24,
+                ReportContiueButton(),
+                MySizedBox.h40,
               ],
             ),
-            CountFieldReport(),
-            TrackingIdFieldReport(),
-            NoteFieldReport(),
-            SectionName(title: "Faktura"),
-            MySizedBox.h16,
-            PhotoPickment(),
-            // MySizedBox.h12,
-            // Align(
-            //   alignment: Alignment.centerLeft,
-            //   child: CaspaButton(
-            //     text: "Fayl əlavə et",
-            //     w: 120.sp,
-            //     h: 44.sp,
-            //     textSize: 14.sp,
-            //   ),
-            // ),
-            MySizedBox.h12,
-            Text(
-              MyText.factura,
-              style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-            ),
-
-            MySizedBox.h24,
-            CaspaButton(
-              text: "Davam et",
-             // isButtonActive: () => context.read<ReportCubit>().report(),
-              onTap: () => context.read<ReportCubit>().report(context),
-            ),
-            MySizedBox.h40,
-          ],
+          ),
         ),
       ),
     );

@@ -37,7 +37,7 @@ class EtibarnamePage extends StatelessWidget {
         child: ListView(
           children: [
             ColorfullBackImage(
-              path: Assets.etibarname,
+              path: Assets.pngEtibarname,
               infoTitle: MyText.littleEtibar,
               infoContent: MyText.paymentLinkTxt,
             ),

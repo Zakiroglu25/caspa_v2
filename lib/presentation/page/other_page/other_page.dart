@@ -1,20 +1,17 @@
+import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_state.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
-import 'package:caspa_v2/presentation/page/test_delete/cubit/order_history_cubit.dart';
-import 'package:caspa_v2/presentation/page/test_delete/cubit/order_history_state.dart';
-import 'package:caspa_v2/presentation/page/test_delete/page/order_history_page.dart';
+
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
@@ -70,7 +67,10 @@ class OtherPage extends StatelessWidget {
                   content: MyText.forEditAppSettings,
                   color: MyColors.etibarname,
                   onTap: () {
-                    Go.to(context, EtibarnamePage());
+                    Go.to(context, BlocProvider.value(
+                      value:  AttorneyListCubit()..fetch(),
+                      child: EtibarnamePage(),
+                    ));
                   },
                 ),
                 MenuBox(
@@ -93,10 +93,10 @@ class OtherPage extends StatelessWidget {
                   color: MyColors.kuryer,
                   onTap: () {
                     ///delete
-                    Go.to(context, BlocProvider(
-                      create: (context) => OrderHistoryCubit()..fetch(),
-                      child: OrderHistoryPage(order_history_list: [],),
-                    ));
+                    // Go.to(context, BlocProvider(
+                    //   create: (context) => OrderHistoryCubit()..fetch(),
+                    //   child: OrderHistoryPage(order_history_list: [],),
+                    // ));
                   },
                 ),
                 MenuBox(

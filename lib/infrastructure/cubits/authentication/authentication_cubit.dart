@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
@@ -8,8 +9,12 @@ import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/sentry_helper.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:logging/logging.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import '../../../locator.dart';
 import 'authentication_state.dart';
@@ -32,6 +37,35 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     } else {
       emit(AuthenticationLoading());
     }
+
+  //  Sentry.captureMessage("message");
+  //   Sentry.captureEvent(SentryEvent(modules: {'rr':"6","gdfd":"sfdd"},
+  //   message: SentryMessage("formatted")));
+    try {
+      final a=[];
+      bbbb(a[9]);
+    } catch (e, s) {
+
+      // bbbb("excepted");
+      // final _logger = Logger('HistoriesCubit');
+      // _logger.severe('$e => $s');
+      // await SentryHelper.captureException(e, stackTrace: s);
+      //
+
+      // FirebaseCrashlytics.instance.recordError(e, s);
+      // await FirebaseCrashlytics.instance.log("message");
+      // await FirebaseCrashlytics.instance.recordError(
+      //     e,
+      //     s,
+      //     reason: 'a fatal error shrapp ui hj',
+      //     // Pass in 'fatal' argument
+      //     fatal: true
+      // );
+      // await FirebaseCrashlytics.instance.recordFlutterError(FlutterErrorDetails(exception: e,stack: s,));
+      // FirebaseCrashlytics.instance.crash();
+    }
+
+
     try {
       aaaa('2--');
       configureFcm(context: context);

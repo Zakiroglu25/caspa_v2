@@ -2,6 +2,8 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+import 'infrastructure/configs/base.dart';
 import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'util/constants/colors.dart';
 import 'util/constants/text.dart';
@@ -22,6 +24,7 @@ class MateApp extends StatelessWidget {
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: MyText.messenger,
+                 // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                   theme: ThemeData(
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),

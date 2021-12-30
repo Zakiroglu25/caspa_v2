@@ -54,8 +54,13 @@ dependencies:
   flutter_local_notifications: ^8.2.0
 
   image_picker: ^0.8.4+4
-  geolocator: ^7.7.1
+  #geolocator: ^7.7.1
   permission_handler: ^8.3.0
+
+  sentry_flutter: ^6.2.2
+  logging: ^1.0.1
+  firebase_crashlytics: ^2.4.4
+
 
   #ui
   lottie: ^1.2.1

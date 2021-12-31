@@ -9,6 +9,8 @@ import 'util/delegate/pager.dart';
 import 'widget/general/no_data_widget.dart';
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationCubit, AuthenticationState>(
@@ -27,10 +29,10 @@ class App extends StatelessWidget {
           child: Scaffold(
               body: NoData(
             text: "server_error",
-            refreshButton: () {
+            refreshButton: () =>
               context.read<AuthenticationCubit>()
-                ..startApp(context, showSplash: false);
-            },
+                ..startApp(context, showSplash: false)
+            ,
           )),
         );
       }

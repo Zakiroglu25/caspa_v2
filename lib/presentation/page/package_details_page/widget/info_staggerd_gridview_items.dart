@@ -78,7 +78,7 @@ class _StaggerdState extends State<Staggerd> {
 }
 
 class ProductsGrid extends StatelessWidget {
-  ProductsGrid(this.products);
+  const ProductsGrid(this.products);
 
   final List<Product> products;
 
@@ -90,9 +90,9 @@ class ProductsGrid extends StatelessWidget {
       key.isEven ? evenList.add(value) : oddList.add(value);
     });
     return ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(40),
-          bottomRight: Radius.circular(40),
+        borderRadius: const BorderRadius.only(
+          bottomLeft:const Radius.circular(40),
+          bottomRight:const Radius.circular(40),
         ),
         child: Scrollable(
           physics: ClampingScrollPhysics(),
@@ -150,7 +150,7 @@ class Product {
   final String title;
   final double perHundredGramm;
 
-  Product({
+  const Product({
     required this.price,
     required this.manufacturer,
     required this.title,

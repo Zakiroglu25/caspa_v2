@@ -13,7 +13,7 @@ import 'widgets/promo_codes_list.dart';
 import 'widgets/promo_table_title.dart';
 
 class PromoCodePage extends StatelessWidget {
-  PromoCodePage({Key? key}) : super(key: key);
+  const PromoCodePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

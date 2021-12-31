@@ -1,13 +1,10 @@
 // Dart imports:
-import 'dart:developer';
 import 'dart:io';
 
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/screen/full_screen_alert.dart';
 import 'package:flutter/cupertino.dart';
 
 // Package imports:
@@ -41,14 +38,14 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
         note: note_controller.text,
         accessToken: _prefs.accessToken,
       );
-      print(full_name_controller.text.toString());
-      print(father_name_controller.text.toString());
-      print(phone_controller.text.toString());
-      print(id_number_controller.text.toString());
-      print(fin_controller.text.toString());
-      print(birthday_controller.text.toString());
-      print(note_controller.text.toString());
-      print(_prefs.accessToken.toString());
+      // print(full_name_controller.text.toString());
+      // print(father_name_controller.text.toString());
+      // print(phone_controller.text.toString());
+      // print(id_number_controller.text.toString());
+      // print(fin_controller.text.toString());
+      // print(birthday_controller.text.toString());
+      // print(note_controller.text.toString());
+      // print(_prefs.accessToken.toString());
 
       if (result!.data != null) {
         emit(AddAttorneysSuccess(result));

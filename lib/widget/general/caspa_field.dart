@@ -11,30 +11,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CaspaField extends StatelessWidget {
-  TextEditingController? controller;
-  String? label;
-  String? hint;
-  String? title;
-  String? errorMessage;
-  String? infoMessage;
-  int? maxLenght;
-  int? maxLines;
-  double? topMargin;
-  TextCapitalization? textCapitalization;
+ final TextEditingController? controller;
+ final String? label;
+ final String? hint;
+ final String? title;
+ final String? errorMessage;
+ final String? infoMessage;
+ final int? maxLenght;
+ final int? maxLines;
+ final double? topMargin;
+ final TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
-  bool? upperCase;
-  List<TextInputFormatter>? formatters;
-
-  ValueChanged<String>? onChanged;
-  Function? onTap;
-  Widget? prefixIcon;
-  Widget? suffixIcon;
-  String? suffixText;
-
-  //String tip
-
-  TextInputType? textInputType;
+ final bool? upperCase;
+ final List<TextInputFormatter>? formatters;
+ final ValueChanged<String>? onChanged;
+ final Function? onTap;
+ final Widget? prefixIcon;
+ final Widget? suffixIcon;
+ final String? suffixText;
+ final TextInputType? textInputType;
 
   CaspaField(
       {this.controller,

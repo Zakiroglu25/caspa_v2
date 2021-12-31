@@ -81,7 +81,7 @@ class MyUser {
     data['birthday'] = this.birthday;
     data['gender'] = this.gender;
     data['avatar'] = this.avatar;
-    data['address'] = this.address;
+    data['address'] = address;
     data['balance'] = this.balance;
     data['cargoBalance'] = this.cargoBalance;
     if (this.city != null) {

@@ -1,10 +1,13 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/grid_list_model.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
@@ -13,10 +16,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PackageBoxHome extends StatelessWidget {
-  GridListItems item;
+  Package package;
   double? w;
 
-  PackageBoxHome(this.item, {this.w});
+  PackageBoxHome(this.package, {this.w});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class PackageBoxHome extends StatelessWidget {
         child: Container(
           width: w,
           decoration: BoxDecoration(
-              color: item.color, borderRadius: BorderRadius.circular(12)),
+              color:AppOperations.colorWithId(package.id!), borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: EdgeInsets.all(20.sp),
             child: Row(
@@ -47,7 +50,7 @@ class PackageBoxHome extends StatelessWidget {
                     children: [
                       SvgPicture.asset(Assets.svgShop),
                       Text(
-                        item.shopName!,
+                        package.store!,
                         style: AppTextStyles.sanF500,
                         maxLines: 2,
                       ),
@@ -63,26 +66,26 @@ class PackageBoxHome extends StatelessWidget {
                     Row(
                       children: [
                         const Text(
-                          "Qiymət: ",
+                          "${MyText.price}: ",
                           style: TextStyle(color: MyColors.grey153),
                         ),
-                        Text(item.price!)
+                        Text(package.price!)
                       ],
                     ),
                     Row(
                       children: [
-                        const Text("İzləmə kodu: ",
+                        const Text("${MyText.tracking_id}: ",
                             style: TextStyle(color: MyColors.grey153)),
-                        Text("${item.trackingCode!}")
+                        Text("${package.tracking!}")
                       ],
                     ),
                     Row(
                       children: [
-                        const Text("Status: ",
+                        const Text("${MyText.status}: ",
                             style: TextStyle(
                                 color: MyColors.grey153)),
                         Text(
-                          item.status!,
+                          package.status!,
                           maxLines: 3,
                         ),
                       ],

@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/random.dart';
@@ -40,7 +41,7 @@ class PackageBox extends StatelessWidget {
             width: w,
 
             decoration: BoxDecoration(
-                color: Rndm.color, borderRadius: BorderRadius.circular(12)),
+                color: AppOperations.colorWithId(package.id!), borderRadius: BorderRadius.circular(12)),
             child: Padding(
               padding: EdgeInsets.all(20.sp),
               child: Column(

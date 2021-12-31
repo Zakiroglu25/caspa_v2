@@ -1,7 +1,9 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_state.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'presentation/page/splash_page/splash_page.dart';
 
@@ -20,6 +22,7 @@ class App extends StatelessWidget {
       }
 
       else if (state is AuthenticationLoading) {
+
         return Scaffold(
          // backgroundColor: MyColors.backMainColor,
           body: CaspaLoading(),
@@ -39,6 +42,7 @@ class App extends StatelessWidget {
       if (state is AuthenticationUninitialized) {
         return Pager.login;
       } else {
+
         return Pager.landing;
       }
     });

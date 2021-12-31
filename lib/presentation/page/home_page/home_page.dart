@@ -16,7 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../locator.dart';
 import 'widgets/home_header.dart';
 import 'widgets/news_list_widget.dart';
-import 'widgets/package_list.dart';
+import 'widgets/home_package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tariff_details.dart';
 import 'widgets/tariffs.dart';

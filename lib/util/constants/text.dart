@@ -137,7 +137,7 @@ class MyText {
       "Məhsulu siz alırsınız, biz isə seçdiyiniz ünvana qədər çatdırırıq";
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareIt = "Bəyan et 📦";
-  static const String newOrder = "Yeni sifariş";
+  static const String new_order = "Yeni sifariş";
 
   //userCabinet
   static const String emergencyCall =
@@ -219,6 +219,7 @@ class MyText {
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
+  static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
   static const String comission = "Komissiya";

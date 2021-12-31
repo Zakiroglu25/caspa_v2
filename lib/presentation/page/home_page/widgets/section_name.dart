@@ -16,16 +16,15 @@ class SectionName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.maxFinite,
       padding: EdgeInsets.symmetric(horizontal: hP ?? 0, vertical: vP ?? 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Flexible(
-            child: Text(
-              title!,
-              overflow: TextOverflow.ellipsis,
-              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
-            ),
+          Text(
+            title!,
+            overflow: TextOverflow.ellipsis,
+            style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
           ),
           WidgetOrEmpty(
             value: tile != null,

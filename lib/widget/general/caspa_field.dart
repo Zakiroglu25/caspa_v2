@@ -131,20 +131,26 @@ class CaspaField extends StatelessWidget {
                 ),
               ),
               Positioned(
-                right: 10,
-                child: Tooltip(
-                  message: errorMessage ?? "",
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          //  vertical: errorMessage == null ? 18 : 17,
-                          horizontal: 2),
-                      child: suffixIcon ??
-                          (errorMessage != null
-                              ? Container(
-                                  height: 20,
-                                  child: SvgPicture.asset(Assets.svgMinus))
-                              : Container()),
+                right: 0,
+                child: Container(
+                  color:MyColors.mainGrey,
+                  padding: const EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.only(right: 2),
+                  child: Tooltip(
+                    message: errorMessage ?? "",
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            //  vertical: errorMessage == null ? 18 : 17,
+                            horizontal: 2),
+                        child: suffixIcon ??
+                            (errorMessage != null
+                                ? Container(
+                                    height: 20,
+                                 //   color:MyColors.grey153,
+                                    child: SvgPicture.asset(Assets.svgMinus))
+                                : Container()),
+                      ),
                     ),
                   ),
                 ),

@@ -21,6 +21,7 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
             maxLines: 1,
             hint: MyText.price,
             upperCase: true,
+            suffixText: MyText.tryy+"   ",
             textInputType: TextInputType.phone,
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',

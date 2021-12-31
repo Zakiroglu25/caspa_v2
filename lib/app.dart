@@ -4,7 +4,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'presentation/page/splash_page/splash_page.dart';
-import 'util/constants/colors.dart';
+
 import 'util/delegate/pager.dart';
 import 'widget/general/no_data_widget.dart';
 

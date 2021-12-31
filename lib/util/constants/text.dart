@@ -2,43 +2,69 @@ import 'package:flutter/material.dart';
 
 class MyText {
   MyText._();
-  static const String splashText0 = "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın";
-  static const String splashText1 = "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik";
-  static const String splashText2 = "Pozitivlik qəlbimizdədir! Bunu yaymağı hədəfləyirik";
-  static const String promocodetext = "Hər bir promokod ilə 1 kq-a qədər bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+
+  static const String splashText0 =
+      "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın";
+  static const String splashText1 =
+      "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik";
+  static const String splashText2 =
+      "Pozitivlik qəlbimizdədir! Bunu yaymağı hədəfləyirik";
+  static const String promocodetext =
+      "Hər bir promokod ilə 1 kq-a qədər bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+
   ///version 2 text
-  static const String pageViewOne = "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. ";
-  static const String pageViewTwo = "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik. Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik.";
+  static const String pageViewOne =
+      "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. ";
+  static const String pageViewTwo =
+      "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik. Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik.";
+
   ///login
-  static const String loginText = "Zəhmət olmasa daxil olmaq üçün aşağıda qeyd olunan bəndləri doldurun.";
+  static const String loginText =
+      "Zəhmət olmasa daxil olmaq üçün aşağıda qeyd olunan bəndləri doldurun.";
+
   ///baglamalar
-  static const String packageText = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+  static const String packageText =
+      "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+
   /// esas sehife text
-  static const String homePageText = "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
+  static const String homePageText =
+      "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
+
   ///kuryer page
-  static const String kuryerTxt = "Xahiş edirik sadəcə yerləşdiyiniz ünvanı qeyd edəsiniz, və sizə gətiriləcək bağlamaları.️";
+  static const String kuryerTxt =
+      "Xahiş edirik sadəcə yerləşdiyiniz ünvanı qeyd edəsiniz, və sizə gətiriləcək bağlamaları.️";
+
   ///linkpage
-  static const String linkTxt = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
-  static const String paymentLinkTxt = "Sürətli ödəniş etmək üçün balansınızda vəsait saxlamağı tövsiyyə edirik. ";
+  static const String linkTxt =
+      "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+  static const String paymentLinkTxt =
+      "Sürətli ödəniş etmək üçün balansınızda vəsait saxlamağı tövsiyyə edirik. ";
+
   ///otherpage
-  static const String otherPage = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
-  static const String otherShop = "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
-///beyan et
-  static const String declareText = "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
-  static const String facturaText = "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
+  static const String otherPage =
+      "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
+  static const String otherShop =
+      "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
+
+  ///beyan et
+  static const String declareText =
+      "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+  static const String facturaText =
+      "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
+
   ///promocode
   static const String littlePromo = "Pulsuz bağlama aparın 😊";
-  static const String infoPromo = "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+  static const String infoPromo =
+      "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
+
   ///giftbalance
   static const String littleGift = "Biz pul-da paylayırıq 💸";
-  static const String InfoGift = "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
+  static const String InfoGift =
+      "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
+
   ///etibarname
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
-
-
-
-
 
   //login
   static const String log_in = "Daxil ol";
@@ -52,24 +78,26 @@ class MyText {
   static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";
   static const String every_past_must_be_same = "Hər iki şifrə eyni olmalıdır";
 
-
   //forgot pass
   static const String are_you_forgot_pass = "Şifrəni unutmusan ?";
-  static const String we_will_send_new_pass = "Hörmətli müştəri, şifrə unudulduğu halda biz sizin qeydiyyat zamanı daxil etdiyiniz Email unvanınıza yeni şirfə göndərəcəyik.";
-  static const String confirm_your_email = 'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.';
+  static const String we_will_send_new_pass =
+      "Hörmətli müştəri, şifrə unudulduğu halda biz sizin qeydiyyat zamanı daxil etdiyiniz Email unvanınıza yeni şirfə göndərəcəyik.";
+  static const String confirm_your_email =
+      'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.';
   static const String there_is_code_on_mail = 'Email-a kod gəlib';
-  static const String please_enter_code = 'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
+  static const String please_enter_code =
+      'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
   static const String set_new_pass = 'Yeni şifrə təyin edin';
   static const String new_pass = 'Yeni şifrə';
   static const String company_name = 'Şirkət adı';
   static const String tax_number = 'VÖEN';
   static const String enter_new_pass = 'Yeni şifrəni daxil edin';
   static const String enter_new_pass_again = 'Yeni şifrəni təkrar daxil edin';
-  static const String your_pass_reseted = 'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
+  static const String your_pass_reseted =
+      'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
   static const String code = 'Kod';
   static const String send = 'Göndər';
   static const String ok = 'OK';
-
 
   //general
   static const String back = "Geri";
@@ -81,17 +109,18 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
   static const String status = "Status";
   static const String currency = "Valyuta";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
-
   //order success
   static const String congrats = "Təbriklər 🎉";
   static const String orderOnTheWay = "Bağlama(lar) yoldadır";
-  static const String orderOnTheWayInfo = "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
+  static const String orderOnTheWayInfo =
+      "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
   static const String goToHomePage = "Ana səhifəyə keç";
 
   //courier
@@ -101,19 +130,18 @@ class MyText {
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
 
-
   //new order
-  static const String weBuyForYou = "Sizin əvəzinizə biz alarıq, yalnız bağlantını göndərrməyiniz kifayətdir.";
-  static const String youMustBuyProduct = "Məhsulu siz alırsınız, biz isə seçdiyiniz ünvana qədər çatdırırıq";
+  static const String weBuyForYou =
+      "Sizin əvəzinizə biz alarıq, yalnız bağlantını göndərrməyiniz kifayətdir.";
+  static const String youMustBuyProduct =
+      "Məhsulu siz alırsınız, biz isə seçdiyiniz ünvana qədər çatdırırıq";
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareIt = "Bəyan et 📦";
   static const String newOrder = "Yeni sifariş";
 
-
   //userCabinet
-  static const String emergencyCall = "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
-
-
+  static const String emergencyCall =
+      "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
 
   //home
   static const String welcome = "Xoş gəlmişsiniz!";
@@ -121,8 +149,6 @@ class MyText {
   static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String tariffs = "Tariflər";
-
-
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
@@ -145,13 +171,14 @@ class MyText {
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
   static const String card_id = "ŞV-nin seriya və nömrəsi";
+
   //static const String email = "E-poçt";
   static const String fin = "FİN kod";
   static const String gender = "Cinsiyyət";
 
-
   //orders
-  static const String packagesWillDeliverToYou = "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt:";
+  static const String packagesWillDeliverToYou =
+      "Hörmətli müştəri, bu bölmədə olan bağlamalar sizə qısa zamanda çatdırılacaq. Əlavə məlumat əldə etmək üçün qaynar xətt:";
   static const String orderNewPackages = "Yeni bağlama sifarişi";
 
 //notification
@@ -167,11 +194,11 @@ class MyText {
   static const String promoCode = "Promokod";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";
-  static const String used ="İstifadə edilib";
-  static const String congrated ="Təbrik edirik!";
-  static const String operationIsSuccess ="Əməliyyat uğurlu oldu.";
-  static const String applyToCustomerService = "Müştəri xidmətinə \nmüraciyət edin";
-
+  static const String used = "İstifadə edilib";
+  static const String congrated = "Təbrik edirik!";
+  static const String operationIsSuccess = "Əməliyyat uğurlu oldu.";
+  static const String applyToCustomerService =
+      "Müştəri xidmətinə \nmüraciyət edin";
 
   //social
   static const String whatsapp = "WhatsApp";
@@ -181,7 +208,8 @@ class MyText {
   static const String contact = 'Əlaqə';
   static const String contactX = "Əlaqə ☎️";
   static const String menu = 'Menu';
-  static const String forEditAppSettings = "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
+  static const String forEditAppSettings =
+      "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
   static const String giftBalanceX = "Hədiyyə balansı 💸️";
   static const String powerOfAttorney = "Etibarnamə ⚙️";
   static const String shops = "Mağazalar";
@@ -191,13 +219,13 @@ class MyText {
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
+  static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
   static const String comission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
   static const String exit = "Çıxış";
   static const String tapForExit = "Çıxış etmək üçün toxunun";
   static const String start = "Başla";
-
 
   //stores
   static const String stores = "Mağazalar";
@@ -214,7 +242,8 @@ class MyText {
   static const String sub_category = "Alt kateqoriya";
   static const String category_is_not_found = "Kateqoriya tapılmadı";
   static const String none_category_is_found = "Heç bir kateqoriya tapılmadı";
-  static const String first_select_main_category = "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
+  static const String first_select_main_category =
+      "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
   static const String seller = "Satıcı";
   static const String shop_name = "Mağaza adı:";
   static const String product_count = "Məhsul sayı";
@@ -224,26 +253,29 @@ class MyText {
   static const String its_weight = "Çəkisi";
   static const String shipping_price = "Çatdırılma haqqı";
   static const String order_date = "Sifariş tarixi";
-  static const String we_need_access_to_gallery = "Fotolara əlçatanlıq üçün icazə lazımdır.";
-  static const String we_will_redirect_to_settings = "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
-  static const String all_fields_must_be_filled = "Bütün xanalar doldurulmalıdır!";
+  static const String we_need_access_to_gallery =
+      "Fotolara əlçatanlıq üçün icazə lazımdır.";
+  static const String we_will_redirect_to_settings =
+      "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
+  static const String all_fields_must_be_filled =
+      "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";
   static const String tryy = "TRY";
   static const String invoice = "İnvoys";
- static const String factura = "Faktura";
- static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';
- static const String reportSuccessTitle = 'Bəyannamə uğurla əlavə edildi!';
- static const String reportSuccessContent = 'Bağlama bəyan olundu. Bağlamanın vaxtında əlavə olunması sifarişinizin sizə daha tez çatdırılmasına səbəb olacaq. Digər bağlamalar üçün prosesi təkrarlamaq istəsəniz "Prosesi təkrarla" butonuna toxunun.';
- static const String again_process = 'Prosesi təkrarla';
- static const String network_error = 'İnternet bağlantısı zamanı xəta yarandı!';
+  static const String factura = "Faktura";
+  static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';
+  static const String reportSuccessTitle = 'Bəyannamə uğurla əlavə edildi!';
+  static const String reportSuccessContent =
+      'Bağlama bəyan olundu. Bağlamanın vaxtında əlavə olunması sifarişinizin sizə daha tez çatdırılmasına səbəb olacaq. Digər bağlamalar üçün prosesi təkrarlamaq istəsəniz "Prosesi təkrarla" butonuna toxunun.';
+  static const String again_process = 'Prosesi təkrarla';
+  static const String network_error =
+      'İnternet bağlantısı zamanı xəta yarandı!';
 
   //static const String note = "İzləmə kodu";
-
+  static const String link_of_order = 'Məhsulun linki';
+  //order via link
 
 //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
-
-
 }
-

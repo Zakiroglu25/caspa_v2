@@ -90,5 +90,8 @@ class StringOperations {
     return deviceName;
   }
 
-
+  static bool urlIsValid(str) {
+    return Uri.tryParse(str)?.hasAbsolutePath ?? false;
+    ;
+  }
 }

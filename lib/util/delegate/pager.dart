@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -96,8 +97,8 @@ class Pager {
       child: NewOrderPage());
 
   static get viaLink => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => ForgotPassCubit())],
-      child: LinkPage());
+      providers: [BlocProvider(create: (context) => OrderViaUrlCubit())],
+      child: OrderViaLinkPage());
 
   static get userSettingsPage => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],

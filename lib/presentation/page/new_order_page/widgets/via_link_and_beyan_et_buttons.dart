@@ -19,7 +19,7 @@ class ViaLinkAndBeyanEtButtons extends StatelessWidget {
           content: MyText.weBuyForYou,
           title: MyText.viaLink,
           color: MyColors.softGreen235,
-          onTap: () => Go.to(context, LinkPage()),
+          onTap: () => Go.to(context, Pager.viaLink),
         ),
         MenuBox(
           content: MyText.youMustBuyProduct,

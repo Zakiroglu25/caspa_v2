@@ -183,12 +183,12 @@ class ReportCubit extends Cubit<ReportState> {
 
   Stream<int> get productCountStream => productCount.stream;
 
-  updateProductCount(int value) {
-    if (value == null) {
+  updateProductCount(String value) {
+    if (value == null || value.isEmpty) {
       // productCount.value = '';
       productCount.sink.addError(MyText.field_is_not_correct);
     } else {
-      productCount.sink.add(value);
+      productCount.sink.add(int.parse(value));
     }
     // isUserInfoValid(registerType: _registerType);
   }
@@ -219,15 +219,14 @@ class ReportCubit extends Cubit<ReportState> {
 
   Stream<double> get priceStream => price.stream;
 
-  updatePrice(double value) {
-    if (value == null) {
+  updatePrice(String value) {
+    if (value == null || value.isEmpty) {
       price.sink.addError(MyText.field_is_not_correct);
     } else {
-      price.sink.add(value);
+      price.sink.add(double.parse(value));
     }
     // isUserInfoValid(registerType: _registerType);
   }
-
   bool get isPriceIncorrect => (!price.hasValue || price.value == null);
 
   //priceType

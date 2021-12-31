@@ -2,8 +2,6 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-import 'infrastructure/configs/base.dart';
 import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'util/constants/colors.dart';
 import 'util/constants/text.dart';
@@ -15,7 +13,7 @@ class MateApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: Size(375, 812),
+        designSize: const Size(375, 812),
         builder: () =>
             BlocProvider(
               create: (context) =>

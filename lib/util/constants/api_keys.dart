@@ -24,8 +24,11 @@ class ApiKeys {
   static final registerCompany = "$baseUrl/user/company/register";
 
   //report
-
   static final report = "$baseUrl/user/report";
+  static final orderViaLink = "$baseUrl/user/orders";
+
+
+
   //user
   static final user = "$baseUrl/user/user";
 
@@ -74,6 +77,27 @@ class ApiKeys {
       "deviceTypeId": deviceTypeId,
       "deviceCode": deviceCode,
       "language": language,
+    };
+
+    aaaa(map.toString());
+    map.removeWhere(
+            (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+  static orderViaLinkBody({
+    required String? link,
+    required double? price,
+    required double? cargo_price,
+    required String? detail,
+    required int? qty
+  }) {
+    //
+    final map = {
+      "link": link,
+      "qty": qty,
+      "price": price,
+      "cargo_price": cargo_price,
+      "detail": detail,
     };
 
     aaaa(map.toString());

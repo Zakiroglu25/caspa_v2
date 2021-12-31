@@ -1,10 +1,7 @@
 import 'dart:async';
-
-import 'package:caspa_v2/infrastructure/configs/base.dart';
 import 'package:caspa_v2/mate_app.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'infrastructure/configs/init.dart';
 
 void main() async{

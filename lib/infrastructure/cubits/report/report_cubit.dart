@@ -227,6 +227,7 @@ class ReportCubit extends Cubit<ReportState> {
     }
     // isUserInfoValid(registerType: _registerType);
   }
+
   bool get isPriceIncorrect => (!price.hasValue || price.value == null);
 
   //priceType

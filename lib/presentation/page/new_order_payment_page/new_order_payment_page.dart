@@ -11,7 +11,7 @@ import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
 import 'package:flutter/material.dart';
 
-class NewOrderPaymentPage extends StatelessWidget {
+class PaymentPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

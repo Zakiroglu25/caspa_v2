@@ -34,7 +34,7 @@ class MateApp extends StatelessWidget {
                   //Pager.newOrder
                   // Pager.shops,
                  // Pager.report
-                  Pager.newOrderPayment
+                  Pager.payment
                  //Pager.app()
               ),
             )

@@ -7,6 +7,7 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
@@ -121,9 +122,9 @@ class Pager {
         //    BlocProvider.value(value: AuthenticationCubit()),
       ], child: OtherPage());
 
-  static get newOrderPayment => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserCubit())],
-      child: NewOrderPaymentPage());
+  static get payment => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => PaymentCubit())],
+      child: PaymentPage());
 
   static get onBoard => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],

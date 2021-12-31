@@ -37,7 +37,7 @@ class MyText {
   ///linkpage
   static const String linkTxt =
       "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
-  static const String paymentLinkTxt =
+  static const String weAdviceSaveMoneyOnBalance =
       "Sürətli ödəniş etmək üçün balansınızda vəsait saxlamağı tövsiyyə edirik. ";
 
   ///otherpage
@@ -166,6 +166,7 @@ class MyText {
   static const String technicInfo = "Texniki məlumatlar";
   static const String nationality = "Vətandaşlıq";
   static const String save = "Yadda saxla";
+  static const String own_cabinet = "Şəxsi kabinet";
   static const String adress = "Adres";
   static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
@@ -235,6 +236,7 @@ class MyText {
   static const String more = "Ətraflı";
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
+
 
   //report
   static const String report = "Bəyan et";

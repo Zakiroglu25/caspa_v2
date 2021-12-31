@@ -14,6 +14,7 @@ class Assets {
   static const String pngPosTerminal = "assets/png/payment.png";
   static const String pngEtibarname = "assets/png/etibar.png";
   static const String pngDino = "assets/png/homeDinopng.png";
+  static const String pngCaspacard = "assets/png/caspacard.png";
 
   static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";

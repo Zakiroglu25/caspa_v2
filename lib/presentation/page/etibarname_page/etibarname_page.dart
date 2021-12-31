@@ -39,7 +39,7 @@ class EtibarnamePage extends StatelessWidget {
             ColorfullBackImage(
               path: Assets.pngEtibarname,
               infoTitle: MyText.littleEtibar,
-              infoContent: MyText.paymentLinkTxt,
+              infoContent: MyText.weAdviceSaveMoneyOnBalance,
             ),
             MySizedBox.h16,
             CaspaButton(

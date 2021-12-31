@@ -21,7 +21,7 @@ class EmailFieldUser extends StatelessWidget {
           textInputType: TextInputType.emailAddress,
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //controller: controller,
+          controller: controller,
           onChanged: (value) =>
               BlocProvider.of<UserCubit>(context).updateEmail(value),
         );

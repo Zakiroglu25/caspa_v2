@@ -6,6 +6,7 @@ class ApiKeys {
   ApiKeys._();
 
   static const baseUrl = 'https://caspa.az/api';
+
   ///delete
   static const baseUrlTest = 'https://demoapi.rahatapp.az/v1/couriers';
   static const headers = {
@@ -22,17 +23,14 @@ class ApiKeys {
   static final report = "$baseUrl/user/report";
   static final orderViaLink = "$baseUrl/user/orders";
 
-
-
   //user
   static final user = "$baseUrl/user/user";
 
   //general
-  static final shop ='$baseUrl/public/stores';
-
+  static final shop = '$baseUrl/public/stores';
 
   //packages
-  static final allPackages ='$baseUrl/user/packages';
+  static final allPackages = '$baseUrl/user/packages';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -47,13 +45,11 @@ class ApiKeys {
   //get category
   static const categories = "$baseUrl/public/categories";
 
-
-
   //get address
   static const getAddress = "$baseUrl/public/countries";
+
   //add Etibarname
   static const addAttorneys = "$baseUrl/user/attorneys";
-
 
   static loginBody({
     required String? email,
@@ -76,16 +72,16 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
-  static orderViaLinkBody({
-    required String? link,
-    required double? price,
-    required double? cargo_price,
-    required String? detail,
-    required int? qty
-  }) {
+
+  static orderViaLinkBody(
+      {required String? link,
+      required double? price,
+      required double? cargo_price,
+      required String? detail,
+      required int? qty}) {
     //
     final map = {
       "link": link,
@@ -97,7 +93,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -128,16 +124,17 @@ class ApiKeys {
       "accept": 1,
       "company_name": company_name,
       "tax_number": tax_number,
-      "deviceCode":deviceCode,
-      "deviceTypeId":deviceTypeId,
-      "language":language
+      "deviceCode": deviceCode,
+      "deviceTypeId": deviceTypeId,
+      "language": language
     };
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
+
   static reportBody({
     required String? store,
     required int? qty,
@@ -149,19 +146,18 @@ class ApiKeys {
     required String? note,
   }) {
     //
-    final Map<String,dynamic> map = {
+    final Map<String, dynamic> map = {
       "store": store,
       "qty": qty,
       "category": category,
       "tracking": tracking,
       "price": price,
       "currency": currency,
-
       "note": note,
     };
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -183,24 +179,7 @@ class ApiKeys {
     required String? gender,
     required int? ware_house,
   }) {
-    //
-    // final map = {
-    //   "name": "esev.sv@gmail.com",
-    //   "surname": "salam12345",
-    //   "address": "addd",
-    //   "email": "addd",
-    //   "password": "addd",
-    //   "password_confirmation ": "addd",
-    //   "phone": "addd",
-    //   "accept": "addd",
-    //   "id_number": "addd",
-    //   "fin": "addd",
-    //   "birthday": "addd",
-    //   "gender": "addd",
-    //   "ware_house": "addd",
-    // };
-
-  final map = {
+    final map = {
       "name": name,
       "surname": surname,
       "address": address,
@@ -214,14 +193,52 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": 1,
-    "deviceCode":deviceCode,
-    "deviceTypeId":deviceTypeId,
-    "language":language
+      "deviceCode": deviceCode,
+      "deviceTypeId": deviceTypeId,
+      "language": language
     };
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+
+  static updateAccountBody({
+    required String? address,
+    required String? language,
+    required String? email,
+    required String? password,
+    required String? old_password,
+    required String? password_confirmation,
+    required String? phone,
+    //required int? accept,
+    required String? id_number,
+    required String? fin,
+    required String? birthday,
+    required String? company_name,
+    required String? tax_number,
+    required int? ware_house,
+  }) {
+    final map = {
+      "password": password,
+      "password_confirmation": password_confirmation,
+      "birthday": birthday,
+      "id_number": id_number,
+      "fin": fin,
+      "city": 1,
+      "address": address,
+      "email": email,
+      "company_name": company_name,
+      "tax_number": tax_number,
+      "phone": phone,
+      "ware_house": 1,
+      "language": language
+    };
+
+    aaaa(map.toString());
+    map.removeWhere(
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -236,7 +253,7 @@ class ApiKeys {
 
     aaaa(map.toString());
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 }

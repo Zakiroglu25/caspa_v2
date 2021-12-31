@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -13,17 +14,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../../locator.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserCabinetPage extends StatelessWidget {
   const UserCabinetPage({Key? key}) : super(key: key);
-
+  PreferencesService get _prefs => locator<PreferencesService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
-        title: "Şəxsi kabinet",
+        title: MyText.own_cabinet,
         contextA: context,
         centerTitle: true,
         user: false,
@@ -88,8 +90,8 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h32,
               CabinetHeaderWidget(),
               BalanceBox(
-                title: "Balans TL",
-                price: "120.00₼ ",
+                title: "Balans USD",
+                price: _prefs.user.cargoBalance,
                 subtitle: "(Daşınma)",
                 color: MyColors.balansCargo,
                 btnText: MyText.increaseBalance,
@@ -98,7 +100,7 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 title: "Balans TL",
-                price: "120.00₼ ",
+                price: _prefs.user.balance??"0",
                 subtitle: "(Sifariş)",
                 color: MyColors.balansOrder,
                 btnText: MyText.increaseBalance,
@@ -110,7 +112,7 @@ class UserCabinetPage extends StatelessWidget {
                 children: [
                   BalansMiniBox(
                     title: MyText.last30days,
-                    content: "8.00",
+                    content: "0.00",
                     color: MyColors.shop,
                     priceColor: MyColors.balanceBoxRed,
                     icon: const Icon(null),

@@ -23,7 +23,7 @@ class AdressFieldUser extends StatelessWidget {
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
+            controller: controller,
           onChanged: (value) =>
               BlocProvider.of<UserCubit>(context).updateAdress(value),
         );

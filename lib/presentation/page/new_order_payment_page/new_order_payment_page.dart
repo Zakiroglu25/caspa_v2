@@ -31,7 +31,7 @@ class PaymentPage extends StatelessWidget {
           MySizedBox.h26,
           //error verdi deye Asset. elemedim
           SectionNameAndDefinition(
-            definition: MyText.paymentLinkTxt,
+            definition: MyText.weAdviceSaveMoneyOnBalance,
             imagePath: Assets.pngPosTerminal,
             name: MyText.makePayment,
           ),

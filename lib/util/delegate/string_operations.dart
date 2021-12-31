@@ -94,4 +94,11 @@ class StringOperations {
     return Uri.tryParse(str)?.hasAbsolutePath ?? false;
     ;
   }
+
+  static TextEditingController stringToController(String? string) {
+
+    return TextEditingController.fromValue(TextEditingValue(text: (string)??""));
+
+    ;
+  }
 }

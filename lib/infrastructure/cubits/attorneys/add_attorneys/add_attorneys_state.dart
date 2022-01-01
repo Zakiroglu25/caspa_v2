@@ -15,7 +15,4 @@ class AddAttorneysError extends AddAttorneysState {
 }
 
 class AddAttorneysSuccess extends AddAttorneysState {
-  AddAttorneysSuccess(this.addAttorneys);
-
-  final AddAttorneysModel addAttorneys;
 }

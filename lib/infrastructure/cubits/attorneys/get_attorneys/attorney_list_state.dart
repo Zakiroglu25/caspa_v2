@@ -19,5 +19,5 @@ class AttorneyListNetworkError extends AttorneyListState {}
 class AttorneyListSuccess extends AttorneyListState {
   AttorneyListSuccess(this.attorney);
 
-  final List<Data> attorney;
+  final List<Attorney> attorney;
 }

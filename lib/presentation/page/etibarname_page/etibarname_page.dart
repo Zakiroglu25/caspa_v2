@@ -19,8 +19,9 @@ import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focus_detector/focus_detector.dart';
 
-import 'add_etibarname_page.dart';
+import '../add_attorney_page/add_etibarname_page.dart';
 import 'widget/add_attorney_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 
@@ -35,33 +36,38 @@ class EtibarnamePage extends StatelessWidget {
         title: MyText.attorneysX,
         notification: false,
       ),
-      body: ListView(
-        padding: Paddings.paddingA16,
-        children: [
-          ColorfullBackImage(
-            path: Assets.pngEtibarname,
-            infoTitle: MyText.littleEtibar,
-            infoContent: MyText.weAdviceSaveMoneyOnBalance,
-          ),
-          MySizedBox.h16,
-          AddAttorneyButton(),
-          MySizedBox.h32,
-          BlocBuilder<AttorneyListCubit, AttorneyListState>(
-              builder: (context, state) {
-            if (state is AttorneyListSuccess) {
-              List<Data> attorneyList = state.attorney;
-              return AttorneyListWidget(
-                attorneyList: attorneyList,
-              );
-            } else if (state is AttorneyListInProgress) {
-              return CaspaLoading(
-                s: 92.sp,
-              );
-            } else {
-              return EmptyWidget();
-            }
-          }),
-        ],
+      body: FocusDetector(
+        onFocusGained: (){
+          context.read<AttorneyListCubit>().fetch(false);
+        },
+        child: ListView(
+          padding: Paddings.paddingA16,
+          children: [
+            ColorfullBackImage(
+              path: Assets.pngEtibarname,
+              infoTitle: MyText.littleEtibar,
+              infoContent: MyText.weAdviceSaveMoneyOnBalance,
+            ),
+            MySizedBox.h16,
+            AddAttorneyButton(),
+            MySizedBox.h32,
+            BlocBuilder<AttorneyListCubit, AttorneyListState>(
+                builder: (context, state) {
+              if (state is AttorneyListSuccess) {
+                List<Attorney> attorneyList = state.attorney.reversed.toList();
+                return AttorneyListWidget(
+                  attorneyList: attorneyList,
+                );
+              } else if (state is AttorneyListInProgress) {
+                return CaspaLoading(
+                  s: 92.sp,
+                );
+              } else {
+                return EmptyWidget();
+              }
+            }),
+          ],
+        ),
       ),
     );
   }

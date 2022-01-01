@@ -17,8 +17,11 @@ class AppOperations {
     return (index * 100) < 1500 ? index * 100 : 400;
   }
 
-  static String formatNumber(String num) {
-    final a = num.replaceAll('(', "(0");
+  static String formatNumber(String num, {bool addZero = true}) {
+    var a =num;
+    if (addZero) {
+    a= num.replaceAll('(', "(0");
+    }
 
     return a.replaceAll(' ', "-");
   }

@@ -74,7 +74,7 @@ class OtherPage extends StatelessWidget {
                   color: MyColors.etibarname,
                   onTap: () {
                     Go.to(context, BlocProvider.value(
-                      value:  AttorneyListCubit()..fetch(),
+                      value:  AttorneyListCubit(),
                       child: EtibarnamePage(),
                     ));
                   },

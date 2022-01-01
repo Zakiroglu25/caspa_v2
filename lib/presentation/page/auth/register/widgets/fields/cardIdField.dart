@@ -15,9 +15,9 @@ class CardIdFieldRegister extends StatelessWidget {
       stream: BlocProvider.of<RegisterCubit>(context).idNumberStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.card_id,
+          title: MyText.card_serie_and_id,
           maxLines: 1,
-          hint: MyText.card_id,
+          hint: MyText.card_serie_and_id,
           upperCase: true,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.characters,

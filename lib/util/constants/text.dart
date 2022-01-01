@@ -113,6 +113,7 @@ class MyText {
   static const String from_where = "Haradan";
   static const String status = "Status";
   static const String currency = "Valyuta";
+  static const String serie = "Seriya";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
 
@@ -161,6 +162,8 @@ class MyText {
   //user settings
   static const String main = "Əsas";
   static const String name = "Ad";
+  static const String name_surname = "Ad, Soyad";
+  static const String father_name = "Ata adı";
   static const String surname = "Soyad";
   static const String currentPass = "Cari şifrə";
   static const String technicInfo = "Texniki məlumatlar";
@@ -171,7 +174,8 @@ class MyText {
   static const String adresses = '''Ünvanlar''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
-  static const String card_id = "ŞV-nin seriya və nömrəsi";
+  static const String card_serie_and_id = "ŞV-nin seriya və nömrəsi";
+  static const String card_id = "ŞV-nin nömrəsi";
 
   //static const String email = "E-poçt";
   static const String fin = "FİN kod";
@@ -266,6 +270,8 @@ class MyText {
       "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";
   static const String tryy = "TRY";
+  static const String aa = "AA";
+  static const String aze = "AZE";
   static const String invoice = "İnvoys";
   static const String factura = "Faktura";
   static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';

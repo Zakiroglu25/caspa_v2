@@ -12,7 +12,7 @@ import '../../../../locator.dart';
 import 'attorney_list_state.dart';
 
 class AttorneyListCubit extends Cubit<AttorneyListState> {
-  AttorneyListCubit() : super(AttorneyListInitial());
+  AttorneyListCubit() : super(AttorneyListInProgress());
 
   PreferencesService get _prefs => locator<PreferencesService>();
 

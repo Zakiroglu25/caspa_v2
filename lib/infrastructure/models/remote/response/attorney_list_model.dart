@@ -1,13 +1,13 @@
 class AttorneyListModel {
-  List<Data>? data;
+  List<Attorney>? data;
 
   AttorneyListModel({required this.data});
 
   AttorneyListModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <Attorney>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(Attorney.fromJson(v));
       });
     }
   }
@@ -21,7 +21,7 @@ class AttorneyListModel {
   }
 }
 
-class Data {
+class Attorney {
   int? id;
   String? fullName;
   String? fatherName;
@@ -30,7 +30,7 @@ class Data {
   String? birthday;
   String? phone;
 
-  Data(
+  Attorney(
       {this.id,
         this.fullName,
         this.fatherName,
@@ -39,7 +39,7 @@ class Data {
         this.birthday,
         this.phone});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Attorney.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fullName = json['full_name'];
     fatherName = json['father_name'];

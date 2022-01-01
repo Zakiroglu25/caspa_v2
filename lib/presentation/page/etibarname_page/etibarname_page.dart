@@ -9,6 +9,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -21,7 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focus_detector/focus_detector.dart';
 
-import '../add_attorney_page/add_etibarname_page.dart';
+import '../add_attorney_page/add_or_etibarname_page.dart';
 import 'widget/add_attorney_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 
@@ -37,7 +38,7 @@ class EtibarnamePage extends StatelessWidget {
         notification: false,
       ),
       body: FocusDetector(
-        onFocusGained: (){
+        onFocusGained: () {
           context.read<AttorneyListCubit>().fetch(false);
         },
         child: ListView(
@@ -51,8 +52,20 @@ class EtibarnamePage extends StatelessWidget {
             MySizedBox.h16,
             AddAttorneyButton(),
             MySizedBox.h32,
-            BlocBuilder<AttorneyListCubit, AttorneyListState>(
-                builder: (context, state) {
+            BlocConsumer<AttorneyListCubit, AttorneyListState>(
+                listener: (context, state) {
+              if (state is AttorneyDeleted) {
+                Snack.display(
+                    context: context,
+                    message: MyText.operationIsSuccess,
+                    positive: true,
+                    showSuccessIcon: true);
+              }
+            }, buildWhen: (context, state) {
+              if (state is AttorneyDeleted) {
+                return false;
+              }else return true;
+            }, builder: (context, state) {
               if (state is AttorneyListSuccess) {
                 List<Attorney> attorneyList = state.attorney.reversed.toList();
                 return AttorneyListWidget(

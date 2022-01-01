@@ -15,6 +15,7 @@ class AttorneyListError extends AttorneyListState {
 }
 
 class AttorneyListNetworkError extends AttorneyListState {}
+class AttorneyDeleted extends AttorneyListState {}
 
 class AttorneyListSuccess extends AttorneyListState {
   AttorneyListSuccess(this.attorney);

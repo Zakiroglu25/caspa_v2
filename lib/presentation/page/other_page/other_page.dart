@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
@@ -73,10 +74,7 @@ class OtherPage extends StatelessWidget {
                   content: MyText.forEditAppSettings,
                   color: MyColors.etibarname,
                   onTap: () {
-                    Go.to(context, BlocProvider.value(
-                      value:  AttorneyListCubit(),
-                      child: EtibarnamePage(),
-                    ));
+                    Go.to(context, Pager.attorney);
                   },
                 ),
                 MenuBox(

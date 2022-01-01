@@ -1,5 +1,7 @@
 // Flutter imports:
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
@@ -13,13 +15,16 @@ import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/presentation/page/add_attorney_page/add_or_etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
+import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
@@ -139,6 +144,10 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: LandingPage());
 
+  static get attorney => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AttorneyListCubit())],
+      child: EtibarnamePage());
+
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
         // BlocProvider.value(
@@ -189,4 +198,8 @@ class Pager {
   static  packageDetails({ required Package package}) => BlocProvider(
       create: (context) => PackageCubit()..fetch(),
       child:   PackageDetailsPage(package: package,));
+
+  static  addOrEditAttorney({  Attorney? attorney}) => BlocProvider(
+      create: (context) => AddAttorneysCubit(),
+      child:   AddOrEditEtibarnamePage(attorney: attorney,));
 }

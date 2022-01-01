@@ -25,7 +25,7 @@ class BirthdayFieldRegister extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            controller,
+            BlocProvider.of<RegisterCubit>(context).birthDate.valueOrNull!,
             onTap: () {
               BlocProvider.of<RegisterCubit>(context).updateBirthDate('');
             },

@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FieldCLearButton extends StatefulWidget {
-  TextEditingController controller;
+  String value;
   Function? onTap;
 
 
-  FieldCLearButton(this.controller, {this.onTap});
+  FieldCLearButton(this.value, {this.onTap});
 
   @override
   State<FieldCLearButton> createState() => _FieldCLearButtonState();
@@ -19,7 +19,7 @@ class _FieldCLearButtonState extends State<FieldCLearButton> {
   @override
   Widget build(BuildContext context) {
     return WidgetOrEmpty(
-      value: (widget.controller.text != ''),
+      value: (widget.value!= ''),
       child: Material(
         color: Colors.transparent,
         child: GestureDetector(
@@ -34,7 +34,7 @@ class _FieldCLearButtonState extends State<FieldCLearButton> {
               )),
           onTap: () {
             setState(() {
-              widget.controller.clear();
+              widget.value='';
             });
 
             widget.onTap?.call();

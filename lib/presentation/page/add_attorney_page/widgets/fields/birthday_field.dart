@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attor
 import 'package:caspa_v2/presentation/page/auth/register/widgets/field_c_lear_button.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,10 @@ import 'package:intl/intl.dart';
 
 
 class BirthdayFieldAttorney extends StatelessWidget {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController controller ;
+
+
+  BirthdayFieldAttorney(this.controller);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class BirthdayFieldAttorney extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            controller,
+            BlocProvider.of<AddAttorneysCubit>(context).birthDate.valueOrNull??'',
             onTap: () {
               BlocProvider.of<AddAttorneysCubit>(context).updateBirthDate('');
             },
@@ -35,7 +39,7 @@ class BirthdayFieldAttorney extends StatelessWidget {
           onTap: () {
             _openDatePicker(context, controller, null);
           },
-          controller: controller,
+          controller: StringOperations.stringToController(BlocProvider.of<AddAttorneysCubit>(context).birthDate.valueOrNull??''),
           onChanged: (value) =>
               BlocProvider.of<AddAttorneysCubit>(context).updateBirthDate(value),
         );

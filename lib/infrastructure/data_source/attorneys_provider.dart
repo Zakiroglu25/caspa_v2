@@ -9,7 +9,7 @@ import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
-class AddAttorneysProvider {
+class AttorneyProvider {
   static Future<StatusDynamic?> addAttorneys({
     required String? accessToken,
     required String? full_name,
@@ -31,7 +31,49 @@ class AddAttorneysProvider {
       "father_name": father_name,
       "phone": phone,
       "fin": fin,
-      "id_ext": "AZ",
+      "id_ext": id_ext,
+      "id_number": id_number,
+      "birthday": birthday,
+      "note": note,
+    };
+
+    bbbb("body: " + jsonEncode(body).toString());
+    final response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
+
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess201) {
+      statusDynamic.data = response.body;
+    } else {
+      eeee("addAttorney result bad:  url: $url  ,  response: ${response.body}");
+    }
+    return statusDynamic;
+  }
+  static Future<StatusDynamic?> editAttorneys({
+    required int? id,
+    required String? accessToken,
+    required String? full_name,
+    required String? father_name,
+    required String? phone,
+    required String? id_ext,
+    required String? id_number,
+    required String? fin,
+    required String? birthday,
+    required String? note,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.editAttorneys;
+    var url = Uri.parse(api);
+    final headers = ApiKeys.header(token: accessToken);
+
+    final body = {
+      "id": id,
+      "full_name": full_name,
+      "father_name": father_name,
+      "phone": phone,
+      "fin": fin,
+      "id_ext": id_ext,
       "id_number": id_number,
       "birthday": birthday,
       "note": note,
@@ -51,23 +93,31 @@ class AddAttorneysProvider {
     return statusDynamic;
   }
 
-  static Future<AddAttorneysModel?> deleteAttorney(
-      {required int id, required String accessToken}) async {
-    AddAttorneysModel? deleteAttorneys;
-    const api = ApiKeys.addAttorneys;
-    final headers = ApiKeys.header(token: accessToken);
+  static Future<StatusDynamic?> deleteAttorney({
+    required String? accessToken,
+    required int id,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.deleteAttorneys;
     var url = Uri.parse(api);
-    final response = await http.post(url, headers: headers);
-    if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.body);
-      deleteAttorneys = AddAttorneysModel.fromJson(dataGelenCavabJSON);
+    final headers = ApiKeys.header(token: accessToken);
 
-      return deleteAttorneys;
+    final body = {
+      "id": id,
+    };
+
+    bbbb("body: " + jsonEncode(body).toString());
+    final response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
+
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess201) {
+      statusDynamic.data = response.body;
     } else {
-      eeee(
-          "delete attorney result bad:  url: $url  ,  response: ${response.body}");
-      return null;
+      eeee("deleteAttorney result bad:  url: $url  ,  response: ${response.body}");
     }
+    return statusDynamic;
   }
 
   static Future<AddAttorneysModel?> updateAttorney({
@@ -110,9 +160,7 @@ class AddAttorneysProvider {
       return null;
     }
   }
-}
 
-class AttorneyListProvider {
   static Future<AttorneyListModel> getAttorneys(
       {required String? accessToken}) async {
     late AttorneyListModel attorneyListModel;

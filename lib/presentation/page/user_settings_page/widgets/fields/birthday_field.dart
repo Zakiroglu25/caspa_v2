@@ -29,7 +29,7 @@ class BirthdayFieldUser extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            controller,
+            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull!,
             onTap: () {
               BlocProvider.of<UserCubit>(context).updateBirthDate('');
             },

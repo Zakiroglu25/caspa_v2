@@ -101,6 +101,8 @@ class MyText {
 
   //general
   static const String back = "Geri";
+  static const String are_u_sure_delete = "Silmək istədiyinizdən əminsiniz?";
+  static const String you_can_not_recovery_it_again = "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
@@ -217,6 +219,7 @@ class MyText {
       "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
   static const String giftBalanceX = "Hədiyyə balansı 💸️";
   static const String attorneyX = "Etibarnamə ⚙️";
+  static const String attorney = "Etibarnamə️";
   static const String attorneysX = "Etibarnamələr 📑";
   static const String new_attorney = "Yeni etibarnamə";
   static const String shops = "Mağazalar";
@@ -239,6 +242,7 @@ class MyText {
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
+  static const String sure_all_fields_correct_contact_us = "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
   static const String more = "Ətraflı";
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";

@@ -25,6 +25,7 @@ import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
+import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
@@ -38,6 +39,7 @@ import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
 import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
+import 'package:caspa_v2/presentation/page/settings_page/app_info_page.dart';
 import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
 import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
@@ -147,6 +149,15 @@ class Pager {
   static get attorney => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: EtibarnamePage());
+  static get appInfo => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AttorneyListCubit())],
+      child: AppInfoPage());
+
+  static get license => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AttorneyListCubit())],
+      child: LicensePageX());
+
+
 
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),

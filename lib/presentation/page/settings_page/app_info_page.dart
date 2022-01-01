@@ -21,7 +21,6 @@ class AppInfoPage extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Tətbiq haqqında",
-
           style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
         ),
       ),
@@ -38,7 +37,7 @@ class AppInfoPage extends StatelessWidget {
             SvgPicture.asset(Assets.svgCaspaLogoWithName),
             MySizedBox.h30,
             Text(
-              "Locale Version",
+              "Locale Version: 0.0.1",
               style: AppTextStyles.sanF400
                   .copyWith(color: Colors.white, fontSize: 14.sp),
             ),

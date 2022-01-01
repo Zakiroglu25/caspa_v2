@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'widgets/setting_element.dart';
+
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -17,7 +19,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
-        title: "Ayarlar ⚙️",
+        title: MyText.settingsX,
         centerTitle: true,
         user: false,
         notification: false,
@@ -26,7 +28,6 @@ class SettingsPage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16.0,top: 35),
         child: ListView(
           children: [
-            SectionName(title: "Tətbiqetmə haqqında"),
             MySizedBox.h45,
             Row(
               children: [
@@ -52,21 +53,10 @@ class SettingsPage extends StatelessWidget {
               ],
             ),
             MySizedBox.h45,
-            InkWell(
-              onTap: (){
-                Go.to(context, AppInfoPage());
-              },
-              child: Row(
-                children: [
-                  SvgPicture.asset(Assets.svgInfoApp),
-                  MySizedBox.w20,
-                  Text(
-                    "Tətbiq haqqında",
-                    style: AppTextStyles.sanF400
-                        .copyWith(color: Colors.black, fontSize: 17.sp),
-                  ),
-                ],
-              ),
+            SettingElement(
+              onTap: ()=>Go.to(context, AppInfoPage()),
+              title:MyText.about_app ,
+              svgPath: Assets.svgInfoApp,
             ),
           ],
         ),

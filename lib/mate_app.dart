@@ -7,6 +7,7 @@ import 'util/constants/colors.dart';
 import 'util/constants/text.dart';
 import 'util/delegate/scroll_behaivor.dart';
 import 'package:animations/animations.dart';
+
 class MateApp extends StatelessWidget {
   const MateApp({Key? key}) : super(key: key);
 
@@ -14,19 +15,18 @@ class MateApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(375, 812),
-        builder: () =>
-            BlocProvider(
+        builder: () => BlocProvider(
               create: (context) =>
-              AuthenticationCubit()
-                ..startApp(context, showSplash: true),
+                  AuthenticationCubit()..startApp(context, showSplash: true),
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: MyText.messenger,
-                 // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
+                  // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                   theme: ThemeData(
                       pageTransitionsTheme: PageTransitionsTheme(
                         builders: <TargetPlatform, PageTransitionsBuilder>{
-                          TargetPlatform.android: SharedAxisPageTransitionsBuilder(
+                          TargetPlatform.android:
+                              SharedAxisPageTransitionsBuilder(
                             transitionType: SharedAxisTransitionType.scaled,
                           ),
                           TargetPlatform.iOS: SharedAxisPageTransitionsBuilder(
@@ -41,13 +41,11 @@ class MateApp extends StatelessWidget {
                         behavior: ScrollBehaviorModified(), child: widget!);
                   },
                   home:
-                  //Pager.newOrder
-                  // Pager.shops,
-                 // Pager.report
-                 // Pager.payment
-                 Pager.app()
-              ),
-            )
-    );
+                      //Pager.newOrder
+                      // Pager.shops,
+                      // Pager.report
+                      // Pager.payment
+                      Pager.app()),
+            ));
   }
 }

@@ -115,6 +115,8 @@ class MyText {
   static const String from_where = "Haradan";
   static const String status = "Status";
   static const String currency = "Valyuta";
+  static const String c1453 = "*1453";
+  static const String hot_contact = "Qaynar xətt";
   static const String serie = "Seriya";
   static const String delivery_adress = "Çatdırılma ünvanı";
   static const String general_info = "Ümumi məlumat";
@@ -197,7 +199,8 @@ class MyText {
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
-  static const String settingsX = 'Ayarlar ⚙️';
+  static const String settingsX = 'Tənzimləmələr ⚙️';
+  static const String about_app = 'Tətbiq haqqında️';
   static const String promoCode = "Promokod";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";

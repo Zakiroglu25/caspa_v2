@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StringOperations {
   //youtube
@@ -115,6 +116,15 @@ class StringOperations {
       return string.substring(3);
     } else {
       return string.substring(2);
+    }
+  }
+
+  static launchCaller(String num) async {
+    var url = "tel:$num";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }

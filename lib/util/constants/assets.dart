@@ -57,7 +57,8 @@ class Assets {
   static const String svgWhatsapp="assets/svg/whatsapp.svg";
   static const String svgTelegram="assets/svg/telegram.svg";
   static const String svgEdit="assets/svg/edit.svg";
-  static const String svgMessenger="assets/svg/facebook.svg";
+  static const String svgMessenger="assets/svg/messenger.svg";
+  static const String svgContact="assets/svg/contact.svg";
   static const String svgFacebook="assets/svg/facebook.svg";
   static const String svgHelp="assets/svg/help.svg";
   static const String svgInfoApp="assets/svg/info_app.svg";

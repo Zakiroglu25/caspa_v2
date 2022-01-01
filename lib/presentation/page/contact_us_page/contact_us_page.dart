@@ -3,8 +3,10 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'widgets/social_item.dart';
 
 class ContactPage extends StatelessWidget {
@@ -47,7 +49,14 @@ class ContactPage extends StatelessWidget {
             name: MyText.messenger,
             path: Assets.svgMessenger,
             onTap: () {},
-          )
+          ),
+          MySizedBox.h16,
+          SocialItem(
+            name: MyText.c1453,
+            content: MyText.hot_contact,
+            path: Assets.svgContact,
+            onTap: () => StringOperations.launchCaller(MyText.c1453),
+          ),
         ],
       ),
     );

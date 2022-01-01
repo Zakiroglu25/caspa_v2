@@ -6,7 +6,7 @@ import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'util/constants/colors.dart';
 import 'util/constants/text.dart';
 import 'util/delegate/scroll_behaivor.dart';
-
+import 'package:animations/animations.dart';
 class MateApp extends StatelessWidget {
   const MateApp({Key? key}) : super(key: key);
 
@@ -24,6 +24,16 @@ class MateApp extends StatelessWidget {
                   title: MyText.messenger,
                  // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                   theme: ThemeData(
+                      pageTransitionsTheme: PageTransitionsTheme(
+                        builders: <TargetPlatform, PageTransitionsBuilder>{
+                          TargetPlatform.android: SharedAxisPageTransitionsBuilder(
+                            transitionType: SharedAxisTransitionType.scaled,
+                          ),
+                          TargetPlatform.iOS: SharedAxisPageTransitionsBuilder(
+                            transitionType: SharedAxisTransitionType.scaled,
+                          ),
+                        },
+                      ),
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {

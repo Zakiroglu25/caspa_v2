@@ -40,6 +40,7 @@ import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_paym
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
 import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/app_info_page.dart';
+import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
 import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
 import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
@@ -156,6 +157,9 @@ class Pager {
   static get license => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: LicensePageX());
+  static get settings => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => AttorneyListCubit())],
+      child: SettingsPage());
 
 
 

@@ -91,22 +91,14 @@ class OtherPage extends StatelessWidget {
                   title: MyText.courierX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.kuryer,
-                  onTap: () {
-                    ///delete
-                    // Go.to(context, BlocProvider(
-                    //   create: (context) => OrderHistoryCubit()..fetch(),
-                    //   child: OrderHistoryPage(order_history_list: [],),
-                    // ));
-                  },
+                  onTap: () => Go.to(context, Pager.courier),
                 ),
                 MenuBox(
                   w: boxW,
                   title: MyText.settingsX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.settings,
-                  onTap: () {
-                    Go.to(context, SettingsPage());
-                  },
+                  onTap: () => Go.to(context, Pager.settings),
                 ),
               ],
             ),

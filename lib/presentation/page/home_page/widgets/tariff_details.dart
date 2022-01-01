@@ -5,6 +5,7 @@ import 'package:caspa_v2/presentation/page/home_page/widgets/tarif_list_widget.d
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,9 +36,9 @@ class TariffDetails extends StatelessWidget {
         } else if (state is TarifInProgress) {
           return CaspaLoading();
         } else if (state is TarifNetworkError) {
-          return NoData();
+          return EmptyWidget();
         } else {
-          return NoData();
+          return EmptyWidget();
         }
       }),
     );

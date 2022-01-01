@@ -63,7 +63,7 @@ class AppOperations {
     //bbbb("id::LL  :: " + id.toString());
 
     //bbbb("icolor:  $r  $g  $b " + id.toString());
-    return Color.fromRGBO(r, g, b, 0.1);
+    return Color.fromRGBO(r, g, b, 0.15);
   }
 
   static deleteDigitOfInt(int num, int which, int r) {

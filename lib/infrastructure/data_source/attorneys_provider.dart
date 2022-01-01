@@ -25,17 +25,19 @@ class AddAttorneysProvider {
     var url = Uri.parse(api);
     final headers = ApiKeys.header(token: accessToken);
     //llll("add attorney url :" + url.toString());
+
+    final body={
+      "full_name": full_name,
+      "father_name": father_name,
+      "phone": phone,
+      "id_ext": "AZ",
+      "id_number": id_number,
+      "birthday": birthday,
+      "note": note,
+    };
     final response = await http.post(url,
         headers: headers,
-        body: jsonEncode({
-          "full_name": full_name,
-          "father_name": father_name,
-          "phone": phone,
-          "id_ext": "AZ",
-          "id_number": id_number,
-          "birthday": birthday,
-          "note": note,
-        }));
+        body: jsonEncode(body));
     if (response.statusCode == ResultKey.responseSuccess) {
       var dataGelenCavabJSON = jsonDecode(response.body);
       addAttorneys = AddAttorneysModel.fromJson(dataGelenCavabJSON);

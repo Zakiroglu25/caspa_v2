@@ -69,7 +69,7 @@ class OtherPage extends StatelessWidget {
               children: [
                 MenuBox(
                   w: boxW,
-                  title: MyText.powerOfAttorney,
+                  title: MyText.attorneyX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.etibarname,
                   onTap: () {

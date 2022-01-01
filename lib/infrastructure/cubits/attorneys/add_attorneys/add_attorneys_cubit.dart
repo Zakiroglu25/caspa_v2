@@ -38,14 +38,14 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
         note: note_controller.text,
         accessToken: _prefs.accessToken,
       );
-      // print(full_name_controller.text.toString());
-      // print(father_name_controller.text.toString());
-      // print(phone_controller.text.toString());
-      // print(id_number_controller.text.toString());
-      // print(fin_controller.text.toString());
-      // print(birthday_controller.text.toString());
-      // print(note_controller.text.toString());
-      // print(_prefs.accessToken.toString());
+      print(full_name_controller.text.toString());
+      print(father_name_controller.text.toString());
+      print(phone_controller.text.toString());
+      print(id_number_controller.text.toString());
+      print(fin_controller.text.toString());
+      print(birthday_controller.text.toString());
+      print(note_controller.text.toString());
+      print(_prefs.accessToken.toString());
 
       if (result!.data != null) {
         emit(AddAttorneysSuccess(result));

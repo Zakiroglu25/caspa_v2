@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cub
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_state.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,12 +31,11 @@ class App extends StatelessWidget {
       } else if (state is AuthenticationServerError) {
         return SafeArea(
           child: Scaffold(
-              body: NoData(
+              body: EmptyWidget(
             text: "server_error",
-            refreshButton: () =>
-              context.read<AuthenticationCubit>()
-                ..startApp(context, showSplash: false)
-            ,
+            // refreshButton: () =>
+            //   context.read<AuthenticationCubit>()
+            //     ..startApp(context, showSplash: false),
           )),
         );
       }

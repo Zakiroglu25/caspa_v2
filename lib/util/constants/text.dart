@@ -212,7 +212,9 @@ class MyText {
   static const String forEditAppSettings =
       "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
   static const String giftBalanceX = "Hədiyyə balansı 💸️";
-  static const String powerOfAttorney = "Etibarnamə ⚙️";
+  static const String attorneyX = "Etibarnamə ⚙️";
+  static const String attorneysX = "Etibarnamələr 📑";
+  static const String new_attorney = "Yeni etibarnamə";
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";

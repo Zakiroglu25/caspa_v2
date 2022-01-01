@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -17,7 +18,7 @@ class AddEtibarname extends StatelessWidget {
         user: false,
         notification: false,
         centerTitle: true,
-        title: "Yeni etibarnamə",
+        title: MyText.new_attorney,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

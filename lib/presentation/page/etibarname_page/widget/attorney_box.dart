@@ -11,10 +11,9 @@ import 'package:flutter_svg/svg.dart';
 import 'list_attornneys_unicorn.dart';
 
 class AttorneyBox extends StatelessWidget {
-Attorney data;
+  Attorney data;
 
-
-AttorneyBox(this.data);
+  AttorneyBox(this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,7 @@ AttorneyBox(this.data);
           children: [
             Text(
               "Etibarnamə ",
-              style:
-              UITextStyle.tW600Black.copyWith(fontSize: 16.sp),
+              style: UITextStyle.tW600Black.copyWith(fontSize: 16.sp),
             ),
             Spacer(),
             Container(
@@ -49,9 +47,7 @@ AttorneyBox(this.data);
                 Alert.show(context,
                     title: "Silmək istədiyinizdən əminsiniz?",
                     content: "Xatırladaq ki, geri dönüşü yoxdur!",
-                    image: Image.asset("assers/png/boxpng.png")
-
-                );
+                    image: Image.asset("assers/png/boxpng.png"));
               },
               child: Container(
                 width: 40.sp,

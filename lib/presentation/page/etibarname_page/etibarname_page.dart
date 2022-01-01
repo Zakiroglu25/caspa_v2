@@ -59,9 +59,7 @@ class EtibarnamePage extends StatelessWidget {
                   attorneyList: attorneyList,
                 );
               } else if (state is AttorneyListInProgress) {
-                return CaspaLoading(
-                  s: 92.sp,
-                );
+                return CaspaLoading();
               } else {
                 return EmptyWidget();
               }

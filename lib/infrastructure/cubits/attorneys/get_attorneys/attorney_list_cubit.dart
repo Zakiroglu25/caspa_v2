@@ -26,7 +26,6 @@ class AttorneyListCubit extends Cubit<AttorneyListState> {
     try {
       final result = await AttorneyProvider.getAttorneys(
           accessToken: _prefs.accessToken);
-      bbbb("uuu: " + result.data.toString());
       if (result.data != null) {
         emit(AttorneyListSuccess(result.data!));
       } else {

@@ -15,7 +15,7 @@ class LoggingService {
       Logger.root.level = Level.ALL;
 
       Logger.root.onRecord.listen(
-        (logRecord) => _printLog(logRecord, enablePrinter),
+            (logRecord) => _printLog(logRecord, enablePrinter),
       );
     }
 

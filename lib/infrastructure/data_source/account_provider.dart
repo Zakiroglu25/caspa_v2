@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/foundation.dart';
+import 'tarif_provider.dart';
 
 // Package imports:
 import 'package:http/http.dart' as http;
@@ -21,23 +22,24 @@ class AccountProvider {
     var url = Uri.parse(api);
 
     final headers = ApiKeys.header(token: token);
-    final response = await http.get(url, headers: headers);
-
-    llll(api);
+    // final response = await http.get(url, headers: headers);
+    // final response = await http.get(url, headers: headers);
+    final response = await dioAuth.dio.get(
+      api,
+    );
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-      final gelenCavabJson = jsonDecode(response.body);
+      final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
 
       statusDynamic.data = userResult.data;
-      bbbb("st: " + (statusDynamic.data).toString());
+      bbbb("user: " + (statusDynamic.data).toString());
     } else {
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
-
-    eeee(response.body);
+//eeee(response.data);
     return statusDynamic;
   }
 
@@ -82,13 +84,16 @@ class AccountProvider {
     final response =
         await http.post(url, headers: headers, body: jsonEncode(body));
 
+    //  bbbb("huuhuhuh:"+response.body.toString() );
+    // //  final response =
+    // //      await dioA.dio .post(api, data: body);
+
     llll(api);
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
       statusDynamic.data = response.body;
-
     } else {
       eeee("updateAccountBody bad url :$url,response: ${response}");
     }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
@@ -23,7 +24,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationUninitialized());
 
   PreferencesService get _prefs => locator<PreferencesService>();
-  MyUser ?userData =MyUser();
+  MyUser? userData = MyUser();
 
   //RenewTokenService get _token => locator<RenewTokenService>();
 
@@ -38,52 +39,21 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
 
-  //  Sentry.captureMessage("message");
-  //   Sentry.captureEvent(SentryEvent(modules: {'rr':"6","gdfd":"sfdd"},
-  //   message: SentryMessage("formatted")));
     try {
-      final a=[];
-      bbbb(a[9]);
-    } catch (e, s) {
-
-      // bbbb("excepted");
-      // final _logger = Logger('HistoriesCubit');
-      // _logger.severe('$e => $s');
-      // await SentryHelper.captureException(e, stackTrace: s);
-      //
-
-      // FirebaseCrashlytics.instance.recordError(e, s);
-      // await FirebaseCrashlytics.instance.log("message");
-      // await FirebaseCrashlytics.instance.recordError(
-      //     e,
-      //     s,
-      //     reason: 'a fatal error shrapp ui hj',
-      //     // Pass in 'fatal' argument
-      //     fatal: true
-      // );
-      // await FirebaseCrashlytics.instance.recordFlutterError(FlutterErrorDetails(exception: e,stack: s,));
-      // FirebaseCrashlytics.instance.crash();
-    }
-
-
-    try {
-      aaaa('2--');
       configureFcm(context: context);
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String? accessToken = await _prefs.accessToken;
-      eeee("-----"+(_prefs.accessToken!=null).toString());
-      if (isLoggedIn && accessToken!=null ) {
+      if (isLoggedIn && accessToken != null) {
         //userin girish edib etmemeyi yoxlanilir
-        aaaa('--3');
 
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
           // eyni zamanda konfiqurasiya edilir
-          configUserData(context: context,accessToken: accessToken)
+          configUserData(context: context, accessToken: accessToken)
         ]);
-         // if (goOn!) {
-         // aaaa('4');
+        // if (goOn!) {
+        // aaaa('4');
 
         emit(AuthenticationAuthenticated());
         //}
@@ -92,7 +62,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           delay(showSplash),
           // configGuest(context),
         ]);
-       // aaaa('5--');
+
         //  if (goOn!) {
         emit(AuthenticationUninitialized());
         //Go.to(context, Pager.login);
@@ -100,28 +70,30 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       }
     } on SocketException catch (_) {
       emit(AuthenticationNetworkError());
-    } catch (e) {
-      eeee("AuthenticationError: " + e.toString());
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+      eeee("AuthenticationError: $s" + e.toString());
       emit(AuthenticationError());
     }
   }
 
-  Future<void> configUserData({required BuildContext context,required accessToken}) async {
-
-
+  Future<void> configUserData(
+      {required BuildContext context, required accessToken}) async {
     final result = await AccountProvider.fetchUserInfo(token: accessToken);
-    print("token: "+accessToken.toString());
+    print("token: " + accessToken.toString());
 
-
-    userData=result?.data;
+    userData = result?.data;
 
     await serverControl(result, () async {
       //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
       //server error sehifesini goterir
+      Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
       await _prefs.persistUser(user: result?.data);
       await _prefs.persistIsGuest(false);
       await _prefs.persistIsLoggedIn(true);
     });
+
+    bbbb("ukki: " + userData.toString());
   }
 
   Future<void> serverControl(StatusDynamic? result, Function isSuccess) async {
@@ -167,7 +139,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     await _prefs.persistIsLoggedIn(false);
     //final logOutRes =
-    final cleaned=await _prefs.clear();
+    final cleaned = await _prefs.clear();
 
     eeee("ppp: " + _prefs.isLoggedIn.toString());
     eeee("cleanded: " + cleaned.toString());

@@ -1,6 +1,8 @@
 
 
-abstract class ReportState {}
+
+
+abstract class ReportState{}
 
 class ReportInitial extends ReportState {}
 

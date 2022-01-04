@@ -50,6 +50,7 @@ class ApiKeys {
 
   //add Etibarname
   static const addAttorneys = "$baseUrl/user/attorneys";
+  //static const addAttorneys = "user/attorneys";
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
 

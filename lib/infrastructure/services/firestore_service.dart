@@ -37,12 +37,10 @@ class FirestoreDBService {
       MapEntry('path', path),
       MapEntry('fcmToken', fcmToken),
       MapEntry('accessToken', accessToken),
-      MapEntry('arecordTime', DateTime.now().toIso8601String()),
+      MapEntry('recordTime', DateTime.now().toIso8601String()),
     ]);
 
     ConfigFIre configFIre = await readConfig();
-
-    bbbb("opop: "+configFIre.writePath.toString());
     if (configFIre.writePath ?? true) {
       await _firebaseDB.collection("path").doc('${user.id}').set(data);
     }
@@ -74,34 +72,5 @@ class FirestoreDBService {
       return true;
     }
   }
-// @override
-// Future<bool> updateUser(String userID, MyUser user) async {
-//
-//   await _firebaseDB
-//       .collection("users")
-//       .doc(userID)
-//       .update(user.toMap());
-//
-//   return true;
-//
-// }
-
-// @override
-// Future<bool> pay(String userID, String payAmount, int paid, String paidDate)async {
-//   // var users = await _firebaseDB
-//   //     .collection("users")
-//   //     .where("userName", isEqualTo: yeniUserName)
-//   //     .get();
-//   // if (users.docs.length >= 1) {
-//   //   return false;
-//   // } else {
-//   //   await _firebaseDB
-//   //       .collection("users")
-//   //       .doc(userID)
-//   //       .update({"userName": yeniUserName});
-//   //
-//   //   return true;
-//   // }
-// }
 
 }

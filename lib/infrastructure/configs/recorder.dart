@@ -68,4 +68,13 @@ class Recorder {
       FirebaseCrashlytics.instance.setCustomKey('user', user.toString());
     }
   }
+  static void setId(dynamic? id) {
+    if (id != null) {
+      FirebaseCrashlytics.instance.setUserIdentifier(id.toString());
+    }
+  }  static void setUserFCMtoken(String? fcm) {
+    if (fcm != null) {
+      FirebaseCrashlytics.instance.setCustomKey('fcmToken', fcm.toString());
+    }
+  }
 }

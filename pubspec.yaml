@@ -47,6 +47,7 @@ dependencies:
   device_information: ^0.0.4
 
 
+
   #firebase \\ notification:
   firebase_messaging: ^11.2.3
   firebase: ^9.0.2
@@ -54,6 +55,8 @@ dependencies:
   awesome_notifications: ^0.0.6+12
   bot_toast: ^4.0.1
   flutter_local_notifications: ^8.2.0
+  cloud_firestore: ^3.1.5
+
 
   image_picker: ^0.8.4+4
   #geolocator: ^7.7.1

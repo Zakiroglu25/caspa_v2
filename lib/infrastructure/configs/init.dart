@@ -25,7 +25,7 @@ Future<void> init() async {
 
 
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-  FirebaseCrashlytics.instance.setUserIdentifier("999");
+
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   if (Configs.enableLogging) {
     //LoggingService(Configs.enableLogging);

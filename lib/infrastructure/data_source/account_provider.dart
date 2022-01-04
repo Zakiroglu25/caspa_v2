@@ -21,25 +21,19 @@ class AccountProvider {
     var api = ApiKeys.user;
     var url = Uri.parse(api);
 
-    final headers = ApiKeys.header(token: token);
-    // final response = await http.get(url, headers: headers);
-    // final response = await http.get(url, headers: headers);
     final response = await dioAuth.dio.get(
       api,
     );
-
     statusDynamic.statusCode = response.statusCode;
 
-    if (response.statusCode == ResultKey.successCode) {
+if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
-
       statusDynamic.data = userResult.data;
-      bbbb("user: " + (statusDynamic.data).toString());
     } else {
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
-//eeee(response.data);
+
     return statusDynamic;
   }
 

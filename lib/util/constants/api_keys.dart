@@ -73,7 +73,6 @@ class ApiKeys {
       "language": language,
     };
 
-    aaaa(map.toString());
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -94,7 +93,7 @@ class ApiKeys {
       "detail": detail,
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -132,7 +131,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -158,7 +157,7 @@ class ApiKeys {
       "currency": currency,
       "note": note,
     };
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -201,7 +200,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -239,7 +238,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -254,7 +253,7 @@ class ApiKeys {
       "Content-Type": "application/json",
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;

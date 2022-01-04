@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
+import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -41,9 +42,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       final String? fcm = await _fcm.getToken();
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String? accessToken = await _prefs.accessToken;
+
+      bbbb("fcm: $fcm");
+      bbbb("islog: $isLoggedIn");
+      bbbb("accessToken: $accessToken");
       if (isLoggedIn && accessToken != null) {
         //userin girish edib etmemeyi yoxlanilir
-
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
@@ -81,17 +85,22 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     // print("token: " + accessToken.toString());
 
     userData = result?.data;
+    //FirestoreDBService.saveUser(userData!);
 
-    await serverControl(result, () async {
-      //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
-      //server error sehifesini goterir
-      Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
-      Recorder.setId(userData!.id); //crashlyticse id setted
-      Recorder.setUserFCMtoken(fcm); //fcm token setted
-      await _prefs.persistUser(user: userData!);
-      await _prefs.persistIsGuest(false);
-      await _prefs.persistIsLoggedIn(true);
-    });
+   try{ await serverControl(result, () async {
+     //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
+     //server error sehifesini goterir
+     Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
+     Recorder.setId(userData!.id); //crashlyticse id setted
+     Recorder.setUserFCMtoken(fcm); //fcm token setted
+     await _prefs.persistUser(user: userData!);
+     await _prefs.persistIsGuest(false);
+     await _prefs.persistIsLoggedIn(true);
+   });}catch(e,s){
+
+
+     bbbb("$e => $s");
+   }
   }
 
   Future<void> serverControl(StatusDynamic? result, Function isSuccess) async {

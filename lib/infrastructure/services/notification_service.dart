@@ -60,7 +60,8 @@ initializeFCMNotification() async {
       android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (var payload) {
-    return onSelectNotification(payload);
+    //return
+      onSelectNotification(payload);
   });
 
   // generalSubscribtion();

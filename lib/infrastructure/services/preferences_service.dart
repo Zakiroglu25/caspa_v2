@@ -116,6 +116,13 @@ class PreferencesService {
 
   bool get isGuest => _preferences!.getBool('isGuest') ?? true;
 
+  //pass
+  Future<void> persistPath(String path) async {
+    await _preferences!.setString(SharedKeys.userPath, path);
+  }
+
+  String get userPath => _preferences!.getString(SharedKeys.userPath) ?? "null";
+
 
   Future<void> persistFcmToken({String? fcmToken}) async {
      await _preferences!.setString("fcm_token", fcmToken!);

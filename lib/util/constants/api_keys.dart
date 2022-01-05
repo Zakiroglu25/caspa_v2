@@ -50,6 +50,7 @@ class ApiKeys {
 
   //add Etibarname
   static const addAttorneys = "$baseUrl/user/attorneys";
+  //static const addAttorneys = "user/attorneys";
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
 
@@ -72,7 +73,6 @@ class ApiKeys {
       "language": language,
     };
 
-    aaaa(map.toString());
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -93,7 +93,7 @@ class ApiKeys {
       "detail": detail,
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -131,7 +131,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -157,7 +157,7 @@ class ApiKeys {
       "currency": currency,
       "note": note,
     };
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -200,7 +200,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -238,7 +238,7 @@ class ApiKeys {
       "language": language
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -253,7 +253,7 @@ class ApiKeys {
       "Content-Type": "application/json",
     };
 
-    aaaa(map.toString());
+
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;

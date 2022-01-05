@@ -64,7 +64,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       if (isSuccess(response?.statusCode)) {
         await UserOperations.configureUserData(
-            accessToken: response?.data, fcmToken: deviceCode!);
+            accessToken: response?.data, fcmToken: deviceCode!,path: uPassMain.valueOrNull);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(RegisterSuccess(''));
       } else {
@@ -103,7 +103,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       if (isSuccess(response?.statusCode)) {
         await UserOperations.configureUserData(
-            accessToken: response?.data, fcmToken: deviceCode!);
+            accessToken: response?.data, fcmToken: deviceCode!,path: uPassMain.valueOrNull);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(RegisterSuccess(''));
       } else {

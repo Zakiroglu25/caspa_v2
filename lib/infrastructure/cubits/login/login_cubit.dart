@@ -7,6 +7,7 @@ import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cub
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
+import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -33,7 +34,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
   PreferencesService get _prefs => locator<PreferencesService>();
-  FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
+  FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
 
   bool emailValid = false;
 
@@ -103,7 +104,7 @@ class LoginCubit extends Cubit<LoginState> {
             lang: 'az');
 
         if (isSuccess(response?.statusCode)) {
-          await UserOperations.configureUserData(accessToken: response!.data, fcmToken: "");
+          await UserOperations.configureUserData(accessToken: response!.data, fcmToken:"",path: "");
 
           emit(LoginSuccess(response.data));
          // bbbb("auiui");
@@ -131,21 +132,21 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
-
-      final deviceCode = await _firebaseMessaging.getToken();
+final email="esev.sv@gmail.com";
+final pass= 'salam12345';
+      final deviceCode = await _fcm.getToken();
 
       final response = await AuthProvider.login(
-          email: "esev.sv@gmail.com",
-          password: 'salam12345',
+          email: email,
+          password: pass,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
           lang: _prefs.language);
 
-      //eeee("response: "+response.toString());
-
+  //    FirestoreDBService.saveUser(userData!);
       if (isSuccess(response?.statusCode)) {
-        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: deviceCode!);
+        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: deviceCode!,path: pass);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
 
@@ -170,33 +171,4 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  Future<void> configureUserData(
-      //MyUser user,
-      {required String fcmToken,
-      required String accessToken}) async {
-    //llll("configureUserData result result: " + user.toString());
-
-    //final result = await AccountProvider.fetchUserInfo(token: '201|h4MgubsbiWi39sLDgSbLaHe8LLpGk1J5tWrI1SrR');
-
-    //print("use rfetched");
-    // final userSave = MyUser(
-    //      id: result.result.id,
-    //      mobileCurrentLng: mobileCurrentLng,
-    //      email: result.result.email,
-    //      surname: result.result.surname,
-    //      genderId: result.result.genderId,
-    //      birthday: result.result.birthday,
-    //      phoneNumber: result.result.phoneNumber,
-    //      name: result.result.name,
-    //      haveCard: result.result.haveCard,
-    //      refreshToken: result.result.refreshToken,
-    //      accessToken: result.result.accessToken);
-
-    // await _prefs.save("user", userSave);
-    await _prefs.persistIsGuest(false);
-    await _prefs.persistIsLoggedIn(true);
-    await _prefs.persistAccessToken(accessToken: accessToken);
-    await _prefs.persistFcmToken(fcmToken: fcmToken);
-
-  }
 }

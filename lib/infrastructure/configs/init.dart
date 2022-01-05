@@ -21,7 +21,7 @@ Future<void> init() async {
   await setupLocator();
 
  // FirebaseCrashlytics.instance.crash();
- // FirebaseCrashlytics.instance.crash();
+  FirebaseCrashlytics.instance.crash();
 
 
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);

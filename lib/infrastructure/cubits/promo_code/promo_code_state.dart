@@ -2,20 +2,22 @@ import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 
 abstract class PromoCodeState {}
 
-class ShopInitial extends PromoCodeState {}
+class PromoCodeInitial extends PromoCodeState {}
 
-class ShopInProgress extends PromoCodeState {}
+class PromoCodeInProgress extends PromoCodeState {}
 
-class ShopError extends PromoCodeState {
+class PromoCodeError extends PromoCodeState {
   String? error;
 
-  ShopError({this.error});
+  PromoCodeError({this.error});
 }
 
-class ShopNetworkError extends PromoCodeState {}
+class PromoCodeNetworkError extends PromoCodeState {}
+class PromoCodeAdded extends PromoCodeState {}
+class PromoCodeNotAdded extends PromoCodeState {}
 
-class ShopSuccess extends PromoCodeState {
-  ShopSuccess(this.shopList);
+class PromoCodeSuccess extends PromoCodeState {
+  PromoCodeSuccess(this.shopList);
 
   final List<Shop> shopList;
 }

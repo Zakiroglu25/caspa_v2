@@ -53,6 +53,9 @@ class ApiKeys {
   //static const addAttorneys = "user/attorneys";
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
+  //contact
+  static const contact = "$baseUrl/public/contacts";
+
 
   static loginBody({
     required String? email,

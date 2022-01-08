@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attor
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/contact_caspa_cubit/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
@@ -72,11 +73,17 @@ class Pager {
     String? infoTitle,
     Widget? againPage,
   }) =>
-      MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: TarifCubit()..fetch(),
-        )
-      ], child: SuccessPage(infoTitle: infoTitle,infoContent: infoContent,againPage: againPage,));
+      MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: TarifCubit()..fetch(),
+            )
+          ],
+          child: SuccessPage(
+            infoTitle: infoTitle,
+            infoContent: infoContent,
+            againPage: againPage,
+          ));
 
   static get courier => MultiBlocProvider(providers: [
         BlocProvider.value(
@@ -122,8 +129,16 @@ class Pager {
       child: PromoCodePage());
 
   static get contact => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserCubit())],
-      child: ContactPage());
+        providers: [
+          BlocProvider(
+            create: (context) => UserCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ContactCubit()..fetch(),
+          ),
+        ],
+        child: ContactPage(),
+      );
 
   static get other => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
@@ -150,6 +165,7 @@ class Pager {
   static get attorney => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: EtibarnamePage());
+
   static get appInfo => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: AppInfoPage());
@@ -157,11 +173,10 @@ class Pager {
   static get license => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: LicensePageX());
+
   static get settings => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: SettingsPage());
-
-
 
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
@@ -201,20 +216,20 @@ class Pager {
       ));
 
   static get waitingPackages => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
-      child:   WaitingPackageTab());
-
+      create: (context) => PackageCubit()..fetch(), child: WaitingPackageTab());
 
   static get packagesHistory => BlocProvider(
+      create: (context) => PackageCubit()..fetch(), child: PackageHistoryTab());
+
+  static packageDetails({required Package package}) => BlocProvider(
       create: (context) => PackageCubit()..fetch(),
-      child:   PackageHistoryTab());
+      child: PackageDetailsPage(
+        package: package,
+      ));
 
-
-  static  packageDetails({ required Package package}) => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
-      child:   PackageDetailsPage(package: package,));
-
-  static  addOrEditAttorney({  Attorney? attorney}) => BlocProvider(
+  static addOrEditAttorney({Attorney? attorney}) => BlocProvider(
       create: (context) => AddAttorneysCubit(),
-      child:   AddOrEditEtibarnamePage(attorney: attorney,));
+      child: AddOrEditEtibarnamePage(
+        attorney: attorney,
+      ));
 }

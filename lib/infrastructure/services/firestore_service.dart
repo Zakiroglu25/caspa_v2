@@ -2,9 +2,7 @@ import 'dart:convert';
 
 import 'package:caspa_v2/infrastructure/models/local/config.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 
 class FirestoreDBService {
   static FirebaseFirestore _firebaseDB = FirebaseFirestore.instance;

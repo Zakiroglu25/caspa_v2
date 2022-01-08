@@ -193,10 +193,11 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
       "Hörmətli müştəri, şifrə unudulduğu halda biz sizin qeydiyyat zamanı daxil etdiyiniz Email unvanınıza yeni şirfə göndərəcəyik.";
   static const String confirm_your_email =
       'E-poçt ünvanının sizə məxsus olduğunu təsdiqləyin. Əks halda qaynar xətt ilə əlaqə saxlaya bilərsiniz.';
-  static const String there_is_code_on_mail = 'Email-a kod gəlib';
+  static const String there_is_code_on_mail = 'Email-a kod göndərildi';
   static const String please_enter_code =
       'Sizin Email ünvanınıza şifrə göndərmişik. Zəhmət olmasa daxil olub şifrəni daxil edin.';
   static const String set_new_pass = 'Yeni şifrə təyin edin';
+  static const String setted_new_pass = 'Yeni şifrə təyin edildi.';
   static const String new_pass = 'Yeni şifrə';
   static const String company_name = 'Şirkət adı';
   static const String tax_number = 'VÖEN';
@@ -204,7 +205,10 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String enter_new_pass_again = 'Yeni şifrəni təkrar daxil edin';
   static const String your_pass_reseted =
       'Sizin mövcud şifrəniz sıfırlandı. Yenisini təyin etmək xahiş olunur. Şifrənizi unutmayın.';
+  static const String we_have_sent_new_pass_email =
+      'Sizin mövcud şifrəniz sıfırlandı. Yeni şifrə e-poçt ünvanınıza göndərildi. Hesaba daxil olaraq şifrəni dəyişə bilərsiniz.';
   static const String code = 'Kod';
+  static const String codeHasSent = 'Kod sizin e-poçt ünvanınıza göndərildi.';
   static const String send = 'Göndər';
   static const String ok = 'OK';
 
@@ -319,7 +323,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String congrated = "Təbrik edirik!";
   static const String operationIsSuccess = "Əməliyyat uğurlu oldu.";
   static const String applyToCustomerService =
-      "Müştəri xidmətinə \nmüraciyət edin";
+      "Müştəri xidmətinə \nmüraciət edin";
 
   //social
   static const String whatsapp = "WhatsApp";

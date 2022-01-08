@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_main_text.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_second_text.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -13,18 +14,15 @@ class EnterCodeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: Paddings.paddingH20,
-      child: Column(
-        children: [
-          MySizedBox.h30,
-          ForgotMainText(MyText.there_is_code_on_mail),
-          MySizedBox.h16,
-          ForgotSecondText(MyText.please_enter_code),
-          MySizedBox.h16,
-          CodeFieldForgot(codeController),
-        ],
-      ),
+    return Column(
+      children: [
+        MySizedBox.h30,
+        Flash(child: ForgotMainText(MyText.there_is_code_on_mail)),
+        MySizedBox.h16,
+        ForgotSecondText(MyText.please_enter_code),
+        MySizedBox.h16,
+        CodeFieldForgot(),
+      ],
     );
   }
 }

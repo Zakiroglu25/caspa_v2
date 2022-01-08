@@ -160,7 +160,6 @@ class AuthProvider {
     //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     final response =
     await dioG.dio .post(api, data: body);
-    //bbbb(" personla register static body: :" + jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 

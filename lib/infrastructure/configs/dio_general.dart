@@ -1,4 +1,5 @@
 import 'package:caspa_v2/util/constants/api_keys.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:dio/dio.dart';
 
 import 'dio_auth.dart';
@@ -23,7 +24,9 @@ class DioG {
         // headers: ApiKeys.header(token: _prefs.accessToken),
 
         validateStatus: (status) {
-          return status! < 500;
+
+         // return status! < 500;
+          return true;
         },
       ),
     )..interceptors.add(CustomInterceptors());

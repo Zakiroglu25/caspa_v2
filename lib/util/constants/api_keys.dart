@@ -54,6 +54,11 @@ class ApiKeys {
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
 
+  //forgot
+  static const forgotOtp = "$baseUrl/user/otp";
+  static const forgotOtpApprove = "$baseUrl/user/otp/approve";
+
+
   static loginBody({
     required String? email,
     required String? password,

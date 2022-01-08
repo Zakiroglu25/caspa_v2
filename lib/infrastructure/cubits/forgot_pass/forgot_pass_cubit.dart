@@ -4,9 +4,17 @@ import 'dart:io';
 
 // Package imports:
 
+import 'package:caspa_v2/infrastructure/data_source/forgot_provider.dart';
+import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/requset/general_response_model.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,6 +29,111 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
 
   PreferencesService get _prefs => locator<PreferencesService>();
   String buttonText = MyText.send;
+
+
+  void changeState(
+      {bool loading = true,
+      int? index,
+      bool back = false,
+      required BuildContext context}) async {
+    if (loading) {
+      emit(ForgotPassInProgress());
+    }
+
+    final goOn = await operate(currentIndex, context);
+    if (!back) {
+      if (goOn) currentIndex = index ?? currentIndex + 1;
+    } else {
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
+    }
+    emit(states[index ?? currentIndex]);
+  }
+
+  Future<bool> sendMail(BuildContext context, {bool loading = true}) async {
+    final result = await ForgotProvider.sendMail(
+        phone: AppOperations.formatNumber(phone.valueOrNull!));
+    if (isSuccess(result!.statusCode)) {
+      return true;
+    } else {
+      emit(ForgotPassError());
+      Snack.display(context: context, message: result.data['message']);
+      return false;
+    }
+  }
+
+  Future<bool> enterCode(BuildContext context, {bool loading = true}) async {
+    if (loading) {
+      emit(ForgotPassInProgress());
+    }
+    final result = await ForgotProvider.addCode(
+        phone: AppOperations.formatNumber(phone.valueOrNull!),
+        code: otpCode.valueOrNull);
+
+    if (isSuccess(result!.statusCode)) {
+      return true;
+    } else {
+      emit(ForgotPassError());
+      Snack.display(context: context, message: MyText.error);
+      return false;
+    }
+  }
+
+  void confirmPass({bool loading = true}) async {
+    if (loading) {
+      emit(ForgotPassInProgress());
+    }
+
+    currentIndex = 2;
+    emit(ForgotPassSuccess());
+  }
+
+  Future<bool> operate(int currentIndex, BuildContext context) async {
+    bool res = false;
+    bbbb("crrent: " + currentIndex.toString());
+    switch (currentIndex) {
+      case 0:
+        buttonText = MyText.send;
+        res = await sendMail(context);
+        break;
+      //return res;
+      case 1:
+        buttonText = MyText.log_in;
+        res = await enterCode(context);
+
+        //return res;
+        break;
+      case 2:
+        Go.andRemove(context, Pager.app());
+        buttonText = MyText.log_in;
+        break;
+      case 3:
+        buttonText = MyText.log_in;
+        Go.andRemove(context, Pager.app());
+        break;
+    }
+
+    return res;
+  }
+
+  ////////values////////////////////////////////////////////////////////////////////
+  ////////values////////////////////////////////////////////////////////////////////
+  //phone
+  final BehaviorSubject<String> phone = BehaviorSubject<String>();
+
+  Stream<String> get phoneStream => phone.stream;
+
+  updatePhone(String value) {
+    if (value == null || value.isEmpty) {
+      phone.value = '';
+      phone.sink.addError(MyText.field_is_not_correct);
+    } else {
+      phone.sink.add(value);
+    }
+    //isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isPhoneIncorrect =>
+      (!phone.hasValue || phone.value == null || phone.value.isEmpty);
 
   ///////uEmail
   bool emailValid = false;
@@ -44,23 +157,23 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
       !emailValid);
 
   ///////uCode
-  final BehaviorSubject<String> uCode = BehaviorSubject<String>();
+  final BehaviorSubject<String> otpCode = BehaviorSubject<String>();
 
-  Stream<String> get codeStream => uCode.stream;
+  Stream<String> get codeStream => otpCode.stream;
 
   updateCode(String value) {
     if (value == null || value.isEmpty) {
-      uCode.value = '';
-      uCode.sink.addError("fill_correctly");
+      otpCode.value = '';
+      otpCode.sink.addError("fill_correctly");
     } else {
-      uCode.sink.add(value);
+      otpCode.sink.add(value);
     }
   }
 
   bool get isCodeIncorrect =>
-      (!uCode.hasValue || uCode.value == null || uCode.value.isEmpty);
+      (!otpCode.hasValue || otpCode.value == null || otpCode.value.isEmpty);
 
-   ///////uMainPass
+  ///////uMainPass
   final BehaviorSubject<String> uPassMain = BehaviorSubject<String>();
 
   Stream<String> get passMainStream => uPassMain.stream;
@@ -94,12 +207,13 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
 
   bool get isSecondPassCorrect => (!uPassSecond.hasValue ||
       uPassSecond.value == null ||
-      uPassSecond.value.isEmpty||uPassSecond.value!=uPassMain.value);
+      uPassSecond.value.isEmpty ||
+      uPassSecond.value != uPassMain.value);
 
   @override
   Future<void> close() {
     uEmail.close();
-    uCode.close();
+    otpCode.close();
     uPassSecond.close();
     uPassMain.close();
     return super.close();
@@ -110,74 +224,8 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   List states = [
     ForgotPassEnterMail(),
     ForgotPassEnterCode(),
-    ForgotPassNewPass(),
-    ForgotPassSuccess()
+    ForgotPassChanged(),
+    // ForgotPassNewPass(),
+    // ForgotPassSuccess()
   ];
-
-  void changeState(
-      {bool loading = true,
-      int? index,
-      bool back = false,
-      required BuildContext context}) async {
-    if (loading) {
-      emit(ForgotPassInProgress());
-    }
-
-    operate(currentIndex, context);
-    if (!back) {
-      currentIndex = index ?? currentIndex + 1;
-    } else {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
-    }
-    emit(states[index ?? currentIndex]);
-  }
-
-  void sendMail({bool loading = true}) async {
-    if (loading) {
-      emit(ForgotPassInProgress());
-    }
-
-    currentIndex = 1;
-    emit(ForgotPassEnterCode());
-  }
-
-  void enterCode({bool loading = true}) async {
-    if (loading) {
-      emit(ForgotPassInProgress());
-    }
-
-    currentIndex = 2;
-    emit(ForgotPassNewPass());
-  }
-
-  void confirmPass({bool loading = true}) async {
-    if (loading) {
-      emit(ForgotPassInProgress());
-    }
-
-    currentIndex = 2;
-    emit(ForgotPassSuccess());
-  }
-
-  Future<bool> operate(int currentIndex, BuildContext context) async {
-    bool res = false;
-    switch (currentIndex) {
-      case 0:
-        buttonText = MyText.send;
-        Snack.display(context: context, message: "kod gonderildi");
-        break;
-      case 1:
-        buttonText = MyText.send;
-        //Snack.display(context: context, message: "kod duzgun daxil edildi");
-        break;
-      case 2:
-        buttonText = MyText.ok;
-       // Snack.display(context: context, message: "dirim dirim dirim");
-        break;
-      case 3:
-        break;
-    }
-
-    return res;
-  }
 }

@@ -27,7 +27,8 @@ class DioAuth {
         followRedirects: true,
         headers: ApiKeys.header(token: await _prefs.accessToken),
         validateStatus: (status) {
-          return status! < 500;
+        //  return status! < 500;
+          return true;
         },
       ),
     )..interceptors.add(CustomInterceptors());;

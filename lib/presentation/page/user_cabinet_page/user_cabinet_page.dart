@@ -112,7 +112,7 @@ class UserCabinetPage extends StatelessWidget {
                 children: [
                   BalansMiniBox(
                     title: MyText.last30days,
-                    content: "0.00",
+                    content: _prefs.user.monthly,
                     color: MyColors.shop,
                     priceColor: MyColors.balanceBoxRed,
                     icon: const Icon(null),
@@ -120,7 +120,7 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.w16,
                   BalansMiniBox(
                     title: MyText.countOfOrders,
-                    content: "4",
+                    content: "${_prefs.user.packages_count}",
                     color: MyColors.balanceCountPackage,
                     priceColor: MyColors.balanceBoxOrange,
                     icon: SvgPicture.asset(Assets.svgBalanceUp),

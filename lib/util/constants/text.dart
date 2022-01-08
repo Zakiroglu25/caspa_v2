@@ -270,7 +270,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
-  static const String countOfOrders = "Bağalamalar sayı";
+  static const String countOfOrders = "Bağalama sayı";
 
   //user settings
   static const String main = "Əsas";

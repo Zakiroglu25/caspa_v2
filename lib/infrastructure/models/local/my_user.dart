@@ -19,6 +19,8 @@ class MyUser {
   WareHouse? wareHouse;
   String? taxNumber;
   String? companyName;
+  String? monthly;
+  int? packages_count;
 
   MyUser(
       {this.id,
@@ -40,6 +42,8 @@ class MyUser {
         this.business,
         this.wareHouse,
         this.taxNumber,
+        this.monthly,
+        this.packages_count,
         this.companyName});
 
   MyUser.fromJson(Map<String, dynamic> json) {
@@ -57,6 +61,8 @@ class MyUser {
     avatar = json['avatar'];
     address = json['address'];
     balance = json['balance'];
+    packages_count = json['packages_count'];
+    monthly = json['monthly'];
     cargoBalance = json['cargoBalance'];
     city = json['city'] != null ? new City.fromJson(json['city']) : null;
     business = json['business'];
@@ -79,6 +85,8 @@ class MyUser {
     data['id_number'] = this.idNumber;
     data['fin'] = this.fin;
     data['birthday'] = this.birthday;
+    data['packages_count'] = this.packages_count;
+    data['monthly'] = this.monthly;
     data['gender'] = this.gender;
     data['avatar'] = this.avatar;
     data['address'] = address;
@@ -98,7 +106,7 @@ class MyUser {
 
   @override
   String toString() {
-    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName}';
+    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName, monthly: $monthly, packages_count: $packages_count}';
   }
 }
 

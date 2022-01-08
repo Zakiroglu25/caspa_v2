@@ -29,6 +29,13 @@
             {
               "client_id": "461387793961-nnji1cujpunmqu9vn3qhpnqfhc2gi84j.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "461387793961-pno7hl2fltf3l13ceisllb51l437gf9g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "az.caspa"
+              }
             }
           ]
         }

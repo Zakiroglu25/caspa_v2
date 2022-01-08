@@ -1,6 +1,6 @@
 import 'package:caspa_v2/presentation/page/package_details_page/in_product_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/widget/info_header.dart';
-import 'package:caspa_v2/presentation/page/package_details_page/widget/info_page.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/widget/tabs/info_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';

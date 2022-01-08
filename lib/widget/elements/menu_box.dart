@@ -1,4 +1,4 @@
-import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
+
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -26,7 +26,7 @@ class MenuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final boxW=(MediaQuery.of(context).size.width/2)-26;
+    final boxW=(MediaQuery.of(context).size.width/2)-24;
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(

@@ -7,6 +7,7 @@ abstract class AddAttorneysState {}
 class AddAttorneysInitial extends AddAttorneysState {}
 
 class AddAttorneysInProgress extends AddAttorneysState {}
+class AddAttorneysEdited extends AddAttorneysState {}
 
 class AddAttorneysError extends AddAttorneysState {
   String error;
@@ -15,7 +16,4 @@ class AddAttorneysError extends AddAttorneysState {
 }
 
 class AddAttorneysSuccess extends AddAttorneysState {
-  AddAttorneysSuccess(this.addAttorneys);
-
-  final AddAttorneysModel addAttorneys;
 }

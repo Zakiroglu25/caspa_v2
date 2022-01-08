@@ -27,7 +27,7 @@ class PriceFieldReport extends StatelessWidget {
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
             //  controller: controller,
             onChanged: (value) =>
-                BlocProvider.of<ReportCubit>(context).updatePrice(double.parse(value)),
+                BlocProvider.of<ReportCubit>(context).updatePrice(value),
           );
         },
       ),

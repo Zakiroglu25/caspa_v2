@@ -1,7 +1,11 @@
 import 'package:flutter/services.dart';
 
 class PhoneNumberFormatter extends TextInputFormatter {
-  PhoneNumberFormatter();
+  PhoneNumberFormatter({this.with994=true});
+
+    bool with994 ;
+
+
 
   @override
   TextEditingValue formatEditUpdate(
@@ -10,7 +14,7 @@ class PhoneNumberFormatter extends TextInputFormatter {
       ) {
 
     if (!oldValue.text.contains("(") &&
-        oldValue.text.length >= 10 &&
+        oldValue.text.length >= (with994? 10:11 )&&
         newValue.text.length != oldValue.text.length) {
       return TextEditingValue(
         text: "-",
@@ -27,9 +31,9 @@ class PhoneNumberFormatter extends TextInputFormatter {
 
     var newText = newValue.text;
     if (newText.length == 1) newText ="(" + newText;
-    if (newText.length == 3) newText = newText + ") ";
-    if (newText.length == 8) newText = newText + " ";
-    if (newText.length == 11) newText = newText + " ";
+    if (newText.length == (with994? 3:4 )) newText = newText + ") ";
+    if (newText.length == (with994? 8:9 )) newText = newText + " ";
+    if (newText.length == (with994? 11:12 )) newText = newText + " ";
 
     return TextEditingValue(
       text: newText.toString(),

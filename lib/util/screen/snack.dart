@@ -36,7 +36,9 @@ class Snack {
                   topRight: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
           height: 50.sp,
+         // height: 60.sp,
           child: Stack(
+            fit: StackFit.loose,
             children: [
               Container(
                   //color: MyColors.mainColor,

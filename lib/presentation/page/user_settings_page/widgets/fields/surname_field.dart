@@ -12,22 +12,16 @@ class SurNameFieldUser extends StatelessWidget {
   SurNameFieldUser({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<String>(
-      stream: BlocProvider.of<UserCubit>(context).surnameStream,
-      builder: (context, snapshot) {
-        return CaspaField(
-          title: MyText.surname,
-          maxLines: 1,
-          hint: MyText.surname,
-          upperCase: true,
-          textInputType: TextInputType.name,
-          textCapitalization: TextCapitalization.sentences,
-          errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
-          onChanged: (value) =>
-              BlocProvider.of<UserCubit>(context).updateSurName(value),
-        );
-      },
+    return CaspaField(
+      title: MyText.surname,
+      maxLines: 1,
+      hint: MyText.surname,
+      upperCase: true,
+      textInputType: TextInputType.name,
+      textCapitalization: TextCapitalization.sentences,
+      //errorMessage: snapshot.error == null ? null : '${snapshot.error}',
+      //  controller: controller,
+     // onChanged: (value) => BlocProvider.of<UserCubit>(context).updateSurName(value),
     );
   }
 }

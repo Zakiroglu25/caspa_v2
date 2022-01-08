@@ -43,7 +43,8 @@ void configureFcm({String? topic, required BuildContext? context}) async {
 
   FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
   messaging.subscribeToTopic('all');
-  messaging.subscribeToTopic('test8');
+  messaging.subscribeToTopic('1.0.0');
+  messaging.subscribeToTopic('test1');
 }
 
 initializeFCMNotification() async {
@@ -59,7 +60,8 @@ initializeFCMNotification() async {
       android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (var payload) {
-    return onSelectNotification(payload);
+    //return
+      onSelectNotification(payload);
   });
 
   // generalSubscribtion();

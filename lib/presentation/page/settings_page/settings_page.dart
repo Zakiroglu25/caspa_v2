@@ -5,10 +5,13 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'widgets/setting_element.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -17,7 +20,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
-        title: "Ayarlar ⚙️",
+        title: MyText.settingsX,
         centerTitle: true,
         user: false,
         notification: false,
@@ -26,47 +29,22 @@ class SettingsPage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16.0,top: 35),
         child: ListView(
           children: [
-            SectionName(title: "Tətbiqetmə haqqında"),
-            MySizedBox.h45,
-            Row(
-              children: [
-                SvgPicture.asset(Assets.svgFile),
-                MySizedBox.w20,
-                Text(
-                  "Lisenziya sazişi",
-                  style: AppTextStyles.sanF400
-                      .copyWith(color: Colors.black, fontSize: 17.sp),
-                ),
-              ],
+            SettingElement(
+              onTap: ()=>Go.to(context, Pager.license),
+              title:MyText.app_license ,
+              svgPath: Assets.svgFile,
             ),
             MySizedBox.h45,
-            Row(
-              children: [
-                SvgPicture.asset(Assets.svgHelp),
-                MySizedBox.w20,
-                Text(
-                  "Yardım",
-                  style: AppTextStyles.sanF400
-                      .copyWith(color: Colors.black, fontSize: 17.sp),
-                ),
-              ],
+            SettingElement(
+              onTap: ()=>Go.to(context, AppInfoPage()),
+              title:MyText.help ,
+              svgPath: Assets.svgHelp,
             ),
             MySizedBox.h45,
-            InkWell(
-              onTap: (){
-                Go.to(context, AppInfoPage());
-              },
-              child: Row(
-                children: [
-                  SvgPicture.asset(Assets.svgInfoApp),
-                  MySizedBox.w20,
-                  Text(
-                    "Tətbiq haqqında",
-                    style: AppTextStyles.sanF400
-                        .copyWith(color: Colors.black, fontSize: 17.sp),
-                  ),
-                ],
-              ),
+            SettingElement(
+              onTap: ()=>Go.to(context, Pager.appInfo),
+              title:MyText.about_app ,
+              svgPath: Assets.svgInfoApp,
             ),
           ],
         ),

@@ -16,7 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../locator.dart';
 import 'widgets/home_header.dart';
 import 'widgets/news_list_widget.dart';
-import 'widgets/package_list.dart';
+import 'widgets/home_package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tariff_details.dart';
 import 'widgets/tariffs.dart';
@@ -58,13 +58,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             MySizedBox.h16,
-            InkWell(
-                onTap: () => Go.to(
-                    context,
-                    TariffDetails(
-                      hList: [],
-                    )),
-                child: Tariffs()),
+            Tariffs(),
             MySizedBox.h24,
             SectionName(
                 title: MyText.myPackages,
@@ -73,7 +67,7 @@ class HomePage extends StatelessWidget {
                   onTap: () {},
                 )),
             MySizedBox.h24,
-            HomaPackageList(),
+            HomePackageList(),
           ],
         ),
       ),

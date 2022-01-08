@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +23,7 @@ import 'widget/other_shop_widget.dart';
 class OtherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-
-    final boxW=(MediaQuery.of(context).size.width/2)-24;
+    final boxW = (MediaQuery.of(context).size.width / 2) - 24;
     return Scaffold(
         appBar: CaspaAppbar(
           title: "",
@@ -69,24 +68,17 @@ class OtherPage extends StatelessWidget {
               children: [
                 MenuBox(
                   w: boxW,
-                  title: MyText.powerOfAttorney,
+                  title: MyText.attorneyX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.etibarname,
-                  onTap: () {
-                    Go.to(context, BlocProvider.value(
-                      value:  AttorneyListCubit()..fetch(),
-                      child: EtibarnamePage(),
-                    ));
-                  },
+                  onTap: () => Go.to(context, Pager.attorney),
                 ),
                 MenuBox(
                   w: boxW,
                   title: MyText.contactX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.contact,
-                  onTap: () {
-                    Go.to(context, ContactPage());
-                  },
+                  onTap: () => Go.to(context, Pager.contact),
                 ),
               ],
             ),
@@ -94,25 +86,19 @@ class OtherPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MenuBox(   w: boxW,
+                MenuBox(
+                  w: boxW,
                   title: MyText.courierX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.kuryer,
-                  onTap: () {
-                    ///delete
-                    // Go.to(context, BlocProvider(
-                    //   create: (context) => OrderHistoryCubit()..fetch(),
-                    //   child: OrderHistoryPage(order_history_list: [],),
-                    // ));
-                  },
+                  onTap: () => Go.to(context, Pager.courier),
                 ),
-                MenuBox(   w: boxW,
+                MenuBox(
+                  w: boxW,
                   title: MyText.settingsX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.settings,
-                  onTap: () {
-                    Go.to(context, SettingsPage());
-                  },
+                  onTap: () => Go.to(context, Pager.settings),
                 ),
               ],
             ),
@@ -130,13 +116,10 @@ class OtherPage extends StatelessWidget {
                 // BlocProvider.of<AuthenticationCubit>(context).logOut(
                 //     context);
 
-
-                context.read<AuthenticationCubit>()
-                  ..logOut(context);
+                context.read<AuthenticationCubit>()..logOut(context);
               },
             )
           ],
-        )
-    );
+        ));
   }
 }

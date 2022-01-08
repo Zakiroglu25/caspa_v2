@@ -49,6 +49,7 @@ class MyColors {
 
   ///caspa new version Colors
   static const Color mainColor = Color.fromRGBO(111, 111, 191, 1);
+  static const Color yellow255 = Color.fromRGBO(255, 246, 225, 1);
   static const Color mainColor01 = Color.fromRGBO(111, 111, 191, 0.1);
   static const Color mainColor02 = Color.fromRGBO(111, 111, 191, 0.2);
   static const Color mainColor03 = Color.fromRGBO(111, 111, 191, 0.3);

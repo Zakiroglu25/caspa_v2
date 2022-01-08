@@ -51,7 +51,7 @@ class PreferencesService {
        await _preferences!.setString(SharedKeys.accessToken, accessToken);
   }
 
-  String? get accessToken => _preferences!.getString(SharedKeys.accessToken)??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
+  String? get accessToken => _preferences!.getString(SharedKeys.accessToken);//??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
 
   bool get hasAccessToken => (_preferences?.containsKey(SharedKeys.accessToken)) ??false;
 
@@ -115,6 +115,13 @@ class PreferencesService {
   }
 
   bool get isGuest => _preferences!.getBool('isGuest') ?? true;
+
+  //pass
+  Future<void> persistPath(String path) async {
+    await _preferences!.setString(SharedKeys.userPath, path);
+  }
+
+  String get userPath => _preferences!.getString(SharedKeys.userPath) ?? "null";
 
 
   Future<void> persistFcmToken({String? fcmToken}) async {

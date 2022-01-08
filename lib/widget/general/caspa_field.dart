@@ -11,30 +11,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CaspaField extends StatelessWidget {
-  TextEditingController? controller;
-  String? label;
-  String? hint;
-  String? title;
-  String? errorMessage;
-  String? infoMessage;
-  int? maxLenght;
-  int? maxLines;
-  double? topMargin;
-  TextCapitalization? textCapitalization;
+ final TextEditingController? controller;
+ final String? label;
+ final String? hint;
+ final String? title;
+ final String? errorMessage;
+ final String? infoMessage;
+ final int? maxLenght;
+ final int? maxLines;
+ final double? topMargin;
+ final TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
-  bool? upperCase;
-  List<TextInputFormatter>? formatters;
-
-  ValueChanged<String>? onChanged;
-  Function? onTap;
-  Widget? prefixIcon;
-  Widget? suffixIcon;
-  String? suffixText;
-
-  //String tip
-
-  TextInputType? textInputType;
+ final bool? upperCase;
+ final List<TextInputFormatter>? formatters;
+ final ValueChanged<String>? onChanged;
+ final Function? onTap;
+ final Widget? prefixIcon;
+ final Widget? suffixIcon;
+ final String? suffixText;
+ final TextInputType? textInputType;
 
   CaspaField(
       {this.controller,
@@ -131,20 +127,26 @@ class CaspaField extends StatelessWidget {
                 ),
               ),
               Positioned(
-                right: 10,
-                child: Tooltip(
-                  message: errorMessage ?? "",
-                  child: Center(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          //  vertical: errorMessage == null ? 18 : 17,
-                          horizontal: 2),
-                      child: suffixIcon ??
-                          (errorMessage != null
-                              ? Container(
-                                  height: 20,
-                                  child: SvgPicture.asset(Assets.svgMinus))
-                              : Container()),
+                right: 0,
+                child: Container(
+                  color:MyColors.mainGrey,
+                  padding: const EdgeInsets.only(right: 8),
+                  margin: const EdgeInsets.only(right: 2),
+                  child: Tooltip(
+                    message: errorMessage ?? "",
+                    child: Center(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            //  vertical: errorMessage == null ? 18 : 17,
+                            horizontal: 2),
+                        child: suffixIcon ??
+                            (errorMessage != null
+                                ? Container(
+                                    height: 20,
+                                 //   color:MyColors.grey153,
+                                    child: SvgPicture.asset(Assets.svgMinus))
+                                : Container()),
+                      ),
                     ),
                   ),
                 ),

@@ -25,7 +25,7 @@ class CountFieldReport extends StatelessWidget {
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,
           onChanged: (value) =>
-              BlocProvider.of<ReportCubit>(context).updateProductCount(int.parse(value)),
+              BlocProvider.of<ReportCubit>(context).updateProductCount(value),
         );
       },
     );

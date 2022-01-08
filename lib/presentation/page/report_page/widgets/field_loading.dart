@@ -4,7 +4,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 
 class FieldLoading extends StatelessWidget {
-CategoryState? state;
+final CategoryState? state;
 
 
 FieldLoading(this.state);

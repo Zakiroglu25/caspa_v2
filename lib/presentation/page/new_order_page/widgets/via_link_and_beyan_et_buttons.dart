@@ -1,5 +1,4 @@
 
-import 'package:caspa_v2/presentation/page/new_order_link_page/link_tab.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -13,13 +12,13 @@ class ViaLinkAndBeyanEtButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         MenuBox(
           content: MyText.weBuyForYou,
           title: MyText.viaLink,
           color: MyColors.softGreen235,
-          onTap: () => Go.to(context, LinkPage()),
+          onTap: () => Go.to(context, Pager.viaLink),
         ),
         MenuBox(
           content: MyText.youMustBuyProduct,

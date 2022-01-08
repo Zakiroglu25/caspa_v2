@@ -2,12 +2,14 @@
 import 'dart:io';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class StringOperations {
   //youtube
@@ -90,5 +92,41 @@ class StringOperations {
     return deviceName;
   }
 
+  static bool urlIsValid(str) {
+    return Uri.tryParse(str)?.hasAbsolutePath ?? false;
+    ;
+  }
 
+  static TextEditingController stringToController(String? string) {
+    return TextEditingController.fromValue(
+        TextEditingValue(text: (string) ?? ""));
+  }
+
+  static String idSerieFromFullId(String string) {
+
+   bbbb("hoh: "+ idNumberFromFullId(string));
+
+    if (string.substring(0, 3) == MyText.aze) {
+      return MyText.aze;
+    } else {
+      return MyText.aa;
+    }
+  }static String idNumberFromFullId(String string) {
+    if (string.substring(0, 3) == MyText.aze) {
+      return string.substring(3);
+    } else {
+      return string.substring(2);
+    }
+  }
+
+  static launchCaller(String num) async {
+    var url = "tel:$num";
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
+
+

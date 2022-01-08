@@ -10,7 +10,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class BirthdayFieldUser extends StatelessWidget {
-  final TextEditingController controller = TextEditingController();
+   TextEditingController controller ;
+
+
+  BirthdayFieldUser({required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +21,15 @@ class BirthdayFieldUser extends StatelessWidget {
       stream: BlocProvider.of<UserCubit>(context).birthDateStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.adress,
+          title: MyText.birthday,
           maxLines: 1,
-          hint: MyText.adress,
+          hint: MyText.birthday,
           upperCase: true,
           textInputType: TextInputType.datetime,
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            controller,
+            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull!,
             onTap: () {
               BlocProvider.of<UserCubit>(context).updateBirthDate('');
             },

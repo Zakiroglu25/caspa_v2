@@ -1,36 +1,72 @@
 import 'package:bloc/bloc.dart';
+import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
+import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../../locator.dart';
 
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
 
+  PreferencesService get _prefs => locator<PreferencesService>();
 
-// void registerBusiness(RegisterRequestModel body) async {
-//     emit(RegisterLoading());
-//     try {
-//       final response = await AuthProvider.registrationBusiness(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
-//       if (response.message == null) {
-//         emit(RegisterSuccess(response.message!));
-//       } else {
-//         emit(RegisterFailed(response.message!));
-//       }
-//     } on DioError catch (e) {
-//       print(e.response!.data.toString());
-//       emit(RegisterFailed(e.response!.data.toString()));
-//     } catch (e, s) {
-//       emit(RegisterFailed("Errorlari doshuyecem"));
-//     }
-//   }
+  void update({bool? isLoading=true}) async {
+   if (isLoading!) {
+     emit(UserLoading());
+   }
+    try {
+      final response = await AccountProvider.updateUserInfo(
+          token: _prefs.accessToken,
+          email: uEmail.valueOrNull,
+          password: uPassMain.valueOrNull,
+          password_confirmation: uPassSecond.valueOrNull,
+          birthday: birthDate.valueOrNull,
+          id_number: idNumber.valueOrNull,
+          fin: fin.valueOrNull,
+          ware_house: 1,
+          address: adress.valueOrNull,
+          phone: phone.valueOrNull,
+          company_name: company_name.valueOrNull,
+          tax_number: tax_number.valueOrNull,
+          language: _prefs.language,
+          old_password: old_password.valueOrNull);
+      if (isSuccess(response!.statusCode)) {
+        emit(UserSuccess(response.data!));
+      } else {
+        emit(UserFailed(response.statusCode.toString()));
+      }
+    } catch (e, s) {
+      emit(UserFailed("Errorlari doshuyecem"));
+    }
+  }
 
   //////VALUES///////////VALUES//////////VALUES/////////////VALUES///////////////////
 
+  //old_password
+  final BehaviorSubject<String> old_password = BehaviorSubject<String>();
+
+  Stream<String> get old_passwordStream => old_password.stream;
+
+  updateOldPassword(String value) {
+    if (value == null || value.isEmpty) {
+      old_password.value = '';
+      old_password.sink.addError(MyText.field_is_not_correct);
+    } else {
+      old_password.sink.add(value);
+    }
+    // isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isOldPasswordIncorrect =>
+      (!old_password.hasValue || old_password.value == null || old_password.value.isEmpty);
   //email
   bool emailValid = false;
   final BehaviorSubject<String> uEmail = BehaviorSubject<String>();
@@ -53,41 +89,41 @@ class UserCubit extends Cubit<UserState> {
       uEmail.value.isEmpty ||
       !emailValid);
 
-  //name
-  final BehaviorSubject<String> uName = BehaviorSubject<String>();
+//company_name
+  final BehaviorSubject<String> company_name = BehaviorSubject<String>();
 
-  Stream<String> get nameStream => uName.stream;
+  Stream<String> get companyNameStream => company_name.stream;
 
-  updateName(String value) {
+  updateCompanyName(String value) {
     if (value == null || value.isEmpty) {
-      uName.value = '';
-      uName.sink.addError("field_is_not_correct");
+      company_name.value = '';
+      company_name.sink.addError(MyText.field_is_not_correct);
     } else {
-      uName.sink.add(value);
+      company_name.sink.add(value);
     }
-    isUserInfoValid();
+    // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isNameIncorrect =>
-      (!uName.hasValue || uName.value == null || uName.value.isEmpty);
+  bool get iscompany_nameIncorrect =>
+      (!company_name.hasValue || company_name.value == null || company_name.value.isEmpty);
 
-  //surname
-  final BehaviorSubject<String> surName = BehaviorSubject<String>();
+//tax_number
+  final BehaviorSubject<String> tax_number = BehaviorSubject<String>();
 
-  Stream<String> get surnameStream => surName.stream;
+  Stream<String> get tax_numberStream => tax_number.stream;
 
-  updateSurName(String value) {
+  updateTaxNumber(String value) {
     if (value == null || value.isEmpty) {
-      surName.value = '';
-      surName.sink.addError("field_is_not_correct");
+      tax_number.value = '';
+      tax_number.sink.addError(MyText.field_is_not_correct);
     } else {
-      surName.sink.add(value);
+      tax_number.sink.add(value);
     }
-    isUserInfoValid();
+    // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSurNameIncorrect =>
-      (!surName.hasValue || surName.value == null || surName.value.isEmpty);
+  bool get istax_numberIncorrect =>
+      (!tax_number.hasValue || tax_number.value == null || tax_number.value.isEmpty);
 
   //phone
   final BehaviorSubject<String> phone = BehaviorSubject<String>();
@@ -226,23 +262,6 @@ class UserCubit extends Cubit<UserState> {
   bool get isIdNumberIncorrect =>
       (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty);
 
-  //gender
-  final BehaviorSubject<String> gender = BehaviorSubject<String>();
-
-  Stream<String> get genderStream => gender.stream;
-
-  updateGender(String value) {
-    if (value == null || value.isEmpty) {
-      gender.value = '';
-      gender.sink.addError("field_is_not_correct");
-    } else {
-      gender.sink.add(value);
-    }
-    isUserInfoValid();
-  }
-
-  bool get isGenderIncorrect =>
-      (!gender.hasValue || gender.value == null || gender.value.isEmpty);
 
   //birthDate
   final BehaviorSubject<String> birthDate = BehaviorSubject<String>();
@@ -266,10 +285,10 @@ class UserCubit extends Cubit<UserState> {
   @override
   Future<void> close() {
     uEmail.close();
-    uName.close();
-    surName.close();
+    old_password.close();
+    tax_number.close();
     birthDate.close();
-    gender.close();
+    company_name.close();
     idNumber.close();
     fin.close();
     uPassSecond.close();
@@ -293,9 +312,9 @@ class UserCubit extends Cubit<UserState> {
     // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
     // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
 
-    if (!isNameIncorrect &&
-        !isGenderIncorrect &&
-        !isSurNameIncorrect &&
+    if (!iscompany_nameIncorrect &&
+        !istax_numberIncorrect &&
+        !isOldPasswordIncorrect &&
         !isBirthDateIncorrect &&
         !isFinIncorrect &&
         !isIdNumberIncorrect &&
@@ -303,7 +322,7 @@ class UserCubit extends Cubit<UserState> {
         //!isAnbarIncorrect &&
         !isSecondPassInCorrect &&
         // !isBirtdayIncorrect &&
-        !isGenderIncorrect &&
+
         !isEmailIncorrect &&
         !isPhoneIncorrect) {
       emit(UserButtonActive());

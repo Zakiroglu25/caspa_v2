@@ -1,7 +1,7 @@
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 
 class StatusDynamic {
-  dynamic? data;
+  dynamic ? data;
   int? statusCode;
 
   StatusDynamic({this.data, this.statusCode});

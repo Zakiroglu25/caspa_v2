@@ -1,6 +1,7 @@
 // Dart imports:
 import 'dart:convert';
 
+import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/error_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
@@ -11,7 +12,7 @@ import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:flutter/foundation.dart';
 
 // Package imports:
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
 
 class AuthProvider {
   static Future<StatusDynamic?> login({
@@ -36,13 +37,16 @@ class AuthProvider {
       deviceCode: deviceCode,
     );
 
+    // final response =
+    //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+        await dioG.dio .post(api, data: body);
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-      String accessToken = response.body;
+      String accessToken = response.data;
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
@@ -89,20 +93,23 @@ class AuthProvider {
         language: language);
 
 
+    // final response =
+    //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    await dioG.dio .post(api, data: body);
+
    // bbbb("response company register: :" + response.body);
     bbbb(" registerCompany register static body: :" + jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-      String accessToken = response.body;
+      String accessToken = response.data;
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
       statusDynamic.data =
-          AppOperations.errorFromListOfListAsList(response.body);
+          AppOperations.errorFromListOfListAsList(response.data);
       eeee("registrationCompany bad url :$url,response: ${response}");
     }
 
@@ -149,20 +156,21 @@ class AuthProvider {
         deviceTypeId: deviceTypeId,
         language: language);
 
+    // final response =
+    //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     final response =
-        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
-    bbbb("response personla register: :" + response.body);
+    await dioG.dio .post(api, data: body);
     //bbbb(" personla register static body: :" + jsonEncode(body));
 
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-      String accessToken = response.body;
+      String accessToken = response.data;
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
       statusDynamic.data =
-          AppOperations.errorFromListOfListAsList(response.body);
+          AppOperations.errorFromListOfListAsList(response.data);
       eeee("registrationPersonal bad url :$url,response: ${response}");
     }
 

@@ -1,16 +1,11 @@
-import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/screen/spinner.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../field_c_lear_button.dart';
 
 class BirthdayFieldRegister extends StatelessWidget {
@@ -30,7 +25,7 @@ class BirthdayFieldRegister extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            controller,
+            BlocProvider.of<RegisterCubit>(context).birthDate.valueOrNull!,
             onTap: () {
               BlocProvider.of<RegisterCubit>(context).updateBirthDate('');
             },

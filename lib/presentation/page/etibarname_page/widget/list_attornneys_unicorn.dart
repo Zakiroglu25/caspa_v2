@@ -1,9 +1,12 @@
+import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
@@ -12,13 +15,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class AttorneyUnicorn extends StatelessWidget {
-  final String? fullname;
-  final String? passport;
-  final String? fin;
+  final Attorney attorney;
+
   AttorneyUnicorn(
-      {this.fullname,
-        this.passport,
-        this.fin,
+      {required this.attorney,
+
         });
 
   @override
@@ -42,14 +43,14 @@ class AttorneyUnicorn extends StatelessWidget {
             //width: 200,
             child: Column(
               children: [
-                ProductPropertyV(h: 8, name: "Ad", value: fullname),
-                ProductPropertyV(h: 8, name: "Ş/V-nin nömrəsi", value: passport),
-                ProductPropertyV(h: 8, name: "Fin", value: fin),
+                ProductPropertyV(h: 8, name: "Ad", value: attorney.fullName),
+                ProductPropertyV(h: 8, name: "Ş/V-nin nömrəsi", value: attorney.idNumber),
+                ProductPropertyV(h: 8, name: "Fin", value: attorney.fin),
 
               ],
             ),
           ),
-          onPressed: () {},
+          onPressed: () =>Go.to(context, Pager.addOrEditAttorney(attorney: attorney)),
         ),
         MySizedBox.h20,
       ],

@@ -91,7 +91,7 @@ class UserCabinetPage extends StatelessWidget {
               CabinetHeaderWidget(),
               BalanceBox(
                 title: "Balans USD",
-                price: _prefs.user.cargoBalance,
+                price: "\$ ${_prefs.user.cargoBalance}",
                 subtitle: "(Daşınma)",
                 color: MyColors.balansCargo,
                 btnText: MyText.increaseBalance,
@@ -100,7 +100,7 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 title: "Balans TL",
-                price: _prefs.user.balance??"0",
+                price: "${_prefs.user.balance??0} TL",
                 subtitle: "(Sifariş)",
                 color: MyColors.balansOrder,
                 btnText: MyText.increaseBalance,
@@ -111,8 +111,8 @@ class UserCabinetPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   BalansMiniBox(
-                    title: MyText.last30days,
-                    content: _prefs.user.monthly,
+                    title: MyText.durtingCurrentMonth,
+                    content: "\$ ${_prefs.user.monthly}",
                     color: MyColors.shop,
                     priceColor: MyColors.balanceBoxRed,
                     icon: const Icon(null),

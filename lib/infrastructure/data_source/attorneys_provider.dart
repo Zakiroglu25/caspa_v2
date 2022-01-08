@@ -77,7 +77,7 @@ class AttorneyProvider {
       "fin": fin,
       "id_ext": id_ext,
       "id_number": id_number,
-      "birthdayy": birthday,
+      "birthday": birthday,
       "note": note,
     };
 

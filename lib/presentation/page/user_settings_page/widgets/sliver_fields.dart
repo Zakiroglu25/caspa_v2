@@ -10,7 +10,7 @@ import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/num
 import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/second_pass_field.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/poxx.dart';
+import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';

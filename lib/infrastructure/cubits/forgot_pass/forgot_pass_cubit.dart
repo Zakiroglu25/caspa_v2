@@ -163,8 +163,10 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
 
   updateCode(String value) {
     if (value == null || value.isEmpty) {
-      otpCode.value = '';
-      otpCode.sink.addError("fill_correctly");
+
+      uCode.value = '';
+      uCode.sink.addError(MyText.field_is_not_correct);
+
     } else {
       otpCode.sink.add(value);
     }
@@ -181,7 +183,7 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   updateMainPass(String value) {
     if (value == null || value.isEmpty) {
       uPassMain.value = '';
-      uPassMain.sink.addError("fill_correctly");
+      uPassMain.sink.addError(MyText.field_is_not_correct);
     } else {
       uPassMain.sink.add(value);
     }
@@ -199,7 +201,7 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   updateSecondPass(String value) {
     if (value == null || value.isEmpty) {
       uPassSecond.value = '';
-      uPassSecond.sink.addError("fill_correctly");
+      uPassSecond.sink.addError(MyText.field_is_not_correct);
     } else {
       uPassSecond.sink.add(value);
     }

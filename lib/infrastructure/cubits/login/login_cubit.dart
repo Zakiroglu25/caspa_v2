@@ -134,8 +134,10 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
-      final email = "esev.sv@gmail.com";
-      final pass = 'salam12345';
+
+final email="esev.sv@gmail.com";
+final pass= 'b261c54a3';
+
       final deviceCode = await _fcm.getToken();
 
       final response = await AuthProvider.login(

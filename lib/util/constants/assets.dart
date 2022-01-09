@@ -73,6 +73,8 @@ class Assets {
   static const String animEmptyBox="assets/anim/empty_box.json";
   static const String animSadFace="assets/anim/sad_face.json";
   static const String animSuccessOpt="assets/anim/success_operation.json";
+  static const String animProgressbar="assets/anim/progressbar.json";
+
 
 }
 

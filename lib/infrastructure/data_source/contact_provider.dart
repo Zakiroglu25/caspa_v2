@@ -10,29 +10,22 @@ import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
+import 'tarif_provider.dart';
+
 class ContactProvider {
-  static Future<List<Contact>?> getContact() async {
-    List<Contact>? contactList;
+  static Future<Contact?> getContact() async {
+    Contact? contactModel;
     final api = ApiKeys.contact;
-    final headers = ApiKeys.headers;
     var url = Uri.parse(api);
     llll(api);
-    log("provider 1");
-    final response = await http.get(url, headers: headers);
-    log("provider 2");
-
+    final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
-      log("provider 3" + response.statusCode.toString());
-      log("provider 3" + response.body.toString());
-      List<Contact> orderModels = [];
-      for (var e in (json.decode(response.body) as List)) {
-        final c = Contact.fromJson(e);
-        orderModels.add(c);
-      }
-      return orderModels;
+      final gelenDataJson = response.data;
+      contactModel= Contact.fromJson(gelenDataJson);
+
     } else {
       eeee("bad url :$url,response: $response".toString());
     }
-    return contactList;
+    return contactModel;
   }
 }

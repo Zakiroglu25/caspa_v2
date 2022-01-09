@@ -23,15 +23,21 @@ class DioAuth {
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,
         // contentType: 'application/json',
-        queryParameters: {"Accept": "application/json"},
+        queryParameters: {
+          "Accept": "application/json",
+          'Charset': 'utf-8',
+          "Content-Type": "application/json",
+        },
         followRedirects: true,
         headers: ApiKeys.header(token: await _prefs.accessToken),
         validateStatus: (status) {
-        //  return status! < 500;
+          //  return status! < 500;
           return true;
         },
       ),
-    )..interceptors.add(CustomInterceptors());;
+    )
+      ..interceptors.add(CustomInterceptors());
+    ;
 
     return _instance!;
   }
@@ -58,6 +64,7 @@ class JwtInterceptor extends Interceptor {
 
 class CustomInterceptors extends Interceptor {
   PreferencesService get _prefs => locator<PreferencesService>();
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     print('REQUEST[${options.method}] => PATH: ${options.path}');
@@ -70,9 +77,8 @@ class CustomInterceptors extends Interceptor {
     print(
         'RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
 
-
     if (!isSuccess(response.statusCode)) {
-     // llll("user: ${_prefs.user}"+"\n request body: "+response.requestOptions.data.toString());
+      // llll("user: ${_prefs.user}"+"\n request body: "+response.requestOptions.data.toString());
       Recorder.recordResponseError(response);
     }
     //  return

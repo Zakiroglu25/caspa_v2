@@ -12,6 +12,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'widgets/social_item.dart';
 
 class ContactPage extends StatelessWidget {
@@ -32,14 +33,13 @@ class ContactPage extends StatelessWidget {
         child: BlocBuilder<ContactCubit, ContactState>(
           builder: (context, state) {
             if (state is ContactSuccess) {
-              final List<Contact?> contact = state.contact;
+              final Contact? contact = state.contact;
               return ListView(
                 padding: Paddings.paddingH16,
                 children: [
-                  Align(
+                  const Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                     // contact!.facebook.toString(),
                       MyText.applyToCustomerService,
                       style: UITextStyle.tW400BigBlack,
                     ),
@@ -48,7 +48,10 @@ class ContactPage extends StatelessWidget {
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
-                    onTap: () {},
+                    onTap: () {
+                      ///bunun launch ede bilmedim
+                      launch("${contact!.whatsapp}");
+                    },
                   ),
                   MySizedBox.h16,
                   SocialItem(

@@ -15,7 +15,7 @@ import 'package:flutter/foundation.dart';
 //import 'package:http/http.dart' as http;
 
 class AuthProvider {
-  static Future<StatusDynamic?> login({
+  static Future<StatusDynamic> login({
     required String? password,
     required String? email,
     required String? deviceCode,

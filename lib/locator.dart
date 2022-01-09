@@ -16,12 +16,16 @@ final dio = Dio();
 Future<void> setupLocator() async {
   locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
   final prefs = await PreferencesService.instance;
-  //final dioG = await DioG.instance;
+  final dioG = await DioG.instance;
+
   //   locator.registerSingleton<PreferencesService>(prefs);
   locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
   locator.registerLazySingleton(() => prefs);
-  locator.registerSingleton<DioG>(await DioG.instance);
-  locator.registerSingleton<DioAuth>(await DioAuth.instance);
+  //locator.registerSingleton<DioG>(await DioG.instance);
+  locator.registerLazySingleton<DioG>(()=>dioG);
+  final dioA = await DioAuth.instance;
+  locator.registerLazySingleton<DioAuth>(()=>dioA);
+
 
   // locator.registerLazySingleton<RegisterRepository>(() => RegisterS)
 }

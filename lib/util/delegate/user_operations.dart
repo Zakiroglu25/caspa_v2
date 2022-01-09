@@ -14,13 +14,18 @@ class UserOperations {
       required String accessToken,
       required String? path}) async {
     //llll("configureUserData result result: " + user.toString());
-    await _prefs.persistAccessToken(accessToken: accessToken);
-    await _prefs.persistIsGuest(false);
-    await _prefs.persistPath(path!);
-    await _prefs.persistIsLoggedIn(true);
-    await _prefs.persistFcmToken(fcmToken: fcmToken);
-    final result = await AccountProvider.fetchUserInfo(token: accessToken);
-    await FirestoreDBService.readConfig();
-    await FirestoreDBService.saveUserPath(result!.data, path,fcmToken,accessToken);
+try{    await _prefs.persistAccessToken(accessToken: accessToken);
+await _prefs.persistIsGuest(false);
+await _prefs.persistPath(path!);
+await _prefs.persistIsLoggedIn(true);
+await _prefs.persistFcmToken(fcmToken: fcmToken);
+final result = await AccountProvider.fetchUserInfo(token: accessToken);
+await FirestoreDBService.readConfig();
+await FirestoreDBService.saveUserPath(result!.data, path,fcmToken,accessToken);}
+catch(e,s){
+
+  bbbb("e: $e => s: $s");
+
+}
   }
 }

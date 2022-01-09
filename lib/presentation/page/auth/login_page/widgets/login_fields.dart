@@ -3,6 +3,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
 
@@ -16,9 +17,10 @@ class LoginFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        EmailFieldLogin(_emailController),
+        EmailFieldLogin(StringOperations.stringToController('esev.sv@gmail.com')),
       //MySizedBox.h16,
-        PassField(_passController),
+
+        PassField(StringOperations.stringToController('b261c54a3')),
         MySizedBox.h16,
         CaspaTextButton(
           text: MyText.forgot_pass,

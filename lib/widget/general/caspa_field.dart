@@ -58,7 +58,7 @@ class CaspaField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 200),
-      height:errorMessage==null ? 90:110,
+      height:(errorMessage==null ? 90:110)+(infoMessage!=null? 18.0:0.0),
      // color: MyColors.mainRED,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

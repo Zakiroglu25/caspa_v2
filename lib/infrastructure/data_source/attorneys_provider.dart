@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/add_attorneys_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
@@ -8,7 +6,6 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-//import 'package:http/http.dart' as http;
 import 'tarif_provider.dart';
 
 class AttorneyProvider {
@@ -26,7 +23,6 @@ class AttorneyProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addAttorneys;
     var url = Uri.parse(api);
-    final headers = ApiKeys.header(token: accessToken);
 
     final body = {
       "full_name": full_name,
@@ -82,10 +78,8 @@ class AttorneyProvider {
     };
 
     bbbb("body: " + jsonEncode(body).toString());
-    // final response =
-    //     await http.post(url, headers: headers, body: jsonEncode(body));
     final response =
-    await dioAuth.dio .post(api,data: body);
+    await dioAuth.dio.post(api,data: body);
 
     statusDynamic.statusCode = response.statusCode;
 

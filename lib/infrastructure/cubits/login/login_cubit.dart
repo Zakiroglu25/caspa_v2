@@ -34,6 +34,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
   PreferencesService get _prefs => locator<PreferencesService>();
+
   FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
 
   bool emailValid = false;
@@ -61,8 +62,8 @@ class LoginCubit extends Cubit<LoginState> {
       uPass.sink.addError("fill_correctly");
     } else {
       uPass.sink.add(value);
-      uEmail.sink.add("esev.sv@gmail.com");
-      uPass.sink.add("salam12345");
+      uEmail.sink.add("zakiroglu2@gmail.com");
+      uPass.sink.add("Baxtiyar1993");
     }
   }
 
@@ -104,11 +105,12 @@ class LoginCubit extends Cubit<LoginState> {
             lang: 'az');
 
         if (isSuccess(response?.statusCode)) {
-          await UserOperations.configureUserData(accessToken: response!.data, fcmToken:"",path: "");
+          await UserOperations.configureUserData(
+              accessToken: response!.data, fcmToken: "", path: "");
 
           emit(LoginSuccess(response.data));
-         // bbbb("auiui");
-           //  Go.replace(context, Pager.landing);
+          // bbbb("auiui");
+          //  Go.replace(context, Pager.landing);
           // result=response.data;
         } else {
           emit(LoginError());
@@ -132,8 +134,10 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
-final email="esev.sv@gmail.com";
-final pass= 'salam12345';
+
+final email="zakiroglu2@gmail.com";
+final pass= 'Baxtiyar1993';
+
       final deviceCode = await _fcm.getToken();
 
       final response = await AuthProvider.login(
@@ -144,12 +148,12 @@ final pass= 'salam12345';
           deviceName: await StringOperations.devicename(),
           lang: _prefs.language);
 
-  //    FirestoreDBService.saveUser(userData!);
+      //    FirestoreDBService.saveUser(userData!);
       if (isSuccess(response?.statusCode)) {
-        await UserOperations.configureUserData(accessToken: response?.data, fcmToken: deviceCode!,path: pass);
+        await UserOperations.configureUserData(
+            accessToken: response?.data, fcmToken: deviceCode!, path: pass);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
-
       } else {
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;
@@ -170,5 +174,4 @@ final pass= 'salam12345';
       return false;
     }
   }
-
 }

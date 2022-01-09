@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CodeFieldForgot extends StatelessWidget {
-  final passController;
+  //final passController;
 
-  CodeFieldForgot(this.passController); //= new TextEditingController();
+ // CodeFieldForgot(this.passController); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
@@ -19,11 +19,12 @@ class CodeFieldForgot extends StatelessWidget {
           maxLines: 1,
           hint: MyText.password,
           upperCase: false,
+          maxLenght: 6,
           textInputType: TextInputType.phone,
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          controller: passController,
+         // controller: passController,
           onChanged: (value) =>
               BlocProvider.of<ForgotPassCubit>(context).updateCode(value),
         );

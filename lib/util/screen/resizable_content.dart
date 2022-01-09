@@ -14,15 +14,13 @@ class ResizableContent extends StatelessWidget {
     return Scaffold(
       appBar: appBar,
       resizeToAvoidBottomInset: false,
-      body: Container(
-        height: MediaQuery.of(context).size.height,
+      body: SafeArea(
         child: Container(
-          //  color: Colors.green,
-          padding: Paddings.paddingH20,
-          height: double.maxFinite,
-          child: Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).viewInsets.bottom),
+          height: MediaQuery.of(context).size.height,
+          child: Container(
+              //color: Colors.green,
+            padding: Paddings.paddingH20,
+            height: double.maxFinite,
             child: child,
           ),
         ),

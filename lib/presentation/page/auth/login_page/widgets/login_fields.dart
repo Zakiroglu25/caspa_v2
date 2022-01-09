@@ -17,7 +17,7 @@ class LoginFields extends StatelessWidget {
     return Column(
       children: [
         EmailFieldLogin(_emailController),
-        MySizedBox.h16,
+      //MySizedBox.h16,
         PassField(_passController),
         MySizedBox.h16,
         CaspaTextButton(

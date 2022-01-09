@@ -50,11 +50,25 @@ class ApiKeys {
 
   //add Etibarname
   static const addAttorneys = "$baseUrl/user/attorneys";
-  //static const addAttorneys = "user/attorneys";
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
+
+
+  //forgot
+  static const forgotOtp = "$baseUrl/user/otp";
+  static const forgotOtpApprove = "$baseUrl/user/otp/approve";
+
   //contact
   static const contact = "$baseUrl/public/contacts";
+
+  //promoCode
+  static const promoCodes = "$baseUrl/user/promos";
+  static const addPromoCode = "$baseUrl/user/promo";
+  //gift
+  static const giftList = "$baseUrl/user/gifts";
+  static const addGift = "$baseUrl/user/gift";
+
+
 
 
   static loginBody({

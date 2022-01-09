@@ -4,9 +4,10 @@ import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attor
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/contact_caspa_cubit/contact_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/gift_cubit/gift_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
@@ -26,6 +27,7 @@ import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
+import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
@@ -196,6 +198,14 @@ class Pager {
           create: (context) => ShopCubit()..fetch(),
         )
       ], child: ShopPage());
+
+  static get gifts => MultiBlocProvider(providers: [
+    BlocProvider(
+      create: (context) => GiftCubit()..fetch(),
+    )
+  ], child: GiftBalance());
+
+
 
   // static get app => App();
 

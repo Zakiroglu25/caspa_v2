@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class CaspaLoading extends StatelessWidget {
   Color? color;
@@ -21,12 +23,10 @@ class CaspaLoading extends StatelessWidget {
           child: FadeIn(
         duration: Duration(milliseconds: 800),
         child: Container(
-          height: 20,
-          width: 20,
+          height: 25,
+          width: 25,
           // color: Colors.green,
-          child: CircularProgressIndicator(
-            color: color ?? MyColors.mainColor,
-          ),
+          child: Lottie.asset(Assets.animProgressbar,width: 2),
         ),
       )),
     );

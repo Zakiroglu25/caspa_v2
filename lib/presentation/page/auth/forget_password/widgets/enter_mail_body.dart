@@ -14,23 +14,21 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'fields/number_field.dart';
+
 class EnterMailBody extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Column(
-          children: [
-            MySizedBox.h30,
-            ForgotMainText(MyText.are_you_forgot_pass),
-            MySizedBox.h16,
-            ForgotSecondText(MyText.we_will_send_new_pass),
-            MySizedBox.h16,
-            EmailFieldForgot(emailController),
-          ],
-        ),
+        MySizedBox.h30,
+        ForgotMainText(MyText.are_you_forgot_pass),
+        MySizedBox.h16,
+        ForgotSecondText(MyText.we_will_send_new_pass),
+        MySizedBox.h16,
+        PhoneFieldForgot(),
       ],
     );
   }

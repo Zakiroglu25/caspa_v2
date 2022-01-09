@@ -2,17 +2,17 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_state.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/stepper.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/enter_code_body.dart';
 import 'widgets/enter_mail_body.dart';
-import 'widgets/enter_pssword_body.dart';
+import 'widgets/forgot_main_button.dart';
+import 'widgets/pass_changed_body.dart';
+import 'widgets/qifil_widget.dart';
 
 class ForgetPasswordPage extends StatelessWidget {
   const ForgetPasswordPage({Key? key}) : super(key: key);
@@ -22,6 +22,12 @@ class ForgetPasswordPage extends StatelessWidget {
     final forgotCubit = context.watch<ForgotPassCubit>();
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: CaspaAppbar(
+        contextA: context,
+        title: '',
+        user: false,
+        notification: false,
+      ),
       body: SafeArea(
         child: Container(
           //color: Colors.red,
@@ -30,80 +36,38 @@ class ForgetPasswordPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  MySizedBox.h60,
-                  Container(
-                      height: 100,
-                      width: 100,
-                      // color: Colors.green,
-                      child: Image.asset('assets/png/qifil.png')),
+                  QifilWidget(),
                   MySizedBox.h10,
                   ForgotPassStepper(
-                    stepCount: 4,
+                    stepCount: 3,
                     current: forgotCubit.currentIndex,
                   ),
                   BlocBuilder<ForgotPassCubit, ForgotPassState>(
-                      builder: (context, state) {
+                      buildWhen: (context, state) {
+                    if (state is ForgotPassInProgress) {
+                      return false;
+                    }
+                    if (state is ForgotPassError) {
+                      return false;
+                    } else
+                      return true;
+                  }, builder: (context, state) {
                     if (state is ForgotPassEnterMail) {
                       return FadeIn(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
                       return FadeInRight(key: Key("b"), child: EnterCodeBody());
                     }
-                    if (state is ForgotPassNewPass) {
+                    if (state is ForgotPassChanged) {
                       return FadeInRight(
-                          key: Key("c"), child: EnterPasswordBody());
+                          key: Key("c"), child: PassChangedBody());
                     } else {
-                      return Container(
-                        padding: Paddings.paddingH20,
-                        child: Column(
-                          children: [
-                            Container(
-                              child: Text(
-                                "success",
-                                style: AppTextStyles.coHead600,
-                              ),
-                            ),
-                            CaspaButton(
-                              text: "back",
-                              onTap: () {
-                                context
-                                    .read<ForgotPassCubit>()
-                                    .changeState(back: true, context: context);
-                              },
-                            )
-                          ],
-                        ),
-                      );
+                      return CaspaLoading.blue();
                     }
                   })
                 ],
               ),
-              Positioned(
-                bottom: 30,
-                left: 0,
-                right: 0,
-                child: Column(
-                  children: [
-                    CaspaButton(
-                      text: MyText.back,
-                      onTap: () {
-                        context
-                            .read<ForgotPassCubit>()
-                            .changeState(back: true, context: context);
-                      },
-                    ),
-                    MySizedBox.h16,
-                    CaspaButton(
-                      text: forgotCubit.buttonText,
-                      onTap: () {
-                        context
-                            .read<ForgotPassCubit>()
-                            .changeState(context: context);
-                      },
-                    ),
-                  ],
-                ),
-              )
+              const ForgotMainButton()
             ],
           ),
         ),

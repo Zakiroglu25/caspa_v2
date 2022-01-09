@@ -1,5 +1,5 @@
-import 'package:caspa_v2/infrastructure/cubits/contact_caspa_cubit/contact_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/contact_caspa_cubit/contact_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/contact/contact_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/contact_model.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';

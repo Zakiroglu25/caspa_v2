@@ -1,24 +1,33 @@
+import 'package:caspa_v2/infrastructure/cubits/gift_cubit/gift_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/gift_cubit/gift_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/gift_model.dart';
+import 'package:caspa_v2/presentation/page/gift_balance_page/widget/gift_listview.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GiftBalance extends StatelessWidget {
-   GiftBalance({Key? key}) : super(key: key);
+  GiftModel? giftModel;
 
+  GiftBalance({Key? key, this.giftModel}) : super(key: key);
 
-  List<CodeModel> hList = [
-    CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021 13:50", confrim: "Xeyr",balance: "4.00"),
-    CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
-    CodeModel(code: "COSMOS3", date: "07.10.2021 13:50", confrim: "Beli",balance: "4.00"),
-  ];
+  // List<CodeModel> hList = [
+  //   CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021 13:50", confrim: "Xeyr",balance: "4.00"),
+  //   CodeModel(code: "caspa azerbaycan214987563", date: "07.10.2021", confrim: "Xeyr",balance: "4.00"),
+  //   CodeModel(code: "COSMOS3", date: "07.10.2021 13:50", confrim: "Beli",balance: "4.00"),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,76 +55,44 @@ class GiftBalance extends StatelessWidget {
             CaspaButton(text: "Tətbiq et"),
             MySizedBox.h32,
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Kod",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
-                MySizedBox.w90,
-                Text(
-                  "Tarix",
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-                ),
+               // MySizedBox.w90,
+                // Text(
+                //   "Tarix",
+                //   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                // ),
                 MySizedBox.w70,
-
                 Text(
                   "Edilib",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
-                Spacer(),
-                Text(
-                  "Balans",
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-                ),
+                // Spacer(),
+                // Text(
+                //   "Balans",
+                //   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                // ),
               ],
             ),
-            Container(
-              width: 300,
-              height: MediaQuery.of(context).size.height/2,
-              child: ListView.builder(
-                shrinkWrap: false,
-                itemCount: hList.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 40.0),
-                    child: Row(
-                      children: [
-                        Container(
-                          width:110.sp,
-                          height: 72.sp,
-                          child: Text(
-                            hList[index].code!.toString(),
-                            style: AppTextStyles.sanF400.copyWith(
-                                fontSize: 16.sp, color: MyColors.grey153),
-                          ),
-                        ),
-                        Container(
-                          width:75.sp,
-                          height: 48.sp,
-                          child: Text(
-                            hList[index].date!.toString(),
-                            style: AppTextStyles.sanF400.copyWith(
-                                fontSize: 16.sp, color: MyColors.grey153),
-                          ),
-                        ),
-                        Spacer(),
-
-                        Text(
-                          hList[index].confrim!.toString(),
-                          style: AppTextStyles.sanF400.copyWith(
-                              fontSize: 16.sp, color: MyColors.grey153),
-                        ),
-                        Spacer(),
-                        Text(
-                          hList[index].balance!.toString(),
-                          style: AppTextStyles.sanF400.copyWith(
-                              fontSize: 16.sp, color: MyColors.grey153),
-                        ),
-                      ],
-                    ),
+            BlocBuilder<GiftCubit, GiftState>(
+              builder: (context, state) {
+                if (state is GiftSuccess) {
+                   List<Data>? giftList = state.giftList;
+                  return GiftList(giftList: giftList);
+                } else if (state is GiftInProgress) {
+                  return CaspaLoading();
+                } else if (state is GiftError) {
+                  return EmptyWidget(
+                    text: state.error,
                   );
-                },
-              ),
+                } else {
+                  return EmptyWidget();
+                }
+              },
             )
           ],
         ),
@@ -130,6 +107,5 @@ class CodeModel {
   String? confrim;
   String? balance;
 
-  CodeModel({this.code, this.date, this.confrim,this.balance});
+  CodeModel({this.code, this.date, this.confrim, this.balance});
 }
-

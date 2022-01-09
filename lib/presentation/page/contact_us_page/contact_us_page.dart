@@ -32,15 +32,15 @@ class ContactPage extends StatelessWidget {
         child: BlocBuilder<ContactCubit, ContactState>(
           builder: (context, state) {
             if (state is ContactSuccess) {
-              final Contact? contact = state.contact;
+              final List<Contact?> contact = state.contact;
               return ListView(
                 padding: Paddings.paddingH16,
                 children: [
                   Align(
                     alignment: Alignment.topLeft,
                     child: Text(
-                      contact!.facebook.toString(),
-                      //MyText.applyToCustomerService,
+                     // contact!.facebook.toString(),
+                      MyText.applyToCustomerService,
                       style: UITextStyle.tW400BigBlack,
                     ),
                   ),

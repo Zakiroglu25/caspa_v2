@@ -11,8 +11,8 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 class ContactProvider {
-  static Future<Contact> getContact() async {
-    Contact contact = Contact();
+  static Future<List<Contact>?> getContact() async {
+    List<Contact>? contactList;
     final api = ApiKeys.contact;
     final headers = ApiKeys.headers;
     var url = Uri.parse(api);
@@ -24,17 +24,15 @@ class ContactProvider {
     if (response.statusCode == ResultKey.successCode) {
       log("provider 3" + response.statusCode.toString());
       log("provider 3" + response.body.toString());
-      var gelenCavabJson = jsonDecode(response.body);
-      log("provider 4" + gelenCavabJson);
-      Contact contacts = Contact.fromJson(gelenCavabJson);
-      contact = contacts;
-      log("provider 5"+gelenCavabJson);
-      bbbb("st: " + (contacts).toString());
+      List<Contact> orderModels = [];
+      for (var e in (json.decode(response.body) as List)) {
+        final c = Contact.fromJson(e);
+        orderModels.add(c);
+      }
+      return orderModels;
     } else {
-      log("provider 6");
-      eeee("getCategory bad url :$url,response: ${response}");
+      eeee("bad url :$url,response: $response".toString());
     }
-
-    return contact;
+    return contactList;
   }
 }

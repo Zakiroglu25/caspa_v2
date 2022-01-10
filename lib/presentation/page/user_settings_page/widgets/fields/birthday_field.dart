@@ -29,10 +29,10 @@ class BirthdayFieldUser extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull!,
-            onTap: () {
-              BlocProvider.of<UserCubit>(context).updateBirthDate('');
-            },
+            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull??controller.text,
+            onTap: () =>
+              BlocProvider.of<UserCubit>(context).updateBirthDate(''),
+            controller: controller,
           ),
          // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           onTap: () {

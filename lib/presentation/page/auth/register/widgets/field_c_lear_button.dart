@@ -7,9 +7,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 class FieldCLearButton extends StatefulWidget {
   String value;
   Function? onTap;
+  TextEditingController? controller;
 
 
-  FieldCLearButton(this.value, {this.onTap});
+  FieldCLearButton(this.value, {this.onTap,this.controller});
 
   @override
   State<FieldCLearButton> createState() => _FieldCLearButtonState();
@@ -36,6 +37,10 @@ class _FieldCLearButtonState extends State<FieldCLearButton> {
             setState(() {
               widget.value='';
             });
+
+            if (widget.controller!=null) {
+              widget.controller!.text='';
+            }
 
             widget.onTap?.call();
           },

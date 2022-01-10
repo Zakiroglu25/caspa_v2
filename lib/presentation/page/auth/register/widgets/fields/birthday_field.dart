@@ -25,12 +25,12 @@ class BirthdayFieldRegister extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            BlocProvider.of<RegisterCubit>(context).birthDate.valueOrNull!,
-            onTap: () {
-              BlocProvider.of<RegisterCubit>(context).updateBirthDate('');
-            },
+
+            BlocProvider.of<RegisterCubit>(context).birthDate.valueOrNull ?? '',
+            onTap: () => BlocProvider.of<RegisterCubit>(context).updateBirthDate(''),
+            controller: controller,
           ),
-         // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
+          // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           onTap: () {
             _openDatePicker(context, controller, null);
           },

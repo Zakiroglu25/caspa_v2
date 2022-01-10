@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,9 @@ class MateApp extends StatelessWidget {
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: MyText.messenger,
+
+                  //1. call BotToastInit
+                  navigatorObservers: [BotToastNavigatorObserver()],
                   // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                   theme: ThemeData(
                       pageTransitionsTheme: PageTransitionsTheme(
@@ -37,6 +41,7 @@ class MateApp extends StatelessWidget {
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
+                    BotToastInit().call(context,widget);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget!);
                   },

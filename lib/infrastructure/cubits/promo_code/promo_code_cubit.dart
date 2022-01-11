@@ -3,21 +3,23 @@ import 'package:caspa_v2/infrastructure/data_source/promo_code_provider.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'promo_code_state.dart';
 
-class ShopCubit extends Cubit<PromoCodeState> {
-  ShopCubit() : super(PromoCodeInitial());
+class PromoCodeCubit extends Cubit<PromoCodeState> {
+  PromoCodeCubit() : super(PromoCodeInitial());
 
   void fetch([bool loading = true]) async {
     if (loading) {
       emit(PromoCodeInProgress());
     }
+
     try {
       final result = await PromoCodeProvider.getPromoCodes();
-
       if (isSuccess(result.statusCode)) {
         emit(PromoCodeSuccess(result.data));
       } else {
@@ -27,21 +29,26 @@ class ShopCubit extends Cubit<PromoCodeState> {
       //network olacaq
       emit(PromoCodeNetworkError());
     } catch (e, s) {
-      eeee("shop cubit catch: $e");
+      eeee("PromoCodeCubit catch: $e");
       emit(PromoCodeError(error: e.toString()));
     }
   }
 
-  void addPromo([bool loading = true]) async {
+  void addPromo(BuildContext context, [bool loading = true]) async {
     if (loading) {
-      emit(PromoCodeInProgress());
+      emit(PromoCodeInAdding());
     }
+
     try {
-      final result = await PromoCodeProvider.addPromoCode(code: promoCode.valueOrNull!);
+      final result =
+          await PromoCodeProvider.addPromoCode(code: promoCode.valueOrNull!);
 
       if (isSuccess(result.statusCode)) {
+        Snack.positive(context: context, message: MyText.operationIsSuccess);
+        fetch(false);
         emit(PromoCodeAdded());
       } else {
+        Snack.display(context: context, message: result.data['message']);
         emit(PromoCodeNotAdded());
       }
     } on SocketException catch (_) {

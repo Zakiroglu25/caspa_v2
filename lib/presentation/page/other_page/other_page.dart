@@ -47,7 +47,7 @@ class OtherPage extends StatelessWidget {
                   title: MyText.promoCodeX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.promokodColor,
-                  onTap: () => Go.to(context, PromoCodePage()),
+                  onTap: () => Go.to(context, Pager.promoCode),
                 ),
                 MenuBox(
                   w: boxW,

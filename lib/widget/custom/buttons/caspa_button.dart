@@ -69,20 +69,23 @@ class CaspaButton extends StatelessWidget {
               ? (splashColor ?? Colors.transparent)
               : MyColors.transparent,
           borderRadius: BorderRadius.circular(borderRadius ?? 12),
-          child: Center(
-            child: (loading ?? false)
-                ? CaspaLoading.white()
-                : (child ??
-                    Text(
-                      text ?? "",
-                      style: AppTextStyles.sanF400.copyWith(
-                          color: active
-                              ? (textColor ?? Colors.white)
-                              : (passiveButtonColor ??
-                                  MyColors.greyPassiveContentWhite),
-                          fontSize: textSize ?? 18,
-                          fontWeight: fontWeight ?? FontWeight.w400),
-                    )),
+          child: FadeIn(
+            key: Key(loading.toString()),
+            child: Center(
+              child: (loading ?? false)
+                  ? CaspaLoading.white()
+                  : (child ??
+                      Text(
+                        text ?? "",
+                        style: AppTextStyles.sanF400.copyWith(
+                            color: active
+                                ? (textColor ?? Colors.white)
+                                : (passiveButtonColor ??
+                                    MyColors.greyPassiveContentWhite),
+                            fontSize: textSize ?? 18,
+                            fontWeight: fontWeight ?? FontWeight.w400),
+                      )),
+            ),
           ),
         ),
       ),

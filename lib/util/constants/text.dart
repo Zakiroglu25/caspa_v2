@@ -237,6 +237,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //order success
   static const String congrats = "Təbriklər 🎉";
   static const String orderOnTheWay = "Bağlama(lar) yoldadır";
+  static const String yes = "Bəli";
+  static const String no = "Xeyr";
   static const String orderOnTheWayInfo =
       "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
   static const String goToHomePage = "Ana səhifəyə keç";

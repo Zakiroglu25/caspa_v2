@@ -63,7 +63,8 @@ class MyText {
       "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
 
   ///giftbalance
-  static const String licenseText = '''“Həvalə et” xidməti ilə sifariş edildiyi halda
+  static const String licenseText =
+      '''“Həvalə et” xidməti ilə sifariş edildiyi halda
 1.1 “Həvalə et” xidməti ilə edilən bütün sifarişlərə zəmanət veririk. Sifarişlərinizdə hər hansı bir yanlışlıq varsa, qırıq, istifadəyə yararsızdırsa, əskik göndərilibsə, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq. Bağlamalarınızı filiallarda və ya kuryer vasitəsi ilə təhvil alarkən yerindəcə yoxlayıb əməkdaşlarımıza məlumat verilməlidir. Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
 1.2 Müştəri Türkiyədən həm "Həvalə et" xidmətimizlə, həm də "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. 
 1.3 “STAREX" MMC qəbul olunmuş sifarişləri növbəlilik əsasında həyata keçirir və həftə içi 24 saat ərzində sifarişlərin yerləşdirilməsinə zəmanət verir. Bununla belə sifariş prosesində hər hansı problem yarandıqda (məhsulun bitməsi, sifariş olunan ölçünün və ya rəngin bitməsi, kampaniyanın başa çatması, ödəmə problemi və s.) istifadəçinin ödədiyi məbləğ istifadəçinin balansına geri qaytarılır. Qeyd edək ki, endirimlərlə əlaqədar olaraq bəzən bu müddət uzana bilər.
@@ -170,7 +171,6 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 - Xammal şəklində olan qiymətli metallar və qiymətli qaşlar.
 - Qanunvericiliyin tələbini ödəməyən digər məhsullar.''';
 
-
   ///etibarname
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
@@ -215,7 +215,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //general
   static const String back = "Geri";
   static const String are_u_sure_delete = "Silmək istədiyinizdən əminsiniz?";
-  static const String you_can_not_recovery_it_again = "Xatırladaq ki, geri dönüş yoxdur!";
+  static const String you_can_not_recovery_it_again =
+      "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
@@ -320,6 +321,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
   static const String promoCode = "Promokod";
+  static const String giftCode = "Hədiyyə kodu";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";
   static const String used = "İstifadə edilib";
@@ -363,11 +365,11 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
-  static const String sure_all_fields_correct_contact_us = "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
+  static const String sure_all_fields_correct_contact_us =
+      "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
   static const String more = "Ətraflı";
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
-
 
   //report
   static const String report = "Bəyan et";

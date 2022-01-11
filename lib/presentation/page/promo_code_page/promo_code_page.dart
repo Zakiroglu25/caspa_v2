@@ -13,6 +13,7 @@ import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'widgets/promo_code_apply_button.dart';
 import 'widgets/promo_codes_list.dart';
 
 class PromoCodePage extends StatelessWidget {
@@ -36,19 +37,7 @@ class PromoCodePage extends StatelessWidget {
           ),
           MySizedBox.h16,
           PromoCodeField(),
-          StreamBuilder(
-            stream: BlocProvider.of<PromoCodeCubit>(context).promoCodeStream,
-            builder: (context, snp) {
-              return CaspaButton(
-                isButtonActive: snp.hasData,
-                text: MyText.apply,
-                loading: (context.watch<PromoCodeCubit>().state
-                    is PromoCodeInAdding),
-                onTap: () => context.read<PromoCodeCubit>().addPromo(context),
-                //  onTap: () => Alert.show(context),
-              );
-            },
-          ),
+          PromoCodeApplyButton(),
           MySizedBox.h40,
           PromoCodesList()
         ],

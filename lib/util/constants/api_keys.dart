@@ -53,7 +53,6 @@ class ApiKeys {
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
 
-
   //forgot
   static const forgotOtp = "$baseUrl/user/otp";
   static const forgotOtpApprove = "$baseUrl/user/otp/approve";
@@ -65,7 +64,9 @@ class ApiKeys {
   static const promoCodes = "$baseUrl/user/promos";
   static const addPromoCode = "$baseUrl/user/promo";
 
-
+  //promoCode
+  static const giftBalances = "$baseUrl/user/gifts";
+  static const addGiftCode = "$baseUrl/user/gift";
 
   static loginBody({
     required String? email,
@@ -106,7 +107,6 @@ class ApiKeys {
       "detail": detail,
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -143,7 +143,6 @@ class ApiKeys {
       "deviceTypeId": deviceTypeId,
       "language": language
     };
-
 
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
@@ -213,7 +212,6 @@ class ApiKeys {
       "language": language
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -251,7 +249,6 @@ class ApiKeys {
       "language": language
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -265,7 +262,6 @@ class ApiKeys {
       'Authorization': 'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
       "Content-Type": "application/json",
     };
-
 
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');

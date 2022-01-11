@@ -259,7 +259,7 @@ class ApiKeys {
   }) {
     //
     final map = {
-      'Authorization': 'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
+      'Authorization': 'Bearer $token',
       "Content-Type": "application/json",
     };
 

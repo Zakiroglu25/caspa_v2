@@ -39,7 +39,8 @@ class PromoCodePage extends StatelessWidget {
           PromoCodeField(),
           PromoCodeApplyButton(),
           MySizedBox.h40,
-          PromoCodesList()
+          PromoCodesList(),
+          MySizedBox.h16,
         ],
       ),
     );

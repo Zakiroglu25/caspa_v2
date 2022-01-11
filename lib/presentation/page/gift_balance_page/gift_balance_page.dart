@@ -40,7 +40,8 @@ class GiftBalancePage extends StatelessWidget {
             GiftCodeField(),
             GiftCodeApplyButton(),
             MySizedBox.h40,
-            GiftCodesList()
+            GiftCodesList(),
+            MySizedBox.h16,
           ],
         ),
       ),

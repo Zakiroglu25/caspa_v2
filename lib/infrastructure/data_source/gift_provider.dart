@@ -32,10 +32,10 @@ class GiftProvider {
 
   static Future<StatusDynamic> getGiftCodes() async {
     StatusDynamic statusDynamic = StatusDynamic();
-    const api = ApiKeys.promoCodes;
+    const api = ApiKeys.giftBalances;
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
-    bbbb('jkl: ' + response.requestOptions.headers.toString());
+    //bbbb('jkl: ' + response.data.toString());
 
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

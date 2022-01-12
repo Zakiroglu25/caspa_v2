@@ -225,6 +225,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String amount = "Miqdar";
+  static const String value = "Dəyər";
   static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
   static const String status = "Status";

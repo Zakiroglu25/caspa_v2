@@ -30,13 +30,15 @@ class PromoCode {
   int? id;
   int? used;
   String? code;
+  String? date;
 
-  PromoCode({this.id, this.used, this.code});
+  PromoCode({this.id, this.used, this.code, this.date});
 
   PromoCode.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     used = json['used'];
     code = json['code'];
+    date = json['date'];
   }
 
   Map<String, dynamic> toJson() {
@@ -44,11 +46,12 @@ class PromoCode {
     data['id'] = this.id;
     data['used'] = this.used;
     data['code'] = this.code;
+    data['date'] = this.date;
     return data;
   }
 
   @override
   String toString() {
-    return 'PromoCode{id: $id, used: $used, code: $code}';
+    return 'PromoCode{id: $id, used: $used, code: $code, date: $date}';
   }
 }

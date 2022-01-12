@@ -15,15 +15,15 @@ class GiftTableTitle extends StatelessWidget {
           style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
         ),
         Spacer(),
-        // Text(
-        //  MyText.date,
-        //   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-        // ),
-        //     Spacer(),
-        //      Text(
-        //        MyText.used,
-        //        style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-        //      ),
+        Text(
+          MyText.date,
+          style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+        ),
+        Spacer(),
+        Text(
+          MyText.value,
+          style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+        ),
       ],
     );
   }

@@ -1,21 +1,18 @@
-// Dart imports:
-
-// Package imports:
-
 import 'dart:io';
-
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
+import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
-import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-
-import '../../../locator.dart';
 
 class CourierCubit extends Cubit<CourierState> {
   CourierCubit() : super(CourierInitial()) {
@@ -24,56 +21,18 @@ class CourierCubit extends Cubit<CourierState> {
     });
   }
 
-  PreferencesService get _prefs => locator<PreferencesService>();
-
   // List<int> selectedOrders = [];
   ValueNotifier<List<int>> selectedOrders = ValueNotifier<List<int>>([]);
-
-  ///////uEmail
-  bool emailValid = false;
-  final BehaviorSubject<String> uEmail = BehaviorSubject<String>();
-
-  Stream<String> get emailStream => uEmail.stream;
-
-  updateEmail(String value) {
-    if (value == null || value.isEmpty) {
-      uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
-    } else {
-      emailValid = Validator.mail(value);
-      uEmail.sink.add(value);
-    }
-  }
-
-  bool get isEmailIncorrect => (!uEmail.hasValue ||
-      uEmail.value == null ||
-      uEmail.value.isEmpty ||
-      !emailValid);
-
-  ///////uCode
-  final BehaviorSubject<String> uCode = BehaviorSubject<String>();
-
-  Stream<String> get codeStream => uCode.stream;
-
-  updateCode(String value) {
-    if (value == null || value.isEmpty) {
-      uCode.value = '';
-      uCode.sink.addError("fill_correctly");
-    } else {
-      uCode.sink.add(value);
-    }
-  }
-
-  bool get isCodeIncorrect =>
-      (!uCode.hasValue || uCode.value == null || uCode.value.isEmpty);
 
   ///////////////////
 
   addOrderId(int id) {
+    id = id + 78006878;
     if (selectedOrders.value.contains(id)) {
       selectedOrders.value.remove(id);
     } else {
       selectedOrders.value.add(id);
+      //  selectedOrders.value.add(4415);
     }
 
     isDataValid();
@@ -87,6 +46,40 @@ class CourierCubit extends Cubit<CourierState> {
     } else
       emit(CourierContinueButtonPassive());
     return true;
+  }
+
+  /////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////
+
+  void addCourier(BuildContext context, {bool loading = true}) async {
+    try {
+      if (isUserDataValid()) {
+        if (loading) {
+          emit(CourierInProgressButton());
+        }
+        final result = await CourierProvider.addCourier(
+            phone: AppOperations.formatNumber(phone.valueOrNull!),
+            adress: adress.valueOrNull!,
+            region: region.valueOrNull!,
+            packages: selectedOrders.value);
+        if (isSuccess(result.statusCode)) {
+          Go.to(context, Pager.success());
+        } else {
+          Snack.display(context: context, message: MyText.error);
+          emit(CourierOperationFail());
+        }
+      } else {
+        Snack.display(
+            context: context, message: MyText.all_fields_must_be_filled);
+        emit(CourierOperationFail());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(CourierError());
+    } catch (e, s) {
+      eeee("fetchPackagesForCourier catch: $e => $s");
+      emit(CourierError(error: e.toString()));
+    }
   }
 
   void fetchPackagesForCourier([bool loading = true]) async {
@@ -165,10 +158,20 @@ class CourierCubit extends Cubit<CourierState> {
   bool get isRegionIncorrect =>
       (!region.hasValue || region.value == null || region.value.isEmpty);
 
+  //is user data valid
+  bool isUserDataValid() {
+    if (!isRegionIncorrect && !isAdressIncorrect && !isPhoneIncorrect) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Future<void> close() {
-    uEmail.close();
-    uCode.close();
+    adress.close();
+    region.close();
+    phone.close();
     return super.close();
   }
 }

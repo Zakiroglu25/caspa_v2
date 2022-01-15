@@ -7,7 +7,10 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 
 class CourierProvider {
   static Future<StatusDynamic> addCourier(
-      String phone, String adress, String region, List<int> packages) async {
+      {required String phone,
+      required String adress,
+      required String region,
+      required List<int> packages}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addCourier;
     final body = {
@@ -17,6 +20,8 @@ class CourierProvider {
       "package": packages
     };
     final response = await dioAuth.dio.post(api, data: body);
+
+    //eeee("respopop: ${response.requestOptions.data}");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

@@ -26,7 +26,7 @@ class OrderList extends StatelessWidget {
         return CourierOrder(
           index: index,
           package: currentPackage,
-          selectedOrders: context.read<CourierCubit>().selectedOrders.value,
+          //   selectedOrders: context.read<CourierCubit>().selectedOrders.value,
         );
       },
     );

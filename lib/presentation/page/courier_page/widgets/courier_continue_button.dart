@@ -18,10 +18,13 @@ class CourierContinueButton extends StatelessWidget {
       left: 16,
       right: 16,
       child: CaspaButton(
-        isButtonActive: (context.watch<CourierCubit>().state
-            is CourierContinueButtonActive),
+        loading:
+            (context.read<CourierCubit>().state is CourierInProgressButton),
+        isButtonActive:
+            (context.watch<CourierCubit>().selectedOrders.value.isNotEmpty),
         text: MyText.goOn,
-        onTap: () => Go.to(context, Pager.courier_order),
+        //  onTap: () => Go.to(context, Pager.courier_order),
+        onTap: () => context.read<CourierCubit>().addCourier(context),
       ),
     );
   }

@@ -18,13 +18,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CourierOrder extends StatefulWidget {
   Function? onTap;
   Package package;
-  List<dynamic>? selectedOrders;
+  //List<dynamic>? selectedOrders;
   int index;
 
   CourierOrder(
       {this.onTap,
       required this.package,
-      this.selectedOrders,
+      //    this.selectedOrders,
       required this.index});
 
   @override
@@ -34,6 +34,7 @@ class CourierOrder extends StatefulWidget {
 class _CourierOrderState extends State<CourierOrder> {
   @override
   Widget build(BuildContext context) {
+    final selectedOrders = context.watch<CourierCubit>().selectedOrders.value;
     return Stack(
       children: [
         GestureDetector(
@@ -49,17 +50,15 @@ class _CourierOrderState extends State<CourierOrder> {
               margin: EdgeInsets.only(bottom: 20),
               duration: Duration(milliseconds: 200),
               decoration: BoxDecoration(
-                color: widget.selectedOrders!.contains(widget.package.id)
+                color: selectedOrders.contains(widget.package.id)
                     ? MyColors.mainOpacity
                     : Colors.white,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                    color: widget.selectedOrders!.contains(widget.package.id)
+                    color: selectedOrders.contains(widget.package.id)
                         ? MyColors.mainColor
                         : MyColors.grey153,
-                    width: widget.selectedOrders!.contains(widget.package.id)
-                        ? 2
-                        : 1),
+                    width: selectedOrders.contains(widget.package.id) ? 2 : 1),
               ),
               child: Row(
                 children: [
@@ -82,7 +81,7 @@ class _CourierOrderState extends State<CourierOrder> {
                       style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
                   MySizedBox.w20,
                   OrderSelectIndicator(
-                    active: widget.selectedOrders!.contains(widget.package.id),
+                    active: selectedOrders.contains(widget.package.id),
                   ),
                 ],
               ),

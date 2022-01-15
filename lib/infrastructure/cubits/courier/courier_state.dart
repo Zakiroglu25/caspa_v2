@@ -6,6 +6,8 @@ class CourierInitial extends CourierState {}
 
 class CourierInProgress extends CourierState {}
 
+class CourierInProgressButton extends CourierState {}
+
 class CourierableFetched extends CourierState {
   final List<Package>? packageList;
 
@@ -18,11 +20,7 @@ class CourierError extends CourierState {
   CourierError({this.error});
 }
 
-class CourierEnterMail extends CourierState {}
-
-class CourierEnterCode extends CourierState {}
-
-class CourierNewPass extends CourierState {}
+class CourierOperationFail extends CourierState {}
 
 class CourierContinueButtonActive extends CourierState {}
 

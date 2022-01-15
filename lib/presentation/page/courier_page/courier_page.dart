@@ -22,7 +22,9 @@ class CourierPage extends StatelessWidget {
       body: BlocBuilder<CourierCubit, CourierState>(
         buildWhen: (context, state) {
           if (state is CourierContinueButtonActive ||
-              state is CourierContinueButtonPassive) {
+              state is CourierInProgressButton ||
+              state is CourierContinueButtonPassive ||
+              state is CourierOperationFail) {
             return false;
           } else
             return true;

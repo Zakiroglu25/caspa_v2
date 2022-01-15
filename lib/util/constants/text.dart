@@ -339,6 +339,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String whatsapp = "WhatsApp";
   static const String telegram = "Telegram";
   static const String messenger = "Messenger";
+  static const String facebook = "Facebook";
+  static const String instagram = "İnstagram";
   static const String caspa_azerbaijan = 'Caspa Azerbaijan';
   static const String contact = 'Əlaqə';
   static const String contactX = "Əlaqə ☎️";
@@ -422,4 +424,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
+
+  //whatsapp
+  static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 }

@@ -21,7 +21,7 @@ class MateApp extends StatelessWidget {
                   AuthenticationCubit()..startApp(context, showSplash: true),
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: MyText.messenger,
+                  title: MyText.caspa_azerbaijan,
 
                   //1. call BotToastInit
                   navigatorObservers: [BotToastNavigatorObserver()],
@@ -41,7 +41,7 @@ class MateApp extends StatelessWidget {
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
-                    BotToastInit().call(context,widget);
+                    BotToastInit().call(context, widget);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget!);
                   },

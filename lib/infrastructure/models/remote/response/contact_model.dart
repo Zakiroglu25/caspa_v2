@@ -1,11 +1,11 @@
-class Contact {
+class Contacts {
   String? facebook;
   String? instagram;
   String? whatsapp;
 
-  Contact({this.facebook, this.instagram, this.whatsapp});
+  Contacts({this.facebook, this.instagram, this.whatsapp});
 
-  Contact.fromJson(Map<String, dynamic> json) {
+  Contacts.fromJson(Map<String, dynamic> json) {
     facebook = json['facebook'];
     instagram = json['instagram'];
     whatsapp = json['whatsapp'];

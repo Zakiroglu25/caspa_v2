@@ -254,6 +254,9 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String courierOrder = "Kuryer sifarişi";
   static const String youMustHaveProduct =
       "Kuryer sifarişi edə bilmək üçün, bizdə bağlamanız olmalıdır.";
+  static const String youMustHaveMakepayment =
+      "Bu bağlamanı kuryer  ilə sifariş edə bilmək üçün, əvvəlcə xaricdən çatdırılma ödənişini tamamlamalısınız.";
+  static const String youHaveNotPay = "Ödəniş olunmayıb!";
 
   //new order
   static const String weBuyForYou =

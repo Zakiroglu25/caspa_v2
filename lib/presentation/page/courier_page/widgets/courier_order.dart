@@ -4,6 +4,12 @@ import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dar
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
 
 import 'order_select_indicator.dart';
@@ -28,56 +34,83 @@ class CourierOrder extends StatefulWidget {
 class _CourierOrderState extends State<CourierOrder> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          context.read<CourierCubit>().addOrderId(widget.package.id!);
-        });
-      },
-      child: FadeInUp(
-        delay: Duration(milliseconds: widget.index * 100),
-        child: AnimatedContainer(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          margin: EdgeInsets.only(bottom: 20),
-          duration: Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            color: widget.selectedOrders!.contains(widget.package.id)
-                ? MyColors.mainOpacity
-                : Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
+    return Stack(
+      children: [
+        GestureDetector(
+          onTap: () => widget.package.payment == 1
+              ? setState(() {
+                  context.read<CourierCubit>().addOrderId(widget.package.id!);
+                })
+              : null,
+          child: FadeInUp(
+            delay: Duration(milliseconds: widget.index * 100),
+            child: AnimatedContainer(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              margin: EdgeInsets.only(bottom: 20),
+              duration: Duration(milliseconds: 200),
+              decoration: BoxDecoration(
                 color: widget.selectedOrders!.contains(widget.package.id)
-                    ? MyColors.mainColor
-                    : MyColors.grey153,
-                width:
-                    widget.selectedOrders!.contains(widget.package.id) ? 2 : 1),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //ySizedBox.h16,
-                    Text(widget.package.store!,
-                        style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
-                    MySizedBox.h4,
-                    Text(widget.package.date!,
-                        style: AppTextStyles.sanF400Grey),
-                    // MySizedBox.h16,
-                  ],
-                ),
+                    ? MyColors.mainOpacity
+                    : Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                    color: widget.selectedOrders!.contains(widget.package.id)
+                        ? MyColors.mainColor
+                        : MyColors.grey153,
+                    width: widget.selectedOrders!.contains(widget.package.id)
+                        ? 2
+                        : 1),
               ),
-              Text("${widget.package.price!} TL",
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
-              MySizedBox.w20,
-              OrderSelectIndicator(
-                active: widget.selectedOrders!.contains(widget.package.id),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //ySizedBox.h16,
+                        Text(widget.package.store!,
+                            style:
+                                AppTextStyles.sanF600.copyWith(fontSize: 16)),
+                        MySizedBox.h4,
+                        Text(widget.package.date!,
+                            style: AppTextStyles.sanF400Grey),
+                        // MySizedBox.h16,
+                      ],
+                    ),
+                  ),
+                  Text("${widget.package.price!} TL",
+                      style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
+                  MySizedBox.w20,
+                  OrderSelectIndicator(
+                    active: widget.selectedOrders!.contains(widget.package.id),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
-      ),
+        Positioned.fill(
+          child: WidgetOrEmpty(
+            value: widget.package.payment == 0,
+            child: InkWrapper(
+              onTap: () => Alert.show(context,
+                  image: Icon(
+                    Icons.info,
+                    size: 80,
+                  ),
+                  title: MyText.youHaveNotPay,
+                  secondButton: CaspaTextButton(
+                    text: MyText.pay,
+                    onTap: () => bbbb("a"),
+                  ),
+                  content: MyText.youMustHaveMakepayment),
+              child: Container(
+                color: MyColors.white70,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

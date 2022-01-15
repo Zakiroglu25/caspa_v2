@@ -20,7 +20,7 @@ class OrderList extends StatelessWidget {
       shrinkWrap: true,
       physics: Physics.never,
       itemCount: packageList.length,
-      padding: Paddings.paddingB90,
+      padding: Paddings.paddingB110,
       itemBuilder: (context, index) {
         final currentPackage = packageList[index];
         return CourierOrder(

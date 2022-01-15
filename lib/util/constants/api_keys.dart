@@ -32,6 +32,7 @@ class ApiKeys {
   //packages
   static final allPackages = '$baseUrl/user/packages';
   static final packagesForCourier = '$baseUrl/user/couriers/packages';
+  static final addCourier = '$baseUrl/user/couriers';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";

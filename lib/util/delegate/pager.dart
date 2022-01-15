@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
@@ -27,6 +28,7 @@ import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
+import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
@@ -36,7 +38,6 @@ import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_pack
 import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
-import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_page/order_via_link_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
@@ -90,9 +91,9 @@ class Pager {
 
   static get courier => MultiBlocProvider(providers: [
         BlocProvider.value(
-          value: CourierCubit(),
+          value: CourierCubit()..fetchPackagesForCourier(),
         )
-      ], child: KuryerPage());
+      ], child: CourierPage());
 
   static get login => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => LoginCubit()),

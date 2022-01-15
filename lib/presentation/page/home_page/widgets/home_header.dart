@@ -1,6 +1,3 @@
-import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/app.dart';
-import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';

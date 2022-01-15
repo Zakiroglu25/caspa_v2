@@ -2,9 +2,14 @@
 
 // Package imports:
 
+import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
+import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,10 +18,9 @@ import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 
 class CourierCubit extends Cubit<CourierState> {
-  CourierCubit() : super(CourierInitial()){
+  CourierCubit() : super(CourierInitial()) {
     selectedOrders.addListener(() {
       isDataValid();
-
     });
   }
 
@@ -24,8 +28,6 @@ class CourierCubit extends Cubit<CourierState> {
 
   // List<int> selectedOrders = [];
   ValueNotifier<List<int>> selectedOrders = ValueNotifier<List<int>>([]);
-
-
 
   ///////uEmail
   bool emailValid = false;
@@ -68,7 +70,7 @@ class CourierCubit extends Cubit<CourierState> {
   ///////////////////
 
   addOrderId(int id) {
-    if (selectedOrders.value .contains(id)) {
+    if (selectedOrders.value.contains(id)) {
       selectedOrders.value.remove(id);
     } else {
       selectedOrders.value.add(id);
@@ -84,8 +86,84 @@ class CourierCubit extends Cubit<CourierState> {
       return false;
     } else
       emit(CourierContinueButtonPassive());
-      return true;
+    return true;
   }
+
+  void fetchPackagesForCourier([bool loading = true]) async {
+    if (loading) {
+      emit(CourierInProgress());
+    }
+
+    try {
+      final result = await PackageProvider.fetchPackagesForCourier();
+      if (isSuccess(result.statusCode)) {
+        emit(CourierableFetched(result.data));
+      } else {
+        emit(CourierError());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(CourierError());
+    } catch (e, s) {
+      eeee("fetchPackagesForCourier catch: $e => $s");
+      emit(CourierError(error: e.toString()));
+    }
+  }
+
+  ////////////////////////////fields
+
+  //adress
+  final BehaviorSubject<String> adress = BehaviorSubject<String>();
+
+  Stream<String> get adressStream => adress.stream;
+
+  updateAdress(String value) {
+    if (value == null || value.isEmpty) {
+      adress.value = '';
+      adress.sink.addError(MyText.field_is_not_correct);
+    } else if (value.length < 10) {
+      adress.sink.addError(MyText.adress_minumum_10);
+    } else {
+      adress.sink.add(value);
+    }
+  }
+
+  bool get isAdressIncorrect =>
+      (!adress.hasValue || adress.value == null || adress.value.isEmpty);
+
+  //phone
+  final BehaviorSubject<String> phone = BehaviorSubject<String>();
+
+  Stream<String> get phoneStream => phone.stream;
+
+  updatePhone(String value) {
+    if (value == null || value.isEmpty) {
+      phone.value = '';
+      phone.sink.addError(MyText.field_is_not_correct);
+    } else {
+      phone.sink.add(value);
+    }
+  }
+
+  bool get isPhoneIncorrect =>
+      (!phone.hasValue || phone.value == null || phone.value.isEmpty);
+
+  //region
+  final BehaviorSubject<String> region = BehaviorSubject<String>();
+
+  Stream<String> get regionStream => region.stream;
+
+  updateRegion(String value) {
+    if (value == null || value.isEmpty) {
+      region.value = '';
+      region.sink.addError(MyText.field_is_not_correct);
+    } else {
+      region.sink.add(value);
+    }
+  }
+
+  bool get isRegionIncorrect =>
+      (!region.hasValue || region.value == null || region.value.isEmpty);
 
   @override
   Future<void> close() {

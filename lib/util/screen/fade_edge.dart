@@ -24,8 +24,8 @@ class FadeEdge extends StatelessWidget {
             decoration: new BoxDecoration(
               gradient: new LinearGradient(
                 colors: [
-                 //MyColors.white,
-                //  MyColors.white,
+                  //MyColors.white,
+                  //  MyColors.white,
                   MyColors.white.withOpacity(0.9),
                   MyColors.white.withOpacity(0.8),
                   MyColors.white.withOpacity(0.7),
@@ -47,21 +47,23 @@ class FadeEdge extends StatelessWidget {
           bottom: 0,
           left: 0,
           right: 0,
-          child: Container(
-            height: 140,
-            decoration: new BoxDecoration(
-              gradient: new LinearGradient(
-                colors: [
-                  MyColors.white,
-                  MyColors.white,
-                  MyColors.white.withOpacity(0.9),
-                  MyColors.white.withOpacity(0.9),
-                  MyColors.white.withOpacity(0.0),
-                ],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                // stops: [0.0, 1.0],
-                // tileMode: TileMode.clamp
+          child: IgnorePointer(
+            child: Container(
+              height: 130,
+              decoration: new BoxDecoration(
+                gradient: new LinearGradient(
+                  colors: [
+                    MyColors.white,
+                    MyColors.white,
+                    MyColors.white.withOpacity(0.9),
+                    MyColors.white.withOpacity(0.7),
+                    MyColors.white.withOpacity(0.0),
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  // stops: [0.0, 1.0],
+                  // tileMode: TileMode.clamp
+                ),
               ),
             ),
           ),

@@ -11,6 +11,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResizableContent(
         child: FadeInUp(
+      duration: Duration(milliseconds: 400),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

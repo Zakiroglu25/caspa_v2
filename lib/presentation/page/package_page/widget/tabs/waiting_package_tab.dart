@@ -15,8 +15,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../grid_list_model.dart';
 
-
-
 class WaitingPackageTab extends StatelessWidget {
   WaitingPackageTab({Key? key}) : super(key: key);
 
@@ -28,11 +26,11 @@ class WaitingPackageTab extends StatelessWidget {
     return BlocBuilder<PackageCubit, PackageState>(
       builder: (context, state) {
         if (state is PackagesInProgress) {
-          return CaspaLoading.blue();
+          return CaspaLoading();
         } else if (state is PackagesSuccess) {
           final List<Package>? packageList =
               state.packageList!.reversed.toList();
-         // packageList!.clear();
+          // packageList!.clear();
 
           return ListOrEmpty(
               list: packageList,

@@ -252,6 +252,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
+  static const String youMustHaveProduct =
+      "Kuryer sifarişi edə bilmək üçün, bizdə bağlamanız olmalıdır.";
 
   //new order
   static const String weBuyForYou =
@@ -285,6 +287,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //user settings
   static const String main = "Əsas";
   static const String name = "Ad";
+  static const String region = "Rayon";
   static const String name_surname = "Ad, Soyad";
   static const String father_name = "Ata adı";
   static const String surname = "Soyad";
@@ -413,6 +416,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 
   //static const String note = "İzləmə kodu";
   static const String link_of_order = 'Məhsulun linki';
+
   //order via link
 
 //packages

@@ -22,29 +22,30 @@ class EmptyWidget extends StatelessWidget {
     return Center(
       child: Container(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: 120.sp,
-                width: 120.sp,
-                child: WidgetOrEmpty(
-                  value: smile,
-                  child: SadSmile(),
-                  // elseChild:
-                  elseChild: SadFaceAnim(),
-                ),
-              ),
-              SizedBox(
-                height: 16.sp,
-              ),
-              Text(
-                text != null ? text: MyText.no_result,
-                style: AppTextStyles.coHead400.copyWith(fontSize: 25.sp,
-                    color: MyColors.black126),
-              )
-            ],
-          )),
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: 120.sp,
+            width: 120.sp,
+            child: WidgetOrEmpty(
+              value: smile,
+              child: SadSmile(),
+              // elseChild:
+              elseChild: SadFaceAnim(),
+            ),
+          ),
+          SizedBox(
+            height: 16.sp,
+          ),
+          Text(
+            text != null ? text : MyText.no_result,
+            textAlign: TextAlign.center,
+            style: AppTextStyles.coHead400
+                .copyWith(fontSize: 25.sp, color: MyColors.black126),
+          )
+        ],
+      )),
     );
   }
 }

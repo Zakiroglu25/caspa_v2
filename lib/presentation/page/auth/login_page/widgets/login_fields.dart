@@ -17,16 +17,15 @@ class LoginFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        EmailFieldLogin(StringOperations.stringToController('esev.sv@gmail.com')),
-      //MySizedBox.h16,
+        EmailFieldLogin(
+            StringOperations.stringToController('esev.sv@gmail.com')),
+        //MySizedBox.h16,
 
-        PassField(StringOperations.stringToController('b261c54a3')),
+        PassField(StringOperations.stringToController('b45631a2c')),
         MySizedBox.h16,
         CaspaTextButton(
           text: MyText.forgot_pass,
-          onTap: () => Go.to(
-              context,
-Pager.forgotPass),
+          onTap: () => Go.to(context, Pager.forgotPass),
         ),
       ],
     );

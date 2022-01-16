@@ -98,7 +98,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
      await _prefs.persistIsLoggedIn(true);
    });}catch(e,s){
 
-
      bbbb("$e => $s");
    }
   }

@@ -62,8 +62,8 @@ class LoginCubit extends Cubit<LoginState> {
       uPass.sink.addError("fill_correctly");
     } else {
       uPass.sink.add(value);
-      uEmail.sink.add("zakiroglu2@gmail.com");
-      uPass.sink.add("Baxtiyar1993");
+     // uEmail.sink.add("esev.sv@gmail.com");
+    //  uPass.sink.add("salam12345");
     }
   }
 
@@ -82,51 +82,51 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  void login(BuildContext context, {bool? loading}) async {
-    try {
-      if (isPassIncorrect) {
-        updatePass('');
-      }
-      if (isEmailIncorrect) {
-        updateEmail('');
-      }
-
-      if (isUserInfoValid()) {
-        if (loading ?? true) {
-          emit(LoginInProgress());
-        }
-
-        final response = await AuthProvider.login(
-            email: uEmail.value,
-            password: uPass.value,
-            deviceTypeId: await StringOperations.platformId(),
-            deviceCode: 'yoken',
-            deviceName: await StringOperations.devicename(),
-            lang: 'az');
-
-        if (isSuccess(response?.statusCode)) {
-          await UserOperations.configureUserData(
-              accessToken: response!.data, fcmToken: "", path: "");
-
-          emit(LoginSuccess(response.data));
-          // bbbb("auiui");
-          //  Go.replace(context, Pager.landing);
-          // result=response.data;
-        } else {
-          emit(LoginError());
-          // result= MessageResponse.fromJson(response.data).message;
-          eeee(
-              "login result bad: ${ResponseMessage.fromJson(jsonDecode(response!.data)).message}");
-        }
-      } else {
-        emit(LoginError(error: 'error'));
-      }
-    } on SocketException catch (_) {
-      emit(LoginError(error: 'network_error'));
-    } catch (e) {
-      emit(LoginError(error: e.toString()));
-    }
-  }
+  // void login(BuildContext context, {bool? loading}) async {
+  //   try {
+  //     if (isPassIncorrect) {
+  //       updatePass('');
+  //     }
+  //     if (isEmailIncorrect) {
+  //       updateEmail('');
+  //     }
+  //
+  //     if (isUserInfoValid()) {
+  //       if (loading ?? true) {
+  //         emit(LoginInProgress());
+  //       }
+  //
+  //       final response = await AuthProvider.login(
+  //           email: uEmail.value,
+  //           password: uPass.value,
+  //           deviceTypeId: await StringOperations.platformId(),
+  //           deviceCode: 'yoken',
+  //           deviceName: await StringOperations.devicename(),
+  //           lang: 'az');
+  //
+  //       if (isSuccess(response?.statusCode)) {
+  //         await UserOperations.configureUserData(
+  //             accessToken: response!.data, fcmToken: "", path: "");
+  //
+  //         emit(LoginSuccess(response.data));
+  //         // bbbb("auiui");
+  //         //  Go.replace(context, Pager.landing);
+  //         // result=response.data;
+  //       } else {
+  //         emit(LoginError());
+  //         // result= MessageResponse.fromJson(response.data).message;
+  //         eeee(
+  //             "login result bad: ${ResponseMessage.fromJson(jsonDecode(response!.data)).message}");
+  //       }
+  //     } else {
+  //       emit(LoginError(error: 'error'));
+  //     }
+  //   } on SocketException catch (_) {
+  //     emit(LoginError(error: 'network_error'));
+  //   } catch (e) {
+  //     emit(LoginError(error: e.toString()));
+  //   }
+  // }
 
   void testLogin(BuildContext context, {bool? loading}) async {
     try {
@@ -135,30 +135,34 @@ class LoginCubit extends Cubit<LoginState> {
       }
 
 
-final email="zakiroglu2@gmail.com";
-final pass= 'Baxtiyar1993';
+//final email="esev.sv@gmail.com";
+//final pass= 'b261c54a3';
 
       final deviceCode = await _fcm.getToken();
 
       final response = await AuthProvider.login(
-          email: email,
-          password: pass,
+          email: uEmail.valueOrNull ??"esev.sv@gmail.com" ,
+          password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
           lang: _prefs.language);
 
       //    FirestoreDBService.saveUser(userData!);
-      if (isSuccess(response?.statusCode)) {
+
+
+      if (isSuccess(response.statusCode)) {
+
         await UserOperations.configureUserData(
-            accessToken: response?.data, fcmToken: deviceCode!, path: pass);
+            accessToken: response.data, fcmToken: deviceCode!, path: uPass.valueOrNull);
+        bbbb("yuyu: "+response.data.toString());
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
       } else {
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;
         eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response?.data)).message}");
+            "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.data)).message}");
       }
     } on SocketException catch (_) {
       emit(LoginError(error: 'network_error'));

@@ -21,7 +21,7 @@ class ForgetPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final forgotCubit = context.watch<ForgotPassCubit>();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      //resizeToAvoidBottomInset: false,
       appBar: CaspaAppbar(
         contextA: context,
         title: '',
@@ -56,10 +56,10 @@ class ForgetPasswordPage extends StatelessWidget {
                       return FadeIn(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
-                      return FadeInRight(key: Key("b"), child: EnterCodeBody());
+                      return FadeInRight(duration: Duration(milliseconds: 500),key: Key("b"), child: EnterCodeBody());
                     }
                     if (state is ForgotPassChanged) {
-                      return FadeInRight(
+                      return FadeInRight(duration: Duration(milliseconds: 500),
                           key: Key("c"), child: PassChangedBody());
                     } else {
                       return CaspaLoading.blue();

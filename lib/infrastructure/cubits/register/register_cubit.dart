@@ -398,6 +398,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   Stream<String> get birthDateStream => birthDate.stream;
 
   updateBirthDate(String value) {
+    bbbb("jkj");
     if (value == null || value.isEmpty) {
       birthDate.value = '';
       //  birthDate.sink.addError(MyText.field_is_not_correct);

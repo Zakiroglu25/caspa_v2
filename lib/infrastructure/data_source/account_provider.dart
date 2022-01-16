@@ -7,6 +7,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/user_result.dart'
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'tarif_provider.dart';
 
@@ -20,12 +21,15 @@ class AccountProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.user;
     var url = Uri.parse(api);
+    final header=ApiKeys.header(token: token);
 
     final response = await dioAuth.dio.get(
-      api,
+      api,options: Options(headers: header)
     );
     statusDynamic.statusCode = response.statusCode;
-
+//bbbb("opppo 2: ${response.requestOptions.data}");
+//bbbb("opppo 3: ${response.requestOptions.headers}");
+//bbbb("opppo: ${response.data}");
 if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);

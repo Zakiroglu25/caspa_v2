@@ -164,8 +164,8 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   updateCode(String value) {
     if (value == null || value.isEmpty) {
 
-     // uCode.value = '';
-      //uCode.sink.addError(MyText.field_is_not_correct);
+      otpCode.value = '';
+      otpCode.sink.addError(MyText.field_is_not_correct);
 
     } else {
       otpCode.sink.add(value);

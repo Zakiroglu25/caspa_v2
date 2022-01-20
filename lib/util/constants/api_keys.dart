@@ -27,7 +27,8 @@ class ApiKeys {
   static final user = "$baseUrl/user/user";
 
   //general
-  static final shop = '$baseUrl/public/stores';
+  static const shop = '$baseUrl/public/stores';
+  static const regions = '$baseUrl/public/regions';
 
   //packages
   static final allPackages = '$baseUrl/user/packages';

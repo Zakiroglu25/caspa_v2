@@ -1,28 +1,18 @@
-import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
-import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_unicorn.dart';
-import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
-import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focus_detector/focus_detector.dart';
-
-import '../add_attorney_page/add_or_etibarname_page.dart';
 import 'widget/add_attorney_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 
@@ -64,7 +54,8 @@ class EtibarnamePage extends StatelessWidget {
             }, buildWhen: (context, state) {
               if (state is AttorneyDeleted) {
                 return false;
-              }else return true;
+              } else
+                return true;
             }, builder: (context, state) {
               if (state is AttorneyListSuccess) {
                 List<Attorney> attorneyList = state.attorney.reversed.toList();

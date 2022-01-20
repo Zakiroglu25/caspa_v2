@@ -1,40 +1,16 @@
-import 'dart:convert';
-
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/packages_statuses_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tab_count.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/boxx.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
-import 'widget/tabs/package_history_tab.dart';
-import 'widget/package_sliver_body.dart';
-import 'widget/tabs/waiting_package_tab.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PackagePage extends StatelessWidget {
-  final List<Widget> tabPages = <Widget>[
-    //Pager.waitingPackages,
-    Pager.packagesHistory,
-  ];
-
-  final List<Widget> tabs = const [
-    Tab(
-      text: MyText.in_waiting,
-      height: 65,
-    ),
-    Tab(
-      text: MyText.history,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

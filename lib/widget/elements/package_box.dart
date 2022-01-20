@@ -18,8 +18,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class PackageBox extends StatelessWidget {
   Package package;
   double? w;
+  int? index;
 
-  PackageBox(this.package, {this.w});
+  PackageBox({required this.package, this.w, this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +38,15 @@ class PackageBox extends StatelessWidget {
         style: AppTextStyles.sanF400
             .copyWith(fontSize: 14.sp, color: MyColors.black),
         child: FadeInUp(
+          duration: index != null
+              ? Duration(milliseconds: AppOperations.getTime(index))
+              : Duration(milliseconds: 800),
           child: Container(
             width: w,
 
             decoration: BoxDecoration(
-                color: AppOperations.colorWithId(package.id!), borderRadius: BorderRadius.circular(12)),
+                color: AppOperations.colorWithId(package.id!),
+                borderRadius: BorderRadius.circular(12)),
             child: Padding(
               padding: EdgeInsets.all(20.sp),
               child: Column(

@@ -24,20 +24,19 @@ class SliverCaspaBar extends StatefulWidget {
   bool? back;
   bool? notification;
 
-
-  SliverCaspaBar(
-      {this.tabs,
-      this.tabPages,
-      this.title,
-      this.tabbarPadding,
-      this.selectedTabColor,
-      this.unSelectedLabelColor,
-      this.selectedLabelColor,
-      this.back,
-      this.notification,
-      this.sliverChild,
-
-      this.appbarHeight});
+  SliverCaspaBar({
+    this.tabs,
+    this.tabPages,
+    this.title,
+    this.tabbarPadding,
+    this.selectedTabColor,
+    this.unSelectedLabelColor,
+    this.selectedLabelColor,
+    this.back,
+    this.notification,
+    this.appbarHeight,
+    this.sliverChild,
+  });
 
   @override
   State<SliverCaspaBar> createState() => _SliverCaspaBarState();
@@ -47,18 +46,15 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     with SingleTickerProviderStateMixin {
   TabController? _tabController;
 
-
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: widget.tabs!.length);
-
-
   }
 
   @override
   void dispose() {
-   _tabController?.dispose();
+    _tabController?.dispose();
     super.dispose();
   }
 
@@ -68,7 +64,6 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
         length: widget.tabs!.length,
         child: NestedScrollView(
             physics: Physics.never,
-
             headerSliverBuilder:
                 (BuildContext context, bool innerBoxIsScrolled) {
               return <Widget>[
@@ -115,19 +110,23 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   pinned: true,
                   delegate: _SliverAppBarDelegate(
                     TabBar(
-                      padding: widget.tabbarPadding??EdgeInsets.only(
-                          left: 20, right: 20, top: 5, bottom: 10),
+                      padding: widget.tabbarPadding ??
+                          EdgeInsets.only(
+                              left: 20, right: 20, top: 5, bottom: 10),
                       controller: _tabController,
                       indicator: BoxDecoration(
                         borderRadius: BorderRadius.circular(
                           12.0,
                         ),
-                        color:widget.selectedTabColor?? MyColors.mainGrey,
+                        color: widget.selectedTabColor ?? MyColors.mainGrey,
                       ),
-                      labelColor:widget.selectedLabelColor?? MyColors.textBlack,
-                      unselectedLabelColor:widget.unSelectedLabelColor?? MyColors.grey153,
+                      labelColor:
+                          widget.selectedLabelColor ?? MyColors.textBlack,
+                      unselectedLabelColor:
+                          widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
+                      isScrollable: true,
                     ),
                   ),
                 )

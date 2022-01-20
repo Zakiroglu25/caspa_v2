@@ -223,8 +223,12 @@ class Pager {
         hList: [],
       ));
 
-  static get waitingPackages => BlocProvider(
-      create: (context) => PackageCubit()..fetch(), child: WaitingPackageTab());
+  static Widget waitingPackages({required List<Package>? packages}) =>
+      BlocProvider(
+          create: (context) => PackageCubit()..fetch(),
+          child: WaitingPackageTab(
+            packages: packages,
+          ));
 
   static get packagesHistory => BlocProvider(
       create: (context) => PackageCubit()..fetch(), child: PackageHistoryTab());

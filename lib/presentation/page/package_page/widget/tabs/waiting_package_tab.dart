@@ -16,54 +16,43 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../grid_list_model.dart';
 
 class WaitingPackageTab extends StatelessWidget {
-  WaitingPackageTab({Key? key}) : super(key: key);
+  final List<Package>? packages;
+
+  WaitingPackageTab({required this.packages});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     final sW = size.width;
-
-    return BlocBuilder<PackageCubit, PackageState>(
-      builder: (context, state) {
-        if (state is PackagesInProgress) {
-          return CaspaLoading();
-        } else if (state is PackagesSuccess) {
-          final List<Package>? packageList =
-              state.packageList!.reversed.toList();
-          // packageList!.clear();
-
-          return ListOrEmpty(
-              list: packageList,
-              child: ScrollConfiguration(
-                behavior: NoScrollBehavior(),
-                child: GridView.builder(
-                  padding: Paddings.paddingA20,
-                  physics: Physics.never,
-                  itemCount: packageList!.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: MediaQuery.of(context).orientation ==
-                            Orientation.landscape
-                        ? 3
-                        : 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: (1 / 1),
-                  ),
-                  itemBuilder: (
-                    context,
-                    index,
-                  ) {
-                    return PackageBox(
-                      packageList[index],
-                      w: sW,
-                    );
-                  },
-                ),
-              ));
-        } else {
-          return EmptyWidget();
-        }
-      },
-    );
+    final List<Package>? packageList = packages!.reversed.toList();
+    return ListOrEmpty(
+        list: packageList,
+        child: ScrollConfiguration(
+          behavior: NoScrollBehavior(),
+          child: GridView.builder(
+            padding: Paddings.paddingA20,
+            physics: Physics.never,
+            itemCount: packageList!.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount:
+                  MediaQuery.of(context).orientation == Orientation.landscape
+                      ? 3
+                      : 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: (1 / 1),
+            ),
+            itemBuilder: (
+              context,
+              index,
+            ) {
+              return PackageBox(
+                package: packageList[index],
+                w: sW,
+                index: index,
+              );
+            },
+          ),
+        ));
   }
 }

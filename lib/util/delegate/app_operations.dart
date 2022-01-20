@@ -14,13 +14,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AppOperations {
   static int getTime(index) {
-    return (index * 100) < 1500 ? index * 100 : 400;
+    return (index * 200) < 4500 ? index * 200 : 400;
   }
 
   static String formatNumber(String num, {bool addZero = true}) {
-    var a =num;
+    var a = num;
     if (addZero) {
-    a= num.replaceAll('(', "(0");
+      a = num.replaceAll('(', "(0");
     }
 
     return a.replaceAll(' ', "-");
@@ -60,9 +60,9 @@ class AppOperations {
     if (r > 256) {
       r = r - 256;
     } // 128 ... 255
-    int g = deleteDigitOfInt(id, 1,r);
+    int g = deleteDigitOfInt(id, 1, r);
 
-    int b = deleteDigitOfInt(id, 2,r);
+    int b = deleteDigitOfInt(id, 2, r);
     //bbbb("id::LL  :: " + id.toString());
 
     //bbbb("icolor:  $r  $g  $b " + id.toString());
@@ -82,8 +82,8 @@ class AppOperations {
           numString[numString.length - 1] + newNumString + numString[which];
       newNumString = newNumString.substring(0, 2);
       newNumInt = int.parse(newNumString);
-      newNumInt=newNumInt*num.floor();
-      newNumInt =r-newNumInt;
+      newNumInt = newNumInt * num.floor();
+      newNumInt = r - newNumInt;
     } catch (e) {
       newNumInt = int.parse((num.toString()).split('').reversed.join(''));
     }

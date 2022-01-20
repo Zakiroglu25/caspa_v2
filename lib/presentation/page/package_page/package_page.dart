@@ -21,7 +21,6 @@ class PackagePage extends StatelessWidget {
           builder: (context, state) {
             if (state is PackageStatusesSuccess) {
               final Map<String, dynamic> packageMap = state.packageList!;
-
               return SliverCaspaBar(
                 appbarHeight: 1,
                 tabs: packageMap.entries

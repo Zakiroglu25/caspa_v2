@@ -3,8 +3,8 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PromoTableTitle extends StatelessWidget {
-  const PromoTableTitle({Key? key}) : super(key: key);
+class GiftTableTitle extends StatelessWidget {
+  const GiftTableTitle({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class PromoTableTitle extends StatelessWidget {
         ),
         Spacer(),
         Text(
-          MyText.used,
+          MyText.value,
           style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
         ),
       ],

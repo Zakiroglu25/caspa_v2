@@ -1,56 +1,54 @@
-import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_state.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
-
-import '../promo_code_page.dart';
-import 'promo_code_list_element.dart';
+import 'gift_table_title.dart';
+import 'gift_code_list_element.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'promo_table_title.dart';
-
-class PromoCodesList extends StatelessWidget {
-  PromoCodesList({Key? key}) : super(key: key);
+class GiftCodesList extends StatelessWidget {
+  GiftCodesList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PromoCodeCubit, PromoCodeState>(
+    return BlocBuilder<GiftBalanceCubit, GiftBalanceState>(
       buildWhen: (context, state) {
-        if (state is PromoCodeInAdding ||
-            state is PromoCodeAdded ||
-            state is PromoCodeNotAdded) {
+        if (state is GiftBalanceInAdding ||
+            state is GiftBalanceAdded ||
+            state is GiftBalanceNotAdded) {
           return false;
         } else
           return true;
       },
       builder: (context, state) {
-        if (state is PromoCodeSuccess) {
-          final promoCodeList = state.promoList;
+        if (state is GiftBalanceSuccess) {
+          final giftCodeList = state.giftList;
           return ListOrEmpty(
-            list: promoCodeList,
+            list: giftCodeList,
             child: Column(
               children: [
-                PromoTableTitle(),
+                GiftTableTitle(),
                 MySizedBox.h20,
                 ListView.builder(
                   shrinkWrap: true,
                   physics: Physics.never,
-                  itemCount: promoCodeList.length,
+                  itemCount: giftCodeList.length,
                   itemBuilder: (context, index) {
-                    return PromoCodeListElement(
-                        promoCode: promoCodeList[index]);
+                    return GiftCodeListElement(
+                        giftBalance: giftCodeList[index]);
                   },
                 ),
               ],
             ),
           );
         }
-        if (state is PromoCodeInProgress) {
+        if (state is GiftBalanceInProgress) {
           return CaspaLoading();
         } else {
           return EmptyWidget(

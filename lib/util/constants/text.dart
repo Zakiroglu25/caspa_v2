@@ -63,7 +63,8 @@ class MyText {
       "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
 
   ///giftbalance
-  static const String licenseText = '''“Həvalə et” xidməti ilə sifariş edildiyi halda
+  static const String licenseText =
+      '''“Həvalə et” xidməti ilə sifariş edildiyi halda
 1.1 “Həvalə et” xidməti ilə edilən bütün sifarişlərə zəmanət veririk. Sifarişlərinizdə hər hansı bir yanlışlıq varsa, qırıq, istifadəyə yararsızdırsa, əskik göndərilibsə, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq. Bağlamalarınızı filiallarda və ya kuryer vasitəsi ilə təhvil alarkən yerindəcə yoxlayıb əməkdaşlarımıza məlumat verilməlidir. Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
 1.2 Müştəri Türkiyədən həm "Həvalə et" xidmətimizlə, həm də "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. 
 1.3 “STAREX" MMC qəbul olunmuş sifarişləri növbəlilik əsasında həyata keçirir və həftə içi 24 saat ərzində sifarişlərin yerləşdirilməsinə zəmanət verir. Bununla belə sifariş prosesində hər hansı problem yarandıqda (məhsulun bitməsi, sifariş olunan ölçünün və ya rəngin bitməsi, kampaniyanın başa çatması, ödəmə problemi və s.) istifadəçinin ödədiyi məbləğ istifadəçinin balansına geri qaytarılır. Qeyd edək ki, endirimlərlə əlaqədar olaraq bəzən bu müddət uzana bilər.
@@ -170,7 +171,6 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 - Xammal şəklində olan qiymətli metallar və qiymətli qaşlar.
 - Qanunvericiliyin tələbini ödəməyən digər məhsullar.''';
 
-
   ///etibarname
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
@@ -215,7 +215,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //general
   static const String back = "Geri";
   static const String are_u_sure_delete = "Silmək istədiyinizdən əminsiniz?";
-  static const String you_can_not_recovery_it_again = "Xatırladaq ki, geri dönüş yoxdur!";
+  static const String you_can_not_recovery_it_again =
+      "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
@@ -224,6 +225,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String amount = "Miqdar";
+  static const String value = "Dəyər";
   static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
   static const String status = "Status";
@@ -237,6 +240,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //order success
   static const String congrats = "Təbriklər 🎉";
   static const String orderOnTheWay = "Bağlama(lar) yoldadır";
+  static const String yes = "Bəli";
+  static const String no = "Xeyr";
   static const String orderOnTheWayInfo =
       "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
   static const String goToHomePage = "Ana səhifəyə keç";
@@ -247,6 +252,11 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
+  static const String youMustHaveProduct =
+      "Kuryer sifarişi edə bilmək üçün, bizdə bağlamanız olmalıdır.";
+  static const String youMustHaveMakepayment =
+      "Bu bağlamanı kuryer  ilə sifariş edə bilmək üçün, əvvəlcə xaricdən çatdırılma ödənişini tamamlamalısınız.";
+  static const String youHaveNotPay = "Ödəniş olunmayıb!";
 
   //new order
   static const String weBuyForYou =
@@ -280,6 +290,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   //user settings
   static const String main = "Əsas";
   static const String name = "Ad";
+  static const String region = "Rayon";
   static const String name_surname = "Ad, Soyad";
   static const String father_name = "Ata adı";
   static const String surname = "Soyad";
@@ -318,6 +329,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
   static const String promoCode = "Promokod";
+  static const String giftCode = "Hədiyyə kodu";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";
   static const String used = "İstifadə edilib";
@@ -330,6 +342,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String whatsapp = "WhatsApp";
   static const String telegram = "Telegram";
   static const String messenger = "Messenger";
+  static const String facebook = "Facebook";
+  static const String instagram = "İnstagram";
   static const String caspa_azerbaijan = 'Caspa Azerbaijan';
   static const String contact = 'Əlaqə';
   static const String contactX = "Əlaqə ☎️";
@@ -361,11 +375,11 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı.";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
-  static const String sure_all_fields_correct_contact_us = "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
+  static const String sure_all_fields_correct_contact_us =
+      "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
   static const String more = "Ətraflı";
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
-
 
   //report
   static const String report = "Bəyan et";
@@ -407,9 +421,13 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 
   //static const String note = "İzləmə kodu";
   static const String link_of_order = 'Məhsulun linki';
+
   //order via link
 
 //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
+
+  //whatsapp
+  static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 }

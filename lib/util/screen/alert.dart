@@ -19,7 +19,12 @@ import 'widget_or_empty.dart';
 
 class Alert {
   static show(BuildContext context,
-      {Widget? image, String? title, String? buttonText, String? content, Function? onTap}) {
+      {Widget? image,
+      Widget? secondButton,
+      String? title,
+      String? buttonText,
+      String? content,
+      Function? onTap}) {
     showDialog(
         context: context,
         useSafeArea: false,
@@ -49,26 +54,34 @@ class Alert {
                     height: 10.sm,
                   ),
                   Text(
-                    title?? MyText.congrated,
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
+                    title ?? MyText.congrated,
+                    style: AppTextStyles.sanF600.copyWith(fontSize: 18.sm),
                   ),
                   SizedBox(
                     height: 10.sm,
                   ),
-                  Text(
-                    content ?? MyText.operationIsSuccess,
-                    style: AppTextStyles.sanF400
-                        .copyWith(fontSize: 14.sm, color: MyColors.grey163),
+                  Padding(
+                    padding: Paddings.paddingH16,
+                    child: Text(
+                      content ?? MyText.operationIsSuccess,
+                      style: AppTextStyles.sanF400
+                          .copyWith(fontSize: 16.sm, color: MyColors.grey163),
+                    ),
                   ),
                   SizedBox(
                     height: 18.sm,
                   ),
+                  secondButton ?? Container(),
+                  SizedBox(
+                    height: 18.sm,
+                  ),
                   CaspaButton(
-                    text: buttonText??MyText.ok,
+                    text: buttonText ?? MyText.ok,
                     onTap: () {
                       if (onTap != null) {
                         onTap.call();
-                      }  Go.pop(context);
+                      }
+                      Go.pop(context);
                     },
                   )
                 ],

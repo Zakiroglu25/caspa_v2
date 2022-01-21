@@ -4,53 +4,60 @@ import 'package:caspa_v2/infrastructure/data_source/promo_code_provider.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'gift_state.dart';
+import 'gift_balance_state.dart';
 
-class GiftCubit extends Cubit<GiftState> {
-  GiftCubit() : super(GiftInitial());
+class GiftBalanceCubit extends Cubit<GiftBalanceState> {
+  GiftBalanceCubit() : super(GiftBalanceInitial());
 
   void fetch([bool loading = true]) async {
     if (loading) {
-      emit(GiftInProgress());
+      emit(GiftBalanceInProgress());
     }
-    try {
-      final result = await GiftProvider.getGift();
 
-      if (result!.data != null) {
-        emit(GiftSuccess(result.data!));
+    try {
+      final result = await GiftProvider.getGiftCodes();
+      if (isSuccess(result.statusCode)) {
+        emit(GiftBalanceSuccess(result.data));
       } else {
-        emit(GiftError());
+        emit(GiftBalanceError());
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(GiftNetworkError());
+      emit(GiftBalanceNetworkError());
     } catch (e, s) {
-      eeee("gift cubit catch: $e");
-      emit(GiftError(error: e.toString()));
+      eeee("GiftBalanceCubit ftech catch: $e");
+      emit(GiftBalanceError(error: e.toString()));
     }
   }
 
-  void addPromo([bool loading = true]) async {
+  void addPromo(BuildContext context, [bool loading = true]) async {
     if (loading) {
-      emit(GiftInProgress());
+      emit(GiftBalanceInAdding());
     }
+
     try {
       final result = await GiftProvider.addGift(code: promoCode.valueOrNull!);
 
       if (isSuccess(result.statusCode)) {
-        emit(GiftAdded());
+        Snack.positive(context: context, message: MyText.operationIsSuccess);
+        fetch(false);
+        emit(GiftBalanceAdded());
       } else {
-        emit(GiftNotAdded());
+        //
+        Snack.display(context: context, message: result.data['message']);
+        emit(GiftBalanceNotAdded());
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(GiftNetworkError());
+      emit(GiftBalanceNetworkError());
     } catch (e, s) {
-      eeee("addPromo cubit catch: $e");
-      emit(GiftError(error: e.toString()));
+      eeee("GiftBalanceCubit add cubit catch: $e");
+      emit(GiftBalanceError(error: e.toString()));
     }
   }
 

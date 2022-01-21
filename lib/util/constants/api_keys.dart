@@ -31,6 +31,8 @@ class ApiKeys {
 
   //packages
   static final allPackages = '$baseUrl/user/packages';
+  static final packagesForCourier = '$baseUrl/user/couriers/packages';
+  static final addCourier = '$baseUrl/user/couriers';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -53,7 +55,6 @@ class ApiKeys {
   static const deleteAttorneys = "$baseUrl/user/attorneys/delete";
   static const editAttorneys = "$baseUrl/user/attorneys/edit";
 
-
   //forgot
   static const forgotOtp = "$baseUrl/user/otp";
   static const forgotOtpApprove = "$baseUrl/user/otp/approve";
@@ -69,7 +70,9 @@ class ApiKeys {
   static const addGift = "$baseUrl/user/gift";
 
 
-
+  //promoCode
+  static const giftBalances = "$baseUrl/user/gifts";
+  static const addGiftCode = "$baseUrl/user/gift";
 
   static loginBody({
     required String? email,
@@ -110,7 +113,6 @@ class ApiKeys {
       "detail": detail,
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -147,7 +149,6 @@ class ApiKeys {
       "deviceTypeId": deviceTypeId,
       "language": language
     };
-
 
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
@@ -217,7 +218,6 @@ class ApiKeys {
       "language": language
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -255,7 +255,6 @@ class ApiKeys {
       "language": language
     };
 
-
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');
     return map;
@@ -266,10 +265,9 @@ class ApiKeys {
   }) {
     //
     final map = {
-      'Authorization': 'Bearer $token',
+      'Authorization': 'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
       "Content-Type": "application/json",
     };
-
 
     map.removeWhere(
         (key, value) => key == null || value == null || value == 'null');

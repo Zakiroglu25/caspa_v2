@@ -9,6 +9,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,8 @@ class UserCabinetPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                      context.read<AuthenticationCubit>()..logOut(context);
+                      Alert.show(context);
+                      //   context.read<AuthenticationCubit>()..logOut(context);
                       //  BlocProvider.of<AuthenticationCubit>(context).logOut(context);
                     },
                   )

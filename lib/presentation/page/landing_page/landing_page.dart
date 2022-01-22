@@ -6,6 +6,7 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _LandingPageState extends State<LandingPage> {
                 color: MyColors.mainColor,
               ),
               icon: SvgPicture.asset(Assets.svgBottomBox),
-              label: 'Bağlamalar',
+              label: MyText.packages,
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
@@ -86,8 +87,8 @@ class _LandingPageState extends State<LandingPage> {
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,
-              activeIcon: SvgPicture.asset(Assets.svgOther,
-                  color: MyColors.mainColor),
+              activeIcon:
+                  SvgPicture.asset(Assets.svgOther, color: MyColors.mainColor),
               icon: SvgPicture.asset(
                 Assets.svgOther,
               ),
@@ -96,7 +97,7 @@ class _LandingPageState extends State<LandingPage> {
           ],
           currentIndex: index,
           onTap: onChangedTab,
-         // selectedItemColor: MyColors.black,
+          // selectedItemColor: MyColors.black,
         ),
       );
 

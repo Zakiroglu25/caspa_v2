@@ -183,6 +183,8 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String passwordAgain = "Şifrənin təkrarı";
   static const String forgot_pass = "Şifrəni unutmuşam";
   static const String registration = "Qeydiyyat";
+  static const String civilRegistration = 'Vətəndaş qeydiyyatı';
+  static const String businessRegistration = 'Biznes qeydiyyat';
 
   //registration
   static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";

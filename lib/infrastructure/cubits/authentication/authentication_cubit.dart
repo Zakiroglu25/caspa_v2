@@ -152,10 +152,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   void onBoardHaveSeen(BuildContext context) async {
-    emit(AuthenticationLoading());
+    //  emit(AuthenticationLoading());
     await _configs.persistOnBoard(seen: true);
-    //Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
-    await _configs.persistOnBoard(seen: false);
   }
 }

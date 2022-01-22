@@ -17,10 +17,7 @@ class ConfigService {
 
   static Future<ConfigService> get instance async {
     _instance ??= ConfigService._internal();
-
     _box = await Hive.openBox('config');
-    // if (_preferences == null) {}
-
     return _instance!;
   }
 
@@ -29,114 +26,13 @@ class ConfigService {
   }
 
   // refresh token
-  Future<void> persistRefreshToken({String? refreshToken}) async {
-    if (refreshToken == null) {
-      await _box!.delete(SharedKeys.refreshToken);
+  Future<void> persistOnBoard({bool? seen}) async {
+    if (seen == null) {
+      await _box!.delete(SharedKeys.onBoardIsSeen);
     } else {
-      await _box!.put(SharedKeys.refreshToken, refreshToken);
+      await _box!.put(SharedKeys.onBoardIsSeen, seen);
     }
   }
 
-  String get refreshToken => _box!.get(SharedKeys.refreshToken)!;
-
-  bool get hasRefreshToken =>
-      _box?.containsKey(SharedKeys.refreshToken) ?? false;
-
-  //access token
-  Future<void> persistAccessToken({String? accessToken}) async {
-    if (accessToken == null) {
-      await _box!.delete(SharedKeys.accessToken);
-    } else
-      await _box!.put(SharedKeys.accessToken, accessToken);
-  }
-
-  String? get accessToken => _box!.get(SharedKeys
-      .accessToken); //??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
-
-  bool get hasAccessToken =>
-      (_box?.containsKey(SharedKeys.accessToken)) ?? false;
-
-  //language
-  Future<void> persistLanguage({String? language}) async {
-    await _box!.put(SharedKeys.language, language!);
-  }
-
-  String get language => _box!.get(SharedKeys.language) ?? "az";
-
-  //user
-  persistUser({required MyUser user}) async {
-    if (user == null) {
-      return await _box!.delete(SharedKeys.user);
-    } else
-      return await _box!.put(SharedKeys.user, json.encode(user.toJson()));
-  }
-
-  MyUser get user => MyUser.fromJson(json.decode(_box!.get(SharedKeys.user)!));
-
-  //user
-  // Future<void> persistUser({MyUser? user}) async {
-  //   if (user == null) {
-  //      await _preferences.remove(SharedKeys.user);
-  //   } else
-  //      await _preferences.setString(
-  //         SharedKeys.user, json.encode(user.toJson()));
-  // }
-  // MyUser get user => MyUser.fromJson(json.decode(_preferences.getString(SharedKeys.user))) ;
-
-  //header cubit pref
-
-  // Future<void> persistHeader({HeaderResult? headerResult}) async {
-  //   if (headerResult == null) {
-  //      await _preferences!.remove(SharedKeys.headerResult);
-  //   } else
-  //      await _preferences!.setString(
-  //         SharedKeys.headerResult, json.encode(headerResult.toJson()))!;
-  // }
-  //
-  // // MyUser get user => MyUser.fromJson(json.decode(_preferences.getString(SharedKeys.user))) ;
-  // String get header => _preferences!.getString(SharedKeys.headerResult);
-
-//////
-
-  Future<void> persistIsLoggedIn(bool value) async {
-    await _box!.put('is_logged_in', value);
-  }
-
-  bool get isLoggedIn => _box!.get('is_logged_in') ?? false;
-
-  Future<void> persistIsGuest(bool value) async {
-    await _box!.put('isGuest', value);
-  }
-
-  bool get isGuest => _box!.get('isGuest') ?? true;
-
-  //pass
-  Future<void> persistPath(String path) async {
-    await _box!.put(SharedKeys.userPath, path);
-  }
-
-  String get userPath => _box!.get(SharedKeys.userPath) ?? "null";
-
-  Future<void> persistFcmToken({String? fcmToken}) async {
-    await _box!.put("fcm_token", fcmToken!);
-  }
-
-  String get fcmToken => _box!.get("fcm_token")!;
-
-  read(String key) async {
-    //  print("read shared 1");
-    final prefs = await SharedPreferences.getInstance();
-    //  print("read shared 2");
-    return json.decode(prefs.getString(key)!);
-  }
-
-  save(String key, value) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.setString(key, json.encode(value));
-  }
-
-  remove(String key) async {
-    final prefs = await SharedPreferences.getInstance();
-    prefs.remove(key);
-  }
+  String get onBoardIsSeen => _box!.get(SharedKeys.onBoardIsSeen)!;
 }

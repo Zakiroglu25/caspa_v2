@@ -18,17 +18,15 @@ class PassField extends StatelessWidget {
           title: MyText.password,
           maxLines: 1,
           hint: MyText.password,
-          upperCase: false,
+          // upperCase: false,
           textInputType: TextInputType.text,
           suffixIcon: FieldCLearButton.elseEmpty(
-
             BlocProvider.of<LoginCubit>(context).uPass.valueOrNull ?? '',
             onTap: () => BlocProvider.of<LoginCubit>(context).updatePass(''),
-
           ),
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-         // controller: passController,
+          // controller: passController,
           onChanged: (value) =>
               BlocProvider.of<LoginCubit>(context).updatePass(value),
         );

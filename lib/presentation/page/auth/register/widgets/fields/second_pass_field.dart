@@ -18,7 +18,8 @@ class SecondPassFieldRegister extends StatefulWidget {
   SecondPassFieldRegister({this.controller});
 
   @override
-  State<SecondPassFieldRegister> createState() => _SecondPassFieldRegisterState();
+  State<SecondPassFieldRegister> createState() =>
+      _SecondPassFieldRegisterState();
 }
 
 class _SecondPassFieldRegisterState extends State<SecondPassFieldRegister> {
@@ -33,9 +34,6 @@ class _SecondPassFieldRegisterState extends State<SecondPassFieldRegister> {
           title: MyText.password,
           maxLines: 1,
           hint: MyText.enter_new_pass_again,
-          upperCase: false,
-          textInputType: TextInputType.phone,
-          textCapitalization: TextCapitalization.none,
           obscure: obscure,
           suffixIcon: Material(
             color: Colors.transparent,

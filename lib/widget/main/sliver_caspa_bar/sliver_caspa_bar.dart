@@ -23,6 +23,7 @@ class SliverCaspaBar extends StatefulWidget {
   double? appbarHeight;
   bool? back;
   bool? notification;
+  bool? isScrollable;
 
   SliverCaspaBar({
     this.tabs,
@@ -31,6 +32,7 @@ class SliverCaspaBar extends StatefulWidget {
     this.tabbarPadding,
     this.selectedTabColor,
     this.unSelectedLabelColor,
+    this.isScrollable,
     this.selectedLabelColor,
     this.back,
     this.notification,
@@ -126,7 +128,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                           widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
-                      isScrollable: true,
+                      isScrollable: widget.isScrollable ?? false,
                     ),
                   ),
                 )

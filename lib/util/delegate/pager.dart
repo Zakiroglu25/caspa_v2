@@ -234,7 +234,7 @@ class Pager {
       create: (context) => PackageCubit()..fetch(), child: PackageHistoryTab());
 
   static packageDetails({required Package package}) => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
+      create: (context) => PackageCubit(),
       child: PackageDetailsPage(
         package: package,
       ));

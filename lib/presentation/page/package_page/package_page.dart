@@ -23,6 +23,7 @@ class PackagePage extends StatelessWidget {
               final Map<String, dynamic> packageMap = state.packageList!;
               return SliverCaspaBar(
                 appbarHeight: 1,
+                isScrollable: true,
                 tabs: packageMap.entries
                     .map((entry) => Tab(
                           //   text: entry.key,

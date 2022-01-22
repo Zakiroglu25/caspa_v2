@@ -1,31 +1,24 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
-import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
-import 'package:caspa_v2/util/delegate/sentry_helper.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logging/logging.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-
 import '../../../locator.dart';
 import 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationUninitialized());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   MyUser? userData = MyUser();
   FirebaseMessaging _fcm = FirebaseMessaging.instance;
 
@@ -143,7 +136,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     emit(AuthenticationLoading());
     await _prefs.persistIsLoggedIn(false);
     //final logOutRes =
-    await _prefs.clear();
+    _prefs.clear();
     PaintingBinding.instance!.imageCache!.clear();
     imageCache!.clear();
     //startApp(context);

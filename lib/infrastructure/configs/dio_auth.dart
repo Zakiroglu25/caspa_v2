@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DioAuth {
-  static PreferencesService get _prefs => locator<PreferencesService>();
+  static HiveService get _prefs => locator<HiveService>();
 
   static DioAuth? _instance;
   static late Dio dioAuth;
@@ -27,11 +27,13 @@ class DioAuth {
         followRedirects: true,
         headers: ApiKeys.header(token: await _prefs.accessToken),
         validateStatus: (status) {
-        //  return status! < 500;
+          //  return status! < 500;
           return true;
         },
       ),
-    )..interceptors.add(CustomInterceptors());;
+    )
+      ..interceptors.add(CustomInterceptors());
+    ;
 
     return _instance!;
   }
@@ -57,7 +59,7 @@ class JwtInterceptor extends Interceptor {
 }
 
 class CustomInterceptors extends Interceptor {
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     print('REQUEST[${options.method}] => PATH: ${options.path}');
@@ -70,9 +72,8 @@ class CustomInterceptors extends Interceptor {
     print(
         'RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
 
-
     if (!isSuccess(response.statusCode)) {
-     // llll("user: ${_prefs.user}"+"\n request body: "+response.requestOptions.data.toString());
+      // llll("user: ${_prefs.user}"+"\n request body: "+response.requestOptions.data.toString());
       Recorder.recordResponseError(response);
     }
     //  return

@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/address_model.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -10,9 +10,8 @@ import '../../../../locator.dart';
 import 'copiable_field.dart';
 
 class TurkeyAnbar extends StatelessWidget {
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   Adress adress;
-
 
   TurkeyAnbar(this.adress);
 
@@ -64,8 +63,7 @@ class TurkeyAnbar extends StatelessWidget {
           CopiableField(
             //  maxLines: 1,
             title: "Adres Başlığı",
-            data:
-            "${adress.fields?.adresBashligi}",
+            data: "${adress.fields?.adresBashligi}",
           ),
           MySizedBox.h50
         ],

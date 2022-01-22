@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/configs/dio_general.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
@@ -16,7 +16,7 @@ DioG get dioG => locator<DioG>();
 DioAuth get dioAuth => locator<DioAuth>();
 
 class TarifProvider {
-  static PreferencesService get _prefs => locator<PreferencesService>();
+  static HiveService get _prefs => locator<HiveService>();
 
   static Future<TariffData> getTarif() async {
     late TariffData priceModel;

@@ -7,7 +7,7 @@
 // // Package imports:
 // import 'package:http/http.dart' as http;
 // import 'package:optimal/infrastructure/cubits/authentication/authentication_cubit.dart';
-// import 'package:optimal/infrastructure/services/preferences_service.dart';
+// import 'package:optimal/infrastructure/services/hive_service.dart';
 // import 'package:optimal/locator.dart';
 // import 'package:optimal/pages/first_page/first_page.dart';
 // import 'package:optimal/util/constants/api_keys.dart';

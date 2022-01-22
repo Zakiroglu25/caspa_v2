@@ -4,78 +4,74 @@ import 'dart:convert';
 // Package imports:
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Project imports:
 
-class PreferencesService {
-  static PreferencesService? _instance;
-  static SharedPreferences? _preferences;
+class ConfigService {
+  static ConfigService? _instance;
+  static Box? _box;
 
-  PreferencesService._internal();
+  ConfigService._internal();
 
-  static Future<PreferencesService> get instance async {
-    if (_instance == null) {
-      _instance = PreferencesService._internal();
-    }
+  static Future<ConfigService> get instance async {
+    _instance ??= ConfigService._internal();
 
-    _preferences = await SharedPreferences.getInstance();
+    _box = await Hive.openBox('config');
     // if (_preferences == null) {}
 
     return _instance!;
   }
 
-  Future<bool> clear() async {
-    return await _preferences!.clear();
+  void clear() async {
+    return _box!.close();
   }
 
   // refresh token
   Future<void> persistRefreshToken({String? refreshToken}) async {
     if (refreshToken == null) {
-       await _preferences!.remove(SharedKeys.refreshToken);
+      await _box!.delete(SharedKeys.refreshToken);
     } else {
-      await _preferences!.setString(SharedKeys.refreshToken, refreshToken);
+      await _box!.put(SharedKeys.refreshToken, refreshToken);
     }
   }
 
-  String get refreshToken => _preferences!.getString(SharedKeys.refreshToken)!;
+  String get refreshToken => _box!.get(SharedKeys.refreshToken)!;
 
-  bool get hasRefreshToken => _preferences?.containsKey(SharedKeys.refreshToken) ?? false;
-
+  bool get hasRefreshToken =>
+      _box?.containsKey(SharedKeys.refreshToken) ?? false;
 
   //access token
   Future<void> persistAccessToken({String? accessToken}) async {
     if (accessToken == null) {
-       await _preferences!.remove(SharedKeys.accessToken);
+      await _box!.delete(SharedKeys.accessToken);
     } else
-       await _preferences!.setString(SharedKeys.accessToken, accessToken);
+      await _box!.put(SharedKeys.accessToken, accessToken);
   }
 
-  String? get accessToken => _preferences!.getString(SharedKeys.accessToken);//??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
+  String? get accessToken => _box!.get(SharedKeys
+      .accessToken); //??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
 
-  bool get hasAccessToken => (_preferences?.containsKey(SharedKeys.accessToken)) ??false;
-
+  bool get hasAccessToken =>
+      (_box?.containsKey(SharedKeys.accessToken)) ?? false;
 
   //language
   Future<void> persistLanguage({String? language}) async {
-     await _preferences!.setString(SharedKeys.language, language!);
+    await _box!.put(SharedKeys.language, language!);
   }
 
-  String get language => _preferences!.getString(SharedKeys.language) ?? "az";
-
-
+  String get language => _box!.get(SharedKeys.language) ?? "az";
 
   //user
   persistUser({required MyUser user}) async {
     if (user == null) {
-      return await _preferences!.remove(SharedKeys.user);
+      return await _box!.delete(SharedKeys.user);
     } else
-      return await _preferences!.setString(
-          SharedKeys.user, json.encode(user.toJson()));
+      return await _box!.put(SharedKeys.user, json.encode(user.toJson()));
   }
 
-  MyUser get user => MyUser.fromJson(json.decode(_preferences!.getString(SharedKeys.user)!)) ;
-
+  MyUser get user => MyUser.fromJson(json.decode(_box!.get(SharedKeys.user)!));
 
   //user
   // Future<void> persistUser({MyUser? user}) async {
@@ -86,8 +82,6 @@ class PreferencesService {
   //         SharedKeys.user, json.encode(user.toJson()));
   // }
   // MyUser get user => MyUser.fromJson(json.decode(_preferences.getString(SharedKeys.user))) ;
-
-
 
   //header cubit pref
 
@@ -105,30 +99,29 @@ class PreferencesService {
 //////
 
   Future<void> persistIsLoggedIn(bool value) async {
-    await _preferences!.setBool('is_logged_in', value);
+    await _box!.put('is_logged_in', value);
   }
 
-  bool get isLoggedIn => _preferences!.getBool('is_logged_in') ?? false;
+  bool get isLoggedIn => _box!.get('is_logged_in') ?? false;
 
   Future<void> persistIsGuest(bool value) async {
-    await _preferences!.setBool('isGuest', value);
+    await _box!.put('isGuest', value);
   }
 
-  bool get isGuest => _preferences!.getBool('isGuest') ?? true;
+  bool get isGuest => _box!.get('isGuest') ?? true;
 
   //pass
   Future<void> persistPath(String path) async {
-    await _preferences!.setString(SharedKeys.userPath, path);
+    await _box!.put(SharedKeys.userPath, path);
   }
 
-  String get userPath => _preferences!.getString(SharedKeys.userPath) ?? "null";
-
+  String get userPath => _box!.get(SharedKeys.userPath) ?? "null";
 
   Future<void> persistFcmToken({String? fcmToken}) async {
-     await _preferences!.setString("fcm_token", fcmToken!);
+    await _box!.put("fcm_token", fcmToken!);
   }
 
-  String get fcmToken => _preferences!.getString("fcm_token")!;
+  String get fcmToken => _box!.get("fcm_token")!;
 
   read(String key) async {
     //  print("read shared 1");
@@ -146,6 +139,4 @@ class PreferencesService {
     final prefs = await SharedPreferences.getInstance();
     prefs.remove(key);
   }
-
-
 }

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -23,7 +23,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
 
   set registerType(RegisterType value) {

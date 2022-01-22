@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -19,7 +19,7 @@ import '../../../../locator.dart';
 class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   AddAttorneysCubit() : super(AddAttorneysInitial()) {}
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   final full_name_controller = TextEditingController();
   final father_name_controller = TextEditingController();
@@ -31,13 +31,13 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   final note_controller = TextEditingController();
 
   void addAttorney() async {
-
     emit(AddAttorneysInProgress());
     try {
       final result = await AttorneyProvider.addAttorneys(
         full_name: full_name_controller.text,
         father_name: father_name_controller.text,
-        phone: AppOperations.formatNumber(phone_controller.text,addZero: false),
+        phone:
+            AppOperations.formatNumber(phone_controller.text, addZero: false),
         id_ext: serieType.valueOrNull,
         id_number: id_number_controller.text,
         fin: fin_controller.text,
@@ -58,15 +58,16 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
       emit(AddAttorneysError(error: ""));
     }
   }
-  void editAttorney(Attorney attorney) async {
 
+  void editAttorney(Attorney attorney) async {
     emit(AddAttorneysInProgress());
     try {
       final result = await AttorneyProvider.editAttorneys(
         id: attorney.id,
         full_name: full_name_controller.text,
         father_name: father_name_controller.text,
-        phone: AppOperations.formatNumber(phone_controller.text,addZero: false),
+        phone:
+            AppOperations.formatNumber(phone_controller.text, addZero: false),
         id_ext: serieType.valueOrNull,
         id_number: id_number_controller.text,
         fin: fin_controller.text,
@@ -84,13 +85,13 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
       emit(AddAttorneysError(error: 'network_error'));
     } catch (e) {
       print(e);
-      emit(AddAttorneysError(error: MyText.error+": $e"));
+      emit(AddAttorneysError(error: MyText.error + ": $e"));
     }
   }
 
   //serieType
   final BehaviorSubject<String> serieType =
-  BehaviorSubject<String>.seeded(MyText.aze);
+      BehaviorSubject<String>.seeded(MyText.aze);
 
   Stream<String> get serieTypeStream => serieType.stream;
 
@@ -127,7 +128,6 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
       birthDate.value == null ||
       birthDate.value.isEmpty);
 
-
   @override
   close() {
     // TODO: implement close
@@ -144,6 +144,4 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
     // final note_controller = TextEditingController();
     return super.close();
   }
-
-
 }

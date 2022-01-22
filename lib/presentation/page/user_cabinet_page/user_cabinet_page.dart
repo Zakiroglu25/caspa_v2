@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -20,7 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserCabinetPage extends StatelessWidget {
   const UserCabinetPage({Key? key}) : super(key: key);
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +62,8 @@ class UserCabinetPage extends StatelessWidget {
                       ],
                     ),
                     onPressed: () {
-                     context.read<AuthenticationCubit>()..logOut(context);
-                   //  BlocProvider.of<AuthenticationCubit>(context).logOut(context);
+                      context.read<AuthenticationCubit>()..logOut(context);
+                      //  BlocProvider.of<AuthenticationCubit>(context).logOut(context);
                     },
                   )
                 ],
@@ -100,7 +100,7 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 title: "Balans TL",
-                price: "${_prefs.user.balance??0} TL",
+                price: "${_prefs.user.balance ?? 0} TL",
                 subtitle: "(Sifariş)",
                 color: MyColors.balansOrder,
                 btnText: MyText.increaseBalance,

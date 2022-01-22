@@ -1,7 +1,11 @@
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -16,44 +20,44 @@ class PageViewThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        MotoImage(),
-        Spacer(),
-        const Center(
-          child: Text(
-            "Kuryer xidmətini də bizdən sifariş edin",
-            style: TextStyle(
-              fontFamily: "CoHeadline",
-              fontWeight: FontWeight.w400,
-              fontSize: 25,
-              color: MyColors.mainBlue2,
+    return Padding(
+      padding: Paddings.paddingA16,
+      child: Column(
+        children: [
+          MotoImage(),
+          Spacer(),
+          MySizedBox.h16,
+          Center(
+            child: Text(
+              "Kuryer xidmətini də bizdən sifariş edin!",
+              style: AppTextStyles.coHead400.copyWith(
+                fontWeight: FontWeight.w400,
+                fontSize: 25,
+                height: 1.1,
+                color: MyColors.black34,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: Text(
+          MySizedBox.h16,
+          Text(
             "Pozitivlik qəlbimizdədir! Bunu yaymağı hədəfləyirik.",
             maxLines: 4,
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: MyColors.splashLittleText,
-                fontSize: 14,
-                fontFamily: "San Francisco"),
+            style: AppTextStyles.sanF400,
           ),
-        ),
-        const Spacer(),
-        Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
-          child: CaspaButton(
+          const Spacer(
+            flex: 3,
+          ),
+          CaspaButton(
             text: MyText.start,
-            onTap: () => Go.to(context, Pager.login),
+            onTap: () {
+              context.read<AuthenticationCubit>().onBoardHaveSeen(context);
+              // return Go.to(context, Pager.login);
+            },
           ),
-        ),
-        const Spacer(),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
+import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -19,6 +20,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationUninitialized());
 
   HiveService get _prefs => locator<HiveService>();
+  ConfigService get _configs => locator<ConfigService>();
   MyUser? userData = MyUser();
   FirebaseMessaging _fcm = FirebaseMessaging.instance;
 
@@ -57,7 +59,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         ]);
 
         //  if (goOn!) {
-        emit(AuthenticationUninitialized());
+        if (_configs.onBoardIsSeen) {
+          emit(AuthenticationUninitialized());
+        } else {
+          emit(AuthenticationOnboarding());
+        }
+
         //Go.to(context, Pager.login);
         // }
       }
@@ -142,5 +149,13 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     //startApp(context);
     Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
+  }
+
+  void onBoardHaveSeen(BuildContext context) async {
+    emit(AuthenticationLoading());
+    await _configs.persistOnBoard(seen: true);
+    //Go.andRemove(context, Pager.login);
+    emit(AuthenticationUninitialized());
+    await _configs.persistOnBoard(seen: false);
   }
 }

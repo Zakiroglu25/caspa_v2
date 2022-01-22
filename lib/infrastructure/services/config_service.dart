@@ -34,5 +34,5 @@ class ConfigService {
     }
   }
 
-  String get onBoardIsSeen => _box!.get(SharedKeys.onBoardIsSeen)!;
+  bool get onBoardIsSeen => (_box!.get(SharedKeys.onBoardIsSeen)) ?? false;
 }

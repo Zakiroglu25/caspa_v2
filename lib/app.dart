@@ -20,12 +20,8 @@ class App extends StatelessWidget {
         builder: (context, state) {
       if (state is AuthenticationSplash) {
         return SplashPage();
-      }
-
-      else if (state is AuthenticationLoading) {
-
+      } else if (state is AuthenticationLoading) {
         return Scaffold(
-         // backgroundColor: MyColors.backMainColor,
           body: CaspaLoading(),
         );
       } else if (state is AuthenticationServerError) {
@@ -41,8 +37,9 @@ class App extends StatelessWidget {
       }
       if (state is AuthenticationUninitialized) {
         return Pager.login;
+      } else if (state is AuthenticationOnboarding) {
+        return Pager.onBoard;
       } else {
-
         return Pager.landing;
       }
     });

@@ -309,6 +309,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
 
   //static const String email = "E-poçt";
   static const String fin = "FİN kod";
+  static const String skip = "Keç";
   static const String gender = "Cinsiyyət";
 
   //orders

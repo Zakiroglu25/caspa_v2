@@ -3,10 +3,9 @@ import 'package:caspa_v2/widget/caspa_appbar/widgets/notification_widget.dart';
 import 'package:flutter/material.dart';
 
 class SliverNotification extends StatelessWidget {
+  final bool? notification;
 
-  bool? notification;
-
-  SliverNotification(this.notification);
+  const SliverNotification(this.notification, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class SliverNotification extends StatelessWidget {
         value: notification,
         child: Padding(
           padding: const EdgeInsets.only(bottom: 0.0),
-          child: Container(
+          child: SizedBox(
               height: 43,
               width: 43,
               child: Stack(

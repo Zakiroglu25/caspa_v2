@@ -140,13 +140,20 @@ class LoginCubit extends Cubit<LoginState> {
 
       final deviceCode = await _fcm.getToken();
 
+      ///final responseu = AuthProvider.logiiin();
+
+      //bbbb("111: " + uPass.valueOrNull!);
+      //bbbb("222: " + uEmail.valueOrNull!);
+      //bbbb("322: " + StringOperations.platformId().toString());
+      //bbbb("422: " + (await StringOperations.devicename()));
+      // bbbb("522: " + (_prefs.language));
       final response = await AuthProvider.login(
-          email: uEmail.valueOrNull ?? "esev.sv@gmail.com",
+          email: uEmail.valueOrNull ?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
-          lang: _prefs.language);
+          lang: 'az');
 
       //    FirestoreDBService.saveUser(userData!);
 

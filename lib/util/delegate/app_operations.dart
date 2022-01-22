@@ -1,16 +1,20 @@
 // Flutter imports:
 import 'dart:convert';
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppOperations {
   static int getTime(index) {
@@ -89,5 +93,13 @@ class AppOperations {
     }
 
     return newNumInt;
+  }
+
+  static void exitDialog(BuildContext context) {
+    Alert.show(context, image: Image.asset(Assets.pngQifil), cancelButton: true,
+        onTap: () {
+      return context.read<AuthenticationCubit>()
+        ..logOut(context, goWithPager: true);
+    }, title: MyText.are_u_sure_exit);
   }
 }

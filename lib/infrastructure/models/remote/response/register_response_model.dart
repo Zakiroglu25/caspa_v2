@@ -7,14 +7,14 @@ class RegisterResponseModel {
   RegisterResponseModel.fromJson(Map<String, dynamic> json) {
     message = json['message'];
     errors =
-    json['errors'] != null ? new Errors.fromJson(json['errors']) : null;
+        json['errors'] != null ? new Errors.fromJson(json['errors']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
-    if (this.errors != null) {
-      data['errors'] = this.errors!.toJson();
+    data['message'] = message;
+    if (errors != null) {
+      data['errors'] = errors!.toJson();
     }
     return data;
   }
@@ -42,10 +42,10 @@ class Errors {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['id_number'] = this.idNumber;
-    data['fin'] = this.fin;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['id_number'] = idNumber;
+    data['fin'] = fin;
     return data;
   }
 

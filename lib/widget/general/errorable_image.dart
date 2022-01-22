@@ -28,8 +28,11 @@ class ErrorableImage extends StatelessWidget {
       height: h,
       placeholder: (context, url) => Center(
           child: SizedBox(
-              height: 10.sp, width: 10.sp, child: placeHolder ?? CaspaLoading())),
-      errorWidget: (context, url, error) => errorIcon ?? Icon(Icons.error),
+              height: 10.sp,
+              width: 10.sp,
+              child: placeHolder ?? CaspaLoading())),
+      errorWidget: (context, url, error) =>
+          errorIcon ?? const Icon(Icons.error),
     );
   }
 }

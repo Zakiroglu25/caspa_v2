@@ -1,17 +1,11 @@
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:flutter/material.dart';
 
 class SliverBody extends StatelessWidget {
-
-
-  Widget? child;
-
-
-  SliverBody(this.child);
-
+  final Widget? child;
+  const SliverBody(this.child, {Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return                             Positioned(
+    return Positioned(
       left: 10,
       top: 100,
       child: child!,

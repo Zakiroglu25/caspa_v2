@@ -7,9 +7,12 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -139,7 +142,14 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   //   }
   // }
 
-  void logOut(BuildContext context) async {
+  void showLogoutDialog(BuildContext context, {bool goWithPager = false}) {
+    Alert.show(context, image: Image.asset(Assets.pngQifil), cancelButton: true,
+        onTap: () {
+      logOut(context, goWithPager: goWithPager);
+    }, title: MyText.are_u_sure_exit);
+  }
+
+  void logOut(BuildContext context, {bool goWithPager = false}) async {
     emit(AuthenticationLoading());
     await _prefs.persistIsLoggedIn(false);
     //final logOutRes =
@@ -147,7 +157,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     PaintingBinding.instance!.imageCache!.clear();
     imageCache!.clear();
     //startApp(context);
-    Go.andRemove(context, Pager.login);
+    if (goWithPager) Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
   }
 

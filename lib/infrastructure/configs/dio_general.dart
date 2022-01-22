@@ -11,11 +11,9 @@ class DioG {
   DioG._internal();
 
   static Future<DioG> get instance async {
-    if (_instance == null) {
-      _instance = DioG._internal();
-    }
+    _instance ??= DioG._internal();
 
-    dioG = await Dio(
+    dioG = Dio(
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,
         contentType: 'application/json',
@@ -28,8 +26,7 @@ class DioG {
           return true;
         },
       ),
-    )
-      ..interceptors.add(CustomInterceptors());
+    )..interceptors.add(CustomInterceptors());
 
     return _instance!;
   }

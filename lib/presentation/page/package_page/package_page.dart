@@ -24,6 +24,7 @@ class PackagePage extends StatelessWidget {
               return SliverCaspaBar(
                 appbarHeight: 1,
                 isScrollable: true,
+                notification: true,
                 tabs: packageMap.entries
                     .map((entry) => Tab(
                           //   text: entry.key,

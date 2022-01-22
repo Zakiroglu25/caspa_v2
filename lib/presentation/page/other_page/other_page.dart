@@ -6,15 +6,19 @@ import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.d
 
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,15 +111,9 @@ class OtherPage extends StatelessWidget {
               title: MyText.exit,
               content: MyText.tapForExit,
               color: MyColors.grey245,
-              onTap: () {
-                // bbbb('ddd');
-                // context.read<AuthenticationCubit>()..logOut(context);
-
-                // BlocProvider.of<AuthenticationCubit>(context).logOut(
-                //     context);
-
-                context.read<AuthenticationCubit>()..logOut(context);
-              },
+              onTap: () => context
+                  .read<AuthenticationCubit>()
+                  .showLogoutDialog(context, goWithPager: false),
             )
           ],
         ));

@@ -1,17 +1,14 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:caspa_v2/infrastructure/services/interceptor_service.dart';
-import 'package:caspa_v2/infrastructure/services/logging_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../locator.dart';
-import '../bloc_observer.dart';
 import 'base.dart';
 
 Future<void> init() async {
@@ -37,7 +34,7 @@ Future<void> init() async {
 
 //  print("--------------------------------------------------");
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarBrightness: Brightness.dark,
     systemNavigationBarColor: MyColors.white,
     statusBarColor: MyColors.transparent, // status bar color

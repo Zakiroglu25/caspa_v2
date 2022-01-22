@@ -25,7 +25,7 @@ class HiveService {
   }
 
   void clear() async {
-    return _box!.close();
+    _box!.clear();
   }
 
   // refresh token

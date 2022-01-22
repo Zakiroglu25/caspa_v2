@@ -1,9 +1,4 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/add_attorneys_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/promo_code_response.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';

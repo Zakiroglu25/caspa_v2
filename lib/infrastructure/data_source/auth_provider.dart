@@ -55,6 +55,10 @@ class AuthProvider {
     return statusDynamic;
   }
 
+  static void logiiin() async {
+    bbbb("hgjh");
+  }
+
   static Future<StatusDynamic?> registrationCompany({
     required String? name,
     required String? surname,

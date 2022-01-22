@@ -24,12 +24,12 @@ class DioG {
         // headers: ApiKeys.header(token: _prefs.accessToken),
 
         validateStatus: (status) {
-
-         // return status! < 500;
+          // return status! < 500;
           return true;
         },
       ),
-    )..interceptors.add(CustomInterceptors());
+    )
+      ..interceptors.add(CustomInterceptors());
 
     return _instance!;
   }

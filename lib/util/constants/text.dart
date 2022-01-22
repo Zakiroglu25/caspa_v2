@@ -180,6 +180,7 @@ Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdird
   static const String login = "Giriş";
   static const String email = "E-poçt";
   static const String password = "Şifrə";
+  static const String passwordAgain = "Şifrənin təkrarı";
   static const String forgot_pass = "Şifrəni unutmuşam";
   static const String registration = "Qeydiyyat";
 

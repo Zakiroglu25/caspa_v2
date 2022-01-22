@@ -21,16 +21,12 @@ class AccountProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.user;
     var url = Uri.parse(api);
-    final header=ApiKeys.header(token: token);
+    final header = ApiKeys.header(token: token);
 
-    final response = await dioAuth.dio.get(
-      api,options: Options(headers: header)
-    );
+    final response =
+        await dioAuth.dio.get(api, options: Options(headers: header));
     statusDynamic.statusCode = response.statusCode;
-//bbbb("opppo 2: ${response.requestOptions.data}");
-//bbbb("opppo 3: ${response.requestOptions.headers}");
-//bbbb("opppo: ${response.data}");
-if (response.statusCode == ResultKey.successCode) {
+    if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
       statusDynamic.data = userResult.data;
@@ -59,8 +55,8 @@ if (response.statusCode == ResultKey.successCode) {
     required String? old_password,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.user;
-    var url = Uri.parse(api);
+    var api = ApiKeys.updateAccount;
+    //var url = Uri.parse(api);
     final body = ApiKeys.updateAccountBody(
         address: address,
         language: language,
@@ -79,21 +75,17 @@ if (response.statusCode == ResultKey.successCode) {
     llll("body: " + jsonEncode(body));
 
     final headers = ApiKeys.header(token: token);
-    final response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
-
+    //final response =
+    //  await http.post(url, headers: headers, body: jsonEncode(body));
+    final response = await dioAuth.dio.post(api, data: body);
     //  bbbb("huuhuhuh:"+response.body.toString() );
     // //  final response =
     // //      await dioA.dio .post(api, data: body);
-
-    llll(api);
-
     statusDynamic.statusCode = response.statusCode;
-
     if (response.statusCode == ResultKey.successCode) {
-      statusDynamic.data = response.body;
+      statusDynamic.data = response.data;
     } else {
-      eeee("updateAccountBody bad url :$url,response: ${response}");
+      eeee("updateAccountBody bad url :$api, response: ${response.data}");
     }
     return statusDynamic;
   }

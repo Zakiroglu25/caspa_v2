@@ -9,6 +9,7 @@ import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -59,11 +60,11 @@ class LoginCubit extends Cubit<LoginState> {
   updatePass(String value) {
     if (value == null || value.isEmpty) {
       uPass.value = '';
-      uPass.sink.addError("fill_correctly");
+      uPass.sink.addError(MyText.field_is_not_correct);
     } else {
       uPass.sink.add(value);
-     // uEmail.sink.add("esev.sv@gmail.com");
-    //  uPass.sink.add("salam12345");
+      // uEmail.sink.add("esev.sv@gmail.com");
+      //  uPass.sink.add("salam12345");
     }
   }
 
@@ -134,14 +135,13 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
-
 //final email="esev.sv@gmail.com";
 //final pass= 'b261c54a3';
 
       final deviceCode = await _fcm.getToken();
 
       final response = await AuthProvider.login(
-          email: uEmail.valueOrNull ??"esev.sv@gmail.com" ,
+          email: uEmail.valueOrNull ?? "esev.sv@gmail.com",
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
@@ -150,12 +150,12 @@ class LoginCubit extends Cubit<LoginState> {
 
       //    FirestoreDBService.saveUser(userData!);
 
-
       if (isSuccess(response.statusCode)) {
-
         await UserOperations.configureUserData(
-            accessToken: response.data, fcmToken: deviceCode!, path: uPass.valueOrNull);
-        bbbb("yuyu: "+response.data.toString());
+            accessToken: response.data,
+            fcmToken: deviceCode!,
+            path: uPass.valueOrNull);
+        bbbb("yuyu: " + response.data.toString());
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
       } else {

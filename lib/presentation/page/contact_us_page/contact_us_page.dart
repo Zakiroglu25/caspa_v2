@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -33,37 +34,34 @@ class ContactPage extends StatelessWidget {
         child: BlocBuilder<ContactCubit, ContactState>(
           builder: (context, state) {
             if (state is ContactSuccess) {
-              final Contact? contact = state.contact;
+              final Contacts contact = state.contact;
               return ListView(
                 padding: Paddings.paddingH16,
                 children: [
-                  const Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      MyText.applyToCustomerService,
-                      style: UITextStyle.tW400BigBlack,
-                    ),
-                  ),
-                  MySizedBox.h32,
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
-                    onTap: () {
-                      ///bunun launch ede bilmedim
-                      launch("${contact!.whatsapp}");
-                    },
+                    onTap: () => launch(
+                        'https://wa.me/${contact.whatsapp}?text=${MyText.whatsappMessage}'),
                   ),
                   MySizedBox.h16,
+                  // SocialItem(
+                  //   name: MyText.telegram,
+                  //   path: Assets.svgTelegram,
+                  //   onTap: () => launch(contact.whatsapp!),
+                  // ),
+                  // MySizedBox.h16,
                   SocialItem(
-                    name: MyText.telegram,
-                    path: Assets.svgTelegram,
-                    onTap: () {},
-                  ),
-                  MySizedBox.h16,
-                  SocialItem(
-                    name: MyText.messenger,
+                    name: MyText.facebook,
                     path: Assets.svgMessenger,
-                    onTap: () {},
+                    onTap: () => launch(contact.facebook!),
+                  ),
+                  MySizedBox.h16,
+                  SocialItem(
+                    name: MyText.instagram,
+                    path: Assets.pngInstagram,
+                    isPng: true,
+                    onTap: () => launch(contact.instagram!),
                   ),
                   MySizedBox.h16,
                   SocialItem(

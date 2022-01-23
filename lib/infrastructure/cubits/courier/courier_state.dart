@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 
 abstract class CourierState {}
 
@@ -10,8 +11,9 @@ class CourierInProgressButton extends CourierState {}
 
 class CourierableFetched extends CourierState {
   final List<Package>? packageList;
+  final List<Region>? regionList;
 
-  CourierableFetched(this.packageList);
+  CourierableFetched({required this.packageList, required this.regionList});
 }
 
 class CourierError extends CourierState {

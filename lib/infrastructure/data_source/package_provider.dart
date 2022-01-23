@@ -2,6 +2,8 @@
 import 'dart:convert';
 
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/data_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
@@ -46,6 +48,24 @@ class PackageProvider {
       //bbbb("packages data : " + (statusDynamic.data).toString());
     } else {
       eeee("fetchPackagesForCourier bad url :$api,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> fetchPackagesWithStatuses() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.packagesStatuses;
+    final response = await dioAuth.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+    //bbbb("packages data : " + (response.data).toString());
+    // bbbb("packages data : " + (jsonEncode(response.data)).toString());
+    //
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      DataModel package = DataModel.fromJson(gelenCavabJson);
+      statusDynamic.data = package.data;
+    } else {
+      eeee("fetchPackagesWithStatuses bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

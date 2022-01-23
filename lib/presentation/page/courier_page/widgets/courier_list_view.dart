@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -17,8 +18,9 @@ import 'order_list.dart';
 
 class CourierListView extends StatelessWidget {
   final List<Package>? packageList;
+  final List<Region>? regionList;
 
-  CourierListView({required this.packageList});
+  CourierListView({required this.packageList, required this.regionList});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,9 @@ class CourierListView extends StatelessWidget {
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,
                 PhoneFieldCourier(),
-                RegionFieldCourier(),
+                RegionFieldCourier(
+                  regionList: regionList,
+                ),
                 AdressFieldCourier(),
                 SectionName(title: MyText.selectOrder),
                 MySizedBox.h20,

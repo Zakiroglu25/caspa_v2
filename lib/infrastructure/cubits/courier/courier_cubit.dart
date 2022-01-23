@@ -2,6 +2,8 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
+import 'package:caspa_v2/infrastructure/data_source/public_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -60,7 +62,7 @@ class CourierCubit extends Cubit<CourierState> {
         final result = await CourierProvider.addCourier(
             phone: AppOperations.formatNumber(phone.valueOrNull!),
             adress: adress.valueOrNull!,
-            region: region.valueOrNull!,
+            regionId: (region.valueOrNull!.id)!,
             packages: selectedOrders.value);
         if (isSuccess(result.statusCode)) {
           Go.to(context, Pager.success());
@@ -88,9 +90,12 @@ class CourierCubit extends Cubit<CourierState> {
     }
 
     try {
-      final result = await PackageProvider.fetchPackagesForCourier();
-      if (isSuccess(result.statusCode)) {
-        emit(CourierableFetched(result.data));
+      final resultPackages = await PackageProvider.fetchPackagesForCourier();
+      final resultRegions = await PublicProvider.getRegions();
+      if (isSuccess(resultPackages.statusCode) &&
+          isSuccess(resultRegions.statusCode)) {
+        emit(CourierableFetched(
+            packageList: resultPackages.data, regionList: resultRegions.data));
       } else {
         emit(CourierError());
       }
@@ -102,6 +107,27 @@ class CourierCubit extends Cubit<CourierState> {
       emit(CourierError(error: e.toString()));
     }
   }
+
+  // void fetchRegions([bool loading = true]) async {
+  //   if (loading) {
+  //     emit(CourierInProgress());
+  //   }
+  //
+  //   try {
+  //     final result = await PublicProvider.getRegions();
+  //     if (isSuccess(result.statusCode)) {
+  //       emit(CourierableFetched(result.data));
+  //     } else {
+  //       emit(CourierError());
+  //     }
+  //   } on SocketException catch (_) {
+  //     //network olacaq
+  //     emit(CourierError());
+  //   } catch (e, s) {
+  //     eeee("fetchPackagesForCourier catch: $e => $s");
+  //     emit(CourierError(error: e.toString()));
+  //   }
+  // }
 
   ////////////////////////////fields
 
@@ -142,21 +168,20 @@ class CourierCubit extends Cubit<CourierState> {
       (!phone.hasValue || phone.value == null || phone.value.isEmpty);
 
   //region
-  final BehaviorSubject<String> region = BehaviorSubject<String>();
+  final BehaviorSubject<Region?> region = BehaviorSubject<Region>();
 
-  Stream<String> get regionStream => region.stream;
+  Stream<Region?> get regionStream => region.stream;
 
-  updateRegion(String value) {
-    if (value == null || value.isEmpty) {
-      region.value = '';
-      region.sink.addError(MyText.field_is_not_correct);
+  updateRegion(Region? value) {
+    if (value == null) {
+      region.value = null;
+      //region.sink.addError(MyText.field_is_not_correct);
     } else {
       region.sink.add(value);
     }
   }
 
-  bool get isRegionIncorrect =>
-      (!region.hasValue || region.value == null || region.value.isEmpty);
+  bool get isRegionIncorrect => (!region.hasValue || region.value == null);
 
   //is user data valid
   bool isUserDataValid() {

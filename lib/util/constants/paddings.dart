@@ -5,6 +5,10 @@ class Paddings {
 
   //all
   static const EdgeInsets zero = const EdgeInsets.all(0);
+  static const EdgeInsets paddingA1 =
+      const EdgeInsets.symmetric(vertical: 1, horizontal: 1);
+  static const EdgeInsets paddingA2 =
+      const EdgeInsets.symmetric(vertical: 2, horizontal: 2);
   static const EdgeInsets paddingA4 =
       const EdgeInsets.symmetric(vertical: 4, horizontal: 4);
   static const EdgeInsets paddingA8 =

@@ -62,8 +62,8 @@ class LoginCubit extends Cubit<LoginState> {
       uPass.sink.addError("fill_correctly");
     } else {
       uPass.sink.add(value);
-     // uEmail.sink.add("esev.sv@gmail.com");
-    //  uPass.sink.add("salam12345");
+      // uEmail.sink.add("esev.sv@gmail.com");
+      //  uPass.sink.add("salam12345");
     }
   }
 

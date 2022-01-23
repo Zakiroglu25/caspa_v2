@@ -9,19 +9,19 @@ class CourierProvider {
   static Future<StatusDynamic> addCourier(
       {required String phone,
       required String adress,
-      required String region,
+      required int regionId,
       required List<int> packages}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addCourier;
     final body = {
       "phone": phone,
       "address": adress,
-      "region": 1,
+      "region": regionId,
       "package": packages
     };
     final response = await dioAuth.dio.post(api, data: body);
 
-    //eeee("respopop: ${response.requestOptions.data}");
+    eeee("respopop: ${response.requestOptions.data}");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

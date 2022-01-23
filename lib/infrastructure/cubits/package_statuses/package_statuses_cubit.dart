@@ -5,32 +5,32 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../locator.dart';
-import 'packages_state.dart';
+import 'packages_statuses_state.dart';
 
-class PackageCubit extends Cubit<PackageState> {
-  PackageCubit() : super(PackagesInitial());
+class PackageStatusesCubit extends Cubit<PackageStatusesState> {
+  PackageStatusesCubit() : super(PackageStatusesInitial());
 
   PreferencesService get _prefs => locator<PreferencesService>();
 
   void fetch([bool loading = true]) async {
     if (loading) {
-      emit(PackagesInProgress());
+      emit(PackageStatusesInProgress());
     }
     try {
       // String token = await _prefs.accessToken!;
-      final result = await PackageProvider.fetchAllPackages();
-      emit(PackagesError());
+      final result = await PackageProvider.fetchPackagesWithStatuses();
+      emit(PackageStatusesError());
       if (isSuccess(result.statusCode)) {
-        emit(PackagesSuccess(result.data));
+        emit(PackageStatusesSuccess(result.data));
       } else {
-        emit(PackagesError());
+        emit(PackageStatusesError());
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(PackagesNetworkError());
+      emit(PackageStatusesNetworkError());
     } catch (e) {
       eeee("package cubit catch: $e");
-      emit(PackagesError(error: e.toString()));
+      emit(PackageStatusesError(error: e.toString()));
     }
   }
 }

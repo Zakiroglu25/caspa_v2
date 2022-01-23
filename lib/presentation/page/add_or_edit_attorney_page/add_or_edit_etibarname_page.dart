@@ -29,23 +29,25 @@ class AddOrEditEtibarnamePage extends StatelessWidget {
           listener: (context, state) {
             if (state is AddAttorneysInProgress) {
               FullScreenLoading.display(context);
-            } else if (state is AddAttorneysSuccess || state is AddAttorneysEdited) {
+            } else if (state is AddAttorneysSuccess ||
+                state is AddAttorneysEdited) {
               Go.pop(context);
               Snack.display(
                   context: context,
                   message: MyText.operationIsSuccess,
                   positive: true,
                   showSuccessIcon: true);
-            }else if (state is AddAttorneysError) {
-             // Go.pop(context);
+            } else if (state is AddAttorneysError) {
+              // Go.pop(context);
               Snack.display(
-                  context: context,
-                  message: MyText.error,
-
+                context: context,
+                message: MyText.error,
               );
             }
           },
-          child:  AddOrEditFieldsAttorneyListView(attorney: attorney,),
+          child: AddOrEditFieldsAttorneyListView(
+            attorney: attorney,
+          ),
         ),
       ),
     );

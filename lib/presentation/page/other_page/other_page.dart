@@ -55,7 +55,7 @@ class OtherPage extends StatelessWidget {
                   content: MyText.forEditAppSettings,
                   color: MyColors.partnyoColor,
                   onTap: () {
-                    Go.to(context, Pager.gifts);
+                    Go.to(context, Pager.giftBalance);
                   },
                 ),
               ],

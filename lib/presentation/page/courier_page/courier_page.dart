@@ -32,7 +32,11 @@ class CourierPage extends StatelessWidget {
         builder: (context, state) {
           if (state is CourierableFetched) {
             final packageList = state.packageList;
-            return CourierListView(packageList: packageList);
+            final regionsList = state.regionList;
+            return CourierListView(
+              packageList: packageList,
+              regionList: regionsList,
+            );
           } else if (state is CourierInProgress) {
             return CaspaLoading();
           } else

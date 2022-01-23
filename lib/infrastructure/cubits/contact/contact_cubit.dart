@@ -15,9 +15,9 @@ class ContactCubit extends Cubit<ContactState> {
       emit(ContactInProgress());
     }
     try {
-      final result = await ContactProvider.getContact();
+      final result = await ContactProvider.fetchContacts();
       if (result != null) {
-        emit(ContactSuccess(result));
+        emit(ContactSuccess(result.data));
       } else {
         emit(ContactError());
         eeee(

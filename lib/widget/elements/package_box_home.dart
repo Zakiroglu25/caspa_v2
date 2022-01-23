@@ -27,9 +27,7 @@ class PackageBoxHome extends StatelessWidget {
       highlightColor: MyColors.white.withOpacity(.4),
       radius: 12,
       splashColor: Colors.transparent,
-      onTap: () =>
-          Go.to(context, Pager.packagesHistory)
-      ,
+      onTap: () => Go.to(context, Pager.packageDetails(package: package)),
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
@@ -37,7 +35,8 @@ class PackageBoxHome extends StatelessWidget {
         child: Container(
           width: w,
           decoration: BoxDecoration(
-              color:AppOperations.colorWithId(package.id!), borderRadius: BorderRadius.circular(12)),
+              color: AppOperations.colorWithId(package.id!),
+              borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: EdgeInsets.all(20.sp),
             child: Row(
@@ -54,7 +53,6 @@ class PackageBoxHome extends StatelessWidget {
                         style: AppTextStyles.sanF500,
                         maxLines: 2,
                       ),
-
                     ],
                   ),
                 ),
@@ -82,8 +80,7 @@ class PackageBoxHome extends StatelessWidget {
                     Row(
                       children: [
                         const Text("${MyText.status}: ",
-                            style: TextStyle(
-                                color: MyColors.grey153)),
+                            style: TextStyle(color: MyColors.grey153)),
                         Text(
                           package.status!,
                           maxLines: 3,
@@ -92,7 +89,6 @@ class PackageBoxHome extends StatelessWidget {
                     )
                   ],
                 )
-
               ],
             ),
           ),

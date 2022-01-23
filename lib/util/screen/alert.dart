@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -34,7 +35,7 @@ class Alert {
           final sW = MediaQuery.of(context).size.width;
           final buttonSize = (secondButton != null ||
                   onTapCancel != null ||
-                  cancelButton != null)
+                  cancelButton != false)
               ? (sW - 76) / 2
               : sW - 66;
           return AlertDialog(
@@ -76,8 +77,11 @@ class Alert {
                           .copyWith(fontSize: 16.sm, color: MyColors.grey163),
                     ),
                   ),
-                  SizedBox(
-                    height: 18.sm,
+                  WidgetOrEmpty(
+                    value: content != null,
+                    child: SizedBox(
+                      height: 18.sm,
+                    ),
                   ),
                   Container(
                     // width: 100,

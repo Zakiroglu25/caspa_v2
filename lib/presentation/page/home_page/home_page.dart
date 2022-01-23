@@ -29,9 +29,6 @@ class HomePage extends StatelessWidget {
     MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
-        // title: "d",
-
-        ///bunlar null gelir
         title: user.name! + " " + user.surname!,
       ),
       body: SafeArea(
@@ -61,11 +58,12 @@ class HomePage extends StatelessWidget {
             Tariffs(),
             MySizedBox.h24,
             SectionName(
-                title: MyText.myPackages,
-                hP: 20,
-                tile: MoreButton(
-                  onTap: () {},
-                )),
+              title: MyText.myPackages,
+              hP: 20,
+              // tile: MoreButton(
+              //   onTap: () =>Go.to(context, Pager.waitingPackages(packages: packages)),
+              // )
+            ),
             MySizedBox.h24,
             HomePackageList(),
           ],

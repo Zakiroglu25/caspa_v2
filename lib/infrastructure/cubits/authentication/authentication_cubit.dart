@@ -46,10 +46,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       bbbb("islog: $isLoggedIn");
       bbbb("accessToken: $accessToken");
       if (isLoggedIn && accessToken != null) {
-        // final bb = locator.isRegistered(instance: DioAuth.instance);
-        //  bbbb("bbbbb: $bb");
-        // locator.resetLazySingleton(instance: DioAuth.instance);
-        //bbbb("bbbbb: $bb");
         //userin girish edib etmemeyi yoxlanilir
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
@@ -164,9 +160,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     _prefs.clear();
     PaintingBinding.instance!.imageCache!.clear();
     imageCache!.clear();
-    //final bb = locator.isRegistered(instanceName: 'dioAuth');
-    // wwwww("bbbbbb log: $bb");
-    //startApp(context);
     if (goWithPager) Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
   }

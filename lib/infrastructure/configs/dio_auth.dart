@@ -20,7 +20,7 @@ class DioAuth {
     if (_instance == null) {
       _instance = DioAuth._internal();
     }
-
+    wwwww("hoooopo: ${_prefs.accessToken}");
     dioAuth = Dio(
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,

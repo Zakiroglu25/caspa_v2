@@ -1,6 +1,7 @@
 // Dart imports:
 import 'dart:convert';
 
+import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/data_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
@@ -15,7 +16,10 @@ import 'package:flutter/foundation.dart';
 // Package imports:
 import 'package:http/http.dart' as http;
 
+import '../../locator.dart';
+
 class PackageProvider {
+  static DioAuth get dioAuth => locator<DioAuth>();
   static Future<StatusDynamic> fetchAllPackages() async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.allPackages;

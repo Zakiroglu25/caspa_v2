@@ -13,7 +13,6 @@ import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
 DioG get dioG => locator<DioG>();
-DioAuth get dioAuth => locator<DioAuth>();
 
 class TarifProvider {
   static HiveService get _prefs => locator<HiveService>();

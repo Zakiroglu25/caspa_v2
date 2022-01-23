@@ -5,6 +5,7 @@ class SharedKeys {
 
   static const String refreshToken = "refreshToken";
   static const String onBoardIsSeen = "onBoardIsSeen";
+  static const String email = "email";
   static const String accessToken = "accessToken";
   static const String phoneNumber = "phoneNumber";
   static const String language = "language";

@@ -50,7 +50,7 @@ class LoginCubit extends Cubit<LoginState> {
   updateEmail(String value) {
     if (value == null || value.isEmpty) {
       uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
+      uEmail.sink.addError(MyText.all_fields_must_be_filled);
     } else {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
@@ -136,26 +136,16 @@ class LoginCubit extends Cubit<LoginState> {
       }
 
 //final email="esev.sv@gmail.com";
-//final pass= 'b261c54a3';
+//final pass= 'salam';
 
       final deviceCode = await _fcm.getToken();
-
-      ///final responseu = AuthProvider.logiiin();
-
-      //bbbb("111: " + uPass.valueOrNull!);
-      //bbbb("222: " + uEmail.valueOrNull!);
-      //bbbb("322: " + StringOperations.platformId().toString());
-      //bbbb("422: " + (await StringOperations.devicename()));
-      // bbbb("522: " + (_prefs.language));
       final response = await AuthProvider.login(
-          email: uEmail.valueOrNull ?? MyText.testMail,
+          email: uEmail.valueOrNull, //?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
           lang: 'az');
-
-      //    FirestoreDBService.saveUser(userData!);
 
       if (isSuccess(response.statusCode)) {
         await UserOperations.configureUserData(

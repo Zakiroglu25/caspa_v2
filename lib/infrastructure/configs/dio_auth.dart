@@ -1,13 +1,15 @@
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class DioAuth {
-  static PreferencesService get _prefs => locator<PreferencesService>();
+  static HiveService get _prefs => locator<HiveService>();
 
   static DioAuth? _instance;
   static late Dio dioAuth;
@@ -18,25 +20,20 @@ class DioAuth {
     if (_instance == null) {
       _instance = DioAuth._internal();
     }
-
-    dioAuth = await Dio(
+    wwwww("hoooopo: ${_prefs.accessToken}");
+    dioAuth = Dio(
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,
         // contentType: 'application/json',
-        queryParameters: {
-          "Accept": "application/json",
-          'Charset': 'utf-8',
-          "Content-Type": "application/json",
-        },
+        queryParameters: {"Accept": "application/json"},
         followRedirects: true,
-        headers: ApiKeys.header(token: await _prefs.accessToken),
+        headers: ApiKeys.header(token: _prefs.accessToken),
         validateStatus: (status) {
           //  return status! < 500;
           return true;
         },
       ),
-    )
-      ..interceptors.add(CustomInterceptors());
+    )..interceptors.add(CustomInterceptors());
     ;
 
     return _instance!;
@@ -48,9 +45,9 @@ class DioAuth {
 class JwtInterceptor extends Interceptor {
   @override
   void onRequest(
-    RequestOptions options,
-    RequestInterceptorHandler handler,
-  ) async {
+      RequestOptions options,
+      RequestInterceptorHandler handler,
+      ) async {
     final sharedPrefs = await SharedPreferences.getInstance();
     final accessToken = sharedPrefs.getString('accessToken');
 
@@ -63,8 +60,7 @@ class JwtInterceptor extends Interceptor {
 }
 
 class CustomInterceptors extends Interceptor {
-  PreferencesService get _prefs => locator<PreferencesService>();
-
+  HiveService get _prefs => locator<HiveService>();
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     print('REQUEST[${options.method}] => PATH: ${options.path}');
@@ -74,7 +70,7 @@ class CustomInterceptors extends Interceptor {
   @override
   Future onResponse(
       Response response, ResponseInterceptorHandler handler) async {
-    print(
+    debugPrint(
         'RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
 
     if (!isSuccess(response.statusCode)) {
@@ -87,7 +83,7 @@ class CustomInterceptors extends Interceptor {
 
   @override
   Future onError(DioError err, ErrorInterceptorHandler handler) async {
-    print(
+    eeee(
         'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}');
     Recorder.recordDioError(err);
     //return

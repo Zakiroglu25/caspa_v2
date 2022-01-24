@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NoteFieldReport extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
-  NoteFieldReport({this.controller}); //= new TextEditingController();
+  const NoteFieldReport({Key? key, this.controller})
+      : super(key: key); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(

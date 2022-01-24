@@ -1,31 +1,29 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
-import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
+import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
-import 'package:caspa_v2/util/delegate/sentry_helper.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logging/logging.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-
 import '../../../locator.dart';
 import 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationUninitialized());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
+  ConfigService get _configs => locator<ConfigService>();
   MyUser? userData = MyUser();
   FirebaseMessaging _fcm = FirebaseMessaging.instance;
 
@@ -64,7 +62,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         ]);
 
         //  if (goOn!) {
-        emit(AuthenticationUninitialized());
+        if (_configs.onBoardIsSeen) {
+          emit(AuthenticationUninitialized());
+        } else {
+          emit(AuthenticationOnboarding());
+        }
+
         //Go.to(context, Pager.login);
         // }
       }
@@ -138,15 +141,28 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   //   }
   // }
 
-  void logOut(BuildContext context) async {
+  void showLogoutDialog(BuildContext context, {bool goWithPager = false}) {
+    Alert.show(context, image: Image.asset(Assets.pngQifil), cancelButton: true,
+        onTap: () {
+      logOut(context, goWithPager: goWithPager);
+    }, title: MyText.are_u_sure_exit);
+  }
+
+  void logOut(BuildContext context, {bool goWithPager = false}) async {
     emit(AuthenticationLoading());
     await _prefs.persistIsLoggedIn(false);
     //final logOutRes =
-    await _prefs.clear();
+    _prefs.clear();
     PaintingBinding.instance!.imageCache!.clear();
     imageCache!.clear();
     //startApp(context);
-    Go.andRemove(context, Pager.login);
+    if (goWithPager) Go.andRemove(context, Pager.login);
+    emit(AuthenticationUninitialized());
+  }
+
+  void onBoardHaveSeen(BuildContext context) async {
+    //  emit(AuthenticationLoading());
+    await _configs.persistOnBoard(seen: true);
     emit(AuthenticationUninitialized());
   }
 }

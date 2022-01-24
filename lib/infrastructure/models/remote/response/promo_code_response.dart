@@ -13,9 +13,9 @@ class PromoCodeData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.promoCodeList != null) {
-      data['data'] = this.promoCodeList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (promoCodeList != null) {
+      data['data'] = promoCodeList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -42,11 +42,11 @@ class PromoCode {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['used'] = this.used;
-    data['code'] = this.code;
-    data['date'] = this.date;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['used'] = used;
+    data['code'] = code;
+    data['date'] = date;
     return data;
   }
 

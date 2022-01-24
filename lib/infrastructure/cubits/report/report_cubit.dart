@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/report_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -21,7 +21,7 @@ import 'report_state.dart';
 class ReportCubit extends Cubit<ReportState> {
   ReportCubit() : super(ReportInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   Future<File?> checkAndPickImage(BuildContext context) async {
     try {

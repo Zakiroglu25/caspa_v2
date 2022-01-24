@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/general/copy_button.dart';
@@ -10,11 +10,11 @@ import '../../../../locator.dart';
 class UserID extends StatelessWidget {
   const UserID({Key? key}) : super(key: key);
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
-    return         Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(

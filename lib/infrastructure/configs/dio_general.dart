@@ -11,11 +11,9 @@ class DioG {
   DioG._internal();
 
   static Future<DioG> get instance async {
-    if (_instance == null) {
-      _instance = DioG._internal();
-    }
+    _instance ??= DioG._internal();
 
-    dioG = await Dio(
+    dioG = Dio(
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,
         contentType: 'application/json',
@@ -24,8 +22,7 @@ class DioG {
         // headers: ApiKeys.header(token: _prefs.accessToken),
 
         validateStatus: (status) {
-
-         // return status! < 500;
+          // return status! < 500;
           return true;
         },
       ),

@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -7,8 +7,10 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserCabinetPage extends StatelessWidget {
   const UserCabinetPage({Key? key}) : super(key: key);
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,10 +63,9 @@ class UserCabinetPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    onPressed: () {
-                     context.read<AuthenticationCubit>()..logOut(context);
-                   //  BlocProvider.of<AuthenticationCubit>(context).logOut(context);
-                    },
+                    onPressed: () => context
+                        .read<AuthenticationCubit>()
+                        .showLogoutDialog(context, goWithPager: true),
                   )
                 ],
                 cancelButton: CupertinoActionSheetAction(
@@ -100,7 +101,7 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 title: "Balans TL",
-                price: "${_prefs.user.balance??0} TL",
+                price: "${_prefs.user.balance ?? 0} TL",
                 subtitle: "(Sifariş)",
                 color: MyColors.balansOrder,
                 btnText: MyText.increaseBalance,

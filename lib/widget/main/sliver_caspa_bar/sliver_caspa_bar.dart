@@ -1,9 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/widget/caspa_appbar/widgets/notification_widget.dart';
 import 'package:flutter/material.dart';
-
 import 'widgets/sliver_back.dart';
 import 'widgets/sliver_body.dart';
 import 'widgets/sliver_notification.dart';
@@ -11,32 +9,35 @@ import 'widgets/sliver_title.dart';
 import 'widgets/sliver_title_top.dart';
 
 class SliverCaspaBar extends StatefulWidget {
-  List<Widget>? tabs;
-  List<Widget>? tabPages;
-  EdgeInsets? tabbarPadding;
-  Color? selectedTabColor;
-  Color? selectedLabelColor;
-  Color? unSelectedLabelColor;
+  final List<Widget>? tabs;
+  final List<Widget>? tabPages;
+  final EdgeInsets? tabbarPadding;
+  final Color? selectedTabColor;
+  final Color? selectedLabelColor;
+  final Color? unSelectedLabelColor;
 
-  String? title;
-  Widget? sliverChild;
-  double? appbarHeight;
-  bool? back;
-  bool? notification;
+  final String? title;
+  final Widget? sliverChild;
+  final double? appbarHeight;
+  final bool? back;
+  final bool? notification;
+  final bool? isScrollable;
 
-  SliverCaspaBar({
+  const SliverCaspaBar({
+    Key? key,
     this.tabs,
     this.tabPages,
     this.title,
     this.tabbarPadding,
     this.selectedTabColor,
     this.unSelectedLabelColor,
+    this.isScrollable,
     this.selectedLabelColor,
     this.back,
     this.notification,
     this.appbarHeight,
     this.sliverChild,
-  });
+  }) : super(key: key);
 
   @override
   State<SliverCaspaBar> createState() => _SliverCaspaBarState();
@@ -79,29 +80,31 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   elevation: 0,
                   backwardsCompatibility: false,
                   backgroundColor: Colors.white,
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: <Widget>[
-                          SliverBack(back: widget.back),
-                          SliverNotification(widget.notification),
-                          SliverTitle(widget.title),
-                          SliverBody(widget.sliverChild),
-                        ]),
-                    centerTitle: true,
-                    title: Container(
-                      color: Colors.transparent,
-                      width: double.maxFinite,
-                      height: 300,
-                      child: Stack(
-                          alignment: Alignment.topCenter,
+                  flexibleSpace: FadeIn(
+                    child: FlexibleSpaceBar(
+                      background: Stack(
+                          alignment: Alignment.bottomCenter,
                           children: <Widget>[
-                            SliverBack(
-                              back: widget.back,
-                            ),
+                            SliverBack(back: widget.back),
                             SliverNotification(widget.notification),
-                            SliverTitleTop(widget.title)
+                            SliverTitle(widget.title),
+                            SliverBody(widget.sliverChild),
                           ]),
+                      centerTitle: true,
+                      title: Container(
+                        color: Colors.transparent,
+                        width: double.maxFinite,
+                        height: 300,
+                        child: Stack(
+                            alignment: Alignment.topCenter,
+                            children: <Widget>[
+                              SliverBack(
+                                back: widget.back,
+                              ),
+                              SliverNotification(widget.notification),
+                              SliverTitleTop(widget.title)
+                            ]),
+                      ),
                     ),
                   ),
                 ),
@@ -111,7 +114,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   delegate: _SliverAppBarDelegate(
                     TabBar(
                       padding: widget.tabbarPadding ??
-                          EdgeInsets.only(
+                          const EdgeInsets.only(
                               left: 20, right: 20, top: 5, bottom: 10),
                       controller: _tabController,
                       indicator: BoxDecoration(
@@ -126,18 +129,20 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                           widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
-                      isScrollable: true,
+                      isScrollable: widget.isScrollable ?? false,
                     ),
                   ),
                 )
               ];
             },
-            body: TabBarView(
-              physics: Physics.alwaysBounce,
-              controller: _tabController,
-              children: widget.tabPages!.map((Widget widget) {
-                return widget;
-              }).toList(),
+            body: FadeIn(
+              child: TabBarView(
+                physics: Physics.alwaysBounce,
+                controller: _tabController,
+                children: widget.tabPages!.map((Widget widget) {
+                  return widget;
+                }).toList(),
+              ),
             )));
   }
 }
@@ -156,7 +161,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return new Container(
+    return Container(
       color: Colors.white,
       child: _tabBar,
     );

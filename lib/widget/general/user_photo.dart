@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:flutter/material.dart';
@@ -14,13 +14,15 @@ class UserPhoto extends StatelessWidget {
 
   UserPhoto({this.h, this.w});
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
     return _prefs.user.avatar == null
         ? Container(
-            height: h??100.sp, width: w??100.sp, child: SvgPicture.asset(Assets.svgUserCircle))
+            height: h ?? 100.sp,
+            width: w ?? 100.sp,
+            child: SvgPicture.asset(Assets.svgUserCircle))
         : Container(
             height: h ?? 100.sp,
             width: w ?? 100.sp,

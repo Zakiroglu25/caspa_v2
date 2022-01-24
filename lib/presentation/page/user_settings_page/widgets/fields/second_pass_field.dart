@@ -25,12 +25,10 @@ class _SecondPassFieldUserState extends State<SecondPassFieldUser> {
       stream: BlocProvider.of<UserCubit>(context).passSecondStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.password,
+          title: MyText.passwordAgain,
           maxLines: 1,
           hint: MyText.enter_new_pass_again,
-          upperCase: false,
-          textInputType: TextInputType.phone,
-          textCapitalization: TextCapitalization.none,
+
           obscure: obscure,
           suffixIcon: Material(
             color: Colors.transparent,

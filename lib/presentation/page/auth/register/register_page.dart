@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 import 'widgets/tabs/business_register_tab.dart';
@@ -13,11 +14,11 @@ class RegisterPage extends StatelessWidget {
 
   final List<Widget> tabs = const [
     Tab(
-      text: 'Vətəndaş qeydiyyatı',
+      text: MyText.civilRegistration,
       height: 55,
     ),
     Tab(
-      text: 'Biznes qeydiyyat',
+      text: MyText.businessRegistration,
     ),
   ];
 
@@ -34,7 +35,7 @@ class RegisterPage extends StatelessWidget {
         tabPages: tabPages,
         selectedLabelColor: MyColors.white,
         selectedTabColor: MyColors.mainColor,
-        title: '''Bağlamalar''',
+        title: MyText.registration,
         sliverChild: Container(),
       ),
     ));

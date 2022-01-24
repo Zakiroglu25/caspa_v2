@@ -30,7 +30,7 @@ class StringOperations {
     Clipboard.setData(ClipboardData(text: data ?? "")).then((_) {
       Snack.display(
           context: context,
-          message: copyText ?? "coppied",
+          message: copyText ?? MyText.snackText,
           showSuccessIcon: true,
           positive: true);
     });

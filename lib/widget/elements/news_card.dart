@@ -19,7 +19,7 @@ class NewsCard extends StatelessWidget {
       radius: 12,
       onTap: () {
         Go.to(context, NewsDetails());
-       // launch(url!);
+        // launch(url!);
       },
       child: Container(
         height: 94,
@@ -55,7 +55,7 @@ class NewsCard extends StatelessWidget {
               right: 10,
               child: Text(
                 "$newsText",
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.white,
                     fontSize: 11,
                     fontWeight: FontWeight.w400),

@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +10,7 @@ import 'packages_statuses_state.dart';
 class PackageStatusesCubit extends Cubit<PackageStatusesState> {
   PackageStatusesCubit() : super(PackageStatusesInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   void fetch([bool loading = true]) async {
     if (loading) {

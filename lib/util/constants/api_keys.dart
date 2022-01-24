@@ -25,6 +25,7 @@ class ApiKeys {
 
   //user
   static final user = "$baseUrl/user/user";
+  static final updateAccount = "$baseUrl/user/account";
 
   //general
   static const shop = '$baseUrl/public/stores';

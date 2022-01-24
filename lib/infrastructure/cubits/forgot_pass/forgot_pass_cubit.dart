@@ -7,7 +7,7 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/forgot_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/general_response_model.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -27,9 +27,8 @@ import 'forgot_pass_state.dart';
 class ForgotPassCubit extends Cubit<ForgotPassState> {
   ForgotPassCubit() : super(ForgotPassEnterMail());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   String buttonText = MyText.send;
-
 
   void changeState(
       {bool loading = true,
@@ -163,10 +162,8 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
 
   updateCode(String value) {
     if (value == null || value.isEmpty) {
-
       otpCode.value = '';
       otpCode.sink.addError(MyText.field_is_not_correct);
-
     } else {
       otpCode.sink.add(value);
     }

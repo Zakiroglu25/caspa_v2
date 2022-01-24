@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/adress_field.dart';
@@ -27,7 +27,7 @@ import 'fields/tax_field.dart';
 class SliverFields extends StatelessWidget {
   const SliverFields({Key? key}) : super(key: key);
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class SliverFields extends StatelessWidget {
                 controller:
                     StringOperations.stringToController(_prefs.user.fin)),
             // AnbarFieldUser(),
-         TaxFieldUser(),
+            TaxFieldUser(),
             CompanyFieldUser(),
             AdressFieldUser(
                 controller:

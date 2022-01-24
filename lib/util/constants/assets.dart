@@ -17,6 +17,7 @@ class Assets {
   static const String pngDino = "assets/png/homeDinopng.png";
   static const String pngCaspacard = "assets/png/caspacard.png";
   static const String pngInstagram = "assets/png/instagram.png";
+  static const String pngNote = "assets/png/note.png";
 
   static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";

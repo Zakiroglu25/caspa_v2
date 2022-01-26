@@ -67,14 +67,14 @@ class PackageBoxHome extends StatelessWidget {
                           "${MyText.price}: ",
                           style: TextStyle(color: MyColors.grey153),
                         ),
-                        Text(package.price!)
+                        Text(package.price ?? '')
                       ],
                     ),
                     Row(
                       children: [
                         const Text("${MyText.tracking_id}: ",
                             style: TextStyle(color: MyColors.grey153)),
-                        Text("${package.tracking!}")
+                        Text("${package.tracking ?? ''}")
                       ],
                     ),
                     Row(

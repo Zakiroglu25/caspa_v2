@@ -11,6 +11,7 @@ class PriceFieldReport extends StatelessWidget {
   PriceFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<ReportCubit>(context).updatePrice(controller!.text);
     return SizedBox(
       width: (MediaQuery.of(context).size.width / 1.5) - 10,
       child: StreamBuilder<double>(
@@ -24,10 +25,9 @@ class PriceFieldReport extends StatelessWidget {
             formatters: [
               WhitelistingTextInputFormatter.digitsOnly,
             ],
-
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-            //  controller: controller,
+            controller: controller,
             onChanged: (value) =>
                 BlocProvider.of<ReportCubit>(context).updatePrice(value),
           );

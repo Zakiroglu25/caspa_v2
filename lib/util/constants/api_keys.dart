@@ -21,6 +21,8 @@ class ApiKeys {
 
   //report
   static final report = "$baseUrl/user/report";
+  static final editReport = "$baseUrl/user/report/edit";
+  static final deleteReport = "$baseUrl/user/report/delete";
   static final orderViaLink = "$baseUrl/user/orders";
 
   //user

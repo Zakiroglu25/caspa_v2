@@ -37,18 +37,21 @@ class AuthProvider {
       deviceCode: deviceCode,
     );
 
-    // final response =
-    //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
+    final response =
+        await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
-    final response = await dioG.dio.post(api, data: body);
-
+    // final response = await dioG.dio.post(api, data: body);
+    bbbb("response: " + response.body);
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
-      String accessToken = response.data;
+      String accessToken = response.body;
       statusDynamic.data = accessToken;
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
+      statusDynamic.data =
+          AppOperations.errorFromListOfListAsList(response.body);
+//= jsonDecode(response.body);
       eeee("fetchUserInfo bad url :$url,response: ${response}");
     }
 

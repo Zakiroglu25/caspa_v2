@@ -13,54 +13,55 @@ import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:focus_detector/focus_detector.dart';
 
 class HomePackageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create:(context)=> PackageCubit()..fetch(),
+    return FocusDetector(
+      onFocusGained: () {
+        context.read<PackageCubit>().fetch(false);
+      },
       child: BlocBuilder<PackageCubit, PackageState>(
         builder: (context, state) {
-
           if (state is PackagesInProgress) {
-            return Container(
-                height: 116.sm,
-                child: CaspaLoading.blue());
+            return Container(height: 116.sm, child: CaspaLoading.blue());
           } else if (state is PackagesSuccess) {
             final List<Package>? packageList =
-            state.packageList!.reversed.toList();
+                state.packageList!.reversed.toList();
             // packageList!.clear();
 
-            return ListOrEmpty(list: packageList, child: FadeIn(
-              child: SizedBox(
-                height: 116.sm,
-                // width: 284,
-                child: ListView.separated(
-                  padding: Paddings.paddingH20,
-                  separatorBuilder: (context, index) {
-                    return MySizedBox.w12;
-                  },
-                  shrinkWrap: true,
-                  itemCount: packageList!.length,
-                  physics: AlwaysScrollableScrollPhysics(
-                    parent: BouncingScrollPhysics(),
+            return ListOrEmpty(
+                list: packageList,
+                child: FadeIn(
+                  child: SizedBox(
+                    height: 116.sm,
+                    // width: 284,
+                    child: ListView.separated(
+                      padding: Paddings.paddingH20,
+                      separatorBuilder: (context, index) {
+                        return MySizedBox.w12;
+                      },
+                      shrinkWrap: true,
+                      itemCount: packageList!.length,
+                      physics: AlwaysScrollableScrollPhysics(
+                        parent: BouncingScrollPhysics(),
+                      ),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return PackageBoxHome(
+                          packageList[index],
+                          w: 284.sp,
+                        );
+                      },
+                    ),
                   ),
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return PackageBoxHome(
-                      packageList[index], w: 284.sp,
-                    );
-                  },
-                ),
-              ),
-            ));          } else {
+                ));
+          } else {
             return EmptyWidget();
           }
-
         },
       ),
     );
   }
 }
-

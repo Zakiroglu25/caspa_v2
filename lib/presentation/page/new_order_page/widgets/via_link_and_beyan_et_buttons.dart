@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -22,9 +21,9 @@ class ViaLinkAndBeyanEtButtons extends StatelessWidget {
         ),
         MenuBox(
           content: MyText.youMustBuyProduct,
-          title: MyText.declareIt,
+          title: MyText.declareItX,
           color: MyColors.softPurple241,
-          onTap: () => Go.to(context,Pager.report),
+          onTap: () => Go.to(context, Pager.report()),
         ),
       ],
     );

@@ -162,10 +162,14 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: OnboardPage());
 
-  static get report => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => ReportCubit()),
-        BlocProvider(create: (context) => CategoryCubit()),
-      ], child: ReportPage());
+  static report({Package? package}) => MultiBlocProvider(
+          providers: [
+            BlocProvider(create: (context) => ReportCubit()),
+            BlocProvider(create: (context) => CategoryCubit()),
+          ],
+          child: ReportPage(
+            package: package,
+          ));
 
   static get landing => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
@@ -236,11 +240,19 @@ class Pager {
   static get packagesHistory => BlocProvider(
       create: (context) => PackageCubit()..fetch(), child: PackageHistoryTab());
 
-  static packageDetails({required Package package}) => BlocProvider(
-      create: (context) => PackageCubit(),
-      child: PackageDetailsPage(
-        package: package,
-      ));
+  static packageDetails({required Package package}) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => PackageCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ReportCubit(),
+          ),
+        ],
+        child: PackageDetailsPage(
+          package: package,
+        ),
+      );
 
   static addOrEditAttorney({Attorney? attorney}) => BlocProvider(
       create: (context) => AddAttorneysCubit(),

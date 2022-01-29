@@ -38,6 +38,9 @@ class Package {
   Category? category;
   Country? country;
   int? payment;
+  String? note;
+  String? regNumber;
+  int? noInvoice;
   String? invoice;
   String? date;
   List<Archive>? archive;
@@ -54,6 +57,9 @@ class Package {
       this.category,
       this.country,
       this.payment,
+      this.note,
+      this.regNumber,
+      this.noInvoice,
       this.invoice,
       this.date,
       this.archive});
@@ -73,55 +79,60 @@ class Package {
     country =
         json['country'] != null ? new Country.fromJson(json['country']) : null;
     payment = json['payment'];
+    note = json['note'];
+    regNumber = json['regNumber'];
+    noInvoice = json['no_invoice'];
     invoice = json['invoice'];
     date = json['date'];
     if (json['archive'] != null) {
       archive = <Archive>[];
       json['archive'].forEach((v) {
-        archive!.add(Archive.fromJson(v));
+        archive!.add(new Archive.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['status'] = status;
-    data['cargo_tracking'] = cargoTracking;
-    data['tracking'] = tracking;
-    data['store'] = store;
-    data['price'] = price;
-    data['cargo_price'] = cargoPrice;
-    data['weight'] = weight;
-    if (category != null) {
-      data['category'] = category!.toJson();
+    data['id'] = this.id;
+    data['status'] = this.status;
+    data['cargo_tracking'] = this.cargoTracking;
+    data['tracking'] = this.tracking;
+    data['store'] = this.store;
+    data['price'] = this.price;
+    data['cargo_price'] = this.cargoPrice;
+    data['weight'] = this.weight;
+    if (this.category != null) {
+      data['category'] = this.category!.toJson();
     }
-    if (country != null) {
-      data['country'] = country!.toJson();
+    if (this.country != null) {
+      data['country'] = this.country!.toJson();
     }
-    data['payment'] = payment;
-    data['invoice'] = invoice;
-    data['date'] = date;
-    if (archive != null) {
-      data['archive'] = archive!.map((v) => v.toJson()).toList();
+    data['payment'] = this.payment;
+    data['note'] = this.note;
+    data['regNumber'] = this.regNumber;
+    data['no_invoice'] = this.noInvoice;
+    data['invoice'] = this.invoice;
+    data['date'] = this.date;
+    if (this.archive != null) {
+      data['archive'] = this.archive!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 
   @override
   String toString() {
-    return 'Package{id: $id, status: $status, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment: $payment, invoice: $invoice, date: $date, archive: $archive}';
+    return 'Package{id: $id, status: $status, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment: $payment, note: $note, regNumber: $regNumber, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
   }
 }
 
 class Category {
   int? id;
-
-  int? parentId;
-  int? goodsId;
   String? createdAt;
   String? updatedAt;
   String? name;
+  int? parentId;
+  int? goodsId;
 
   Category(
       {this.id,
@@ -142,18 +153,18 @@ class Category {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['name'] = name;
-    data['parent_id'] = parentId;
-    data['goods_id'] = goodsId;
+    data['id'] = this.id;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['name'] = this.name;
+    data['parent_id'] = this.parentId;
+    data['goods_id'] = this.goodsId;
     return data;
   }
 
   @override
   String toString() {
-    return 'Category{id: $id, parentId: $parentId, goodsId: $goodsId, createdAt: $createdAt, updatedAt: $updatedAt, name: $name}';
+    return 'Category{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, parentId: $parentId, goodsId: $goodsId}';
   }
 }
 
@@ -194,17 +205,17 @@ class Country {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = id;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['name'] = name;
-    data['icon'] = icon;
-    data['sort_order'] = sortOrder;
-    data['address'] = address;
-    if (fields != null) {
-      data['fields'] = fields!.toJson();
+    data['id'] = this.id;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['name'] = this.name;
+    data['icon'] = this.icon;
+    data['sort_order'] = this.sortOrder;
+    data['address'] = this.address;
+    if (this.fields != null) {
+      data['fields'] = this.fields!.toJson();
     }
-    data['active'] = active;
+    data['active'] = this.active;
     return data;
   }
 
@@ -215,8 +226,8 @@ class Country {
 }
 
 class Fields {
-  String? il;
-  String? ilche;
+  String? l;
+  String? lE;
   String? mahalle;
   String? telefon;
   String? tcKimlik;
@@ -224,8 +235,8 @@ class Fields {
   String? adresBaL;
 
   Fields(
-      {this.il,
-      this.ilche,
+      {this.l,
+      this.lE,
       this.mahalle,
       this.telefon,
       this.tcKimlik,
@@ -233,8 +244,8 @@ class Fields {
       this.adresBaL});
 
   Fields.fromJson(Map<String, dynamic> json) {
-    il = json['İl'];
-    ilche = json['İlçe'];
+    l = json['İl'];
+    lE = json['İlçe'];
     mahalle = json['Mahalle'];
     telefon = json['Telefon'];
     tcKimlik = json['Tc kimlik'];
@@ -244,19 +255,19 @@ class Fields {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['İl'] = il;
-    data['İlçe'] = ilche;
-    data['Mahalle'] = mahalle;
-    data['Telefon'] = telefon;
-    data['Tc kimlik'] = tcKimlik;
-    data['Posta Kodu'] = postaKodu;
-    data['Adres Başlığı'] = adresBaL;
+    data['İl'] = this.l;
+    data['İlçe'] = this.lE;
+    data['Mahalle'] = this.mahalle;
+    data['Telefon'] = this.telefon;
+    data['Tc kimlik'] = this.tcKimlik;
+    data['Posta Kodu'] = this.postaKodu;
+    data['Adres Başlığı'] = this.adresBaL;
     return data;
   }
 
   @override
   String toString() {
-    return 'Fields{il: $il, ilche: $ilche, mahalle: $mahalle, telefon: $telefon, tcKimlik: $tcKimlik, postaKodu: $postaKodu, adresBaL: $adresBaL}';
+    return 'Fields{l: $l, lE: $lE, mahalle: $mahalle, telefon: $telefon, tcKimlik: $tcKimlik, postaKodu: $postaKodu, adresBaL: $adresBaL}';
   }
 }
 
@@ -273,8 +284,8 @@ class Archive {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = status;
-    data['date'] = date;
+    data['status'] = this.status;
+    data['date'] = this.date;
     return data;
   }
 

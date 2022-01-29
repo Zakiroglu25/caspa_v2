@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/grid_list_model.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -27,7 +26,7 @@ class PackageBoxHome extends StatelessWidget {
       highlightColor: MyColors.white.withOpacity(.4),
       radius: 12,
       splashColor: Colors.transparent,
-      onTap: () => Go.to(context, Pager.packageDetails(package: package)),
+      //onTap: () => Go.to(context, Pager.packagesHistory),
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
@@ -42,7 +41,7 @@ class PackageBoxHome extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: 60,
+                  width: 60.sp,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -50,7 +49,7 @@ class PackageBoxHome extends StatelessWidget {
                       SvgPicture.asset(Assets.svgShop),
                       Text(
                         package.store!,
-                        style: AppTextStyles.sanF500,
+                        style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                         maxLines: 2,
                       ),
                     ],
@@ -63,27 +62,37 @@ class PackageBoxHome extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Text(
+                        Text(
                           "${MyText.price}: ",
-                          style: TextStyle(color: MyColors.grey153),
+                          style: AppTextStyles.sanF400.copyWith(
+                              fontSize: 12.sp, color: MyColors.grey153),
                         ),
+
                         Text(package.price ?? '')
+
                       ],
                     ),
                     Row(
                       children: [
+
                         const Text("${MyText.tracking_id}: ",
                             style: TextStyle(color: MyColors.grey153)),
                         Text("${package.tracking ?? ''}")
+
                       ],
                     ),
                     Row(
                       children: [
-                        const Text("${MyText.status}: ",
-                            style: TextStyle(color: MyColors.grey153)),
+                        Text(
+                          "${MyText.status}: ",
+                          style: AppTextStyles.sanF400.copyWith(
+                              fontSize: 12.sp, color: MyColors.grey153),
+                        ),
                         Text(
                           package.status!,
                           maxLines: 3,
+                          style:
+                              AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
                         ),
                       ],
                     )

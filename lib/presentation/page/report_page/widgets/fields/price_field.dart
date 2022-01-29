@@ -25,10 +25,12 @@ class PriceFieldReport extends StatelessWidget {
             textInputType: const TextInputType.numberWithOptions(
                 signed: false, decimal: true),
             formatters: [
+
               //FilteringTextInputFormatter.digitsOnly,
               //  FilteringTextInputFormatter.allow(RegExp('[0-9.,]+'))
               DecimalTextInputFormatter(
                   activatedNegativeValues: false, decimalRange: 3)
+
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',

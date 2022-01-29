@@ -94,20 +94,19 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     userData = result?.data;
     //FirestoreDBService.saveUser(userData!);
 
-    try {
-      await serverControl(result, () async {
-        //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
-        //server error sehifesini goterir
-        Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
-        Recorder.setId(userData!.id); //crashlyticse id setted
-        Recorder.setUserFCMtoken(fcm); //fcm token setted
-        await _prefs.persistUser(user: userData!);
-        await _prefs.persistIsGuest(false);
-        await _prefs.persistIsLoggedIn(true);
-      });
-    } catch (e, s) {
-      bbbb("$e => $s");
-    }
+   try{ await serverControl(result, () async {
+     //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
+     //server error sehifesini goterir
+     Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
+     Recorder.setId(userData!.id); //crashlyticse id setted
+     Recorder.setUserFCMtoken(fcm); //fcm token setted
+     await _prefs.persistUser(user: userData!);
+     await _prefs.persistIsGuest(false);
+     await _prefs.persistIsLoggedIn(true);
+   });}catch(e,s){
+
+     bbbb("$e => $s");
+   }
   }
 
   Future<void> serverControl(StatusDynamic? result, Function isSuccess) async {
@@ -131,7 +130,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   Future<void> delay(bool showSplash) async {
-    if (showSplash) await Future.delayed(Duration(milliseconds: 2500));
+    if (showSplash) await Future.delayed(Duration(seconds: 4));
   }
 
   // Future<void> configGuest(BuildContext context) async {

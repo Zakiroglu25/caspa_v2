@@ -170,6 +170,7 @@ class MyText {
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
   static const String settingsX = 'Tənzimləmələr ⚙️';
+  static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
@@ -269,7 +270,23 @@ class MyText {
   //static const String note = "İzləmə kodu";
   static const String link_of_order = 'Məhsulun linki';
 
-  //order via link
+  //calculate
+  static const String kg_text = 'Çəkiyə görə';
+  static const String capacity_text = 'Həcmə görə';
+  static const String calculate_appbar = 'Hesab kalkulyatoru';
+  static const String enter_kg = 'Çəkini daxil edin';
+
+  static const String width_under = 'En';
+  static const String width_hint = 'Enini daxil edin (sm)';
+
+  static const String height_under = 'Uzunluq';
+  static const String height_hint = 'Uzunluğu daxil edin (sm)';
+
+  static const String lenght_under = 'Hündürlük';
+  static const String lenght_hint = 'Hündürlüyü daxil edin (sm)';
+
+  static const String info =
+      'Hava yolu daşıma şirkətlərinin (THY,AZAL, SİLKWAY, DHL) hesablama sistemlərini nəzərinizə çatdırmaq istəyirik. Həcm çəkisi bağlamanın ümumi tutduğu yer deməkdir. Bu yerin nə qədər olduğunu öyrənmək üçün Həcm ölçüsü hesablanmalıdır. Karqo ödənişlərində vacib amil bağlamanın əsas çəkisindən çox təyyarədə tutduğu yerdir.Göndəriş zamanı karqonun həcm çəkisi ilə əsas çəkisi qarşılaşdırılır hansı çox olarsa o əsas götürülür. Bu səbəbdən həcm çəkisinin doğru olması üçün doğru paketlənməlidir. Həcm çəkisinin hesablanması üçün düstur aşağıdakı kimidir: En * Hündürlük* Uzunluq / 6000 QEYD: Bağlamanızın həcm ölçüsü tam dəqiq olaraq xarici anbarımızda hesablanacaq. Narahatçılıq olarsa Bakı Təslimat Mərkəzimizdə yenidən hesablaya bilərsiniz';
 
 //packages
   static const String in_waiting = 'Gözləmədə olan';
@@ -340,6 +357,9 @@ class MyText {
   static const String littleGift = "Biz pul-da paylayırıq 💸";
   static const String InfoGift =
       "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
+
+  //snackbar
+  static const String snackText = "Kopyalandı";
 
   ///giftbalance
   static const String licenseText =

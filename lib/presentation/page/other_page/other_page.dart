@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/presentation/page/calculate_page/calculate_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
@@ -58,7 +59,9 @@ class OtherPage extends StatelessWidget {
                   title: MyText.giftBalanceX,
                   content: MyText.forEditAppSettings,
                   color: MyColors.partnyoColor,
-                  onTap: () => Go.to(context, Pager.giftBalance),
+                  onTap: () {
+                    Go.to(context, Pager.giftBalance);
+                  },
                 ),
               ],
             ),
@@ -97,23 +100,21 @@ class OtherPage extends StatelessWidget {
                 ),
                 MenuBox(
                   w: boxW,
-                  title: MyText.settingsX,
+                  title: MyText.calculate,
                   content: MyText.forEditAppSettings,
-                  color: MyColors.settings,
-                  onTap: () => Go.to(context, Pager.settings),
+                  color: MyColors.promokodColor,
+                  onTap: () => Go.to(context, CalculatePage()),
                 ),
               ],
             ),
             MySizedBox.h16,
             MenuBox(
-              h: 80,
+              h: 140,
               w: double.maxFinite,
-              title: MyText.exit,
-              content: MyText.tapForExit,
+              title: MyText.settingsX,
+              content: MyText.forEditAppSettings,
               color: MyColors.grey245,
-              onTap: () => context
-                  .read<AuthenticationCubit>()
-                  .showLogoutDialog(context, goWithPager: false),
+              onTap: () => Go.to(context, Pager.settings),
             )
           ],
         ));

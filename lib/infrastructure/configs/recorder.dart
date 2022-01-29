@@ -50,7 +50,7 @@ class Recorder {
 
   static void recordSpecialError(String title, StackTrace s) async {
     FirebaseCrashlytics.instance
-        .setCustomKey('title', {'hello': "salma", "qaqa": 12});
+        .setCustomKey('title', {'hello': "salam", "qaqa": 12});
     await FirebaseCrashlytics.instance.recordError(
         DioErrorType.response, StackTrace.fromString("Salam qaqa"),
         reason: title.toString(),

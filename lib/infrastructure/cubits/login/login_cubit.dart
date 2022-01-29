@@ -1,13 +1,9 @@
 // Dart imports:
 import 'dart:convert';
 import 'dart:io';
-
 // Flutter imports:
-import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
-import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';

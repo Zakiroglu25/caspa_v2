@@ -13,7 +13,6 @@ import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../grid_list_model.dart';
 
 class WaitingPackageTab extends StatelessWidget {
   final List<Package>? packages;

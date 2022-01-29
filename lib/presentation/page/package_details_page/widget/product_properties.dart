@@ -49,7 +49,10 @@ class ProductProperties extends StatelessWidget {
         ProductPropertyV(
           name: MyText.status,
           value: package.status,
-          statusId: package.status == "Təhvil verildi" ? 1 : 0,
+          statusId: (package.status == MyText.deliveredWithCourier ||
+                  package.status == MyText.pickedup)
+              ? 1
+              : 0,
         ),
         // ProductPropertyV(name: MyText.product_count, value: package.),
       ],

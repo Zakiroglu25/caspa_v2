@@ -36,11 +36,11 @@ class PackageReportButtons extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Spacer(),
+                // Spacer(),
                 WidgetOrEmpty(
                   value: true,
                   child: SizedBox(
-                    width: (MediaQuery.of(context).size.width - 32) / 3 * 2,
+                    width: (MediaQuery.of(context).size.width - 32) - 55,
                     child: CaspaButton(
                       onTap: () =>
                           Go.to(context, Pager.report(package: package)),
@@ -50,7 +50,7 @@ class PackageReportButtons extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(),
+                //Spacer(),
                 WidgetOrEmpty(
                   value: package.noInvoice != 1,
                   child: InfoMiniButton(
@@ -69,7 +69,7 @@ class PackageReportButtons extends StatelessWidget {
                     svgPath: Assets.svgTrash,
                   ),
                 ),
-                Spacer(),
+                //Spacer(),
                 // InfoMiniButton(
                 //   onTap: () {},
                 //   svgPath: Assets.svgEdit,

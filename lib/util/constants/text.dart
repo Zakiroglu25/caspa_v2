@@ -157,10 +157,14 @@ class MyText {
   static const String orderNewPackages = "Yeni bağlama sifarişi";
 
 //notification
-  static const String notification = "Biildiriş";
-  static const String notifications = "Biildirişlər";
+  static const String notification = "Bildiriş";
+  static const String notifications = "Bildirişlər";
   static const String yesterday = "Dünən";
   static const String today = "Bu gün";
+
+  //product
+  static const String pickedup = "Təhvil verildi";
+  static const String deliveredWithCourier = "Kuryerlə Təhvil";
 
   //promocode page
   static const String promoCodeX = "Promokod 🎉";

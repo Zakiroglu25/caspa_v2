@@ -71,15 +71,14 @@ class ApiKeys {
   //promoCode
   static const promoCodes = "$baseUrl/user/promos";
   static const addPromoCode = "$baseUrl/user/promo";
+
   //gift
   static const giftList = "$baseUrl/user/gifts";
-  static const addGift = "$baseUrl/user/gift";
-
-  //promoCode
-  static const giftBalances = "$baseUrl/user/gifts";
   static const addGiftCode = "$baseUrl/user/gift";
+
   //payment
   static const paymentOrder = "$baseUrl/user/order/balance";
+  static const paymentCargo = "$baseUrl/user/cargo/balance";
 
   static loginBody({
     required String? email,

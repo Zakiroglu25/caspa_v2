@@ -5,10 +5,12 @@ class WidgetOrEmpty extends StatelessWidget {
   final Widget? child;
   final Widget? elseChild;
 
-  WidgetOrEmpty({@required this.value, @required this.child, this.elseChild});
+  WidgetOrEmpty({required this.value, required this.child, this.elseChild});
 
   @override
   Widget build(BuildContext context) {
-    return ((value ?? false) ? child : (elseChild ?? Container()))!;
+    return ((value ?? false)
+        ? child ?? Container()
+        : (elseChild ?? Container()));
   }
 }

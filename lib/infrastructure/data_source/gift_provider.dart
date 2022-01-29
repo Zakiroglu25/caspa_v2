@@ -35,7 +35,7 @@ class GiftProvider {
 
   static Future<StatusDynamic> getGiftCodes() async {
     StatusDynamic statusDynamic = StatusDynamic();
-    const api = ApiKeys.giftBalances;
+    const api = ApiKeys.giftList;
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
     //bbbb('jkl: ' + response.data.toString());

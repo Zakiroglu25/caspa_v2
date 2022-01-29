@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/commission_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 
 abstract class CommissionState {}
 
@@ -17,5 +17,5 @@ class CommissionNetworkError extends CommissionState {}
 class CommissionSuccess extends CommissionState {
   CommissionSuccess(this.commission);
 
-  final Commission commission;
+  final GeneralResponse<String> commission;
 }

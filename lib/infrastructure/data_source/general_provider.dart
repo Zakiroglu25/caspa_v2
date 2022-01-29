@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:caspa_v2/infrastructure/models/remote/response/commission_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
@@ -40,7 +41,7 @@ class GeneralProvider {
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = jsonDecode(response.body);
-      Commission data = Commission.fromJson(gelenCavabJson);
+      GeneralResponse data = GeneralResponse.fromJson(gelenCavabJson);
       statusDynamic.data = data;
     } else {
       eeee("fetchCommission bad url :$url,response: ${response}");

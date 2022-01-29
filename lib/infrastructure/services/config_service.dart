@@ -34,5 +34,16 @@ class ConfigService {
     }
   }
 
-  bool get onBoardIsSeen => (_box!.get(SharedKeys.onBoardIsSeen)) ?? false;
+  bool get onBoardIsSeen => _box!.get(SharedKeys.onBoardIsSeen) ?? false;
+
+  // email
+  Future<void> persistEmail({String? email}) async {
+    if (email == null) {
+      await _box!.delete(SharedKeys.email);
+    } else {
+      await _box!.put(SharedKeys.email, email);
+    }
+  }
+
+  String get email => (_box!.get(SharedKeys.email)) ?? '';
 }

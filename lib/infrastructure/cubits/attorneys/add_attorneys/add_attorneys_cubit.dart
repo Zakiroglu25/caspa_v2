@@ -24,10 +24,8 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   final full_name_controller = TextEditingController();
   final father_name_controller = TextEditingController();
   final phone_controller = TextEditingController();
-
   final id_number_controller = TextEditingController();
   final fin_controller = TextEditingController();
-
   final note_controller = TextEditingController();
 
   void addAttorney() async {
@@ -43,7 +41,7 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
         fin: fin_controller.text,
         birthday: birthDate.valueOrNull,
         note: note_controller.text,
-        accessToken: (await _prefs.accessToken),
+        accessToken: (_prefs.accessToken),
       );
 
       if (isSuccess(result!.statusCode)) {

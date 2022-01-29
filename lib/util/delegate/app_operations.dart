@@ -1,24 +1,15 @@
 // Flutter imports:
 import 'dart:convert';
-import 'dart:io';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
-import 'package:caspa_v2/util/screen/snack.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppOperations {
   static int getTime(index) {
-    return (index * 200) < 4500 ? index * 200 : 400;
+    return (index * 150) < 2000 ? index * 150 : 400;
   }
 
   static String formatNumber(String num, {bool addZero = true}) {

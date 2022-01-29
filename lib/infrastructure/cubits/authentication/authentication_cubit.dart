@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
@@ -55,14 +56,17 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         // if (goOn!) {
         emit(AuthenticationAuthenticated());
         //}
+
       } else {
+        bbbb("jjjj: ");
         await Future.wait([
           delay(showSplash),
           // configGuest(context),
         ]);
 
         //  if (goOn!) {
-        if (_configs.onBoardIsSeen) {
+
+        if (await _configs.onBoardIsSeen) {
           emit(AuthenticationUninitialized());
         } else {
           emit(AuthenticationOnboarding());
@@ -155,7 +159,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     _prefs.clear();
     PaintingBinding.instance!.imageCache!.clear();
     imageCache!.clear();
-    //startApp(context);
     if (goWithPager) Go.andRemove(context, Pager.login);
     emit(AuthenticationUninitialized());
   }

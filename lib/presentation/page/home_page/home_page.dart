@@ -30,7 +30,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         // title: "d",
-
         ///bunlar null gelir
         title: user.name! + " " + user.surname!,
       ),
@@ -64,9 +63,7 @@ class HomePage extends StatelessWidget {
                 title: MyText.myPackages,
                 hP: 20,
                 tile: MoreButton(
-                  onTap: () {
-                    ///burda bottom navigation indexin deyishib package etmeliyik
-                  },
+                  onTap: () {},
                 )),
             MySizedBox.h24,
             HomePackageList(),

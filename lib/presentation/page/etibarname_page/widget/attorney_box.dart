@@ -39,15 +39,20 @@ class AttorneyBox extends StatelessWidget {
             DeleteButton(
                 onTap: () => Alert.show(context,
                     title: MyText.are_u_sure_delete,
-                    content: MyText.you_can_not_recovery_it_again,
+                    //s  content: MyText.you_can_not_recovery_it_again,
+                    buttonText: MyText.yes,
+                    cancelButton: true,
                     onTap: () => context
                         .read<AttorneyListCubit>()
                         .delete(attorney.id, loading: false),
-                    image: Image.asset(Assets.pngSad)))
+                    image: SizedBox(
+                        width: 120.sm,
+                        height: 120.sm,
+                        child: Image.asset(Assets.pngSad))))
           ],
         ),
         AttorneyUnicorn(
-         attorney: attorney,
+          attorney: attorney,
         ),
       ],
     );

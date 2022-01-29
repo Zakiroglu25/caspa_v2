@@ -13,6 +13,7 @@ import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -60,16 +61,16 @@ import '../../app.dart';
 
 class Pager {
   static get home => MultiBlocProvider(providers: [
-    BlocProvider.value(
-      value: TarifCubit()..fetch(),
-    )
-  ], child: HomePage());
+        BlocProvider.value(
+          value: TarifCubit()..fetch(),
+        )
+      ], child: HomePage());
 
   static get courier_order => MultiBlocProvider(providers: [
-    BlocProvider.value(
-      value: TarifCubit()..fetch(),
-    )
-  ], child: CourierOrdersPage());
+        BlocProvider.value(
+          value: TarifCubit()..fetch(),
+        )
+      ], child: CourierOrdersPage());
 
   static success({
     bool? showSplash,
@@ -90,15 +91,15 @@ class Pager {
           ));
 
   static get courier => MultiBlocProvider(providers: [
-    BlocProvider.value(
-      value: CourierCubit()..fetchPackagesForCourier(),
-    )
-  ], child: CourierPage());
+        BlocProvider.value(
+          value: CourierCubit()..fetchPackagesForCourier(),
+        )
+      ], child: CourierPage());
 
   static get login => MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => LoginCubit()),
-    // BlocProvider(create: (context) => AuthenticationCubit())
-  ], child: LoginPage());
+        BlocProvider(create: (context) => LoginCubit()),
+        // BlocProvider(create: (context) => AuthenticationCubit())
+      ], child: LoginPage());
 
   static get register => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => RegisterCubit())],
@@ -133,25 +134,25 @@ class Pager {
       child: PromoCodePage());
 
   static get giftBalance => MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => GiftBalanceCubit()..fetch())
-  ], child: GiftBalancePage());
+        BlocProvider(create: (context) => GiftBalanceCubit()..fetch())
+      ], child: GiftBalancePage());
 
   static get contact => MultiBlocProvider(
-    providers: [
-      BlocProvider(
-        create: (context) => UserCubit(),
-      ),
-      BlocProvider(
-        create: (context) => ContactCubit()..fetch(),
-      ),
-    ],
-    child: ContactPage(),
-  );
+        providers: [
+          BlocProvider(
+            create: (context) => UserCubit(),
+          ),
+          BlocProvider(
+            create: (context) => ContactCubit()..fetch(),
+          ),
+        ],
+        child: ContactPage(),
+      );
 
   static get other => MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => UserCubit()),
-    //    BlocProvider.value(value: AuthenticationCubit()),
-  ], child: OtherPage());
+        BlocProvider(create: (context) => UserCubit()),
+        //    BlocProvider.value(value: AuthenticationCubit()),
+      ], child: OtherPage());
 
   static get payment => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => PaymentCubit())],
@@ -162,9 +163,9 @@ class Pager {
       child: OnboardPage());
 
   static get report => MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => ReportCubit()),
-    BlocProvider(create: (context) => CategoryCubit()),
-  ], child: ReportPage());
+        BlocProvider(create: (context) => ReportCubit()),
+        BlocProvider(create: (context) => CategoryCubit()),
+      ], child: ReportPage());
 
   static get landing => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
@@ -187,23 +188,25 @@ class Pager {
       child: SettingsPage());
 
   static get userCabinet => MultiBlocProvider(providers: [
-    BlocProvider(create: (context) => UserCubit()),
-    // BlocProvider.value(
-    //   value: AuthenticationCubit(),
-    // )
-  ], child: UserCabinetPage());
+        BlocProvider(create: (context) => UserCubit()),
+        BlocProvider(create: (context) => PaymentsOrderCubit()),
+        BlocProvider.value(value: PaymentsOrderCubit()),
+        // BlocProvider.value(
+        //   value: AuthenticationCubit(),
+        // )
+      ], child: UserCabinetPage());
 
   static get adress => MultiBlocProvider(providers: [
-    BlocProvider.value(
-      value: AddressCubit()..fetch(),
-    )
-  ], child: AdressPage());
+        BlocProvider.value(
+          value: AddressCubit()..fetch(),
+        )
+      ], child: AdressPage());
 
   static get shops => MultiBlocProvider(providers: [
-    BlocProvider(
-      create: (context) => ShopCubit()..fetch(),
-    )
-  ], child: ShopPage());
+        BlocProvider(
+          create: (context) => ShopCubit()..fetch(),
+        )
+      ], child: ShopPage());
 
   // static get app => App();
 

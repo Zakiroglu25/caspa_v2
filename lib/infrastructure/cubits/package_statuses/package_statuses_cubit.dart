@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -28,8 +29,9 @@ class PackageStatusesCubit extends Cubit<PackageStatusesState> {
     } on SocketException catch (_) {
       //network olacaq
       emit(PackageStatusesNetworkError());
-    } catch (e) {
-      eeee("package cubit catch: $e");
+    } catch (e, s) {
+      eeee("package cubit catch: $e => $s");
+      Recorder.recordCatchError(e, s);
       emit(PackageStatusesError(error: e.toString()));
     }
   }

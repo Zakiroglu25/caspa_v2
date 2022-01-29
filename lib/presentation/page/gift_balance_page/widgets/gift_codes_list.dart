@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_state.d
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
@@ -27,7 +28,7 @@ class GiftCodesList extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is GiftBalanceSuccess) {
-          final giftCodeList = state.promoList;
+          final giftCodeList = state.giftList;
           return ListOrEmpty(
             list: giftCodeList,
             child: Column(

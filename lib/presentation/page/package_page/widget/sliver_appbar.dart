@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 
 class SliverAppBarWidget extends StatelessWidget {
@@ -7,7 +8,7 @@ class SliverAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SliverAppBar(
+    return SliverAppBar(
       automaticallyImplyLeading: false,
       expandedHeight: 310,
       floating: true,
@@ -24,7 +25,7 @@ class SliverAppBarWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
-                "Bağlamalar",
+                MyText.packages,
                 style: TextStyle(fontSize: 25),
               ),
               Image.asset("assets/png/boxpng.png"),

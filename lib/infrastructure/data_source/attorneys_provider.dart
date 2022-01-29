@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/add_attorneys_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
@@ -6,9 +7,11 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import '../../locator.dart';
 import 'tarif_provider.dart';
 
 class AttorneyProvider {
+  static DioAuth get dioAuth => locator<DioAuth>();
   static Future<StatusDynamic?> addAttorneys({
     required String? accessToken,
     required String? full_name,
@@ -44,6 +47,10 @@ class AttorneyProvider {
       statusDynamic.data = response.data;
     } else {
       eeee("addAttorney result bad:  url: $url  ,  response: ${response.data}");
+      eeee(
+          "addAttorney result bad: 2 url: $url  ,  response: ${response.requestOptions.headers}");
+      eeee(
+          "addAttorney result bad:   v3url: $url  ,  response: ${response.headers}");
     }
     return statusDynamic;
   }
@@ -78,8 +85,7 @@ class AttorneyProvider {
     };
 
     bbbb("body: " + jsonEncode(body).toString());
-    final response =
-    await dioAuth.dio.post(api,data: body);
+    final response = await dioAuth.dio.post(api, data: body);
 
     statusDynamic.statusCode = response.statusCode;
 
@@ -107,8 +113,7 @@ class AttorneyProvider {
     bbbb("body: " + jsonEncode(body).toString());
     // final response =
     //     await http.post(url, headers: headers, body: jsonEncode(body));
-    final response =
-    await dioAuth.dio .post(api,data: body);
+    final response = await dioAuth.dio.post(api, data: body);
 
     statusDynamic.statusCode = response.statusCode;
 
@@ -138,21 +143,20 @@ class AttorneyProvider {
     final api = ApiKeys.addAttorneys;
     final headers = ApiKeys.header(token: accessToken);
     final url = Uri.parse(api);
-final body={
-  "full_name": full_name,
-  "father_name": father_name,
-  "phone": phone,
-  "id_ext": "AZ",
-  "id_number": id_number,
-  "birthday": birthday,
-  "note": note,
-  "id": id
-};
+    final body = {
+      "full_name": full_name,
+      "father_name": father_name,
+      "phone": phone,
+      "id_ext": "AZ",
+      "id_number": id_number,
+      "birthday": birthday,
+      "note": note,
+      "id": id
+    };
     // final response = await http.post(url,
     //     headers: headers,
     //     body: jsonEncode(body));
-    final response =
-    await dioAuth.dio .post(api,data: body);
+    final response = await dioAuth.dio.post(api, data: body);
 
     if (response.statusCode == ResultKey.responseSuccess) {
       final dataGelenCavabJSON = response.data;
@@ -174,8 +178,7 @@ final body={
     var url = Uri.parse(api);
     llll(api);
     //final response = await http.get(url, headers: headers);
-    final response =
-    await dioAuth.dio .get(api);
+    final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       attorneyListModel = AttorneyListModel.fromJson(gelenCavabJson);

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/contact_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
@@ -11,30 +12,18 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 class ContactProvider {
-  static Future<Contact> getContact() async {
-    Contact contact = Contact();
-    final api = ApiKeys.contact;
-    final headers = ApiKeys.headers;
-    var url = Uri.parse(api);
-    llll(api);
-    log("provider 1");
-    final response = await http.get(url, headers: headers);
-    log("provider 2");
-
+  static Future<StatusDynamic> fetchContacts() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.contact;
+    final response = await dioG.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
-      log("provider 3" + response.statusCode.toString());
-      log("provider 3" + response.body.toString());
-      var gelenCavabJson = jsonDecode(response.body);
-      log("provider 4" + gelenCavabJson);
-      Contact contacts = Contact.fromJson(gelenCavabJson);
-      contact = contacts;
-      log("provider 5"+gelenCavabJson);
-      bbbb("st: " + (contacts).toString());
+      final gelenCavabJson = response.data;
+      Contacts contacts = Contacts.fromJson(gelenCavabJson);
+      statusDynamic.data = contacts;
     } else {
-      log("provider 6");
-      eeee("getCategory bad url :$url,response: ${response}");
+      eeee("fetchPackagesForCourier bad url :$api,response: ${response}");
     }
-
-    return contact;
+    return statusDynamic;
   }
 }

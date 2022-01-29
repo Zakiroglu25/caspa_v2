@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -12,12 +12,10 @@ import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import 'order_via_url_state.dart';
 
-
 class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
   OrderViaUrlCubit() : super(OrderViaUrlInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
-
+  HiveService get _prefs => locator<HiveService>();
 
   void orderViaLink(BuildContext context, [bool loading = true]) async {
     try {
@@ -25,18 +23,15 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
         if (loading) {
           emit(OrderViaUrlInProgress());
         }
-        final result = await
-        OrderViaLinkProvider.
-        orderViaLink
-          (qty: productCount.valueOrNull,
-          price: price.valueOrNull,
-          link: link.valueOrNull,
-          cargo_price: localCargo.valueOrNull,
-          detail: note.valueOrNull,
-          token: await _prefs.accessToken);
+        final result = await OrderViaLinkProvider.orderViaLink(
+            qty: productCount.valueOrNull,
+            price: price.valueOrNull,
+            link: link.valueOrNull,
+            cargo_price: localCargo.valueOrNull,
+            detail: note.valueOrNull,
+            token: await _prefs.accessToken);
 
-
-        bbbb("resoooo: "+result.toString());
+        bbbb("resoooo: " + result.toString());
 
         if (isSuccess(result?.statusCode)) {
           emit(OrderViaUrlSuccess());
@@ -57,29 +52,27 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
 
   //--------------------values:-----------------
 
-
   //link
   final BehaviorSubject<String> link = BehaviorSubject<String>();
 
   Stream<String> get linkStream => link.stream;
 
   updateLink(String value) {
-
     if (value == null || value.isEmpty) {
       link.value = '';
       link.sink.addError(MyText.field_is_not_correct);
-    }  else if (!StringOperations.urlIsValid(value)) {
+    } else if (!StringOperations.urlIsValid(value)) {
       link.sink.addError(MyText.field_is_not_correct);
-    }
-    else {
+    } else {
       link.sink.add(value);
     }
-     //isUserInfoValid();
+    //isUserInfoValid();
   }
 
-  bool get isLinkIncorrect =>
-      (!link.hasValue || link.value == null || link.value.isEmpty || !StringOperations.urlIsValid(link.valueOrNull));
-
+  bool get isLinkIncorrect => (!link.hasValue ||
+      link.value == null ||
+      link.value.isEmpty ||
+      !StringOperations.urlIsValid(link.valueOrNull));
 
 //productCount
   final BehaviorSubject<int> productCount = BehaviorSubject<int>();
@@ -91,7 +84,6 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
       // productCount.value = '';
       productCount.sink.addError(MyText.field_is_not_correct);
     } else {
-
       productCount.sink.add(int.parse(value));
     }
     // isUserInfoValid(registerType: _registerType);
@@ -153,7 +145,7 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
 
   //priceType
   final BehaviorSubject<String> priceType =
-  BehaviorSubject<String>.seeded(MyText.tryy);
+      BehaviorSubject<String>.seeded(MyText.tryy);
 
   Stream<String> get priceTypeStream => priceType.stream;
 
@@ -167,10 +159,9 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceTypeIncorrect =>
-      (!priceType.hasValue ||
-          priceType.value == null ||
-          priceType.value.isEmpty);
+  bool get isPriceTypeIncorrect => (!priceType.hasValue ||
+      priceType.value == null ||
+      priceType.value.isEmpty);
 
   ////validation
   bool isUserInfoValid() {
@@ -186,7 +177,6 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
     }
   }
 
-
   @override
   Future<void> close() {
     note.close();
@@ -197,5 +187,4 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
     link.close();
     return super.close();
   }
-
 }

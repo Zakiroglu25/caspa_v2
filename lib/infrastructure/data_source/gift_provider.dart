@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/add_attorneys_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
@@ -12,9 +13,11 @@ import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 //import 'package:http/http.dart' as http;
+import '../../locator.dart';
 import 'tarif_provider.dart';
 
 class GiftProvider {
+  static DioAuth get dioAuth => locator<DioAuth>();
   static Future<StatusDynamic> addGift({required String code}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addGiftCode;
@@ -32,10 +35,10 @@ class GiftProvider {
 
   static Future<StatusDynamic> getGiftCodes() async {
     StatusDynamic statusDynamic = StatusDynamic();
-    const api = ApiKeys.promoCodes;
+    const api = ApiKeys.giftBalances;
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
-    bbbb('jkl: ' + response.requestOptions.headers.toString());
+    //bbbb('jkl: ' + response.data.toString());
 
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

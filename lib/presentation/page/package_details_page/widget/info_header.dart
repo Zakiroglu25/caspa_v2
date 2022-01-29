@@ -32,7 +32,7 @@ class ProductProperties extends StatelessWidget {
               ProductPropertyV(name: MyText.price, value: "${package.price} "),
               ProductPropertyV(
                   name: MyText.its_weight,
-                  value: (((package.weight ?? "0") as String) + " kg")),
+                  value: (((package.weight.toString()) as String) + " kg")),
               ProductPropertyV(
                   name: MyText.shipping_price,
                   value: '${package.cargoPrice} \$'),

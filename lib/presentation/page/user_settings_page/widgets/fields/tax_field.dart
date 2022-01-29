@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -10,7 +10,7 @@ import '../../../../../locator.dart';
 class TaxFieldUser extends StatelessWidget {
   final TextEditingController? controller;
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   TaxFieldUser({this.controller}); //= new TextEditingController();
   @override

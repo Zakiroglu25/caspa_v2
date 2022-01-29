@@ -28,7 +28,7 @@ class GiftBalanceNotAdded extends GiftBalanceState {
 }
 
 class GiftBalanceSuccess extends GiftBalanceState {
-  GiftBalanceSuccess(this.promoList);
+  GiftBalanceSuccess(this.giftList);
 
-  final List<GiftBalance> promoList;
+  final List<GiftBalance> giftList;
 }

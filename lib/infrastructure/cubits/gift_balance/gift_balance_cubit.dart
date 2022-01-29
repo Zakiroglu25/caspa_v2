@@ -48,6 +48,7 @@ class GiftBalanceCubit extends Cubit<GiftBalanceState> {
         fetch(false);
         emit(GiftBalanceAdded());
       } else {
+        //
         Snack.display(context: context, message: result.data['message']);
         emit(GiftBalanceNotAdded());
       }

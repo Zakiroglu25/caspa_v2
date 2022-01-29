@@ -4,7 +4,7 @@ import 'dart:io';
 
 // Package imports:
 
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../locator.dart';
@@ -13,7 +13,7 @@ import 'header_state.dart';
 class HeaderCubit extends Cubit<HeaderState> {
   HeaderCubit() : super(HeaderInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   void fetch({bool loading = true}) async {
     if (loading) {

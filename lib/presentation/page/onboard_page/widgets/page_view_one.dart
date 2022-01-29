@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -12,38 +13,36 @@ class PageViewOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        RocketImage(),
-        Spacer(),
-        Center(
-          child: Padding(
-            padding: EdgeInsets.only(left: 16.0, right: 16.0),
+    return Padding(
+      padding: Paddings.paddingA16,
+      child: Column(
+        children: [
+          RocketImage(),
+          Spacer(),
+          Center(
             child: Text(
               "Sürətli çatdırılma sözdə deyil, əməldədir!",
               style: AppTextStyles.coHead400.copyWith(
                 fontWeight: FontWeight.w400,
                 fontSize: 25,
-                color: MyColors.mainBlue2,
+                height: 1.1,
+                color: MyColors.black34,
               ),
               textAlign: TextAlign.center,
             ),
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
-          child: Text(
+          MySizedBox.h16,
+          Text(
             MyText.pageViewOne,
             maxLines: 4,
             textAlign: TextAlign.center,
-            style: TextStyle(
-                color: MyColors.splashLittleText,
-                fontSize: 14,
-                fontFamily: "San Francisco"),
+            style: AppTextStyles.sanF400,
           ),
-        ),
-        Spacer(),
-      ],
+          Spacer(
+            flex: 3,
+          ),
+        ],
+      ),
     );
   }
 }

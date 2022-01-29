@@ -2,10 +2,9 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SliverTitleTop extends StatelessWidget {
-  String? title;
+  final String? title;
 
-
-  SliverTitleTop(this.title);
+  const SliverTitleTop(this.title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

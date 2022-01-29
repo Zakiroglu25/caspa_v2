@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -23,17 +23,18 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
 
   set registerType(RegisterType value) {
     _registerType = value;
   }
 
-
-  void register(BuildContext context){
-    if(_registerType==RegisterType.personal){registerPersonal(context);}
-    else registerCompany(context);
+  void register(BuildContext context) {
+    if (_registerType == RegisterType.personal) {
+      registerPersonal(context);
+    } else
+      registerCompany(context);
   }
 
   void registerPersonal(BuildContext context) async {
@@ -64,7 +65,9 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       if (isSuccess(response?.statusCode)) {
         await UserOperations.configureUserData(
-            accessToken: response?.data, fcmToken: deviceCode!,path: uPassMain.valueOrNull);
+            accessToken: response?.data,
+            fcmToken: deviceCode!,
+            path: uPassMain.valueOrNull);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(RegisterSuccess(''));
       } else {
@@ -72,7 +75,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(RegisterError(message: errors[0]));
       }
     } catch (e, s) {
-      eeee("register cubit -> registrationPersonal ->catch : " + e.toString());
+      print("register cubit -> registrationPersonal ->catch : $e=> $s");
       emit(RegisterError(message: e.toString()));
     }
   }
@@ -103,7 +106,9 @@ class RegisterCubit extends Cubit<RegisterState> {
 
       if (isSuccess(response?.statusCode)) {
         await UserOperations.configureUserData(
-            accessToken: response?.data, fcmToken: deviceCode!,path: uPassMain.valueOrNull);
+            accessToken: response?.data,
+            fcmToken: deviceCode!,
+            path: uPassMain.valueOrNull);
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(RegisterSuccess(''));
       } else {
@@ -295,7 +300,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateMainPass(String value) {
     if (value == null || value.isEmpty) {
       uPassMain.value = '';
-      uPassMain.sink.addError("fill_correctly");
+      uPassMain.sink.addError(MyText.field_is_not_correct);
     } else {
       uPassMain.sink.add(value);
     }
@@ -322,7 +327,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateSecondPass(String value) {
     if (value == null || value.isEmpty) {
       uPassSecond.value = '';
-      uPassSecond.sink.addError("fill_correctly");
+      uPassSecond.sink.addError(MyText.field_is_not_correct);
     } else if (value != uPassMain.value) {
       uPassSecond.sink.addError(MyText.every_past_must_be_same);
     } else {

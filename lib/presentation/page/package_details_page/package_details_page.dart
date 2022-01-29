@@ -1,11 +1,12 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'widget/tabs/info_page.dart';
 
 class PackageDetailsPage extends StatelessWidget {
-  final Package? package;
+  final Package package;
 
   PackageDetailsPage({required this.package});
 
@@ -14,13 +15,13 @@ class PackageDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         user: false,
-        title: package!.store,
-        color: MyColors.yellow255,
+        title: package.store,
+        color: AppOperations.colorWithId(package.id!),
         notification: false,
       ),
       body: SafeArea(
         child: InfoTab(
-          package: package!,
+          package: package,
         ),
       ),
     );

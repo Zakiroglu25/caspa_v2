@@ -40,13 +40,10 @@ class _MainPassFieldRegisterState extends State<MainPassFieldRegister> {
               },
             ),
           ),
-          upperCase: false,
           obscure: obscure,
-          textInputType: TextInputType.phone,
-          textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-         // controller: widget.controller,
+          // controller: widget.controller,
           onChanged: (value) =>
               BlocProvider.of<RegisterCubit>(context).updateMainPass(value),
         );

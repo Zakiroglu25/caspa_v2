@@ -31,7 +31,7 @@ class CommissionZero extends StatelessWidget {
             child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "0%",
+                  "4%",
                   style: AppTextStyles.sanF400.copyWith(fontSize: 15),
                 )),
           ),

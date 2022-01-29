@@ -15,23 +15,26 @@ class SocialItem extends StatelessWidget {
   final String? content;
   final String? path;
   final Function? onTap;
+  final bool? isPng;
 
   SocialItem(
       {required this.name,
       required this.path,
       required this.onTap,
-      this.content});
+      this.content,
+      this.isPng});
 
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () => bbbb("a"),
+      onTap: () => onTap!.call(),
       child: Row(
         children: [
           CircleAvatar(
             radius: 32.sm,
             backgroundColor: Color.fromRGBO(85, 169, 50, 0.1),
-            child: SvgPicture.asset(path!),
+            child:
+                (isPng ?? false) ? Image.asset(path!) : SvgPicture.asset(path!),
           ),
           MySizedBox.w12,
           Column(

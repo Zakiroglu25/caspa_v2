@@ -1,10 +1,11 @@
-
 //-- useless
 
 class SharedKeys {
   SharedKeys._();
 
   static const String refreshToken = "refreshToken";
+  static const String onBoardIsSeen = "onBoardIsSeen";
+  static const String email = "email";
   static const String accessToken = "accessToken";
   static const String phoneNumber = "phoneNumber";
   static const String language = "language";
@@ -12,7 +13,6 @@ class SharedKeys {
   static const String favoritesCount = "favorites_count";
   static const String cardsCount = "cards_count";
   static const String cardsPrice = "cards_price";
-
 
   static const String headerResult = "header_result";
 
@@ -23,6 +23,4 @@ class SharedKeys {
 
   //payment type
   static const String paymentType = "paymentType";
-
-
 }

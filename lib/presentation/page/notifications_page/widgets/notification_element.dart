@@ -17,7 +17,7 @@ class NotificationElement extends StatefulWidget {
     required this.title,
     required this.content,
     required this.onXTap,
-  this.increase,
+    this.increase,
   });
 
   @override
@@ -54,7 +54,7 @@ class _NotificationElementState extends State<NotificationElement>
       },
       child: Container(
         height: 76,
-        padding:Paddings.paddingH16,
+        padding: Paddings.paddingH16,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,20 +76,25 @@ class _NotificationElementState extends State<NotificationElement>
                 ),
               ],
             ),
-            Container(
+            SizedBox(
               width: 100,
               child: FittedBox(
                 child: Text(
                   "+4.00 USD",
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 16, color:(widget.increase??false)?MyColors.errorRED:  MyColors.green),
+                  style: AppTextStyles.sanF600.copyWith(
+                      fontSize: 16,
+                      color: (widget.increase ?? false)
+                          ? MyColors.errorRED
+                          : MyColors.green),
                 ),
               ),
             )
           ],
         ),
         decoration: BoxDecoration(
-            color: (widget.increase??false)? MyColors.grey245: Colors.transparent,
+            color: (widget.increase ?? false)
+                ? MyColors.grey245
+                : Colors.transparent,
             //color: Color.fromRGBO(255, 255, 255, 1),
             borderRadius: BorderRadius.circular(12)),
       ),

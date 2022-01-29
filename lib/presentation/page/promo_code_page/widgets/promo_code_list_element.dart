@@ -17,18 +17,19 @@ class PromoCodeListElement extends StatelessWidget {
     return Padding(
       padding: Paddings.paddingV14,
       child: Row(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             promoCode.code!,
             style: AppTextStyles.sanF400
                 .copyWith(fontSize: 16.sp, color: MyColors.grey153),
           ),
-          MySizedBox.w45,
-          // Text(
-          //   promoCode.date.toString(),
-          //   style: AppTextStyles.sanF400.copyWith(
-          //       fontSize: 16.sp, color: MyColors.grey153),
-          // ),
+          Spacer(),
+          Text(
+            promoCode.date.toString(),
+            style: AppTextStyles.sanF400
+                .copyWith(fontSize: 16.sp, color: MyColors.grey153),
+          ),
           Spacer(),
           Text(
             promoCode.used == 1 ? MyText.yes : MyText.no,

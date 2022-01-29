@@ -1,26 +1,21 @@
 // Flutter imports:
 import 'dart:convert';
-import 'dart:io';
-import 'package:caspa_v2/util/constants/api_keys.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/screen/snack.dart';
-import 'package:device_info_plus/device_info_plus.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppOperations {
   static int getTime(index) {
-    return (index * 100) < 1500 ? index * 100 : 400;
+    return (index * 150) < 2000 ? index * 150 : 400;
   }
 
   static String formatNumber(String num, {bool addZero = true}) {
-    var a =num;
+    var a = num;
     if (addZero) {
-    a= num.replaceAll('(', "(0");
+      a = num.replaceAll('(', "(0");
     }
 
     return a.replaceAll(' ', "-");
@@ -60,9 +55,9 @@ class AppOperations {
     if (r > 256) {
       r = r - 256;
     } // 128 ... 255
-    int g = deleteDigitOfInt(id, 1,r);
+    int g = deleteDigitOfInt(id, 1, r);
 
-    int b = deleteDigitOfInt(id, 2,r);
+    int b = deleteDigitOfInt(id, 2, r);
     //bbbb("id::LL  :: " + id.toString());
 
     //bbbb("icolor:  $r  $g  $b " + id.toString());
@@ -82,12 +77,20 @@ class AppOperations {
           numString[numString.length - 1] + newNumString + numString[which];
       newNumString = newNumString.substring(0, 2);
       newNumInt = int.parse(newNumString);
-      newNumInt=newNumInt*num.floor();
-      newNumInt =r-newNumInt;
+      newNumInt = newNumInt * num.floor();
+      newNumInt = r - newNumInt;
     } catch (e) {
       newNumInt = int.parse((num.toString()).split('').reversed.join(''));
     }
 
     return newNumInt;
+  }
+
+  static void exitDialog(BuildContext context) {
+    Alert.show(context, image: Image.asset(Assets.pngQifil), cancelButton: true,
+        onTap: () {
+      return context.read<AuthenticationCubit>()
+        ..logOut(context, goWithPager: true);
+    }, title: MyText.are_u_sure_exit);
   }
 }

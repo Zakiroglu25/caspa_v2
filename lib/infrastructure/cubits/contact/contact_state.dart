@@ -18,5 +18,5 @@ class ContactNetworkError extends ContactState {}
 class ContactSuccess extends ContactState {
   ContactSuccess(this.contact);
 
-  final Contact? contact;
+  final Contacts contact;
 }

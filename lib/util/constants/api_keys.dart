@@ -25,12 +25,17 @@ class ApiKeys {
 
   //user
   static final user = "$baseUrl/user/user";
+  static final updateAccount = "$baseUrl/user/account";
 
   //general
-  static final shop = '$baseUrl/public/stores';
+  static const shop = '$baseUrl/public/stores';
+  static const regions = '$baseUrl/public/regions';
 
   //packages
   static final allPackages = '$baseUrl/user/packages';
+  static final packagesForCourier = '$baseUrl/user/couriers/packages';
+  static final addCourier = '$baseUrl/user/couriers';
+  static final packagesStatuses = '$baseUrl/user/statuses';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -63,10 +68,16 @@ class ApiKeys {
   //promoCode
   static const promoCodes = "$baseUrl/user/promos";
   static const addPromoCode = "$baseUrl/user/promo";
+  //gift
+  static const giftList = "$baseUrl/user/gifts";
+  static const addGift = "$baseUrl/user/gift";
+
 
   //promoCode
   static const giftBalances = "$baseUrl/user/gifts";
   static const addGiftCode = "$baseUrl/user/gift";
+  //payment
+  static const paymentOrder = "$baseUrl/user/order/balance";
 
   static loginBody({
     required String? email,
@@ -259,7 +270,8 @@ class ApiKeys {
   }) {
     //
     final map = {
-      'Authorization': 'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
+      'Authorization': 'Bearer $token',
+      //'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
       "Content-Type": "application/json",
     };
 

@@ -1,14 +1,11 @@
 // Dart imports:
 import 'dart:convert';
 import 'dart:io';
-
 // Flutter imports:
-import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
-import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -33,7 +30,7 @@ import 'package:rxdart/rxdart.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
 
@@ -49,7 +46,7 @@ class LoginCubit extends Cubit<LoginState> {
   updateEmail(String value) {
     if (value == null || value.isEmpty) {
       uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
+      uEmail.sink.addError(MyText.all_fields_must_be_filled);
     } else {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
@@ -59,11 +56,11 @@ class LoginCubit extends Cubit<LoginState> {
   updatePass(String value) {
     if (value == null || value.isEmpty) {
       uPass.value = '';
-      uPass.sink.addError("fill_correctly");
+      uPass.sink.addError(MyText.field_is_not_correct);
     } else {
       uPass.sink.add(value);
-     // uEmail.sink.add("esev.sv@gmail.com");
-    //  uPass.sink.add("salam12345");
+      // uEmail.sink.add("esev.sv@gmail.com");
+      //  uPass.sink.add("salam12345");
     }
   }
 
@@ -134,28 +131,24 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginInProgress());
       }
 
-
 //final email="esev.sv@gmail.com";
-//final pass= 'b261c54a3';
+//final pass= 'salam';
 
       final deviceCode = await _fcm.getToken();
-
       final response = await AuthProvider.login(
-          email: uEmail.valueOrNull ??"esev.sv@gmail.com" ,
+          email: uEmail.valueOrNull, //?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
           deviceName: await StringOperations.devicename(),
-          lang: _prefs.language);
-
-      //    FirestoreDBService.saveUser(userData!);
-
+          lang: 'az');
 
       if (isSuccess(response.statusCode)) {
-
         await UserOperations.configureUserData(
-            accessToken: response.data, fcmToken: deviceCode!, path: uPass.valueOrNull);
-        bbbb("yuyu: "+response.data.toString());
+            accessToken: response.data,
+            fcmToken: deviceCode!,
+            path: uPass.valueOrNull);
+        bbbb("yuyu: " + response.data.toString());
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
       } else {

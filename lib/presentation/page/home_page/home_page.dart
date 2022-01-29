@@ -1,6 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -22,7 +22,7 @@ import 'widgets/tariff_details.dart';
 import 'widgets/tariffs.dart';
 
 class HomePage extends StatelessWidget {
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
   Widget build(BuildContext context) {
     // bbbb("cap et: "+(context.read<AuthenticationCubit>().userData?.name)!);
@@ -30,7 +30,6 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         // title: "d",
-
         ///bunlar null gelir
         title: user.name! + " " + user.surname!,
       ),
@@ -54,7 +53,7 @@ class HomePage extends StatelessWidget {
               title: MyText.recognizeTariffs,
               hP: 20,
               tile: MoreButton(
-                onTap: () =>Go.to(context, Pager.tarifDetails),
+                onTap: () => Go.to(context, Pager.tarifDetails),
               ),
             ),
             MySizedBox.h16,

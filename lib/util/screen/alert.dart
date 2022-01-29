@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,11 +20,24 @@ import 'widget_or_empty.dart';
 
 class Alert {
   static show(BuildContext context,
-      {Widget? image, String? title, String? buttonText, String? content, Function? onTap}) {
+      {Widget? image,
+      Widget? secondButton,
+      String? title,
+      String? buttonText,
+      String? content,
+      Function? onTapCancel,
+      bool cancelButton = false,
+      Function? onTap}) {
     showDialog(
         context: context,
         useSafeArea: false,
         builder: (BuildContext context) {
+          final sW = MediaQuery.of(context).size.width;
+          final buttonSize = (secondButton != null ||
+                  onTapCancel != null ||
+                  cancelButton != false)
+              ? (sW - 76) / 2
+              : sW - 66;
           return AlertDialog(
             backgroundColor: MyColors.white,
             shape: RoundedRectangleBorder(
@@ -31,7 +45,7 @@ class Alert {
             contentPadding: EdgeInsets.only(top: 10.0),
             insetPadding: Paddings.zero,
             content: Container(
-              width: MediaQuery.of(context).size.width - 32,
+              width: sW - 32,
               padding: Paddings.paddingA16,
               // color: MyColors.green,
               child: Column(
@@ -41,7 +55,7 @@ class Alert {
                 children: <Widget>[
                   image ??
                       Container(
-                        child: SvgPicture.asset(Assets.svgInfoApp),
+                        child: Image.asset(Assets.pngNote),
                         height: 120.sm,
                         width: 120.sm,
                       ),
@@ -49,27 +63,64 @@ class Alert {
                     height: 10.sm,
                   ),
                   Text(
-                    title?? MyText.congrated,
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
+                    title ?? MyText.operationIsSuccess,
+                    style: AppTextStyles.sanF600.copyWith(fontSize: 18.sm),
                   ),
                   SizedBox(
                     height: 10.sm,
                   ),
-                  Text(
-                    content ?? MyText.operationIsSuccess,
-                    style: AppTextStyles.sanF400
-                        .copyWith(fontSize: 14.sm, color: MyColors.grey163),
+                  Padding(
+                    padding: Paddings.paddingH16,
+                    child: Text(
+                      content ?? '',
+                      style: AppTextStyles.sanF400
+                          .copyWith(fontSize: 16.sm, color: MyColors.grey163),
+                    ),
                   ),
-                  SizedBox(
-                    height: 18.sm,
+                  WidgetOrEmpty(
+                    value: content != null,
+                    child: SizedBox(
+                      height: 18.sm,
+                    ),
                   ),
-                  CaspaButton(
-                    text: buttonText??MyText.ok,
-                    onTap: () {
-                      if (onTap != null) {
-                        onTap.call();
-                      }  Go.pop(context);
-                    },
+                  Container(
+                    // width: 100,
+                    //height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        WidgetOrEmpty(
+                          value: secondButton != null,
+                          child: SizedBox(
+                            width: buttonSize,
+                            child: secondButton,
+                          ),
+                          elseChild: WidgetOrEmpty(
+                              value: cancelButton || onTapCancel != null,
+                              child: CaspaButton(
+                                  w: buttonSize,
+                                  color: MyColors.grey245,
+                                  text: MyText.reject,
+                                  textColor: MyColors.black,
+                                  onTap: () =>
+                                      (onTapCancel?.call() ?? Go.pop(context))
+                                  //  color: ,
+                                  )),
+                        ),
+                        SizedBox(
+                          width: buttonSize,
+                          child: CaspaButton(
+                            text: buttonText ?? MyText.ok,
+                            onTap: () {
+                              Go.pop(context);
+                              if (onTap != null) {
+                                onTap.call();
+                              }
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

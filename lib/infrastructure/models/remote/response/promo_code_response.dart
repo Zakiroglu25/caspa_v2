@@ -13,9 +13,9 @@ class PromoCodeData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.promoCodeList != null) {
-      data['data'] = this.promoCodeList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (promoCodeList != null) {
+      data['data'] = promoCodeList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -30,25 +30,28 @@ class PromoCode {
   int? id;
   int? used;
   String? code;
+  String? date;
 
-  PromoCode({this.id, this.used, this.code});
+  PromoCode({this.id, this.used, this.code, this.date});
 
   PromoCode.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     used = json['used'];
     code = json['code'];
+    date = json['date'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['used'] = this.used;
-    data['code'] = this.code;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['used'] = used;
+    data['code'] = code;
+    data['date'] = date;
     return data;
   }
 
   @override
   String toString() {
-    return 'PromoCode{id: $id, used: $used, code: $code}';
+    return 'PromoCode{id: $id, used: $used, code: $code, date: $date}';
   }
 }

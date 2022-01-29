@@ -55,7 +55,7 @@ class PromoCodeCubit extends Cubit<PromoCodeState> {
       //network olacaq
       emit(PromoCodeNetworkError());
     } catch (e, s) {
-      eeee("addPromo cubit catch: $e");
+      eeee("addPromo cubit catch: $e => $s");
       emit(PromoCodeError(error: e.toString()));
     }
   }

@@ -39,7 +39,7 @@ class NotificationsList extends StatelessWidget {
                     Text(
                       StringOperations.dateConvert(
                           result![index].date!, context),
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: MyColors.grey163, fontWeight: FontWeight.w700),
                     ),
                     MySizedBox.h12,
@@ -70,8 +70,6 @@ class NotificationsList extends StatelessWidget {
     );
   }
 
-
-
   Widget notificationContainer(BuildContext context, int index,
       {NotificationBody? notification}) {
     return FadeInUp(
@@ -84,8 +82,6 @@ class NotificationsList extends StatelessWidget {
           increase: index % 2 != 0,
           onXTap: () {
             context.read<NotificationCubit>().removeNotificion(
-
-              
                 notificationId: notification.id,
                 loading: false,
                 context: context);

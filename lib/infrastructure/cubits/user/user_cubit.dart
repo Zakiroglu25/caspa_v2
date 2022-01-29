@@ -2,11 +2,14 @@ import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
-import 'package:caspa_v2/infrastructure/services/preferences_service.dart';
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../locator.dart';
@@ -16,12 +19,12 @@ part 'user_state.dart';
 class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
 
-  PreferencesService get _prefs => locator<PreferencesService>();
+  HiveService get _prefs => locator<HiveService>();
 
-  void update({bool? isLoading=true}) async {
-   if (isLoading!) {
-     emit(UserLoading());
-   }
+  void update(BuildContext context, {bool? isLoading = true}) async {
+    if (isLoading!) {
+      emit(UserLoading());
+    }
     try {
       final response = await AccountProvider.updateUserInfo(
           token: _prefs.accessToken,
@@ -38,9 +41,16 @@ class UserCubit extends Cubit<UserState> {
           tax_number: tax_number.valueOrNull,
           language: _prefs.language,
           old_password: old_password.valueOrNull);
+
       if (isSuccess(response!.statusCode)) {
+        await UserOperations.configureUserData(
+            fcmToken: _prefs.fcmToken,
+            accessToken: _prefs.accessToken!,
+            path: _prefs.userPath);
+        Snack.positive(context: context, message: MyText.operationIsSuccess);
         emit(UserSuccess(response.data!));
       } else {
+        Snack.display(context: context, message: MyText.error);
         emit(UserFailed(response.statusCode.toString()));
       }
     } catch (e, s) {
@@ -65,8 +75,9 @@ class UserCubit extends Cubit<UserState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isOldPasswordIncorrect =>
-      (!old_password.hasValue || old_password.value == null || old_password.value.isEmpty);
+  bool get isOldPasswordIncorrect => (!old_password.hasValue ||
+      old_password.value == null ||
+      old_password.value.isEmpty);
   //email
   bool emailValid = false;
   final BehaviorSubject<String> uEmail = BehaviorSubject<String>();
@@ -104,8 +115,9 @@ class UserCubit extends Cubit<UserState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get iscompany_nameIncorrect =>
-      (!company_name.hasValue || company_name.value == null || company_name.value.isEmpty);
+  bool get iscompany_nameIncorrect => (!company_name.hasValue ||
+      company_name.value == null ||
+      company_name.value.isEmpty);
 
 //tax_number
   final BehaviorSubject<String> tax_number = BehaviorSubject<String>();
@@ -122,8 +134,9 @@ class UserCubit extends Cubit<UserState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get istax_numberIncorrect =>
-      (!tax_number.hasValue || tax_number.value == null || tax_number.value.isEmpty);
+  bool get istax_numberIncorrect => (!tax_number.hasValue ||
+      tax_number.value == null ||
+      tax_number.value.isEmpty);
 
   //phone
   final BehaviorSubject<String> phone = BehaviorSubject<String>();
@@ -189,7 +202,7 @@ class UserCubit extends Cubit<UserState> {
   updateMainPass(String value) {
     if (value == null || value.isEmpty) {
       uPassMain.value = '';
-      uPassMain.sink.addError("fill_correctly");
+      uPassMain.sink.addError(MyText.field_is_not_correct);
     } else {
       uPassMain.sink.add(value);
     }
@@ -212,7 +225,7 @@ class UserCubit extends Cubit<UserState> {
   updateSecondPass(String value) {
     if (value == null || value.isEmpty) {
       uPassSecond.value = '';
-      uPassSecond.sink.addError("fill_correctly");
+      uPassSecond.sink.addError(MyText.field_is_not_correct);
     } else if (value != uPassMain.value) {
       uPassSecond.sink.addError(MyText.every_past_must_be_same);
     } else {
@@ -261,7 +274,6 @@ class UserCubit extends Cubit<UserState> {
 
   bool get isIdNumberIncorrect =>
       (!idNumber.hasValue || idNumber.value == null || idNumber.value.isEmpty);
-
 
   //birthDate
   final BehaviorSubject<String> birthDate = BehaviorSubject<String>();

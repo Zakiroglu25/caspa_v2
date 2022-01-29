@@ -2,13 +2,21 @@ import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/field_c_lear_button.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/icons/invisible_icon.dart';
+import 'package:caspa_v2/widget/icons/visible_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PassField extends StatelessWidget {
-  final passController;
+class PassField extends StatefulWidget {
+  // final passController;
 
-  PassField(this.passController); //= new TextEditingController();
+  PassField();
+  @override
+  State<PassField> createState() => _PassFieldState();
+}
+
+class _PassFieldState extends State<PassField> {
+  bool obscure = true;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(
@@ -18,17 +26,23 @@ class PassField extends StatelessWidget {
           title: MyText.password,
           maxLines: 1,
           hint: MyText.password,
-          upperCase: false,
+          obscure: obscure,
+          // upperCase: false,
           textInputType: TextInputType.text,
-          suffixIcon: FieldCLearButton.elseEmpty(
-
-            BlocProvider.of<LoginCubit>(context).uPass.valueOrNull ?? '',
-            onTap: () => BlocProvider.of<LoginCubit>(context).updatePass(''),
-
+          suffixIcon: Material(
+            color: Colors.transparent,
+            child: GestureDetector(
+              child: obscure ? VisibleIcon() : InvisibleIcon(),
+              onTap: () {
+                setState(() {
+                  obscure = !obscure;
+                });
+              },
+            ),
           ),
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-         // controller: passController,
+          // controller: passController,
           onChanged: (value) =>
               BlocProvider.of<LoginCubit>(context).updatePass(value),
         );

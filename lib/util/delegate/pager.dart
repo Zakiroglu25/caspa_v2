@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
@@ -12,6 +13,7 @@ import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -20,13 +22,14 @@ import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/presentation/page/add_attorney_page/add_or_etibarname_page.dart';
+import 'package:caspa_v2/presentation/page/add_or_edit_attorney_page/add_or_edit_etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
+import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
@@ -36,7 +39,6 @@ import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_pack
 import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
-import 'package:caspa_v2/presentation/page/kuryer_page/kuryer_page.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_page/order_via_link_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
@@ -90,9 +92,9 @@ class Pager {
 
   static get courier => MultiBlocProvider(providers: [
         BlocProvider.value(
-          value: CourierCubit(),
+          value: CourierCubit()..fetchPackagesForCourier(),
         )
-      ], child: KuryerPage());
+      ], child: CourierPage());
 
   static get login => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => LoginCubit()),
@@ -187,6 +189,8 @@ class Pager {
 
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
+        BlocProvider(create: (context) => PaymentsOrderCubit()),
+        BlocProvider.value(value: PaymentsOrderCubit()),
         // BlocProvider.value(
         //   value: AuthenticationCubit(),
         // )
@@ -222,14 +226,18 @@ class Pager {
         hList: [],
       ));
 
-  static get waitingPackages => BlocProvider(
-      create: (context) => PackageCubit()..fetch(), child: WaitingPackageTab());
+  static Widget waitingPackages({required List<Package>? packages}) =>
+      BlocProvider(
+          create: (context) => PackageCubit()..fetch(),
+          child: WaitingPackageTab(
+            packages: packages,
+          ));
 
   static get packagesHistory => BlocProvider(
       create: (context) => PackageCubit()..fetch(), child: PackageHistoryTab());
 
   static packageDetails({required Package package}) => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
+      create: (context) => PackageCubit(),
       child: PackageDetailsPage(
         package: package,
       ));

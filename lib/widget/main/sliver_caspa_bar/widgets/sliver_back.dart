@@ -3,11 +3,8 @@ import 'package:caspa_v2/widget/caspa_appbar/widgets/user_button.dart';
 import 'package:flutter/material.dart';
 
 class SliverBack extends StatelessWidget {
-
-  final bool? back ;
-
-
-  SliverBack({this.back});
+  final bool? back;
+  const SliverBack({Key? key, this.back}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +13,8 @@ class SliverBack extends StatelessWidget {
       top: 4,
       child: WidgetOrEmpty(
         value: back,
-        child: BackButton(),
+        child: const BackButton(),
         elseChild: UserButton(),
-
       ),
     );
   }

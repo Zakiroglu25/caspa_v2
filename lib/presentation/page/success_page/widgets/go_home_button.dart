@@ -9,14 +9,13 @@ class GoHomeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return               Positioned(
+    return Positioned(
         bottom: 20,
         left: 0,
         right: 0,
         child: FadeRaisedButton(
-          onTap: () => Go.to(context, Pager.home),
+          onTap: () => Go.andRemove(context, Pager.app(showSplash: false)),
           title: MyText.goToHomePage,
         ));
-
   }
 }

@@ -85,25 +85,25 @@ class Package {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['status'] = this.status;
-    data['cargo_tracking'] = this.cargoTracking;
-    data['tracking'] = this.tracking;
-    data['store'] = this.store;
-    data['price'] = this.price;
-    data['cargo_price'] = this.cargoPrice;
-    data['weight'] = this.weight;
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    data['id'] = id;
+    data['status'] = status;
+    data['cargo_tracking'] = cargoTracking;
+    data['tracking'] = tracking;
+    data['store'] = store;
+    data['price'] = price;
+    data['cargo_price'] = cargoPrice;
+    data['weight'] = weight;
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
-    data['payment'] = this.payment;
-    data['invoice'] = this.invoice;
-    data['date'] = this.date;
-    if (this.archive != null) {
-      data['archive'] = this.archive!.map((v) => v.toJson()).toList();
+    data['payment'] = payment;
+    data['invoice'] = invoice;
+    data['date'] = date;
+    if (archive != null) {
+      data['archive'] = archive!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -142,12 +142,12 @@ class Category {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['name'] = this.name;
-    data['parent_id'] = this.parentId;
-    data['goods_id'] = this.goodsId;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['name'] = name;
+    data['parent_id'] = parentId;
+    data['goods_id'] = goodsId;
     return data;
   }
 
@@ -194,17 +194,17 @@ class Country {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['name'] = this.name;
-    data['icon'] = this.icon;
-    data['sort_order'] = this.sortOrder;
-    data['address'] = this.address;
-    if (this.fields != null) {
-      data['fields'] = this.fields!.toJson();
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['name'] = name;
+    data['icon'] = icon;
+    data['sort_order'] = sortOrder;
+    data['address'] = address;
+    if (fields != null) {
+      data['fields'] = fields!.toJson();
     }
-    data['active'] = this.active;
+    data['active'] = active;
     return data;
   }
 
@@ -215,13 +215,13 @@ class Country {
 }
 
 class Fields {
-  String ? il;
-  String ? ilche;
-  String ? mahalle;
-  String ? telefon;
-  String ? tcKimlik;
-  String ? postaKodu;
-  String ? adresBaL;
+  String? il;
+  String? ilche;
+  String? mahalle;
+  String? telefon;
+  String? tcKimlik;
+  String? postaKodu;
+  String? adresBaL;
 
   Fields(
       {this.il,
@@ -244,13 +244,13 @@ class Fields {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['İl'] = this.il;
-    data['İlçe'] = this.ilche;
-    data['Mahalle'] = this.mahalle;
-    data['Telefon'] = this.telefon;
-    data['Tc kimlik'] = this.tcKimlik;
-    data['Posta Kodu'] = this.postaKodu;
-    data['Adres Başlığı'] = this.adresBaL;
+    data['İl'] = il;
+    data['İlçe'] = ilche;
+    data['Mahalle'] = mahalle;
+    data['Telefon'] = telefon;
+    data['Tc kimlik'] = tcKimlik;
+    data['Posta Kodu'] = postaKodu;
+    data['Adres Başlığı'] = adresBaL;
     return data;
   }
 
@@ -273,8 +273,8 @@ class Archive {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['date'] = this.date;
+    data['status'] = status;
+    data['date'] = date;
     return data;
   }
 

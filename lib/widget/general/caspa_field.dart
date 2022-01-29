@@ -11,26 +11,26 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CaspaField extends StatelessWidget {
- final TextEditingController? controller;
- final String? label;
- final String? hint;
- final String? title;
- final String? errorMessage;
- final String? infoMessage;
- final int? maxLenght;
- final int? maxLines;
- final double? topMargin;
- final TextCapitalization? textCapitalization;
+  final TextEditingController? controller;
+  final String? label;
+  final String? hint;
+  final String? title;
+  final String? errorMessage;
+  final String? infoMessage;
+  final int? maxLenght;
+  final int? maxLines;
+  final double? topMargin;
+  final TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
- final bool? upperCase;
- final List<TextInputFormatter>? formatters;
- final ValueChanged<String>? onChanged;
- final Function? onTap;
- final Widget? prefixIcon;
- final Widget? suffixIcon;
- final String? suffixText;
- final TextInputType? textInputType;
+  final bool? upperCase;
+  final List<TextInputFormatter>? formatters;
+  final ValueChanged<String>? onChanged;
+  final Function? onTap;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final String? suffixText;
+  final TextInputType? textInputType;
 
   CaspaField(
       {this.controller,
@@ -58,8 +58,9 @@ class CaspaField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 200),
-      height:(errorMessage==null ? 90:110)+(infoMessage!=null? 18.0:0.0),
-     // color: MyColors.mainRED,
+      height: (errorMessage == null ? 90 : 110) +
+          (infoMessage != null ? 18.0 : 0.0),
+      // color: MyColors.mainRED,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -79,9 +80,11 @@ class CaspaField extends StatelessWidget {
                 height: 50,
                 duration: Duration(milliseconds: 200),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: errorMessage==null?MyColors.transparent: MyColors.errorRED)
-                ),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(
+                        color: errorMessage == null
+                            ? MyColors.transparent
+                            : MyColors.errorRED)),
                 child: TextField(
                   autocorrect: false,
                   controller: controller,
@@ -90,18 +93,13 @@ class CaspaField extends StatelessWidget {
                   maxLines: maxLines ?? null,
                   onChanged: onChanged,
                   readOnly: readOnly ?? false,
-               //   enabled: false,
+                  //   enabled: false,
                   expands: maxLines != null ? false : true,
                   onTap: () => onTap?.call(),
                   keyboardType: textInputType ?? TextInputType.text,
                   textCapitalization:
                       textCapitalization ?? TextCapitalization.sentences,
-                  inputFormatters: [
-                    (upperCase ?? true) == true
-                        ? UpperCaseFormatter()
-                        : LowerCaseInputFormatter(),
-                    ...?formatters
-                  ],
+                  inputFormatters: [...?customInputFormat(), ...?formatters],
                   decoration: InputDecoration(
                     counterText: '',
                     border: OutlineInputBorder(
@@ -112,8 +110,8 @@ class CaspaField extends StatelessWidget {
                       ),
                     ),
                     hintText: hint ?? "",
-                    hintStyle: AppTextStyles.sanF400.copyWith(fontSize: 16,
-                    color: MyColors.grey153),
+                    hintStyle: AppTextStyles.sanF400
+                        .copyWith(fontSize: 16, color: MyColors.grey153),
                     suffixText: suffixText ?? "",
                     filled: true,
                     prefixIcon: prefixIcon,
@@ -129,7 +127,7 @@ class CaspaField extends StatelessWidget {
               Positioned(
                 right: 0,
                 child: Container(
-                  color:MyColors.mainGrey,
+                  color: MyColors.mainGrey,
                   padding: const EdgeInsets.only(right: 8),
                   margin: const EdgeInsets.only(right: 2),
                   child: Tooltip(
@@ -143,7 +141,7 @@ class CaspaField extends StatelessWidget {
                             (errorMessage != null
                                 ? Container(
                                     height: 20,
-                                 //   color:MyColors.grey153,
+                                    //   color:MyColors.grey153,
                                     child: SvgPicture.asset(Assets.svgMinus))
                                 : Container()),
                       ),
@@ -174,5 +172,17 @@ class CaspaField extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  List<TextInputFormatter>? customInputFormat() {
+    if (upperCase != null) {
+      if ((upperCase!)) {
+        return [UpperCaseFormatter()];
+      } else {
+        return [LowerCaseInputFormatter()];
+      }
+    } else {
+      return null;
+    }
   }
 }

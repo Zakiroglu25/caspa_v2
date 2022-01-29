@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -8,8 +7,8 @@ class Recorder {
   static final crashlytics = FirebaseCrashlytics.instance;
 
   static void recordResponseError(Response response) async {
-    await FirebaseCrashlytics.instance.recordError(DioErrorType.response,
-        StackTrace.fromString(response.data .toString()),
+    await FirebaseCrashlytics.instance.recordError(
+        DioErrorType.response, StackTrace.fromString(response.data.toString()),
         reason: 'Error during dio request',
         // Pass in 'fatal' argumen
         information: [
@@ -19,7 +18,6 @@ class Recorder {
           DiagnosticsNode.message(response.requestOptions.data.toString()),
           DiagnosticsNode.message(response.statusCode.toString()),
           DiagnosticsNode.message(response.toString()),
-
         ],
         //information:  [...LoggingService.logHistory.map((e) => DiagnosticsNode.message(e)).toList()],
         fatal: true);
@@ -41,7 +39,6 @@ class Recorder {
   }
 
   static void recordCatchError(Object e, StackTrace s) async {
-
     // crashlytics.setCustomKey('title', jsonEncode({'hello':"salma","qaqa":13}));
     await FirebaseCrashlytics.instance.recordError("Error cathed: ", s,
         reason: e.toString(),
@@ -53,7 +50,7 @@ class Recorder {
 
   static void recordSpecialError(String title, StackTrace s) async {
     FirebaseCrashlytics.instance
-        .setCustomKey('title', {'hello': "salma", "qaqa": 12});
+        .setCustomKey('title', {'hello': "salam", "qaqa": 12});
     await FirebaseCrashlytics.instance.recordError(
         DioErrorType.response, StackTrace.fromString("Salam qaqa"),
         reason: title.toString(),
@@ -68,11 +65,14 @@ class Recorder {
       FirebaseCrashlytics.instance.setCustomKey('user', user.toString());
     }
   }
-  static void setId(dynamic? id) {
+
+  static void setId(id) {
     if (id != null) {
       FirebaseCrashlytics.instance.setUserIdentifier(id.toString());
     }
-  }  static void setUserFCMtoken(String? fcm) {
+  }
+
+  static void setUserFCMtoken(String? fcm) {
     if (fcm != null) {
       FirebaseCrashlytics.instance.setCustomKey('fcmToken', fcm.toString());
     }

@@ -9,14 +9,16 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
 
 class PackagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: BlocProvider(
-        create: (context) => PackageStatusesCubit()..fetch(),
+    return FocusDetector(
+      onFocusGained: () {
+        context.read<PackageStatusesCubit>().fetch(false);
+      },
+      child: Scaffold(body: SafeArea(
         child: BlocBuilder<PackageStatusesCubit, PackageStatusesState>(
           builder: (context, state) {
             if (state is PackageStatusesSuccess) {
@@ -53,7 +55,7 @@ class PackagePage extends StatelessWidget {
             }
           },
         ),
-      ),
-    ));
+      )),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -20,8 +21,18 @@ class PackageDetailsPage extends StatelessWidget {
         notification: false,
       ),
       body: SafeArea(
-        child: PackageDetails(
-          package: package,
+        child: Container(
+          color: AppOperations.colorWithId(package.id!),
+          child: BounceInUp(
+            duration: Duration(milliseconds: 800),
+            from: 100,
+            child: Container(
+              color: MyColors.white,
+              child: PackageDetails(
+                package: package,
+              ),
+            ),
+          ),
         ),
       ),
     );

@@ -20,8 +20,7 @@ class EmptyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-          child: Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -45,7 +44,7 @@ class EmptyWidget extends StatelessWidget {
                 .copyWith(fontSize: 25.sp, color: MyColors.black126),
           )
         ],
-      )),
+      ),
     );
   }
 }

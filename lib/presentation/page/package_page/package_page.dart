@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
 
 class PackagePage extends StatelessWidget {
+  const PackagePage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return FocusDetector(

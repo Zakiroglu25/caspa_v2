@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attor
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
@@ -127,9 +128,10 @@ class Pager {
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
       child: SplashPage());
 
-  static get viaLink => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => OrderViaUrlCubit())],
-      child: OrderViaLinkPage());
+  static get orderViaLink => MultiBlocProvider(providers: [
+        BlocProvider(create: (context) => OrderViaUrlCubit()),
+        BlocProvider(create: (context) => CommissionCubit()..fetch()),
+      ], child: OrderViaLinkPage());
 
   static get userSettingsPage => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],

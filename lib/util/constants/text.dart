@@ -211,7 +211,7 @@ class MyText {
   static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
-  static const String comission = "Komissiya";
+  static const String Commission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
   static const String exit = "Çıxış";
   static const String tapForExit = "Çıxış etmək üçün toxunun";
@@ -359,7 +359,7 @@ class MyText {
       "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
 
   //snackbar
-  static const String snackText = "Kopyalandı";
+  static const String coppied = "Kopyalandı";
 
   ///giftbalance
   static const String licenseText =

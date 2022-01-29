@@ -31,6 +31,7 @@ class ApiKeys {
 
   //general
   static const shop = '$baseUrl/public/stores';
+  static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
 
   //packages
@@ -73,7 +74,6 @@ class ApiKeys {
   //gift
   static const giftList = "$baseUrl/user/gifts";
   static const addGift = "$baseUrl/user/gift";
-
 
   //promoCode
   static const giftBalances = "$baseUrl/user/gifts";

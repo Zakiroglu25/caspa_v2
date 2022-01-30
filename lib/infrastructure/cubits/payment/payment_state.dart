@@ -12,7 +12,10 @@ class PaymentError extends PaymentState {
 
 class TarifNetworkError extends PaymentState {}
 
-class PaymentSuccess extends PaymentState {
+class PaymentUrlFetched extends PaymentState {
   // ReportSuccess(this.tarifList);
   // final List<Tariff>  tarifList;
+  String url;
+
+  PaymentUrlFetched({required this.url});
 }

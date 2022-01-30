@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/payments_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/enums/payment_type.dart';
@@ -26,11 +27,11 @@ class PaymentCubit extends Cubit<PaymentState> {
           emit(PaymentInProgress());
         }
 
-        final result =
-            await PaymentsProvider.getPaymentUrl(amount: price.valueOrNull);
-
+        final result = await PaymentsProvider.getPaymentUrl(
+            amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
+        bbbb("hjk: ${result.statusCode}");
         if (isSuccess(result.statusCode)) {
-          emit(PaymentSuccess());
+          emit(PaymentUrlFetched(url: result.data));
         } else {
           emit(PaymentError(error: MyText.error + " ${result.statusCode}"));
         }
@@ -40,7 +41,8 @@ class PaymentCubit extends Cubit<PaymentState> {
     } on SocketException catch (_) {
       //network olacaq
       emit(PaymentError(error: MyText.network_error));
-    } catch (e) {
+    } catch (e, s) {
+      eeee("getPaymentUrl cubit $e=>$s");
       emit(PaymentError());
     }
   }

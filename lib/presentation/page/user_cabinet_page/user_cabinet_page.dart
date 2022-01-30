@@ -116,11 +116,10 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 onTap: () {
-                  Go.to(
+                  Go.replace(
                       context,
-                      AddBalancePage(
-                        paymentBalance: PaymentBalanceType.cargo,
-                      ));
+                      Pager.paymentPage(
+                          paymentBalanceType: PaymentBalanceType.cargo));
                   // context.read()<PaymentsOrderCubit>();
                 },
                 title: "Balans USD",
@@ -138,10 +137,10 @@ class UserCabinetPage extends StatelessWidget {
                   color: MyColors.balansOrder,
                   btnText: MyText.increaseBalance,
                   colorbtn: MyColors.btnBlanceOrder,
-                  onTap: () => Go.to(
+                  onTap: () => Go.replace(
                       context,
-                      AddBalancePage(
-                        paymentBalance: PaymentBalanceType.order,
+                      Pager.paymentPage(
+                        paymentBalanceType: PaymentBalanceType.order,
                       ))),
               MySizedBox.h16,
               Row(

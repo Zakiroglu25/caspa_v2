@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cub
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
@@ -16,6 +17,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,7 +25,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../locator.dart';
-import 'add_balane_page/add_balance_page.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -115,7 +116,11 @@ class UserCabinetPage extends StatelessWidget {
               MySizedBox.h16,
               BalanceBox(
                 onTap: () {
-                  Go.to(context, AddBalancePage());
+                  Go.to(
+                      context,
+                      AddBalancePage(
+                        paymentBalance: PaymentBalanceType.cargo,
+                      ));
                   // context.read()<PaymentsOrderCubit>();
                 },
                 title: "Balans USD",
@@ -127,13 +132,17 @@ class UserCabinetPage extends StatelessWidget {
               ),
               MySizedBox.h16,
               BalanceBox(
-                title: "Balans TL",
-                price: "${_prefs.user.balance ?? 0} TL",
-                subtitle: "(Sifariş)",
-                color: MyColors.balansOrder,
-                btnText: MyText.increaseBalance,
-                colorbtn: MyColors.btnBlanceOrder,
-              ),
+                  title: "Balans TL",
+                  price: "${_prefs.user.balance ?? 0} TL",
+                  subtitle: "(Sifariş)",
+                  color: MyColors.balansOrder,
+                  btnText: MyText.increaseBalance,
+                  colorbtn: MyColors.btnBlanceOrder,
+                  onTap: () => Go.to(
+                      context,
+                      AddBalancePage(
+                        paymentBalance: PaymentBalanceType.order,
+                      ))),
               MySizedBox.h16,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

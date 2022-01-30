@@ -10,18 +10,18 @@ import '../../locator.dart';
 class PaymentsProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
 
-  static Future<StatusDynamic> paymentsOrder(
-      {required String price, String? token}) async {
+  static Future<StatusDynamic> getPaymentUrl({required double? amount}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.paymentOrder;
     var url = Uri.parse(api);
-    final body = {"amount": price};
-    final response = await dioG.dio.post(api, data: body);
+    final body = {"amount": amount};
+    final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     statusDynamic.data = response.data;
     if (response.statusCode == ResultKey.responseSuccess) {
     } else {
-      eeee("payment order result bad:  url: $url  ,  response: ${response.data}");
+      eeee(
+          "payment order result bad:  url: $url  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

@@ -63,6 +63,7 @@ class MyText {
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
   static const String amount = "Miqdar";
+  static const String amountmoney = "Məbləğ";
   static const String value = "Dəyər";
   static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
@@ -205,6 +206,8 @@ class MyText {
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromMyBalance = "Balansımdan";
+  static const String balanceIncrease = "Balans artımı";
+  static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";

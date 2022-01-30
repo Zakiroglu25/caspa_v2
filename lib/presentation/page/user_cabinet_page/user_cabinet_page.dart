@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cub
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/presentation/page/package_page/payment/payment_package.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
@@ -138,6 +139,9 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.shop,
                       priceColor: MyColors.balanceBoxRed,
                       icon: const Icon(null),
+                      onTap: (){
+                        Go.to(context, PackagePayment());
+                      },
                     ),
                     MySizedBox.w16,
                     BalansMiniBox(

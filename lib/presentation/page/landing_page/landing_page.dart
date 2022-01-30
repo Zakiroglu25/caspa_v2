@@ -27,8 +27,8 @@ class _LandingPageState extends State<LandingPage> {
 
   final pages = <Widget>[
     Pager.home,
-    PackagePage(),
-    NewOrderPage(),
+    Pager.package,
+    Pager.newOrder,
     Pager.adress,
     Pager.other,
   ];

@@ -13,14 +13,18 @@ class ColorfullBackImage extends StatelessWidget {
   String? title;
   String? infoTitle;
   String? infoContent;
+  Widget? child;
 
   ColorfullBackImage(
-      {required this.path,
+      {Key? key,
+      this.path,
       this.title,
       this.h,
       this.w,
+      this.child,
       this.infoContent,
-      this.infoTitle});
+      this.infoTitle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +34,13 @@ class ColorfullBackImage extends StatelessWidget {
         WidgetOrEmpty(
           value: title != null,
           child: Text(
-            title??'',
+            title ?? '',
             style: AppTextStyles.coHead400.copyWith(fontSize: 25),
           ),
         ),
         Center(
-          child: Stack(alignment: Alignment.center,
+          child: Stack(
+            alignment: Alignment.center,
             children: [
               FadeIn(
                 child: Container(
@@ -48,17 +53,20 @@ class ColorfullBackImage extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 210.sp,
                 width: 210.sp,
-                child: Image.asset(
-                  path!,
-                ),
+                child: path != null
+                    ? Image.asset(
+                        path!,
+                      )
+                    : Container(),
               ),
+              child ?? Container()
             ],
           ),
         ),
-       // MySizedBox.h16,
+        // MySizedBox.h16,
         Container(
           child: WidgetOrEmpty(
               value: (infoTitle != null || infoContent != null),

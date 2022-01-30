@@ -1,0 +1,1 @@
+enum PaymentBalanceType { cargo, order }

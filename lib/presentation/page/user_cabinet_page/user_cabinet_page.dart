@@ -4,16 +4,20 @@ import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cub
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
+import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,7 +25,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../locator.dart';
-import 'add_balane_page/add_balance_page.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,59 +102,70 @@ class UserCabinetPage extends StatelessWidget {
             log("PaymentsOrderError");
           }
         },
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                MySizedBox.h32,
-                CabinetHeaderWidget(),
-                BalanceBox(
-                  onTap: () {
-                    Go.to(context, AddBalancePage());
-                   // context.read()<PaymentsOrderCubit>();
-                  },
-                  title: "Balans USD",
-                  price: "\$ ${_prefs.user.cargoBalance}",
-                  subtitle: "(Daşınma)",
-                  color: MyColors.balansCargo,
-                  btnText: MyText.increaseBalance,
-                  colorbtn: MyColors.btnBlanceCargo,
-                ),
-                MySizedBox.h16,
-                BalanceBox(
+        child: SingleChildScrollView(
+          padding: Paddings.paddingH16,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // MySizedBox.h32,
+              CabinetHeaderWidget(),
+              SliverInfo(
+                MyText.emergencyCall,
+                align: TextAlign.center,
+              ),
+              MySizedBox.h16,
+              BalanceBox(
+                onTap: () {
+                  Go.to(
+                      context,
+                      AddBalancePage(
+                        paymentBalance: PaymentBalanceType.cargo,
+                      ));
+                  // context.read()<PaymentsOrderCubit>();
+                },
+                title: "Balans USD",
+                price: "\$ ${_prefs.user.cargoBalance}",
+                subtitle: "(Daşınma)",
+                color: MyColors.balansCargo,
+                btnText: MyText.increaseBalance,
+                colorbtn: MyColors.btnBlanceCargo,
+              ),
+              MySizedBox.h16,
+              BalanceBox(
                   title: "Balans TL",
                   price: "${_prefs.user.balance ?? 0} TL",
                   subtitle: "(Sifariş)",
                   color: MyColors.balansOrder,
                   btnText: MyText.increaseBalance,
                   colorbtn: MyColors.btnBlanceOrder,
-                ),
-                MySizedBox.h16,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    BalansMiniBox(
-                      title: MyText.durtingCurrentMonth,
-                      content: "\$ ${_prefs.user.monthly}",
-                      color: MyColors.shop,
-                      priceColor: MyColors.balanceBoxRed,
-                      icon: const Icon(null),
-                    ),
-                    MySizedBox.w16,
-                    BalansMiniBox(
-                      title: MyText.countOfOrders,
-                      content: "${_prefs.user.packages_count}",
-                      color: MyColors.balanceCountPackage,
-                      priceColor: MyColors.balanceBoxOrange,
-                      icon: SvgPicture.asset(Assets.svgBalanceUp),
-                    ),
-                  ],
-                ),
-                MySizedBox.h50,
-              ],
-            ),
+                  onTap: () => Go.to(
+                      context,
+                      AddBalancePage(
+                        paymentBalance: PaymentBalanceType.order,
+                      ))),
+              MySizedBox.h16,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  BalansMiniBox(
+                    title: MyText.durtingCurrentMonth,
+                    content: "\$ ${_prefs.user.monthly}",
+                    color: MyColors.shop,
+                    priceColor: MyColors.balanceBoxRed,
+                    icon: const Icon(null),
+                  ),
+                  MySizedBox.w16,
+                  BalansMiniBox(
+                    title: MyText.countOfOrders,
+                    content: "${_prefs.user.packages_count}",
+                    color: MyColors.balanceCountPackage,
+                    priceColor: MyColors.balanceBoxOrange,
+                    icon: SvgPicture.asset(Assets.svgBalanceUp),
+                  ),
+                ],
+              ),
+              MySizedBox.h50,
+            ],
           ),
         ),
       ),

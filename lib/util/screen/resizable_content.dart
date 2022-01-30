@@ -1,27 +1,32 @@
+import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:flutter/material.dart';
+import 'package:keyboard_attachable/keyboard_attachable.dart';
 
 class ResizableContent extends StatelessWidget {
-  Widget ?child;
-  AppBar ? appBar;
+  Widget? child;
+  Widget? footer;
+  AppBar? appBar;
 
-
-  ResizableContent({required this.child,this.appBar});
+  ResizableContent({required this.child, this.appBar, this.footer});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Container(
-              //color: Colors.green,
-            padding: Paddings.paddingH20,
-            height: double.maxFinite,
-            child: child,
+        maintainBottomViewPadding: true,
+        child: FooterLayout(
+          footer: footer,
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Container(
+                //color: Colors.green,
+                padding: Paddings.paddingH20,
+                height: double.maxFinite,
+                child: child),
           ),
         ),
       ),

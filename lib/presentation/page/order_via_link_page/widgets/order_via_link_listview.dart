@@ -36,7 +36,7 @@ class OrderViaLinkListview extends StatelessWidget {
         LinkFieldOrderViaUrl(),
         CountFieldOrderViaUrl(),
         PriceFieldOrderViaUrl(),
-        CommissionZero(),
+        CommissionField(),
         MySizedBox.h16,
         LocalCargoFieldOrderViaUrl(),
         NoteFieldOrderViaUrl(),

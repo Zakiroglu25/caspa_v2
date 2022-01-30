@@ -16,9 +16,8 @@ class PaymentsOrderCubit extends Cubit<PaymentsOrderState> {
 
   void paymentsOrder() async {
     try {
-      final result = await PaymentsProvider.paymentsOrder(
-        price: prices_controller.text,
-        token: (_prefs.accessToken),
+      final result = await PaymentsProvider.getPaymentUrl(
+        amount: null,
       );
       if (isSuccess(result.statusCode)) {
         emit(PaymentsOrderSuccess());

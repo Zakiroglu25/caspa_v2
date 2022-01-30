@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 // Flutter imports:
-import 'package:caspa_v2/infrastructure/models/remote/requset/general_response_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/notification_model.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:http/http.dart' as http;
 
-
 class NotificationProvider {
-  static Future<NotificationModel?> fetchNotificationData({String? token}) async {
+  static Future<NotificationModel?> fetchNotificationData(
+      {String? token}) async {
     NotificationModel? notificationModel;
     final api = ApiKeys.baseUrl;
     //final headers = ApiKeys.headers;

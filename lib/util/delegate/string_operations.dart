@@ -30,7 +30,7 @@ class StringOperations {
     Clipboard.setData(ClipboardData(text: data ?? "")).then((_) {
       Snack.display(
           context: context,
-          message: copyText ?? MyText.snackText,
+          message: copyText ?? MyText.coppied,
           showSuccessIcon: true,
           positive: true);
     });
@@ -103,15 +103,16 @@ class StringOperations {
   }
 
   static String idSerieFromFullId(String string) {
-
-   bbbb("hoh: "+ idNumberFromFullId(string));
+    bbbb("hoh: " + idNumberFromFullId(string));
 
     if (string.substring(0, 3) == MyText.aze) {
       return MyText.aze;
     } else {
       return MyText.aa;
     }
-  }static String idNumberFromFullId(String string) {
+  }
+
+  static String idNumberFromFullId(String string) {
     if (string.substring(0, 3) == MyText.aze) {
       return string.substring(3);
     } else {
@@ -128,5 +129,3 @@ class StringOperations {
     }
   }
 }
-
-

@@ -7,11 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SellerFieldReport extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   SellerFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<ReportCubit>(context).updateSeller(controller!.text);
     return StreamBuilder<String>(
       stream: BlocProvider.of<ReportCubit>(context).sellerStream,
       builder: (context, snapshot) {
@@ -23,7 +24,7 @@ class SellerFieldReport extends StatelessWidget {
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
+          controller: controller,
           onChanged: (value) =>
               BlocProvider.of<ReportCubit>(context).updateSeller(value),
         );

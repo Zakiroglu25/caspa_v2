@@ -42,7 +42,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     }
   }
 
-  Future<bool> removeNotificion(
+  Future<bool?> removeNotificion(
       {int? notificationId,
       bool? loading,
       required BuildContext? context}) async {
@@ -55,14 +55,14 @@ class NotificationCubit extends Cubit<NotificationState> {
       String token = '';
       final result = await NotificationProvider.removeNotification(
           token: token, notificationId: notificationId);
-      if (result?.message == 'ok') {
-        emit(NotificationRemoveSuccess());
-        fetch(loading: false, context: context);
-        return true;
-      } else {
-        emit(NotificationError());
-        return false;
-      }
+      // if (result?.message == 'ok') {
+      //   emit(NotificationRemoveSuccess());
+      //   fetch(loading: false, context: context);
+      //   return true;
+      // } else {
+      //   emit(NotificationError());
+      //   return false;
+      // }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
       return false;
@@ -76,9 +76,9 @@ class NotificationCubit extends Cubit<NotificationState> {
     try {
       var result = await NotificationProvider.updateNotificationHeader(
           userId: _prefs.language);
-      if (result?.message == 'ok') {
-        emit(NotificationStatusUpdated());
-      }
+      // if (result?.message == 'ok') {
+      //   emit(NotificationStatusUpdated());
+      // }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
     } catch (e) {

@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -66,7 +67,10 @@ class HomePage extends StatelessWidget {
                   onTap: () {},
                 )),
             MySizedBox.h24,
-            HomePackageList(),
+            BlocProvider(
+              create: (context) => PackageCubit()..fetch(),
+              child: HomePackageList(),
+            ),
           ],
         ),
       ),

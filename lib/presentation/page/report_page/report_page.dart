@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -29,6 +30,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/report_contiue_button.dart';
 
 class ReportPage extends StatelessWidget {
+  final Package? package;
+  ReportPage({this.package});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +48,7 @@ class ReportPage extends StatelessWidget {
                   Pager.success(
                       infoTitle: MyText.reportSuccessTitle,
                       infoContent: MyText.reportSuccessContent,
-                      againPage: Pager.report));
+                      againPage: Pager.report()));
             } else if (state is ReportError) {
               if (state.error != null) {
                 Snack.display(context: context, message: state.error);
@@ -61,18 +65,30 @@ class ReportPage extends StatelessWidget {
                   definition: MyText.declareText,
                 ),
                 MySizedBox.h24,
-                SellerFieldReport(),
+                SellerFieldReport(
+                  controller: TextEditingController(text: package?.store),
+                ),
                 CategoryFields(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [PriceFieldReport(), PriceTypeFieldReport()],
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PriceFieldReport(
+                      controller: TextEditingController(text: package?.price),
+                    ),
+                    PriceTypeFieldReport()
+                  ],
                 ),
                 CountFieldReport(),
-                TrackingIdFieldReport(),
-                NoteFieldReport(),
+                TrackingIdFieldReport(
+                    controller: TextEditingController(text: package?.tracking)),
+                NoteFieldReport(
+                    controller: TextEditingController(text: package?.note)),
                 SectionName(title: MyText.factura),
                 MySizedBox.h16,
-                PhotoPickment(),
+                PhotoPickment(
+                  url: package?.invoice,
+                ),
                 MySizedBox.h12,
                 Text(
                   MyText.facturaText,
@@ -80,7 +96,7 @@ class ReportPage extends StatelessWidget {
                       AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
                 ),
                 MySizedBox.h24,
-                ReportContiueButton(),
+                ReportContiueButton(package: package),
                 MySizedBox.h40,
               ],
             ),

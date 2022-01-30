@@ -67,6 +67,7 @@ class MyText {
   static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
   static const String status = "Status";
+  static const String didntDetermine = "Müəyyən edilməyib";
   static const String currency = "Valyuta";
   static const String c1453 = "*1453";
   static const String hot_contact = "Qaynar xətt";
@@ -101,7 +102,9 @@ class MyText {
   static const String youMustBuyProduct =
       "Məhsulu siz alırsınız, biz isə seçdiyiniz ünvana qədər çatdırırıq";
   static const String viaLink = "Link ilə 🎁 ";
-  static const String declareIt = "Bəyan et 📦";
+  static const String declareItX = "Bəyan et 📦";
+  static const String declareIt = "Bəyan et";
+  static const String editIt = "Düzəliş et";
   static const String new_order = "Yeni sifariş";
 
   //userCabinet
@@ -154,10 +157,14 @@ class MyText {
   static const String orderNewPackages = "Yeni bağlama sifarişi";
 
 //notification
-  static const String notification = "Biildiriş";
-  static const String notifications = "Biildirişlər";
+  static const String notification = "Bildiriş";
+  static const String notifications = "Bildirişlər";
   static const String yesterday = "Dünən";
   static const String today = "Bu gün";
+
+  //product
+  static const String pickedup = "Təhvil verildi";
+  static const String deliveredWithCourier = "Kuryerlə Təhvil";
 
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
@@ -204,7 +211,7 @@ class MyText {
   static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
-  static const String comission = "Komissiya";
+  static const String Commission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
   static const String exit = "Çıxış";
   static const String tapForExit = "Çıxış etmək üçün toxunun";
@@ -352,7 +359,7 @@ class MyText {
       "Hər bir hədiyyə kodu ilə balansınıza müəyyən edilmiş məbləğ yüklənəcək";
 
   //snackbar
-  static const String snackText = "Kopyalandı";
+  static const String coppied = "Kopyalandı";
 
   ///giftbalance
   static const String licenseText =

@@ -5,6 +5,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/categories_respon
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
@@ -54,7 +55,42 @@ class ReportCubit extends Cubit<ReportState> {
         onTap: () async => await openAppSettings());
   }
 
-  void report(BuildContext context, [bool loading = true]) async {
+  void report(BuildContext context, {bool loading = true, int? id}) async {
+    try {
+      if (isUserInfoValid()) {
+        if (loading) {
+          emit(ReportInProgress());
+        }
+        final result = await ReportProvider.report(
+          token: await _prefs.accessToken,
+          seller: seller.valueOrNull,
+          id: id,
+          qty: productCount.valueOrNull,
+          category: selectedSubCategory.valueOrNull!.id,
+          tracking: trackingID.valueOrNull,
+          price: price.valueOrNull,
+          currency: priceType.valueOrNull!.toLowerCase(),
+          invoice: image.valueOrNull,
+          note: note.valueOrNull,
+        );
+
+        if (isSuccess(result?.statusCode)) {
+          emit(ReportSuccess());
+        } else {
+          emit(ReportError(error: MyText.error + " ${result!.statusCode}"));
+        }
+      } else {
+        emit(ReportError(error: MyText.all_fields_must_be_filled));
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(ReportError(error: MyText.network_error));
+    } catch (e) {
+      emit(ReportError());
+    }
+  }
+
+  void editReport(BuildContext context, [bool loading = true]) async {
     try {
       if (isUserInfoValid()) {
         if (loading) {
@@ -79,6 +115,29 @@ class ReportCubit extends Cubit<ReportState> {
         }
       } else {
         emit(ReportError(error: MyText.all_fields_must_be_filled));
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(ReportError(error: MyText.network_error));
+    } catch (e) {
+      emit(ReportError());
+    }
+  }
+
+  void deleteReport(BuildContext context,
+      {bool loading = true, required int id}) async {
+    try {
+      if (loading) {
+        emit(ReportInProgress());
+      }
+      final result = await ReportProvider.deleteReport(id: id);
+
+      if (isSuccess(result?.statusCode)) {
+        Snack.positive(context: context, message: MyText.operationIsSuccess);
+        Go.pop(context);
+        emit(ReportSuccess());
+      } else {
+        emit(ReportError(error: MyText.error + " ${result!.statusCode}"));
       }
     } on SocketException catch (_) {
       //network olacaq

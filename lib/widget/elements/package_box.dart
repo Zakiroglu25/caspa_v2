@@ -64,22 +64,18 @@ class PackageBox extends StatelessWidget {
                         style: AppTextStyles.sanF400
                             .copyWith(fontSize: 12.sp, color: MyColors.grey153),
                       ),
-                      Text(
-                        package.price!,
-                        style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
-                      )
+
+                      Text(package.price ?? '')
+
                     ],
                   ),
                   Wrap(
                     children: [
-                      Text(
-                        MyText.tracking_id + ": ",
-                        style: AppTextStyles.sanF400
-                            .copyWith(fontSize: 12.sp, color: MyColors.grey153),
-                      ),
-                      Text("${package.tracking!}",
-                          style:
-                              AppTextStyles.sanF400.copyWith(fontSize: 12.sp))
+
+                      const Text(MyText.tracking_id + ": ",
+                          style: TextStyle(color: MyColors.grey153)),
+                      Text("${package.tracking ?? ''}")
+
                     ],
                   ),
                   Wrap(

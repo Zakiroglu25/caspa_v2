@@ -15,13 +15,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LogRegButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        loginButton(context),
-        MySizedBox.h16,
-        registerButton(context),
-        MySizedBox.h50,
-      ],
+    return Container(
+      height: 140,
+      // color: MyColors.green,
+      child: Column(
+        children: [
+          loginButton(context),
+          MySizedBox.h16,
+          registerButton(context),
+          MySizedBox.h20,
+        ],
+      ),
     );
   }
 
@@ -31,9 +35,8 @@ class LogRegButtons extends StatelessWidget {
         context.read<LoginCubit>().testLogin(context);
       },
       text: MyText.log_in,
-      loading: (context
-          .watch<LoginCubit>()
-          .state is LoginInProgress) ? true : false,
+      loading:
+          (context.watch<LoginCubit>().state is LoginInProgress) ? true : false,
     );
   }
 

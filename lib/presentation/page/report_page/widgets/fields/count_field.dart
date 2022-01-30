@@ -4,10 +4,11 @@ import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CountFieldReport extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   CountFieldReport({this.controller}); //= new TextEditingController();
   @override
@@ -20,7 +21,10 @@ class CountFieldReport extends StatelessWidget {
           maxLines: 1,
           hint: MyText.product_count,
           upperCase: true,
-          textInputType: TextInputType.phone,
+          textInputType: TextInputType.number,
+          formatters: [
+            FilteringTextInputFormatter.digitsOnly,
+          ],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,

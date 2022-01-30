@@ -12,6 +12,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/delegate/user_operations.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -152,6 +153,8 @@ class LoginCubit extends Cubit<LoginState> {
         Go.andRemove(context, Pager.app(showSplash: true));
         emit(LoginSuccess(''));
       } else {
+        List<String> errors = response.data;
+        Snack.display(context: context, message: errors[0]);
         emit(LoginError());
         // result= MessageResponse.fromJson(response.data).message;
         eeee(

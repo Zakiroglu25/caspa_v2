@@ -33,7 +33,7 @@ class CommissionField extends StatelessWidget {
                 child: BlocBuilder<CommissionCubit, CommissionState>(
                   builder: (context, state) {
                     if (state is CommissionSuccess) {
-                      final commission = state.commission.data;
+                      final commission = state.commission;
                       return Text(
                         "$commission%",
                         style: AppTextStyles.sanF400.copyWith(fontSize: 15),

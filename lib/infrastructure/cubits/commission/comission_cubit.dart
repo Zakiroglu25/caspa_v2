@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'comission_state.dart';

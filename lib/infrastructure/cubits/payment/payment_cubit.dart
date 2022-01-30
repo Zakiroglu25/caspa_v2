@@ -29,10 +29,10 @@ class PaymentCubit extends Cubit<PaymentState> {
         final result =
             await PaymentsProvider.getPaymentUrl(amount: price.valueOrNull);
 
-        if (isSuccess(result?.statusCode)) {
+        if (isSuccess(result.statusCode)) {
           emit(PaymentSuccess());
         } else {
-          emit(PaymentError(error: MyText.error + " ${result!.statusCode}"));
+          emit(PaymentError(error: MyText.error + " ${result.statusCode}"));
         }
       } else {
         emit(PaymentError(error: MyText.all_fields_must_be_filled));

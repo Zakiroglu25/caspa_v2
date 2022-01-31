@@ -61,11 +61,9 @@ class HomePage extends StatelessWidget {
             Tariffs(),
             MySizedBox.h24,
             SectionName(
-                title: MyText.myPackages,
-                hP: 20,
-                tile: MoreButton(
-                  onTap: () {},
-                )),
+              title: MyText.myPackages,
+              hP: 20,
+            ),
             MySizedBox.h24,
             BlocProvider(
               create: (context) => PackageCubit()..fetch(),

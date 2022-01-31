@@ -41,7 +41,6 @@ class AuthProvider {
         await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
     // final response = await dioG.dio.post(api, data: body);
-    bbbb("response: " + response.body);
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
@@ -50,16 +49,11 @@ class AuthProvider {
       bbbb("new token: " + (statusDynamic.data).toString());
     } else {
       statusDynamic.data =
-          AppOperations.errorFromListOfListAsList(response.body);
-//= jsonDecode(response.body);
-      eeee("fetchUserInfo bad url :$url,response: ${response}");
+          AppOperations.errorFromListOfListAsList2(response.body);
+      eeee("login bad url :$url, response: ${response}");
     }
 
     return statusDynamic;
-  }
-
-  static void logiiin() async {
-    bbbb("hgjh");
   }
 
   static Future<StatusDynamic?> registrationCompany({
@@ -162,9 +156,6 @@ class AuthProvider {
     final response =
         await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
     //final response = await dioG.dio.post(api, data: body);
-
-    bbbb("uouoouo: " + jsonEncode(body));
-    bbbb("uouoouo 2: " + response.body.toString());
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {

@@ -84,7 +84,8 @@ class Pager {
         )
       ], child: NewOrderPage());
 
-  static webviewPage({required String url}) => MultiBlocProvider(
+  static webviewPage({required String url, required BuildContext context}) =>
+      MultiBlocProvider(
           providers: [
             BlocProvider.value(
               value: PackageStatusesCubit(),
@@ -92,6 +93,7 @@ class Pager {
           ],
           child: WebviewPage(
             url: url,
+            mainContext: context,
           ));
 
   static get courier_order => MultiBlocProvider(providers: [

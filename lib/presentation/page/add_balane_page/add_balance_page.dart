@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
+import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
@@ -33,40 +34,53 @@ class AddBalancePage extends StatelessWidget {
       body: BlocConsumer<PaymentCubit, PaymentState>(
         listener: (context, state) {
           if (state is PaymentUrlFetched) {
-            final url = state.url;
-            Go.replace(context, Pager.webviewPage(url: url));
-            // Go.to(context, ChromeSafariBrowserExampleScreen());
+            FullScreenLoading.hide(context);
+          }
+          if (state is PaymentSuccess) {
+            FullScreenLoading.hide(context);
+            //Go.pop(context);
+          }
+
+          if (state is PaymentInProgress) {
+            FullScreenLoading.display(context);
           }
         },
         builder: (context, state) {
-          return Stack(
-            children: [
-              ListView(
-                padding: Paddings.paddingH16,
-                children: [
-                  Text(
-                    MyText.balanceIncrease,
-                    style: UITextStyle.tW400BigBlack,
-                  ),
-                  MySizedBox.h32,
-                  AmountField(
-                      // controller: controller,
-                      ),
-                ],
-              ),
-              Positioned(
-                child: CaspaButton(
-                  text: MyText.addBalance,
-                  onTap: () => context.read<PaymentCubit>().getPaymentUrl(
-                      context,
-                      paymentBalanceType: paymentBalance),
+          if (state is PaymentUrlFetched) {
+            return WebviewPage(
+              url: state.url,
+              mainContext: context,
+            );
+          } else {
+            return Stack(
+              children: [
+                ListView(
+                  padding: Paddings.paddingH16,
+                  children: [
+                    Text(
+                      MyText.balanceIncrease,
+                      style: UITextStyle.tW400BigBlack,
+                    ),
+                    MySizedBox.h32,
+                    AmountField(
+                        // controller: controller,
+                        ),
+                  ],
                 ),
-                bottom: 20,
-                left: 16,
-                right: 16,
-              )
-            ],
-          );
+                Positioned(
+                  child: CaspaButton(
+                    text: MyText.addBalance,
+                    onTap: () => context.read<PaymentCubit>().getPaymentUrl(
+                        context,
+                        paymentBalanceType: paymentBalance),
+                  ),
+                  bottom: 20,
+                  left: 16,
+                  right: 16,
+                )
+              ],
+            );
+          }
         },
       ),
     );

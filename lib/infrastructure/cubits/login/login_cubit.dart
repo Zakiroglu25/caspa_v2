@@ -145,7 +145,7 @@ class LoginCubit extends Cubit<LoginState> {
           lang: 'az');
 
       if (isSuccess(response.statusCode)) {
-        await UserOperations.configureUserData(
+        await UserOperations.configureUserDataWhenLogin(
             accessToken: response.data,
             fcmToken: deviceCode!,
             path: uPass.valueOrNull);

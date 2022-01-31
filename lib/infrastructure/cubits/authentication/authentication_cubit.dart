@@ -10,9 +10,11 @@ import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,7 +27,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   HiveService get _prefs => locator<HiveService>();
   ConfigService get _configs => locator<ConfigService>();
-  MyUser? userData = MyUser();
+  // MyUser? userData = MyUser();
   FirebaseMessaging _fcm = FirebaseMessaging.instance;
 
   bool? goOn; //go on prosesler bitdiyini bildirir ve davam etmeye icaze verir
@@ -51,7 +53,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           //splah screen ucun min 4 san. gozledilir
           delay(showSplash),
           // eyni zamanda konfiqurasiya edilir
-          configUserData(context: context, accessToken: accessToken, fcm: fcm)
+          UserOperations.configUserDataWhenOpenApp(
+              accessToken: accessToken, fcm: fcm)
         ]);
         // if (goOn!) {
         emit(AuthenticationAuthenticated());
@@ -84,29 +87,27 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
   }
 
-  Future<void> configUserData(
-      {required BuildContext context,
-      required accessToken,
-      required fcm}) async {
+  Future<void> configUserData({required accessToken, required fcm}) async {
     final result = await AccountProvider.fetchUserInfo(token: accessToken);
     // print("token: " + accessToken.toString());
 
-    userData = result?.data;
+    MyUser userData = result?.data;
     //FirestoreDBService.saveUser(userData!);
 
-   try{ await serverControl(result, () async {
-     //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
-     //server error sehifesini goterir
-     Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
-     Recorder.setId(userData!.id); //crashlyticse id setted
-     Recorder.setUserFCMtoken(fcm); //fcm token setted
-     await _prefs.persistUser(user: userData!);
-     await _prefs.persistIsGuest(false);
-     await _prefs.persistIsLoggedIn(true);
-   });}catch(e,s){
-
-     bbbb("$e => $s");
-   }
+    try {
+      await serverControl(result, () async {
+        //sorgu gonderilir ,xeta yaranarsa ve ya serverle bagli sehvlik olarsa
+        //server error sehifesini goterir
+        Recorder.setUser(userData); //crashlyticse user melumatlarini gonderir
+        Recorder.setId(userData.id); //crashlyticse id setted
+        Recorder.setUserFCMtoken(fcm); //fcm token setted
+        await _prefs.persistUser(user: userData);
+        await _prefs.persistIsGuest(false);
+        await _prefs.persistIsLoggedIn(true);
+      });
+    } catch (e, s) {
+      bbbb("$e => $s");
+    }
   }
 
   Future<void> serverControl(StatusDynamic? result, Function isSuccess) async {

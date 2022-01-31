@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -33,8 +32,8 @@ class BalansMiniBox extends StatelessWidget {
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(
-        width: w ?? 163.sp,
-        height: h ?? 96.sp,
+        width: w ?? (MediaQuery.of(context).size.width - 32 - 16) / 2,
+        height: h ?? 96,
         decoration: BoxDecoration(
             color: color ?? MyColors.shop,
             borderRadius: BorderRadius.circular(12)),

@@ -6,9 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class KgField extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
-  KgField({this.controller}); //= new TextEditingController();
+  const KgField({Key? key, this.controller})
+      : super(key: key); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<String>(

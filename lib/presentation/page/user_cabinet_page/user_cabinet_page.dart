@@ -1,12 +1,8 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
-import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
@@ -17,11 +13,9 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
-import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

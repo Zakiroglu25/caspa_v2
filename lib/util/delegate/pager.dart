@@ -15,7 +15,6 @@ import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -220,11 +219,6 @@ class Pager {
 
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
-        BlocProvider(create: (context) => PaymentsOrderCubit()),
-        BlocProvider.value(value: PaymentsOrderCubit()),
-        // BlocProvider.value(
-        //   value: AuthenticationCubit(),
-        // )
       ], child: UserCabinetPage());
 
   static get adress => MultiBlocProvider(providers: [

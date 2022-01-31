@@ -29,6 +29,7 @@ class PackagesData {
 class Package {
   int? id;
   String? status;
+  String? customStatus;
   String? cargoTracking;
   String? tracking;
   String? store;
@@ -40,6 +41,7 @@ class Package {
   int? payment;
   String? note;
   String? regNumber;
+  String? from_report;
   int? noInvoice;
   String? invoice;
   String? date;
@@ -51,12 +53,14 @@ class Package {
       this.cargoTracking,
       this.tracking,
       this.store,
+      this.customStatus,
       this.price,
       this.cargoPrice,
       this.weight,
       this.category,
       this.country,
       this.payment,
+      this.from_report,
       this.note,
       this.regNumber,
       this.noInvoice,
@@ -70,6 +74,7 @@ class Package {
     cargoTracking = json['cargo_tracking'];
     tracking = json['tracking'];
     store = json['store'];
+    from_report = json['from_report'];
     price = json['price'];
     cargoPrice = json['cargo_price'];
     weight = json['weight'];
@@ -81,6 +86,7 @@ class Package {
     payment = json['payment'];
     note = json['note'];
     regNumber = json['regNumber'];
+    customStatus = json['customStatus'];
     noInvoice = json['no_invoice'];
     invoice = json['invoice'];
     date = json['date'];
@@ -99,6 +105,8 @@ class Package {
     data['cargo_tracking'] = this.cargoTracking;
     data['tracking'] = this.tracking;
     data['store'] = this.store;
+    data['from_report'] = this.from_report;
+    data['customStatus'] = this.customStatus;
     data['price'] = this.price;
     data['cargo_price'] = this.cargoPrice;
     data['weight'] = this.weight;
@@ -122,7 +130,7 @@ class Package {
 
   @override
   String toString() {
-    return 'Package{id: $id, status: $status, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment: $payment, note: $note, regNumber: $regNumber, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
+    return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
   }
 }
 

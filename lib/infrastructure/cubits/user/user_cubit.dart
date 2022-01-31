@@ -43,7 +43,7 @@ class UserCubit extends Cubit<UserState> {
           old_password: old_password.valueOrNull);
 
       if (isSuccess(response!.statusCode)) {
-        await UserOperations.configureUserData(
+        await UserOperations.configureUserDataWhenLogin(
             fcmToken: _prefs.fcmToken,
             accessToken: _prefs.accessToken!,
             path: _prefs.userPath);

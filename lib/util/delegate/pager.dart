@@ -24,6 +24,7 @@ import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/add_or_edit_attorney_page/add_or_edit_etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
@@ -57,6 +58,8 @@ import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
+import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
+import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -80,6 +83,18 @@ class Pager {
           value: PackageStatusesCubit()..fetch(),
         )
       ], child: NewOrderPage());
+
+  static webviewPage({required String url, required BuildContext context}) =>
+      MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: PackageStatusesCubit(),
+            )
+          ],
+          child: WebviewPage(
+            url: url,
+            mainContext: context,
+          ));
 
   static get courier_order => MultiBlocProvider(providers: [
         BlocProvider.value(
@@ -271,4 +286,11 @@ class Pager {
       child: AddOrEditEtibarnamePage(
         attorney: attorney,
       ));
+
+  static paymentPage({required PaymentBalanceType paymentBalanceType}) =>
+      BlocProvider(
+          create: (context) => PaymentCubit(),
+          child: AddBalancePage(
+            paymentBalance: paymentBalanceType,
+          ));
 }

@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
@@ -12,6 +14,7 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -24,6 +27,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../../../locator.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -92,82 +96,77 @@ class UserCabinetPage extends StatelessWidget {
           );
         },
       ),
-      body: BlocListener<PaymentsOrderCubit, PaymentsOrderState>(
-        listener: (context, state) {
-          if (state is PaymentsOrderInProgress) {
-            log("PaymentsOrderInProgress");
-          } else if (state is PaymentsOrderSuccess) {
-            log("PaymentsOrderSuccess");
-          } else if (state is PaymentsOrderError) {
-            log("PaymentsOrderError");
-          }
-        },
-        child: SingleChildScrollView(
-          padding: Paddings.paddingH16,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // MySizedBox.h32,
-              CabinetHeaderWidget(),
-              SliverInfo(
-                MyText.emergencyCall,
-                align: TextAlign.center,
-              ),
-              MySizedBox.h16,
-              BalanceBox(
-                onTap: () {
-                  Go.to(
-                      context,
-                      AddBalancePage(
-                        paymentBalance: PaymentBalanceType.cargo,
-                      ));
-                  // context.read()<PaymentsOrderCubit>();
-                },
-                title: "Balans USD",
-                price: "\$ ${_prefs.user.cargoBalance}",
-                subtitle: "(Daşınma)",
-                color: MyColors.balansCargo,
-                btnText: MyText.increaseBalance,
-                colorbtn: MyColors.btnBlanceCargo,
-              ),
-              MySizedBox.h16,
-              BalanceBox(
-                  title: "Balans TL",
-                  price: "${_prefs.user.balance ?? 0} TL",
-                  subtitle: "(Sifariş)",
-                  color: MyColors.balansOrder,
+      body: ValueListenableBuilder(
+        valueListenable: Hive.box('main').listenable(),
+        builder: (context, Box box, widget) {
+          final MyUser user =
+              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          return SingleChildScrollView(
+            padding: Paddings.paddingH16,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // MySizedBox.h32,
+                CabinetHeaderWidget(),
+                SliverInfo(
+                  MyText.emergencyCall,
+                  align: TextAlign.center,
+                ),
+                MySizedBox.h16,
+                BalanceBox(
+                  onTap: () {
+                    Go.to(
+                        context,
+                        Pager.paymentPage(
+                            paymentBalanceType: PaymentBalanceType.cargo));
+                    // context.read()<PaymentsOrderCubit>();
+                  },
+                  title: "Balans USD",
+                  price: "\$ ${user.cargoBalance}",
+                  subtitle: "(Daşınma)",
+                  color: MyColors.balansCargo,
                   btnText: MyText.increaseBalance,
-                  colorbtn: MyColors.btnBlanceOrder,
-                  onTap: () => Go.to(
-                      context,
-                      AddBalancePage(
-                        paymentBalance: PaymentBalanceType.order,
-                      ))),
-              MySizedBox.h16,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  BalansMiniBox(
-                    title: MyText.durtingCurrentMonth,
-                    content: "\$ ${_prefs.user.monthly}",
-                    color: MyColors.shop,
-                    priceColor: MyColors.balanceBoxRed,
-                    icon: const Icon(null),
-                  ),
-                  MySizedBox.w16,
-                  BalansMiniBox(
-                    title: MyText.countOfOrders,
-                    content: "${_prefs.user.packages_count}",
-                    color: MyColors.balanceCountPackage,
-                    priceColor: MyColors.balanceBoxOrange,
-                    icon: SvgPicture.asset(Assets.svgBalanceUp),
-                  ),
-                ],
-              ),
-              MySizedBox.h50,
-            ],
-          ),
-        ),
+                  colorbtn: MyColors.btnBlanceCargo,
+                ),
+                MySizedBox.h16,
+                BalanceBox(
+                    title: "Balans TL",
+                    price: "${user.balance ?? 0} TL",
+                    subtitle: "(Sifariş)",
+                    color: MyColors.balansOrder,
+                    btnText: MyText.increaseBalance,
+                    colorbtn: MyColors.btnBlanceOrder,
+                    onTap: () => Go.to(
+                        context,
+                        Pager.paymentPage(
+                          paymentBalanceType: PaymentBalanceType.order,
+                        ))),
+                MySizedBox.h16,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BalansMiniBox(
+                      title: MyText.durtingCurrentMonth,
+                      content: "\$ ${_prefs.user.monthly}",
+                      color: MyColors.shop,
+                      priceColor: MyColors.balanceBoxRed,
+                      icon: const Icon(null),
+                    ),
+                    MySizedBox.w16,
+                    BalansMiniBox(
+                      title: MyText.countOfOrders,
+                      content: "${_prefs.user.packages_count}",
+                      color: MyColors.balanceCountPackage,
+                      priceColor: MyColors.balanceBoxOrange,
+                      icon: SvgPicture.asset(Assets.svgBalanceUp),
+                    ),
+                  ],
+                ),
+                MySizedBox.h50,
+              ],
+            ),
+          );
+        },
       ),
     );
   }

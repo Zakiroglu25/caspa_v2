@@ -64,7 +64,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       bbbb("register bloc result: " + response.toString());
 
       if (isSuccess(response?.statusCode)) {
-        await UserOperations.configureUserData(
+        await UserOperations.configureUserDataWhenLogin(
             accessToken: response?.data,
             fcmToken: deviceCode!,
             path: uPassMain.valueOrNull);
@@ -105,7 +105,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       bbbb("registerCompany bloc result: " + response.toString());
 
       if (isSuccess(response?.statusCode)) {
-        await UserOperations.configureUserData(
+        await UserOperations.configureUserDataWhenLogin(
             accessToken: response?.data,
             fcmToken: deviceCode!,
             path: uPassMain.valueOrNull);
@@ -403,7 +403,6 @@ class RegisterCubit extends Cubit<RegisterState> {
   Stream<String> get birthDateStream => birthDate.stream;
 
   updateBirthDate(String value) {
-    bbbb("jkj");
     if (value == null || value.isEmpty) {
       birthDate.value = '';
       //  birthDate.sink.addError(MyText.field_is_not_correct);

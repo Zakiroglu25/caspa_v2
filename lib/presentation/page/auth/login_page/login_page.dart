@@ -22,13 +22,13 @@ class LoginPage extends StatelessWidget {
           child: ListView(
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //  Spacer(),
-              MySizedBox.h20,
+              //   Spacer(),
+              MySizedBox.h50,
               LoginHeaders(),
               MySizedBox.h20,
               LoginFields(),
               //MySizedBox.h20,
-              // Spacer(),
+              //Spacer(),
               // LogRegButtons(),
             ],
           ),

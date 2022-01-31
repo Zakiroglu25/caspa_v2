@@ -4,6 +4,8 @@ class PaymentInitial extends PaymentState {}
 
 class PaymentInProgress extends PaymentState {}
 
+class PaymentSuccess extends PaymentState {}
+
 class PaymentError extends PaymentState {
   String? error;
 
@@ -12,7 +14,10 @@ class PaymentError extends PaymentState {
 
 class TarifNetworkError extends PaymentState {}
 
-class PaymentSuccess extends PaymentState {
+class PaymentUrlFetched extends PaymentState {
   // ReportSuccess(this.tarifList);
   // final List<Tariff>  tarifList;
+  String url;
+
+  PaymentUrlFetched({required this.url});
 }

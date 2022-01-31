@@ -3,10 +3,16 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/data_source/payments_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/enums/payment_type.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
@@ -26,11 +32,11 @@ class PaymentCubit extends Cubit<PaymentState> {
           emit(PaymentInProgress());
         }
 
-        final result =
-            await PaymentsProvider.getPaymentUrl(amount: price.valueOrNull);
-
+        final result = await PaymentsProvider.getPaymentUrl(
+            amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
+        bbbb("hjk: ${result.statusCode}");
         if (isSuccess(result.statusCode)) {
-          emit(PaymentSuccess());
+          emit(PaymentUrlFetched(url: result.data));
         } else {
           emit(PaymentError(error: MyText.error + " ${result.statusCode}"));
         }
@@ -40,7 +46,34 @@ class PaymentCubit extends Cubit<PaymentState> {
     } on SocketException catch (_) {
       //network olacaq
       emit(PaymentError(error: MyText.network_error));
-    } catch (e) {
+    } catch (e, s) {
+      eeee("getPaymentUrl cubit $e=>$s");
+      emit(PaymentError());
+    }
+  }
+
+  void paymentSuccess(
+    BuildContext context, {
+    bool loading = true,
+  }) async {
+    if (loading) {
+      emit(PaymentInProgress());
+    }
+    try {
+      await UserOperations.configUserDataWhenOpenApp(
+          accessToken: _prefs.accessToken, fcm: _prefs.fcmToken);
+      //_prefs.user.cargoBalance = "3.55";
+
+      // Go.pop(context);
+      emit(PaymentSuccess());
+      // Go.pop(context);
+      Snack.positive(context: context, message: MyText.operationIsSuccess);
+      Go.pop(context);
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(PaymentError(error: MyText.network_error));
+    } catch (e, s) {
+      eeee("paymentSuccess cubit $e=>$s");
       emit(PaymentError());
     }
   }

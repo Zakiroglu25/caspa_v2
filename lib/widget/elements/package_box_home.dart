@@ -26,7 +26,7 @@ class PackageBoxHome extends StatelessWidget {
       highlightColor: MyColors.white.withOpacity(.4),
       radius: 12,
       splashColor: Colors.transparent,
-      //onTap: () => Go.to(context, Pager.packagesHistory),
+      onTap: () => Go.to(context, Pager.packageDetails(package: package)),
       child: DefaultTextStyle(
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
@@ -67,18 +67,14 @@ class PackageBoxHome extends StatelessWidget {
                           style: AppTextStyles.sanF400.copyWith(
                               fontSize: 12.sp, color: MyColors.grey153),
                         ),
-
                         Text(package.price ?? '')
-
                       ],
                     ),
                     Row(
                       children: [
-
                         const Text("${MyText.tracking_id}: ",
                             style: TextStyle(color: MyColors.grey153)),
                         Text("${package.tracking ?? ''}")
-
                       ],
                     ),
                     Row(

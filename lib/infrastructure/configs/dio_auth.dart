@@ -20,7 +20,7 @@ class DioAuth {
     if (_instance == null) {
       _instance = DioAuth._internal();
     }
-    wwwww("hoooopo: ${_prefs.accessToken}");
+
     dioAuth = Dio(
       BaseOptions(
         baseUrl: ApiKeys.baseUrl,
@@ -45,9 +45,9 @@ class DioAuth {
 class JwtInterceptor extends Interceptor {
   @override
   void onRequest(
-      RequestOptions options,
-      RequestInterceptorHandler handler,
-      ) async {
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
     final sharedPrefs = await SharedPreferences.getInstance();
     final accessToken = sharedPrefs.getString('accessToken');
 

@@ -11,15 +11,12 @@ import 'widget_or_empty.dart';
 // Project imports:
 
 class Snack {
-
-
-
   static display({
     required BuildContext? context,
     String? message,
-    bool? positive=false,
+    bool? positive = false,
     bool showSuccessIcon = false,
-    Color color=MyColors.mainColor ,
+    Color color = MyColors.mainColor,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
     //positive ?? false;
@@ -31,21 +28,21 @@ class Snack {
       padding: const EdgeInsets.only(right: 0),
       content: BounceInUp(
         child: Container(
-          decoration:  BoxDecoration(
-            //color: MyColors.mainColor,
-              color: (positive!)? color: MyColors.errorRED,
-             // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
+          decoration: BoxDecoration(
+              //color: MyColors.mainColor,
+              color: (positive!) ? color : MyColors.errorRED,
+              // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
           height: 50.sp,
-         // height: 60.sp,
+          // height: 60.sp,
           child: Stack(
             fit: StackFit.loose,
             children: [
               Container(
-                  //color: MyColors.mainColor,
+                //color: MyColors.mainColor,
                 //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
                 padding: EdgeInsets.only(
                     left: (!positive || showSuccessIcon) ? 40 : 16,
@@ -94,7 +91,7 @@ class Snack {
                               Icons.error_outline_sharp,
                               color: Colors.white,
                             )),
-                        //     MySizedBox.w8,
+                            //     MySizedBox.w8,
                           ],
                         ),
                       )),
@@ -111,12 +108,13 @@ class Snack {
       ..removeCurrentSnackBar()
       ..showSnackBar(snackbar);
   }
+
   static positive({
     required BuildContext? context,
-    String? message,
-    bool? positive=true,
+    required String? message,
+    bool? positive = true,
     bool showSuccessIcon = true,
-    Color color=MyColors.green ,
+    Color color = MyColors.green,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
     //positive ?? false;
@@ -128,21 +126,21 @@ class Snack {
       padding: const EdgeInsets.only(right: 0),
       content: BounceInUp(
         child: Container(
-          decoration:  BoxDecoration(
-            //color: MyColors.mainColor,
-              color: (positive!)? color: MyColors.errorRED,
-             // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
+          decoration: BoxDecoration(
+              //color: MyColors.mainColor,
+              color: (positive!) ? color : MyColors.errorRED,
+              // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                   bottomRight: Radius.circular(10))),
           height: 50.sp,
-         // height: 60.sp,
+          // height: 60.sp,
           child: Stack(
             fit: StackFit.loose,
             children: [
               Container(
-                  //color: MyColors.mainColor,
+                //color: MyColors.mainColor,
                 //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
                 padding: EdgeInsets.only(
                     left: (!positive || showSuccessIcon) ? 40 : 16,
@@ -191,7 +189,7 @@ class Snack {
                               Icons.error_outline_sharp,
                               color: Colors.white,
                             )),
-                        //     MySizedBox.w8,
+                            //     MySizedBox.w8,
                           ],
                         ),
                       )),

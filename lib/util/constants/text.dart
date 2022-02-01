@@ -63,6 +63,7 @@ class MyText {
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
   static const String amount = "Miqdar";
+  static const String amountmoney = "Məbləğ";
   static const String value = "Dəyər";
   static const String foreing_cargo_price = "Xarici karqo qiyməti";
   static const String from_where = "Haradan";
@@ -205,6 +206,8 @@ class MyText {
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromMyBalance = "Balansımdan";
+  static const String balanceIncrease = "Balans artımı";
+  static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
@@ -363,7 +366,7 @@ class MyText {
 
   ///giftbalance
   static const String licenseText =
-      '''“Həvalə et” xidməti ilə sifariş edildiyi halda
+  '''“Həvalə et” xidməti ilə sifariş edildiyi halda
 1.1 “Həvalə et” xidməti ilə edilən bütün sifarişlərə zəmanət veririk. Sifarişlərinizdə hər hansı bir yanlışlıq varsa, qırıq, istifadəyə yararsızdırsa, əskik göndərilibsə, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq. Bağlamalarınızı filiallarda və ya kuryer vasitəsi ilə təhvil alarkən yerindəcə yoxlayıb əməkdaşlarımıza məlumat verilməlidir. Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
 1.2 Müştəri Türkiyədən həm "Həvalə et" xidmətimizlə, həm də "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. 
 1.3 “STAREX" MMC qəbul olunmuş sifarişləri növbəlilik əsasında həyata keçirir və həftə içi 24 saat ərzində sifarişlərin yerləşdirilməsinə zəmanət verir. Bununla belə sifariş prosesində hər hansı problem yarandıqda (məhsulun bitməsi, sifariş olunan ölçünün və ya rəngin bitməsi, kampaniyanın başa çatması, ödəmə problemi və s.) istifadəçinin ödədiyi məbləğ istifadəçinin balansına geri qaytarılır. Qeyd edək ki, endirimlərlə əlaqədar olaraq bəzən bu müddət uzana bilər.

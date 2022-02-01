@@ -17,5 +17,5 @@ class CommissionNetworkError extends CommissionState {}
 class CommissionSuccess extends CommissionState {
   CommissionSuccess(this.commission);
 
-  final GeneralResponse<String> commission;
+  final String? commission;
 }

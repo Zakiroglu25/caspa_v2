@@ -42,7 +42,7 @@ class GeneralProvider {
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = jsonDecode(response.body);
       GeneralResponse data = GeneralResponse.fromJson(gelenCavabJson);
-      statusDynamic.data = data;
+      statusDynamic.data = data.data;
     } else {
       eeee("fetchCommission bad url :$url,response: ${response}");
     }

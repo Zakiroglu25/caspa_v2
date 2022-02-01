@@ -1,18 +1,15 @@
-
-
 abstract class PaymentState {}
 
-class ReportInitial extends PaymentState {}
+class PaymentInitial extends PaymentState {}
 
 class PaymentInProgress extends PaymentState {}
 
-
 class PaymentError extends PaymentState {
-
   String? error;
 
   PaymentError({this.error});
 }
+
 class TarifNetworkError extends PaymentState {}
 
 class PaymentSuccess extends PaymentState {

@@ -105,6 +105,7 @@ class MyText {
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareItX = "Bəyan et 📦";
   static const String declareIt = "Bəyan et";
+  static const String declareItCustom = "Gömrüyə bəyan et";
   static const String editIt = "Düzəliş et";
   static const String new_order = "Yeni sifariş";
 
@@ -151,6 +152,20 @@ class MyText {
   static const String fin = "FİN kod";
   static const String skip = "Keç";
   static const String gender = "Cinsiyyət";
+
+  //statuses:
+  static const stOrdered = 'Sifariş verilib';
+  static const stWarehouse = 'Anbardadır';
+  static const stReported = 'Bəyan';
+  static const stSennded = 'Göndərilib';
+  static const stCustom = 'Gömrükdə';
+  static const stSorting = 'Çeşidlənir';
+  static const stArrived = 'Çatıb';
+  static const stGave = 'Təhvil verilib';
+  static const stGaveByCourier = 'Kuryer ilə Təhvil';
+
+  //upex
+  static const upex = 'upex';
 
   //orders
   static const String packagesWillDeliverToYou =

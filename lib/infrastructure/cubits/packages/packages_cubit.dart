@@ -31,6 +31,7 @@ class PackageCubit extends Cubit<PackageState> {
         packageAndCount.packages!.forEach((f) => f.customStatus = e.key);
         allPackages.addAll(packageAndCount.packages!.reversed.toList());
       });
+
       final format =
           DateFormat("dd.MM.yyyy H:mm"); //.format(DateTime.parse("2019-09-30"))
       allPackages.sort(

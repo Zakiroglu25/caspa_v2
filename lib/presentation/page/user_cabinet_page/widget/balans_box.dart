@@ -1,6 +1,6 @@
-
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
@@ -37,13 +37,13 @@ class BalanceBox extends StatelessWidget {
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(
-        width: w ?? 343.sp,
-        height: h ?? 96.sp,
+        width: w,
+        height: h ?? 96,
         decoration: BoxDecoration(
             color: color ?? MyColors.mainColor,
             borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: Paddings.paddingA16,
           child: Row(
             children: [
               Column(

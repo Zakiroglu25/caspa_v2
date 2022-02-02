@@ -2,7 +2,7 @@
 import 'dart:math';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
+ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/widget/main/notification_popup/notification_popup.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

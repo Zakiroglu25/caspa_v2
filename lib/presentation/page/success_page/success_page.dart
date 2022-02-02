@@ -3,14 +3,9 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/material.dart';
-import 'widgets/congrats_text.dart';
 import 'widgets/go_home_button.dart';
-import 'widgets/order_on_the_way_text.dart';
 import 'widgets/success_again_button.dart';
 
 class SuccessPage extends StatelessWidget {
@@ -31,7 +26,8 @@ class SuccessPage extends StatelessWidget {
           padding: Paddings.paddingH16,
           child: Stack(
             children: [
-              Column(crossAxisAlignment: CrossAxisAlignment.start,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ColorfullBackImage(
                     path: Assets.pngFlyingGirl,

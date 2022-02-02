@@ -34,7 +34,7 @@ class AccountProvider {
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
       statusDynamic.data = userResult.data;
     } else {
-      eeee("fetchUserInfo bad url :$url,response: ${response}");
+      eeee("fetchUserInfo bad url :$url, response: ${response}");
     }
 
     return statusDynamic;

@@ -103,7 +103,7 @@ class OtherPage extends StatelessWidget {
                   title: MyText.calculate,
                   content: MyText.forEditAppSettings,
                   color: MyColors.promokodColor,
-                  onTap: () => Go.to(context, CalculatePage()),
+                  onTap: () => Go.to(context, Pager.calculate),
                 ),
               ],
             ),

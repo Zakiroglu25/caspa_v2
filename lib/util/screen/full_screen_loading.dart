@@ -42,10 +42,11 @@ class FullScreenLoading {
             ),
           ],
         ),
+        hideAuto: false,
         backColor: MyColors.white70);
   }
 
-  static void hide (BuildContext context, {String? text}) {
+  static void hide(BuildContext context, {String? text}) {
     FullScreenAlert.of(context).hideAlert();
   }
 }

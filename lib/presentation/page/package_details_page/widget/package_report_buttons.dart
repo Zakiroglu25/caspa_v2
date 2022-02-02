@@ -81,4 +81,10 @@ class PackageReportButtons extends StatelessWidget {
       ),
     );
   }
+  //
+  // String getStatus(Package package) {
+  //   switch (package) {
+  //     case package.status == MyText.fin:
+  //   }
+  // }
 }

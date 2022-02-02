@@ -6,6 +6,7 @@ import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 
+import 'calculate_kg_button.dart';
 import 'news_calculate.dart';
 import 'result_calculate.dart';
 
@@ -27,7 +28,7 @@ class KgPage extends StatelessWidget {
           MySizedBox.h12,
           DescriptionTextWidget(text: MyText.info,),
           MySizedBox.h40,
-          CaspaButton(text: "Hesabla",),
+          CalculateKgButton(),
           MySizedBox.h30,
         ],
       ),

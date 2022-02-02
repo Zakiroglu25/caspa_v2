@@ -79,6 +79,8 @@ class ApiKeys {
   //payment
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
+  //calculate kg
+  static const calculateKg = "$baseUrl/public/calculator";
 
   static loginBody({
     required String? email,

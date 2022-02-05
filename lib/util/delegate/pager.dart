@@ -12,9 +12,10 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -93,6 +94,7 @@ class Pager {
           child: WebviewPage(
             url: url,
             mainContext: context,
+            whenSuccess: () {},
           ));
 
   static get courier_order => MultiBlocProvider(providers: [
@@ -180,9 +182,11 @@ class Pager {
         //    BlocProvider.value(value: AuthenticationCubit()),
       ], child: OtherPage());
 
-  static get payment => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => PaymentCubit())],
-      child: PaymentPage());
+  static payment({required String price}) => MultiBlocProvider(
+      providers: [BlocProvider(create: (context) => PaymentBalanceCubit())],
+      child: PaymentPage(
+        price: price,
+      ));
 
   static get onBoard => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
@@ -269,6 +273,9 @@ class Pager {
           BlocProvider(
             create: (context) => ReportCubit(),
           ),
+          BlocProvider(
+            create: (context) => PackageDetailsCubit(),
+          ),
         ],
         child: PackageDetailsPage(
           package: package,
@@ -283,7 +290,7 @@ class Pager {
 
   static paymentPage({required PaymentBalanceType paymentBalanceType}) =>
       BlocProvider(
-          create: (context) => PaymentCubit(),
+          create: (context) => PaymentBalanceCubit(),
           child: AddBalancePage(
             paymentBalance: paymentBalanceType,
           ));

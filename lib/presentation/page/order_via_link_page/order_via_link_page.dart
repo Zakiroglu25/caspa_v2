@@ -22,9 +22,10 @@ class OrderViaLinkPage extends StatelessWidget {
       body: BlocListener<OrderViaUrlCubit, OrderViaUrlState>(
         listener: (context, state) {
           if (state is OrderViaUrlSuccess) {
-            Go.replace(context, Pager.payment);
+            Go.replace(context, Pager.payment(price: '0'));
           } else if (state is OrderViaUrlError) {
-            Snack.display(context: context, message: state.error);
+            Snack.display(
+                context: context, message: state.error ?? MyText.error);
           }
         },
         child: OrderViaLinkListview(),

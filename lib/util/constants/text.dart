@@ -55,6 +55,7 @@ class MyText {
   static const String you_can_not_recovery_it_again =
       "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
+  static const String choosePaypentType = "Ödəniş növünü seçin :";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
   static const String phone_number = "Telefon nömrəsi";
@@ -220,12 +221,13 @@ class MyText {
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
-  static const String fromMyBalance = "Balansımdan";
+  static const String fromBalance = "Balansdan";
   static const String balanceIncrease = "Balans artımı";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
+  static const String withPromoCode = "Promokod ilə";
   static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";

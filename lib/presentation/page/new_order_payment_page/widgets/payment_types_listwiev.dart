@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/payments.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/enums/payment_type.dart';
@@ -11,38 +11,39 @@ import 'payment_widget.dart';
 class PaymentTypesListView extends StatelessWidget {
   final List<PaymentTypeModel> paymentList = <PaymentTypeModel>[
     PaymentTypeModel(
-        title: MyText.fromMyBalance,
+        title: MyText.fromBalance,
         child: FromMyBalanceChoice(),
         paymentType: PaymentType.from_balance),
     PaymentTypeModel(
         title: MyText.byCard,
         child: ByCardChoice(),
         paymentType: PaymentType.by_card),
-    PaymentTypeModel(title: MyText.i_will_pay_later, paymentType: PaymentType.later)
+    // PaymentTypeModel(
+    //     title: MyText.i_will_pay_later, paymentType: PaymentType.later)
   ];
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: BlocProvider.of<PaymentCubit>(context).paymentType,
+      stream: BlocProvider.of<PaymentBalanceCubit>(context).paymentType,
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         return Column(
           children: [
             ...paymentList.map((e) {
               return PaymentWidget(
                 title: e.title,
-                onTap: ()=> BlocProvider.of<PaymentCubit>(context)
+                onTap: () => BlocProvider.of<PaymentBalanceCubit>(context)
                     .updatePaymentType(e.paymentType),
-                selected: e.paymentType == BlocProvider.of<PaymentCubit>(context)
-                    .paymentType
-                    .valueOrNull ,
+                selected: e.paymentType ==
+                    BlocProvider.of<PaymentBalanceCubit>(context)
+                        .paymentType
+                        .valueOrNull,
                 child: e.child,
               );
             }).toList()
           ],
         );
       },
-
     );
   }
 }

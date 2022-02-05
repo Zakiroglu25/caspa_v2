@@ -30,7 +30,46 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "payment order result bad:  url: $url  ,  response: ${response.data}");
+          "payment_balance order result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  //package
+  static Future<StatusDynamic> payForPackage({required int? id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackageBalalnce + "?id=$id";
+    var url = Uri.parse(api);
+    final body = {};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "payForPackage order result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> getPaymentUrlForPackage({
+    required int? id,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackageCard + "?id=$id";
+    var url = Uri.parse(api);
+    final body = {};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      GeneralResponse data = GeneralResponse.fromJson(response.data);
+      statusDynamic.data = data.data;
+    } else {
+      eeee(
+          "getPaymentUrlForPackage  result bad:  url: $url  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

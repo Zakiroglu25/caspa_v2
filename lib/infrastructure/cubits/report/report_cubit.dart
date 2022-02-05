@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/report_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
@@ -57,10 +58,10 @@ class ReportCubit extends Cubit<ReportState> {
 
   void report(BuildContext context, {bool loading = true, int? id}) async {
     try {
-      if (isUserInfoValid()) {
-        if (loading) {
-          emit(ReportInProgress());
-        }
+      if (loading) {
+        emit(ReportInProgress());
+      }
+      if (isUserInfoValid(id: id)) {
         final result = await ReportProvider.report(
           token: await _prefs.accessToken,
           seller: seller.valueOrNull,
@@ -85,8 +86,9 @@ class ReportCubit extends Cubit<ReportState> {
     } on SocketException catch (_) {
       //network olacaq
       emit(ReportError(error: MyText.network_error));
-    } catch (e) {
+    } catch (e, s) {
       emit(ReportError());
+      Recorder.recordCatchError(e, s);
     }
   }
 
@@ -310,11 +312,11 @@ class ReportCubit extends Cubit<ReportState> {
       priceType.value.isEmpty);
 
   ////validation
-  bool isUserInfoValid() {
+  bool isUserInfoValid({int? id}) {
     if (!isNoteIncorrect &&
         !isSellerIncorrect &&
         !isProductCountIncorrect &&
-        !isImageIncorrect &&
+        (!isImageIncorrect || id != null) &&
         !isPriceIncorrect &&
         !isPriceTypeIncorrect &&
         !isTrackingIDIncorrect &&

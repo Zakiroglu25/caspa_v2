@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/formatter/decimal_input_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -12,7 +12,7 @@ class AmountField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<double>(
-      stream: BlocProvider.of<PaymentCubit>(context).priceStream,
+      stream: BlocProvider.of<PaymentBalanceCubit>(context).priceStream,
       builder: (context, snapshot) {
         return CaspaField(
           title: MyText.amountmoney,
@@ -29,7 +29,7 @@ class AmountField extends StatelessWidget {
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,
           onChanged: (value) =>
-              BlocProvider.of<PaymentCubit>(context).updatePrice(value),
+              BlocProvider.of<PaymentBalanceCubit>(context).updatePrice(value),
         );
       },
     );

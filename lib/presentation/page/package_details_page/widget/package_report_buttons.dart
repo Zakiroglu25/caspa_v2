@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
+import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -15,6 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'info_mini_button.dart';
 import 'package_main_button.dart';
+import 'pay_button.dart';
 
 class PackageReportButtons extends StatelessWidget {
   const PackageReportButtons({Key? key, required this.package})
@@ -25,7 +27,7 @@ class PackageReportButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     eeee("noInvoice: ${package.noInvoice}");
     eeee("regNumber: ${package.regNumber}");
-    // package.payment = 1;
+    // package.payment_balance = 1;
     final sW = MediaQuery.of(context).size.width;
 
     return WidgetOrEmpty(
@@ -48,69 +50,70 @@ class PackageReportButtons extends StatelessWidget {
     required double sW,
   }) {
     bbbb("package: $package");
+    package.payment = 0;
     String customStatus = package.customStatus!;
-    if (customStatus == MyText.stOrdered &&
-        package.from_report == MyText.upex) {
-      //beyan et
-      //silmek olmaz
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          PackageMainButton(
-              w: (sW - 32),
-              text: MyText.declareIt,
-              onTap: () => Go.to(context, Pager.report(package: package))),
-        ],
-      );
-    } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
-      //duzelish et
-      //sil
-
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          // Spacer(),
-          PackageMainButton(
-              text: MyText.editIt,
-              w: (sW - 32) - 55,
-              onTap: () => Go.to(context, Pager.report(package: package))),
-          InfoMiniButton(
-            onTap: () => Alert.show(context,
-                cancelButton: true,
-                image: SvgPicture.asset(
-                  Assets.svgTrash,
-                  height: 80,
-                  width: 80,
-                ),
-                title: MyText.are_u_sure_delete, onTap: () {
-              context
-                  .read<ReportCubit>()
-                  .deleteReport(context, id: package.id!);
-            }),
-            svgPath: Assets.svgTrash,
-          ),
-        ],
-      );
-    } else if (customStatus == MyText.stWarehouse) {
-      //gomruye beyan et
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          PackageMainButton(
-              w: (sW - 32),
-              text: MyText.declareItCustom,
-              onTap: () => Go.to(context, Pager.report(package: package))),
-        ],
-      );
-    } else if (package.payment == 0) {
+    // if (customStatus == MyText.stOrdered &&
+    //     package.from_report == MyText.upex) {
+    //   //beyan et
+    //   //silmek olmaz
+    //   return Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //     children: [
+    //       PackageMainButton(
+    //           w: (sW - 32),
+    //           text: MyText.declareIt,
+    //           onTap: () => Go.to(context, Pager.report(package: package))),
+    //     ],
+    //   );
+    // } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
+    //   //duzelish et
+    //   //sil
+    //
+    //   return Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //     children: [
+    //       // Spacer(),
+    //       PackageMainButton(
+    //           text: MyText.editIt,
+    //           w: (sW - 32) - 55,
+    //           onTap: () => Go.to(context, Pager.report(package: package))),
+    //       InfoMiniButton(
+    //         onTap: () => Alert.show(context,
+    //             cancelButton: true,
+    //             image: SvgPicture.asset(
+    //               Assets.svgTrash,
+    //               height: 80,
+    //               width: 80,
+    //             ),
+    //             title: MyText.are_u_sure_delete, onTap: () {
+    //           context
+    //               .read<ReportCubit>()
+    //               .deleteReport(context, id: package.id!);
+    //         }),
+    //         svgPath: Assets.svgTrash,
+    //       ),
+    //     ],
+    //   );
+    // } else if (customStatus == MyText.stWarehouse) {
+    //   //gomruye beyan et
+    //   return Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //     children: [
+    //       PackageMainButton(
+    //           w: (sW - 32),
+    //           text: MyText.declareItCustom,
+    //           onTap: () => Go.to(context, Pager.report(package: package))),
+    //     ],
+    //   );
+    // } else
+    if (package.payment == 0) {
       //odenish et
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          PackageMainButton(
-              w: (sW - 32),
-              text: MyText.pay,
-              onTap: () => Go.to(context, Pager.report(package: package))),
+          PayButton(
+            package: package,
+          ),
         ],
       );
     } else if (package.payment == 1 && customStatus == MyText.stArrived

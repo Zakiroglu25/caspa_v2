@@ -128,4 +128,98 @@ class Alert {
           );
         });
   }
+
+  static body(BuildContext context,
+      {Widget? image,
+      Widget? secondButton,
+      String? title,
+      String? buttonText,
+      Widget? content,
+      Function? onTapCancel,
+      bool cancelButton = false,
+      Function? onTap}) {
+    showDialog(
+        context: context,
+        useSafeArea: false,
+        builder: (BuildContext context) {
+          final sW = MediaQuery.of(context).size.width;
+          final buttonSize = (secondButton != null ||
+                  onTapCancel != null ||
+                  cancelButton != false)
+              ? (sW - 76) / 2
+              : sW - 66;
+          return AlertDialog(
+            backgroundColor: MyColors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16.0))),
+            contentPadding: EdgeInsets.only(top: 10.0),
+            insetPadding: Paddings.zero,
+            content: Container(
+              width: sW - 32,
+              padding: Paddings.paddingA16,
+              // color: MyColors.green,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  image ??
+                      Container(
+                        child: Image.asset(Assets.pngNote),
+                        height: 120.sm,
+                        width: 120.sm,
+                      ),
+                  SizedBox(
+                    height: 10.sm,
+                  ),
+                  Text(
+                    title ?? MyText.operationIsSuccess,
+                    style: AppTextStyles.sanF600.copyWith(fontSize: 18.sm),
+                  ),
+                  content ?? Container(),
+                  Container(
+                    // width: 100,
+                    //height: 80,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        WidgetOrEmpty(
+                          value: secondButton != null,
+                          child: SizedBox(
+                            width: buttonSize,
+                            child: secondButton,
+                          ),
+                          elseChild: WidgetOrEmpty(
+                              value: cancelButton || onTapCancel != null,
+                              child: CaspaButton(
+                                  w: buttonSize,
+                                  color: MyColors.grey245,
+                                  text: MyText.reject,
+                                  textColor: MyColors.black,
+                                  onTap: () =>
+                                      (onTapCancel?.call() ?? Go.pop(context))
+                                  //  color: ,
+                                  )),
+                        ),
+                        SizedBox(
+                          width: buttonSize,
+                          child: CaspaButton(
+                            text: buttonText ?? MyText.ok,
+                            onTap: () {
+                              Go.pop(context);
+                              if (onTap != null) {
+                                onTap.call();
+                              }
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
 }

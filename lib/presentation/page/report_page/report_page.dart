@@ -42,17 +42,22 @@ class ReportPage extends StatelessWidget {
           listener: (context, state) {
             if (state is ReportInProgress) {
               FullScreenLoading.display(context);
-            } else if (state is ReportSuccess) {
+            } else {
+              FullScreenLoading.hide(context);
+            }
+            if (state is ReportError) {
+              if (state.error != null) {
+                Snack.display(
+                    context: context, message: state.error ?? MyText.error);
+              }
+            }
+            if (state is ReportSuccess) {
               Go.replace(
                   context,
                   Pager.success(
                       infoTitle: MyText.reportSuccessTitle,
                       infoContent: MyText.reportSuccessContent,
                       againPage: Pager.report()));
-            } else if (state is ReportError) {
-              if (state.error != null) {
-                Snack.display(context: context, message: state.error);
-              }
             }
           },
           child: SingleChildBounce(

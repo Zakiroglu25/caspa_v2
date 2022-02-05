@@ -83,7 +83,7 @@ class Package {
         : null;
     country =
         json['country'] != null ? new Country.fromJson(json['country']) : null;
-    payment = json['payment'];
+    payment = json['payment_balance'];
     note = json['note'];
     regNumber = json['regNumber'];
     customStatus = json['customStatus'];
@@ -116,7 +116,7 @@ class Package {
     if (this.country != null) {
       data['country'] = this.country!.toJson();
     }
-    data['payment'] = this.payment;
+    data['payment_balance'] = this.payment;
     data['note'] = this.note;
     data['regNumber'] = this.regNumber;
     data['no_invoice'] = this.noInvoice;
@@ -130,7 +130,7 @@ class Package {
 
   @override
   String toString() {
-    return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
+    return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment_balance: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
   }
 }
 

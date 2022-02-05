@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,7 @@ class MateApp extends StatelessWidget {
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: MyText.caspa_azerbaijan,
-
+                  navigatorKey: NavigationService.instance.navigationKey,
                   //1. call BotToastInit
                   navigatorObservers: [BotToastNavigatorObserver()],
                   // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
@@ -49,7 +50,7 @@ class MateApp extends StatelessWidget {
                       //Pager.newOrder
                       // Pager.shops,
                       // Pager.report
-                      // Pager.payment
+                      // Pager.payment_balance
                       Pager.app()),
             ));
   }

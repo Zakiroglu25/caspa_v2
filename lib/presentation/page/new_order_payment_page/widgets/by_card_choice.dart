@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 class ByCardChoice extends StatelessWidget {
   const ByCardChoice({Key? key}) : super(key: key);
 
@@ -15,8 +16,7 @@ class ByCardChoice extends StatelessWidget {
       children: [
         Text(
           MyText.total_price,
-          style: AppTextStyles.sanF400
-              .copyWith(color: MyColors.grey153),
+          style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
         ),
         Text(
           "382,00 AZN",
@@ -24,13 +24,13 @@ class ByCardChoice extends StatelessWidget {
               .copyWith(color: MyColors.textRED, fontSize: 16.sp),
         ),
         Image.asset(Assets.pngCaspacard),
-        CaspaField(
-          title: MyText.bonuses,
-        ),
-        CaspaField(
-          title: MyText.promoCode,
-          hint: "Kodu daxil edin",
-        )
+        // CaspaField(
+        //   title: MyText.bonuses,
+        // ),
+        // CaspaField(
+        //   title: MyText.promoCode,
+        //   hint: "Kodu daxil edin",
+        // )
       ],
     );
   }

@@ -76,9 +76,13 @@ class ApiKeys {
   static const giftList = "$baseUrl/user/gifts";
   static const addGiftCode = "$baseUrl/user/gift";
 
-  //payment
+  //payment_balance
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
+
+  //pay
+  static const payForPackageBalalnce = "$baseUrl/user/package/payment";
+  static const payForPackageCard = "$baseUrl/user/package/payment/card";
 
   static loginBody({
     required String? email,

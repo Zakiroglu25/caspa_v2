@@ -73,6 +73,7 @@ dependencies:
   #ui
   lottie: ^1.2.1
   marquee: ^2.2.0
+  spring: ^2.0.2
   keyboard_attachable: ^2.1.0
 
   #webiew

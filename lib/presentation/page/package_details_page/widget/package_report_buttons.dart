@@ -50,63 +50,62 @@ class PackageReportButtons extends StatelessWidget {
     required double sW,
   }) {
     bbbb("package: $package");
-    package.payment = 0;
+    // package.payment = 0;
     String customStatus = package.customStatus!;
-    // if (customStatus == MyText.stOrdered &&
-    //     package.from_report == MyText.upex) {
-    //   //beyan et
-    //   //silmek olmaz
-    //   return Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       PackageMainButton(
-    //           w: (sW - 32),
-    //           text: MyText.declareIt,
-    //           onTap: () => Go.to(context, Pager.report(package: package))),
-    //     ],
-    //   );
-    // } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
-    //   //duzelish et
-    //   //sil
-    //
-    //   return Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       // Spacer(),
-    //       PackageMainButton(
-    //           text: MyText.editIt,
-    //           w: (sW - 32) - 55,
-    //           onTap: () => Go.to(context, Pager.report(package: package))),
-    //       InfoMiniButton(
-    //         onTap: () => Alert.show(context,
-    //             cancelButton: true,
-    //             image: SvgPicture.asset(
-    //               Assets.svgTrash,
-    //               height: 80,
-    //               width: 80,
-    //             ),
-    //             title: MyText.are_u_sure_delete, onTap: () {
-    //           context
-    //               .read<ReportCubit>()
-    //               .deleteReport(context, id: package.id!);
-    //         }),
-    //         svgPath: Assets.svgTrash,
-    //       ),
-    //     ],
-    //   );
-    // } else if (customStatus == MyText.stWarehouse) {
-    //   //gomruye beyan et
-    //   return Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       PackageMainButton(
-    //           w: (sW - 32),
-    //           text: MyText.declareItCustom,
-    //           onTap: () => Go.to(context, Pager.report(package: package))),
-    //     ],
-    //   );
-    // } else
-    if (package.payment == 0) {
+    if (customStatus == MyText.stOrdered &&
+        package.from_report == MyText.upex) {
+      //beyan et
+      //silmek olmaz
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          PackageMainButton(
+              w: (sW - 32),
+              text: MyText.declareIt,
+              onTap: () => Go.to(context, Pager.report(package: package))),
+        ],
+      );
+    } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
+      //duzelish et
+      //sil
+
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Spacer(),
+          PackageMainButton(
+              text: MyText.editIt,
+              w: (sW - 32) - 55,
+              onTap: () => Go.to(context, Pager.report(package: package))),
+          InfoMiniButton(
+            onTap: () => Alert.show(context,
+                cancelButton: true,
+                image: SvgPicture.asset(
+                  Assets.svgTrash,
+                  height: 80,
+                  width: 80,
+                ),
+                title: MyText.are_u_sure_delete, onTap: () {
+              context
+                  .read<ReportCubit>()
+                  .deleteReport(context, id: package.id!);
+            }),
+            svgPath: Assets.svgTrash,
+          ),
+        ],
+      );
+    } else if (customStatus == MyText.stWarehouse) {
+      //gomruye beyan et
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          PackageMainButton(
+              w: (sW - 32),
+              text: MyText.declareItCustom,
+              onTap: () => Go.to(context, Pager.report(package: package))),
+        ],
+      );
+    } else if (package.payment == 0) {
       //odenish et
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

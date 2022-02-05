@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
@@ -40,6 +41,7 @@ class CourierContinueButton extends StatelessWidget {
               stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
               builder: (contextK, snapShoot) {
                 return ListView(
+                  padding: Paddings.paddingB12,
                   shrinkWrap: true,
                   children: [
                     buildCaspaRadio(context, snapShoot,

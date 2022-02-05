@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_c
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/widget/package_main_button.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
@@ -35,6 +36,7 @@ class PayButton extends StatelessWidget {
               builder: (contextK, snapShoot) {
                 return ListView(
                   shrinkWrap: true,
+                  padding: Paddings.paddingB12,
                   children: [
                     buildCaspaRadio(context, snapShoot,
                         value: MyText.fromBalance),

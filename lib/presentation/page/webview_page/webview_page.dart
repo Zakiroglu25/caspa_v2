@@ -125,10 +125,10 @@ class _WebviewPageState extends State<WebviewPage> {
       webViewController.goBack();
       return Future.value(true);
     } else {
-      Scaffold.of(context).showSnackBar(
-        const SnackBar(content: Text("No back history item")),
-      );
-      return Future.value(false);
+      // Scaffold.of(context).showSnackBar(
+      //   const SnackBar(content: Text("No back history item")),
+      // );
+      return Future.value(true);
     }
   }
 

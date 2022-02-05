@@ -1,43 +1,37 @@
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/widget/package_main_button.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CourierContinueButton extends StatelessWidget {
+class PayButton extends StatelessWidget {
+  const PayButton({Key? key, required this.package}) : super(key: key);
+  final Package package;
   @override
   Widget build(BuildContext context) {
-    final courierCubit = context.watch<CourierCubit>();
-    return Positioned(
-      bottom: 30,
-      left: 16,
-      right: 16,
-      child: CaspaButton(
-        loading:
-            (context.read<CourierCubit>().state is CourierInProgressButton),
-        isButtonActive:
-            (context.watch<CourierCubit>().selectedOrders.value.isNotEmpty),
+    return PackageMainButton(
+        w: (MediaQuery.of(context).size.width - 32),
         text: MyText.goOn,
-        //  onTap: () => Go.to(context, Pager.courier_order),
-        //  onTap: () => context.read<CourierCubit>().addCourier(context),
+        // onTap: () => Go.to(context, Pager.payment(price: "466"))),
         onTap: () => Alert.body(context,
             title: MyText.choosePaypentType,
             cancelButton: true,
             buttonText: MyText.goOn,
-            // onTap: () => context
-            //     .read<PackageDetailsCubit>()
-            //     .makePayment(id: package.id!, context: context),
+            onTap: () => context
+                .read<PackageDetailsCubit>()
+                .makePayment(id: package.id!, context: context),
             image: Image.asset(
               Assets.linkGirl,
               width: 100,
               height: 100,
             ),
             content: StreamBuilder(
-              stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
+              stream:
+                  BlocProvider.of<PackageDetailsCubit>(context).payTypeStream,
               builder: (contextK, snapShoot) {
                 return ListView(
                   shrinkWrap: true,
@@ -50,16 +44,14 @@ class CourierContinueButton extends StatelessWidget {
                   ],
                 );
               },
-            )),
-      ),
-    );
+            )));
   }
 
   CaspaRadio buildCaspaRadio(
       BuildContext context, AsyncSnapshot<Object?> snapShoot,
       {required String value}) {
     return CaspaRadio(
-        onTap: () => context.read<CourierCubit>().updatePayType(value),
+        onTap: () => context.read<PackageDetailsCubit>().updatePayType(value),
         title: value,
         isActive: snapShoot.data == value);
   }

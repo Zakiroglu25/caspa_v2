@@ -7,43 +7,49 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
 
 class CourierPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CaspaAppbar(
-        title: MyText.courierOrder,
-        user: false,
-        notification: false,
-        centerTitle: true,
-        contextA: context,
-      ),
-      body: BlocBuilder<CourierCubit, CourierState>(
-        buildWhen: (context, state) {
-          if (state is CourierContinueButtonActive ||
-              state is CourierInProgressButton ||
-              state is CourierContinueButtonPassive ||
-              state is CourierOperationFail) {
-            return false;
-          } else
-            return true;
-        },
-        builder: (context, state) {
-          if (state is CourierableFetched) {
-            final packageList = state.packageList;
-            final regionsList = state.regionList;
-            return CourierListView(
-              packageList: packageList,
-              regionList: regionsList,
-            );
-          } else if (state is CourierInProgress) {
-            return CaspaLoading();
-          } else
-            return EmptyWidget(
-              text: MyText.youMustHaveProduct,
-            );
-        },
+    return FocusDetector(
+      onFocusGained: () {
+        context.read<CourierCubit>().fetchPackagesForCourier(loading: false);
+      },
+      child: Scaffold(
+        appBar: CaspaAppbar(
+          title: MyText.courierOrder,
+          user: false,
+          notification: false,
+          centerTitle: true,
+          contextA: context,
+        ),
+        body: BlocBuilder<CourierCubit, CourierState>(
+          buildWhen: (context, state) {
+            if (state is CourierContinueButtonActive ||
+                state is CourierInProgressButton ||
+                state is CourierContinueButtonPassive ||
+                state is CourierOperationFail) {
+              return false;
+            } else
+              return true;
+          },
+          builder: (context, state) {
+            if (state is CourierableFetched) {
+              final packageList = state.packageList;
+              final regionsList = state.regionList;
+              return CourierListView(
+                packageList: packageList,
+                regionList: regionsList,
+              );
+            } else if (state is CourierInProgress) {
+              return CaspaLoading();
+            } else
+              return EmptyWidget(
+                text: MyText.youMustHaveProduct,
+              );
+          },
+        ),
       ),
     );
   }

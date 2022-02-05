@@ -34,7 +34,6 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
 
         final result = await PaymentsProvider.getPaymentUrl(
             amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
-        bbbb("hjk: ${result.statusCode}");
         if (isSuccess(result.statusCode)) {
           emit(PaymentBalanceUrlFetched(url: result.data));
         } else {

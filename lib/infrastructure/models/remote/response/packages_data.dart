@@ -83,7 +83,7 @@ class Package {
         : null;
     country =
         json['country'] != null ? new Country.fromJson(json['country']) : null;
-    payment = json['payment_balance'];
+    payment = json['payment'];
     note = json['note'];
     regNumber = json['regNumber'];
     customStatus = json['customStatus'];
@@ -116,7 +116,7 @@ class Package {
     if (this.country != null) {
       data['country'] = this.country!.toJson();
     }
-    data['payment_balance'] = this.payment;
+    data['payment'] = this.payment;
     data['note'] = this.note;
     data['regNumber'] = this.regNumber;
     data['no_invoice'] = this.noInvoice;

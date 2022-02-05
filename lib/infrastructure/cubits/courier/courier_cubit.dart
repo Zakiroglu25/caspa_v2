@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/public_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -17,7 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CourierCubit extends Cubit<CourierState> {
-  CourierCubit() : super(CourierInitial()) {
+  CourierCubit() : super(CourierInProgress()) {
     selectedOrders.addListener(() {
       isDataValid();
     });
@@ -84,7 +85,7 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
-  void fetchPackagesForCourier([bool loading = true]) async {
+  void fetchPackagesForCourier({bool loading = true}) async {
     if (loading) {
       emit(CourierInProgress());
     }
@@ -94,6 +95,7 @@ class CourierCubit extends Cubit<CourierState> {
       final resultRegions = await PublicProvider.getRegions();
       if (isSuccess(resultPackages.statusCode) &&
           isSuccess(resultRegions.statusCode)) {
+        //bbbb("kkkk: ${(resultPackages.data[0] as Package).payment}");
         emit(CourierableFetched(
             packageList: resultPackages.data, regionList: resultRegions.data));
       } else {
@@ -192,11 +194,32 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
+  //paymentType
+  final BehaviorSubject<String> paymentType =
+      BehaviorSubject<String>.seeded(MyText.fromBalance);
+
+  Stream<String> get payTypeStream => paymentType.stream;
+
+  updatePayType(String value) {
+    if (value == null || value.isEmpty) {
+      paymentType.value = '';
+      paymentType.sink.addError(MyText.field_is_not_correct);
+    } else {
+      paymentType.sink.add(value);
+    }
+    // isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isPayTypeIncorrect => (!paymentType.hasValue ||
+      paymentType.value == null ||
+      paymentType.value.isEmpty);
+
   @override
   Future<void> close() {
     adress.close();
     region.close();
     phone.close();
+    paymentType.close();
     return super.close();
   }
 }

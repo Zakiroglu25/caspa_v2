@@ -36,7 +36,7 @@ class PayButton extends StatelessWidget {
               builder: (contextK, snapShoot) {
                 return ListView(
                   shrinkWrap: true,
-                  padding: Paddings.paddingB12,
+                  padding: Paddings.paddingV12,
                   children: [
                     buildCaspaRadio(context, snapShoot,
                         value: MyText.fromBalance),

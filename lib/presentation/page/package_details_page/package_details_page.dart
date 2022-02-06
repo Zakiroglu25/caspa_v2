@@ -25,6 +25,7 @@ class PackageDetailsPage extends StatelessWidget {
       appBar: CaspaAppbar(
         user: false,
         title: package.store,
+        contextA: context,
         color: AppOperations.colorWithId(package.id!),
         notification: false,
       ),

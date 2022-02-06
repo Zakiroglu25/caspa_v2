@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -11,6 +12,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/order_via_link_listview.dart';
 
 class OrderViaLinkPage extends StatelessWidget {
+  LinkOrder? linkOrder;
+
+  OrderViaLinkPage({this.linkOrder});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

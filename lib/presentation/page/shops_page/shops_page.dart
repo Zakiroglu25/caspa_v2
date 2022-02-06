@@ -15,6 +15,7 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
+        contextA: context,
         title: MyText.stores,
         user: false,
       ),

@@ -19,6 +19,7 @@ class UserSettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         title: MyText.settings,
+        contextA: context,
         notification: false,
         user: false,
       ),

@@ -32,6 +32,7 @@ class HomePage extends StatelessWidget {
       appBar: CaspaAppbar(
         // title: "d",
         ///bunlar null gelir
+        contextA: context,
         title: _prefs.user.name! + " " + _prefs.user.surname!,
       ),
       body: SafeArea(

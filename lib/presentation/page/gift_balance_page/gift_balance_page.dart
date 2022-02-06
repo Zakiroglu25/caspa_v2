@@ -20,6 +20,7 @@ class GiftBalancePage extends StatelessWidget {
         user: false,
         title: MyText.giftBalanceX,
         notification: false,
+        contextA: context,
       ),
       body: SafeArea(
         child: ListView(

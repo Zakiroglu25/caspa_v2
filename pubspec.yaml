@@ -25,49 +25,49 @@ dependencies:
     sdk: flutter
   hive: ^2.0.5
   hive_flutter: ^1.1.0
-  shared_preferences: ^2.0.8
+  shared_preferences: ^2.0.13
   flutter_bloc:
   get_it: ^7.2.0
-  animate_do: ^2.0.0
+  animate_do: ^2.1.0
   flutter_screenutil: ^5.0.1
-  google_fonts: ^2.1.0
+  google_fonts: ^2.3.1
   flutter_svg:
   cupertino_icons: ^1.0.4
-  focus_detector: ^2.0.0
+  focus_detector: ^2.0.1
   animations:
   rxdart:
-  dio: 4.0.0
-  cached_network_image: ^3.1.0+1
-  url_launcher: ^6.0.17
+  dio: ^4.0.4
+  cached_network_image: ^3.2.0
+  url_launcher: ^6.0.18
   carousel_slider: ^4.0.0
   flutter_staggered_grid_view: ^0.4.1
-  http: ^0.13.3
+  http: ^0.13.4
   intl: ^0.17.0
   font_awesome_flutter: ^9.2.0
   sliver_tools: ^0.2.5
-  device_info_plus: ^3.1.1
+  device_info_plus: any
   device_information: ^0.0.4
 
 
 
   #firebase \\ notification:
-  firebase_messaging: ^11.2.3
+  firebase_messaging: ^11.2.6
   firebase: ^9.0.2
-  firebase_core: ^1.10.5
-  awesome_notifications: ^0.0.6+12
+  firebase_core: ^1.12.0
+  awesome_notifications: any
   bot_toast: ^4.0.1
-  flutter_local_notifications:
+  #flutter_local_notifications: any
   #flutter_local_notificzations: ^9.1.0
-  cloud_firestore: ^3.1.5
+  cloud_firestore: ^3.1.7
 
 
-  image_picker: ^0.8.4+4
+  image_picker: ^0.8.4+6
   #geolocator: ^7.7.1
   permission_handler: ^8.3.0
 
   sentry_flutter: ^6.2.2
-  logging: ^1.0.1
-  firebase_crashlytics: ^2.4.4
+  logging: ^1.0.2
+  firebase_crashlytics: ^2.5.0
 
 
   #ui
@@ -91,7 +91,10 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
   logger: ^1.1.0
+
   change_app_package_name: ^1.0.0
+
+dependency_overrides:
 
 
 flutter:

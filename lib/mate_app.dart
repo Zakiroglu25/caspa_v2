@@ -42,6 +42,7 @@ class MateApp extends StatelessWidget {
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
+                    ScreenUtil.setContext(context);
                     BotToastInit().call(context, widget);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget!);
@@ -51,7 +52,11 @@ class MateApp extends StatelessWidget {
                       // Pager.shops,
                       // Pager.report
                       // Pager.payment_balance
-                      Pager.app()),
+                      Builder(
+                    builder: (ctx) {
+                      return Pager.app();
+                    },
+                  )),
             ));
   }
 }

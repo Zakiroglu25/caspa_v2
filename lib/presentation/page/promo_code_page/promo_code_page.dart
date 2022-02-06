@@ -25,6 +25,7 @@ class PromoCodePage extends StatelessWidget {
       appBar: CaspaAppbar(
         user: false,
         title: MyText.promoCodeX,
+        contextA: context,
         notification: false,
       ),
       body: ListView(

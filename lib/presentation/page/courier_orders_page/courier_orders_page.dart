@@ -19,6 +19,7 @@ class CourierOrdersPage extends StatelessWidget {
         appBar: CaspaAppbar(
           title: MyText.confirm,
           user: false,
+          contextA: context,
         ),
         body: SafeArea(
           child: Container(
@@ -49,7 +50,10 @@ class CourierOrdersPage extends StatelessWidget {
                     SectionName(title: MyText.general_info),
                     GeneralOrderInfo(),
                     MySizedBox.h40,
-                    CaspaButton(text: MyText.confirming,onTap: ()=>Go.to(context, Pager.success()),),
+                    CaspaButton(
+                      text: MyText.confirming,
+                      onTap: () => Go.to(context, Pager.success()),
+                    ),
                     MySizedBox.h10,
                   ],
                 ),

@@ -1,0 +1,78 @@
+import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
+import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
+import 'widget/add_order_button.dart';
+import 'widget/attorney_get_list_widget.dart';
+
+class OrderViaLinkListPage extends StatelessWidget {
+  const OrderViaLinkListPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: CaspaAppbar(
+        user: false,
+        contextA: context,
+        title: MyText.attorneysX,
+        notification: false,
+      ),
+      body: FocusDetector(
+        onFocusGained: () {
+          context.read<OrderViaUrlListCubit>().fetch(false);
+        },
+        child: ListView(
+          padding: Paddings.paddingA16,
+          children: [
+            ColorfullBackImage(
+              path: Assets.pngEtibarname,
+              infoTitle: MyText.littleEtibar,
+              infoContent: MyText.weAdviceSaveMoneyOnBalance,
+            ),
+            MySizedBox.h16,
+            AddAttorneyButton(),
+            MySizedBox.h32,
+            BlocConsumer<OrderViaUrlListCubit, OrderViaUrlListState>(
+                listener: (context, state) {
+              if (state is OrderViaUrlListDeleted) {
+                Snack.display(
+                    context: context,
+                    message: MyText.operationIsSuccess,
+                    positive: true,
+                    showSuccessIcon: true);
+              }
+            }, buildWhen: (context, state) {
+              if (state is OrderViaUrlListDeleted) {
+                return false;
+              } else
+                return true;
+            }, builder: (context, state) {
+              if (state is OrderViaUrlListSuccess) {
+                List<LinkOrder> orderList = state.orders.reversed.toList();
+                return OrderListWidget(
+                  orderList: orderList,
+                );
+              } else if (state is OrderViaUrlListInProgress) {
+                return CaspaLoading();
+              } else {
+                return EmptyWidget();
+              }
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+}

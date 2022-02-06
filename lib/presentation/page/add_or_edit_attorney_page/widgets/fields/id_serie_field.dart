@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -40,7 +40,8 @@ class IdSerieFieldAddAttorney extends StatelessWidget {
                   //height: 100,
                   height: 70,
                   child: StreamBuilder(
-                      stream: BlocProvider.of<AddAttorneysCubit>(context).serieType,
+                      stream:
+                          BlocProvider.of<AddAttorneysCubit>(context).serieType,
                       builder: (contextP, snapShoot) {
                         return ListView(
                           children: [
@@ -51,10 +52,11 @@ class IdSerieFieldAddAttorney extends StatelessWidget {
                               },
                               title: MyText.aa,
                               //  isActive: false,
-                              isActive: BlocProvider.of<AddAttorneysCubit>(context)
-                                      .serieType
-                                      .valueOrNull ==
-                                  MyText.aa,
+                              isActive:
+                                  BlocProvider.of<AddAttorneysCubit>(context)
+                                          .serieType
+                                          .valueOrNull ==
+                                      MyText.aa,
                             ),
                             CaspaRadio(
                               onTap: () {
@@ -63,17 +65,18 @@ class IdSerieFieldAddAttorney extends StatelessWidget {
                               },
                               title: MyText.aze,
                               //   isActive: false,
-                              isActive: BlocProvider.of<AddAttorneysCubit>(context)
-                                      .serieType
-                                      .valueOrNull ==
-                                  MyText.aze,
+                              isActive:
+                                  BlocProvider.of<AddAttorneysCubit>(context)
+                                          .serieType
+                                          .valueOrNull ==
+                                      MyText.aze,
                             ),
                           ],
                         );
                       }),
                 )),
-            onChanged: (value) =>
-                BlocProvider.of<AddAttorneysCubit>(context).updatepriceType(value),
+            onChanged: (value) => BlocProvider.of<AddAttorneysCubit>(context)
+                .updatepriceType(value),
           );
         },
       ),

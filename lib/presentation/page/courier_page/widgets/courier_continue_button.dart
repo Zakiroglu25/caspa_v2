@@ -41,7 +41,7 @@ class CourierContinueButton extends StatelessWidget {
               stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
               builder: (contextK, snapShoot) {
                 return ListView(
-                  padding: Paddings.paddingB12,
+                  padding: Paddings.paddingV12,
                   shrinkWrap: true,
                   children: [
                     buildCaspaRadio(context, snapShoot,

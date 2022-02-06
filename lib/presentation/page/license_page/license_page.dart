@@ -8,15 +8,19 @@ class LicensePageX extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: CaspaAppbar(
-      user: false,
-      title: MyText.app_license,
-      notification: false,
-    ),body: ListView(
-      padding: Paddings.paddingA16+Paddings.paddingB24,
-      children: [
-        Text(MyText.licenseText),
-      ],
-    ),);
+    return Scaffold(
+      appBar: CaspaAppbar(
+        user: false,
+        contextA: context,
+        title: MyText.app_license,
+        notification: false,
+      ),
+      body: ListView(
+        padding: Paddings.paddingA16 + Paddings.paddingB24,
+        children: [
+          Text(MyText.licenseText),
+        ],
+      ),
+    );
   }
 }

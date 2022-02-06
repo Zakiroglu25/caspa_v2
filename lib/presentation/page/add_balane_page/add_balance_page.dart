@@ -28,6 +28,7 @@ class AddBalancePage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         title: "",
+        contextA: context,
         user: false,
         notification: false,
       ),

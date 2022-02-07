@@ -25,6 +25,7 @@ class ApiKeys {
   static final deleteReport = "$baseUrl/user/report/delete";
   static const orderViaLink = "$baseUrl/user/orders";
   static const orderViaLinkEdit = "$baseUrl/user/orders/edit";
+  static const orderViaLinkDelete = "$baseUrl/user/orders/delete";
 
   //user
   static final user = "$baseUrl/user/user";

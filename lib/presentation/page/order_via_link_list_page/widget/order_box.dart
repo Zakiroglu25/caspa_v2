@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -36,20 +37,20 @@ class OrderBox extends StatelessWidget {
             EditButton(
               onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
             ),
-            // MySizedBox.w10,
-            // DeleteButton(
-            //     onTap: () => Alert.show(context,
-            //         title: MyText.are_u_sure_delete,
-            //         //s  content: MyText.you_can_not_recovery_it_again,
-            //         buttonText: MyText.yes,
-            //         cancelButton: true,
-            //         onTap: () => context
-            //             .read<AttorneyListCubit>()
-            //             .delete(order.id, loading: false),
-            //         image: SizedBox(
-            //             width: 120.sm,
-            //             height: 120.sm,
-            //             child: Image.asset(Assets.pngSad))))
+            MySizedBox.w10,
+            DeleteButton(
+                onTap: () => Alert.show(context,
+                    title: MyText.are_u_sure_delete,
+                    //s  content: MyText.you_can_not_recovery_it_again,
+                    buttonText: MyText.yes,
+                    cancelButton: true,
+                    onTap: () => context
+                        .read<OrderViaUrlListCubit>()
+                        .delete(order.id, loading: false),
+                    image: SizedBox(
+                        width: 120.sm,
+                        height: 120.sm,
+                        child: Image.asset(Assets.pngSad))))
           ],
         ),
         OrderUnicorn(

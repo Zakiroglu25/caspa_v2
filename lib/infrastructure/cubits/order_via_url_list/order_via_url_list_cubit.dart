@@ -42,8 +42,7 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
     }
 
     try {
-      final result = await AttorneyProvider.deleteAttorney(
-          accessToken: _prefs.accessToken, id: id!);
+      final result = await OrderViaLinkProvider.delete(id: id!);
 
       if (isSuccess(result!.statusCode)) {
         emit(OrderViaUrlListDeleted());

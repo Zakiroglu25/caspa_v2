@@ -73,6 +73,22 @@ class OrderViaLinkProvider {
     return statusDynamic;
   }
 
+  static Future<StatusDynamic?> delete({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.orderViaLinkDelete;
+    var url = Uri.parse(api);
+    //final headers = ApiKeys.header(token: token);
+    var body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      statusDynamic.data = response.data;
+    } else {
+      eeee("deleteOrder bad url :$url,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
   static Future<LinkOrderResponse> getOrders() async {
     late LinkOrderResponse attorneyListModel;
     const api = ApiKeys.orderViaLink;

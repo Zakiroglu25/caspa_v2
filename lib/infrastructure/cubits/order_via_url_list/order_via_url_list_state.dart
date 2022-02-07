@@ -18,6 +18,8 @@ class OrderViaUrlListNetworkError extends OrderViaUrlListState {}
 
 class OrderViaUrlListDeleted extends OrderViaUrlListState {}
 
+class OrderViaUrlListEdited extends OrderViaUrlListState {}
+
 class OrderViaUrlListSuccess extends OrderViaUrlListState {
   OrderViaUrlListSuccess(this.orders);
 

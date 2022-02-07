@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -15,7 +16,8 @@ import 'fields/price_field.dart';
 import 'order_via_link_continue_button.dart';
 
 class OrderViaLinkListview extends StatelessWidget {
-  const OrderViaLinkListview({Key? key}) : super(key: key);
+  const OrderViaLinkListview({Key? key, this.order}) : super(key: key);
+  final LinkOrder? order;
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +35,18 @@ class OrderViaLinkListview extends StatelessWidget {
           definition: MyText.declareText,
         ),
         MySizedBox.h16,
-        LinkFieldOrderViaUrl(),
-        CountFieldOrderViaUrl(),
+        LinkFieldOrderViaUrl(
+            controller: TextEditingController(text: "${order?.link ?? ''}")),
+        CountFieldOrderViaUrl(
+          controller: TextEditingController(text: "${order?.qty ?? ''}"),
+        ),
         PriceFieldOrderViaUrl(),
         CommissionField(),
         MySizedBox.h16,
         LocalCargoFieldOrderViaUrl(),
         NoteFieldOrderViaUrl(),
         MySizedBox.h16,
-        OrderViaLinkContinueButton(),
+        OrderViaLinkContinueButton(order: order),
         MySizedBox.h32,
       ],
     );

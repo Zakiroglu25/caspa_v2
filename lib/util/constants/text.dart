@@ -7,6 +7,12 @@ class MyText {
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
 
+  ///order via link
+  static const String littleOrderViaLink =
+      "Hüquqlarınızı başqasına həvalə edin littleOrderViaLink📑";
+  static const String infoOrderViaLink =
+      "Sifarişlərinizin təsdiqlənməsi üçün ödəniş etməyi unutmayın :) 💵";
+
   //login
   static const String log_in = "Daxil ol";
   static const String login = "Giriş";
@@ -97,6 +103,8 @@ class MyText {
   static const String youMustHaveMakepayment =
       "Bu bağlamanı kuryer  ilə sifariş edə bilmək üçün, əvvəlcə xaricdən çatdırılma ödənişini tamamlamalısınız.";
   static const String youHaveNotPay = "Ödəniş olunmayıb!";
+  static const String waitinPaymentForConfirm = "Təsdiq üçün ödəniş gözlənilir";
+  static const String paid = "Ödənilib";
 
   //new order
   static const String weBuyForYou =
@@ -129,6 +137,8 @@ class MyText {
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay ərzində";
   static const String countOfOrders = "Bağalama sayı";
+  static const String orders = "Sifarişlər";
+  static const String order = "Sifariş";
 
   //user settings
   static const String main = "Əsas";

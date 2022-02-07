@@ -8,50 +8,80 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AttorneyUnicorn extends StatelessWidget {
+class OrderUnicorn extends StatelessWidget {
   final LinkOrder order;
 
-  AttorneyUnicorn({
+  OrderUnicorn({
     required this.order,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
       children: [
-        //SectionName(title:title??""),
-        MySizedBox.h16,
-        UnicornOutlineButton(
-          strokeWidth: 1.5,
-          radius: 16,
-          padding: Paddings.paddingH20 + Paddings.paddingV14,
-          gradient: LinearGradient(colors: [
-            MyColors.gradientBlue,
-            MyColors.gradientCyan,
-            MyColors.gradientRed,
-            MyColors.gradientOrange,
-          ]),
-          child: Container(
-            //width: 200,
-            child: Column(
-              children: [
-                ProductPropertyV(
-                    h: 8, name: MyText.link_of_order, value: order.link),
-                ProductPropertyV(h: 8, name: MyText.amount, value: order.qty),
-                ProductPropertyV(h: 8, name: MyText.date, value: order.date),
-              ],
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            //SectionName(title:title??""),
+            MySizedBox.h16,
+            UnicornOutlineButton(
+              strokeWidth: 1.5,
+              radius: 16,
+              padding: Paddings.paddingH20 + Paddings.paddingV14,
+              gradient: LinearGradient(colors: [
+                MyColors.gradientBlue,
+                MyColors.gradientCyan,
+                MyColors.gradientRed,
+                MyColors.gradientOrange,
+              ]),
+              child: Container(
+                //width: 200,
+                child: Column(
+                  children: [
+                    ProductPropertyV(
+                        h: 8, name: MyText.link_of_order, value: order.link),
+                    ProductPropertyV(
+                        h: 8, name: MyText.amount, value: order.qty),
+                    ProductPropertyV(
+                        h: 8,
+                        name: MyText.status,
+                        mainColor: order.payment == 0
+                            ? MyColors.errorRED211
+                            : MyColors.green,
+                        value: order.payment == 0
+                            ? MyText.waitinPaymentForConfirm
+                            : MyText.paid),
+                    ProductPropertyV(
+                        h: 8, name: MyText.date, value: order.date),
+                  ],
+                ),
+              ),
+              onPressed: () => Go.to(context, Pager.orderViaLink(order: order)),
             ),
-          ),
-          onPressed: () => Go.to(context, Pager.orderViaLink(order: order)),
+            MySizedBox.h20,
+          ],
         ),
-        MySizedBox.h20,
+        Positioned(
+            bottom: 35,
+            right: 15,
+            child: WidgetOrEmpty(
+              value: order.payment == 0,
+              child: SizedBox(
+                height: 40,
+                width: 80,
+                child: CaspaButton(
+                  text: MyText.pay,
+                  textSize: 13,
+                ),
+              ),
+            ))
       ],
     );
   }

@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -26,7 +27,7 @@ class OrderViaLinkListPage extends StatelessWidget {
       appBar: CaspaAppbar(
         user: false,
         contextA: context,
-        title: MyText.attorneysX,
+        title: MyText.orders,
         notification: false,
       ),
       body: FocusDetector(
@@ -37,9 +38,10 @@ class OrderViaLinkListPage extends StatelessWidget {
           padding: Paddings.paddingA16,
           children: [
             ColorfullBackImage(
-              path: Assets.pngEtibarname,
-              infoTitle: MyText.littleEtibar,
-              infoContent: MyText.weAdviceSaveMoneyOnBalance,
+              path: Assets.pngBox,
+              infoTitle: MyText.littleOrderViaLink,
+              infoContent: MyText.infoOrderViaLink,
+              titleMaxLines: 2,
             ),
             MySizedBox.h16,
             AddAttorneyButton(),
@@ -54,6 +56,7 @@ class OrderViaLinkListPage extends StatelessWidget {
                     showSuccessIcon: true);
               }
             }, buildWhen: (context, state) {
+              bbbb("2: $state");
               if (state is OrderViaUrlListDeleted) {
                 return false;
               } else

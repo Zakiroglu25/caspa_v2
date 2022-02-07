@@ -44,6 +44,35 @@ class OrderViaLinkProvider {
     return statusDynamic;
   }
 
+  static Future<StatusDynamic?> editOrder(
+      {required int? qty,
+      required double? price,
+      required String? link,
+      required double? cargo_price,
+      required String? detail,
+      required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.orderViaLinkEdit;
+    var url = Uri.parse(api);
+    //final headers = ApiKeys.header(token: token);
+    var body = ApiKeys.orderViaLinkBody(
+        link: link,
+        price: price,
+        cargo_price: cargo_price,
+        detail: detail,
+        id: id,
+        qty: qty);
+    bbbb("iiii: " + jsonEncode(body));
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      statusDynamic.data = response.data;
+    } else {
+      eeee("editOrder bad url :$url,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
   static Future<LinkOrderResponse> getOrders() async {
     late LinkOrderResponse attorneyListModel;
     const api = ApiKeys.orderViaLink;

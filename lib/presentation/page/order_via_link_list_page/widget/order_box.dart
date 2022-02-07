@@ -12,6 +12,7 @@ import 'package:caspa_v2/widget/general/delete_button.dart';
 import 'package:caspa_v2/widget/general/edit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../widget/custom/buttons/caspa_button.dart';
 import 'list_orders_unicorn.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,30 +29,30 @@ class OrderBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "${MyText.attorney}: ${order.id}",
+              "${MyText.order}: ${order.id}",
               style: UITextStyle.tW600Black.copyWith(fontSize: 16.sp),
             ),
             Spacer(),
             EditButton(
               onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
             ),
-            MySizedBox.w10,
-            DeleteButton(
-                onTap: () => Alert.show(context,
-                    title: MyText.are_u_sure_delete,
-                    //s  content: MyText.you_can_not_recovery_it_again,
-                    buttonText: MyText.yes,
-                    cancelButton: true,
-                    onTap: () => context
-                        .read<AttorneyListCubit>()
-                        .delete(order.id, loading: false),
-                    image: SizedBox(
-                        width: 120.sm,
-                        height: 120.sm,
-                        child: Image.asset(Assets.pngSad))))
+            // MySizedBox.w10,
+            // DeleteButton(
+            //     onTap: () => Alert.show(context,
+            //         title: MyText.are_u_sure_delete,
+            //         //s  content: MyText.you_can_not_recovery_it_again,
+            //         buttonText: MyText.yes,
+            //         cancelButton: true,
+            //         onTap: () => context
+            //             .read<AttorneyListCubit>()
+            //             .delete(order.id, loading: false),
+            //         image: SizedBox(
+            //             width: 120.sm,
+            //             height: 120.sm,
+            //             child: Image.asset(Assets.pngSad))))
           ],
         ),
-        AttorneyUnicorn(
+        OrderUnicorn(
           order: order,
         ),
       ],

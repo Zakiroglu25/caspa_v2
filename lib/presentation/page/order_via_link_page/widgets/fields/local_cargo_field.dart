@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/formatter/decimal_input_formatter.dart';
 import 'package:flutter/material.dart';
 
 //class LocalCargoField extends StatelessWidget {
@@ -26,9 +27,10 @@ class LocalCargoFieldOrderViaUrl extends StatelessWidget {
             hint: MyText.foreing_cargo_price,
             upperCase: true,
             suffixText: MyText.tryy + "   ",
-            textInputType: const TextInputType.numberWithOptions(signed: true),
+            textInputType: const TextInputType.numberWithOptions(signed: false),
             formatters: [
-             // WhitelistingTextInputFormatter.digitsOnly,
+              // WhitelistingTextInputFormatter.digitsOnly,
+              DecimalTextInputFormatter()
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',

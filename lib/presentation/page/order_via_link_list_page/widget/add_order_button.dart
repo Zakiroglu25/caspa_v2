@@ -10,9 +10,9 @@ class AddAttorneyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CaspaButton(
-      text: MyText.new_attorney,
+      text: MyText.new_order,
       onTap: () {
-        Go.to(context, Pager.addOrEditAttorney());
+        Go.to(context, Pager.orderViaLink());
       },
     );
   }

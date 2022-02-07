@@ -153,7 +153,7 @@ class Pager {
             BlocProvider(create: (context) => CommissionCubit()..fetch()),
           ],
           child: OrderViaLinkPage(
-            linkOrder: order,
+            order: order,
           ));
 
   static get orderViaLinkList => MultiBlocProvider(providers: [

@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../locator.dart';
+import '../../configs/recorder.dart';
 import 'order_via_url_list_state.dart';
 
 class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
@@ -22,14 +23,15 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
     try {
       final result = await OrderViaLinkProvider.getOrders();
       if (result.data != null) {
-        emit(OrderViaUrlListSuccess((result.data as LinkOrderResponse).data!));
+        emit(OrderViaUrlListSuccess(result.data!));
       } else {
         emit(OrderViaUrlListError());
       }
     } on SocketException catch (_) {
       //network olacaq
       emit(OrderViaUrlListNetworkError());
-    } catch (e) {
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
       emit(OrderViaUrlListError(error: e.toString()));
     }
   }

@@ -24,6 +24,7 @@ class ApiKeys {
   static final editReport = "$baseUrl/user/report/edit";
   static final deleteReport = "$baseUrl/user/report/delete";
   static const orderViaLink = "$baseUrl/user/orders";
+  static const orderViaLinkEdit = "$baseUrl/user/orders/edit";
 
   //user
   static final user = "$baseUrl/user/user";
@@ -108,15 +109,18 @@ class ApiKeys {
     return map;
   }
 
-  static orderViaLinkBody(
-      {required String? link,
-      required double? price,
-      required double? cargo_price,
-      required String? detail,
-      required int? qty}) {
+  static orderViaLinkBody({
+    required String? link,
+    required double? price,
+    required double? cargo_price,
+    required String? detail,
+    required int? qty,
+    int? id,
+  }) {
     //
     final map = {
       "link": link,
+      "id": id,
       "qty": qty,
       "price": price,
       "cargo_price": cargo_price,

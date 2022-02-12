@@ -113,7 +113,7 @@ class MyText {
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
 
   //home
-  static const String welcome = "Xoş gəlmişsiniz!";
+  static const String welcome = "Salam";
   static const String recognizeTariffs = "Teriflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";

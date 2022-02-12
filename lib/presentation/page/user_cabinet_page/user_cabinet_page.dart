@@ -1,28 +1,32 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_profile_order/payment_order_state.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
-import 'package:caspa_v2/presentation/page/package_page/payment/payment_package.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
+import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '../../../locator.dart';
-import 'add_balane_page/add_balance_page.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -53,7 +57,7 @@ class UserCabinetPage extends StatelessWidget {
                         Text(
                           MyText.settings,
                           style: AppTextStyles.sanF400
-                              .copyWith(color: Colors.black, fontSize: 17.sp),
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
                     ),
@@ -67,7 +71,7 @@ class UserCabinetPage extends StatelessWidget {
                         Text(
                           MyText.logout,
                           style: AppTextStyles.sanF400
-                              .copyWith(color: Colors.black, fontSize: 17.sp),
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
                     ),
@@ -90,31 +94,33 @@ class UserCabinetPage extends StatelessWidget {
           );
         },
       ),
-      body: BlocListener<PaymentsOrderCubit, PaymentsOrderState>(
-        listener: (context, state) {
-          if (state is PaymentsOrderInProgress) {
-            log("PaymentsOrderInProgress");
-          } else if (state is PaymentsOrderSuccess) {
-            log("PaymentsOrderSuccess");
-          } else if (state is PaymentsOrderError) {
-            log("PaymentsOrderError");
-          }
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
-          child: SingleChildScrollView(
+      body: ValueListenableBuilder(
+        valueListenable: Hive.box('main').listenable(),
+        builder: (context, Box box, widget) {
+          final MyUser user =
+          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          return SingleChildScrollView(
+            padding: Paddings.paddingH16,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MySizedBox.h32,
+                // MySizedBox.h32,
                 CabinetHeaderWidget(),
+                SliverInfo(
+                  MyText.emergencyCall,
+                  align: TextAlign.center,
+                ),
+                MySizedBox.h16,
                 BalanceBox(
                   onTap: () {
-                    Go.to(context, AddBalancePage());
-                   // context.read()<PaymentsOrderCubit>();
+                    Go.to(
+                        context,
+                        Pager.paymentPage(
+                            paymentBalanceType: PaymentBalanceType.cargo));
+                    // context.read()<PaymentsOrderCubit>();
                   },
                   title: "Balans USD",
-                  price: "\$ ${_prefs.user.cargoBalance}",
+                  price: "\$ ${user.cargoBalance}",
                   subtitle: "(Daşınma)",
                   color: MyColors.balansCargo,
                   btnText: MyText.increaseBalance,
@@ -122,16 +128,20 @@ class UserCabinetPage extends StatelessWidget {
                 ),
                 MySizedBox.h16,
                 BalanceBox(
-                  title: "Balans TL",
-                  price: "${_prefs.user.balance ?? 0} TL",
-                  subtitle: "(Sifariş)",
-                  color: MyColors.balansOrder,
-                  btnText: MyText.increaseBalance,
-                  colorbtn: MyColors.btnBlanceOrder,
-                ),
+                    title: "Balans TL",
+                    price: "${user.balance ?? 0} TL",
+                    subtitle: "(Sifariş)",
+                    color: MyColors.balansOrder,
+                    btnText: MyText.increaseBalance,
+                    colorbtn: MyColors.btnBlanceOrder,
+                    onTap: () => Go.to(
+                        context,
+                        Pager.paymentPage(
+                          paymentBalanceType: PaymentBalanceType.order,
+                        ))),
                 MySizedBox.h16,
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     BalansMiniBox(
                       title: MyText.durtingCurrentMonth,
@@ -139,9 +149,6 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.shop,
                       priceColor: MyColors.balanceBoxRed,
                       icon: const Icon(null),
-                      onTap: (){
-                        Go.to(context, PackagePayment());
-                      },
                     ),
                     MySizedBox.w16,
                     BalansMiniBox(
@@ -156,8 +163,8 @@ class UserCabinetPage extends StatelessWidget {
                 MySizedBox.h50,
               ],
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

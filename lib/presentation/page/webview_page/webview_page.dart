@@ -140,142 +140,142 @@ class _WebviewPageState extends State<WebviewPage> {
       onWillPop: () => _exitApp(context),
       child: SafeArea(
           child: Column(children: <Widget>[
-        // TextField(
-        //   decoration: InputDecoration(
-        //       prefixIcon: Icon(Icons.search)
-        //   ),
-        //   controller: urlController,
-        //   keyboardType: TextInputType.url,
-        //   onSubmitted: (value) {
-        //     var url = Uri.parse(value);
-        //     if (url.scheme.isEmpty) {
-        //       url = Uri.parse("https://www.google.com/search?q=" + value);
-        //     }
-        //     webViewController?.loadUrl(
-        //         urlRequest: URLRequest(url: url));
-        //   },
-        // ),
-        Expanded(
-          child: Stack(
-            children: [
-              InAppWebView(
-                key: webViewKey,
-                // contextMenu: contextMenu,
+            // TextField(
+            //   decoration: InputDecoration(
+            //       prefixIcon: Icon(Icons.search)
+            //   ),
+            //   controller: urlController,
+            //   keyboardType: TextInputType.url,
+            //   onSubmitted: (value) {
+            //     var url = Uri.parse(value);
+            //     if (url.scheme.isEmpty) {
+            //       url = Uri.parse("https://www.google.com/search?q=" + value);
+            //     }
+            //     webViewController?.loadUrl(
+            //         urlRequest: URLRequest(url: url));
+            //   },
+            // ),
+            Expanded(
+              child: Stack(
+                children: [
+                  InAppWebView(
+                    key: webViewKey,
+                    // contextMenu: contextMenu,
 
-                initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
-                // initialFile: "assets/index.html",
-                initialUserScripts: UnmodifiableListView<UserScript>([]),
-                initialOptions: options,
-                pullToRefreshController: pullToRefreshController,
-                onWebViewCreated: (controller) {
-                  webViewController = controller;
-                },
+                    initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+                    // initialFile: "assets/index.html",
+                    initialUserScripts: UnmodifiableListView<UserScript>([]),
+                    initialOptions: options,
+                    pullToRefreshController: pullToRefreshController,
+                    onWebViewCreated: (controller) {
+                      webViewController = controller;
+                    },
 
-                onLoadStart: (controller, url) {
-                  setState(() {
-                    this.url = url.toString();
-                    urlController.text = this.url;
-                  });
-                },
-                androidOnPermissionRequest:
-                    (controller, origin, resources) async {
-                  return PermissionRequestResponse(
-                      resources: resources,
-                      action: PermissionRequestResponseAction.GRANT);
-                },
-                shouldOverrideUrlLoading: (controller, navigationAction) async {
-                  var uri = navigationAction.request.url;
-                  bbbb("url:  $uri");
-                  // if (![
-                  //   "http",
-                  //   "https",
-                  //   "file",
-                  //   "chrome",
-                  //   "data",
-                  //   "javascript",
-                  //   "about"
-                  // ].contains(uri!.scheme)) {
-                  //   if (await canLaunch(url)) {
-                  //     // Launch the App
-                  //     await launch(
-                  //       url,
-                  //     );
-                  //     // and cancel the request
-                  //     return NavigationActionPolicy.CANCEL;
-                  //   }
-                  // }
-                  if (('$uri').contains('https://caspa.az/?modal=true')) {
-                    //  webViewController.
-                    eeee("url containe");
+                    onLoadStart: (controller, url) {
+                      setState(() {
+                        this.url = url.toString();
+                        urlController.text = this.url;
+                      });
+                    },
+                    androidOnPermissionRequest:
+                        (controller, origin, resources) async {
+                      return PermissionRequestResponse(
+                          resources: resources,
+                          action: PermissionRequestResponseAction.GRANT);
+                    },
+                    shouldOverrideUrlLoading: (controller, navigationAction) async {
+                      var uri = navigationAction.request.url;
+                      bbbb("url:  $uri");
+                      // if (![
+                      //   "http",
+                      //   "https",
+                      //   "file",
+                      //   "chrome",
+                      //   "data",
+                      //   "javascript",
+                      //   "about"
+                      // ].contains(uri!.scheme)) {
+                      //   if (await canLaunch(url)) {
+                      //     // Launch the App
+                      //     await launch(
+                      //       url,
+                      //     );
+                      //     // and cancel the request
+                      //     return NavigationActionPolicy.CANCEL;
+                      //   }
+                      // }
+                      if (('$uri').contains('https://caspa.az/?modal=true')) {
+                        //  webViewController.
+                        eeee("url containe");
 
-                    context
-                        .read<PaymentCubit>()
-                        .paymentSuccess(widget.mainContext);
-                  }
+                        context
+                            .read<PaymentCubit>()
+                            .paymentSuccess(widget.mainContext);
+                      }
 
-                  return NavigationActionPolicy.ALLOW;
-                },
-                onLoadStop: (controller, url) async {
-                  pullToRefreshController.endRefreshing();
-                  setState(() {
-                    this.url = url.toString();
-                    urlController.text = this.url;
-                  });
-                },
-                onLoadError: (controller, url, code, message) {
-                  print("-- mmessage: " + message.toUpperCase());
-                  //launch("https://caspa.az");
-                  // pullToRefreshController.endRefreshing();
-                },
-                onProgressChanged: (controller, progress) {
-                  if (progress == 100) {
-                    pullToRefreshController.endRefreshing();
-                  }
-                  setState(() {
-                    this.progress = progress / 100;
-                    urlController.text = this.url;
-                  });
-                },
-                onUpdateVisitedHistory: (controller, url, androidIsReload) {
-                  setState(() {
-                    this.url = url.toString();
-                    urlController.text = this.url;
-                  });
-                },
-                onConsoleMessage: (controller, consoleMessage) {
-                  print(consoleMessage);
-                },
+                      return NavigationActionPolicy.ALLOW;
+                    },
+                    onLoadStop: (controller, url) async {
+                      pullToRefreshController.endRefreshing();
+                      setState(() {
+                        this.url = url.toString();
+                        urlController.text = this.url;
+                      });
+                    },
+                    onLoadError: (controller, url, code, message) {
+                      print("-- mmessage: " + message.toUpperCase());
+                      //launch("https://caspa.az");
+                      // pullToRefreshController.endRefreshing();
+                    },
+                    onProgressChanged: (controller, progress) {
+                      if (progress == 100) {
+                        pullToRefreshController.endRefreshing();
+                      }
+                      setState(() {
+                        this.progress = progress / 100;
+                        urlController.text = this.url;
+                      });
+                    },
+                    onUpdateVisitedHistory: (controller, url, androidIsReload) {
+                      setState(() {
+                        this.url = url.toString();
+                        urlController.text = this.url;
+                      });
+                    },
+                    onConsoleMessage: (controller, consoleMessage) {
+                      print(consoleMessage);
+                    },
+                  ),
+                  // progress < 1.0
+                  //     ? LinearProgressIndicator(value: progress)
+                  //     : Container(),
+                ],
               ),
-              // progress < 1.0
-              //     ? LinearProgressIndicator(value: progress)
-              //     : Container(),
-            ],
-          ),
-        ),
-        // ButtonBar(
-        //   alignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     ElevatedButton(
-        //       child: Icon(Icons.arrow_back),
-        //       onPressed: () {
-        //         webViewController?.goBack();
-        //       },
-        //     ),
-        //     ElevatedButton(
-        //       child: Icon(Icons.arrow_forward),
-        //       onPressed: () {
-        //         webViewController?.goForward();
-        //       },
-        //     ),
-        //     ElevatedButton(
-        //       child: Icon(Icons.refresh),
-        //       onPressed: () {
-        //         webViewController?.reload();
-        //       },
-        //     ),
-        //   ],
-        // ),
-      ])),
+            ),
+            // ButtonBar(
+            //   alignment: MainAxisAlignment.center,
+            //   children: <Widget>[
+            //     ElevatedButton(
+            //       child: Icon(Icons.arrow_back),
+            //       onPressed: () {
+            //         webViewController?.goBack();
+            //       },
+            //     ),
+            //     ElevatedButton(
+            //       child: Icon(Icons.arrow_forward),
+            //       onPressed: () {
+            //         webViewController?.goForward();
+            //       },
+            //     ),
+            //     ElevatedButton(
+            //       child: Icon(Icons.refresh),
+            //       onPressed: () {
+            //         webViewController?.reload();
+            //       },
+            //     ),
+            //   ],
+            // ),
+          ])),
     );
   }
 }

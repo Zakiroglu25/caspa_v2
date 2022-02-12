@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
@@ -162,7 +163,11 @@ class Pager {
       child: PromoCodePage());
 
   static get calculate => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => CalculateKgCubit())],
+      providers: [
+        BlocProvider(create: (context) => CalculateKgCubit()),
+        BlocProvider(create: (context) => CalculateCapacityCubit())
+
+      ],
       child: CalculatePage());
 
   static get giftBalance => MultiBlocProvider(providers: [

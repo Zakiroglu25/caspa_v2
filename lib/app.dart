@@ -39,7 +39,7 @@ class App extends StatelessWidget {
         return Pager.landing;
       } else {
         return Pager.login;
-        ;
+
       }
     });
   }

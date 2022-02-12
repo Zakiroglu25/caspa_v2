@@ -35,7 +35,7 @@ class Package {
   String? store;
   String? price;
   String? cargoPrice;
-  double? weight;
+  num? weight;
   Category? category;
   Country? country;
   int? payment;

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -9,10 +10,14 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../locator.dart';
+
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     Key? key,
   }) : super(key: key);
+
+  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class HomeHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            MyText.welcome,
+            MyText.welcome + " " + _prefs.user.name.toString(),
             style: UITextStyle.tW400BigBlack,
           ),
           MySizedBox.h26,

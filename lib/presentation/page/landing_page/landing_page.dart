@@ -39,15 +39,16 @@ class _LandingPageState extends State<LandingPage> {
         key: _key,
         extendBody: true,
         body: pages[index],
-        bottomNavigationBar: CupertinoTabBar(
-          activeColor: MyColors.mainColor,
-          backgroundColor: Colors.white.withAlpha(85),
+        bottomNavigationBar: BottomNavigationBar(
+          // activeColor: MyColors.mainColor,
+          backgroundColor: Colors.white,
           //elevation: 10,
-          // unselectedFontSize: 11,
-          // selectedFontSize: 11,
-          //
-          // selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
-          // type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          unselectedFontSize: 11,
+          selectedFontSize: 11,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: MyColors.mainColor,
           items: [
             BottomNavigationBarItem(
               backgroundColor: Colors.white,

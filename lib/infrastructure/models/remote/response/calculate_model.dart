@@ -2,8 +2,8 @@ class CalculateModel {
   int? id;
   String? createdAt;
   String? updatedAt;
-  int? min;
-  int? max;
+  num? min;
+  num? max;
   String? price;
   int? countryId;
   num? discount;

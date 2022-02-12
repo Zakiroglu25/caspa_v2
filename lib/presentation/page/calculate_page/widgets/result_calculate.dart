@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ResultCalculate extends StatelessWidget {
   ResultCalculate({Key? key, required this.result}) : super(key: key);
 
-  double result;
+  String result;
 
   @override
   Widget build(BuildContext context) {

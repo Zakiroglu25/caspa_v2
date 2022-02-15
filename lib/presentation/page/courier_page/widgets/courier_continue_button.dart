@@ -21,38 +21,40 @@ class CourierContinueButton extends StatelessWidget {
         loading:
             (context.read<CourierCubit>().state is CourierInProgressButton),
         isButtonActive:
-            (context.watch<CourierCubit>().selectedOrders.value.isNotEmpty),
+            (context.watch<CourierCubit>().selectedOrdersId.value.isNotEmpty),
         text: MyText.goOn,
         //  onTap: () => Go.to(context, Pager.courier_order),
-        //  onTap: () => context.read<CourierCubit>().addCourier(context),
-        onTap: () => Alert.body(context,
-            title: MyText.choosePaypentType,
-            cancelButton: true,
-            buttonText: MyText.goOn,
-            // onTap: () => context
-            //     .read<PackageDetailsCubit>()
-            //     .makePayment(id: package.id!, context: context),
-            image: Image.asset(
-              Assets.linkGirl,
-              width: 100,
-              height: 100,
-            ),
-            content: StreamBuilder(
-              stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
-              builder: (contextK, snapShoot) {
-                return ListView(
-                  padding: Paddings.paddingV12,
-                  shrinkWrap: true,
-                  children: [
-                    buildCaspaRadio(context, snapShoot,
-                        value: MyText.fromBalance),
-                    buildCaspaRadio(context, snapShoot, value: MyText.byCard),
-                    // buildCaspaRadio(context, snapShoot,
-                    //     value: MyText.withPromoCode),
-                  ],
-                );
-              },
-            )),
+        onTap: () => context.read<CourierCubit>().addCourier(context),
+        /////////////////////////////////////
+        // onTap: () => Alert.body(context,
+        //     title: MyText.choosePaypentType,
+        //     cancelButton: true,
+        //     buttonText: MyText.goOn,
+        //     // onTap: () => context
+        //     //     .read<PackageDetailsCubit>()
+        //     //     .makePayment(id: package.id!, context: context),
+        //     image: Image.asset(
+        //       Assets.linkGirl,
+        //       width: 100,
+        //       height: 100,
+        //     ),
+        //     content: StreamBuilder(
+        //       stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
+        //       builder: (contextK, snapShoot) {
+        //         return ListView(
+        //           padding: Paddings.paddingV12,
+        //           shrinkWrap: true,
+        //           children: [
+        //             buildCaspaRadio(context, snapShoot,
+        //                 value: MyText.fromBalance),
+        //             buildCaspaRadio(context, snapShoot, value: MyText.byCard),
+        //             // buildCaspaRadio(context, snapShoot,
+        //             //     value: MyText.withPromoCode),
+        //           ],
+        //         );
+        //       },
+        //     )),
+        /////////////////////////////////////////
       ),
     );
   }

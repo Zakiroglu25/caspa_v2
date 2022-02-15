@@ -7,16 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OrderPriceInfo extends StatelessWidget {
-
-  final String ? deliveryPrice;
-  final int ? statusId;
-
+  final String? deliveryPrice;
+  final int? statusId;
 
   OrderPriceInfo({this.deliveryPrice, this.statusId});
 
   @override
   Widget build(BuildContext context) {
-    return             Container(
+    return Container(
       width: double.maxFinite,
       height: 55,
       child: Row(
@@ -27,21 +25,22 @@ class OrderPriceInfo extends StatelessWidget {
               //color: MyColors.mainRED,
               width: MediaQuery.of(context).size.width / 2,
               child: WidgetOrEmpty(
-                value: statusId==2,
+                value: statusId == 1,
                 child: ProductPropertyV(
                   h: 8,
-                  name: "Çatdırılma xidməti",
-                  value: deliveryPrice,
-                  mainColor:  MyColors.green,
-                ), elseChild: ProductPropertyV(
+                  name: MyText.deliveryPrice,
+                  value: deliveryPrice! + " - " + MyText.paid,
+                  mainColor: MyColors.green,
+                ),
+                elseChild: ProductPropertyV(
                   h: 8,
-                  name: "Çatdırılma xidməti",
-                  value: deliveryPrice! +" - "+ MyText.not_pay,
-                  mainColor:  MyColors.errorRED,
+                  name: MyText.deliveryPrice,
+                  value: deliveryPrice! + " - " + MyText.not_pay,
+                  mainColor: MyColors.errorRED,
                 ),
               )),
           WidgetOrEmpty(
-            value: statusId==1,
+            value: statusId == 0,
             child: Container(
               width: 91.sm,
               height: 40.sm,

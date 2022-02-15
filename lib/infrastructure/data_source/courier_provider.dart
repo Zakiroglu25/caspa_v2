@@ -26,6 +26,7 @@ class CourierProvider {
     final response = await dioAuth.dio.post(api, data: body);
 
     eeee("respopop: ${response.requestOptions.data}");
+    eeee("respopop: ${response.data}");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

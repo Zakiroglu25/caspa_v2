@@ -19,31 +19,43 @@ import 'package:rxdart/rxdart.dart';
 
 class CourierCubit extends Cubit<CourierState> {
   CourierCubit() : super(CourierInProgress()) {
-    selectedOrders.addListener(() {
+    selectedOrdersId.addListener(() {
       isDataValid();
     });
   }
 
   // List<int> selectedOrders = [];
-  ValueNotifier<List<int>> selectedOrders = ValueNotifier<List<int>>([]);
+  ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
+  ValueNotifier<List<Package>> selectedPackages =
+      ValueNotifier<List<Package>>([]);
 
   ///////////////////
 
   addOrderId(int id) {
     id = id;
-    if (selectedOrders.value.contains(id)) {
-      selectedOrders.value.remove(id);
+    if (selectedOrdersId.value.contains(id)) {
+      selectedOrdersId.value.remove(id);
     } else {
-      selectedOrders.value.add(id);
+      selectedOrdersId.value.add(id);
       //  selectedOrders.value.add(4415);
     }
 
     isDataValid();
-    bbbb("selected order list in cubit : ${selectedOrders.value}");
+    bbbb("selected order list in cubit : ${selectedOrdersId.value}");
+  }
+
+  addPackage(Package package) {
+    // id = id;
+    if (selectedPackages.value.contains(package)) {
+      selectedPackages.value.remove(package);
+    } else {
+      selectedPackages.value.add(package);
+      //  selectedOrders.value.add(4415);
+    }
   }
 
   bool isDataValid() {
-    if (selectedOrders.value.length != 0) {
+    if (selectedOrdersId.value.length != 0) {
       emit(CourierContinueButtonActive());
       return false;
     } else
@@ -64,9 +76,16 @@ class CourierCubit extends Cubit<CourierState> {
             phone: AppOperations.formatNumber(phone.valueOrNull!),
             adress: adress.valueOrNull!,
             regionId: (region.valueOrNull!.id)!,
-            packages: selectedOrders.value);
+            packages: selectedOrdersId.value);
         if (isSuccess(result.statusCode)) {
-          Go.to(context, Pager.success());
+          Go.to(
+              context,
+              Pager.courier_order(
+                phone: phone.value,
+                packages: selectedPackages.value,
+                adress: adress.value,
+                price: region.value!.price!,
+              ));
         } else {
           Snack.display(context: context, message: MyText.error);
           emit(CourierOperationFail());

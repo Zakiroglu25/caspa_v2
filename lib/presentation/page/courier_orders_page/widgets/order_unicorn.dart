@@ -32,7 +32,7 @@ class OrderUnicorn extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SectionName(title:title??""),
+        SectionName(title: title ?? ""),
         MySizedBox.h16,
         UnicornOutlineButton(
           strokeWidth: 1.5,
@@ -48,12 +48,15 @@ class OrderUnicorn extends StatelessWidget {
             //width: 200,
             child: Column(
               children: [
-                ProductPropertyV(h: 8, name: "Mağaza", value: sellerName),
-                ProductPropertyV(h: 8, name: "İzləmə kodu", value: trackingCode),
-                ProductPropertyV(h: 8, name: "Qiymət", value: price),
+                ProductPropertyV(
+                    h: 8, name: MyText.shop_name, value: sellerName),
+                ProductPropertyV(
+                    h: 8, name: MyText.tracking_id, value: trackingCode),
+                ProductPropertyV(
+                    h: 8, name: MyText.price, value: "$price ${MyText.tryy}"),
                 OrderPriceInfo(
                   statusId: statusId,
-                  deliveryPrice: '233.44',
+                  deliveryPrice: "$deliveryPrice ${MyText.usd}",
                 ),
               ],
             ),

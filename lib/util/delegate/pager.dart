@@ -100,11 +100,26 @@ class Pager {
             whenSuccess: () {},
           ));
 
-  static get courier_order => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: TarifCubit()..fetch(),
-        )
-      ], child: const CourierOrdersPage());
+  static courier_order({
+    required List<Package> packages,
+    required String phone,
+    required String adress,
+    required String price,
+  }) =>
+      MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: CourierCubit(),
+            ),
+            //BlocProvider(create: (context) => CourierCubit()),
+            BlocProvider(create: (context) => PackageDetailsCubit()),
+          ],
+          child: CourierOrdersPage(
+            phone: phone,
+            packages: packages,
+            adress: adress,
+            price: price,
+          ));
 
   static success({
     bool? showSplash,

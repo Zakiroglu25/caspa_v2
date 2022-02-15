@@ -95,6 +95,7 @@ class MyText {
   //courier
   static const String therIsYourData = "Sizin məlumatlarınız bizdə var 😊";
   static const String deliveryInfo = "Çatdırılma məlumatları";
+  static const String deliveryPrice = "Çatdırılma xidməti";
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
@@ -127,6 +128,7 @@ class MyText {
   static const String recognizeTariffs = "Teriflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
+  static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
 
   //user cabinet
@@ -285,6 +287,7 @@ class MyText {
   static const String all_fields_must_be_filled =
       "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";
+  static const String azn = "AZN";
   static const String tryy = "TRY";
   static const String aa = "AA";
   static const String aze = "AZE";

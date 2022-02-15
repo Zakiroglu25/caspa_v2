@@ -37,7 +37,7 @@ class CourierOrder extends StatefulWidget {
 class _CourierOrderState extends State<CourierOrder> {
   @override
   Widget build(BuildContext context) {
-    final selectedOrders = context.watch<CourierCubit>().selectedOrders.value;
+    final selectedOrders = context.watch<CourierCubit>().selectedOrdersId.value;
     widget.package.customStatus = MyText.stArrived;
     return Stack(
       fit: StackFit.loose,
@@ -46,6 +46,7 @@ class _CourierOrderState extends State<CourierOrder> {
           onTap: () => widget.package.payment == 1
               ? setState(() {
                   context.read<CourierCubit>().addOrderId(widget.package.id!);
+                  context.read<CourierCubit>().addPackage(widget.package);
                 })
               : null,
           child: FadeInUp(

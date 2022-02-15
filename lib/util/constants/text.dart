@@ -232,6 +232,7 @@ class MyText {
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromBalance = "Balansdan";
+  static const String fromCashback = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";

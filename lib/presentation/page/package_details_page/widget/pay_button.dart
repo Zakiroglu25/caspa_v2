@@ -24,7 +24,7 @@ class PayButton extends StatelessWidget {
             buttonText: MyText.goOn,
             onTap: () => context
                 .read<PackageDetailsCubit>()
-                .makePayment(id: package.id!, context: context),
+                .packageMakePayment(id: package.id!, context: context),
             image: Image.asset(
               Assets.linkGirl,
               width: 100,

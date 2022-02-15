@@ -157,7 +157,8 @@ class Pager {
           ));
 
   static get orderViaLinkList => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => OrderViaUrlListCubit()..fetch())
+        BlocProvider(create: (context) => OrderViaUrlListCubit()..fetch()),
+        BlocProvider(create: (context) => PackageDetailsCubit()),
       ], child: const OrderViaLinkListPage());
 
   static get userSettingsPage => MultiBlocProvider(

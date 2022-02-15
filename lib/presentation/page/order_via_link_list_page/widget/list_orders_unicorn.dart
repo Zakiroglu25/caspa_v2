@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/presentation/page/order_via_link_list_page/widget/pay_button.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -68,20 +69,9 @@ class OrderUnicorn extends StatelessWidget {
             MySizedBox.h20,
           ],
         ),
-        Positioned(
-            bottom: 35,
-            right: 15,
-            child: WidgetOrEmpty(
-              value: order.payment == 0,
-              child: SizedBox(
-                height: 40,
-                width: 80,
-                child: CaspaButton(
-                  text: MyText.pay,
-                  textSize: 13,
-                ),
-              ),
-            ))
+        PayButton(
+          order: order,
+        )
       ],
     );
   }

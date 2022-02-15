@@ -21,7 +21,11 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
 
   HiveService get _prefs => locator<HiveService>();
 
-  void makePayment(
+  /////////////////////////////////////////
+  //-------P--A---C---K--A--G---E--------//
+  /////////////////////////////////////////
+
+  void packageMakePayment(
       {bool loading = true,
       required int id,
       required BuildContext context}) async {
@@ -29,15 +33,15 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
       emit(PackageDetailsInProgress());
     }
     if (paymentType.value == MyText.byCard) {
-      payByCard(context, id: id);
+      packagePayByCard(context, id: id);
     } else if (paymentType.value == MyText.fromBalance) {
-      payFromBalance(context, id: id);
+      packagePayFromBalance(context, id: id);
     } else {}
   }
 
-  void payFromBalance(BuildContext context, {required int id}) async {
+  void packagePayFromBalance(BuildContext context, {required int id}) async {
     try {
-      final StatusDynamic result = await PaymentsProvider.payForPackage(id: id);
+      final StatusDynamic result = await PaymentsProvider.packagePay(id: id);
       if (isSuccess(result.statusCode)) {
         emit(PackageDetailsPaid());
       } else {
@@ -53,14 +57,91 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     }
   }
 
-  void payByCard(BuildContext context, {required int id}) async {
+  void packagePayByCard(BuildContext context, {required int id}) async {
     try {
-      final result = await PaymentsProvider.getPaymentUrlForPackage(id: id);
+      final result = await PaymentsProvider.packageGetPaymentUrl(id: id);
       bbbb("hjk: ${result.statusCode}");
       if (isSuccess(result.statusCode)) {
         emit(PackageDetailsUrlFetched(url: result.data));
       } else {
         //Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'payFromBalance');
+    }
+  }
+
+  /////////////////////////////////////////
+  //-------O---R---D----E----R-----------//
+  /////////////////////////////////////////
+
+  void orderMakePayment(
+      {bool loading = true,
+      required int id,
+      required BuildContext context}) async {
+    if (loading) {
+      emit(PackageDetailsInProgress());
+    }
+    if (paymentType.value == MyText.byCard) {
+      orderPayByCard(context, id: id);
+    } else if (paymentType.value == MyText.fromCashback) {
+      orderPayFromCashback(context, id: id);
+    } else if (paymentType.value == MyText.fromBalance) {
+      orderPayFromBalance(context, id: id);
+    } else {}
+  }
+
+  void orderPayFromBalance(BuildContext context, {required int id}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.orderPay(idList: [id]);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'payFromBalance');
+    }
+  }
+
+  void orderPayByCard(BuildContext context, {required int id}) async {
+    try {
+      final result = await PaymentsProvider.orderGetPaymentUrl(idList: [id]);
+      bbbb("hjk: ${result.statusCode}");
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsUrlFetched(url: result.data));
+      } else {
+        //Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'payFromBalance');
+    }
+  }
+
+  void orderPayFromCashback(BuildContext context, {required int id}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.orderPayWithCashback(idList: [id]);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
         emit(PackageDetailsPayError(error: result.data ?? MyText.error));
         // emit(PackageDetailsPaid());
       }

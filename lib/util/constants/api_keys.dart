@@ -82,9 +82,14 @@ class ApiKeys {
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
 
-  //pay
+  //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
+
+  //pay order
+  static const payForOrderBalance = "$baseUrl/user/orders/balance";
+  static const payForOrderCard = "$baseUrl/user/orders/card";
+  static const payForOrderCashback = "$baseUrl/user/orders/cashback";
 
   static loginBody({
     required String? email,

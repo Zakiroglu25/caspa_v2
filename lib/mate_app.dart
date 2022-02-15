@@ -28,7 +28,7 @@ class MateApp extends StatelessWidget {
                   navigatorObservers: [BotToastNavigatorObserver()],
                   // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                   theme: ThemeData(
-                      pageTransitionsTheme: const PageTransitionsTheme(
+                      pageTransitionsTheme: PageTransitionsTheme(
                         builders: <TargetPlatform, PageTransitionsBuilder>{
                           TargetPlatform.android:
                               SharedAxisPageTransitionsBuilder(

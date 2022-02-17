@@ -96,7 +96,7 @@ class OrderViaLinkListPage extends StatelessWidget {
                   if (state is OrderViaUrlListSuccess) {
                     List<LinkOrder> orderList = state.orders.reversed.toList();
                     return OrderListWidget(
-                      orderList: orderList,
+                      orderList: orderList.reversed.toList(),
                     );
                   } else if (state is OrderViaUrlListInProgress) {
                     return CaspaLoading();

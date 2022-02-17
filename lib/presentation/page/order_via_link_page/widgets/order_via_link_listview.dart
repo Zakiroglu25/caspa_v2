@@ -40,11 +40,16 @@ class OrderViaLinkListview extends StatelessWidget {
         CountFieldOrderViaUrl(
           controller: TextEditingController(text: "${order?.qty ?? ''}"),
         ),
-        PriceFieldOrderViaUrl(),
+        PriceFieldOrderViaUrl(
+            controller: TextEditingController(text: "${order?.price ?? ''}")),
         CommissionField(),
         MySizedBox.h16,
-        LocalCargoFieldOrderViaUrl(),
-        NoteFieldOrderViaUrl(),
+        LocalCargoFieldOrderViaUrl(
+          controller: TextEditingController(text: "${order?.cargoPrice ?? ''}"),
+        ),
+        NoteFieldOrderViaUrl(
+          controller: TextEditingController(text: "${order?.note ?? ''}"),
+        ),
         MySizedBox.h16,
         OrderViaLinkContinueButton(order: order),
         MySizedBox.h32,

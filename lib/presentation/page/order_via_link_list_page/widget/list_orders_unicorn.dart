@@ -15,6 +15,7 @@ import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OrderUnicorn extends StatelessWidget {
   final LinkOrder order;
@@ -46,8 +47,13 @@ class OrderUnicorn extends StatelessWidget {
                 //width: 200,
                 child: Column(
                   children: [
-                    ProductPropertyV(
-                        h: 8, name: MyText.link_of_order, value: order.link),
+                    AbsorbPointer(
+                      child: ProductPropertyV(
+                          onTap: () => launch(order.link!),
+                          h: 8,
+                          name: MyText.link_of_order,
+                          value: order.link),
+                    ),
                     ProductPropertyV(
                         h: 8, name: MyText.amount, value: order.qty),
                     ProductPropertyV(

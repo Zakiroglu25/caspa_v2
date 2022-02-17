@@ -28,7 +28,10 @@ class OrderViaLinkPage extends StatelessWidget {
       body: BlocConsumer<OrderViaUrlCubit, OrderViaUrlState>(
         listener: (context, state) {
           if (state is OrderViaUrlSuccess) {
-            Go.replace(context, Pager.payment(price: '0'));
+            Go.pop(context);
+            Alert.show(context,
+                title: MyText.operationIsSuccess,
+                content: MyText.infoOrderViaLink);
           }
           if (state is OrderViaUrlEdited) {
             Go.pop(context);

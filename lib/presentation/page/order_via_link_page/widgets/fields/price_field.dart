@@ -13,6 +13,8 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
   PriceFieldOrderViaUrl({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller!.text != '')
+      BlocProvider.of<OrderViaUrlCubit>(context).updatePrice(controller!.text);
     return SizedBox(
       width: (MediaQuery.of(context).size.width / 1.5) - 10,
       child: StreamBuilder<double>(
@@ -31,7 +33,7 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-            //  controller: controller,
+            controller: controller,
             onChanged: (value) =>
                 BlocProvider.of<OrderViaUrlCubit>(context).updatePrice(value),
           );

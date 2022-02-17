@@ -37,6 +37,8 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
       packagePayByCard(context, id: id);
     } else if (paymentType.value == MyText.fromBalance) {
       packagePayFromBalance(context, id: id);
+    } else if (paymentType.value == MyText.fromCashback) {
+      packagePayFromCashback(context, id: id);
     } else {}
   }
 
@@ -73,6 +75,25 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     } catch (e, s) {
       emit(PackageDetailsPayError(error: MyText.error));
       Recorder.recordCatchError(e, s, where: 'packagePayByCard');
+    }
+  }
+
+  void packagePayFromCashback(BuildContext context, {required int id}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.packagePayWithCashback(id: id);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'packagePayFromCashback');
     }
   }
 

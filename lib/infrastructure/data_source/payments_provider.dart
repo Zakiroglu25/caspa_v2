@@ -78,6 +78,61 @@ class PaymentsProvider {
     return statusDynamic;
   }
 
+  static Future<StatusDynamic> packagePayWithCashback({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackageCashback;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "packagePayWithCashback result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> packagePayWithPromo({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackagePromo;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "packagePayWithPromo result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> packagePayWithPromoCheck(
+      {required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackagePromoCheck;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "packagePayWithPromoCheck result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
   /////////////////////////////////////////
   //-------O---R---D----E----R-----------//
   /////////////////////////////////////////

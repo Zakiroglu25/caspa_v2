@@ -41,6 +41,9 @@ class PayButton extends StatelessWidget {
                     buildCaspaRadio(context, snapShoot,
                         value: MyText.fromBalance),
                     buildCaspaRadio(context, snapShoot, value: MyText.byCard),
+                    buildCaspaRadio(context, snapShoot,
+                        value: MyText.fromCashback),
+                    //bubrada promo olmalidir
                     // buildCaspaRadio(context, snapShoot,
                     //     value: MyText.withPromoCode),
                   ],

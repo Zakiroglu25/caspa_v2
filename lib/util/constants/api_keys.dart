@@ -85,6 +85,11 @@ class ApiKeys {
   //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
+  static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
+  static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
+  //check for promo
+  static const payForPackagePromoCheck =
+      "$baseUrl/user/package/payment/promo/check";
 
   //pay order
   static const payForOrderBalance = "$baseUrl/user/orders/balance";

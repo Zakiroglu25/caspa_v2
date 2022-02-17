@@ -6,6 +6,7 @@ import 'package:caspa_v2/presentation/page/report_page/widgets/field_loading.dar
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -14,7 +15,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoryFields extends StatelessWidget {
-  const CategoryFields({Key? key}) : super(key: key);
+  CategoryFields(
+      {Key? key, this.selectedMainCategoryId, this.selectedSubCategoryId})
+      : super(key: key);
+  int? selectedMainCategoryId;
+  int? selectedSubCategoryId;
 
   @override
   Widget build(BuildContext context) {
@@ -117,6 +122,7 @@ class CategoryFields extends StatelessWidget {
                           onTap: () {
                             BlocProvider.of<ReportCubit>(context)
                                 .updateSelectedCategory(category);
+                            Go.pop(context);
                           },
                           title: category.name,
 //isActive: false,
@@ -168,6 +174,7 @@ class CategoryFields extends StatelessWidget {
                           onTap: () {
                             BlocProvider.of<ReportCubit>(context)
                                 .updateSelectedSubCategory(category);
+                            Go.pop(context);
                           },
                           title: category.name,
 //isActive: false,

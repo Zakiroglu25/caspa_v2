@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -67,6 +68,7 @@ class RegionFieldCourier extends StatelessWidget {
                           onTap: () {
                             BlocProvider.of<CourierCubit>(context)
                                 .updateRegion(currentRegion);
+                            Go.pop(context);
                           },
                           title:
                               ("${currentRegion.name} ${currentRegion.price} AZN"),

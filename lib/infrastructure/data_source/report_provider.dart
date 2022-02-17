@@ -26,7 +26,7 @@ class ReportProvider {
     required String? tracking,
     required double? price,
     required String? currency,
-    required File? invoice,
+    File? invoice,
     required String? token,
     required String? note,
   }) async {
@@ -37,23 +37,29 @@ class ReportProvider {
     final headers = ApiKeys.header(token: token);
 
     FormData? data;
-    data = FormData.fromMap({
-      "invoice": await MultipartFile.fromFile(
-        invoice!.path,
-        filename: "invoice.png",
-      ),
-      "store": seller,
-      "qty": qty,
-      "id": id,
-      "category": category,
-      "tracking": tracking,
-      "price": price,
-      "currency": currency,
-      "note": note
-    });
 
-    ;
+    if (invoice == null) {
+    } else {
+      data = FormData.fromMap({
+        "invoice": await MultipartFile.fromFile(
+          invoice.path,
+          filename: "invoice.png",
+        ),
+        "store": seller,
+        "qty": qty,
+        "id": id,
+        "category": category,
+        "tracking": tracking,
+        "price": price,
+        "currency": currency,
+        "note": note
+      });
+    }
 
+    // await MultipartFile.fromFile(
+    //   invoice!.path,
+    //   filename: "invoice.png",
+    // )
     Dio dio = new Dio(BaseOptions(headers: headers));
     final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());

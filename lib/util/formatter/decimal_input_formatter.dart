@@ -3,7 +3,7 @@ import 'dart:math' as math;
 
 class DecimalTextInputFormatter extends TextInputFormatter {
   DecimalTextInputFormatter(
-      {required this.decimalRange, required this.activatedNegativeValues})
+      {this.decimalRange = 3, this.activatedNegativeValues = false})
       : assert(decimalRange == null || decimalRange >= 0,
             'DecimalTextInputFormatter declaretion error');
 

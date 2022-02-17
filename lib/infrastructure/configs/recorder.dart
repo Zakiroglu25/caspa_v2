@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
@@ -38,8 +39,9 @@ class Recorder {
         fatal: false);
   }
 
-  static void recordCatchError(Object e, StackTrace s) async {
+  static void recordCatchError(Object e, StackTrace s, {String? where}) async {
     // crashlytics.setCustomKey('title', jsonEncode({'hello':"salma","qaqa":13}));
+    eeee("$where error: $e=>$s");
     await FirebaseCrashlytics.instance.recordError("Error cathed: ", s,
         reason: e.toString(),
         // Pass in 'fatal' argumen

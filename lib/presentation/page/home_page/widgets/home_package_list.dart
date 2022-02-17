@@ -2,10 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/widget/elements/package_box.dart';
 import 'package:caspa_v2/widget/elements/package_box_home.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
@@ -27,8 +25,7 @@ class HomePackageList extends StatelessWidget {
           if (state is PackagesInProgress) {
             return Container(height: 116.sm, child: CaspaLoading.blue());
           } else if (state is PackagesSuccess) {
-            final List<Package>? packageList =
-                state.packageList!.reversed.toList();
+            final List<Package>? packageList = state.packageList!.toList();
             // packageList!.clear();
 
             return ListOrEmpty(

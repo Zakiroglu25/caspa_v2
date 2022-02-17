@@ -5,12 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../util/formatter/decimal_input_formatter.dart';
+
 class PriceFieldOrderViaUrl extends StatelessWidget {
   final TextEditingController? controller;
 
   PriceFieldOrderViaUrl({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller!.text != '')
+      BlocProvider.of<OrderViaUrlCubit>(context).updatePrice(controller!.text);
     return SizedBox(
       width: (MediaQuery.of(context).size.width / 1.5) - 10,
       child: StreamBuilder<double>(
@@ -24,11 +28,12 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
             suffixText: MyText.tryy + "   ",
             textInputType: const TextInputType.numberWithOptions(signed: true),
             formatters: [
-             // WhitelistingTextInputFormatter.digitsOnly,
+              // WhitelistingTextInputFormatter.digitsOnly,
+              DecimalTextInputFormatter()
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-            //  controller: controller,
+            controller: controller,
             onChanged: (value) =>
                 BlocProvider.of<OrderViaUrlCubit>(context).updatePrice(value),
           );

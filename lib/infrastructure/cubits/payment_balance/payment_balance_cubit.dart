@@ -16,10 +16,10 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
-import 'payment_state.dart';
+import 'payment_balance_state.dart';
 
-class PaymentCubit extends Cubit<PaymentState> {
-  PaymentCubit() : super(PaymentInitial());
+class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
+  PaymentBalanceCubit() : super(PaymentBalanceInitial());
 
   HiveService get _prefs => locator<HiveService>();
 
@@ -29,26 +29,26 @@ class PaymentCubit extends Cubit<PaymentState> {
     try {
       if (isUserInfoValid()) {
         if (loading) {
-          emit(PaymentInProgress());
+          emit(PaymentBalanceInProgress());
         }
 
         final result = await PaymentsProvider.getPaymentUrl(
             amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
-        bbbb("hjk: ${result.statusCode}");
         if (isSuccess(result.statusCode)) {
-          emit(PaymentUrlFetched(url: result.data));
+          emit(PaymentBalanceUrlFetched(url: result.data));
         } else {
-          emit(PaymentError(error: MyText.error + " ${result.statusCode}"));
+          emit(PaymentBalanceError(
+              error: MyText.error + " ${result.statusCode}"));
         }
       } else {
-        emit(PaymentError(error: MyText.all_fields_must_be_filled));
+        emit(PaymentBalanceError(error: MyText.all_fields_must_be_filled));
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(PaymentError(error: MyText.network_error));
+      emit(PaymentBalanceError(error: MyText.network_error));
     } catch (e, s) {
       eeee("getPaymentUrl cubit $e=>$s");
-      emit(PaymentError());
+      emit(PaymentBalanceError());
     }
   }
 
@@ -57,24 +57,20 @@ class PaymentCubit extends Cubit<PaymentState> {
     bool loading = true,
   }) async {
     if (loading) {
-      emit(PaymentInProgress());
+      emit(PaymentBalanceInProgress());
     }
     try {
       await UserOperations.configUserDataWhenOpenApp(
           accessToken: _prefs.accessToken, fcm: _prefs.fcmToken);
-      //_prefs.user.cargoBalance = "3.55";
-
-      // Go.pop(context);
-      emit(PaymentSuccess());
-      // Go.pop(context);
+      emit(PaymentBalanceSuccess());
       Snack.positive(context: context, message: MyText.operationIsSuccess);
       Go.pop(context);
     } on SocketException catch (_) {
       //network olacaq
-      emit(PaymentError(error: MyText.network_error));
+      emit(PaymentBalanceError(error: MyText.network_error));
     } catch (e, s) {
       eeee("paymentSuccess cubit $e=>$s");
-      emit(PaymentError());
+      emit(PaymentBalanceError());
     }
   }
 

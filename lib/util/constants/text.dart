@@ -7,6 +7,12 @@ class MyText {
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
 
+  ///order via link
+  static const String littleOrderViaLink =
+      "Hüquqlarınızı başqasına həvalə edin littleOrderViaLink📑";
+  static const String infoOrderViaLink =
+      "Sifarişlərinizin təsdiqlənməsi üçün ödəniş etməyi unutmayın :) 💵";
+
   //login
   static const String log_in = "Daxil ol";
   static const String login = "Giriş";
@@ -55,6 +61,7 @@ class MyText {
   static const String you_can_not_recovery_it_again =
       "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
+  static const String choosePaypentType = "Ödəniş növünü seçin :";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
   static const String phone_number = "Telefon nömrəsi";
@@ -88,6 +95,7 @@ class MyText {
   //courier
   static const String therIsYourData = "Sizin məlumatlarınız bizdə var 😊";
   static const String deliveryInfo = "Çatdırılma məlumatları";
+  static const String deliveryPrice = "Çatdırılma xidməti";
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
@@ -96,6 +104,8 @@ class MyText {
   static const String youMustHaveMakepayment =
       "Bu bağlamanı kuryer  ilə sifariş edə bilmək üçün, əvvəlcə xaricdən çatdırılma ödənişini tamamlamalısınız.";
   static const String youHaveNotPay = "Ödəniş olunmayıb!";
+  static const String waitinPaymentForConfirm = "Təsdiq üçün ödəniş gözlənilir";
+  static const String paid = "Ödənilib";
 
   //new order
   static const String weBuyForYou =
@@ -105,6 +115,7 @@ class MyText {
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareItX = "Bəyan et 📦";
   static const String declareIt = "Bəyan et";
+  static const String declareItCustom = "Gömrüyə bəyan et";
   static const String editIt = "Düzəliş et";
   static const String new_order = "Yeni sifariş";
 
@@ -117,6 +128,7 @@ class MyText {
   static const String recognizeTariffs = "Teriflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
+  static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
 
   //user cabinet
@@ -127,6 +139,8 @@ class MyText {
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay ərzində";
   static const String countOfOrders = "Bağalama sayı";
+  static const String orders = "Sifarişlər";
+  static const String order = "Sifariş";
 
   //user settings
   static const String main = "Əsas";
@@ -151,6 +165,20 @@ class MyText {
   static const String fin = "FİN kod";
   static const String skip = "Keç";
   static const String gender = "Cinsiyyət";
+
+  //statuses:
+  static const stOrdered = 'Sifariş verilib';
+  static const stWarehouse = 'Anbardadır';
+  static const stReported = 'Bəyan';
+  static const stSennded = 'Göndərilib';
+  static const stCustom = 'Gömrükdə';
+  static const stSorting = 'Çeşidlənir';
+  static const stArrived = 'Çatıb';
+  static const stGave = 'Təhvil verilib';
+  static const stGaveByCourier = 'Kuryer ilə Təhvil';
+
+  //upex
+  static const upex = 'upex';
 
   //orders
   static const String packagesWillDeliverToYou =
@@ -205,16 +233,19 @@ class MyText {
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
-  static const String fromMyBalance = "Balansımdan";
+  static const String fromBalance = "Balansdan";
+  static const String fromCashback = "Cashback ilə";
+  static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
+  static const String withPromoCode = "Promokod ilə";
   static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
-  static const String Commission = "Komissiya";
+  static const String commission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
   static const String exit = "Çıxış";
   static const String tapForExit = "Çıxış etmək üçün toxunun";
@@ -257,6 +288,7 @@ class MyText {
   static const String all_fields_must_be_filled =
       "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";
+  static const String azn = "AZN";
   static const String tryy = "TRY";
   static const String aa = "AA";
   static const String aze = "AZE";

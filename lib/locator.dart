@@ -8,6 +8,8 @@ import 'infrastructure/configs/dio_general.dart';
 import 'infrastructure/services/config_service.dart';
 import 'infrastructure/services/hive_service.dart';
 
+DioG get dioG => locator<DioG>();
+
 final _navigatorKey = GlobalKey<NavigatorState>();
 final ctx = _navigatorKey.currentContext;
 final locator = GetIt.I;

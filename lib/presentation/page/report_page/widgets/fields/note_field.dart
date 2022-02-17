@@ -13,7 +13,8 @@ class NoteFieldReport extends StatelessWidget {
       : super(key: key); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ReportCubit>(context).updateNote(controller!.text);
+    if (controller!.text != '')
+      BlocProvider.of<ReportCubit>(context).updateNote(controller!.text);
     return StreamBuilder<String>(
       stream: BlocProvider.of<ReportCubit>(context).noteStream,
       builder: (context, snapshot) {

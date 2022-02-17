@@ -24,6 +24,7 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         centerTitle: true,
+        contextA: context,
         title: '',
         //MyText.contact,
         user: false,

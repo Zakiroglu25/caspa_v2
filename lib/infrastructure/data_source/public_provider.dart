@@ -21,6 +21,8 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
+import '../../locator.dart';
+
 class PublicProvider {
   static Future<StatusDynamic> getRegions() async {
     StatusDynamic statusDynamic = StatusDynamic();

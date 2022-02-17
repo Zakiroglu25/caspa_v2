@@ -16,7 +16,7 @@ Future<void> init() async {
   // await Firebase.initializeApp();
 
   await Firebase.initializeApp();
-  await requestPermission();
+  //await requestPermission();
   await Hive.initFlutter();
   await setupLocator();
 

@@ -16,13 +16,23 @@ class CourierableFetched extends CourierState {
   CourierableFetched({required this.packageList, required this.regionList});
 }
 
+//error emeliyyatdan evvelki xetalar ucun
 class CourierError extends CourierState {
   String? error;
 
   CourierError({this.error});
 }
 
+//operation fail emeliyyat zamani olacag xetalar ucun
 class CourierOperationFail extends CourierState {}
+
+class CourierConfigured extends CourierState {}
+
+class CourierAdded extends CourierState {
+  int courierId;
+
+  CourierAdded(this.courierId);
+}
 
 class CourierContinueButtonActive extends CourierState {}
 

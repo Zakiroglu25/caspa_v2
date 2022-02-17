@@ -1,12 +1,6 @@
-import 'package:caspa_v2/infrastructure/cubits/payment/payment_cubit.dart';
-import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/delegate/pager.dart';
-import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 // class WebviewPage extends StatelessWidget {
@@ -30,12 +24,16 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'dart:collection';
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class WebviewPage extends StatefulWidget {
   String url;
+  Function whenSuccess;
   BuildContext mainContext;
-  WebviewPage({Key? key, required this.url, required this.mainContext})
+  WebviewPage(
+      {Key? key,
+      required this.url,
+      required this.mainContext,
+      required this.whenSuccess})
       : super(key: key);
   @override
   _WebviewPageState createState() => new _WebviewPageState();
@@ -127,10 +125,10 @@ class _WebviewPageState extends State<WebviewPage> {
       webViewController.goBack();
       return Future.value(true);
     } else {
-      Scaffold.of(context).showSnackBar(
-        const SnackBar(content: Text("No back history item")),
-      );
-      return Future.value(false);
+      // Scaffold.of(context).showSnackBar(
+      //   const SnackBar(content: Text("No back history item")),
+      // );
+      return Future.value(true);
     }
   }
 
@@ -208,9 +206,7 @@ class _WebviewPageState extends State<WebviewPage> {
                     //  webViewController.
                     eeee("url containe");
 
-                    context
-                        .read<PaymentCubit>()
-                        .paymentSuccess(widget.mainContext);
+                    widget.whenSuccess.call();
                   }
 
                   return NavigationActionPolicy.ALLOW;

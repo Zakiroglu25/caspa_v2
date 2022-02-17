@@ -26,13 +26,14 @@ class CourierProvider {
     final response = await dioAuth.dio.post(api, data: body);
 
     eeee("respopop: ${response.requestOptions.data}");
+    eeee("respopop: ${response.data}");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      PackagesData package = PackagesData.fromJson(gelenCavabJson);
-      statusDynamic.data = package.data;
+      //   PackagesData package = PackagesData.fromJson(gelenCavabJson);
+      statusDynamic.data = response.data;
     } else {
-      eeee("fetchPackagesForCourier bad url :$api,response: ${response}");
+      eeee("addCourier bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

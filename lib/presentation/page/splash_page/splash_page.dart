@@ -10,24 +10,14 @@ import 'widgets/caspa_az_text.dart';
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StatefulWrapper(
-      onInit: () {
-        // Timer(
-        //     const Duration(seconds: 3),
-        //     () =>
-        //         Go.replace(context,  Pager.onBoard));
-      },
-      child: Scaffold(
-        backgroundColor: MyColors.mainColor,
-        body: Container(
-          width: double.maxFinite,
-          height: double.maxFinite,
-          child: Stack(
-
-            alignment: Alignment.center,
-            children: [CaspaLogoWithName(), CaspaAzText()],
-
-          ),
+    return Scaffold(
+      backgroundColor: MyColors.mainColor,
+      body: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [CaspaLogoWithName(), CaspaAzText()],
         ),
       ),
     );

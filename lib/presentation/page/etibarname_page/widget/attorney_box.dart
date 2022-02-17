@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';

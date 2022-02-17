@@ -6,9 +6,12 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
 
@@ -34,13 +37,16 @@ class CourierOrder extends StatefulWidget {
 class _CourierOrderState extends State<CourierOrder> {
   @override
   Widget build(BuildContext context) {
-    final selectedOrders = context.watch<CourierCubit>().selectedOrders.value;
+    final selectedOrders = context.watch<CourierCubit>().selectedOrdersId.value;
+    widget.package.customStatus = MyText.stArrived;
     return Stack(
+      fit: StackFit.loose,
       children: [
         GestureDetector(
           onTap: () => widget.package.payment == 1
               ? setState(() {
                   context.read<CourierCubit>().addOrderId(widget.package.id!);
+                  context.read<CourierCubit>().addPackage(widget.package);
                 })
               : null,
           child: FadeInUp(
@@ -98,9 +104,15 @@ class _CourierOrderState extends State<CourierOrder> {
                     size: 80,
                   ),
                   title: MyText.youHaveNotPay,
-                  secondButton: CaspaTextButton(
+                  secondButton: CaspaButton(
                     text: MyText.pay,
-                    onTap: () => bbbb("a"),
+                    color: MyColors.grey245,
+                    textColor: MyColors.black,
+                    onTap: () {
+                      Go.pop(context);
+                      return Go.to(context,
+                          Pager.packageDetails(package: widget.package));
+                    },
                   ),
                   content: MyText.youMustHaveMakepayment),
               child: Container(

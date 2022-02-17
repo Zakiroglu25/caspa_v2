@@ -12,8 +12,6 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
-DioG get dioG => locator<DioG>();
-
 class TarifProvider {
   static HiveService get _prefs => locator<HiveService>();
 

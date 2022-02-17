@@ -14,6 +14,8 @@ import 'package:flutter/foundation.dart';
 // Package imports:
 import 'package:http/http.dart' as http;
 
+import '../../locator.dart';
+
 class AuthProvider {
   static Future<StatusDynamic> login({
     required String? password,

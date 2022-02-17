@@ -32,8 +32,19 @@ class LinkOrder {
   String? date;
   int? qty;
   int? payment;
+  String? price;
+  String? cargoPrice;
+  String? note;
 
-  LinkOrder({this.id, this.link, this.date, this.qty, this.payment});
+  LinkOrder(
+      {this.id,
+      this.link,
+      this.date,
+      this.qty,
+      this.payment,
+      this.price,
+      this.cargoPrice,
+      this.note});
 
   LinkOrder.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -41,6 +52,9 @@ class LinkOrder {
     date = json['date'];
     qty = json['qty'];
     payment = json['payment'];
+    price = json['price'];
+    cargoPrice = json['cargo_price'];
+    note = json['note'];
   }
 
   Map<String, dynamic> toJson() {
@@ -50,11 +64,14 @@ class LinkOrder {
     data['date'] = this.date;
     data['qty'] = this.qty;
     data['payment'] = this.payment;
+    data['price'] = this.price;
+    data['cargo_price'] = this.cargoPrice;
+    data['note'] = this.note;
     return data;
   }
 
   @override
   String toString() {
-    return 'LinkOrder{id: $id, link: $link, date: $date, qty: $qty, payment: $payment}';
+    return 'LinkOrder{id: $id, link: $link, date: $date, qty: $qty, payment: $payment, price: $price, cargoPrice: $cargoPrice, note: $note}';
   }
 }

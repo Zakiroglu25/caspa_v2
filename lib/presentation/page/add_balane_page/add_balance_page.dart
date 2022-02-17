@@ -29,61 +29,63 @@ class AddBalancePage extends StatelessWidget {
         user: false,
         notification: false,
       ),
-      body: BlocConsumer<PaymentBalanceCubit, PaymentBalanceState>(
-        listener: (context, state) {
-          if (state is PaymentBalanceUrlFetched) {
-            FullScreenLoading.hide(context);
-          }
-          if (state is PaymentBalanceSuccess) {
-            FullScreenLoading.hide(context);
-            //Go.pop(context);
-          }
+      body: SafeArea(
+        child: BlocConsumer<PaymentBalanceCubit, PaymentBalanceState>(
+          listener: (context, state) {
+            if (state is PaymentBalanceUrlFetched) {
+              FullScreenLoading.hide(context);
+            }
+            if (state is PaymentBalanceSuccess) {
+              FullScreenLoading.hide(context);
+              //Go.pop(context);
+            }
 
-          if (state is PaymentBalanceInProgress) {
-            FullScreenLoading.display(context);
-          }
-        },
-        builder: (context, state) {
-          if (state is PaymentBalanceUrlFetched) {
-            return WebviewPage(
-              url: state.url,
-              mainContext: context,
-              whenSuccess: () =>
-                  context.read<PaymentBalanceCubit>().paymentSuccess(context),
-            );
-          } else {
-            return Stack(
-              children: [
-                ListView(
-                  padding: Paddings.paddingH16,
-                  children: [
-                    Text(
-                      MyText.balanceIncrease,
-                      style: UITextStyle.tW400BigBlack,
-                    ),
-                    MySizedBox.h32,
-                    AmountField(
-                      paymentBalance: paymentBalance,
-                      // controller: controller,
-                    ),
-                  ],
-                ),
-                Positioned(
-                  child: CaspaButton(
-                    text: MyText.addBalance,
-                    onTap: () => context
-                        .read<PaymentBalanceCubit>()
-                        .getPaymentUrl(context,
-                            paymentBalanceType: paymentBalance),
+            if (state is PaymentBalanceInProgress) {
+              FullScreenLoading.display(context);
+            }
+          },
+          builder: (context, state) {
+            if (state is PaymentBalanceUrlFetched) {
+              return WebviewPage(
+                url: state.url,
+                mainContext: context,
+                whenSuccess: () =>
+                    context.read<PaymentBalanceCubit>().paymentSuccess(context),
+              );
+            } else {
+              return Stack(
+                children: [
+                  ListView(
+                    padding: Paddings.paddingH16,
+                    children: [
+                      Text(
+                        MyText.balanceIncrease,
+                        style: UITextStyle.tW400BigBlack,
+                      ),
+                      MySizedBox.h32,
+                      AmountField(
+                        paymentBalance: paymentBalance,
+                        // controller: controller,
+                      ),
+                    ],
                   ),
-                  bottom: 20,
-                  left: 16,
-                  right: 16,
-                )
-              ],
-            );
-          }
-        },
+                  Positioned(
+                    child: CaspaButton(
+                      text: MyText.addBalance,
+                      onTap: () => context
+                          .read<PaymentBalanceCubit>()
+                          .getPaymentUrl(context,
+                              paymentBalanceType: paymentBalance),
+                    ),
+                    bottom: 20,
+                    left: 16,
+                    right: 16,
+                  )
+                ],
+              );
+            }
+          },
+        ),
       ),
     );
   }

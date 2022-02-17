@@ -66,30 +66,55 @@ class CourierCubit extends Cubit<CourierState> {
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
 
-  void addCourier(BuildContext context, {bool loading = true}) async {
+  Future<int?> addCourier(BuildContext context,
+      {bool loading = true,
+      required List<Package> packages,
+      required String phone,
+      required String adress,
+      required Region region}) async {
+    try {
+      if (loading) {
+        emit(CourierInProgressButton());
+      }
+      final result = await CourierProvider.addCourier(
+          phone: AppOperations.formatNumber(phone),
+          adress: adress,
+          regionId: region.id!,
+          packages: packages.map((e) => e.id!).toList());
+      if (isSuccess(result.statusCode)) {
+        int courierId = result.data['message'];
+        emit(CourierAdded(courierId));
+        return courierId;
+      } else {
+        Snack.display(context: context, message: MyText.error);
+        emit(CourierOperationFail());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(CourierOperationFail());
+    } catch (e, s) {
+      eeee("addCourier catch: $e => $s");
+      emit(CourierOperationFail());
+    }
+  }
+
+  void configureCourier(BuildContext context, {bool loading = true}) async {
     try {
       if (isUserDataValid()) {
         if (loading) {
           emit(CourierInProgressButton());
         }
-        final result = await CourierProvider.addCourier(
-            phone: AppOperations.formatNumber(phone.valueOrNull!),
-            adress: adress.valueOrNull!,
-            regionId: (region.valueOrNull!.id)!,
-            packages: selectedOrdersId.value);
-        if (isSuccess(result.statusCode)) {
-          Go.to(
-              context,
-              Pager.courier_order(
-                phone: phone.value,
-                packages: selectedPackages.value,
-                adress: adress.value,
-                price: region.value!.price!,
-              ));
-        } else {
-          Snack.display(context: context, message: MyText.error);
-          emit(CourierOperationFail());
-        }
+        ;
+        Go.to(
+            context,
+            Pager.courier_order(
+              phone: phone.value,
+              packages: selectedPackages.value,
+              adress: adress.value,
+              price: region.value!.price!,
+              region: region.value!,
+            ));
+        emit(CourierConfigured());
       } else {
         Snack.display(
             context: context, message: MyText.all_fields_must_be_filled);

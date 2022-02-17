@@ -24,7 +24,7 @@ class CourierContinueButton extends StatelessWidget {
             (context.watch<CourierCubit>().selectedOrdersId.value.isNotEmpty),
         text: MyText.goOn,
         //  onTap: () => Go.to(context, Pager.courier_order),
-        onTap: () => context.read<CourierCubit>().addCourier(context),
+        onTap: () => context.read<CourierCubit>().configureCourier(context),
         /////////////////////////////////////
         // onTap: () => Alert.body(context,
         //     title: MyText.choosePaypentType,

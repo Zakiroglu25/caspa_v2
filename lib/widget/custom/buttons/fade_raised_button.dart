@@ -3,13 +3,13 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 
-
 class FadeRaisedButton extends StatelessWidget {
   final Function? onTap;
   final String? title;
   final Widget? child;
+  final bool? loading;
 
-  FadeRaisedButton({this.onTap, this.title, this.child});
+  FadeRaisedButton({this.onTap, this.title, this.child, this.loading});
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +49,9 @@ class FadeRaisedButton extends StatelessWidget {
             left: 0,
             right: 0,
             child: Padding(
-              padding: const EdgeInsets.only(
-                  top: 55, bottom: 20),
+              padding: const EdgeInsets.only(top: 55, bottom: 20),
               child: CaspaButton(
-
+                loading: loading ?? false,
                 textColor: Colors.white,
                 onTap: onTap,
                 text: title,

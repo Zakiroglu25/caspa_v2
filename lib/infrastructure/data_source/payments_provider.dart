@@ -136,4 +136,61 @@ class PaymentsProvider {
     }
     return statusDynamic;
   }
+
+  /////////////////////////////////////////
+  //-----C---O---U---R---I---E----R------//
+  /////////////////////////////////////////
+
+  static Future<StatusDynamic> courierPay({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForCourierBalance;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee("courierPay result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> courierGetPaymentUrl({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForCourierCard;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      GeneralResponse data = GeneralResponse.fromJson(response.data);
+      statusDynamic.data = data.data;
+    } else {
+      eeee(
+          "courierGetPaymentUrl  result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> courierPayWithCashback({required int id}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForCourierCashback;
+    var url = Uri.parse(api);
+    final body = {"id": id};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "courierPayWithCashback result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
 }

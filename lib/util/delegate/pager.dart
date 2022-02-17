@@ -67,6 +67,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/models/remote/response/regions_model.dart';
 
 class Pager {
   static get home => MultiBlocProvider(providers: [
@@ -105,6 +106,7 @@ class Pager {
     required String phone,
     required String adress,
     required String price,
+    required Region region,
   }) =>
       MultiBlocProvider(
           providers: [
@@ -115,11 +117,11 @@ class Pager {
             BlocProvider(create: (context) => PackageDetailsCubit()),
           ],
           child: CourierOrdersPage(
-            phone: phone,
-            packages: packages,
-            adress: adress,
-            price: price,
-          ));
+              phone: phone,
+              packages: packages,
+              adress: adress,
+              price: price,
+              region: region));
 
   static success({
     bool? showSplash,

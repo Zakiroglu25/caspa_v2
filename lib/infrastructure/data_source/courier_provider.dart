@@ -30,10 +30,10 @@ class CourierProvider {
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      PackagesData package = PackagesData.fromJson(gelenCavabJson);
-      statusDynamic.data = package.data;
+      //   PackagesData package = PackagesData.fromJson(gelenCavabJson);
+      statusDynamic.data = response.data;
     } else {
-      eeee("fetchPackagesForCourier bad url :$api,response: ${response}");
+      eeee("addCourier bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

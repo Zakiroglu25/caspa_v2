@@ -28,6 +28,8 @@ class CourierPage extends StatelessWidget {
           buildWhen: (context, state) {
             if (state is CourierContinueButtonActive ||
                 state is CourierInProgressButton ||
+                state is CourierConfigured ||
+                state is CourierAdded ||
                 state is CourierContinueButtonPassive ||
                 state is CourierOperationFail) {
               return false;

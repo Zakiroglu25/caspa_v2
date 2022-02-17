@@ -91,6 +91,11 @@ class ApiKeys {
   static const payForOrderCard = "$baseUrl/user/orders/card";
   static const payForOrderCashback = "$baseUrl/user/orders/cashback";
 
+  //pay courier
+  static const payForCourierBalance = "$baseUrl/user/courier/balance";
+  static const payForCourierCard = "$baseUrl/user/courier/card";
+  static const payForCourierCashback = "$baseUrl/user/courier/cashback";
+
   static loginBody({
     required String? email,
     required String? password,

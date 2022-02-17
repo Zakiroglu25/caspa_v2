@@ -5,10 +5,15 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../util/enums/payment_balance.dart';
+
 class AmountField extends StatelessWidget {
   final TextEditingController? controller;
+  final PaymentBalanceType paymentBalance;
 
-  AmountField({this.controller}); //= new TextEditingController();
+  AmountField(
+      {this.controller,
+      required this.paymentBalance}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<double>(
@@ -19,6 +24,9 @@ class AmountField extends StatelessWidget {
           maxLines: 1,
           hint: MyText.amountmoney,
           upperCase: true,
+          suffixText: paymentBalance == PaymentBalanceType.order
+              ? (MyText.tryy + "   ")
+              : (MyText.usd + "   "),
           textInputType: const TextInputType.numberWithOptions(
               signed: false, decimal: true),
           formatters: [

@@ -244,7 +244,7 @@ class MyText {
   static const String i_will_pay_later = "Sonra ödəyəcəyəm";
   static const String pcs = "Ədəd";
   static const String addProduct = "Məhsulları əlavə edin";
-  static const String Commission = "Komissiya";
+  static const String commission = "Komissiya";
   static const String productNumber = "Məhsulun sayı";
   static const String exit = "Çıxış";
   static const String tapForExit = "Çıxış etmək üçün toxunun";

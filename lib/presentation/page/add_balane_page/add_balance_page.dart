@@ -20,9 +20,6 @@ class AddBalancePage extends StatelessWidget {
   PaymentBalanceType paymentBalance;
 
   AddBalancePage({required this.paymentBalance});
-
-  late TextEditingController? controller;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,8 +63,9 @@ class AddBalancePage extends StatelessWidget {
                     ),
                     MySizedBox.h32,
                     AmountField(
-                        // controller: controller,
-                        ),
+                      paymentBalance: paymentBalance,
+                      // controller: controller,
+                    ),
                   ],
                 ),
                 Positioned(

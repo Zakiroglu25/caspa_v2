@@ -12,7 +12,7 @@ class ResultCalculate extends StatelessWidget {
     return Row(
       children: [
         Text(
-          "\$" + " " + "$result",
+          "\$" + " " + "$result"  ,
           style: AppTextStyles.coHead400.copyWith(fontSize: 25.sp),
         ),
       ],

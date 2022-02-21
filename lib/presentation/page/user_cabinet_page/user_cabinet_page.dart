@@ -56,7 +56,7 @@ class UserCabinetPage extends StatelessWidget {
                         MySizedBox.w20,
                         Text(
                           MyText.settings,
-                          style: AppTextStyles.sanF400
+                          style: AppTextStyles.sanF500
                               .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
@@ -70,7 +70,7 @@ class UserCabinetPage extends StatelessWidget {
                         MySizedBox.w20,
                         Text(
                           MyText.logout,
-                          style: AppTextStyles.sanF400
+                          style: AppTextStyles.sanF500
                               .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
@@ -83,7 +83,7 @@ class UserCabinetPage extends StatelessWidget {
                 cancelButton: CupertinoActionSheetAction(
                   child: Text(
                     MyText.cancel,
-                    style: AppTextStyles.sanF400
+                    style: AppTextStyles.sanF500
                         .copyWith(color: Colors.black, fontSize: 16.sp),
                   ),
                   isDefaultAction: true,

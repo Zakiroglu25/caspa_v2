@@ -49,6 +49,8 @@ class ApiKeys {
 
   //get tarif
   static const tariff = "$baseUrl/public/prices";
+  //get ads
+  static const ads = "$baseUrl/public/ads";
 
   //get category
   static const categories = "$baseUrl/public/categories";

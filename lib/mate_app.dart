@@ -41,6 +41,7 @@ class MateApp extends StatelessWidget {
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
+                    ScreenUtil.setContext(context);
                     BotToastInit().call(context, widget);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget!);

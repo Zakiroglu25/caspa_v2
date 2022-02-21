@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -37,12 +38,10 @@ class HomeHeader extends StatelessWidget {
             child: Image.asset(Assets.homeDino2),
           ),
           MySizedBox.h16,
-          Text("Çatdırılmanı bizdən edin", style: AppTextStyles.coHead600),
+          Text("Çatdırılmanı bizdən edin", style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
           MySizedBox.h16,
-          Text(
-            MyText.homePageText,
-            style: AppTextStyles.sanF400,
-          ),
+          Text(MyText.homePageText,
+              style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
           MySizedBox.h14,
           CaspaButton(
             w: 156,

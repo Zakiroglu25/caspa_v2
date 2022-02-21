@@ -48,4 +48,20 @@ class GeneralProvider {
     }
     return statusDynamic;
   }
+  static Future<StatusDynamic?> ads() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.ads;
+    var url = Uri.parse(api);
+
+    final response = await http.get(url, headers: ApiKeys.headers);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = jsonDecode(response.body);
+      GeneralResponse data = GeneralResponse.fromJson(gelenCavabJson);
+      statusDynamic.data = data.data;
+    } else {
+      eeee("fetchCommission bad url :$url,response: ${response}");
+    }
+    return statusDynamic;
+  }
 }

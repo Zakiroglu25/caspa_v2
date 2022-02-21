@@ -16,7 +16,7 @@ class OtherShopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () =>Go.to(context, Pager.shops),
+      onTap: () => Go.to(context, Pager.shops),
       child: Container(
         padding: Paddings.paddingA20,
         decoration: BoxDecoration(
@@ -33,7 +33,7 @@ class OtherShopWidget extends StatelessWidget {
                 children: [
                   Text(
                     MyText.shops,
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
+                    style: AppTextStyles.sanF600.copyWith(fontSize: 17.sm),
                   ),
                   MySizedBox.h6,
                   Container(
@@ -42,8 +42,8 @@ class OtherShopWidget extends StatelessWidget {
                     child: Text(
                       MyText.otherShop,
                       textAlign: TextAlign.start,
-                      style:
-                          AppTextStyles.sanF400Grey.copyWith(fontSize: 12.sm),
+                      style: AppTextStyles.sanF400Grey.copyWith(
+                          fontSize: 13.sm, height: 1.3, letterSpacing: 0.2),
                     ),
                   ),
                 ],

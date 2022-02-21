@@ -32,45 +32,44 @@ class HomePage extends StatelessWidget {
       appBar: CaspaAppbar(
         // title: "d",
         ///bunlar null gelir
-        title: _prefs.user.name! + " " + _prefs.user.surname!,
+        title:"",
       ),
-      body: SafeArea(
-        child: ListView(
-          shrinkWrap: true,
-          padding: Paddings.paddingB12 + Paddings.paddingT14,
-          children: [
-            HomeHeader(),
-            MySizedBox.h24,
-            SectionName(
-              title: "Yeniliklər və xəbərləri izləyin",
-              hP: 20,
+      body: ListView(
+        shrinkWrap: true,
+        padding: Paddings.paddingB12 + Paddings.paddingT14,
+        children: [
+          HomeHeader(),
+          MySizedBox.h24,
+          SectionName(
+            title: "Yeniliklər və xəbərləri izləyin",
+            hP: 20,
+          ),
+          MySizedBox.h16,
+          NewsListWidget(
+            hList: [],
+          ),
+          MySizedBox.h24,
+          SectionName(
+            title: MyText.recognizeTariffs,
+            hP: 20,
+            tile: MoreButton(
+              onTap: () => Go.to(context, Pager.tarifDetails),
             ),
-            MySizedBox.h16,
-            NewsListWidget(
-              hList: [],
-            ),
-            MySizedBox.h24,
-            SectionName(
-              title: MyText.recognizeTariffs,
-              hP: 20,
-              tile: MoreButton(
-                onTap: () => Go.to(context, Pager.tarifDetails),
-              ),
-            ),
-            MySizedBox.h16,
-            Tariffs(),
-            MySizedBox.h24,
-            SectionName(
-              title: MyText.myPackages,
-              hP: 20,
-            ),
-            MySizedBox.h24,
-            BlocProvider(
-              create: (context) => PackageCubit()..fetch(),
-              child: HomePackageList(),
-            ),
-          ],
-        ),
+          ),
+          MySizedBox.h16,
+          Tariffs(),
+          MySizedBox.h24,
+          SectionName(
+            title: MyText.myPackages,
+            hP: 20,
+          ),
+          MySizedBox.h24,
+          BlocProvider(
+            create: (context) => PackageCubit()..fetch(),
+            child: HomePackageList(),
+          ),
+          MySizedBox.h110
+        ],
       ),
     );
   }

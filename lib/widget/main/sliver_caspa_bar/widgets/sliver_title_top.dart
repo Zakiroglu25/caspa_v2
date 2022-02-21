@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SliverTitleTop extends StatelessWidget {
   final String? title;
@@ -16,7 +17,8 @@ class SliverTitleTop extends StatelessWidget {
         child: Text(title!,
             softWrap: true,
             textAlign: TextAlign.center,
-            style: AppTextStyles.sanF400.copyWith(color: Colors.black)),
+            style: AppTextStyles.sanF600.copyWith(
+                color: Colors.black, fontSize: 17.sp, letterSpacing: 0.3)),
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/widget/elements/package_box.dart';
 import 'package:caspa_v2/widget/elements/package_box_home.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
@@ -23,7 +24,7 @@ class HomePackageList extends StatelessWidget {
       child: BlocBuilder<PackageCubit, PackageState>(
         builder: (context, state) {
           if (state is PackagesInProgress) {
-            return Container(height: 116.sm, child: CaspaLoading.blue());
+            return Container(height: 150.sm, child: CaspaLoading.blue());
           } else if (state is PackagesSuccess) {
             final List<Package>? packageList = state.packageList!.toList();
             // packageList!.clear();
@@ -32,7 +33,7 @@ class HomePackageList extends StatelessWidget {
                 list: packageList,
                 child: FadeIn(
                   child: SizedBox(
-                    height: 116.sm,
+                    height: 150.sm,
                     // width: 284,
                     child: ListView.separated(
                       padding: Paddings.paddingH20,
@@ -46,9 +47,9 @@ class HomePackageList extends StatelessWidget {
                       ),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return PackageBoxHome(
-                          packageList[index],
-                          w: 284.sp,
+                        return PackageBox(
+                          package :packageList[index],
+                          w: 150,
                         );
                       },
                     ),

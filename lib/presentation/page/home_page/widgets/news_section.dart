@@ -20,6 +20,7 @@ class AdsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     isVertical ??= false;
 
+
     return Container(
       width: (isVertical!) ? null :284.sp,
       padding: isVertical! ? Paddings.paddingA20 :const EdgeInsets.only(left: 20.0),

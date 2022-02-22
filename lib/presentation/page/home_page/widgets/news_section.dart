@@ -16,6 +16,7 @@ class AdsCard extends StatelessWidget {
   bool? isVertical;
   AdsCard({this.desc,this.w,this.isVertical});
 
+
   @override
   Widget build(BuildContext context) {
     isVertical ??= false;

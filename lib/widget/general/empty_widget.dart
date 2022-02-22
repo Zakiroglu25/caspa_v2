@@ -42,7 +42,15 @@ class EmptyWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppTextStyles.coHead400
                 .copyWith(fontSize: 25.sp, color: MyColors.black126),
-          )
+          ),
+          MySizedBox.h16,
+          Padding(
+            padding: const EdgeInsets.only(left: 30.0, right: 30),
+            child: Text(MyText.emptyDesc,
+                textAlign: TextAlign.center,
+                style: AppTextStyles.sanF400.copyWith(
+                    color: MyColors.grey153, letterSpacing: 0.3, height: 1.3)),
+          ),
         ],
       ),
     );

@@ -13,9 +13,14 @@ class Plus994 extends StatelessWidget {
         height: 10,
         padding: EdgeInsets.only(left: 10),
         child: Center(
-            child: Text(
-              "+994",
-              style: AppTextStyles.coHead400.copyWith(color: MyColors.black,fontSize: 16),
-            )));
+          child: Text(
+
+            "+994",
+            textAlign: TextAlign.center,
+            style: AppTextStyles.sanF500
+                .copyWith(fontSize: 16, color: MyColors.black,height: 0.9),),
+        ),
+
+    );
   }
 }

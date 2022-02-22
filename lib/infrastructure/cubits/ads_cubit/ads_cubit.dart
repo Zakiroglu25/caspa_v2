@@ -17,8 +17,7 @@ class AdsCubit extends Cubit<AdsState> {
       emit(AdsInProgress());
     }
     try {
-      final result = await GeneralProvider.fetchShops();
-
+      final result = await GeneralProvider.ads();
       if (isSuccess(result?.statusCode)) {
         emit(AdsSuccess(result?.data));
       } else {

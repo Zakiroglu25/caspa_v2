@@ -222,7 +222,7 @@ class MyText {
 
   //stores
   static const String stores = "Mağazalar";
-  static const String no_result = "Heç bir nəticə tapılmadı.";
+  static const String no_result = "Heç bir nəticə tapılmadı";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
   static const String sure_all_fields_correct_contact_us =
       "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
@@ -328,6 +328,10 @@ class MyText {
   /// esas sehife text
   static const String homePageText =
       "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
+
+  ///otherpage
+  static const String emptyDesc =
+      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək 😎";
 
   ///kuryer page
   static const String kuryerTxt =

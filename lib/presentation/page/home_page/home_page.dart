@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
       appBar: CaspaAppbar(
         // title: "d",
         ///bunlar null gelir
-        title:"",
+        title: "",
       ),
       body: ListView(
         shrinkWrap: true,
@@ -45,12 +45,11 @@ class HomePage extends StatelessWidget {
             hP: 20,
           ),
           MySizedBox.h16,
-          NewsListWidget(
-            hList: [],
-          ),
+          Ads(),
           MySizedBox.h24,
           SectionName(
             title: MyText.recognizeTariffs,
+            vP: 2,
             hP: 20,
             tile: MoreButton(
               onTap: () => Go.to(context, Pager.tarifDetails),

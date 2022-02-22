@@ -64,7 +64,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
               child: Text(
                 title!,
                 overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.sanF500.copyWith(fontSize: 16.sp),
+                style: AppTextStyles.sanF600.copyWith(fontSize: 17.sp,color: MyColors.black),
               ),
             ),
             rightButtonsRow(context),

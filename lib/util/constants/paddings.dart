@@ -43,6 +43,7 @@ class Paddings {
 
   //vertical
   static const EdgeInsets paddingV4 = EdgeInsets.symmetric(vertical: 4);
+  static const EdgeInsets paddingV5 = EdgeInsets.symmetric(vertical: 5);
   static const EdgeInsets paddingV8 = EdgeInsets.symmetric(vertical: 8);
   static const EdgeInsets paddingV12 = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets paddingV14 = EdgeInsets.symmetric(vertical: 14);

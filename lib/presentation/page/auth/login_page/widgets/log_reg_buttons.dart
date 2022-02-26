@@ -32,7 +32,7 @@ class LogRegButtons extends StatelessWidget {
   Widget loginButton(BuildContext context) {
     return CaspaButton(
       onTap: () {
-        context.read<LoginCubit>().testLogin(context);
+        context.read<LoginCubit>().login(context);
       },
       text: MyText.log_in,
       loading:

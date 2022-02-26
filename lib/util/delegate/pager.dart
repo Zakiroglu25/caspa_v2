@@ -67,7 +67,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 
 class Pager {
   static get home => MultiBlocProvider(providers: [
@@ -151,6 +153,11 @@ class Pager {
         BlocProvider(create: (context) => LoginCubit()),
         // BlocProvider(create: (context) => AuthenticationCubit())
       ], child: const LoginPage());
+
+  static get smsCodes => MultiBlocProvider(providers: [
+        BlocProvider(create: (context) => SmsCodesCubit()..start()),
+        // BlocProvider(create: (context) => AuthenticationCubit())
+      ], child: const SmsCodesPage());
 
   static get register => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => RegisterCubit())],

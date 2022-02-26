@@ -54,7 +54,7 @@ class MateApp extends StatelessWidget {
                       // Pager.payment_balance
                       Builder(
                     builder: (ctx) {
-                      return Pager.app();
+                      return Pager.smsCodes;
                     },
                   )),
             ));

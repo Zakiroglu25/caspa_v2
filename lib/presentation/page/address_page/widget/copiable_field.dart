@@ -61,7 +61,11 @@ class CopiableField extends StatelessWidget {
                     ),
                   ),
                   MySizedBox.w10,
-                  CopyButton(data,color: MyColors.mainColor,)                ],
+                  CopyButton(
+                    data,
+                    color: MyColors.mainColor,
+                  )
+                ],
               ),
               decoration: BoxDecoration(
                   color: MyColors.mainGrey,

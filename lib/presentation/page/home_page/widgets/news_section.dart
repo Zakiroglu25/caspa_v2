@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/screen/errorable_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,14 +28,15 @@ class AdsCard extends StatelessWidget {
       children: [
         Container(
           width: 200.sp,
+          height: 100.sp,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: MyColors.mainGrey),
           child: SizedBox(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                url!,
+              child: ErrorableImage(
+                url: url!,
                 fit: BoxFit.fill,
               ),
             ),

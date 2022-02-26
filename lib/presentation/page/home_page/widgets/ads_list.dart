@@ -32,20 +32,24 @@ class AdsWidget extends StatelessWidget {
     isVertical ??= false;
     return FadeIn(
       child: SizedBox(
-        height: 130.sp,
+        height: 120.sp,
         child: ListView.separated(
           separatorBuilder: (context, index) {
-            return  MySizedBox.w10;
+            return MySizedBox.w10;
           },
           shrinkWrap: true,
           itemCount: hList!.length,
-          scrollDirection:Axis.horizontal,
+          scrollDirection: Axis.horizontal,
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
             Data ads = hList![index];
             return InkWell(
-              onTap: (){
-                Go.to(context, AdsDetailsPage(hList: hList![index],));
+              onTap: () {
+                Go.to(
+                    context,
+                    AdsDetailsPage(
+                      hList: hList![index],
+                    ));
               },
               child: AdsCard(
                 desc: ads.title,

@@ -103,7 +103,7 @@ class OtherPage extends StatelessWidget {
                   title: MyText.trendyolSms,
                   content: MyText.forEditAppSettings,
                   color: MyColors.shop,
-                  onTap: () => Go.to(context, Pager.trendyolOtp),
+                  onTap: () => Go.to(context, Pager.smsCodes),
                 ),
                 MenuBox(
                   w: boxW,

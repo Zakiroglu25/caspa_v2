@@ -309,6 +309,12 @@ class MyText {
   //static const String note = "İzləmə kodu";
   static const String link_of_order = 'Məhsulun linki';
 
+  //trendyol sms
+  static const String trendyolSMS = 'Trendyol SMS';
+  static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
+  static const String trendyolSMSHowToWorkText =
+      'Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz';
+
   //calculate
   static const String kg_text = 'Çəkiyə görə';
   static const String capacity_text = 'Həcmə görə';

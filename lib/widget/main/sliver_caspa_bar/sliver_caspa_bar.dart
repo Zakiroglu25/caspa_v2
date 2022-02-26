@@ -129,6 +129,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                           widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
+                      //indicatorSize: TabBarIndicatorSize(),
                       isScrollable: widget.isScrollable ?? false,
                     ),
                   ),

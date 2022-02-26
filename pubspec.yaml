@@ -56,9 +56,9 @@ dependencies:
   firebase_core: ^1.12.0
   awesome_notifications: any
   bot_toast: ^4.0.1
-  #flutter_local_notifications: any
+  flutter_local_notifications: ^9.3.2
   #flutter_local_notificzations: ^9.1.0
-  cloud_firestore: ^3.1.7
+  cloud_firestore: ^3.1.10
 
 
   image_picker: ^0.8.4+6

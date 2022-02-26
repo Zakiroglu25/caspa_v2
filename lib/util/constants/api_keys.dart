@@ -51,6 +51,8 @@ class ApiKeys {
 
   //get tarif
   static const tariff = "$baseUrl/public/prices";
+  //get ads
+  static const ads = "$baseUrl/public/ads";
 
   //get category
   static const categories = "$baseUrl/public/categories";
@@ -81,6 +83,8 @@ class ApiKeys {
   //payment_balance
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
+  //calculate kg
+  static const calculateKg = "$baseUrl/public/calculator";
 
   //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";

@@ -1,12 +1,14 @@
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/contact_model.dart';
+import 'package:caspa_v2/presentation/page/map_page/map_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -39,6 +41,11 @@ class ContactPage extends StatelessWidget {
               return ListView(
                 padding: Paddings.paddingH16,
                 children: [
+                  Text(
+                    "Müştəri xidmətinə müraciyyət edin",
+                    style: UITextStyle.tW400BigBlack,
+                  ),
+                  MySizedBox.h32,
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
@@ -70,6 +77,14 @@ class ContactPage extends StatelessWidget {
                     content: MyText.hot_contact,
                     path: Assets.svgContact,
                     onTap: () => StringOperations.launchCaller(MyText.c1453),
+                  ),
+                  MySizedBox.h16,
+                  SocialItem(
+                    name: "Xəritədən bax",
+                    path: Assets.svgLocation,
+                    onTap: () {
+                      Go.to(context, MapPage());
+                    },
                   ),
                 ],
               );

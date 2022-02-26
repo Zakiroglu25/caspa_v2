@@ -1,6 +1,8 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:developer';
 
+import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/commission_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
@@ -42,6 +44,22 @@ class GeneralProvider {
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = jsonDecode(response.body);
       GeneralResponse data = GeneralResponse.fromJson(gelenCavabJson);
+      statusDynamic.data = data.data;
+    } else {
+      eeee("fetchCommission bad url :$url,response: ${response}");
+    }
+    return statusDynamic;
+  }
+  static Future<StatusDynamic?> ads() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.ads;
+    var url = Uri.parse(api);
+    final response = await http.get(url, headers: ApiKeys.headers);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = jsonDecode(response.body);
+      AdsModel data = AdsModel.fromJson(gelenCavabJson);
+
       statusDynamic.data = data.data;
     } else {
       eeee("fetchCommission bad url :$url,response: ${response}");

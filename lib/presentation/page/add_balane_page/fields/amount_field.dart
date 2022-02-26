@@ -35,7 +35,7 @@ class AmountField extends StatelessWidget {
           ],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
+           // controller: controller,
           onChanged: (value) =>
               BlocProvider.of<PaymentBalanceCubit>(context).updatePrice(value),
         );

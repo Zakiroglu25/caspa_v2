@@ -36,67 +36,58 @@ class PackageBox extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         style: AppTextStyles.sanF400
             .copyWith(fontSize: 14.sp, color: MyColors.black),
-        child: FadeInUp(
-          duration: index != null
-              ? Duration(milliseconds: AppOperations.getTime(index))
-              : Duration(milliseconds: 800),
-          child: Container(
-            width: w,
+        child: Container(
+          width: w,
 
-            decoration: BoxDecoration(
-                color: AppOperations.colorWithId(package.id!),
-                borderRadius: BorderRadius.circular(12)),
-            child: Padding(
-              padding: EdgeInsets.all(20.sp),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  SvgPicture.asset(Assets.svgShop),
-                  Text(
-                    package.store!,
-                    style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        MyText.price + ": ",
-                        style: AppTextStyles.sanF400
-                            .copyWith(fontSize: 12.sp, color: MyColors.grey153),
-                      ),
-
-                      Text(package.price ?? '')
-
-                    ],
-                  ),
-                  Wrap(
-                    children: [
-
-                      const Text(MyText.tracking_id + ": ",
-                          style: TextStyle(color: MyColors.grey153)),
-                      Text("${package.tracking ?? ''}")
-
-                    ],
-                  ),
-                  Wrap(
-                    children: [
-                      Text(
-                        MyText.status + ": ",
-                        style: AppTextStyles.sanF400
-                            .copyWith(fontSize: 12.sp, color: MyColors.grey153),
-                      ),
-                      Text(
-                        package.status!,
-                        maxLines: 3,
-                        style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+          decoration: BoxDecoration(
+              color: AppOperations.colorWithId(package.id!),
+              borderRadius: BorderRadius.circular(12)),
+          child: Padding(
+            padding: EdgeInsets.all(20.sp),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SvgPicture.asset(Assets.svgShop),
+                Text(
+                  package.store!,
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      MyText.price + ": ",
+                      style: AppTextStyles.sanF400
+                          .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+                    ),
+                    Text(package.price ?? '')
+                  ],
+                ),
+                Wrap(
+                  children: [
+                    const Text(MyText.tracking_id + ": ",
+                        style: TextStyle(color: MyColors.grey153)),
+                    Text("${package.tracking ?? ''}")
+                  ],
+                ),
+                Wrap(
+                  children: [
+                    Text(
+                      MyText.status + ": ",
+                      style: AppTextStyles.sanF400
+                          .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+                    ),
+                    Text(
+                      package.status!,
+                      maxLines: 3,
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
+                    ),
+                  ],
+                )
+              ],
             ),
-            //width: 80,
           ),
+          //width: 80,
         ),
       ),
     );

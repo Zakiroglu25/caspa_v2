@@ -1,80 +1,37 @@
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/screen/ink_wrapper.dart';
-import 'package:caspa_v2/widget/elements/news_card.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/ads_list.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/tarif_list_widget.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
+import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NewsListWidget extends StatelessWidget {
-  const NewsListWidget({
-    Key? key,
-    required this.hList,
-  }) : super(key: key);
-
-  final List<NewsModel> hList;
-
+class Ads extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    List<NewsModel> hList = [
-      NewsModel(
-        Image.asset("assets/png/news1.pg"),
-        "Catdirilma",
-      ),
-      NewsModel(
-        Image.asset(Assets.news1),
-        "3 gün ərzində çatdırılma",
-      ),
-      NewsModel(
-        Image.asset(Assets.news2),
-        "Sürətli küryer xidmətləri",
-      ),
-      NewsModel(
-        Image.asset(Assets.news3),
-        "Catdirilma",
-      ),
-      NewsModel(
-        Image.asset(Assets.news1),
-        "3 gün ərzində çatdırılma",
-      ),
-      NewsModel(
-        Image.asset(Assets.news2),
-        "Sürətli küryer xidmətləri",
-      ),
-    ];
-
-    return Container(
-        height: 94,
-        //width: 94,
-        child: ListView.separated(
-          padding: Paddings.paddingH20,
-          separatorBuilder: (context, index) {
-            return MySizedBox.w12;
-          },
-          itemCount: hList.length,
-          physics: AlwaysScrollableScrollPhysics(
-            parent: BouncingScrollPhysics(),
-          ),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return NewsCard(
-              url:
-                  'https://image.freepik.com/free-photo/arrangement-black-friday-clock-with-copy-space_23-2148665530.jpg',
-              newsText:
-                  'titile new new news campaigncampaign campaign campaign',
-              image:
-                  'https://image.freepik.com/free-photo/arrangement-black-friday-clock-with-copy-space_23-2148665530.jpg',
-            );
-          },
-        ));
+    return BlocBuilder<AdsCubit, AdsState>(
+      builder: (context, state) {
+        if (state is AdsSuccess) {
+          List<Data>? adsList = state.adsList;
+          return AdsWidget(
+            hList:adsList
+          );
+        } else if (state is TarifInProgress) {
+          return CaspaLoading(s: 92.sp,);
+        } else if (state is TarifNetworkError) {
+          return CaspaLoading(s: 92.sp,);
+        } else {
+          return EmptyWidget();
+        }
+      },
+    );
   }
-}
-
-class NewsModel {
-  Image image;
-  String? newsText;
-
-  NewsModel(
-    this.image,
-    this.newsText,
-  );
 }

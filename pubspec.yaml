@@ -30,7 +30,7 @@ dependencies:
   get_it: ^7.2.0
   animate_do: ^2.1.0
   flutter_screenutil: ^5.0.1
-  google_fonts: ^2.3.1
+  google_fonts:
   flutter_svg:
   cupertino_icons: ^1.0.4
   focus_detector: ^2.0.1
@@ -56,7 +56,7 @@ dependencies:
   firebase_core: ^1.12.0
   awesome_notifications: any
   bot_toast: ^4.0.1
-  #flutter_local_notifications: any
+  flutter_local_notifications: ^9.3.2
   #flutter_local_notificzations: ^9.1.0
   cloud_firestore: ^3.1.10
 
@@ -65,7 +65,7 @@ dependencies:
   #geolocator: ^7.7.1
   permission_handler: ^8.3.0
 
-  sentry_flutter: ^6.2.2
+#  sentry_flutter: ^6.2.2
   logging: ^1.0.2
   firebase_crashlytics: ^2.5.0
 
@@ -79,7 +79,11 @@ dependencies:
   #webiew
   webview_flutter: ^3.0.0
   flutter_inappwebview: ^5.3.2
-
+  #maps
+  google_maps_flutter: ^2.1.1
+  flutter_polyline_points: ^1.0.0
+  geolocator: ^8.0.3
+  location: ^4.3.0
 
 
 

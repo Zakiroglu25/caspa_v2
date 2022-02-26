@@ -82,8 +82,8 @@ class CaspaButton extends StatelessWidget {
                                 ? (textColor ?? Colors.white)
                                 : (passiveButtonColor ??
                                     MyColors.greyPassiveContentWhite),
-                            fontSize: textSize ?? 18,
-                            fontWeight: fontWeight ?? FontWeight.w400),
+                            fontSize: textSize ?? 16,
+                            fontWeight: fontWeight ?? FontWeight.w500),
                       )),
             ),
           ),

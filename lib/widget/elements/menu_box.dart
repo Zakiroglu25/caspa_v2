@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -26,12 +25,12 @@ class MenuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final boxW=(MediaQuery.of(context).size.width/2)-24;
+    final boxW = (MediaQuery.of(context).size.width / 2) - 24;
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: Container(
         width: w ?? boxW,
-        height: h ?? 140.sp,
+        height: h ?? 155.sp,
         decoration: BoxDecoration(
             color: color ?? MyColors.mainColor,
             borderRadius: BorderRadius.circular(12)),
@@ -41,12 +40,15 @@ class MenuBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title!,
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm)),
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 17.sm)),
               MySizedBox.h4,
               Text(
                 content!,
-                style: AppTextStyles.sanF400
-                    .copyWith(fontSize: 12.sm, color: MyColors.grey153),
+                style: AppTextStyles.sanF400.copyWith(
+                    fontSize: 12.sm,
+                    color: MyColors.grey153,
+                    height: 1.3,
+                    letterSpacing: 0.2),
               )
             ],
           ),

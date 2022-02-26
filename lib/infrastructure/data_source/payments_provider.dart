@@ -18,7 +18,7 @@ class PaymentsProvider {
 
   static Future<StatusDynamic> getPaymentUrl(
       {required double? amount,
-      required PaymentBalanceType paymentBalanceType}) async {
+        required PaymentBalanceType paymentBalanceType}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = paymentBalanceType == PaymentBalanceType.order
         ? ApiKeys.paymentOrder

@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
@@ -13,9 +15,11 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
+import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -52,8 +56,8 @@ class UserCabinetPage extends StatelessWidget {
                         MySizedBox.w20,
                         Text(
                           MyText.settings,
-                          style: AppTextStyles.sanF400
-                              .copyWith(color: Colors.black, fontSize: 17.sp),
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
                     ),
@@ -66,8 +70,8 @@ class UserCabinetPage extends StatelessWidget {
                         MySizedBox.w20,
                         Text(
                           MyText.logout,
-                          style: AppTextStyles.sanF400
-                              .copyWith(color: Colors.black, fontSize: 17.sp),
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
                       ],
                     ),
@@ -79,7 +83,7 @@ class UserCabinetPage extends StatelessWidget {
                 cancelButton: CupertinoActionSheetAction(
                   child: Text(
                     MyText.cancel,
-                    style: AppTextStyles.sanF400
+                    style: AppTextStyles.sanF500
                         .copyWith(color: Colors.black, fontSize: 16.sp),
                   ),
                   isDefaultAction: true,
@@ -153,6 +157,19 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.balanceCountPackage,
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
+                    ),
+                  ],
+                ),
+                MySizedBox.h16,
+
+                Row(
+                  children: [
+                    BalansMiniBox(
+                      title: MyText.cashbackProfile,
+                      content: "₼ ${_prefs.user.cashback_balance}",
+                      color: MyColors.etibarname,
+                      priceColor: MyColors.mainColor,
+                      icon: const Icon(null),
                     ),
                   ],
                 ),

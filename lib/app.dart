@@ -34,12 +34,13 @@ class App extends StatelessWidget {
       if (state is AuthenticationUninitialized) {
         return Pager.login;
       } else if (state is AuthenticationOnboarding) {
+
         return Pager.onBoard;
       } else if (state is AuthenticationAuthenticated) {
         return Pager.landing;
       } else {
         return Pager.login;
-        ;
+
       }
     });
   }

@@ -13,6 +13,7 @@ class MyUser {
   String? avatar;
   String? address;
   String? balance;
+  num? cashback_balance;
   String? cargoBalance;
   City? city;
   int? business;
@@ -22,29 +23,29 @@ class MyUser {
   String? monthly;
   int? packages_count;
 
-  MyUser(
-      {this.id,
-        this.username,
-        this.name,
-        this.surname,
-        this.fullName,
-        this.email,
-        this.phone,
-        this.idNumber,
-        this.fin,
-        this.birthday,
-        this.gender,
-        this.avatar,
-        this.address,
-        this.balance,
-        this.cargoBalance,
-        this.city,
-        this.business,
-        this.wareHouse,
-        this.taxNumber,
-        this.monthly,
-        this.packages_count,
-        this.companyName});
+  MyUser({this.id,
+    this.cashback_balance,
+    this.username,
+    this.name,
+    this.surname,
+    this.fullName,
+    this.email,
+    this.phone,
+    this.idNumber,
+    this.fin,
+    this.birthday,
+    this.gender,
+    this.avatar,
+    this.address,
+    this.balance,
+    this.cargoBalance,
+    this.city,
+    this.business,
+    this.wareHouse,
+    this.taxNumber,
+    this.monthly,
+    this.packages_count,
+    this.companyName});
 
   MyUser.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -61,6 +62,7 @@ class MyUser {
     avatar = json['avatar'];
     address = json['address'];
     balance = json['balance'];
+    cashback_balance = json['cashback_balance'];
     packages_count = json['packages_count'];
     monthly = json['monthly'];
     cargoBalance = json['cargoBalance'];
@@ -80,6 +82,7 @@ class MyUser {
     data['name'] = this.name;
     data['surname'] = this.surname;
     data['fullName'] = this.fullName;
+    data['cashback_balance'] = this.cashback_balance;
     data['email'] = this.email;
     data['phone'] = this.phone;
     data['id_number'] = this.idNumber;
@@ -106,7 +109,7 @@ class MyUser {
 
   @override
   String toString() {
-    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName, monthly: $monthly, packages_count: $packages_count}';
+    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cashback_balance: $cashback_balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName, monthly: $monthly, packages_count: $packages_count}';
   }
 }
 

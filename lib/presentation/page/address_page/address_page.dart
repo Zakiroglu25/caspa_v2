@@ -22,7 +22,7 @@ class AdressPage extends StatelessWidget {
             return ListOrEmpty(
                 list: adressList,
                 child: SliverCaspaBar(
-                  appbarHeight: 265,
+                  appbarHeight: 1,
                   tabs: tabs(adressList),
                   tabPages: tabPages(adressList),
                   title: MyText.adresses,
@@ -49,6 +49,7 @@ class AdressPage extends StatelessWidget {
         .map((adress) => Tab(
               text: adress.name,
               height: 60,
+
             ))
         .toList();
   }

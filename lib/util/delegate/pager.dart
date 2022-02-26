@@ -2,6 +2,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
@@ -59,6 +60,7 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/trendyol_otp_page/trendyol_otp_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
@@ -67,12 +69,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
+import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/calculate_page/calculate_page.dart';
 
 class Pager {
   static get home => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: TarifCubit()..fetch(),
+        ),
+        BlocProvider.value(
+          value: AdsCubit()..fetch(),
         )
       ], child: HomePage());
 
@@ -250,6 +258,8 @@ class Pager {
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: const SettingsPage());
 
+  static get trendyolOtp => const TrendyolOtpPage();
+
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
       ], child: const UserCabinetPage());
@@ -265,6 +275,11 @@ class Pager {
           create: (context) => ShopCubit()..fetch(),
         )
       ], child: const ShopPage());
+
+  static get calculate => MultiBlocProvider(providers: [
+        BlocProvider(create: (context) => CalculateKgCubit()),
+        BlocProvider(create: (context) => CalculateCapacityCubit())
+      ], child: CalculatePage());
 
   // static get app => App();
 

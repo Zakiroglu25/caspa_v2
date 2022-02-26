@@ -70,15 +70,13 @@ class ColorfullBackImage extends StatelessWidget {
           ),
         ),
         // MySizedBox.h16,
-        Container(
-          child: WidgetOrEmpty(
-              value: (infoTitle != null || infoContent != null),
-              child: ColorfullyBackImageInfo(
-                infoTitle: infoTitle,
-                maxLines: titleMaxLines,
-                infoContent: infoContent,
-              )),
-        ),
+        WidgetOrEmpty(
+            value: (infoTitle != null || infoContent != null),
+            child: ColorfullyBackImageInfo(
+              infoTitle: infoTitle,
+              maxLines: titleMaxLines,
+              infoContent: infoContent,
+            )),
       ],
     );
   }

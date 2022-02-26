@@ -47,7 +47,7 @@ class BalansMiniBox extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(title!,
-                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp)),
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 13.sp)),
                   icon,
                 ],
               ),

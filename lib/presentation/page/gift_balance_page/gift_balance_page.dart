@@ -29,7 +29,7 @@ class GiftBalancePage extends StatelessWidget {
             ColorfullBackImage(
               path: Assets.pngPosTerminal,
               infoTitle: MyText.littleGift,
-              infoContent: MyText.InfoGift,
+              infoContent: MyText.infoGift,
             ),
             MySizedBox.h16,
             GiftCodeField(),

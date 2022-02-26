@@ -47,9 +47,7 @@ class HomePage extends StatelessWidget {
               hP: 20,
             ),
             MySizedBox.h16,
-            NewsListWidget(
-              hList: [],
-            ),
+            Ads(),
             MySizedBox.h24,
             SectionName(
               title: MyText.recognizeTariffs,

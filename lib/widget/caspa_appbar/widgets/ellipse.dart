@@ -13,7 +13,7 @@ class Ellipse extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(20)),
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(3.0),
           child: SvgPicture.asset(
             'assets/svg/ellipse.svg',
             color: MyColors.mainColor,

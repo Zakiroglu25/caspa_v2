@@ -25,7 +25,7 @@ class Assets {
   static const String news3 = "assets/png/news3.png";
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
-  static const String shopMobile = "assets/png/shopmobile.png";
+  static const String shopMobile = "assets/png/shopMobile.png";
 
   //--svg
   static const String svgCaspaLogoWithName =

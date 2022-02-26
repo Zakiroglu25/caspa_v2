@@ -11,7 +11,7 @@ class NotificationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>Go.to(context, Pager.notifications),
+      onTap: () => Go.to(context, Pager.notifications),
       child: Container(
         color: Colors.transparent,
         width: 43,
@@ -20,9 +20,13 @@ class NotificationWidget extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            SvgPicture.asset(
-              'assets/svg/bell.svg',
-              color: MyColors.black,
+            SizedBox(
+              width: 24,
+              height: 24,
+              child: SvgPicture.asset(
+                'assets/svg/bell.svg',
+                color: MyColors.black,
+              ),
             ),
             Ellipse()
             // BlocBuilder<HeaderCubit, HeaderState>(

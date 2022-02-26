@@ -37,14 +37,14 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.promoCodeX,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.promocodeContent,
                   color: MyColors.promokodColor,
                   onTap: () => Go.to(context, Pager.promoCode),
                 ),
                 MenuBox(
                   w: boxW,
                   title: MyText.giftBalanceX,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.infoGift,
                   color: MyColors.partnyoColor,
                   onTap: () {
                     Go.to(context, Pager.giftBalance);
@@ -61,7 +61,7 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.attorneyX,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.attorneyContent,
                   color: MyColors.etibarname,
                   onTap: () => Go.to(context, Pager.attorney),
                 ),
@@ -90,19 +90,30 @@ class OtherPage extends StatelessWidget {
                   title: MyText.calculate,
                   content: MyText.forEditAppSettings,
                   color: MyColors.promokodColor,
-                  onTap: () => Go.to(context, CalculatePage()),
+                  onTap: () => Go.to(context, Pager.calculate),
                 ),
               ],
             ),
             MySizedBox.h16,
-            MenuBox(
-              h: 140,
-              w: double.maxFinite,
-              title: MyText.settingsX,
-              content: MyText.forEditAppSettings,
-              color: MyColors.grey245,
-              onTap: () => Go.to(context, Pager.settings),
-            )
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MenuBox(
+                  w: boxW,
+                  title: MyText.trendyolSms,
+                  content: MyText.forEditAppSettings,
+                  color: MyColors.shop,
+                  onTap: () => Go.to(context, Pager.trendyolOtp),
+                ),
+                MenuBox(
+                  w: boxW,
+                  title: MyText.settingsX,
+                  content: MyText.forEditAppSettings,
+                  color: MyColors.grey245,
+                  onTap: () => Go.to(context, Pager.settings),
+                ),
+              ],
+            ),
           ],
         ));
   }

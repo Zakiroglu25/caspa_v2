@@ -266,7 +266,7 @@ class Pager {
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: const SettingsPage());
 
-  static get trendyolOtp => const TrendyolOtpPage();
+//  static get trendyolOtp => const TrendyolOtpPage();
 
   static get userCabinet => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),

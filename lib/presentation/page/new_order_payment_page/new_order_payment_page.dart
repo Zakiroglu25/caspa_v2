@@ -12,6 +12,10 @@ import 'package:caspa_v2/widget/general/section_name_and_definition.dart';
 import 'package:flutter/material.dart';
 
 class PaymentPage extends StatelessWidget {
+  final String price;
+
+  PaymentPage({required this.price});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,7 @@ class PaymentPage extends StatelessWidget {
           MySizedBox.h40,
           PaymentTypesListView(),
           CaspaButton(
-            text: "Davam et " + "545" + "TRY",
+            text: MyText.goOn + " ${price}" + "",
             onTap: () {
               Go.to(context, SuccessPage());
             },

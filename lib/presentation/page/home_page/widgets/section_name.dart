@@ -10,8 +10,15 @@ class SectionName extends StatelessWidget {
   double? vP;
   double? size;
   Widget? tile;
+  int? maxLines;
 
-  SectionName({required this.title, this.vP, this.hP, this.size, this.tile});
+  SectionName(
+      {required this.title,
+      this.vP,
+      this.hP,
+      this.size,
+      this.tile,
+      this.maxLines});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +28,12 @@ class SectionName extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            title!,
-            overflow: TextOverflow.ellipsis,
-            style: UITextStyle.tW600Black.copyWith(
-              fontSize: size ?? 16,
-              letterSpacing: 0.3,
+          Flexible(
+            child: Text(
+              title!,
+              overflow: TextOverflow.ellipsis,
+              maxLines: maxLines,
+              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
             ),
           ),
           WidgetOrEmpty(

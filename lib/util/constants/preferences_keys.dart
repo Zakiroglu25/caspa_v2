@@ -21,6 +21,6 @@ class SharedKeys {
   static const String user = "user";
   static const String customerGuid = "customerGuid";
 
-  //payment type
+  //payment_balance type
   static const String paymentType = "paymentType";
 }

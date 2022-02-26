@@ -24,6 +24,7 @@ class TariffDetails extends StatelessWidget {
       appBar: CaspaAppbar(
         title: MyText.tariffs,
         user: false,
+        contextA: context,
         notification: false,
       ),
       body: BlocBuilder<TarifCubit, TarifState>(builder: (context, state) {

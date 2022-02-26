@@ -20,6 +20,7 @@ class GiftBalancePage extends StatelessWidget {
         user: false,
         title: MyText.giftBalanceX,
         notification: false,
+        contextA: context,
       ),
       body: SafeArea(
         child: ListView(
@@ -28,7 +29,7 @@ class GiftBalancePage extends StatelessWidget {
             ColorfullBackImage(
               path: Assets.pngPosTerminal,
               infoTitle: MyText.littleGift,
-              infoContent: MyText.InfoGift,
+              infoContent: MyText.infoGift,
             ),
             MySizedBox.h16,
             GiftCodeField(),

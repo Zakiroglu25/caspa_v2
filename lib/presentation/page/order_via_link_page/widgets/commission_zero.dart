@@ -15,7 +15,7 @@ class CommissionField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          MyText.Commission,
+          MyText.commission,
           style: AppTextStyles.sanF400Grey,
         ),
         MySizedBox.h4,

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/formatter/decimal_input_formatter.dart';
 import 'package:flutter/material.dart';
 
 //class LocalCargoField extends StatelessWidget {
@@ -15,6 +16,9 @@ class LocalCargoFieldOrderViaUrl extends StatelessWidget {
       {this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller!.text != '')
+      BlocProvider.of<OrderViaUrlCubit>(context)
+          .updateLocalCargo(controller!.text);
     return SizedBox(
       width: (MediaQuery.of(context).size.width / 1.5) - 10,
       child: StreamBuilder<double>(
@@ -26,13 +30,14 @@ class LocalCargoFieldOrderViaUrl extends StatelessWidget {
             hint: MyText.foreing_cargo_price,
             upperCase: true,
             suffixText: MyText.tryy + "   ",
-            textInputType: const TextInputType.numberWithOptions(signed: true),
+            textInputType: const TextInputType.numberWithOptions(signed: false),
             formatters: [
-             // WhitelistingTextInputFormatter.digitsOnly,
+              // WhitelistingTextInputFormatter.digitsOnly,
+              DecimalTextInputFormatter()
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-            //  controller: controller,
+            controller: controller,
             onChanged: (value) => BlocProvider.of<OrderViaUrlCubit>(context)
                 .updateLocalCargo(value),
           );

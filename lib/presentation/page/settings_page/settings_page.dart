@@ -23,27 +23,28 @@ class SettingsPage extends StatelessWidget {
         title: MyText.settingsX,
         centerTitle: true,
         user: false,
+        contextA: context,
         notification: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16.0,top: 35),
+        padding: const EdgeInsets.only(left: 16.0, top: 35),
         child: ListView(
           children: [
             SettingElement(
-              onTap: ()=>Go.to(context, Pager.license),
-              title:MyText.app_license ,
+              onTap: () => Go.to(context, Pager.license),
+              title: MyText.app_license,
               svgPath: Assets.svgFile,
             ),
             MySizedBox.h45,
             SettingElement(
-              onTap: ()=>Go.to(context, AppInfoPage()),
-              title:MyText.help ,
+              onTap: () => Go.to(context, AppInfoPage()),
+              title: MyText.help,
               svgPath: Assets.svgHelp,
             ),
             MySizedBox.h45,
             SettingElement(
-              onTap: ()=>Go.to(context, Pager.appInfo),
-              title:MyText.about_app ,
+              onTap: () => Go.to(context, Pager.appInfo),
+              title: MyText.about_app,
               svgPath: Assets.svgInfoApp,
             ),
           ],

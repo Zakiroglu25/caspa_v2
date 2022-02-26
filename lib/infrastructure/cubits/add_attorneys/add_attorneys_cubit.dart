@@ -1,8 +1,5 @@
 // Dart imports:
 import 'dart:io';
-
-// Flutter imports:
-import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
@@ -15,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../../locator.dart';
+import 'add_attorneys_state.dart';
 
 class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   AddAttorneysCubit() : super(AddAttorneysInitial()) {}

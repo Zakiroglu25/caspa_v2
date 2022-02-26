@@ -12,35 +12,39 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class AdsCard extends StatelessWidget {
   String? desc;
+  String? url;
   double? w;
   bool? isVertical;
-  AdsCard({this.desc,this.w,this.isVertical});
 
+  AdsCard({this.desc, this.w, this.isVertical, this.url});
 
   @override
   Widget build(BuildContext context) {
     isVertical ??= false;
-
-
-
-
-    return Container(
-      width: (isVertical!) ? null :284.sp,
-      padding: isVertical! ? Paddings.paddingA20 :const EdgeInsets.only(left: 20.0),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: MyColors.mainGrey),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            desc!,
-            style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
-          ),
-          MySizedBox.h5,
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          width: 200.sp,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: MyColors.mainGrey),
+          child: SizedBox(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(
+                url!,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ), // Text(
+        ),
+        Text(
+          desc!,
+          style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
+        ),
+      ],
     );
   }
 }

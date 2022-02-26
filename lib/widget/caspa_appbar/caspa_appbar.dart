@@ -32,14 +32,14 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Color? color;
 
   CaspaAppbar(
-      {@required this.title,
+      {required this.title,
       @required this.user,
       this.notification,
       this.exitButton,
       this.actions,
       this.color,
       this.onTapActions,
-      @required this.contextA,
+      required this.contextA,
       this.centerTitle});
 
   @override
@@ -52,7 +52,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
       },
       child: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: color??Colors.white,
+        backgroundColor: color ?? Colors.white,
         foregroundColor: color,
         elevation: 0,
         titleSpacing: 0,

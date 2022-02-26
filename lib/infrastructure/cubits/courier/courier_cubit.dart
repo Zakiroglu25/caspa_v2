@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/public_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -17,32 +18,44 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CourierCubit extends Cubit<CourierState> {
-  CourierCubit() : super(CourierInitial()) {
-    selectedOrders.addListener(() {
+  CourierCubit() : super(CourierInProgress()) {
+    selectedOrdersId.addListener(() {
       isDataValid();
     });
   }
 
   // List<int> selectedOrders = [];
-  ValueNotifier<List<int>> selectedOrders = ValueNotifier<List<int>>([]);
+  ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
+  ValueNotifier<List<Package>> selectedPackages =
+      ValueNotifier<List<Package>>([]);
 
   ///////////////////
 
   addOrderId(int id) {
     id = id;
-    if (selectedOrders.value.contains(id)) {
-      selectedOrders.value.remove(id);
+    if (selectedOrdersId.value.contains(id)) {
+      selectedOrdersId.value.remove(id);
     } else {
-      selectedOrders.value.add(id);
+      selectedOrdersId.value.add(id);
       //  selectedOrders.value.add(4415);
     }
 
     isDataValid();
-    bbbb("selected order list in cubit : ${selectedOrders.value}");
+    bbbb("selected order list in cubit : ${selectedOrdersId.value}");
+  }
+
+  addPackage(Package package) {
+    // id = id;
+    if (selectedPackages.value.contains(package)) {
+      selectedPackages.value.remove(package);
+    } else {
+      selectedPackages.value.add(package);
+      //  selectedOrders.value.add(4415);
+    }
   }
 
   bool isDataValid() {
-    if (selectedOrders.value.length != 0) {
+    if (selectedOrdersId.value.length != 0) {
       emit(CourierContinueButtonActive());
       return false;
     } else
@@ -53,23 +66,55 @@ class CourierCubit extends Cubit<CourierState> {
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
 
-  void addCourier(BuildContext context, {bool loading = true}) async {
+  Future<int?> addCourier(BuildContext context,
+      {bool loading = true,
+      required List<Package> packages,
+      required String phone,
+      required String adress,
+      required Region region}) async {
+    try {
+      if (loading) {
+        emit(CourierInProgressButton());
+      }
+      final result = await CourierProvider.addCourier(
+          phone: AppOperations.formatNumber(phone),
+          adress: adress,
+          regionId: region.id!,
+          packages: packages.map((e) => e.id!).toList());
+      if (isSuccess(result.statusCode)) {
+        int courierId = result.data['message'];
+        emit(CourierAdded(courierId));
+        return courierId;
+      } else {
+        Snack.display(context: context, message: MyText.error);
+        emit(CourierOperationFail());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(CourierOperationFail());
+    } catch (e, s) {
+      eeee("addCourier catch: $e => $s");
+      emit(CourierOperationFail());
+    }
+  }
+
+  void configureCourier(BuildContext context, {bool loading = true}) async {
     try {
       if (isUserDataValid()) {
         if (loading) {
           emit(CourierInProgressButton());
         }
-        final result = await CourierProvider.addCourier(
-            phone: AppOperations.formatNumber(phone.valueOrNull!),
-            adress: adress.valueOrNull!,
-            regionId: (region.valueOrNull!.id)!,
-            packages: selectedOrders.value);
-        if (isSuccess(result.statusCode)) {
-          Go.to(context, Pager.success());
-        } else {
-          Snack.display(context: context, message: MyText.error);
-          emit(CourierOperationFail());
-        }
+        ;
+        Go.to(
+            context,
+            Pager.courier_order(
+              phone: phone.value,
+              packages: selectedPackages.value,
+              adress: adress.value,
+              price: region.value!.price!,
+              region: region.value!,
+            ));
+        emit(CourierConfigured());
       } else {
         Snack.display(
             context: context, message: MyText.all_fields_must_be_filled);
@@ -84,7 +129,7 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
-  void fetchPackagesForCourier([bool loading = true]) async {
+  void fetchPackagesForCourier({bool loading = true}) async {
     if (loading) {
       emit(CourierInProgress());
     }
@@ -94,6 +139,7 @@ class CourierCubit extends Cubit<CourierState> {
       final resultRegions = await PublicProvider.getRegions();
       if (isSuccess(resultPackages.statusCode) &&
           isSuccess(resultRegions.statusCode)) {
+        //bbbb("kkkk: ${(resultPackages.data[0] as Package).payment}");
         emit(CourierableFetched(
             packageList: resultPackages.data, regionList: resultRegions.data));
       } else {
@@ -192,11 +238,32 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
+  //paymentType
+  final BehaviorSubject<String> paymentType =
+      BehaviorSubject<String>.seeded(MyText.fromBalance);
+
+  Stream<String> get payTypeStream => paymentType.stream;
+
+  updatePayType(String value) {
+    if (value == null || value.isEmpty) {
+      paymentType.value = '';
+      paymentType.sink.addError(MyText.field_is_not_correct);
+    } else {
+      paymentType.sink.add(value);
+    }
+    // isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isPayTypeIncorrect => (!paymentType.hasValue ||
+      paymentType.value == null ||
+      paymentType.value.isEmpty);
+
   @override
   Future<void> close() {
     adress.close();
     region.close();
     phone.close();
+    paymentType.close();
     return super.close();
   }
 }

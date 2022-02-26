@@ -20,14 +20,14 @@ class Ads extends StatelessWidget {
     return BlocBuilder<AdsCubit, AdsState>(
       builder: (context, state) {
         if (state is AdsSuccess) {
-          List<AdsModel>? adsList = state.adsList;
+          List<Data>? adsList = state.adsList;
           return AdsWidget(
             hList:adsList
           );
         } else if (state is TarifInProgress) {
           return CaspaLoading(s: 92.sp,);
         } else if (state is TarifNetworkError) {
-          return EmptyWidget();
+          return CaspaLoading(s: 92.sp,);
         } else {
           return EmptyWidget();
         }

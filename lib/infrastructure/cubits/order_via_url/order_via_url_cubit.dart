@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -17,7 +20,7 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
 
   HiveService get _prefs => locator<HiveService>();
 
-  void orderViaLink(BuildContext context, [bool loading = true]) async {
+  void addOrderViaLink(BuildContext context, [bool loading = true]) async {
     try {
       if (isUserInfoValid()) {
         if (loading) {
@@ -39,6 +42,7 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
           emit(
               OrderViaUrlError(error: MyText.error + " ${result!.statusCode}"));
         }
+        emit(OrderViaUrlInProgress());
       } else {
         emit(OrderViaUrlError(error: MyText.all_fields_must_be_filled));
       }
@@ -47,6 +51,31 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
       emit(OrderViaUrlError(error: MyText.network_error));
     } catch (e) {
       emit(OrderViaUrlError());
+    }
+  }
+
+  void edit(BuildContext context, {required LinkOrder order}) async {
+    emit(OrderViaUrlInProgress());
+    try {
+      final result = await OrderViaLinkProvider.editOrder(
+        id: order.id!,
+        qty: productCount.valueOrNull,
+        price: price.valueOrNull,
+        link: link.valueOrNull,
+        cargo_price: localCargo.valueOrNull,
+        detail: note.valueOrNull,
+      );
+
+      if (isSuccess(result!.statusCode)) {
+        emit(OrderViaUrlEdited());
+      } else {
+        emit(OrderViaUrlError(error: MyText.error));
+      }
+    } on SocketException catch (_) {
+      emit(OrderViaUrlError(error: 'network_error'));
+    } catch (e) {
+      print(e);
+      emit(OrderViaUrlError(error: MyText.error + ": $e"));
     }
   }
 

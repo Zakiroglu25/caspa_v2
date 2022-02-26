@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
@@ -13,18 +14,26 @@ class AdsCubit extends Cubit<AdsState> {
   AdsCubit() : super(AdsInitial());
 
   void fetch([bool loading = true]) async {
+    log("1");
     if (loading) {
       emit(AdsInProgress());
     }
     try {
+      log("2");
       final result = await GeneralProvider.ads();
-      if (isSuccess(result?.statusCode)) {
-        emit(AdsSuccess(result?.data));
-      } else {
-        emit(AdsError());
-        eeee(
-            "Ads: ${ResponseMessage.fromJson(jsonDecode(result!.data)).message}");
+      log("3");
+      try{
+        if (isSuccess(result!.statusCode)) {
+          emit(AdsSuccess(result.data));
+        } else {
+          emit(AdsError());
+          eeee(
+              "Ads: ${ResponseMessage.fromJson(jsonDecode(result.data)).message}");
+        }
+      }catch (e){
+        print(e);
       }
+
     } on SocketException catch (_) {
       //network olacaq
       emit(AdsNetworkError());

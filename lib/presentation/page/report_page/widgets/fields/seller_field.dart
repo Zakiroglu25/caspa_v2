@@ -12,7 +12,8 @@ class SellerFieldReport extends StatelessWidget {
   SellerFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ReportCubit>(context).updateSeller(controller!.text);
+    if (controller!.text != '')
+      BlocProvider.of<ReportCubit>(context).updateSeller(controller!.text);
     return StreamBuilder<String>(
       stream: BlocProvider.of<ReportCubit>(context).sellerStream,
       builder: (context, snapshot) {

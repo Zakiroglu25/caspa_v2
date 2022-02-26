@@ -8,7 +8,7 @@ class CaspaAzText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 50.sp,
+      bottom: 50,
       child: FadeIn(
         child: Text(
           "www.caspa.az",

@@ -12,30 +12,33 @@ class FromMyBalanceChoice extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          MyText.total_price,
-          style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-        ),
-        Text(
-          "382,00 AZN",
-          style: AppTextStyles.sanF400
-              .copyWith(color: MyColors.textRED, fontSize: 16.sp),
-        ),
-        Text(""),
-        MySizedBox.h16,
-        CaspaField(
-          title: "Məbləğ",
-        ),
-        CaspaField(
-          title: MyText.bonuses,
-        ),
-        CaspaField(
-          title: MyText.promoCode,
-          hint: MyText.enter_code,
-        )
-      ],
+    return Container(
+      width: double.maxFinite,
+      child: Column(
+        children: [
+          Text(
+            MyText.total_price,
+            style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+          ),
+          Text(
+            "382,00 AZN",
+            style: AppTextStyles.sanF400
+                .copyWith(color: MyColors.textRED, fontSize: 16.sp),
+          ),
+          //Text(""),
+          // MySizedBox.h16,
+          // CaspaField(
+          //   title: "Məbləğ",
+          // ),
+          // CaspaField(
+          //   title: MyText.bonuses,
+          // ),
+          // CaspaField(
+          //   title: MyText.promoCode,
+          //   hint: MyText.enter_code,
+          // )
+        ],
+      ),
     );
   }
 }

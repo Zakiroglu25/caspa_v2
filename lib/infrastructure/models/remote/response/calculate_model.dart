@@ -63,3 +63,19 @@ class CalculateModel {
     return 'CalculateModel{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, min: $min, max: $max, price: $price, countryId: $countryId, discount: $discount, active: $active, description: $description, liquidPrice: $liquidPrice, cityId: $cityId}';
   }
 }
+
+class CapacityModel {
+  int? price;
+
+  CapacityModel({this.price});
+
+  CapacityModel.fromJson(Map<String, dynamic> json) {
+    price = json['price'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['price'] = this.price;
+    return data;
+  }
+}

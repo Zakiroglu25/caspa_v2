@@ -85,6 +85,7 @@ class _MapPageState extends State<MapPage> {
         user: false,
         title: "Xerite",
         notification: false,
+        contextA: context,
       ),
       body: Stack(
         children: [

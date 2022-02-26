@@ -28,8 +28,7 @@ import '../fields/name_field.dart';
 class CivilRegisterTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    context.read<RegisterCubit>().registerType=RegisterType.personal;
+    context.read<RegisterCubit>().registerType = RegisterType.personal;
 
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (context, state) {
@@ -43,9 +42,15 @@ class CivilRegisterTab extends StatelessWidget {
           FullScreenLoading.display(context, text: MyText.processing);
         }
         if (state is RegisterError) {
-          Snack.display(context: context, message: state.message);
-        } if (state is RegisterSuccess) {
-          Snack.display(context: context, message: MyText.operationIsSuccess,positive: true,showSuccessIcon: true);
+          Snack.display(
+              context: context, message: state.message ?? MyText.error);
+        }
+        if (state is RegisterSuccess) {
+          Snack.display(
+              context: context,
+              message: MyText.operationIsSuccess,
+              positive: true,
+              showSuccessIcon: true);
         }
       },
       child: Stack(
@@ -83,7 +88,9 @@ class CivilRegisterTab extends StatelessWidget {
                   MySizedBox.h90,
                 ],
               )),
-          RegisterButton(registerType: RegisterType.personal,)
+          RegisterButton(
+            registerType: RegisterType.personal,
+          )
         ],
       ),
     );

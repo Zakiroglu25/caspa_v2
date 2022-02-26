@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/attorneys/add_attorneys/add_attorneys_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/field_c_lear_button.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -9,10 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-
 class BirthdayFieldAttorney extends StatelessWidget {
-  final TextEditingController controller ;
-
+  final TextEditingController controller;
 
   BirthdayFieldAttorney(this.controller);
 
@@ -30,18 +28,23 @@ class BirthdayFieldAttorney extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            BlocProvider.of<AddAttorneysCubit>(context).birthDate.valueOrNull??'',
+            BlocProvider.of<AddAttorneysCubit>(context).birthDate.valueOrNull ??
+                '',
             onTap: () {
               BlocProvider.of<AddAttorneysCubit>(context).updateBirthDate('');
             },
           ),
-         // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
+          // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           onTap: () {
             _openDatePicker(context, controller, null);
           },
-          controller: StringOperations.stringToController(BlocProvider.of<AddAttorneysCubit>(context).birthDate.valueOrNull??''),
-          onChanged: (value) =>
-              BlocProvider.of<AddAttorneysCubit>(context).updateBirthDate(value),
+          controller: StringOperations.stringToController(
+              BlocProvider.of<AddAttorneysCubit>(context)
+                      .birthDate
+                      .valueOrNull ??
+                  ''),
+          onChanged: (value) => BlocProvider.of<AddAttorneysCubit>(context)
+              .updateBirthDate(value),
         );
       },
     );
@@ -101,8 +104,8 @@ class BirthdayFieldAttorney extends StatelessWidget {
                       birtController?.text = new DateFormat("dd-MM-yyyy")
                           .format(chosenDate)
                           .toString();
-                      BlocProvider.of<AddAttorneysCubit>(context).updateBirthDate(
-                          new DateFormat("dd-MM-yyyy")
+                      BlocProvider.of<AddAttorneysCubit>(context)
+                          .updateBirthDate(new DateFormat("dd-MM-yyyy")
                               .format(chosenDate)
                               .toString());
                     },

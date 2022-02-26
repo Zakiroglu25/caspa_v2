@@ -1,5 +1,5 @@
-import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/attorneys/get_attorneys/attorney_list_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -24,6 +24,7 @@ class EtibarnamePage extends StatelessWidget {
     return Scaffold(
       appBar: CaspaAppbar(
         user: false,
+        contextA: context,
         title: MyText.attorneysX,
         notification: false,
       ),

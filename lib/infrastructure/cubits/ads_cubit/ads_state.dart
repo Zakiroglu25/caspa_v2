@@ -17,5 +17,5 @@ class AdsNetworkError extends AdsState {}
 
 class AdsSuccess extends AdsState {
   AdsSuccess(this.adsList);
-  final List<AdsModel> adsList;
+  final List<Data> adsList;
 }

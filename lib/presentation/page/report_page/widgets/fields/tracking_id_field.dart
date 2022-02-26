@@ -12,7 +12,8 @@ class TrackingIdFieldReport extends StatelessWidget {
   TrackingIdFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    BlocProvider.of<ReportCubit>(context).updateTrackingID(controller!.text);
+    if (controller!.text != '')
+      BlocProvider.of<ReportCubit>(context).updateTrackingID(controller!.text);
     return StreamBuilder<String>(
       stream: BlocProvider.of<ReportCubit>(context).trackingIDStream,
       builder: (context, snapshot) {

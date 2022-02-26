@@ -98,7 +98,7 @@ class UserCabinetPage extends StatelessWidget {
         valueListenable: Hive.box('main').listenable(),
         builder: (context, Box box, widget) {
           final MyUser user =
-          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return SingleChildScrollView(
             padding: Paddings.paddingH16,
             child: Column(
@@ -157,6 +157,19 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.balanceCountPackage,
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
+                    ),
+                  ],
+                ),
+                MySizedBox.h16,
+
+                Row(
+                  children: [
+                    BalansMiniBox(
+                      title: MyText.cashbackProfile,
+                      content: "₼ ${_prefs.user.cashback_balance}",
+                      color: MyColors.etibarname,
+                      priceColor: MyColors.mainColor,
+                      icon: const Icon(null),
                     ),
                   ],
                 ),

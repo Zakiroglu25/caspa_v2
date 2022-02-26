@@ -12,7 +12,7 @@ class Assets {
   static const String pngSucs = 'assets/png/sucs.png';
   static const String pngSad = 'assets/png/sad.png';
   static const String pngQifil = 'assets/png/qifil.png';
-  static const String pngPosTerminal = "assets/png/payment.png";
+  static const String pngPosTerminal = "assets/png/posTerminal.png";
   static const String pngEtibarname = "assets/png/etibar.png";
   static const String pngDino = "assets/png/homeDinopng.png";
   static const String pngCaspacard = "assets/png/caspacard.png";
@@ -25,7 +25,7 @@ class Assets {
   static const String news3 = "assets/png/news3.png";
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
-  static const String shopMobile = "assets/png/shopmobile.png";
+  static const String shopMobile = "assets/png/shopMobile.png";
 
   //--svg
   static const String svgCaspaLogoWithName =

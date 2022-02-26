@@ -18,6 +18,7 @@ class NotificationsPage extends StatelessWidget {
         title: MyText.notifications,
         notification: false,
         user: false,
+        contextA: context,
       ),
       body: BlocProvider(
         create: (context) => NotificationCubit(),

@@ -54,7 +54,8 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
           FullScreenLoading.display(context, text: MyText.processing);
         }
         if (state is RegisterError) {
-          Snack.display(context: context, message: state.message);
+          Snack.display(
+              context: context, message: state.message ?? MyText.error);
         }
         if (state is RegisterSuccess) {
           Snack.display(

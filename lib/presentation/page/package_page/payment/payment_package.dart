@@ -18,6 +18,7 @@ class PackagePayment extends StatelessWidget {
         title: "",
         user: false,
         notification: false,
+        contextA: context,
       ),
       body: Padding(
         padding: Paddings.paddingA16,

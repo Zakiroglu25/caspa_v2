@@ -30,7 +30,7 @@ class MenuBox extends StatelessWidget {
       onTap: () => onTap?.call(),
       child: Container(
         width: w ?? boxW,
-        height: h ?? 140.sp,
+        height: h ?? 155.sp,
         decoration: BoxDecoration(
             color: color ?? MyColors.mainColor,
             borderRadius: BorderRadius.circular(12)),
@@ -45,7 +45,7 @@ class MenuBox extends StatelessWidget {
               Text(
                 content!,
                 style: AppTextStyles.sanF400.copyWith(
-                    fontSize: 13.sm,
+                    fontSize: 12.sm,
                     color: MyColors.grey153,
                     height: 1.3,
                     letterSpacing: 0.2),

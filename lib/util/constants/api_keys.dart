@@ -23,7 +23,9 @@ class ApiKeys {
   static final report = "$baseUrl/user/report";
   static final editReport = "$baseUrl/user/report/edit";
   static final deleteReport = "$baseUrl/user/report/delete";
-  static final orderViaLink = "$baseUrl/user/orders";
+  static const orderViaLink = "$baseUrl/user/orders";
+  static const orderViaLinkEdit = "$baseUrl/user/orders/edit";
+  static const orderViaLinkDelete = "$baseUrl/user/orders/delete";
 
   //user
   static final user = "$baseUrl/user/user";
@@ -78,11 +80,30 @@ class ApiKeys {
   static const giftList = "$baseUrl/user/gifts";
   static const addGiftCode = "$baseUrl/user/gift";
 
-  //payment
+  //payment_balance
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
   //calculate kg
   static const calculateKg = "$baseUrl/public/calculator";
+
+  //pay package
+  static const payForPackageBalalnce = "$baseUrl/user/package/payment";
+  static const payForPackageCard = "$baseUrl/user/package/payment/card";
+  static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
+  static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
+  //check for promo
+  static const payForPackagePromoCheck =
+      "$baseUrl/user/package/payment/promo/check";
+
+  //pay order
+  static const payForOrderBalance = "$baseUrl/user/orders/balance";
+  static const payForOrderCard = "$baseUrl/user/orders/card";
+  static const payForOrderCashback = "$baseUrl/user/orders/cashback";
+
+  //pay courier
+  static const payForCourierBalance = "$baseUrl/user/courier/balance";
+  static const payForCourierCard = "$baseUrl/user/courier/card";
+  static const payForCourierCashback = "$baseUrl/user/courier/cashback";
 
   static loginBody({
     required String? email,
@@ -108,15 +129,18 @@ class ApiKeys {
     return map;
   }
 
-  static orderViaLinkBody(
-      {required String? link,
-      required double? price,
-      required double? cargo_price,
-      required String? detail,
-      required int? qty}) {
+  static orderViaLinkBody({
+    required String? link,
+    required double? price,
+    required double? cargo_price,
+    required String? detail,
+    required int? qty,
+    int? id,
+  }) {
     //
     final map = {
       "link": link,
+      "id": id,
       "qty": qty,
       "price": price,
       "cargo_price": cargo_price,

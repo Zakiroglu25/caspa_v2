@@ -16,7 +16,7 @@ class Snack {
     required String message,
     bool? positive = false,
     bool showSuccessIcon = false,
-    Color color = MyColors.mainColor,
+    Color color = MyColors.newGREEN,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
     //positive ?? false;

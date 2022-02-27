@@ -13,6 +13,7 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
   SmsCodesCubit() : super(SmsCodesInitial());
 
   int a = 0;
+  bool refresh = true;
   void fetch([bool loading = true]) async {
     if (loading) {
       emit(SmsCodesInProgress());
@@ -46,7 +47,17 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
   void start() {
     bbbb("Sssss");
     a++;
-    fetch();
-    Timer(Durations.s5, start);
+
+    if (refresh) {
+      fetch();
+      Timer(Durations.s5, start);
+    }
+  }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    refresh = false;
+    return super.close();
   }
 }

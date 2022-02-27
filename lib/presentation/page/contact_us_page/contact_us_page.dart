@@ -42,7 +42,7 @@ class ContactPage extends StatelessWidget {
                 padding: Paddings.paddingH16,
                 children: [
                   Text(
-                    "Müştəri xidmətinə müraciyyət edin",
+                    MyText.applyToCustomerService,
                     style: UITextStyle.tW400BigBlack,
                   ),
                   MySizedBox.h32,

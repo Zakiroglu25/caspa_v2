@@ -199,7 +199,7 @@ class MyText {
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
-  static const String trendyolSms = "Trendyol SMS";
+  static const String trendyolSms = "Trendyol SMS 📩";
   static const String settingsX = 'Ayarlar ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
@@ -212,7 +212,8 @@ class MyText {
   static const String used = "İstifadə edilib";
   static const String congrated = "Təbrik edirik!";
   static const String operationIsSuccess = "Əməliyyat uğurlu oldu.";
-  static const String promocodeContent = "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz ;)";
+  static const String promocodeContent =
+      "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz ;)";
   static const String applyToCustomerService =
       "Müştəri xidmətinə \nmüraciət edin";
 
@@ -233,7 +234,8 @@ class MyText {
   static const String attorney = "Etibarnamə️";
   static const String attorneysX = "Etibarnamələr 📑";
   static const String new_attorney = "Yeni etibarnamə";
-  static const String attorneyContent = "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs,götürə bilər";
+  static const String attorneyContent =
+      "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs,götürə bilər";
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
@@ -412,7 +414,7 @@ class MyText {
 
   ///giftbalance
   static const String licenseText =
-  '''“Həvalə et” xidməti ilə sifariş edildiyi halda
+      '''“Həvalə et” xidməti ilə sifariş edildiyi halda
 1.1 “Həvalə et” xidməti ilə edilən bütün sifarişlərə zəmanət veririk. Sifarişlərinizdə hər hansı bir yanlışlıq varsa, qırıq, istifadəyə yararsızdırsa, əskik göndərilibsə, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq. Bağlamalarınızı filiallarda və ya kuryer vasitəsi ilə təhvil alarkən yerindəcə yoxlayıb əməkdaşlarımıza məlumat verilməlidir. Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
 1.2 Müştəri Türkiyədən həm "Həvalə et" xidmətimizlə, həm də "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. 
 1.3 “STAREX" MMC qəbul olunmuş sifarişləri növbəlilik əsasında həyata keçirir və həftə içi 24 saat ərzində sifarişlərin yerləşdirilməsinə zəmanət verir. Bununla belə sifariş prosesində hər hansı problem yarandıqda (məhsulun bitməsi, sifariş olunan ölçünün və ya rəngin bitməsi, kampaniyanın başa çatması, ödəmə problemi və s.) istifadəçinin ödədiyi məbləğ istifadəçinin balansına geri qaytarılır. Qeyd edək ki, endirimlərlə əlaqədar olaraq bəzən bu müddət uzana bilər.

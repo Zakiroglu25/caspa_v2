@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 class MoreButton extends StatelessWidget {
   final Function onTap;
 
-
   MoreButton({required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return CaspaTextButton(text: MyText.more,w: 38,
-      onTap:()=> onTap.call(),
+    return CaspaTextButton(
+      text: MyText.more,
+      w: 42,
+      onTap: () => onTap.call(),
     );
   }
 }

@@ -166,7 +166,7 @@ class UserCabinetPage extends StatelessWidget {
                   children: [
                     BalansMiniBox(
                       title: MyText.cashbackProfile,
-                      content: "₼ ${_prefs.user.cashback_balance}",
+                      content: "${_prefs.user.cashback_balance}\$ ",
                       color: MyColors.etibarname,
                       priceColor: MyColors.mainColor,
                       icon: const Icon(null),

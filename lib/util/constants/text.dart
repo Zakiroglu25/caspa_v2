@@ -139,7 +139,7 @@ class MyText {
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay ərzində";
   static const String countOfOrders = "Bağalama sayı";
-  static const String cashbackProfile = "Cashback balans";
+  static const String cashbackProfile = "Cashback";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
 

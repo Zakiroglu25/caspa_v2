@@ -25,10 +25,11 @@ class HomePage extends StatelessWidget {
     //MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
-        // title: "d",
+        title: "",
+
         ///bunlar null gelir
         contextA: context,
-        title: _prefs.user.name! + " " + _prefs.user.surname!,
+        // title: _prefs.user.name! + " " + _prefs.user.surname!,
       ),
       body: SafeArea(
         child: ListView(

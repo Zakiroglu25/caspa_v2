@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class NotificationBody extends StatelessWidget {
       padding: const EdgeInsets.only(left: 15, bottom: 8, top: 8),
       child: Container(
         height: 75,
+
         width: double.maxFinite,
         // color: MyColors.mainRED,
         child: Row(
@@ -25,16 +27,18 @@ class NotificationBody extends StatelessWidget {
             NotificationIcon(),
             Expanded(
               child: Container(
-                margin: EdgeInsets.only(right: 20, left: 15, top: 5),
+                margin: EdgeInsets.only(right: 20, left: 15, top: 0),
                 height: 60,
                 //   width: double.maxFinite - 66,
                 //color: Colors.red,
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     NotificationTitle(title!),
                     MySizedBox.h5,
-                    NotificationContent(content!),
+                    NotificationContent(content ?? ""),
                   ],
                 ),
               ),

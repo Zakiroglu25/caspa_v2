@@ -12,7 +12,7 @@ import 'package:animations/animations.dart';
 
 class MateApp extends StatelessWidget {
   const MateApp({Key? key}) : super(key: key);
-
+  //final botToastBuilder = BotToastInit(); //
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -43,9 +43,10 @@ class MateApp extends StatelessWidget {
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
                     ScreenUtil.setContext(context);
-                    BotToastInit().call(context, widget);
+                    widget = BotToastInit().call(context, widget);
+                    //  widget = botToastBuilder(context,widget);
                     return ScrollConfiguration(
-                        behavior: ScrollBehaviorModified(), child: widget!);
+                        behavior: ScrollBehaviorModified(), child: widget);
                   },
                   home:
                       //Pager.newOrder

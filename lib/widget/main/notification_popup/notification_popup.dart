@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'widgets/notification_body.dart';
 import 'widgets/notification_cancel_button.dart';
 
-
-
 class NotificationPopUp extends StatelessWidget {
   NotificationPopUp({
     required this.cancel,
@@ -29,20 +27,26 @@ class NotificationPopUp extends StatelessWidget {
           // print("GlobalKey<NavigatorState>>().currentContext: "+GlobalKey<NavigatorState>.currentContext.toString());
           //GeneralOperations.determineTab(data);
         },
-        child: Material(
+        child: ClipRRect(
           borderRadius: BorderRadius.circular(10),
-          elevation: 2,
-          color: MyColors.white.withOpacity(.95),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: Stack(
-              children: [
-                NotificationBody(
-                  title: title,
-                  content: content,
-                ),
-                NotificationCancelButton(cancel)
-              ],
+          child: Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+                side: BorderSide(width: 3, color: MyColors.mainColor)),
+            //borderRadius: BorderRadius.circular(10),
+            elevation: 2,
+            color: MyColors.white.withOpacity(.95),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Stack(
+                children: [
+                  NotificationBody(
+                    title: title,
+                    content: content,
+                  ),
+                  NotificationCancelButton(cancel)
+                ],
+              ),
             ),
           ),
         ),

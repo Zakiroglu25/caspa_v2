@@ -9,12 +9,15 @@ class NotificationContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      content,
-      overflow: TextOverflow.ellipsis,
-      maxLines: 3,
-      style: AppTextStyles.sanF500
-          .copyWith(fontSize: 13, color: MyColors.grey165),
+    return Container(
+      width: MediaQuery.of(context).size.width - 80,
+      child: Text(
+        content,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+        style: AppTextStyles.sanF500
+            .copyWith(fontSize: 13, color: MyColors.grey165),
+      ),
     );
   }
 }

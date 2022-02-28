@@ -43,12 +43,13 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
   messaging.subscribeToTopic('all');
   messaging.subscribeToTopic('1.0.0');
-  messaging.subscribeToTopic('test1');
+  messaging.subscribeToTopic('test2');
 }
 
 initializeFCMNotification() async {
+  bbbb("fcm token: ${messaging.getToken()}");
   var initializationSettingsAndroid =
-      AndroidInitializationSettings('circle_icon');
+      AndroidInitializationSettings('@mipmap/ic_launcher_notf');
   var initializationSettingsIOS = IOSInitializationSettings(
     requestSoundPermission: true,
     requestBadgePermission: true,

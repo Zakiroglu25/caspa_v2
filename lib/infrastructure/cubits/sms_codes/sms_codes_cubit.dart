@@ -46,7 +46,17 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
   void start() {
     bbbb("Sssss");
     a++;
-    fetch();
-    Timer(Durations.s5, start);
+
+    if (refresh) {
+      fetch();
+      Timer(Durations.s5, start);
+    }
+  }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    refresh = false;
+    return super.close();
   }
 }

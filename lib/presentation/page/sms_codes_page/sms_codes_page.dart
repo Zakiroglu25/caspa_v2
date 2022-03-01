@@ -56,12 +56,9 @@ class SmsCodesPage extends StatelessWidget {
                   physics: Physics.never,
                   itemBuilder: (context, index) {
                     SmsCode currentSms = smsList[index];
-                    return FadeInUp(
-                      key: Key(currentSms.id.toString()),
-                      child: SmsBox(
-                        code: currentSms.code!,
-                        time: currentSms.time!,
-                      ),
+                    return SmsBox(
+                      code: currentSms.code!,
+                      time: currentSms.time!,
                     );
                   },
                 );

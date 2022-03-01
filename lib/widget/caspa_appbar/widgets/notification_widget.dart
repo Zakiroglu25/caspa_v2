@@ -28,7 +28,7 @@ class NotificationWidget extends StatelessWidget {
                 color: MyColors.black,
               ),
             ),
-            Ellipse()
+            //   Ellipse()
             // BlocBuilder<HeaderCubit, HeaderState>(
             //   builder: (context, state) {
             //     if (state is HeaderSuccess) {

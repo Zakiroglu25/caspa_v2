@@ -16,7 +16,7 @@ class Snack {
     required String message,
     bool? positive = false,
     bool showSuccessIcon = false,
-    Color color = MyColors.mainColor,
+    Color color = MyColors.newGREEN,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
     //positive ?? false;
@@ -32,10 +32,7 @@ class Snack {
             //color: MyColors.mainColor,
             color: (positive!) ? color : MyColors.errorRED,
             // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomRight: Radius.circular(10))),
+            borderRadius: BorderRadius.circular(10)),
         height: 50.sp,
         // height: 60.sp,
         child: Stack(

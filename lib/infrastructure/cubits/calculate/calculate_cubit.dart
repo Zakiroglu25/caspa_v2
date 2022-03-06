@@ -15,6 +15,8 @@ import 'calculate_state.dart';
 class CalculateKgCubit extends Cubit<CalculateKgState> {
   CalculateKgCubit() : super(CalculateKgInitial());
 
+  double resultKg =0;
+
   void addKg(BuildContext context, [bool loading = true]) async {
     if (loading) {
       emit(CalculateKgInAdding());
@@ -22,7 +24,12 @@ class CalculateKgCubit extends Cubit<CalculateKgState> {
     try {
       final result = await CalculateKgProvider.addKg(kg: kg.valueOrNull!);
       if (result != null) {
-        emit(CalculateKgAdded(result.data));
+        // var a = result.data * kg.sink;
+
+        resultKg = resultKg * double.parse(result.data.price);
+
+        print(resultKg.toString()+"Aaaaa");
+        emit(CalculateKgAdded(resultKg.toStringAsFixed(2)));
 
       }
     } on SocketException catch (_) {
@@ -44,6 +51,7 @@ class CalculateKgCubit extends Cubit<CalculateKgState> {
       kg.value = '';
       kg.sink.addError(MyText.field_is_not_correct);
     } else {
+      resultKg= double.parse(value);
       kg.sink.add(value);
     }
     // isUserInfoValid(registerType: _registerType);

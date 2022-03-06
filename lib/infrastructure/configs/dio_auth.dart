@@ -48,12 +48,12 @@ class JwtInterceptor extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    final sharedPrefs = await SharedPreferences.getInstance();
-    final accessToken = sharedPrefs.getString('accessToken');
+    // final sharedPrefs = await SharedPreferences.getInstance();
+    // final accessToken = sharedPrefs.getString('accessToken');
 
-    if (accessToken != null) {
-      options.headers['Authorization'] = 'Bearer $accessToken';
-    }
+    // if (accessToken != null) {
+    //   options.headers['Authorization'] = 'Bearer $accessToken';
+    // }
 
     handler.next(options);
   }

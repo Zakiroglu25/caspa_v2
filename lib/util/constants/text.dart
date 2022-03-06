@@ -139,7 +139,7 @@ class MyText {
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay ərzində";
   static const String countOfOrders = "Bağalama sayı";
-  static const String cashbackProfile = "Cashback balans";
+  static const String cashbackProfile = "Cashback";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
 
@@ -413,111 +413,35 @@ class MyText {
   static const String coppied = "Kopyalandı";
 
   ///giftbalance
-  static const String licenseText =
-      '''“Həvalə et” xidməti ilə sifariş edildiyi halda
-1.1 “Həvalə et” xidməti ilə edilən bütün sifarişlərə zəmanət veririk. Sifarişlərinizdə hər hansı bir yanlışlıq varsa, qırıq, istifadəyə yararsızdırsa, əskik göndərilibsə, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq. Bağlamalarınızı filiallarda və ya kuryer vasitəsi ilə təhvil alarkən yerindəcə yoxlayıb əməkdaşlarımıza məlumat verilməlidir. Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
-1.2 Müştəri Türkiyədən həm "Həvalə et" xidmətimizlə, həm də "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. 
-1.3 “STAREX" MMC qəbul olunmuş sifarişləri növbəlilik əsasında həyata keçirir və həftə içi 24 saat ərzində sifarişlərin yerləşdirilməsinə zəmanət verir. Bununla belə sifariş prosesində hər hansı problem yarandıqda (məhsulun bitməsi, sifariş olunan ölçünün və ya rəngin bitməsi, kampaniyanın başa çatması, ödəmə problemi və s.) istifadəçinin ödədiyi məbləğ istifadəçinin balansına geri qaytarılır. Qeyd edək ki, endirimlərlə əlaqədar olaraq bəzən bu müddət uzana bilər.
-1.4 "Həvalə et" xidmətimizdən istifadə zamanı "Ödənildi" statusunda olan sifarişlərdə hər hansı bir dəyişiklik (ölçü, rəng və s. dəyişimi) edilmir. 
-1.5 Sifarişlər verilərkən məhsul(lar)un və Türkiyə daxili karqonun ödənişi tam ödənilməlidir. Ödənilmədiyi təqdirdə çatışmayan məbləğ varsa müştərinin mövcud balansından tutulur və yaxud da məhsul(lar) təhvil verilərkən müştəridən tələb olunur. Ödənişlər tam ödənildikdən sonra məhsulun təhvili mümkündür. 
-1.6 Maksimum 10 manat olmaqla sifariş məbləğinin 10 faizi həcmində kənarlaşma olarsa, müştəriyə məlumat verilmədən balansından silinməklə sifariş həyata keçirilir.
-1.7 “STAREX" MMC qəbul olunmuş sifarişləri eyni anda və birlikdə həyata keçirir. Buna baxmayaraq məhsullar satıcı tərəfindən ayrı-ayrı bağlamalarda göndərilə bilər və buna görə “Starex” MMC məsuliyyət daşımır. Məhsullar satıcı mağaza tərəfindən neçə bağlama olaraq xarici anbara çatdırılırsa, hər bağlama ayrılıqda hesablanır.
-1.8 Sifarişlə bağlı məlumat almaq üçün "Həvalə et" xidmətimizlə olan sifariş təsdiqləndiyi tarixdən etibarən 1 ay ərzində sorğu yaradılmalıdır. Daha sonra yaradılan sorğular etibarsız sayılaraq araşdırılmayacaqdır. 
-1.9 İstifadəçi balansına yüklənən məbləği digər məhsulların alınmasına istifadə edə bilər və yaxud da hesabına geri tələb edə bilər. Bu halda məbləğ istifadəçinin hesabına 5-7 iş günü ərzində geri qaytarılır. Starex balansının karta qaytarılması üçün şəxsi kabinetdə “Balans” başlığı ilə sorğu yaradılmalıdır.
-1.10 Beynəlxalq daşıma şərtlərinə görə maye məhsulları digər məhsullardan ayrı daşınmalıdır. "Həvalə et" xidmətimizlə sifariş zamanı maye məhsullar və adi məhsullar əməkdaşlarımız tərəfindən ayrı-ayrı səbətlərdə təsdiqlənir.
-
-
-
-Xarici ünvanlarımız qeyd edilərək sifariş edildiyi halda
-2.1 İstifadəçi "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər.
-2.2 Müştəri Türkiyə, Amerika və Çindən "Xarici ünvanlarımız" bölməsindən istifadə etməklə öz kartı ilə birbaşa mağazadan sifariş edə bilər. Birbaşa mağazadan sifariş zamanı sifariş daxili kargoya verildiyi gündən xarici anbara çatdırıldığı günədək mütləq şəkildə müştəri tərəfindən həmin bağlamaya əsasən saytımızda bəyannamə yaradılmalıdır.
-2.3 Xarici ünvanlarımızı qeyd edərək sifariş etdikdə şəxsi kabinetdə bəyannamə yaratmağınız vacibdir. Bəyannamə yaratmadığınız halda xarici anbara təhvil verilən bağlamanın sistemə əlavə olunması üçün əməkdaşlarımız şərti bəyannamə yaradır. Bu zaman invoys dəyəri bilmədiyimiz üçün məbləği 0 olaraq qeyd edirik. 
-2.4 Sifariş mağaza tərəfindən təsdiqləndikdən sonra sifariş təyin edilmiş çatdırılma müddəti ərzində daxili karqo şirkəti və ya poçt xidməti vasitəsilə xaricdəki ünvanlarım bölməsində qeyd edilən ünvana çatdırılaraq “Star Express” LLC şirkətinin əməkdaşına təhvil verilir.
-2.5 Xarici ünvanlarımızı qeyd edərək sifariş etdiyiniz zaman “STAREX MMC" göstərdiyi vasitəçilik xidməti çərçivəsində heç bir halda satıcı firmanın göndərdiyi məhsulun keyfiyyətinə, tamlığına, tərkibinə, ölçü və formasına, satış anbarında tükənməsinə, vaxtında çatdırılmamasına  görə məsuliyyət daşımır. Mağaza tərəfindən yanlış və ya yararsız göndərilən sifarişlərin geri qaytarılmasında müştərilərimizə köməklik göstərə bilməyimiz üçün Türkiyə sifarişləri üzrə "Geri qaytarma" xidmətimiz mövcuddur. 
-2.6 Şəxsi  kabinet vasitəsi ilə “ Starex” MMC-yə bəyan edilməyən sifarişlərə və ya sifariş bəyan edildiyi halda xarici ünvanlarımızdakı “Starex Express” LLC-yə təhvil verilməyən bağlamalara görə “STAREX MMC"  heç bir öhdəlik və məsuliyyət daşımır.
-2.7 Birbaşa mağazadan sifariş etdiyiniz və sistemdə qeydiyyata alınmadığı təqdirdə sifarişinizin xarici anbara təhvil verilməsi ilə bağlı mağazadan bildiriş aldıqdan sonra 15 gün müddətində sorğu yaradılmalıdır. 
-2.8 Araşdırma müddəti əsasən 15 iş gününü əhatə edir.
-2.9 Məhsullar daşıyıcı tərəfindən sığortalanmır və daşıyıcı buna görə heç bir məsuliyyət daşımır. 
-2.10 Türkiyə saytlarından alış-veriş edərkən tərkibində maye olan məhsulları digər məhsullardan ayrı formada satın almağınızı tövsiyə edirik. Bu məhsulları xarici saytlarda ayrı səbətlərdə aldığınız zaman bu sifarişlər xarici anbara da ayrı bağlamalarda daxil olur. 20 oktyabr tarixindən etibarən Türkiyə anbarına daxil olan və tərkibində ən az bir maye məhsulu olacaq bağlamaların tam çəkisi maye tariflərinə əsasən hesablanacaqdır. Xatırladaq ki, beynəlxalq daşıma şərtlərinə görə maye məhsulları digər məhsullardan ayrı daşınmalıdır. 
-2.11 10 fevral 2020-ci il tarixindən etibarən Amerika anbarına daxil olan məhsulların satıcı mağazalara Starex.az şirkəti tərəfindən geri qaytarılması prosesi dayandırılmışdır. Amerika anbarına daxil olan daşınması qadağan olunan məhsullar (parfüm, mist, losyon, tərkibində tezalışan maddə olan digər məhsullar və s.) 2 ay müddətində saxlanıldıqdan sonra məhv ediləcəkdir. Bu səbəbdən Amerikadan bu növ məhsulları sifariş etməməyiniz tövsiyə olunur.
-
-Zəmanət
-3.1 Mart ayının 1-dən "Həvalə et" xidmətimizlə etdiyiniz, sifariş verildi statusuna düşən bütün sifarişlərinizin doğruluğuna  zəmanət veririk
-3.2 Sifarişlərinizi təhvil alan zaman yerindəcə yoxlayırsız,əgər sifarişiniz əskik, yanlış (rəng, razmer, model səhvi), qırıq, istifadəyə yararsızdırsa, xarici anbarımıza təhvil verilib, ancaq sistemə salınmayıbsa, yaxud bağlamanız tapılmırsa, ödədiyiniz məbləği və çatdırılma ödənişini sizə geri qaytarırıq.
-3.3 Bağlamanızı kuryer xidmətimizlə əldə etdiyiniz zaman kuryerin yanında yoxlayırsınız, əskik sifarişiniz varsa kuryer yerindəcə aktlaşdırır, müvafiq şöbəyə bildirir. Kuryer bağlamanı təhvil verdikdən sonra sifarişinizdə hər hansı bir problem (səhv, qırıq, istifadəyə yararsız ) olduğu təqdirdə sorğu yaradaraq yaranmış problemi bildirirsiniz. Sizin müraciətinizə ən qısa müddətdə baxılır və təsdiqləndikdən sonra məhsulun ödənişi və çatdırılma ödənişi geri qaytarılır. Sorğu üzərindən bildirdiyiniz müraciətə əsasən bağlama 2 iş günü müddətində təhvil aldığınız filiala təqdim edilməlidir.
-3.4 Qeyd edək ki, "Zəmanət xidməti" poçt vasitəsi ilə göndəriş edilən bağlamalara şamil edilmir. 
- 
-Geri qaytarma
-4.1 Mağaza tərəfindən yanlış və ya yararsız göndərilən Türkiyə bağlamalarının geri qaytarılması mümkündür.
-4.2 Geri qaytarma xidməti üçün bağlama filialımıza daxil olduğu andan etibarən 48 saat ərzində təhvil alınmalı və ofislərimizə geri qaytarılmalıdır.
-4.3 Bağlamasını kuryer vasitəsi ilə təhvil alan müştərilər bağlama yerli anbara daxil olduqdan sonra 24 saat ərzində kuryer sifarişi yaratmalıdır. Bağlama ünvana çatdırıldıqdan sonra Türkiyəyə geri qaytarılması üçün 24 saat ərzində filiala təhvil verilməlidir. 
-4.4 “Adresə çatdırılma” tarifi ilə təhvil alınan bağlamalar yerindəcə yoxlanılaraq kuryerə təhvil verilməlidir. 
-4.5  Bağlama çəkiyə uyğun tariflərlə geri qaytarılır.
-4.6  Starex MMC bağlamanın təyinat ölkəsinə çatdırılması və Türkiyə daxili karqoya təhvil verilməsinə görə cavabdehdir.
-4.7 Türkiyə ofisimizə qaytarılan bağlama satıcı mağaza tərəfindən qəbul edilməzsə yenidən çəki tariflərinə əsasən Azərbaycana çatdırıla bilər
-4.8 Satıcı mağaza tərəfindən iadəsi qəbul edilməyən bağlamalarından müştəri imtina edə bilər. Qeyd edək ki, imtina edilən sifarişlərin ödənişi geri qaytarılmır. 
-4.9  Satıcı mağaza tərəfindən iadəsi qəbul edilməyən bağlamaya görə Starex MMC məsuliyyət daşımır. 
-4.10  Xarici anbara daxil olmuş bağlama xarici anbardan birbaşa mağazaya iade edilmir.
-4.11 Poçtla çatdırma edilən bağlamalar üçün "Geri qaytarma" edilmir. 
-4.12 Qırıla bilən, maye və maqnitli bağlamalar üçün "Geri qaytarma" xidmətimiz mövcud deyildir. 
-
-
-Adresə çatdırılma və Filiala çatdırılma 
-5.1 İstifadəçiyə iki tarif təklif edirik. Adresə çatdırılma və Filiala çatdırılma 
-5.2 Adresə çatdırılma tarifini seçən müştərinin  bağlamaları xarici anbardan birbaşa olaraq müştərinin qeyd etdiyi ünvana çatdırılacaqdır.
-5.3 Adresə çatdırılma tarifini qeyd edən müştərinin bağlaması filiala çatdırılmır. Mərkəzi anbardan birbaşa ünvana çatdırılır.
-5.4 Tənzimləmələr bölməsindən tarifinizi və ya ünvanınızı dəyişməyiniz mümkündür.
-5.5 Bağlama xarici anbara daxil olarkən tənzimləmələrdə qeyd olunan ünvana çatdırma ediləcək.
-5.5 Ünvandan və ərazidən asılı olmayaraq tarifə əsasən çatdırılma ödənişi hesablanır.  
-5.6 Filiala çatdırılma tarifini qeyd edən müştərinin bağlaması qeyd edilən cari anbara çatdırılır.
-
-
-Gömrük
-6.1  Məlumat üçün nəzərinizə çatdırırıq ki, sifarişlərin dəyəri 1 (bir) təqvim ayı ərzində 300 ABŞ dolları məbləğinədək olduqda gömrük orqanları tərəfindən hər hansı bir rüsuma cəlb olunmur. Bununla belə, gömrük orqanları tərəfindən kommersiya məqsədi daşıdığı barədə məlumat verildiyi halda və ya 300 ABŞ dollarından artıq olduğu təqdirdə qanunvericiliyə uyğun olaraq gömrük nomenkulaturasında nəzərdə tutulan həcmdə rüsuma cəlb olunacaq. Qeyd edək ki, rüsumun maksimum həddi 36% təşkil edir. Qeyd edək ki, sizin cari ay üzrə limitiniz hesablanarkən həm sifarişlərinizin məbləği, həm də çatdırılma məbləği nəzərə alınır. Bağlama üçün digər xərclər: 5 AZN sadələşdirilmiş bəyannamə ödənişi, 15 AZN anbara giriş haqqı, 48 saatdan çox bağlamanın anbarda qaldığı hər gün üçün 1 Avro.
-1. Sifarişlərin 1 təqvim ayı ərzində ümumi dəyəri 300 ABŞ dolları məbləğini keçdikdə,
-2. Sifariş verdiyiniz məhsulun Gömrük orqanı tərəfindən  kommersiya məqsədli oldugunu təyin edildikdə,
-3. Ölkəyə idxalı qadağan olan məhsullar olduqda sifarişiniz gömrükdə saxlanıla bilər.
-6.2 Müştəri limiti keçmədiyi təqdirdə istənilən sayda bağlama gətirə bilər. Qeyd edək ki, ay ərzində 2 ədəddən artıq eynicinsli məhsul sifariş etdiyi zaman satış məqsədli olub-olmamasının təyin edilməsi məqsədi ilə  gömrük tərəfindən saxlanıla bilər. Satış məqsədli olduğu təqdirdə rüsuma cəlb ediləcəkdir.
-6.3 Gömrük orqanları tərəfindən saxlanılan bağlamanı yalnız bağlamanın sahibi təhvil ala bilər. Müştəri bağlamanı təhvil almaq üçün ilk öncə ofisimizə yaxınlaşıb bağlama(lar) üçün çatdırılma haqqını ödəyib qaimə və barkodu  əldə edir. Daha sonra bu sənədlər əsasında Hava Nəqliyyatında Baş Gömrük İdarəsinə müraciət edərək bağlama(lar) haqqında ətraflı məlumat əldə edib rəsmiləşdirə və Bakı Karqo Terminalında saxlama xərclərini ödəyərək təhvil ala bilər.
-6.4 Aylıq limit sifariş tarixinə əsasən deyil, bağlamanın Gömrük sistemində qeydiyyata salındığı tarixə əsasən hesablanır. 
-6.5 Xarici ünvanlarımızı qeyd edərək sifariş etdikdə şəxsi kabinetdə bəyannamə yaratmağınız vacibdir. Bəyannamə yaratmadığınız halda xarici anbara təhvil verilən bağlamanın sistemə əlavə olunması üçün əməkdaşlarımız şərti bəyannamə yaradır. Bu zaman invoys dəyəri bilmədiyimiz üçün məbləği 0 olaraq qeyd edirik. 
-
-Ümumi şərtlər
-7.1 Sifariş edilmiş bağlama daşıyıcının anbarlarına daxil olduqda bu barədə sifarişçiyə email, sms və tətbiq xəbərdarlığı vasitəsilə məlumat veriləcək. Müştəri bağlamanı ofisimizdən götürə bilər və ya əlavə xidmət haqqı ödəməklə adresinə çatdırıla bilər.
-7.2 Bağlamalarınız yerli anbarda 15 gün ərzində saxlanması ödənişsizdir. 16-30 gün ərzində hər günə görə əlavə 0.50 AZN, 31-45 gün ərzində isə hər günə görə əlavə 1 AZN dəbbə pulu hesablanacaq. 45 gündən artıq yerli anbarda qalan məhsul üçün qərar “STAREX MMC"-yə məxsus olacaqdır. 
-7.3 Uzunluğu 1 metrdən yuxarı olan məhsulların Türkiyədən çatdırılma ödənişi fiziki çəki + 5\$ olaraq hesablanır. 
-7.4 Amerika və Çindən gələn bağlamaların uzunluğu 1 metrdən yuxarı olduqda çatdırılma ödənişi həcm çəkisinə uyğun hesablanır. Hesablama qaydası: en * uzunluq * hündürlük/ 6000
-7.5 Amerika və Çindən gələn bağlamaların uzunluğu bir tərəfin uzunluğu 120 sm-dən uzun olan bağlamalara həcmi çəkidən əlavə 50\$ daşınma haqqı hesablanır.
-7.6 Amerika və Çindən gələn qeyri standart ölçülü bağlamalar həcm çəkisinə əsasən hesablanır.
-7.7 Amerika və Çindən çatdırılan qeyri standart ölçülü bağlamalar həcm və fiziki çəki arasında fərq 1.5 kq-dan çox olduqda hesablama həcm çəkisi üzərindən aparılacaqdır. Məsələn, bir bağlamanın fiziki çəkisi 5 kq, həcmi 0.045 kubdan çox olduqda həcm çəkisi üzərindən hesablama aparılır. Belə ki, 0.045 kubun həcm çəkisi 7.5 kq-dan yüksək olur.
-7.8 Qəbul olunan bağlama ofisimizdə, kuryer çatdırılması edilibsə, kuryerin yanında yoxlanılmalıdır. Məhsulda hər hansı bir xəsarət olduğu təqdirdə yerindəcə əməkdaşlarımıza və ya kuryerə məlumat təqdim edilməlidir. Əks təqdirdə sonradan aşkarlanmış hər hansı bir çatışmazlığa görə daşıyıcı məsuliyyət daşımır.
-7.9  Qırıla bilən məhsullar həm mağaza tərəfindən daşınma standartlarına uyğun paketlənərsə, həm də bağlamanın üzərində “qırıla bilən məhsul” olması ilə bağlı etiket varsa və bağlamalarda hər hansı zədələnmə halı olarsa müştərinin ödədiyi məbləğ şirkətimiz tərəfindən kompensasiya edilir. Həm mağaza tərəfindən daşınma standartlarına uyğun paketlənməli, həm də bağlama üzərində "qırıla bilən məhsul" etiketi olmalıdır. Müştərinin belə məhsulları ofisimizdə təhvil alarkən yerindəcə yoxlayıb, hər hansı bir zədələnmə ilə bağlı əməkdaşlarımıza məlumat verməsi tələb olunur. 
-7.10 Maye və tərkibində batareya, maqnit olan məhsulların daşınması həftədə 1 dəfə olmaqla həyata keçirilir. 
+  static const String licenseText = ''' 
+Caspa Mobility MMC şirkəti, beynəlxalq logistika və təchizat zənciri sahəsində 20 ildən cox təcrübəyə malikdir. Eyni zamanda Caspa Mobility MMC şirkəti  Azərbaycan Respublikası İqtisadiyyat Nazirliyi tərəfindən verilmiş lisenziya əsasında sürətli poçt xidməti göstərməkdədir.
+Caspa Mobility MMC Türkiyə-nin ən böyük e-ticarət logistikası xidməti verən "Kargom Kolay" firması ilə bərabər Türkiyədən poçt bağlamalarının və onlayn mağazalar vasitəsilə sifariş edilən malların qısa müddətdə Azərbaycanlı müştərilərə  çatdırılmasını təşkil edir.
+Caspa Mobility MMC  AZAL, SilkWay və Türk Hava Yolları kimi təcrübəli aviaşirkətlərlə əməkdaşlıq edir.
+Caspa Mobility MMC böyük həcmli və ağır çəkili qeyri-standart yüklərin daşınmasında da xidmət göstərir.
+Caspa Mobility MMC müştərilərə münasibətdə, müştərilərin maraqlarına üstünlük verərək,  əməkdaşlıq üçün əlverişli şərait, sərfəli qiymətlər və yüksək keyfiyyətli xidmət təklif edir.
 
 Daşınması qadağan olunan məhsullar:
 
 Azərbaycan Respublikasına  fiziki şəxslər tərəfindən gətirilməsi və beynəlxalq poçt göndərişləri vasitəsi ilə alınması qadağan olunmuş mallar, yivli odlu silah növləri, döyüş sursatı (ov silahları üçün sursatlar istisna edilməklə), hərbi təyinatlı bütün əşyalar, partlayıcı maddələr və hərbi texnika.
-- Maye məhsullar - Çindən maye məhsullarının gətirilməsi mümkün deyil.
-Amerikadan məhsulun tərkibində spirt, tezalışan maddə olmadığı təqdirdə gətirilməsi mümkündür. (parfumeriya, sprey, lasyon, mist, quru şampun, boyalar və s. gətirilmir) Türkiyədən maye məhsullarının gətirilməsi mümkündür.
-- Telefonlar, powerbank-lar, planşet
-- Kamerası və səsyazması olan saatlar
-- Spirtli içkilərin bütün növləri, pivə və tütün məhsulları
-- Amerikadan partlayıcı, tezalışan və digər təhlükəli maddələr, eləcə də radioaktiv   maddələr (parfumeriya, sprey, lasyon, mist, quru şampun, boyalar və s.)
-- Tibbi məhsullar
-- Gizli kamera
-- Akkumlyatorlar
-- Amortizatorlar
-- Hover Board skuteri
-- Hava nəqliyyatı ilə daşınılması qadağan olunan əşyalar
-- Radioaktiv maddələr.
-- Narkotik və psixotrop maddələr, onlardan istifadə üçün ləvazimatlar.
-- Əxlaq pozğunluğunun, zorakılığın, terrorizmin təbliğini və reklamını edən materiallar.
-- Narkotik, psixotrop, zəhərləyici, partlayıcı maddələrin hazırlanması texnologiyasına aid materiallar.
-- Canlı heyvanlar - Bitki və toxumlar
-- Hər cür silah növləri, döyüş sursatı, hərbi təyinatlı hər cür əşyalar, partlayıcı maddələr, hərbi texnika.
-- Xüsusi məxfi rabitə vasitələri, onların şifrləri və istismarı haqqında ədəbiyyat.
-- Müdafiə, Milli Təhlükəsizlik və Daxili İşlər nazirliklərinin operativ istintaq fəaliyyəti üzrə informasiya sistemləri, sənədləri və arxivləri.
-- Dövlət əhəmiyyətli sənədlər, ixtiralar, layihələr.
-- Xammal şəklində olan qiymətli metallar və qiymətli qaşlar.
-- Qanunvericiliyin tələbini ödəməyən digər məhsullar.''';
+
+-Telefonlar, powerbank-lar, planşet
+-Kamerası və səsyazması olan saatlar
+-Spirtli içkilərin bütün növləri, pivə və tütün məhsulları
+-Tibbi məhsullar
+-Gizli kamera
+-Akkumlyatorlar
+-Amortizatorlar
+-Hover Board skuteri
+-Hava nəqliyyatı ilə daşınılması qadağan olunan əşyalar
+-Radioaktiv maddələr.
+-Narkotik və psixotrop maddələr, onlardan istifadə üçün ləvazimatlar.
+-Əxlaq pozğunluğunun, zorakılığın, terrorizmin təbliğini və reklamını edən materiallar.
+-Narkotik, psixotrop, zəhərləyici, partlayıcı maddələrin hazırlanması texnologiyasına aid materiallar.
+-Canlı heyvanlar - Bitki və toxumlar
+-Hər cür silah növləri, döyüş sursatı, hərbi təyinatlı hər cür əşyalar, partlayıcı maddələr, hərbi texnika.
+-Xüsusi məxfi rabitə vasitələri, onların şifrləri və istismarı haqqında ədəbiyyat.
+-Müdafiə, Milli Təhlükəsizlik və Daxili İşlər nazirliklərinin operativ istintaq fəaliyyəti üzrə informasiya sistemləri, sənədləri və arxivləri.
+-Dövlət əhəmiyyətli sənədlər, ixtiralar, layihələr.
+-Xammal şəklində olan qiymətli metallar və qiymətli qaşlar.
+-Qanunvericiliyin tələbini ödəməyən digər məhsullar.''';
 }

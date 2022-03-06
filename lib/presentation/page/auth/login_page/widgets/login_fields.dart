@@ -22,7 +22,6 @@ class LoginFields extends StatelessWidget {
       children: [
         EmailFieldLogin(StringOperations.stringToController(_configs.email)),
         //MySizedBox.h16,
-
         PassField(
             //    StringOperations.stringToController('b45631a2c')
             ),

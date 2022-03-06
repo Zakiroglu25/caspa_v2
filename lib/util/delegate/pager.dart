@@ -258,9 +258,13 @@ class Pager {
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: const AppInfoPage());
 
-  static get license => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AttorneyListCubit())],
-      child: const LicensePageX());
+  static info({required String text, required String title}) =>
+      MultiBlocProvider(
+          providers: [BlocProvider(create: (context) => AttorneyListCubit())],
+          child: LicensePageX(
+            text: text,
+            title: title,
+          ));
 
   static get settings => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],

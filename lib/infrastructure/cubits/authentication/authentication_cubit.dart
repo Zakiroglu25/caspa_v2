@@ -39,7 +39,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
     try {
-      //configureFcm(context: context);
+      configureFcm(context: context);
       final String? fcm = await _fcm.getToken();
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String? accessToken = await _prefs.accessToken;

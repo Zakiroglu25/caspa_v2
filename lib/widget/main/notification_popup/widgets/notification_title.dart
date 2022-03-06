@@ -13,7 +13,7 @@ class NotificationTitle extends StatelessWidget {
       title,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: AppTextStyles.sanF500
+      style: AppTextStyles.sanF600
           .copyWith(fontSize: 16, color: MyColors.halfBlack),
     );
   }

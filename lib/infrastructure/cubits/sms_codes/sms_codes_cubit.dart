@@ -13,6 +13,7 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
   SmsCodesCubit() : super(SmsCodesInitial());
 
   int a = 0;
+  bool refresh = true;
   void fetch([bool loading = true]) async {
     if (loading) {
       emit(SmsCodesInProgress());

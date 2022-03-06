@@ -32,8 +32,8 @@ class KgPage extends StatelessWidget {
           BlocBuilder<CalculateKgCubit, CalculateKgState>(
             builder: (context, state) {
               if (state is CalculateKgAdded) {
-                final CalculateModel? result = state.calculate;
-                return ResultCalculate(result: result!.price!.toString());
+                final String? result = state.calculate;
+                return ResultCalculate(result:result!);
               } else if (state is CalculateKgInAdding) {
                 return CaspaLoading();
               } else if (state is CalculateKgError) {

@@ -117,6 +117,7 @@ class HiveService {
 
   String get userPath => _box!.get(SharedKeys.userPath) ?? "null";
 
+
   Future<void> persistFcmToken({String? fcmToken}) async {
     await _box!.put("fcm_token", fcmToken!);
   }

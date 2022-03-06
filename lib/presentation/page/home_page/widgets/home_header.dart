@@ -28,7 +28,7 @@ class HomeHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            MyText.welcome + " " + _prefs.user.name.toString(),
+            MyText.welcome + ", " + _prefs.user.name.toString() + "!",
             style: UITextStyle.tW400BigBlack,
           ),
           MySizedBox.h26,
@@ -38,7 +38,8 @@ class HomeHeader extends StatelessWidget {
             child: Image.asset(Assets.homeDino2),
           ),
           MySizedBox.h16,
-          Text("Çatdırılmanı bizdən edin", style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
+          Text("Çatdırılmanı bizdən edin",
+              style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
           MySizedBox.h16,
           Text(MyText.homePageText,
               style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),

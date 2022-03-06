@@ -21,7 +21,7 @@ class CalculateKgNetworkError extends CalculateKgState {}
 class CalculateKgAdded extends CalculateKgState {
   CalculateKgAdded(this.calculate);
 
-  final CalculateModel calculate;
+  final String  calculate;
 }
 
 class CalculateKgNotAdded extends CalculateKgState {

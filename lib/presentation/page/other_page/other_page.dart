@@ -68,7 +68,7 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.contactX,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.contactTitle,
                   color: MyColors.contact,
                   onTap: () => Go.to(context, Pager.contact),
                 ),
@@ -81,14 +81,14 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.courierX,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.courier,
                   color: MyColors.kuryer,
                   onTap: () => Go.to(context, Pager.courier),
                 ),
                 MenuBox(
                   w: boxW,
                   title: MyText.calculate,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.calculateTitle,
                   color: MyColors.promokodColor,
                   onTap: () => Go.to(context, Pager.calculate),
                 ),
@@ -101,7 +101,7 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.trendyolSms,
-                  content: MyText.forEditAppSettings,
+                  content: MyText.trendyolOtp,
                   color: MyColors.shop,
                   onTap: () => Go.to(context, Pager.smsCodes),
                 ),

@@ -26,7 +26,7 @@ class MyColors {
   static const Color textRED = Color.fromRGBO(220, 1, 1, 1);
   static const Color errorRED = Color.fromRGBO(238, 0, 4, 1);
   static const Color errorRED211 = Color.fromRGBO(211, 41, 45, 1);
-  static const Color newGREEN = Color.fromRGBO(40, 202, 46, 1);
+  static const Color newGREEN = Colors.greenAccent;
   static const Color halfBlack = Color.fromRGBO(64, 70, 77, 1);
   static const Color black126 = Color.fromRGBO(126, 130, 138, 1);
   static const Color secondMainColor = Color.fromRGBO(228, 235, 241, 1);

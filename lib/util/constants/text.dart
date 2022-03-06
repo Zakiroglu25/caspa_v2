@@ -205,7 +205,9 @@ class MyText {
   static const String about_app = 'Tətbiq haqqında️';
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
+  static const String userRulesandAgreements = "Şərtlər və qaydalar";
   static const String promoCode = "Promokod";
+  static const String iAgreeWithRules = "İstifadəçi qaydaları ilə razıyam";
   static const String giftCode = "Hədiyyə kodu";
   static const String apply = "Tətbiq et";
   static const String date = "Tarix";
@@ -444,4 +446,142 @@ Azərbaycan Respublikasına  fiziki şəxslər tərəfindən gətirilməsi və b
 -Dövlət əhəmiyyətli sənədlər, ixtiralar, layihələr.
 -Xammal şəklində olan qiymətli metallar və qiymətli qaşlar.
 -Qanunvericiliyin tələbini ödəməyən digər məhsullar.''';
+
+  static const String rulesText =
+      '''1.       İSTİFADƏÇİ RAZILAŞMASI VƏ QAYDALARIN PREDMETİ
+1.1. Bu İstifadəçi Razılaşması və Qaydalarının (bundan sonra “Razılaşma” adlandırılacaq) şərt və müddəalarına uyğun olaraq, “CASPA MOBİLİTY” MMC (VÖEN: 2006797431) (bundan sonra “Şirkət” adlandırılacaq) müxtəlif ölkələrdə yerləşən anbarlarından www.caspa.az vebsaytında qeydiyyatdan keçən və bu Razılaşmanı təsdiqləyən yetkinlik yaşına çatmış fiziki və hüquqi şəxslərin (bundan sonra “Müştəri” adlandırılacaq) sifarişləri üzrə məhsulların çatdırılması xidmətlərini (bundan sonra “Xidmətlər” adlandırılacaq) həyata keçirir, Müştəri isə çatdırılan məhsullara/Bağlamalara görə müvafiq daşıma haqqını ödəyir.
+
+2.       ƏSAS ANLAYIŞLAR
+2.1. Bu Razılaşmada və Müştəri ilə Şirkət arasında aparılan bütün yazılı və şifahi ünsiyyətdə istifadə olunan əsas anlayışlar aşağıda verilən mənalar ilə anlaşılır və təfsir olunur:
+2.1.1. Bağlamalar – Müştərinin müxtəlif internet-mağazalar, alış-veriş vebsaytları vasitəsilə alış etdiyi və Azərbaycan Respublikasına çatdırılması üçün www.caspa.az vebsaytında “Bəyan Et” bölməsi vasitəsilə bəyan etdiyi mal və məhsullar;
+2.1.2. Şəxsi kabinet – Müştərinin www.caspa.az vebsaytında qeydiyyatdan keçdikdən sonra  ona təqdim olunan fərdi hesab;
+2.1.3. Fərdi məlumatlar – Müştərinin www.caspa.az vebsaytında qeydiyyatdan keçdiyi zaman və keçdikdən sonra daxil etdiyi, Müştərinin və ya hər hansı bir şəxsin  kimliyini birbaşa və ya dolayısı ilə müəyyənləşdirməyə imkan verən istənilən məlumat (ad, soyad, ünvan, email də daxil olmaqla, lakin bununla məhdudlaşmayaraq);
+2.1.4. Qadağan edilmiş yüklər – Azərbaycan Respublikasının müvafiq qanunvericiliyinə əsasən, ölkə ərazisinə idxalı və dövriyyəsi qadağan edilmiş/məhdudlaşdırılmış mal və məhsullar;
+2.1.5. Xarici anbar – Şirkətin istifadəsində, icarəsində və ya sərəncamında olan, müxtəlif ölkələrdə yerləşən, Bağlamaların qəbul edildiyi anbar(lar)ı;
+2.1.6. Yerli anbar – Şirkətin istifadəsində, icarəsində və ya sərəncamında olan, Azərbaycan Respublikası ərazisində yerləşən, Bağlamaların qəbul edildiyi və Müştəriyə təhvil verildiyi məntəqə/anbar(lar)ı;
+2.1.7. Çatdırılma haqqı – Bağlamaların Xarici anbardan Yerli anbara çatdırılmasına görə Şirkət tərəfindən birtərəfli qaydada müəyyən olunan və www.caspa.az vebsaytında yerləşdirilən çatdırılma tariflərinə uyğun olaraq hesablanan xidmət haqqı;
+2.1.8. Kuryer haqqı – Müştərinin seçiminə uyğun olaraq, Bağlamanın Yerli anbardan Müştərinin ünvanına qədər çatdırılmasına görə Şirkət tərəfindən birtərəfli qaydada müəyyən olunan və www.caspa.az vebsaytında yerləşdirilən kuryer tariflərinə uyğun olaraq hesablanan xidmət haqqı.
+2.1.9. Digər xidmətlər – Tərəflər arasında razılaşdırılan, Xidmətlərdən əlavə Bağlamaların Bağlamaların saxlanması, çeşidlənməsi, yenidən qablaşdırılması, Müştərinin ünvanına çatdırılması və s. xidmətlər də daxil olmaqla, lakin bununla məhdudlaşmayaraq digər növ xidmətlər.
+
+3.       WWW.CASPA.AZ VEBSAYTINDA QEYDİYYAT VƏ ŞƏRTLƏRİN QƏBULU
+3.1. Müştərinin www.caspa.az vebsaytında qeydiyyatı ödənişsiz və könüllü əsaslarla aparılır. Müştərinin www.caspa.az vebsaytında qeydiyyatdan keçməsi hazırkı Razılaşmanın bütün şərt və müddəalarının qəbul edilməsini bildirir.
+3.2. İcraçı hazırkı Razılaşmaya birtərəfli qaydada dəyişikliklər etmək hüququnu özündə saxlayır.  bununla əlaqədar olaraq Müştəri mütəmadi olaraq Razılaşmanın www.caspa.az vebsaytında yerləşdiriləcək dəyişikliklərini izləmək öhdəliyini götürür.
+
+4.       BAĞLAMALARIN BƏYAN EDİLMƏSİ VƏ GÖMRÜK RƏSMİLƏŞDİRİLMƏSİ
+4.1. Müştəri əvvəlcədən Bağlamaların keyfiyyətini, parametrlərini və xüsusiyyətlərini müstəqil şəkildə qiymətləndirərək və müəyyənləşdirərək internet-mağazalar/alış-veriş vebsaytları üzərindən sifarişini tamamlayır və daha sonra Azərbaycan Respublikasına çatdırılması üçün www.caspa.az vebsaytında “Bəyan Et” bölməsi vasitəsilə bəyan edir.
+4.2. Müştəri Bağlamaların dəyərini müvafiq malın satıcısına əvvəlcədən ödəmək öhdəliyini götürür və buna görə Şirkət heç bir halda məsuliyyət daşımır.
+4.3. Müştəri internet üzərindən alış zamanı çatdırılma ünvanı (Şirkətinin müvafiq ölkədə anbar ünvanı) və digər şəxsi məlumatları Müştərinin Şəxsi Kabinetində qeyd olunan qaydada, tam və düzgün göstərməlidir. Müştəri tərəfindən internet üzərindən alış zamanı çatdırılma ünvanı və ya şəxsi məlumatlar əskik və ya yalnış doldurularsa və nəticə etibarı ilə bu Bağlamaların  Xarici anbara çatdırılmasında hər hansı bir problem yaradarsa və yaxud çatdırılma ümumiyyətlə mümkün olmazsa, bu halda Şirkət heç bir məsuliyyət daşımır.
+4.4. Müştəri əldə etdiyi mallar/məhsullar üzrə Bağlamaların Azərbaycan Respublikasının və Bağlamaların sifariş verildiyi müvafiq ölkənin  qüvvədə olan qanunveriliyinin tələblərinə və Şirkətin müstəqil olaraq müəyyən etdiyi və www.caspa.az vebsaytında yerləşdirdiyi şərtlərə uyğun olmasına görə məsuliyyət daşıyır (Bağlamaların Müştəriyə göndərilməsi üçün zəruri olan malın qabaritləri və poçt tarasının çəkisi də daxil olmaqla, lakin bununla məhdudlaşmayaraq). Bağlamaların bu maddədə qeyd olunan tələb və şərtlərə  uyğun olmaması halında Şirkət Xidmətlərin göstərilməsindən imtina etmək hüququnu özündə saxlayır.  
+4.5. Şirkət anbarına qəbul etdiyi Bağlamaların keyfiyyətinə, dəstliyinə və ya tamlığına görə məsuliyyət daşımır, eləcə də Müştərinin internet-mağaza vasitəsi ilə əldə etdiyi Bağlamalara zəmanəti təmin etmir.
+4.6. Müştəri Bağlamaların gömrük rəsmiləşdirilməsi zamanı yük barədə tam və dolğun formada, Azərbaycan Respublikasının qanunvericiliyinin tələblərinə uyğun olaraq məlumatın verilməsinə və Azərbaycan Respublikasının Dövlət Gömrük Komitəsi (bundan sonra “DGK” adlandırılacaq) tərəfindən tətbiq olunan “Smart Custom” sistemi (bundan sonra “Smart Customs sistemi” adlandırılacaq) vasitəsilə gömrük bəyannaməsinin düzgün doldurulmasına görə məsuliyyət daşıyır. Müştəri anlayır və qəbul edir ki, Bağlamalar yalnız Smart Customs sistemi vasitəsilə DGK-ya bəyan edildikdən və gömrük bəyannaməsi tam və düzgün formada doldurulduqdan sonra Yerli anbara göndəriləcəkdir.
+4.7. Müştəri anlayır və qəbul edir ki, Smart Customs sistemində gömrük bəyannamələrinin tam və düzgün formada bəyan edilməməsinə səbəbindən yaranan hallara görə Şirkət heç bir məsuliyyət daşımır.
+4.8. Smart Customs sistemində bəyan edilməmiş Bağlamaların Xarici anbarda saxlanma müddəti 30 (otuz) təqvim günü təşkil edir. Bu müddət ərzində Bağlamalar Müştəri tərəfindən bəyan edilməzsə, Şirkət tərəfindən hər sonrakı bəyan edilməyən gün üçün 1 (bir) ABŞ dolları məbləğində anbar saxlama haqqı tətbiq edilə bilər.
+4.9. Xarici anbara daxil olmuş Bağlamalar 3 (üç) ay ərzində Müştəri tərəfindən Smart Customs sistemində bəyan edilməzsə, belə Bağlamalar Şirkət tərəfindən öz müstəsna mülahizəsinə əsasən Müştəriyə email vasitəsilə məlumat verildikdən sonra heç bir kompensasiya öhdəliyi olmadan müsadirə və ya məhv edilə bilər.  
+4.10. Müştəri anlayır və qəbul edir ki, Azərbaycan Respublikasının qanunvericiliyinə əsasən ölkəyə gətirilən malların 1 (bir) təqvim ayı üzrə ümumi dəyəri 300 (üç yüz) ABŞ dolları məbləğinədək olduqda gömrük orqanları tərəfindən hər hansı bir rüsuma cəlb olunmur. Bununla belə, gətirilən malların DGK tərəfindən kommersiya məqsədi daşıdığı müəyyən edildiyi halda və ya Bağlamaların dəyərinin 300 (üç yüz) ABŞ dollarından artıq olduğu təqdirdə gömrük qanunvericiliyə uyğun olaraq və nəzərdə tutulan həcmdə rüsuma cəlb olunacaq. Bağlamalara görə bütün növ dövlət rüsumları və vergilər Müştəri tərəfindən ödənilir və qeyd olunan dövlət rüsumu və vergilərin ödənilməməsinə görə yaranan hallara, həmçinin Xidmətlərin tam və ya qismən icra olunmamasına görə heç bir halda Şirkət məsuliyyət daşımır.
+4.11. Bu Razılaşmanın 4.10-cu maddəsinin tələblərinə uyğun olaraq, Müştərinin cari ay üzrə limiti hesablanarkən həm sifarişlərin məbləği, həm də çatdırılma məbləği nəzərə alınır. Aylıq limit sifariş tarixinə əsasən deyil, Bağlamanın Smart Customs sistemində qeydiyyata alındığı tarixə əsasən hesablanır.
+4.12. Bağlamaların hər hansı bir səbəbə görə (Bağlamaların 1 (bir) təqvim ayı üzrə dəyərinin 300 (üç yüz) ABŞ dollarını keçməsi, Bağlamaların kommersiya məqsədi ilə idxal olunmasının müəyyən olunması, dövriyyəsi və idxalı qadağan edilmiş/məhdudlaşdırılmış məhsulların idxalı da daxil olmaqla, lakin bununla məhdudlaşmayaraq) DGK tərəfindən saxlanılmasına və qeyd olunan hallara görə Xidmətlərin icrasının gecikdirilməsinə görə Şirkət heç bir halda məsuliyyət daşımır.
+4.13. Müştəri anlayır və qəbul edir ki, Azərbaycan Respublikasının qanunvericiliyinə əsasən ölkəyə gətirilən Bağlamaların DGK tərəfindən saxlanılması halında, saxlanılma səbəbindən asılı olmayaraq bütün dövlət rüsumları və vergiləri, o cümlədən Çatdırılma haqqını ödəməli və gömrük rəsmiləşdirilməsi üçün DGK-ya müraciət etməlidir.
+4.14. Müştəri anlayır və qəbul edir ki, Qadağan edilmiş yüklərin Azərbaycan Respublikası ərazisinə gətirilməsi halında belə yüklər (Bağlamalar) DGK tərəfindən müsadirə edilə və Müştəri  inzibati/cinayət məsuliyyətinə cəlb oluna bilər.
+5.       BAĞLAMALARIN QƏBUL EDİLMƏSİ, SAXLANMASI VƏ TƏHVİL VERİLMƏSİ
+5.1. Şirkət öhdəlik götürür ki, Müştərinin Bağlamaları əldə etdiyi satıcının poçt xidməti belə Bağlamaları çatdırdığı zaman məhsulu Xarici anbara qəbul edəcək (anbarda saxlanılması qadağan olan məhsullar istisna olmaqla), çəkəcək və qablaşdıracaq, sonra isə Şirkətin Azərbaycan Respublikasında yerləşən anbarına nəql edəcəkdir.
+5.2. Bağlamalar Xarici anbara çatdırıldıqdan sonra “Xarici Anbara çatdırılıb” statusu Müştərinin Şəxsi Kabinetində əks olunacaqdır və bu barədə Müştərinin Şəxsi Kabinetində əks olunan email adresinə məlumat göndəriləcəkdir.
+5.3. Bağlamaların çatdırılması Şirkətin öz müstəsna mülahizəsinə əsasən quru və ya hava yolu ilə həyata keçirilir. Çatdırılma müddəti anbarın yerləşdiyi ölkəyə uyğun olaraq dəyişə bilər.
+5.4. Bağlamalar Yerli anbara çatdırıldıqdan sonra “Yerli Anbara çatdırılıb” statusu Müştərinin Şəxsi Kabinetində əks olunacaqdır və bu barədə Müştərinin Şəxsi Kabinetində əks olunan email adresinə məlumat göndəriləcəkdir. Müştəri belə məlumatı aldıqdan sonra 30 (otuz) təqvim günü ərzində Bağlamanı Yerli anbardan təhvil almalı və müvafiq Çatdırılma haqqını ödəməlidir. Bağlamaların qeyd olunan müddət ərzində təhvil alınmaması halında Şirkət hər təhvil alınmayan günə görə 1 (bir) manat məbləğində cərimə tətbiq edə bilər.
+5.5. Bağlamalar Yerli anbara çatdırıldıqdan sonra 6 (altı) ay ərzində Müştəri tərəfindən təhvil alınmazsa, bu halda Şirkət öz müstəsna mülahizəsinə əsasən və heç bir kompensasiya öhdəliyi olmadan Bağlamanı məhv etmək və ya müsadirə etmək hüququna sahibdir.
+5.6. Bağlamaların Yerli anbarda təhvil verilməsi Müştəri və ya notarial qaydada və ya Şəxsi Kabinetdə etibarnamə verdiyi digər şəxsin şəxsiyyətini təsdiq edən sənəd əsasında həyata keçirilir.
+5.7. Müştəri Şəxsi Kabinetdə “Etibarnamələr” bölməsi vasitəsilə Bağlamaların təhvil alınmasını üçüncü şəxslərə etibar edə bilər. Bu halda Müştəri müvafiq olaraq “Etibarnamələr” bölməsində tələb olunan məlumatların tam və düzgün doldurulmasına görə məsuliyyət daşıyır.
+5.8. Müştəri Bağlamanı təhvil alarkən tam və zədəsiz olmasını yoxlamalı və yalnız buna əmin olduqdan sonra ödəniş edib bağlamanı təhvil almalıdır. Bağlamalar təhvil verildikdən sonra Müştəri tərəfindən Bağlamalarda daşınma zamanı zədələnmə ilə bağlı iddialar qəbul edilmir.
+5.9. Müştəri anlayır və qəbul edir ki, Şirkət Bağlamanın qablaşdırılmasına və belə qablaşdıırlmaya görə daşınma zamanı Bağlamaların zədələnməsinə görə heç bir halda məsuliyyət daşımır.
+5.10. Müştəri anlayır və qəbul edir ki, Şirkət beynəlxalq daşıma qaydalarına uyğun olaraq, Xarici anbara daxil olan Bağlamanın qablaşdırmasını, yükü zədələməmək şərtilə, yenidən qablaşdırmaq hüququna malikdir (məs., iri qabaritli qablamada olan kiçik ölçülü yükü ona uyğun olan kiçik qablamaya yerləşdirmək).
+5.11. Müştəri hər hansı səbəbdən və Şirkətdən hər hansı bir formada ödəniş tələb etmədən və Şirkəti yazılı/elektron formada məlumatlandıraraq Bağlamaların qəbul edilməsindən imtina edə bilər. Bu halda Belə bağlamalar Şirkət tərəfindən öz mülahizəsinə əsasən, müsadirə edilə və ya Müştərinin hesabına məhv edilə bilər.
+5.12. Müştəri Şəxsi Kabinetdə “Kuryer Sifarişi” bölməsi vasitəsilə Bağlamaların Müştərinin müəyyən etdiyi ünvana çatdırılması üçün Kuryer haqqının ödənilməsi şərti ilə, kuryer sifarişi verə bilər. Müştəri ünvanının əskik və ya səhv qeyd edilməsinə səbəbindən Bağlamaların çatdırıla bilməməsinə görə Şirkət heç bir məsuliyyət daşımır və bu halda tətbiq olunan Kuryer haqqı Müştəri tərəfindən ödənilməlidir.
+5.13. Bağlamalar kuryer ünvana yaxınlaşan zaman yoxlanılmalıdır. Hər hansı Bağlama ilə bağlı problem yaşanarsa Müştəri yerindəcə Şirkətə məlumat verməlidir. Əks halda Müştəri tərəfindən göndərilən sorğular əsassız sayılır və heç bir tədbir həyata keçirilmir.
+5.14. Şəxsi Kabinetdə “Caspa ilə Al” bölməsi vasitəsilə verilən sifarişlər istisna olmaqla, Şirkət heç bir halda Bağlamalar üzrə malların sifariş verilən çeşidə, rəngə, saya və s. digər spesifikasiyalara uyğun gəlməməsinə görə heç bir halda məsuliyyət daşımır və belə malların dəyişdirilməsi, geri qaytarılması ilə bağlı müvafiq satıcı ilə danışıqların aparılması, həmçinin digər əməliyyatların həyata keçirilməsi birbaşa olaraq Müştərinin öhdəliyindədir.
+5.15. Bağlamalar Müştəriyə və ya onun bu Razılaşmada qeyd olunan qaydada etibar etdiyi digər şəxslərə Yerli anbarda və ya Kuryer vasitəsilə təhvil verildikdən sonra Xidmətlər Şirkət tərəfindən tam şəkildə icra edilmiş hesab olunur.
+6.       ÇATDIRILMA HAQQI, ŞƏRTLƏRİ VƏ ÖDƏNİŞ
+6.1. Müştəri Bağlamaların çatdırılmasına görə www.caspa.az vebsaytında yerləşdirilən tariflərə uyğun olaraq hesablanmış Çatdırılma haqqını və Kuryer haqqını (tətbiq olunduğu halda) ödəməyi öhdəsinə götürür.
+6.2. Müştəri anlayır və razılaşır ki, www.caspa.az vebsaytında yerləşdirilən çatdırılma və kuryer tarifləri Şirkət tərəfindən birtərəfli qaydada müəyyən olunur və bu tariflər Şirkət tərəfindən birtərəfli qaydada dəyişdirilə bilər.
+6.3. Müştəri anlayır və razılaşır ki, www.caspa.az vebsaytında yerləşdirilən tariflərdə dəyişiklik edilməsinə görə Çatdırılma haqqı və Kuryer haqqında (tətbiq olunduğu halda) artım müşahidə olunarsa, Müştərinin belə artıma etiraz etmək hüququ yoxdur və müvafiq Çatdırılma haqqı/Kuryer haqqı Müştəri tərəfindən tam şəkildə ödənilməlidir.
+6.4. Çatdırılma haqqı və Kuryer haqqı Müştərinin Şəxsi Kabineti vasitəsilə onlayn və ya nağd qaydada ödənilə bilər. Çatdırılma haqqı və Kuryer haqqı ödənilən tarixədək Şirkət müvafiq Bağlamanı Müştəriyə təhvil verməmək hüququna sahibdir.
+6.5. Müştəri tərəfindən Çatdırılma haqqı Azərbaycan Respublikasının Mərkəzi Bankının müəyyən etdiyi cari məzənnəyə uyğun olaraq, Azərbaycan manatı (AZN) ilə ödənilir.
+6.6. Müştərinin sifarişləri, satıcı (və ya satıcılar) tərəfindən ayrı-ayrı bağlamalarda (fərqli track/izləmə/ nömrələrlə) fərqli və ya eyni tarixdə anbara göndərilərsə, bağlamalar orijinal track/izləmə/ nömrələri ilə, ayrı-ayrılıqda daşınmaya qəbul olunur və emal edilir.
+6.7. Müştəri hazırkı Razılaşma üzrə şərtləri qəbul etməklə, caspa.az saytında dərc olunmuş və  aşağıda təsvir olunan hesablama vasitələri (online kalkulyatorlar) ilə tanış olduğunu və tam anladığını (riyazi ölçmə, parametrlərin konvertasiyası, həcmin ölçülməsi və s) təsdiq edir:
+
+• Qiymət və çatdırılmanın hesablanması kalkulyatoru;
+• Çəki və həcm formulası;
+• Ölçü konvertoru;
+• Ölçülər cədvəli;
+• Qabarit çəki hesablamalar.
+
+6.8. Müştəri anlayır və qəbul edir ki, daşıma üçün Xarici anbara daxil olan Bağlamanın Azərbaycan Respublikasına göndərilməsi məqsədilə emalı (yenidən qablaşdırılması, paletə yığılması, hava limanına göndərilməsi) qaydaları Azərbaycan Respublikasında tətbiq olunan müvafiq qaydalardan fərqlənə bilər və bu halda Xarici anbarın yerləşdiyi ölkə üzrə qaydaların tətbiq olunması üçün Sifarişçi tərəfindən müvafiq tədbirlər görülə bilər.
+6.9. Bağlamalar Xarici anbara daxil olduqdan sonra daşıma üçün emal olunur (yenidən qablaşdırma, paletlərə yığılma, hava limanına göndərilmə) və müəyyən olunmuş günlər daşımaya göndərilir. Xarici anbarın digər ölkədə yerləşməsini, saat fərqini, elektron əlaqə vasitələrində yarana biləcək gecikmələri və dayanmaları, daşıma prosesinə cəlb olunmuş üçüncü şəxslər və şirkətlərin işinə Azərbaycan Respublikası ərazisindən Şirkət tərəfindən tam nəzarətin edilə bilməməsini və digər halları nəzərə alaraq, Müştəri tərəfindən Bağlamanın daşımasından imtina edilməsi tələbi (Şirkətin xidmətlərindən imtina etməsi) icrası bəzən mümkün olmaya bilər. Məsələn: Müştəri Bağlamanın daşımasından imtina tələbini verdiyi zaman onun Bağlaması artıq paletə yığılıb və daşıma üçün hava limanına göndərilib. Bu halda Müştəri anlamalıdır ki, Bağlamanın daşımasından imtinası etməsi səbəbindən, bütün göndərişi dayandıraraq paletləri yenidən söküb Bağlamanı ayırmaq və geri qaytarmaq həm xərclər, həm də prosedur baxımından qeyri-mümkündür. Bununla belə, Şirkət Müştərinin imtina tələbinə əsasən, Bağlamanın daşınmasının dayandırılması məqsədilə bütün mümkün, zəruri və ağlabatan tədbirləri görəcək.
+6.10.          Sifarişçi anlayır və qəbul edir ki, Bağlamanın daşımasından imtina tələbi Şirkət tərəfindən obyektiv səbəblərdən icra edilmədiyi halda, Müştərinin Şirkətə qarşı hər hansı bir tələbi qəbul edilmir və əsassızdır.
+7.     BAĞLAMAYA BAXIŞIN KEÇİRİLMƏSİ HÜQUQU
+7.1. Müştəri anlayır və qəbul edir ki, Şirkətin və ya hər hansı bir səlahiyyətli dövlət qurumunun (gömrük və s.) istənilən vaxt Bağlamanı açmaq və Bağlamaya baxış keçirmək hüququ vardır.
+8.       BAĞLAMANIN QORUNMASINA GÖRƏ MƏSULİYYƏT
+8.1. Bağlamanın qorunmasına görə Şirkətin məsuliyyəti belə Bağlama Xarici anbara daxil olduğu andan başlayır və Müştəriyə təhvil verilən anadək davam edir. Bağlama təhvil verildiyi andan etibarən Bağlamanın məhv olması, zədələnməsi üzrə bütün risklər Müştəriyə ötürülür.
+8.2. Şirkət Xarici anbarına zədələnmiş və ya sifarişçinin internet üzərindən sifariş etdiyi məhsuldan hər hansı bir formada fərqlənən və ya beynəlxalq yük daşınma qaydalarına əsasən düzgün qablaşdırılmamış, lazımı qoruyucu vasitələrlə əhatə olunmamış (hava yastıqları, penoplastlarlar olan, fiziki zədə olmayan) və qutu üzərinə məhsulun daşınma qaydaları barədə xüsusi işarələr (məsələn, “fragile”) əlavə olunmamş bütün həssas məhsulların daşınması zamanı yükün zədələnməsinə görə Bağlamaya görə heç bir məsuliyyət daşımır.
+9.       BAĞLAMANIN SIĞORTALANMASI, ZƏDƏLƏNMƏSİ VƏ İDDİANIN VERİLMƏSİ
+9.1. Daşıma üçün qəbul edilən Bağlamalar sığortalanmır.
+9.2. Müştərinin daşıma üçün Şirkətə təqdim etdiyi Bağlama Şirkətin qəsdən yol verdiyi hərəkətlər nəticəsində zədələnərsə və yaxud korlanarsa, Şirkət zədə və yaxud korlanma faktına əsasən, Bağlamanın tam invoys dəyərini və ya faktiki dəymiş ziyanı ödəyə bilər.
+9.3. Bağlama Xarici anbara qəbul edilib, lakin, Şirkət tərəfindən nəzərdə tutulmuş reyslə gəlmədiyi təqdirdə və Bağlamanın barəsində hər hansı bir məlumat olmadığı halda, həmin Bağlamanın Şirkət tərəfindən araşdırılması üçün 30 (otuz) iş günü vaxt ayrılır. Bağlamanın bu müddət ərzində tapılmadığı təqdirdə Müştəriyə Bağlamanın tam invoys dəyəri həcmində kompensasiya ödənilir. Kompensasiya o şərtlə ödənilir ki, Müştəri Bağlamanın ona məxsus olduğunu və onun müvafiq qiymətə internet üzərindən aldığını sübut edən, aşağıda qeyd olunan bütün məlumatları Şirkətə təqdim etsin:
+
+· İnternet mağazanın təqdim etdiyi order, invoys (burada Bağlamanın şəkli, miqdarı, qiyməti, bağlamanın track nömrəsi və s. məlumatlar öz əksini tapmalıdır);
+· Bank hesabından çıxarış (ödənişin təsdiqini sübut edən bildiriş).
+
+9.4. Müştəri Bağlamanın Xarici anbara qəbul edildiyini iddia edərsə və Şirkət tərəfindən Bağlamanın Xarici anbara qəbul edilmədiyini müəyyən edərsə, bu halda Müştəri tərəfindən Bağlamanın Şirkətə təhvil verdiyini sübut edən sənəd təqdim etməlidir. Qeyd olunan sənəddə Bağlamanın eyniləşdirilməsinə imkan verən məlumatlar (kuryer şirkəti tərəfindən müəyyən olunan track ID də daxil olmaqla) göstərilməli və qəbul edən şəxsin imzası olmalıdır. Yalnız bu tələblərə cavab verən təsdiqedici sənəd təqdim edildikdən sonra Şirkət tərəfindən Bağlamanın həqiqətən Xarici anbara təhvil verildiyi müəyyən edilərsə, bu halda Müştəriyə Bağlamanın tam invoys dəyəri həcmində kompensasiya ödənilir. Kompensasiya o şərtlə ödənilir ki, Müştəri Bağlamanın ona məxsus olduğunu və onun müvafiq qiymətə internet üzərindən aldığını sübut edən, aşağıda qeyd olunan bütün məlumatları Şirkətə təqdim etsin:
+
+· İnternet mağazanın təqdim etdiyi order, invoys (burada Bağlamanın şəkli, miqdarı, qiyməti, bağlamanın track nömrəsi və s. məlumatlar öz əksini tapmalıdır);
+· Bank hesabından çıxarış (ödənişin təsdiqini sübut edən bildiriş);
+· Bağlamanın Şirkətin Xarici anbarına qəbul edildiyini sübut edən imzalı sənəd.
+10.   MÜŞTƏRİNİN ÖHDƏLİKLƏRİ VƏ ZƏMANƏTLƏRİ
+10.1. Müştəri bu Razılaşmada qeyd olunan qaydada Bağlamaları www.caspa.az vebsaytında və Smart Customs sistemində bəyan etməyi, müvafiq dövlət rüsumları, vergiləri, Çatdırılma haqqını, Kuryer haqqını (tətbiq olunduğu halda) ödəməyi və Bağlamaları təhvil almağı öhdəsinə götürür.
+10.2. Müştəri aşağıdakılar barədə zəmanət verir:
+
+· Bağlamalar Azərbaycan Respublikasının qanunvericiliyi ilə ölkə ərazisinə idxalı və dövriyyəsi qadağan olunmayıb və yaxud məhdudlaşdırılmayıb;
+· Bağlamalar və onların qablaşdırılması internet üzərindən alış zamanı müvafiq ölkənin qanunvericiliyinin tələblərini pozmur və buna görə Müştəri şəxsən məsuliyyət daşıyır;
+
+10.3. Müştəri www.caspa.az vebsaytında vaxtaşırı yerləşdirilən yeniliklər və dəyişiklikləri izləməyi öhdəsinə götürür. Belə yenilik və dəyişikliklərin Müştəri tərəfindən izlənilməməsi və ya öhdəliklərin icrasından boyun qaçırılması məqsədilə istifadəsi əsassız sayılır.
+10.4. Müştəri www.caspa.az vebsaytında yerləşdirilən “Daşınması qadağan olunan məhsullar” siyahısında qeyd olunan əşyaların siyahısı ilə tanış olmalıdır və belə əşyalardan ibarət Bağlamaları www.caspa.az vebsaytında bəyan etməməlidir. Müştəriyə məlumdur ki, “Daşınması qadağan olunan məhsullar” siyahısında qeyd olunan əşyaların daşınmasını Şirkət tərəfindən həyata keçirilmir.
+10.5. Müştəri, onun tərəfindən müvafiq ölkənin qanunvericiliyinin tələblərinin pozması nəticəsində Şirkətə qarşı tətbiq oluna biləcək/olunan istənilən cərimə və məsuliyyətə görə yaranan bütün xərcləri ödəməyi qəbul edir öz öhdəsinə götürür.
+10.6. Müştəri, Bağlamaların daşınması ilə əlaqədar olaraq Bağlamalar barədə səhv və ya əskik məlumat(lar)ı göstərdiyi təqdirdə və bunun nəticəsində yaranan cərimələrə, sanksiyalara və s. görə birbaşa, tam və hərtərəfli məsuliyyət daşıdığını anlayır və qəbul edir.
+10.7. Müştəri Xidmətlərin icrası məqsədilə Şirkət tərəfindən tələb olunan bütün məlumatları tam, düzgün və vaxtında təmin edilməsi öhdəliyini götürür. Belə məlumatların tam, düzgün və vaxtında təmin edilməməsi səbəbindən yaranan hallara görə Şirkət heç bir halda məsuliyyət daşımır.
+11.   FORS-MAJOR HALLAR
+11.1. Fors-major hallar (təbii fəlakətlər, hərbi əməliyyatlar, embarqolar, dövlət və hökumət orqanlarının qərarları, hərəkətləri və hərəkətsizliyi, epidemiyalar, pandemiyalar və s.) nəticəsində bu Razılaşma üzrə ödəliklərin yerinə yetirilməsi mümkün olmadıqda, Tərəflər onların yerinə yetirilməməsi üçün məsuliyyət daşımırlar, o şərtlə ki, həmin hallar Razılaşma üzrə öhdəliklərin yerinə yetirilməsinə bilavasitə təsir etmiş olsun.
+11.2. Maddə 11.3-ə əsasən qarşısıalınmaz hallara istinad edən Tərəfin qarşısıalınmaz qüvvənin yaratdığı halların təsirinin müddəti ərzində Müqavilə üzrə öhdəliklərin yerinə yetirilməsi təxirə salınır.
+11.3. Qarşısıalınmaz hallara istinad edən Tərəf qeyd olunan halların yarandığı vaxtdan 3 (üç) təqvim günü müddətində digər Tərəfi məsələ ilə bağlı yazılı şəkildə xəbərdar edir və onun tələbinə əsasən səlahiyyətli dövlət orqanı tərəfindən hadisəni təsdiq edən sənədi təqdim edir.
+12.   DİGƏR ŞƏRTLƏR
+12.1. Şirkət bu Razılaşma üzrə hüquq və öhdəliklərini Müştərinin razılığına ehtiyac olmadan və əvvəlcədən məlumat vermədən istənilən vaxt üçüncü şəxslərə ötürməkdə sərbəstdir.
+12.2. Müştəri Şirkətə təqdim etdiyi Fərdi məlumatların Şirkət tərəfindən yığılması, saxlanılması, istifadə edilməsi və kommersiya məqsədi ilə üçüncü şəxslərə ötürülməsinə dair razılıq verir.
+12.3. Bu Müqavilənin şərtlərinin pozulması və ya lazımınca yerinə yetirilməməsi nəticəsində Tərəf digər Tərəfə vurduğu zərərə görə Azərbaycan Respublikasının qanunvericiliyinə uyğun olaraq məsuliyyət daşıyır.
+12.4. Heç bir Tərəf heç bir halda, öz öhdəliklərini yerinə yetirilməməsinə görə yaranan hər hansı mənfəət itkisi də daxil olmaqla, hər hansı əldən çıxmış faydaya görə məsuliyyət daşımır.
+12.5. Hazırkı Razılaşma Azərbaycan Respublikasının qüvvədə olan qanunvericiliyinə əsasən tənzimlənir və şərh olunur.
+12.6. Tərəflər arasında yaranan hər hansı anlaşılmazlıq və ya mübahisə qarşılıqlı anlaşma və razılıq əsasında həll olunur. Bu Razılaşmadan irəli gələn mübahisələrin həllində Tərəflər arasında qarşılıqlı razılıq əldə edilmədikdə həmin mübahisələr Azərbaycan Respublikası qanunvericiliyinə müvafiq qaydada həll edilir.
+MƏXFİLİK SİYASƏTİ
+
+Giriş
+
+www.caspa.az vebsaytının və CASPA mobil tətbiqinin xidmətlərindən istifadə edərək, Siz “CASPA MOBİLİTY” MMC-yə (bundan sonra “Şirkət”) öz fərdi məlumatlarınızı təqdim edirsiniz və bu Məxfilik Siyasətində qeyd olunan şərtlərlə razılaşırsınız.
+Şirkətimiz hər zaman istifadəçilərin fərdi məlumatlarının məxfiliyi və təhlükəsizliyinə ciddi yanaşır. Bu Məxfilik Siyasəti www.caspa.az vebsaytının və CASPA mobil tətbiqinin istifadəçilərindən əldə olunan fərdi məlumatların qanunvericiliklə və hazırkı Məxfilik Siyasəti ilə müəyyən edilmiş hallar istisna olmaqla, üçüncü şəxslərə ötürülməməsini dəstəkləyir.
+
+Məlumatların toplanılması
+Şirkət aşağıdakı hallarda www.caspa.az vebsaytında və CASPA mobil tətbiqində qeydiyyatdan keçən istifadəçilər tərəfindən təqdim olunan müxtəlif məlumatları əldə edir:
+- Vebsaytda və mobil tətbiqdə qeydiyyat zamanı;
+- Vebsaytda və mobil tətbiq vasitəsilə aparılan əməliyyatlar (bağlamaların bəyan edilən, sifariş vermə, sorğu göndərmək və s. də daxil olmaqla, lakin bununla məhdudlaşmayaraq) zamanı;
+- Şirkətə məxsus anbarlarda və ya kuryer vasitəsilə sifarişlərin təhvil verilməsi zamanı;
+- Şirkətin göstərdiyi xidmətlərdən irəli gələn digər hallarda.
+İstifadəçilər tərəfindən təqdim olunan məlumatlara ad, soyad, ata adı, şəxsiyyəti təsdiq edən sənəd üzrə məlumatlar, telefon nömrəsi, email və s. də daxil olmaqla, lakin bununla məhdudlaşmayaraq, yuxarıda qeyd olunan hallar zamanı təqdim olunmuş istənilən məlumat aid edilir.
+
+Məlumatların istifadə olunması və ötürülməsi
+Şirkət əldə olunan məlumatları kommersiya məqsədləri və aşağıda qeyd olunan məqsədlər üçün istifadə edir:
+- İstifadəçi tərəfindən verilən sualların cavablandırılması üçün;
+- Şirkətin fəaliyyəti haqqında yeniliklərin istifadəçiyə göndərilməsi üçün.
+Şirkət əldə olunan məlumatları yalnız kommersiya məqsədləri, həmçinin Şirkətin xidmətlərini tam və keyfiyyətlə göstərməsi məqsədilə üçüncü şəxslərə ötürə bilər.
+
+Linklər
+Şirkətə məxsus www.caspa.az vebsaytında və CASPA mobil tətbiqində digər veb-səhifə və mənbələrə aparan linklərə rast gələ bilərsiniz. Şirkət həmin saytların məxfiliyinə görə məsuliyyət daşımır və istifadəçilərə digər səhifələrə baş çəkərkən, məxfilik siyasətləri ilə tanış olmağını məsləhət görür. Bu Məxfilik Siyasəti yalnız www.caspa.az vebsaytında və CASPA mobil tətbiqində toplanılan məlumatlara şamil olunur.
+www.caspa.az vebsaytında və CASPA mobil tətbiqi vasitəsilə xidmətlərdən istifadəyə görə ödənişin edilməsi/balansın artırılması tələb olunarsa, bu halda istifadəçi müvafiq ödənişin edilməsi/balansın artırılması üçün avtomatik olaraq Şirkətin əməkdaşlıq etdiyi təşkilata məxsus linkə yönləndirilir və heç bir halda istifadəçinin bank hesablarına dair fərdi məlumatları əldə etmir, müvafiq təşkilatın belə fərdi məlumatları toplamasına, istifadə etməsinə və ötürməsinə görə heç bir halda məsuliyyət daşımır.
+
+Yekun müddəalar
+İstifadəçiyə aid fərdi məlumatlar www.caspa.az vebsaytından və CASPA mobil tətbiqindən istifadə zamanı xidməti təqdim edən quruma ötürülür. Şirkətin www.caspa.az vebsaytından və CASPA mobil tətbiqindən istifadə edərək Siz məlumatların toplanması və işlənməsinə razılıq bildirmiş hesab edilirsiniz.''';
 }

@@ -31,7 +31,10 @@ class SettingsPage extends StatelessWidget {
         child: ListView(
           children: [
             SettingElement(
-              onTap: () => Go.to(context, Pager.license),
+              onTap: () => Go.to(
+                  context,
+                  Pager.info(
+                      text: MyText.licenseText, title: MyText.app_license)),
               title: MyText.app_license,
               svgPath: Assets.svgFile,
             ),

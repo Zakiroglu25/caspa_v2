@@ -82,7 +82,7 @@ class Pager {
           value: TarifCubit()..fetch(),
         ),
         BlocProvider.value(
-          value: AdsCubit(),
+          value: AdsCubit()..fetch(),
         )
       ], child: HomePage());
 

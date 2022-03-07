@@ -4,13 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BackIOS extends StatelessWidget {
+  final VoidCallback? onBack;
+
+  BackIOS({this.onBack});
+
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            if (onBack != null) {
+              onBack?.call();
+            } else {
+              Navigator.pop(context);
+            }
           },
           icon: SvgPicture.asset(Assets.svgBackArrow)),
     );

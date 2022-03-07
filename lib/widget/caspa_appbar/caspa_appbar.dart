@@ -30,7 +30,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   final Function? onTapActions;
   final bool? centerTitle;
   final Color? color;
-
+  final Function? onBack;
   CaspaAppbar(
       {required this.title,
       @required this.user,
@@ -38,6 +38,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.exitButton,
       this.actions,
       this.color,
+      this.onBack,
       this.onTapActions,
       required this.contextA,
       this.centerTitle});
@@ -59,12 +60,17 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            (user ?? true) ? UserButton() : BackIOS(),
+            (user ?? true)
+                ? UserButton()
+                : BackIOS(
+                    onBack: () => onBack?.call(),
+                  ),
             Center(
               child: Text(
                 title!,
                 overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.sanF600.copyWith(fontSize: 17.sp,color: MyColors.black),
+                style: AppTextStyles.sanF600
+                    .copyWith(fontSize: 17.sp, color: MyColors.black),
               ),
             ),
             rightButtonsRow(context),

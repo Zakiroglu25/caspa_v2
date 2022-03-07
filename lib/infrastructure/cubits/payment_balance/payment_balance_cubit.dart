@@ -25,7 +25,7 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
 
   void getPaymentUrl(BuildContext context,
       {bool loading = true,
-        required PaymentBalanceType paymentBalanceType}) async {
+      required PaymentBalanceType paymentBalanceType}) async {
     try {
       if (isUserInfoValid()) {
         if (loading) {
@@ -52,10 +52,14 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
     }
   }
 
+  void back() async {
+    emit(PaymentBalanceInitial());
+  }
+
   void paymentSuccess(
-      BuildContext context, {
-        bool loading = true,
-      }) async {
+    BuildContext context, {
+    bool loading = true,
+  }) async {
     if (loading) {
       emit(PaymentBalanceInProgress());
     }
@@ -87,32 +91,32 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
     } else {
       price.sink.add(double.parse(value));
     }
-    // isUserInfoValid(registerType: _registerType);
+    isUserInfoValid();
   }
 
   bool get isPriceIncorrect => (!price.hasValue || price.value == null);
 
   //priceType
   final BehaviorSubject<PaymentType> paymentType =
-  BehaviorSubject<PaymentType>.seeded(PaymentType.from_balance);
+      BehaviorSubject<PaymentType>.seeded(PaymentType.from_balance);
 
   Stream<PaymentType> get paymentTypeStream => paymentType.stream;
 
   updatePaymentType(PaymentType value) {
     if (value == null
-    //|| value.isEmpty
-    ) {
+        //|| value.isEmpty
+        ) {
       //paymentType.value = '';
       paymentType.sink.addError(MyText.field_is_not_correct);
     } else {
       paymentType.sink.add(value);
     }
-    // isUserInfoValid(registerType: _registerType);
+    // isUserInfoValid();
   }
 
   bool get isPaymentTypeIncorrect =>
       (!paymentType.hasValue || paymentType.value == null
-          // || paymentType.value.isEmpty
+      // || paymentType.value.isEmpty
       );
 
   ////validation

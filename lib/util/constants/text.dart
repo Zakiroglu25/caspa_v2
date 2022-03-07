@@ -245,6 +245,7 @@ class MyText {
   static const String fromCashback = "Cashback ilə";
   static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
+  static const String packageGift = "Paketlər";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";

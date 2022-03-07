@@ -38,7 +38,6 @@ import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_pa
 import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
-import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
@@ -70,6 +69,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../app.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/any_info_page/any_info_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
@@ -257,10 +257,10 @@ class Pager {
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: const AppInfoPage());
 
-  static info({required String text, required String title}) =>
+  static anyInfo({required String text, required String title}) =>
       MultiBlocProvider(
           providers: [BlocProvider(create: (context) => AttorneyListCubit())],
-          child: LicensePageX(
+          child: AnyInfoPageX(
             text: text,
             title: title,
           ));

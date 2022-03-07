@@ -63,7 +63,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
             (user ?? true)
                 ? UserButton()
                 : BackIOS(
-                    onBack: () => onBack?.call(),
+                    onBack: onBack,
                   ),
             Center(
               child: Text(

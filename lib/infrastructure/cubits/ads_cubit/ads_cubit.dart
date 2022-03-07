@@ -14,15 +14,12 @@ class AdsCubit extends Cubit<AdsState> {
   AdsCubit() : super(AdsInitial());
 
   void fetch([bool loading = true]) async {
-    log("1");
     if (loading) {
       emit(AdsInProgress());
     }
     try {
-      log("2");
       final result = await GeneralProvider.ads();
-      log("3");
-      try{
+      try {
         if (isSuccess(result!.statusCode)) {
           emit(AdsSuccess(result.data));
         } else {
@@ -30,10 +27,9 @@ class AdsCubit extends Cubit<AdsState> {
           eeee(
               "Ads: ${ResponseMessage.fromJson(jsonDecode(result.data)).message}");
         }
-      }catch (e){
+      } catch (e) {
         print(e);
       }
-
     } on SocketException catch (_) {
       //network olacaq
       emit(AdsNetworkError());

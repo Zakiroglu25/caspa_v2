@@ -13,25 +13,31 @@ import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:focus_detector/focus_detector.dart';
 
 class Ads extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AdsCubit, AdsState>(
-      builder: (context, state) {
-        if (state is AdsSuccess) {
-          List<Data>? adsList = state.adsList;
-          return AdsWidget(
-            hList:adsList
-          );
-        } else if (state is TarifInProgress) {
-          return CaspaLoading(s: 92.sp,);
-        } else if (state is TarifNetworkError) {
-          return CaspaLoading(s: 92.sp,);
-        } else {
-          return EmptyWidget();
-        }
-      },
+    return FocusDetector(
+      onFocusGained: () => context.read<AdsCubit>()..fetch(false),
+      child: BlocBuilder<AdsCubit, AdsState>(
+        builder: (context, state) {
+          if (state is AdsSuccess) {
+            List<Data>? adsList = state.adsList;
+            return AdsWidget(hList: adsList);
+          } else if (state is TarifInProgress) {
+            return CaspaLoading(
+              s: 92.sp,
+            );
+          } else if (state is TarifNetworkError) {
+            return CaspaLoading(
+              s: 92.sp,
+            );
+          } else {
+            return EmptyWidget();
+          }
+        },
+      ),
     );
   }
 }

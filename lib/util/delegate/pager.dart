@@ -42,8 +42,7 @@ import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/packages_list.dart';
 import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
@@ -83,7 +82,7 @@ class Pager {
           value: TarifCubit()..fetch(),
         ),
         BlocProvider.value(
-          value: AdsCubit()..fetch(),
+          value: AdsCubit(),
         )
       ], child: HomePage());
 
@@ -314,13 +313,9 @@ class Pager {
   static Widget waitingPackages({required List<Package>? packages}) =>
       BlocProvider(
           create: (context) => PackageCubit()..fetch(),
-          child: WaitingPackageTab(
+          child: PackagesList(
             packages: packages,
           ));
-
-  static get packagesHistory => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
-      child: const PackageHistoryTab());
 
   static packageDetails({required Package package}) => MultiBlocProvider(
         providers: [

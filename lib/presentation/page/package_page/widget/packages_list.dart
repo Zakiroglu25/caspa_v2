@@ -5,7 +5,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/random.dart';
-import 'package:caspa_v2/widget/elements/package_box.dart';
+import 'package:caspa_v2/widget/main/package_box/package_box.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
@@ -13,10 +13,11 @@ import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class WaitingPackageTab extends StatelessWidget {
-  final List<Package>? packages;
+import '../../../../util/constants/text.dart';
 
-  WaitingPackageTab({required this.packages});
+class PackagesList extends StatelessWidget {
+  final List<Package>? packages;
+  PackagesList({required this.packages});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class WaitingPackageTab extends StatelessWidget {
     final sW = size.width;
     final List<Package>? packageList = packages!.reversed.toList();
     return ListOrEmpty(
+        description: MyText.emptyDesc,
         list: packageList,
         child: GridView.builder(
           padding: Paddings.paddingA20,

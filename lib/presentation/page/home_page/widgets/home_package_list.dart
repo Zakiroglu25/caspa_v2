@@ -4,7 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/widget/elements/package_box.dart';
+import 'package:caspa_v2/widget/main/package_box/package_box.dart';
 import 'package:caspa_v2/widget/elements/package_box_home.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';

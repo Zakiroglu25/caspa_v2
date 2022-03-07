@@ -33,7 +33,7 @@ class SettingsPage extends StatelessWidget {
             SettingElement(
               onTap: () => Go.to(
                   context,
-                  Pager.info(
+                  Pager.anyInfo(
                       text: MyText.licenseText, title: MyText.app_license)),
               title: MyText.app_license,
               svgPath: Assets.svgFile,

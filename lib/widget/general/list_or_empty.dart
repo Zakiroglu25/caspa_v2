@@ -6,8 +6,10 @@ class ListOrEmpty extends StatelessWidget {
   final List<dynamic>? list;
   final Widget child;
   final String? text;
+  final String? description;
 
-  ListOrEmpty({required this.list, required this.child, this.text});
+  ListOrEmpty(
+      {required this.list, required this.child, this.text, this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +18,7 @@ class ListOrEmpty extends StatelessWidget {
       child: child,
       elseChild: EmptyWidget(
         text: text,
+        description: description,
       ),
     );
   }

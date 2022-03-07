@@ -23,7 +23,7 @@ class PolicyCheckbox extends StatelessWidget {
             InkWrapper(
               onTap: () => Go.to(
                   context,
-                  Pager.info(
+                  Pager.anyInfo(
                       text: MyText.rulesText,
                       title: MyText.userRulesandAgreements)),
               child: Text(

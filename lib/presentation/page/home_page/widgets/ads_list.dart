@@ -2,12 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/ads_details_screen.dart';
-import 'package:caspa_v2/presentation/page/home_page/widgets/news_section.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/ads_card.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/widget/elements/tariff_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,7 +33,7 @@ class AdsWidget extends StatelessWidget {
     isVertical ??= false;
     return FadeIn(
       child: SizedBox(
-        height: 120.sp,
+        height: 100.sp,
         child: ListView.separated(
           separatorBuilder: (context, index) {
             return MySizedBox.w10;
@@ -43,18 +44,19 @@ class AdsWidget extends StatelessWidget {
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
             Data ads = hList![index];
-            return InkWell(
-              onTap: () {
-                Go.to(
+            return Hero(
+              tag: hList![index].image!,
+              child: InkWrapper(
+                onTap: () => Go.to(
                     context,
                     AdsDetailsPage(
                       hList: hList![index],
-                    ));
-              },
-              child: AdsCard(
-                desc: ads.title,
-                url: ads.image,
-                //w: (isVertical ?? false) ? null : 284.sp,
+                    )),
+                child: AdsCard(
+                  desc: ads.title,
+                  url: ads.image,
+                  //w: (isVertical ?? false) ? null : 284.sp,
+                ),
               ),
             );
           },

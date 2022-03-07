@@ -1,8 +1,8 @@
 // Flutter imports:
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // Package imports:
-
 
 class Go {
   // static pushPage(BuildContext context, Widget page) async {
@@ -18,6 +18,7 @@ class Go {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => page));
   }
+
   static pop(BuildContext context) async {
     Navigator.pop(context);
   }
@@ -27,7 +28,15 @@ class Go {
       builder: (context) => page,
     ));
   }
+
+  static to2(BuildContext context, Widget page) async {
+    Navigator.of(context, rootNavigator: false).push(CupertinoPageRoute(
+      builder: (context) => page,
+    ));
+  }
+
   static andRemove(BuildContext context, Widget page) async {
-    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(MaterialPageRoute(builder:(context)=>page), (route) => false);
+    Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => page), (route) => false);
   }
 }

@@ -49,7 +49,7 @@ class PackageReportButtons extends StatelessWidget {
     required Package package,
     required double sW,
   }) {
-    bbbb("package: $package");
+    // bbbb("package: $package");
     // package.payment = 0;
     String customStatus = package.customStatus!;
     if (customStatus == MyText.stOrdered &&

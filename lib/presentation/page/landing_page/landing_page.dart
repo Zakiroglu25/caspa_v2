@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
               icon: SvgPicture.asset(
                 Assets.svgPlusCircle,
               ),
-              label: 'Yeni sifariş',
+              label: MyText.new_order,
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,

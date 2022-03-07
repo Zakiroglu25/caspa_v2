@@ -14,9 +14,10 @@ import 'sad_smile.dart';
 class EmptyWidget extends StatelessWidget {
   final bool? smile;
 
-  final text;
+  final String? text;
+  final String? description;
 
-  EmptyWidget({this.smile, this.text});
+  EmptyWidget({this.smile, this.text, this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -41,17 +42,23 @@ class EmptyWidget extends StatelessWidget {
               height: 16.sp,
             ),
             Text(
-              text != null ? text : MyText.no_result,
+              text ?? MyText.no_result,
               textAlign: TextAlign.center,
               style: AppTextStyles.coHead400.copyWith(
                   fontSize: 25.sp, height: 1.2, color: MyColors.black126),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30.0, right: 30),
-              child: Text(MyText.emptyDesc,
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.sanF400.copyWith(
-                      color: MyColors.grey153, letterSpacing: 0.3, height: 1.3)),
+            MySizedBox.h16,
+            WidgetOrEmpty(
+              value: description != null,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 30.0, right: 30),
+                child: Text(description ?? '',
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.sanF400.copyWith(
+                        color: MyColors.grey153,
+                        letterSpacing: 0.3,
+                        height: 1.3)),
+              ),
             ),
           ],
         ),

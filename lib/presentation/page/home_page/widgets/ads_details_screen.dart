@@ -20,12 +20,12 @@ class AdsDetailsPage extends StatelessWidget {
               right: 16,
               top: 16,
               child: InkWell(
-                  onTap:(){
-                    Navigator.pop(context);
-                  },
-                  child: Icon(Icons.clear)),
+                  onTap: () => Go.pop(context), child: Icon(Icons.clear)),
             ),
-            Center(child: Image.network(hList.image.toString())),
+            Center(
+                child: Hero(
+                    tag: hList.image!,
+                    child: Image.network(hList.image.toString()))),
           ],
         ),
       ),

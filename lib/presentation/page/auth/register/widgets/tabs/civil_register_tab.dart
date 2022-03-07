@@ -8,12 +8,9 @@ import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/number_f
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/second_pass_field.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/surname_field.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/register_button.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
 import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/util/screen/snack.dart';

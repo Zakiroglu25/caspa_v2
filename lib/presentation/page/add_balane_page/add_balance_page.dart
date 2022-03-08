@@ -1,6 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_state.dart';
-import 'package:caspa_v2/presentation/page/add_balane_page/widgets/gift_packages.dart';
+import 'package:caspa_v2/presentation/page/add_balane_page/widgets/balance_packages.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -86,7 +86,7 @@ class AddBalancePage extends StatelessWidget {
                       ),
                       WidgetOrEmpty(
                           value: paymentBalance == PaymentBalanceType.cargo,
-                          child: const GIftPackages())
+                          child: const BalancePackages())
                     ],
                   ),
                   Positioned(

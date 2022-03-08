@@ -26,6 +26,7 @@ class PackageStepper extends StatelessWidget {
       child: SizedBox(
         height: titles != null ? 80 : 40,
         child: ListView(
+          shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           children: [
             Column(

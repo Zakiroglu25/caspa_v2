@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
@@ -58,7 +57,6 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
-import 'package:caspa_v2/presentation/page/trendyol_otp_page/trendyol_otp_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';

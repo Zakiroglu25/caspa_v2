@@ -17,6 +17,7 @@ class CaspaField extends StatelessWidget {
   final String? title;
   final String? errorMessage;
   final String? infoMessage;
+  final String? initialValue;
   final int? maxLenght;
   final int? maxLines;
   final double? topMargin;
@@ -47,12 +48,15 @@ class CaspaField extends StatelessWidget {
       this.title,
       this.infoMessage,
       this.errorMessage,
+      this.initialValue,
       this.textCapitalization,
       this.onChanged,
       this.onTap,
       this.prefixIcon,
       this.suffixText,
-      this.textInputType});
+      this.textInputType})
+      : assert(controller == null || initialValue == null,
+            "her ikisi teyin ola bilmez");
 
   @override
   Widget build(BuildContext context) {
@@ -85,13 +89,14 @@ class CaspaField extends StatelessWidget {
                         color: errorMessage == null
                             ? MyColors.transparent
                             : MyColors.errorRED)),
-                child: TextField(
+                child: TextFormField(
                   autocorrect: false,
                   controller: controller,
                   obscureText: obscure ?? false,
                   maxLength: maxLenght,
                   maxLines: maxLines ?? null,
                   onChanged: onChanged,
+                  initialValue: initialValue,
                   readOnly: readOnly ?? false,
                   //   enabled: false,
                   expands: maxLines != null ? false : true,

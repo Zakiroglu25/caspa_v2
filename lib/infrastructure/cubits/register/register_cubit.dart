@@ -26,8 +26,17 @@ class RegisterCubit extends Cubit<RegisterState> {
   HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
 
-  set registerType(RegisterType value) {
-    _registerType = value;
+  // set registerType(RegisterType value) {
+  //   _registerType = value;
+  //   isUserInfoValid(registerType: _registerType);
+  // }
+  set updateRegisterType(int index) {
+    if (index == 0) {
+      _registerType = RegisterType.personal;
+    } else {
+      _registerType = RegisterType.company;
+    }
+    isUserInfoValid(registerType: _registerType);
   }
 
   void register(BuildContext context) {
@@ -120,23 +129,6 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterError(message: e.toString()));
     }
   }
-
-// void registerBusiness(RegisterRequestModel body) async {
-//     emit(RegisterLoading());
-//     try {
-//       final response = await AuthProvider.registrationBusiness(name: name, surname: surname, address: address, email: email, password: password, password_confirmation: password_confirmation, phone: phone, accept: accept, company_name: company_name, tax_number: tax_number);
-//       if (response.message == null) {
-//         emit(RegisterSuccess(response.message!));
-//       } else {
-//         emit(RegisterFailed(response.message!));
-//       }
-//     } on DioError catch (e) {
-//       print(e.response!.data.toString());
-//       emit(RegisterFailed(e.response!.data.toString()));
-//     } catch (e, s) {
-//       emit(RegisterFailed("Errorlari doshuyecem"));
-//     }
-//   }
 
   //////VALUES///////////VALUES//////////VALUES/////////////VALUES///////////////////
 
@@ -436,6 +428,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   @override
   Future<void> close() {
+    bbbb("hohoh");
     uEmail.close();
     uName.close();
     surName.close();
@@ -446,6 +439,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     uPassSecond.close();
     uPassMain.close();
     adress.close();
+    checkbox.close();
     anbar.close();
     phone.close();
     return super.close();
@@ -453,17 +447,22 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   //eslinde asagidaki regidster type funksiyada gondermeye ehtiyac yoxdu
   bool isUserInfoValid({required RegisterType registerType}) {
-    // bbbb("---- isNameIncorrect:  $isNameIncorrect");
-    // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
-    // bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
-    // bbbb("---- isFinIncorrect:  $isFinIncorrect");
-    // bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
-    // bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
-    // bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
-    // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
-    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
+    bbbb("---- isNameIncorrect:  $isNameIncorrect");
+    // bbbb("---- isNameIncorrect 2:  ${uName.hasValue}");
+    // bbbb("---- isNameIncorrect 3:  ${_registerType}");
+    //bbbb("---- isNameIncorrect 3:  ${uName.value.isEmpty}");
+    // bbbb("---- isNameIncorrect 4:  ${uName.value}");
+
+    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
+    bbbb("---- isFinIncorrect:  $isFinIncorrect");
+    bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
+    bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
+    bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
+    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
+    bbbb("---- isCheckBoxIncorrect:  $isCheckBoxIncorrect");
 
     if (_registerType == RegisterType.personal) {
       if (!isNameIncorrect &&
@@ -481,9 +480,10 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isEmailIncorrect &&
           !isPhoneIncorrect) {
         emit(RegisterButtonActive());
+        //   bbbb("---- true 4");
         return true;
       } else {
-        //bbbb("---- false");
+        //bbbb("---- false 3");
         return false;
       }
     } else {
@@ -496,6 +496,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isMainPassInCorrect &&
           //!isAnbarIncorrect &&
           !isSecondPassInCorrect &&
+          !isCheckBoxIncorrect &&
           // !isBirtdayIncorrect &&
           //  !isGenderIncorrect &&
           !isEmailIncorrect &&
@@ -503,9 +504,10 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isCompanyNameIncorrect &&
           !isPhoneIncorrect) {
         emit(RegisterButtonActive());
+        //bbbb("---- true 1");
         return true;
       } else {
-        //bbbb("---- false");
+        //bbbb("---- false 2");
         return false;
       }
     }

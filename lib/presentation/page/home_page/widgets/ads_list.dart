@@ -44,19 +44,16 @@ class AdsWidget extends StatelessWidget {
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
             Data ads = hList![index];
-            return Hero(
-              tag: hList![index].image!,
-              child: InkWrapper(
-                onTap: () => Go.to(
-                    context,
-                    AdsDetailsPage(
-                      hList: hList![index],
-                    )),
-                child: AdsCard(
-                  desc: ads.title,
-                  url: ads.image,
-                  //w: (isVertical ?? false) ? null : 284.sp,
-                ),
+            return InkWrapper(
+              onTap: () => Go.to(
+                  context,
+                  AdsDetailsPage(
+                    hList: hList![index],
+                  )),
+              child: AdsCard(
+                desc: ads.title,
+                url: ads.image,
+                //w: (isVertical ?? false) ? null : 284.sp,
               ),
             );
           },

@@ -447,22 +447,17 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   //eslinde asagidaki regidster type funksiyada gondermeye ehtiyac yoxdu
   bool isUserInfoValid({required RegisterType registerType}) {
-    bbbb("---- isNameIncorrect:  $isNameIncorrect");
-    // bbbb("---- isNameIncorrect 2:  ${uName.hasValue}");
-    // bbbb("---- isNameIncorrect 3:  ${_registerType}");
-    //bbbb("---- isNameIncorrect 3:  ${uName.value.isEmpty}");
-    // bbbb("---- isNameIncorrect 4:  ${uName.value}");
-
-    bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
-    bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
-    bbbb("---- isFinIncorrect:  $isFinIncorrect");
-    bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
-    bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
-    bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
-    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
-    bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
-    bbbb("---- isCheckBoxIncorrect:  $isCheckBoxIncorrect");
+    //bbbb("---- isNameIncorrect:  $isNameIncorrect");
+    // bbbb("---- isGenderIncorrect:  $isGenderIncorrect");
+    // bbbb("---- isBirthDateIncorrect:  $isBirthDateIncorrect");
+    // bbbb("---- isFinIncorrect:  $isFinIncorrect");
+    // bbbb("---- isIdNumberIncorrect:  $isIdNumberIncorrect");
+    // bbbb("---- isMainPassCorrect:  $isMainPassInCorrect");
+    // bbbb("---- isSecondPassCorrect:  $isSecondPassInCorrect");
+    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    // bbbb("---- isEmailIncorrect:  $isEmailIncorrect");
+    // bbbb("---- isPhoneIncorrect:  $isPhoneIncorrect");
+    // bbbb("---- isCheckBoxIncorrect:  $isCheckBoxIncorrect");
 
     if (_registerType == RegisterType.personal) {
       if (!isNameIncorrect &&

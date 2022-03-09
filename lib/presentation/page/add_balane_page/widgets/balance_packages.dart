@@ -5,8 +5,8 @@ import '../../../../util/constants/sized_box.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/constants/text_styles.dart';
 
-class GIftPackages extends StatelessWidget {
-  const GIftPackages({Key? key}) : super(key: key);
+class BalancePackages extends StatelessWidget {
+  const BalancePackages({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +27,17 @@ class GIftPackages extends StatelessWidget {
         ),
         PricePackage(
           gift: '10',
-          index: 1,
+          index: 2,
           price: '30',
         ),
         PricePackage(
           gift: '20',
-          index: 1,
+          index: 3,
           price: '50',
         ),
         PricePackage(
           gift: '50',
-          index: 1,
+          index: 4,
           price: '100',
         ),
         MySizedBox.h100

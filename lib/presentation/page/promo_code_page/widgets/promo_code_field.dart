@@ -20,7 +20,7 @@ class PromoCodeField extends StatelessWidget {
           title: MyText.promoCode,
           maxLines: 1,
           hint: MyText.promoCode,
-          upperCase: true,
+
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',

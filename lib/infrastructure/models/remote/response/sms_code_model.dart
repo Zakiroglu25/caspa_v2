@@ -22,23 +22,21 @@ class SmsCodeData {
 }
 
 class SmsCode {
-  int? id;
-  String? time;
+  String? date;
   String? code;
 
-  SmsCode({this.id, this.time, this.code});
+  SmsCode({this.date, this.code});
 
   SmsCode.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    time = json['name'];
-    code = json['price'];
+    date = json['date'];
+    code = json['code'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['name'] = time;
-    data['price'] = code;
+
+    data['date'] = date;
+    data['code'] = code;
     return data;
   }
 }

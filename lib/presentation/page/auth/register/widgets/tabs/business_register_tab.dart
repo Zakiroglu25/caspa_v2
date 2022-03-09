@@ -15,33 +15,15 @@ import '../fields/email_field.dart';
 import '../fields/main_pass_field.dart';
 import '../fields/name_field.dart';
 import '../fields/number_field.dart';
+import '../fields/policy_checkbox.dart';
 import '../fields/second_pass_field.dart';
 import '../fields/surname_field.dart';
 import '../register_button.dart';
 
-class BusinessRegisterTab extends StatefulWidget {
-  const BusinessRegisterTab({Key? key}) : super(key: key);
-
-  @override
-  _BusinessRegisterTabState createState() => _BusinessRegisterTabState();
-}
-
-class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
-  final TextEditingController _businessName = TextEditingController();
-  final TextEditingController _voen = TextEditingController();
-  final TextEditingController _businessPersonalName = TextEditingController();
-  final TextEditingController _businessPersonalSurName =
-      TextEditingController();
-  final TextEditingController _businessAddress = TextEditingController();
-  final TextEditingController _businessEmail = TextEditingController();
-  final TextEditingController _businessNumber = TextEditingController();
-  final TextEditingController _businessPassword = TextEditingController();
-  final TextEditingController _businessConfrimPassword =
-      TextEditingController();
-
+class BusinessRegisterTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    context.read<RegisterCubit>().registerType = RegisterType.company;
+    //context.read<RegisterCubit>().registerType = RegisterType.company;
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (context, state) {
         if (state is RegisterButtonActive)
@@ -95,7 +77,7 @@ class _BusinessRegisterTabState extends State<BusinessRegisterTab> {
                   CompanyNameFieldRegister(),
                   MySizedBox.h3,
                   TaxNumberFieldRegister(),
-
+                  PolicyCheckbox(),
                   MySizedBox.h90,
                 ],
               )),

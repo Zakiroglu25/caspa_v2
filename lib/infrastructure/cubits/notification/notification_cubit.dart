@@ -1,11 +1,15 @@
 // Dart imports:
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/notification_provider.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../locator.dart';
+import '../../../util/delegate/request_control.dart';
 import 'notification_state.dart';
 
 // Project imports:
@@ -16,28 +20,28 @@ class NotificationCubit extends Cubit<NotificationState> {
   HiveService get _prefs => locator<HiveService>();
   //RenewTokenService get _token => locator<RenewTokenService>();
 
-  void fetch({bool? loading, @required BuildContext? context}) async {
+  void fetch({bool? loading}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }
-
+    emit(NotificationInProgress());
     try {
-      //   String token = await _token.reNewToken(context);
-      String token = '';
-      final result =
-          await NotificationProvider.fetchNotificationData(token: token);
+      final result = await NotificationProvider.getNotification();
+      bbbb('noy: ${result.statusCode}');
+      List<MyNotification> notificationList =
+          result.data as List<MyNotification>;
+      // notificationList.forEach((element) {});
 
-      if (result?.message == 'ok') {
-        if (result?.result?.length == 0) {
-          emit(NotificationNotFound());
-        } else
-          emit(NotificationSuccess(result));
+      if (isSuccess(result.statusCode)) {
+        emit(NotificationSuccess(notificationList));
+        bbbb("hjgkhjk; $notificationList");
       } else {
         emit(NotificationError());
       }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
-    } catch (e) {
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
       emit(NotificationError());
     }
   }

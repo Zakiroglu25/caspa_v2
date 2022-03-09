@@ -35,6 +35,7 @@ class ApiKeys {
   static const shop = '$baseUrl/public/stores';
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
+  static const smsCodes = '$baseUrl/public/sms';
 
   //packages
   static final allPackages = '$baseUrl/user/packages';

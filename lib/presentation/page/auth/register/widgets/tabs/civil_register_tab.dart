@@ -27,7 +27,7 @@ import '../fields/policy_checkbox.dart';
 class CivilRegisterTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    context.read<RegisterCubit>().registerType = RegisterType.personal;
+    //  context.read<RegisterCubit>().registerType = RegisterType.personal;
 
     return BlocListener<RegisterCubit, RegisterState>(
       listenWhen: (context, state) {

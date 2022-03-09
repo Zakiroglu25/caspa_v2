@@ -25,11 +25,11 @@ class Ads extends StatelessWidget {
           if (state is AdsSuccess) {
             List<Data>? adsList = state.adsList;
             return AdsWidget(hList: adsList);
-          } else if (state is TarifInProgress) {
+          } else if (state is AdsInProgress) {
             return CaspaLoading(
               s: 92.sp,
             );
-          } else if (state is TarifNetworkError) {
+          } else if (state is AdsInProgress) {
             return CaspaLoading(
               s: 92.sp,
             );

@@ -15,7 +15,6 @@ class BackIOS extends StatelessWidget {
       color: Colors.transparent,
       child: IconButton(
           onPressed: () {
-            bbbb("ghghj");
             if (onBack != null) {
               onBack?.call();
             } else {

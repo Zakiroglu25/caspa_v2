@@ -37,6 +37,26 @@ class StringOperations {
   }
 
   static String dateConvert(DateTime date, BuildContext context) {
+    // 2022-03-09T11:53:45.000000Z;
+    var now = DateTime.now();
+
+    final today = DateTime(now.year, now.month, now.day);
+    final yesterday = DateTime(now.year, now.month, now.day - 1);
+
+    if (DateFormat('dd.MM.yyyy').format(today).toString() ==
+        DateFormat('dd.MM.yyyy').format(date).toString()) {
+      return MyText.today;
+    } else if (DateFormat('dd.MM.yyyy').format(yesterday).toString() ==
+        DateFormat('dd.MM.yyyy').format(date).toString()) {
+      return MyText.yesterday;
+    } else {
+      return DateFormat('dd.MM.yyyy').format(date).toString();
+    }
+  }
+
+  static String dateConvertFromString(String datex, BuildContext context) {
+    // 2022-03-09T11:53:45.000000Z;
+    DateTime date = DateTime.parse(datex);
     var now = DateTime.now();
 
     final today = DateTime(now.year, now.month, now.day);
@@ -118,6 +138,10 @@ class StringOperations {
     } else {
       return string.substring(2);
     }
+  }
+
+  static String dateToHours(String string) {
+    return string.substring(10, string.length);
   }
 
   static launchCaller(String num) async {

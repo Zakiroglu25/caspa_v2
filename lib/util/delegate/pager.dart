@@ -11,6 +11,7 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/notification/notification_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
@@ -65,6 +66,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
@@ -195,9 +197,10 @@ class Pager {
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: const UserSettingsPage());
 
-  static get notifications => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => UserCubit())],
-      child: const NotificationsPage());
+  static get notifications => MultiBlocProvider(providers: [
+        BlocProvider(create: (c) => NotificationCubit()..fetch()),
+        // BlocProvider(create: (con) => NotificationListCubit()..fetch()),
+      ], child: NotificationsPage());
 
   static get promoCode => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => PromoCodeCubit()..fetch())],

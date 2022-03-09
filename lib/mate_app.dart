@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ class MateApp extends StatelessWidget {
   //final botToastBuilder = BotToastInit(); //
   @override
   Widget build(BuildContext context) {
+    //bbbb('runnnnning');
     return ScreenUtilInit(
         designSize: const Size(375, 812),
         builder: () => BlocProvider(

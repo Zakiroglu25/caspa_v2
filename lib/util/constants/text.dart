@@ -403,7 +403,7 @@ class MyText {
       "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
 
   ///promocode
-  static const String littlePromo = "Pulsuz bağlama aparın 😊";
+  static const String getPackageFree = "Pulsuz bağlama aparın 😊";
   static const String infoPromo =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
 

@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
@@ -28,6 +29,7 @@ class SmsCodesPage extends StatelessWidget {
         title: MyText.trendyolSMS,
       ),
       body: ListView(
+        shrinkWrap: true,
         padding: Paddings.paddingA16,
         children: [
           SectionName(
@@ -45,9 +47,10 @@ class SmsCodesPage extends StatelessWidget {
           BlocBuilder<SmsCodesCubit, SmsCodesState>(
             builder: (context, state) {
               if (state is SmsCodesInProgress) {
-                return CaspaLoading();
+                return Container(
+                    margin: Paddings.paddingT50, child: CaspaLoading());
               } else if (state is SmsCodesSuccess) {
-                final List<SmsCode> smsList = state.smsList.reversed.toList();
+                final List<SmsCode> smsList = state.smsList;
 
                 return ListView.builder(
                   itemCount: smsList.length,
@@ -58,7 +61,7 @@ class SmsCodesPage extends StatelessWidget {
                     SmsCode currentSms = smsList[index];
                     return SmsBox(
                       code: currentSms.code!,
-                      time: currentSms.time!,
+                      time: StringOperations.dateToHours(currentSms.date!),
                     );
                   },
                 );

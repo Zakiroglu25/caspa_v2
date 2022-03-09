@@ -20,6 +20,7 @@ class AddBalancePage extends StatelessWidget {
   PaymentBalanceType paymentBalance;
 
   AddBalancePage({required this.paymentBalance});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,6 +70,10 @@ class AddBalancePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  // Positioned(
+                  //   top: 140,
+                  //   child: Text("30\$ odenish etdikde 10\$ cashback al"),
+                  // ),
                   Positioned(
                     child: CaspaButton(
                       text: MyText.addBalance,

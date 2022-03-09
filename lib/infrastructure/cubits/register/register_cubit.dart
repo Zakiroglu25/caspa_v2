@@ -379,6 +379,24 @@ class RegisterCubit extends Cubit<RegisterState> {
       idNumber.value.isEmpty |
           !AppOperations.idCardSeriesControl(idNumber.value));
 
+  //checkbox
+  final BehaviorSubject<bool> checkbox = BehaviorSubject<bool>.seeded(false);
+
+  Stream<bool> get checkBoxStream => checkbox.stream;
+
+  updateCheckBox(bool value) {
+    // if (value) {
+    //   checkbox.value = false;
+    //   checkbox.sink.addError(MyText.field_is_not_correct);
+    // } else {
+    checkbox.sink.add(value);
+    //}
+    isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isCheckBoxIncorrect =>
+      (!checkbox.hasValue || checkbox.value == null || checkbox.value == false);
+
   //gender
   final BehaviorSubject<String> gender = BehaviorSubject<String>();
 
@@ -455,6 +473,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isFinIncorrect &&
           !isIdNumberIncorrect &&
           !isMainPassInCorrect &&
+          !isCheckBoxIncorrect &&
           //!isAnbarIncorrect &&
           !isSecondPassInCorrect &&
           // !isBirtdayIncorrect &&

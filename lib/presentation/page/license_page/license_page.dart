@@ -4,7 +4,10 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 
 class LicensePageX extends StatelessWidget {
-  const LicensePageX({Key? key}) : super(key: key);
+  const LicensePageX({Key? key, required this.text, required this.title})
+      : super(key: key);
+  final String text;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +15,13 @@ class LicensePageX extends StatelessWidget {
       appBar: CaspaAppbar(
         user: false,
         contextA: context,
-        title: MyText.app_license,
+        title: title,
         notification: false,
       ),
       body: ListView(
         padding: Paddings.paddingA16 + Paddings.paddingB24,
         children: [
-          Text(MyText.licenseText),
+          Text(text),
         ],
       ),
     );

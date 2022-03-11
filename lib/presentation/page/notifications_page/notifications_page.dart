@@ -1,11 +1,16 @@
 import 'package:caspa_v2/infrastructure/cubits/notification/notification_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/notification/notification_state.dart';
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/notification_model.dart';
+import 'package:caspa_v2/presentation/page/notifications_page/widgets/notification_list_new.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../widget/general/empty_widget.dart';
 import 'widgets/notifications_list.dart';
 
 class NotificationsPage extends StatelessWidget {
@@ -20,83 +25,64 @@ class NotificationsPage extends StatelessWidget {
         user: false,
         contextA: context,
       ),
-      body: BlocProvider(
-        create: (context) => NotificationCubit(),
-        child: BlocBuilder<NotificationCubit, NotificationState>(
-          buildWhen: (context, state) {
-            if (state is NotificationRemoveSuccess) {
-              return false;
-            } else if (state is NotificationStatusUpdated) {
-              return false;
-            }
-            return true;
-          },
-          builder: (context, state) {
+      body: BlocBuilder<NotificationCubit, NotificationState>(
+        // buildWhen: (context, state) {
+        //   if (state is NotificationRemoveSuccess) {
+        //     return false;
+        //   } else if (state is NotificationStatusUpdated) {
+        //     return false;
+        //   }
+        //   return true;
+        // },
+        builder: (context, state) {
+          bbbb("state: $state");
+          if (state is NotificationSuccess) {
+            bbbb("bnjkhjk; ${state.notificationList}");
+            List<MyNotification>? notificationList = state.notificationList;
+
             return FadeEdge(
-              child: notificationsList(
-                [
-                  NotificationResult(date: DateTime.now(), notification: [
-                    NotificationBody(
-                        id: 1,
-                        title: "Bağlama: 252442",
-                        text: "Xarici anbara bəyan et"),
-                    NotificationBody(
-                        id: 2,
-                        title: "Bağlama: 252442",
-                        text: "Xarici anbara bəyan et"),
-                    NotificationBody(
-                        id: 3,
-                        title: "Bağlama: 252442",
-                        text: "Xarici anbara bəyan et"),
-                    NotificationBody(
-                        id: 4,
-                        title: "Bağlama: 252442",
-                        text: "Xarici anbara bəyan et"),
-                    NotificationBody(
-                        id: 5,
-                        title: "Bağlama: 252442",
-                        text: "Xarici anbara bəyan et"),
-                  ])
-                ],
-              ),
+              child: notificationsList(notificationList!),
               bottomButton: cancelButton(300, context),
             );
-            // if (state is NotificationSuccess) {
-            //   context.read<NotificationCubit>()
-            //     ..updateNotificionStatus();
-            //   return FadeEdge(
-            //     child: notificationsList(
-            //       [
-            //         NotificationResult(date: DateTime.now(),
-            //             notification: [
-            //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
-            //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
-            //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
-            //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
-            //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
-            //
-            //             ])
-            //       ],
-            //     ),
-            //     bottomButton: cancelButton(300, context),
-            //   );
-            // } else if (state is NotificationInProgress) {
-            //   return Center(child: CaspaLoading());
-            // } else if (state is NotificationNetworkError) {
-            //   return NoData(text: 'network_error');
-            // } else if (state is NotificationNotFound) {
-            //   return NoData(text: 'there_is_no_result');
-            // } else {
-            //   return NoData(text: 'there_is_no_result');
-            // }
-          },
-        ),
+          } else if (state is NotificationInProgress) {
+            return CaspaLoading();
+          } else {
+            return EmptyWidget();
+          } // if (state is NotificationSuccess) {
+          //   context.read<NotificationCubit>()
+          //     ..updateNotificionStatus();
+          //   return FadeEdge(
+          //     child: notificationsList(
+          //       [
+          //         NotificationResult(date: DateTime.now(),
+          //             notification: [
+          //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
+          //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
+          //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
+          //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
+          //               NotificationBody(id: 1, text: "salam", title: "aaaa"),
+          //
+          //             ])
+          //       ],
+          //     ),
+          //     bottomButton: cancelButton(300, context),
+          //   );
+          // } else if (state is NotificationInProgress) {
+          //   return Center(child: CaspaLoading());
+          // } else if (state is NotificationNetworkError) {
+          //   return NoData(text: 'network_error');
+          // } else if (state is NotificationNotFound) {
+          //   return NoData(text: 'there_is_no_result');
+          // } else {
+          //   return NoData(text: 'there_is_no_result');
+          // }
+        },
       ),
     );
   }
 
-  NotificationsList notificationsList(List<NotificationResult> result) {
-    return NotificationsList(
+  NotificationsListNew notificationsList(List<MyNotification> result) {
+    return NotificationsListNew(
       result: result,
     );
   }

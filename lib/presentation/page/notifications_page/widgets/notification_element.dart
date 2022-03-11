@@ -5,18 +5,22 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../infrastructure/models/local/my_user.dart';
+
 class NotificationElement extends StatefulWidget {
-  final String? title;
-  final String? content;
+  // final String? title;
+  // final String? content;
   final Function? onXTap;
   final bool? increase;
-
+  MyNotification notification;
   NotificationElement({
-    required this.title,
-    required this.content,
+    // required this.title,
+    // required this.content,
     required this.onXTap,
+    required this.notification,
     this.increase,
   });
 
@@ -52,51 +56,44 @@ class _NotificationElementState extends State<NotificationElement>
       controller: (acontroller) {
         controller = acontroller;
       },
-      child: Container(
-        height: 76,
-        padding: Paddings.paddingH16,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Column(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+              StringOperations.dateConvertFromString(
+                  widget.notification.createdAt!, context),
+              style: const TextStyle(
+                  color: MyColors.grey163, fontWeight: FontWeight.w700)),
+          MySizedBox.h10,
+          Container(
+            // height: 76,
+
+            padding: Paddings.paddingA16,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  widget.title!,
+                  widget.notification.title!,
                   style: AppTextStyles.sanF600
                       .copyWith(fontSize: 16, color: MyColors.black34),
                 ),
                 MySizedBox.h4,
                 Text(
-                  widget.content!,
+                  widget.notification.description!,
                   style: AppTextStyles.sanF600
                       .copyWith(fontSize: 12, color: MyColors.grey153),
                 ),
               ],
             ),
-            SizedBox(
-              width: 100,
-              child: FittedBox(
-                child: Text(
-                  "+4.00 USD",
-                  style: AppTextStyles.sanF600.copyWith(
-                      fontSize: 16,
-                      color: (widget.increase ?? false)
-                          ? MyColors.errorRED
-                          : MyColors.green),
-                ),
-              ),
-            )
-          ],
-        ),
-        decoration: BoxDecoration(
-            color: (widget.increase ?? false)
-                ? MyColors.grey245
-                : Colors.transparent,
-            //color: Color.fromRGBO(255, 255, 255, 1),
-            borderRadius: BorderRadius.circular(12)),
+            decoration: BoxDecoration(
+                color: (widget.notification.read == 0)
+                    ? MyColors.grey245
+                    : Colors.amberAccent,
+                //color: Color.fromRGBO(255, 255, 255, 1),
+                borderRadius: BorderRadius.circular(12)),
+          ),
+        ],
       ),
     );
   }

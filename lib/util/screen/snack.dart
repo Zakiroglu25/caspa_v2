@@ -23,6 +23,8 @@ class Snack {
     final SnackBar snackbar = SnackBar(
       key: Key('a'),
       elevation: 0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       dismissDirection: DismissDirection.horizontal,
       backgroundColor: Colors.white,
       behavior: SnackBarBehavior.floating,
@@ -123,6 +125,8 @@ class Snack {
     //positive ?? false;
     final snackbar = SnackBar(
       elevation: 0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       dismissDirection: DismissDirection.horizontal,
       backgroundColor: Colors.transparent,
       behavior: SnackBarBehavior.floating,
@@ -133,10 +137,7 @@ class Snack {
               //color: MyColors.mainColor,
               color: (positive!) ? color : MyColors.errorRED,
               // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                  bottomRight: Radius.circular(10))),
+              borderRadius: BorderRadius.circular(10)),
           height: 50.sp,
           // height: 60.sp,
           child: Stack(

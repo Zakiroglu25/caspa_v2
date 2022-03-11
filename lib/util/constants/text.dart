@@ -72,7 +72,7 @@ class MyText {
   static const String amount = "Miqdar";
   static const String amountmoney = "Məbləğ";
   static const String value = "Dəyər";
-  static const String foreing_cargo_price = "Xarici karqo qiyməti";
+  static const String foreing_cargo_price = "Xarici ölkədaxili karqo qiyməti";
   static const String from_where = "Haradan";
   static const String status = "Status";
   static const String didntDetermine = "Müəyyən edilməyib";
@@ -115,7 +115,7 @@ class MyText {
   static const String viaLink = "Link ilə 🎁 ";
   static const String declareItX = "Bəyan et 📦";
   static const String declareIt = "Bəyan et";
-  static const String declareItCustom = "Gömrüyə bəyan et";
+  static const String declareItCustom = "SmartCustom-a bəyan et";
   static const String editIt = "Düzəliş et";
   static const String new_order = "Yeni sifariş";
 
@@ -250,6 +250,7 @@ class MyText {
   static const String fromCashback = "Cashback ilə";
   static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
+  static const String packageGift = "Paketlər";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
   static const String enter_code = "Kodu daxil edin";
@@ -286,7 +287,7 @@ class MyText {
   static const String first_select_main_category =
       "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
   static const String seller = "Satıcı";
-  static const String shop_name = "Mağaza adı:";
+  static const String shop_name = "Mağaza adı";
   static const String product_count = "Məhsul sayı";
   static const String products = "Məhsullar";
   static const String tracking_id = "İzləmə kodu";
@@ -322,7 +323,7 @@ class MyText {
   static const String trendyolSMS = 'Trendyol SMS';
   static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
   static const String trendyolSMSHowToWorkText =
-      'Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz';
+      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
 
   //calculate
   static const String kg_text = 'Çəkiyə görə';
@@ -407,7 +408,7 @@ class MyText {
       "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
 
   ///promocode
-  static const String littlePromo = "Pulsuz bağlama aparın 😊";
+  static const String getPackageFree = "Pulsuz bağlama aparın 😊";
   static const String infoPromo =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
 

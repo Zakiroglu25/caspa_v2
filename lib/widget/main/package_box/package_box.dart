@@ -10,6 +10,7 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/random.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:caspa_v2/widget/main/package_box/widgets/package_box_detail_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -51,43 +52,13 @@ class PackageBox extends StatelessWidget {
                 SvgPicture.asset(Assets.svgShop),
                 Text(
                   package.store!,
-                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+                  style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      MyText.price + ": ",
-                      style: AppTextStyles.sanF400
-                          .copyWith(fontSize: 12.sp, color: MyColors.grey153),
-                    ),
-                    Text(package.price ?? '',
-                        style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp))
-                  ],
-                ),
-                Wrap(
-                  children: [
-                    Text(MyText.tracking_id + ": ",
-                        style: AppTextStyles.sanF400.copyWith(
-                            fontSize: 12.sp, color: MyColors.grey153)),
-                    Text("${package.tracking ?? ''}",
-                        style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp))
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      MyText.status + ": ",
-                      style: AppTextStyles.sanF400
-                          .copyWith(fontSize: 12.sp, color: MyColors.grey153),
-                    ),
-                    Text(
-                      package.status!,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
-                    ),
-                  ],
-                )
+                PackageBoxDetailText(title: MyText.price, value: package.price),
+                PackageBoxDetailText(
+                    title: MyText.tracking_id, value: package.tracking),
+                PackageBoxDetailText(
+                    title: MyText.status, value: package.status!),
               ],
             ),
           ),

@@ -25,7 +25,7 @@ class OrderViaLinkPage extends StatelessWidget {
         user: false,
         contextA: context,
       ),
-      body: BlocConsumer<OrderViaUrlCubit, OrderViaUrlState>(
+      body: BlocListener<OrderViaUrlCubit, OrderViaUrlState>(
         listener: (context, state) {
           if (state is OrderViaUrlSuccess) {
             Go.pop(context);
@@ -43,11 +43,9 @@ class OrderViaLinkPage extends StatelessWidget {
                 context: context, message: state.error ?? MyText.error);
           }
         },
-        builder: (c, s) {
-          return OrderViaLinkListview(
-            order: order,
-          );
-        },
+        child: OrderViaLinkListview(
+          order: order,
+        ),
       ),
     );
   }

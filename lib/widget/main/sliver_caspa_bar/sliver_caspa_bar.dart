@@ -22,6 +22,7 @@ class SliverCaspaBar extends StatefulWidget {
   final bool? back;
   final bool? notification;
   final bool? isScrollable;
+  final Function(int)? tabController;
 
   const SliverCaspaBar({
     Key? key,
@@ -29,6 +30,7 @@ class SliverCaspaBar extends StatefulWidget {
     this.tabPages,
     this.title,
     this.tabbarPadding,
+    this.tabController,
     this.selectedTabColor,
     this.unSelectedLabelColor,
     this.isScrollable,
@@ -51,6 +53,9 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: widget.tabs!.length);
+    _tabController!.addListener(() {
+      widget.tabController?.call(_tabController!.index);
+    });
   }
 
   @override

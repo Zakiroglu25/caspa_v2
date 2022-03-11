@@ -33,7 +33,7 @@ class PromoCodePage extends StatelessWidget {
         children: [
           ColorfullBackImage(
             path: Assets.pngRocket,
-            infoTitle: MyText.littlePromo,
+            infoTitle: MyText.getPackageFree,
             infoContent: MyText.infoPromo,
           ),
           MySizedBox.h16,

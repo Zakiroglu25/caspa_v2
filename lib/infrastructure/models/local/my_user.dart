@@ -22,33 +22,33 @@ class MyUser {
   String? companyName;
   String? monthly;
   int? packages_count;
-  List<Notifications>? notifications;
+  List<MyNotification>? notifications;
 
   MyUser(
       {this.id,
-      this.cashback_balance,
+        this.cashback_balance,
+        this.username,
+        this.name,
+        this.surname,
+        this.fullName,
+        this.email,
+        this.phone,
+        this.idNumber,
+        this.fin,
+        this.birthday,
+        this.gender,
+        this.avatar,
+        this.address,
+        this.balance,
+        this.cargoBalance,
+        this.city,
+        this.business,
+        this.wareHouse,
+        this.taxNumber,
+        this.monthly,
         this.notifications,
-      this.username,
-      this.name,
-      this.surname,
-      this.fullName,
-      this.email,
-      this.phone,
-      this.idNumber,
-      this.fin,
-      this.birthday,
-      this.gender,
-      this.avatar,
-      this.address,
-      this.balance,
-      this.cargoBalance,
-      this.city,
-      this.business,
-      this.wareHouse,
-      this.taxNumber,
-      this.monthly,
-      this.packages_count,
-      this.companyName});
+        this.packages_count,
+        this.companyName});
 
   MyUser.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -63,6 +63,13 @@ class MyUser {
     birthday = json['birthday'];
     gender = json['gender'];
     avatar = json['avatar'];
+    if (json['notifications'] != null) {
+      notifications = <MyNotification>[];
+      json['notifications'].forEach((v) {
+        notifications!.add(new MyNotification.fromJson(v));
+      });
+    }
+    ;
     address = json['address'];
     balance = json['balance'];
     cashback_balance = json['cashback_balance'];
@@ -76,12 +83,6 @@ class MyUser {
         : null;
     taxNumber = json['taxNumber'];
     companyName = json['companyName'];
-    if (json['notifications'] != null) {
-      notifications = <Notifications>[];
-      json['notifications'].forEach((v) {
-        notifications!.add(new Notifications.fromJson(v));
-      });
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -97,6 +98,7 @@ class MyUser {
     data['id_number'] = this.idNumber;
     data['fin'] = this.fin;
     data['birthday'] = this.birthday;
+    data['notifications'] = this.notifications;
     data['packages_count'] = this.packages_count;
     data['monthly'] = this.monthly;
     data['gender'] = this.gender;
@@ -117,12 +119,13 @@ class MyUser {
       data['notifications'] =
           this.notifications!.map((v) => v.toJson()).toList();
     }
+    ;
     return data;
   }
 
   @override
   String toString() {
-    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cashback_balance: $cashback_balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName, monthly: $monthly, packages_count: $packages_count}';
+    return 'MyUser{id: $id, username: $username, name: $name, surname: $surname, fullName: $fullName, email: $email, phone: $phone, idNumber: $idNumber, fin: $fin, birthday: $birthday, gender: $gender, avatar: $avatar, address: $address, balance: $balance, cashback_balance: $cashback_balance, cargoBalance: $cargoBalance, city: $city, business: $business, wareHouse: $wareHouse, taxNumber: $taxNumber, companyName: $companyName, monthly: $monthly, packages_count: $packages_count, notifications: $notifications}';
   }
 }
 
@@ -192,7 +195,7 @@ class WareHouse {
   }
 }
 
-class Notifications {
+class MyNotification {
   int? id;
   String? createdAt;
   String? updatedAt;
@@ -201,16 +204,16 @@ class Notifications {
   String? description;
   int? read;
 
-  Notifications(
+  MyNotification(
       {this.id,
-      this.createdAt,
-      this.updatedAt,
-      this.userId,
-      this.title,
-      this.description,
-      this.read});
+        this.createdAt,
+        this.updatedAt,
+        this.userId,
+        this.title,
+        this.description,
+        this.read});
 
-  Notifications.fromJson(Map<String, dynamic> json) {
+  MyNotification.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -230,5 +233,10 @@ class Notifications {
     data['description'] = this.description;
     data['read'] = this.read;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'MyNotification{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, description: $description, read: $read}';
   }
 }

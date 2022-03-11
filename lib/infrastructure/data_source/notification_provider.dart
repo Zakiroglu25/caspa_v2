@@ -2,8 +2,8 @@
 import 'dart:convert';
 
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/requset/notification_model.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -11,28 +11,32 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:http/http.dart' as http;
 
-class NotificationProvider {
-  static Future<NotificationModel?> fetchNotificationData(
-      {String? token}) async {
-    NotificationModel? notificationModel;
-    final api = ApiKeys.baseUrl;
-    //final headers = ApiKeys.headers;
+import '../../locator.dart';
+import '../configs/dio_auth.dart';
+import '../models/remote/response/status_dynamic.dart';
+import '../models/remote/response/user_result.dart';
 
-    final headers = {
-      "Content-Type": "application/json",
-      'Authorization': 'Bearer $token',
-    };
+class NotificationProvider {
+  static DioAuth get dioAuth => locator<DioAuth>();
+  static Future<StatusDynamic> getNotification() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    late List<MyNotification>? notificastionsList;
+    final api = ApiKeys.user;
     var url = Uri.parse(api);
-    final response = await http.get(url, headers: headers);
-    llll("fetchNotificationData url: " + url.toString());
-    if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.body);
-      notificationModel = NotificationModel.fromJson(dataGelenCavabJSON);
+    //final response = await http.get(url, headers: headers);
+    final response = await dioAuth.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      notificastionsList =
+          (UserResult.fromJson(gelenCavabJson)).data?.notifications;
+
+      statusDynamic.data = notificastionsList;
     } else {
-      eeee(
-          "fetchNotificationData result bad:  url: $url  ,  response: ${response.body}");
+      eeee("getNotification url :$url,response: $response");
     }
-    return notificationModel;
+    return statusDynamic;
   }
 
   static Future<GeneralResponse?> removeNotification(

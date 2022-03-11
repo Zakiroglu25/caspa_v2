@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/contact_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/sms_code_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
@@ -18,6 +19,21 @@ class ContactProvider {
       statusDynamic.data = contacts;
     } else {
       eeee("fetchPackagesForCourier bad url :$api,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> getSMSCodes() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.smsCodes;
+    final response = await dioG.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      SmsCodeData model = SmsCodeData.fromJson(gelenCavabJson);
+      statusDynamic.data = model.data;
+    } else {
+      eeee("getSMSCCodes bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

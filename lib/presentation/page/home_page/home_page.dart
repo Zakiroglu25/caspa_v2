@@ -18,16 +18,10 @@ import 'widgets/section_name.dart';
 import 'widgets/tariffs.dart';
 
 class HomePage extends StatelessWidget {
-  HiveService get _prefs => locator<HiveService>();
-
   Widget build(BuildContext context) {
-    // bbbb("cap et: "+(context.read<AuthenticationCubit>().userData?.name)!);
-    //MyUser user = context.read<AuthenticationCubit>().userData!;
     return Scaffold(
       appBar: CaspaAppbar(
         title: "",
-
-        ///bunlar null gelir
         contextA: context,
         // title: _prefs.user.name! + " " + _prefs.user.surname!,
       ),

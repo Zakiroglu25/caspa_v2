@@ -19,22 +19,15 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
       emit(SmsCodesInProgress());
     }
     try {
-      emit(SmsCodesSuccess([
-        for (int i = 1; i < 100; i++)
-          SmsCode(code: '11$i$a', time: '11:$i', id: i),
-      ]));
-      // final result = await ContactProvider.fetchContacts();
-      // if (result != null) {
-      //   bbbb("saalaml");
-      //   emit(SmsCodesSuccess([
-      //     for(int i=1;i<100;i++)
-      //     SmsCode(code: '11$i',time: '11:$i',id: i),
-      //   ]));
-      // } else {
-      //   emit(SmsCodesError());
-      //   eeee(
-      //       "contact result bad: ${ResponseMessage.fromJson(jsonDecode(result.toString())).message}");
-      // }
+      final result = await ContactProvider.getSMSCodes();
+      if (result != null) {
+        // bbbb("saalaml");
+        emit(SmsCodesSuccess(result.data));
+      } else {
+        emit(SmsCodesError());
+        eeee(
+            "contact result bad: ${ResponseMessage.fromJson(jsonDecode(result.toString())).message}");
+      }
     } on SocketException catch (_) {
       //network olacaq
       emit(SmsCodesNetworkError());
@@ -45,11 +38,9 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
   }
 
   void start() {
-    bbbb("Sssss");
     a++;
-
     if (refresh) {
-      fetch();
+      fetch(a == 1);
       Timer(Durations.s5, start);
     }
   }

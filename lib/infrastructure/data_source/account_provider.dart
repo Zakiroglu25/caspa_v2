@@ -1,6 +1,5 @@
 // Dart imports:
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
@@ -34,8 +33,6 @@ class AccountProvider {
       final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
       statusDynamic.data = userResult.data;
-      log(response.data);
-      log(userResult.data!.notifications.toString());
     } else {
       eeee("fetchUserInfo bad url :$url, response: ${response}");
     }

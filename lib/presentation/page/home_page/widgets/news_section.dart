@@ -22,39 +22,29 @@ class AdsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     isVertical ??= false;
-    return Stack(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              width: 200.sp,
-              height: 100.sp,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: MyColors.mainGrey),
-              child: SizedBox(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: ErrorableImage(
-                    url: url!,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ), // Text(
+        Container(
+          width: 200.sp,
+          height: 100.sp,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: MyColors.mainGrey),
+          child: SizedBox(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: ErrorableImage(
+                url: url!,
+                fit: BoxFit.fill,
+              ),
             ),
-          ],
+          ), // Text(
         ),
-        Positioned(
-          bottom: 0,
-          child: Text(
-            "Daha ətraflı",
-            style: TextStyle(
-                fontSize: 16.sm,
-                fontWeight: FontWeight.w400,
-                color: MyColors.mainColor),
-          ),
+        Text(
+          desc!,
+          style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
         ),
       ],
     );

@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
@@ -12,6 +11,7 @@ import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dar
 import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/notification/notification_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
@@ -38,12 +38,10 @@ import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_pa
 import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
-import 'package:caspa_v2/presentation/page/license_page/license_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/tabs/package_history_tab.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/tabs/waiting_package_tab.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/packages_list.dart';
 import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
@@ -60,7 +58,6 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
-import 'package:caspa_v2/presentation/page/trendyol_otp_page/trendyol_otp_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
@@ -69,8 +66,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/any_info_page/any_info_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
@@ -79,25 +78,25 @@ import '../../presentation/page/calculate_page/calculate_page.dart';
 
 class Pager {
   static get home => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: TarifCubit()..fetch(),
-        ),
-        BlocProvider.value(
-          value: AdsCubit()..fetch(),
-        )
-      ], child: HomePage());
+    BlocProvider.value(
+      value: TarifCubit()..fetch(),
+    ),
+    BlocProvider.value(
+      value: AdsCubit()..fetch(),
+    )
+  ], child: HomePage());
 
   static get package => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: PackageStatusesCubit()..fetch(),
-        )
-      ], child: const PackagePage());
+    BlocProvider.value(
+      value: PackageStatusesCubit()..fetch(),
+    )
+  ], child: const PackagePage());
 
   static get newOrder => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: PackageStatusesCubit()..fetch(),
-        )
-      ], child: NewOrderPage());
+    BlocProvider.value(
+      value: PackageStatusesCubit()..fetch(),
+    )
+  ], child: NewOrderPage());
 
   static webviewPage({required String url, required BuildContext context}) =>
       MultiBlocProvider(
@@ -153,20 +152,20 @@ class Pager {
           ));
 
   static get courier => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: CourierCubit()..fetchPackagesForCourier(),
-        )
-      ], child: CourierPage());
+    BlocProvider.value(
+      value: CourierCubit()..fetchPackagesForCourier(),
+    )
+  ], child: CourierPage());
 
   static get login => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => LoginCubit()),
-        // BlocProvider(create: (context) => AuthenticationCubit())
-      ], child: const LoginPage());
+    BlocProvider(create: (context) => LoginCubit()),
+    // BlocProvider(create: (context) => AuthenticationCubit())
+  ], child: const LoginPage());
 
   static get smsCodes => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => SmsCodesCubit()..start()),
-        // BlocProvider(create: (context) => AuthenticationCubit())
-      ], child: const SmsCodesPage());
+    BlocProvider(create: (context) => SmsCodesCubit()..start()),
+    // BlocProvider(create: (context) => AuthenticationCubit())
+  ], child: const SmsCodesPage());
 
   static get register => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => RegisterCubit())],
@@ -181,53 +180,52 @@ class Pager {
       child: SplashPage());
 
   static orderViaLink({LinkOrder? order}) => MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (context) => OrderViaUrlCubit()),
-            BlocProvider(create: (context) => CommissionCubit()..fetch()),
-          ],
-          child: OrderViaLinkPage(
-            order: order,
-          ));
+      providers: [
+        BlocProvider(create: (context) => OrderViaUrlCubit()),
+        BlocProvider(create: (context) => CommissionCubit()..fetch()),
+      ],
+      child: OrderViaLinkPage(
+        order: order,
+      ));
 
   static get orderViaLinkList => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => OrderViaUrlListCubit()..fetch()),
-        BlocProvider(create: (context) => PackageDetailsCubit()),
-      ], child: const OrderViaLinkListPage());
+    BlocProvider(create: (context) => OrderViaUrlListCubit()..fetch()),
+    BlocProvider(create: (context) => PackageDetailsCubit()),
+  ], child: const OrderViaLinkListPage());
 
   static get userSettingsPage => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
       child: const UserSettingsPage());
 
-  static get notifications => MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => UserCubit())
-      ],
-      child: const NotificationsPage());
+  static get notifications => MultiBlocProvider(providers: [
+    BlocProvider(create: (c) => NotificationCubit()..fetch()),
+    // BlocProvider(create: (con) => NotificationListCubit()..fetch()),
+  ], child: NotificationsPage());
 
   static get promoCode => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => PromoCodeCubit()..fetch())],
       child: const PromoCodePage());
 
   static get giftBalance => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => GiftBalanceCubit()..fetch())
-      ], child: GiftBalancePage());
+    BlocProvider(create: (context) => GiftBalanceCubit()..fetch())
+  ], child: GiftBalancePage());
 
   static get contact => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => UserCubit(),
-          ),
-          BlocProvider(
-            create: (context) => ContactCubit()..fetch(),
-          ),
-        ],
-        child: const ContactPage(),
-      );
+    providers: [
+      BlocProvider(
+        create: (context) => UserCubit(),
+      ),
+      BlocProvider(
+        create: (context) => ContactCubit()..fetch(),
+      ),
+    ],
+    child: const ContactPage(),
+  );
 
   static get other => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => UserCubit()),
-        //    BlocProvider.value(value: AuthenticationCubit()),
-      ], child: OtherPage());
+    BlocProvider(create: (context) => UserCubit()),
+    //    BlocProvider.value(value: AuthenticationCubit()),
+  ], child: OtherPage());
 
   static payment({required String price}) => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => PaymentBalanceCubit())],
@@ -240,13 +238,13 @@ class Pager {
       child: const OnboardPage());
 
   static report({Package? package}) => MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (context) => ReportCubit()),
-            BlocProvider(create: (context) => CategoryCubit()),
-          ],
-          child: ReportPage(
-            package: package,
-          ));
+      providers: [
+        BlocProvider(create: (context) => ReportCubit()),
+        BlocProvider(create: (context) => CategoryCubit()),
+      ],
+      child: ReportPage(
+        package: package,
+      ));
 
   static get landing => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => UserCubit())],
@@ -260,10 +258,10 @@ class Pager {
       providers: [BlocProvider(create: (context) => AttorneyListCubit())],
       child: const AppInfoPage());
 
-  static info({required String text, required String title}) =>
+  static anyInfo({required String text, required String title}) =>
       MultiBlocProvider(
           providers: [BlocProvider(create: (context) => AttorneyListCubit())],
-          child: LicensePageX(
+          child: AnyInfoPageX(
             text: text,
             title: title,
           ));
@@ -275,25 +273,25 @@ class Pager {
 //  static get trendyolOtp => const TrendyolOtpPage();
 
   static get userCabinet => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => UserCubit()),
-      ], child: const UserCabinetPage());
+    BlocProvider(create: (context) => UserCubit()),
+  ], child: const UserCabinetPage());
 
   static get adress => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: AddressCubit()..fetch(),
-        )
-      ], child: AdressPage());
+    BlocProvider.value(
+      value: AddressCubit()..fetch(),
+    )
+  ], child: AdressPage());
 
   static get shops => MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (context) => ShopCubit()..fetch(),
-        )
-      ], child: const ShopPage());
+    BlocProvider(
+      create: (context) => ShopCubit()..fetch(),
+    )
+  ], child: const ShopPage());
 
   static get calculate => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => CalculateKgCubit()),
-        BlocProvider(create: (context) => CalculateCapacityCubit())
-      ], child: CalculatePage());
+    BlocProvider(create: (context) => CalculateKgCubit()),
+    BlocProvider(create: (context) => CalculateCapacityCubit())
+  ], child: CalculatePage());
 
   // static get app => App();
 
@@ -316,30 +314,26 @@ class Pager {
   static Widget waitingPackages({required List<Package>? packages}) =>
       BlocProvider(
           create: (context) => PackageCubit()..fetch(),
-          child: WaitingPackageTab(
+          child: PackagesList(
             packages: packages,
           ));
 
-  static get packagesHistory => BlocProvider(
-      create: (context) => PackageCubit()..fetch(),
-      child: const PackageHistoryTab());
-
   static packageDetails({required Package package}) => MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => PackageCubit(),
-          ),
-          BlocProvider(
-            create: (context) => ReportCubit(),
-          ),
-          BlocProvider(
-            create: (context) => PackageDetailsCubit(),
-          ),
-        ],
-        child: PackageDetailsPage(
-          package: package,
-        ),
-      );
+    providers: [
+      BlocProvider(
+        create: (context) => PackageCubit(),
+      ),
+      BlocProvider(
+        create: (context) => ReportCubit(),
+      ),
+      BlocProvider(
+        create: (context) => PackageDetailsCubit(),
+      ),
+    ],
+    child: PackageDetailsPage(
+      package: package,
+    ),
+  );
 
   static addOrEditAttorney({Attorney? attorney}) => BlocProvider(
       create: (context) => AddAttorneysCubit(),

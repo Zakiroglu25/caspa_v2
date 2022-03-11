@@ -52,6 +52,7 @@ class ApiKeys {
 
   //get tarif
   static const tariff = "$baseUrl/public/prices";
+
   //get ads
   static const ads = "$baseUrl/public/ads";
 
@@ -77,6 +78,9 @@ class ApiKeys {
   static const promoCodes = "$baseUrl/user/promos";
   static const addPromoCode = "$baseUrl/user/promo";
 
+//courier
+  static const courierList = "$baseUrl/user/couriers";
+
   //gift
   static const giftList = "$baseUrl/user/gifts";
   static const addGiftCode = "$baseUrl/user/gift";
@@ -84,6 +88,7 @@ class ApiKeys {
   //payment_balance
   static const paymentOrder = "$baseUrl/user/order/balance";
   static const paymentCargo = "$baseUrl/user/cargo/balance";
+
   //calculate kg
   static const calculateKg = "$baseUrl/public/calculator";
 
@@ -92,6 +97,7 @@ class ApiKeys {
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
   static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
+
   //check for promo
   static const payForPackagePromoCheck =
       "$baseUrl/user/package/payment/promo/check";

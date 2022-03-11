@@ -145,7 +145,7 @@ class StringOperations {
   }
 
   static launchCaller(String num) async {
-    var url = "tel:$num";
+    var url = "tel:$num".replaceAll(" ", " ");
     if (await canLaunch(url)) {
       await launch(url);
     } else {

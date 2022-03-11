@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
@@ -5,11 +8,14 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:dio/dio.dart';
 
 import '../../locator.dart';
+import '../models/remote/response/courier_orders_model.dart';
 
 class CourierProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
+
   static Future<StatusDynamic> addCourier(
       {required String phone,
       required String adress,
@@ -34,6 +40,31 @@ class CourierProvider {
       statusDynamic.data = response.data;
     } else {
       eeee("addCourier bad url :$api,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic?> fetchCourier() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.courierList;
+    var url = Uri.parse(api);
+    log("1 provider");
+    final response = await dioAuth.dio.get(api);
+    log("2 provider");
+
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      // log("3 provider"+response.statusCode.toString());
+      var gelenCavabJson = jsonDecode(response.toString());
+      // log("4 provider"+gelenCavabJson.toString());
+      CourierListModel courierList =
+      CourierListModel.fromJson(gelenCavabJson);
+      statusDynamic.data = courierList.data;
+      log("5 provider");
+      bbbb("courier list: " + (statusDynamic.data).toString());
+    } else {
+      log("6 provider");
+      eeee("courier List bad url :$url,response: ${response}");
     }
     return statusDynamic;
   }

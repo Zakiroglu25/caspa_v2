@@ -14,6 +14,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'info_mini_button.dart';
 import 'package_main_button.dart';
 import 'pay_button.dart';
@@ -102,7 +103,8 @@ class PackageReportButtons extends StatelessWidget {
           PackageMainButton(
               w: (sW - 32),
               text: MyText.declareItCustom,
-              onTap: () => Go.to(context, Pager.report(package: package))),
+              onTap: () => launch(
+                  "https://e.customs.gov.az/for-individuals/post-declaration")),
         ],
       );
     } else if (package.payment == 0) {

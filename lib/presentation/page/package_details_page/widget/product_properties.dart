@@ -26,7 +26,7 @@ class ProductProperties extends StatelessWidget {
             // color: MyColors.black,
             child: ProductPropertyV(
                 name: MyText.tracking_id,
-                value: package.tracking ?? MyText.didntDetermine)),
+                value: package.cargoTracking ?? MyText.didntDetermine)),
         ProductPropertyV(
             name: MyText.from_where,
             value: package.country!.name ?? MyText.didntDetermine),

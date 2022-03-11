@@ -24,12 +24,15 @@ class AddBalancePage extends StatelessWidget {
   PaymentBalanceType paymentBalance;
 
   AddBalancePage({required this.paymentBalance});
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (BlocProvider.of<PaymentBalanceCubit>(context).state
-            is PaymentBalanceUrlFetched) {
+        if (BlocProvider
+            .of<PaymentBalanceCubit>(context)
+            .state
+        is PaymentBalanceUrlFetched) {
           BlocProvider.of<PaymentBalanceCubit>(context).back();
           return false;
         } else {
@@ -42,11 +45,47 @@ class AddBalancePage extends StatelessWidget {
           contextA: context,
           user: false,
           onBack: () {
-            if (BlocProvider.of<PaymentBalanceCubit>(context).state
-                is PaymentBalanceUrlFetched) {
+            if (BlocProvider
+                .of<PaymentBalanceCubit>(context)
+                .state
+            is PaymentBalanceUrlFetched) {
               BlocProvider.of<PaymentBalanceCubit>(context).back();
             } else {
-              Go.pop(context);
+              return Stack(
+                children: [
+                  ListView(
+                    padding: Paddings.paddingH16,
+                    children: [
+                      Text(
+                        MyText.balanceIncrease,
+                        style: UITextStyle.tW400BigBlack,
+                      ),
+                      MySizedBox.h32,
+                      AmountField(
+                        paymentBalance: paymentBalance,
+                        // controller: controller,
+                      ),
+                    ],
+                  ),
+                  // Positioned(
+                  //   top: 140,
+                  //   child: Text("30\$ odenish etdikde 10\$ cashback al"),
+                  // ),
+                  Positioned(
+                    child: CaspaButton(
+                      text: MyText.addBalance,
+                      onTap: () =>
+                          context
+                              .read<PaymentBalanceCubit>()
+                              .getPaymentUrl(context,
+                              paymentBalanceType: paymentBalance),
+                    ),
+                    bottom: 20,
+                    left: 16,
+                    right: 16,
+                  )
+                ],
+              );
             }
           },
           notification: false,
@@ -76,9 +115,10 @@ class AddBalancePage extends StatelessWidget {
                 return WebviewPage(
                   url: state.url,
                   mainContext: context,
-                  whenSuccess: () => context
-                      .read<PaymentBalanceCubit>()
-                      .paymentSuccess(context),
+                  whenSuccess: () =>
+                      context
+                          .read<PaymentBalanceCubit>()
+                          .paymentSuccess(context),
                 );
               } else {
                 return Stack(
@@ -103,9 +143,10 @@ class AddBalancePage extends StatelessWidget {
                     Positioned(
                       child: CaspaButton(
                         text: MyText.addBalance,
-                        onTap: () => context
-                            .read<PaymentBalanceCubit>()
-                            .getPaymentUrl(context,
+                        onTap: () =>
+                            context
+                                .read<PaymentBalanceCubit>()
+                                .getPaymentUrl(context,
                                 paymentBalanceType: paymentBalance),
                       ),
                       bottom: 20,

@@ -26,29 +26,29 @@ class MyUser {
 
   MyUser(
       {this.id,
-      this.cashback_balance,
-      this.username,
-      this.name,
-      this.surname,
-      this.fullName,
-      this.email,
-      this.phone,
-      this.idNumber,
-      this.fin,
-      this.birthday,
-      this.gender,
-      this.avatar,
-      this.address,
-      this.balance,
-      this.cargoBalance,
-      this.city,
-      this.business,
-      this.wareHouse,
-      this.taxNumber,
-      this.monthly,
-      this.notifications,
-      this.packages_count,
-      this.companyName});
+        this.cashback_balance,
+        this.username,
+        this.name,
+        this.surname,
+        this.fullName,
+        this.email,
+        this.phone,
+        this.idNumber,
+        this.fin,
+        this.birthday,
+        this.gender,
+        this.avatar,
+        this.address,
+        this.balance,
+        this.cargoBalance,
+        this.city,
+        this.business,
+        this.wareHouse,
+        this.taxNumber,
+        this.monthly,
+        this.notifications,
+        this.packages_count,
+        this.companyName});
 
   MyUser.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -206,12 +206,12 @@ class MyNotification {
 
   MyNotification(
       {this.id,
-      this.createdAt,
-      this.updatedAt,
-      this.userId,
-      this.title,
-      this.description,
-      this.read});
+        this.createdAt,
+        this.updatedAt,
+        this.userId,
+        this.title,
+        this.description,
+        this.read});
 
   MyNotification.fromJson(Map<String, dynamic> json) {
     id = json['id'];

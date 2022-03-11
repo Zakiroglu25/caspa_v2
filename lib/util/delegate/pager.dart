@@ -34,6 +34,7 @@ import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
+import 'package:caspa_v2/presentation/page/courier_list_page/courier_list_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
@@ -66,6 +67,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
@@ -287,6 +289,12 @@ class Pager {
           create: (context) => ShopCubit()..fetch(),
         )
       ], child: const ShopPage());
+
+  static get courierList => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => CourierListCubit()..fetch(),
+        )
+      ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => CalculateKgCubit()),

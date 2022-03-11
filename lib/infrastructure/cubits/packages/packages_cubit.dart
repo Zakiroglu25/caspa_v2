@@ -48,8 +48,8 @@ class PackageCubit extends Cubit<PackageState> {
     } on SocketException catch (_) {
       //network olacaq
       emit(PackagesNetworkError());
-    } catch (e) {
-      eeee("package cubit catch: $e");
+    } catch (e, s) {
+      eeee("package cubit catch: $e=>$s");
       emit(PackagesError(error: e.toString()));
     }
   }

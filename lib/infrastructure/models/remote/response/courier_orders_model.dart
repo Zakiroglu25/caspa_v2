@@ -1,13 +1,13 @@
-class CourierOrdersListResponse {
-  List<CourierOrder>? data;
+class CourierListModel {
+  List<Data>? data;
 
-  CourierOrdersListResponse({this.data});
+  CourierListModel({this.data});
 
-  CourierOrdersListResponse.fromJson(Map<String, dynamic> json) {
+  CourierListModel.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <CourierOrder>[];
+      data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new CourierOrder.fromJson(v));
+        data!.add(new Data.fromJson(v));
       });
     }
   }
@@ -19,14 +19,9 @@ class CourierOrdersListResponse {
     }
     return data;
   }
-
-  @override
-  String toString() {
-    return 'CourierOrdersListResponse{data: $data}';
-  }
 }
 
-class CourierOrder {
+class Data {
   int? id;
   int? payment;
   int? delivery;
@@ -39,20 +34,20 @@ class CourierOrder {
   String? updateDate;
   List<Products>? products;
 
-  CourierOrder(
+  Data(
       {this.id,
-      this.payment,
-      this.delivery,
-      this.phone,
-      this.address,
-      this.price,
-      this.region,
-      this.usdPrice,
-      this.date,
-      this.updateDate,
-      this.products});
+        this.payment,
+        this.delivery,
+        this.phone,
+        this.address,
+        this.price,
+        this.region,
+        this.usdPrice,
+        this.date,
+        this.updateDate,
+        this.products});
 
-  CourierOrder.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     payment = json['payment'];
     delivery = json['delivery'];
@@ -60,7 +55,7 @@ class CourierOrder {
     address = json['address'];
     price = json['price'];
     region =
-        json['region'] != null ? new Region.fromJson(json['region']) : null;
+    json['region'] != null ? new Region.fromJson(json['region']) : null;
     usdPrice = json['usd_price'];
     date = json['date'];
     updateDate = json['update_date'];
@@ -91,11 +86,6 @@ class CourierOrder {
     }
     return data;
   }
-
-  @override
-  String toString() {
-    return 'CourierOrder{id: $id, payment: $payment, delivery: $delivery, phone: $phone, address: $address, price: $price, region: $region, usdPrice: $usdPrice, date: $date, updateDate: $updateDate, products: $products}';
-  }
 }
 
 class Region {
@@ -124,11 +114,6 @@ class Region {
     data['price'] = this.price;
     return data;
   }
-
-  @override
-  String toString() {
-    return 'Region{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, price: $price}';
-  }
 }
 
 class Products {
@@ -137,17 +122,17 @@ class Products {
   String? updatedAt;
   String? tracking;
   String? cargoTracking;
-  int? orderNumber;
+  Null? orderNumber;
   String? invoice;
   String? note;
-  String? orderDate;
+  Null? orderDate;
   int? countryId;
   String? store;
   int? categoryId;
   String? price;
   double? weight;
-  num? size;
-  String? name;
+  Null? size;
+  Null? name;
   String? status;
   int? qty;
   String? cargoPrice;
@@ -157,53 +142,55 @@ class Products {
   int? urgent;
   int? commission;
   String? fromReport;
-  String? regNumber;
+  Null? regNumber;
   String? wardrobe;
   int? noInvoice;
   String? currency;
   int? courier;
-  String? width;
-  String? length;
-  String? height;
+  Null? width;
+  Null? length;
+  Null? height;
   int? opened;
+  Null? whichAdmin;
   Pivot? pivot;
 
   Products(
       {this.id,
-      this.createdAt,
-      this.updatedAt,
-      this.tracking,
-      this.cargoTracking,
-      this.orderNumber,
-      this.invoice,
-      this.note,
-      this.orderDate,
-      this.countryId,
-      this.store,
-      this.categoryId,
-      this.price,
-      this.weight,
-      this.size,
-      this.name,
-      this.status,
-      this.qty,
-      this.cargoPrice,
-      this.wareHouseId,
-      this.userId,
-      this.payment,
-      this.urgent,
-      this.commission,
-      this.fromReport,
-      this.regNumber,
-      this.wardrobe,
-      this.noInvoice,
-      this.currency,
-      this.courier,
-      this.width,
-      this.length,
-      this.height,
-      this.opened,
-      this.pivot});
+        this.createdAt,
+        this.updatedAt,
+        this.tracking,
+        this.cargoTracking,
+        this.orderNumber,
+        this.invoice,
+        this.note,
+        this.orderDate,
+        this.countryId,
+        this.store,
+        this.categoryId,
+        this.price,
+        this.weight,
+        this.size,
+        this.name,
+        this.status,
+        this.qty,
+        this.cargoPrice,
+        this.wareHouseId,
+        this.userId,
+        this.payment,
+        this.urgent,
+        this.commission,
+        this.fromReport,
+        this.regNumber,
+        this.wardrobe,
+        this.noInvoice,
+        this.currency,
+        this.courier,
+        this.width,
+        this.length,
+        this.height,
+        this.opened,
+        this.whichAdmin,
+        this.pivot});
 
   Products.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -240,6 +227,7 @@ class Products {
     length = json['length'];
     height = json['height'];
     opened = json['opened'];
+    whichAdmin = json['which_admin'];
     pivot = json['pivot'] != null ? new Pivot.fromJson(json['pivot']) : null;
   }
 
@@ -279,15 +267,11 @@ class Products {
     data['length'] = this.length;
     data['height'] = this.height;
     data['opened'] = this.opened;
+    data['which_admin'] = this.whichAdmin;
     if (this.pivot != null) {
       data['pivot'] = this.pivot!.toJson();
     }
     return data;
-  }
-
-  @override
-  String toString() {
-    return 'Products{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, tracking: $tracking, cargoTracking: $cargoTracking, orderNumber: $orderNumber, invoice: $invoice, note: $note, orderDate: $orderDate, countryId: $countryId, store: $store, categoryId: $categoryId, price: $price, weight: $weight, size: $size, name: $name, status: $status, qty: $qty, cargoPrice: $cargoPrice, wareHouseId: $wareHouseId, userId: $userId, payment: $payment, urgent: $urgent, commission: $commission, fromReport: $fromReport, regNumber: $regNumber, wardrobe: $wardrobe, noInvoice: $noInvoice, currency: $currency, courier: $courier, width: $width, length: $length, height: $height, opened: $opened, pivot: $pivot}';
   }
 }
 
@@ -307,10 +291,5 @@ class Pivot {
     data['courier_id'] = this.courierId;
     data['package_id'] = this.packageId;
     return data;
-  }
-
-  @override
-  String toString() {
-    return 'Pivot{courierId: $courierId, packageId: $packageId}';
   }
 }

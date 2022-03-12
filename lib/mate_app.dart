@@ -38,7 +38,9 @@ class MateApp extends StatelessWidget {
                           ),
                           TargetPlatform.iOS: SharedAxisPageTransitionsBuilder(
                             transitionType: SharedAxisTransitionType.scaled,
-                          ),
+                          ) // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(
+                          //  // transitionType: SharedAxisTransitionType.scaled,
+                          // ),
                         },
                       ),
                       fontFamily: 'CoHeadline',

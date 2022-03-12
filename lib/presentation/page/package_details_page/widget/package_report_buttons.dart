@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -6,6 +8,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -77,7 +80,19 @@ class PackageReportButtons extends StatelessWidget {
           PackageMainButton(
               text: MyText.editIt,
               w: (sW - 32) - 55,
-              onTap: () => Go.to(context, Pager.report(package: package))),
+              onTap: () async {
+                if (Platform.isAndroid) {
+                  await LaunchApp.openApp(
+                      androidPackageName: 'com.esev.ixtisas_sec',
+                      iosUrlScheme: 'pulsesecure://',
+                      appStoreLink:
+                          'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
+                      openStore: false);
+                } else {
+                  launch(
+                      "https://e.customs.gov.az/for-individuals/post-declaration");
+                }
+              }),
           InfoMiniButton(
             onTap: () => Alert.show(context,
                 cancelButton: true,
@@ -103,8 +118,26 @@ class PackageReportButtons extends StatelessWidget {
           PackageMainButton(
               w: (sW - 32),
               text: MyText.declareItCustom,
-              onTap: () => launch(
-                  "https://e.customs.gov.az/for-individuals/post-declaration")),
+              onTap: () async {
+                if (Platform.isAndroid) {
+                  await LaunchApp.openApp(
+                    androidPackageName: 'com.crocusoft.smartcustoms',
+                    iosUrlScheme: 'pulsesecure://',
+                    appStoreLink:
+                        'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
+                    // openStore: false
+                  );
+                }
+
+                // Enter the package name of the App you want to open and for iOS add the URLscheme to the Info.plist file.
+                // The `openStore` argument decides whether the app redirects to PlayStore or AppStore.
+                // For testing purpose you can enter com.instagram.android
+
+                else {
+                  launch(
+                      "https://e.customs.gov.az/for-individuals/post-declaration");
+                }
+              }),
         ],
       );
     } else if (package.payment == 0) {

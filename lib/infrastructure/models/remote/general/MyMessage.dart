@@ -4,12 +4,12 @@ class ResponseMessage {
   ResponseMessage({this.message});
 
   ResponseMessage.fromJson(Map<String, dynamic> json) {
-    message = json['message'];
+    message = json['price'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['message'] = this.message;
+    data['price'] = this.message;
     return data;
   }
 

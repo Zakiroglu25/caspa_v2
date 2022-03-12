@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/promo_code_provider.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -56,6 +57,26 @@ class PromoCodeCubit extends Cubit<PromoCodeState> {
       emit(PromoCodeNetworkError());
     } catch (e, s) {
       eeee("addPromo cubit catch: $e => $s");
+      emit(PromoCodeError(error: e.toString()));
+    }
+  }
+
+  void checkPromoIsPayable([bool loading = true]) async {
+    if (loading) {
+      emit(PromoCodeInProgress());
+    }
+    try {
+      final result = await PromoCodeProvider.checkPromoCode();
+      if (isSuccess(result.statusCode)) {
+        emit(PromoCodeChecked(result.data));
+      } else {
+        emit(PromoCodeError());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(PromoCodeNetworkError());
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s, where: 'checkPromoIsPayable');
       emit(PromoCodeError(error: e.toString()));
     }
   }

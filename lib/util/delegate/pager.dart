@@ -338,6 +338,8 @@ class Pager {
           BlocProvider(
             create: (context) => ReportCubit(),
           ),
+          // BlocProvider(
+          //     create: (context) => PromoCodeCubit()..checkPromoIsPayable()),
           BlocProvider(
             create: (context) => PackageDetailsCubit(),
           ),

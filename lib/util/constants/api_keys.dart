@@ -77,6 +77,7 @@ class ApiKeys {
   //promoCode
   static const promoCodes = "$baseUrl/user/promos";
   static const addPromoCode = "$baseUrl/user/promo";
+  static const checkPromoCode = "$baseUrl/user/promo/check";
 
 //courier
   static const courierList = "$baseUrl/user/couriers";

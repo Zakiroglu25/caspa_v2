@@ -107,6 +107,7 @@ class MyText {
   static const String youHaveNotPay = "Ödəniş olunmayıb!";
   static const String waitinPaymentForConfirm = "Təsdiq üçün ödəniş gözlənilir";
   static const String paid = "Ödənilib";
+  static const String youMustPaid = "Ödənilməlidir";
 
   //new order
   static const String weBuyForYou =
@@ -200,6 +201,7 @@ class MyText {
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
+  static const String courierOrderX = "Kuryer sifariş et 🕺🏻";
   static const String trendyolSms = "Trendyol SMS 📩";
   static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
@@ -233,8 +235,9 @@ class MyText {
   static const String calculateTitle = 'Çəki və həcmə görə hesabla';
   static const String trendyolOtp = 'Trendyoldan təsdiq kodu al';
   static const String contactTitle = 'Caspa ilə əlaqə vasitələri';
-  static const String courier =
+  static const String courierInfo =
       'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
+  static const String courier = 'Kuryer';
 
   static const String forEditAppSettings =
       "Tətbiqin tənzimləmələrində düzəliş etmək üçün";

@@ -297,7 +297,10 @@ class Pager {
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(
           create: (context) => CourierListCubit()..fetch(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => PackageDetailsCubit(),
+        ),
       ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [

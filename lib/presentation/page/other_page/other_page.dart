@@ -81,7 +81,7 @@ class OtherPage extends StatelessWidget {
                 MenuBox(
                   w: boxW,
                   title: MyText.courierX,
-                  content: MyText.courier,
+                  content: MyText.courierInfo,
                   color: MyColors.kuryer,
                   onTap: () => Go.to(context, Pager.courierList),
                 ),

@@ -22,7 +22,7 @@ class HomePackageList extends StatelessWidget {
         context.read<PackageCubit>().fetch(false);
       },
       child: BlocBuilder<PackageCubit, PackageState>(
-        builder: (context, state) {
+        builder: (contextK, state) {
           if (state is PackagesInProgress) {
             return Container(height: 150.sm, child: CaspaLoading.blue());
           } else if (state is PackagesSuccess) {

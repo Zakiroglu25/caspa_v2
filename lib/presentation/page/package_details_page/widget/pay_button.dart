@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_c
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/widget/package_main_button.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/widget/promo_pay_button.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -14,17 +15,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/cubits/promo_code/promo_code_state.dart';
+import '../../../../widget/custom/caspa_payment_radio.dart';
 
 class PayButton extends StatelessWidget {
   const PayButton({Key? key, required this.package}) : super(key: key);
   final Package package;
   @override
   Widget build(BuildContext context) {
-    // bbbb("package:   $package");
     return PackageMainButton(
         w: (MediaQuery.of(context).size.width - 32),
         text: MyText.pay,
-        // onTap: () => Go.to(context, Pager.payment(price: "466"))),
         onTap: () => Alert.body(context,
             title: MyText.choosePaypentType,
             cancelButton: true,
@@ -45,44 +45,30 @@ class PayButton extends StatelessWidget {
                   shrinkWrap: true,
                   padding: Paddings.paddingV12,
                   children: [
-                    buildCaspaRadio(context, snapShoot,
-                        value: MyText.fromBalance),
-                    buildCaspaRadio(context, snapShoot, value: MyText.byCard),
-                    buildCaspaRadio(context, snapShoot,
-                        value: MyText.fromCashback),
+                    CaspaPaymentRadio(
+                      context,
+                      snapShoot: snapShoot,
+                      value: MyText.fromBalance,
+                    ),
+                    CaspaPaymentRadio(
+                      context,
+                      snapShoot: snapShoot,
+                      value: MyText.byCard,
+                    ),
+                    CaspaPaymentRadio(
+                      context,
+                      snapShoot: snapShoot,
+                      value: MyText.fromCashback,
+                    ),
                     //bubrada promo olmalidir
-                    BlocProvider(
-                      create: (contextK) =>
-                          PromoCodeCubit()..checkPromoIsPayable(),
-                      child: BlocBuilder<PromoCodeCubit, PromoCodeState>(
-                        builder: (contextK, state) {
-                          bbbb('state:::::::::: $state');
-                          if (state is PromoCodeChecked) {
-                            String value = state.value;
-                            return WidgetOrEmpty(
-                                value: value == '1' && package.weight! <= 1,
-                                child: buildCaspaRadio(context, snapShoot,
-                                    value: MyText.withPromoCode));
-                          } else if (state is PromoCodeInProgress) {
-                            return CaspaLoading();
-                          } else {
-                            return Container();
-                          }
-                        },
-                      ),
+                    PromoPayButton(
+                      snapShoot: snapShoot,
+                      weight: package.weight!,
+                      mainContext: context,
                     ),
                   ],
                 );
               },
             )));
-  }
-
-  CaspaRadio buildCaspaRadio(
-      BuildContext context, AsyncSnapshot<Object?> snapShoot,
-      {required String value}) {
-    return CaspaRadio(
-        onTap: () => context.read<PackageDetailsCubit>().updatePayType(value),
-        title: value,
-        isActive: snapShoot.data == value);
   }
 }

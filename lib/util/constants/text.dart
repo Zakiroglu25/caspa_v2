@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MyText {
   MyText._();
   static const String coppied = "Kopyalandı";
+
   ///etibarname
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
@@ -138,7 +139,7 @@ class MyText {
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay ərzində";
-  static const String countOfOrders = "Bağalama sayı";
+  static const String countOfOrders = "Bağlama sayı";
   static const String cashbackProfile = "Cashback";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
@@ -232,7 +233,8 @@ class MyText {
   static const String calculateTitle = 'Çəki və həcmə görə hesabla';
   static const String trendyolOtp = 'Trendyoldan təsdiq kodu al';
   static const String contactTitle = 'Caspa ilə əlaqə vasitələri';
-  static const String courier = 'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
+  static const String courier =
+      'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
 
   static const String forEditAppSettings =
       "Tətbiqin tənzimləmələrində düzəliş etmək üçün";

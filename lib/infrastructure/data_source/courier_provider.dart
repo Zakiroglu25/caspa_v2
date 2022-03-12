@@ -48,9 +48,7 @@ class CourierProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.courierList;
     var url = Uri.parse(api);
-    log("1 provider");
     final response = await dioAuth.dio.get(api);
-    log("2 provider");
 
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
@@ -60,10 +58,8 @@ class CourierProvider {
       CourierListModel courierList =
       CourierListModel.fromJson(gelenCavabJson);
       statusDynamic.data = courierList.data;
-      log("5 provider");
       bbbb("courier list: " + (statusDynamic.data).toString());
     } else {
-      log("6 provider");
       eeee("courier List bad url :$url,response: ${response}");
     }
     return statusDynamic;

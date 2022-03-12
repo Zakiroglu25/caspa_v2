@@ -69,7 +69,7 @@ class OrderViaLinkListPage extends StatelessWidget {
               padding: Paddings.paddingA16,
               children: [
                 ColorfullBackImage(
-                  path: Assets.pngBox,
+                  path: Assets.pngNote,
                   infoTitle: MyText.littleOrderViaLink,
                   infoContent: MyText.infoOrderViaLink,
                   titleMaxLines: 2,

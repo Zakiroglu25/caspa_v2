@@ -10,7 +10,7 @@ class MyText {
 
   ///order via link
   static const String littleOrderViaLink =
-      "Hüquqlarınızı başqasına həvalə edin littleOrderViaLink📑";
+      "Yalnız bağlantını göndərməyiniz kifayətdir";
   static const String infoOrderViaLink =
       "Sifarişlərinizin təsdiqlənməsi üçün ödəniş etməyi unutmayın :) 💵";
 
@@ -201,7 +201,7 @@ class MyText {
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
   static const String trendyolSms = "Trendyol SMS 📩";
-  static const String settingsX = 'Ayarlar ⚙️';
+  static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
   static const String help = "Yardım";
@@ -325,7 +325,7 @@ class MyText {
   static const String trendyolSMS = 'Trendyol SMS';
   static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
   static const String trendyolSMSHowToWorkText =
-      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
+      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
 
   //calculate
   static const String kg_text = 'Çəkiyə görə';

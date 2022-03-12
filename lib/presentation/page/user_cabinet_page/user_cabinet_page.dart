@@ -155,6 +155,10 @@ class UserCabinetPage extends StatelessWidget {
                       title: MyText.countOfOrders,
                       content: "${_prefs.user.packages_count}",
                       color: MyColors.balanceCountPackage,
+                      onTap: () => Go.to(
+                        context,
+                        Pager.package(back: true),
+                      ),
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
                     ),

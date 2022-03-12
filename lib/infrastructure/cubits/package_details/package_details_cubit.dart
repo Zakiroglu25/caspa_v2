@@ -15,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../data_source/promo_code_provider.dart';
 import 'package_details_state.dart';
 
 class PackageDetailsCubit extends Cubit<PackageDetailsState> {
@@ -39,6 +40,8 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
       packagePayFromBalance(context, id: id);
     } else if (paymentType.value == MyText.fromCashback) {
       packagePayFromCashback(context, id: id);
+    } else if (paymentType.value == MyText.withPromoCode) {
+      packagePayWithPromo(context, id: id);
     } else {}
   }
 
@@ -96,6 +99,29 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
       Recorder.recordCatchError(e, s, where: 'packagePayFromCashback');
     }
   }
+
+  void packagePayWithPromo(BuildContext context, {required int id}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.packagePayWithPromo(id: id);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'packagePayFromPromo');
+    }
+  }
+
+  //-------------------------------------//
+  //-------c---h---e---c----k------------//
+  //-------------------------------------//
 
   /////////////////////////////////////////
   //-------O---R---D----E----R-----------//

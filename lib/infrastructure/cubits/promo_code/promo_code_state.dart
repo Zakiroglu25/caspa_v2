@@ -19,6 +19,12 @@ class PromoCodeNetworkError extends PromoCodeState {}
 
 class PromoCodeAdded extends PromoCodeState {}
 
+class PromoCodeChecked extends PromoCodeState {
+  final String value;
+
+  PromoCodeChecked(this.value);
+}
+
 class PromoCodeNotAdded extends PromoCodeState {
   String? error;
 

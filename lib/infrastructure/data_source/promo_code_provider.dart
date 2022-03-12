@@ -43,4 +43,20 @@ class PromoCodeProvider {
     }
     return statusDynamic;
   }
+
+  static Future<StatusDynamic> checkPromoCode() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    const api = ApiKeys.checkPromoCode;
+    final response = await dioAuth.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      statusDynamic.data = gelenCavabJson;
+    } else {
+      eeee(
+          "checkPromoCode bad url :${response.requestOptions.path},response: $response");
+    }
+    return statusDynamic;
+  }
 }

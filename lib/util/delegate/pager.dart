@@ -88,11 +88,15 @@ class Pager {
         )
       ], child: HomePage());
 
-  static get package => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: PackageStatusesCubit()..fetch(),
-        )
-      ], child: const PackagePage());
+  static package({bool back = false}) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: PackageStatusesCubit()..fetch(),
+            )
+          ],
+          child: PackagePage(
+            back: back,
+          ));
 
   static get newOrder => MultiBlocProvider(providers: [
         BlocProvider.value(
@@ -293,7 +297,10 @@ class Pager {
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(
           create: (context) => CourierListCubit()..fetch(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => PackageDetailsCubit(),
+        ),
       ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [

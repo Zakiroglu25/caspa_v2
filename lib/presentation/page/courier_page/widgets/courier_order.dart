@@ -21,14 +21,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CourierOrder extends StatefulWidget {
   Function? onTap;
   Package package;
-  //List<dynamic>? selectedOrders;
   int index;
 
-  CourierOrder(
-      {this.onTap,
-      required this.package,
-      //    this.selectedOrders,
-      required this.index});
+  CourierOrder({this.onTap, required this.package, required this.index});
 
   @override
   State<CourierOrder> createState() => _CourierOrderState();

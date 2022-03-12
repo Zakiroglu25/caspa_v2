@@ -27,14 +27,14 @@ class NotificationCubit extends Cubit<NotificationState> {
     emit(NotificationInProgress());
     try {
       final result = await NotificationProvider.getNotification();
-      bbbb('noy: ${result.statusCode}');
+      // bbbb('noy: ${result.statusCode}');
       List<MyNotification> notificationList =
           result.data as List<MyNotification>;
       // notificationList.forEach((element) {});
 
       if (isSuccess(result.statusCode)) {
         emit(NotificationSuccess(notificationList));
-        bbbb("hjgkhjk; $notificationList");
+        // bbbb("hjgkhjk; $notificationList");
       } else {
         emit(NotificationError());
       }

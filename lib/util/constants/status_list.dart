@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/models/local/statuses.dart';
-import 'package:caspa_v2/presentation/page/package_details_page/widget/status_items.dart';
 
 class StatusList {
   final List<Status> all = [

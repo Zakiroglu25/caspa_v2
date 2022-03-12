@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/calculate_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
@@ -9,6 +11,7 @@ import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 
 import '../../locator.dart';
+import '../models/remote/response/capacity_model.dart';
 
 class CalculateKgProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
@@ -35,23 +38,15 @@ class CalculateKgProvider {
     required bool size,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    log("1 provider");
     var api = ApiKeys.calculateKg;
 
     final response = await dioG.dio.get(api + "?width=$width&height=$height&lenght=$lenght&size=$size");
-    log("2provider");
-    log(response.toString()+"response");
     statusDynamic.statusCode = response.statusCode;
-    log("3provider");
 
     if (response.statusCode == ResultKey.responseSuccess) {
-      log("4provider");
-      final gelenCavabJson = response.data;
-       log("5 provider"+gelenCavabJson);
-      CapacityModel calculateModel = CapacityModel.fromJson(gelenCavabJson);
-      statusDynamic.data = calculateModel.price;
-      log("6 provider"+gelenCavabJson);
-
+      final json = response.data;
+      CapacityModel capacityModel = CapacityModel.fromJson(json);
+      statusDynamic.data = capacityModel.price;
     } else {
       eeee("kg bad:  url: $api  ,  response: ${response.data}");
     }

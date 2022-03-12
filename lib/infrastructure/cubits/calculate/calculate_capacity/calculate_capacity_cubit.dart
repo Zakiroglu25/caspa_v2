@@ -2,8 +2,10 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/data_source/calculate_provider.dart';
+import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -16,17 +18,17 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
 
   void capacity(BuildContext context, [bool loading = true]) async {
     if (loading) {
-      log("1");
+      log("1 cubit");
       emit(CalculateCapacityInAdding());
     }
     try {
-      log("2");
+      log("2 cubit");
       final result = await CalculateKgProvider.capacity(
-          lenght: lenght.valueOrNull!,
+          lenght: lenght.valueOrNull,
           size: true,
           height: height.valueOrNull,
-          width: width.valueOrNull!);
-      if (result != null) {
+          width: width.valueOrNull);
+      if (isSuccess(result.statusCode)) {
         emit(CalculateCapacityAdded(result.data));
         log(result.toString());
       }
@@ -34,7 +36,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
       //network olacaq
       emit(CalculateCapacityNetworkError());
     } catch (e, s) {
-      log("5");
+      log("5cubit");
       eeee("Calculate Capacity cubit catch: $e => $s");
       emit(CalculateCapacityError(error: e.toString()));
     }

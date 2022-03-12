@@ -80,19 +80,7 @@ class PackageReportButtons extends StatelessWidget {
           PackageMainButton(
               text: MyText.editIt,
               w: (sW - 32) - 55,
-              onTap: () async {
-                if (Platform.isAndroid) {
-                  await LaunchApp.openApp(
-                      androidPackageName: 'com.esev.ixtisas_sec',
-                      iosUrlScheme: 'pulsesecure://',
-                      appStoreLink:
-                          'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
-                      openStore: false);
-                } else {
-                  launch(
-                      "https://e.customs.gov.az/for-individuals/post-declaration");
-                }
-              }),
+              onTap: () => Go.to(context, Pager.report(package: package))),
           InfoMiniButton(
             onTap: () => Alert.show(context,
                 cancelButton: true,
@@ -121,19 +109,12 @@ class PackageReportButtons extends StatelessWidget {
               onTap: () async {
                 if (Platform.isAndroid) {
                   await LaunchApp.openApp(
-                    androidPackageName: 'com.crocusoft.smartcustoms',
-                    iosUrlScheme: 'pulsesecure://',
-                    appStoreLink:
-                        'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
-                    // openStore: false
-                  );
-                }
-
-                // Enter the package name of the App you want to open and for iOS add the URLscheme to the Info.plist file.
-                // The `openStore` argument decides whether the app redirects to PlayStore or AppStore.
-                // For testing purpose you can enter com.instagram.android
-
-                else {
+                      androidPackageName: 'com.esev.ixtisas_sec',
+                      iosUrlScheme: 'pulsesecure://',
+                      appStoreLink:
+                          'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
+                      openStore: false);
+                } else {
                   launch(
                       "https://e.customs.gov.az/for-individuals/post-declaration");
                 }

@@ -62,7 +62,7 @@ class _MapPageState extends State<MapPage> {
       position: locationStart,
       onTap: () {
         if (Platform.isIOS) {
-          launchWaze(lat, long);
+          //launchWaze(lat, long);
         } else if (Platform.isAndroid) {
           launchGoogleMaps(lat, long);
         } else if (Platform.isAndroid) {
@@ -87,34 +87,30 @@ class _MapPageState extends State<MapPage> {
         notification: false,
         contextA: context,
       ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            zoomGesturesEnabled: true,
-            initialCameraPosition: CameraPosition(
-              target: locationStart, //initial position
-              zoom: 17.0, //initial zoom level
-            ),
-            myLocationButtonEnabled: true,
-            myLocationEnabled: true,
-            markers: markers,
-            mapType: MapType.normal,
-            onMapCreated: (controller) {
-              setState(() {
-                mapController = controller;
-              });
-            },
-          ),
-        ],
+      body: GoogleMap(
+        zoomGesturesEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: locationStart, //initial position
+          zoom: 17.0, //initial zoom level
+        ),
+        myLocationButtonEnabled: true,
+        myLocationEnabled: true,
+        markers: markers,
+        mapType: MapType.normal,
+        onMapCreated: (controller) {
+          setState(() {
+            mapController = controller;
+          });
+        },
       ),
     );
   }
 
   void launchWaze(double lat, double lng) async {
-    var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
     // var fallbackUrl =
     //     'https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes';
     try {
+      var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
       bool launched =
           await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {

@@ -125,7 +125,7 @@ class MyText {
 
   //home
   static const String welcome = "Salam";
-  static const String recognizeTariffs = "Teriflərlə tanış olun";
+  static const String recognizeTariffs = "Tariflərlə tanış olun";
   static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";

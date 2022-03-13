@@ -11,7 +11,8 @@ class Assets {
   static const String pngMoto = 'assets/png/moto.png';
   static const String pngSucs = 'assets/png/sucs.png';
   static const String pngSad = 'assets/png/sad.png';
-  static const String pngQifil = 'assets/png/qifil.png';
+  // static const String pngQifil = 'assets/png/qifil.png';
+  static const String pngQifil = 'assets/png/bigkey.png';
   static const String pngPosTerminal = "assets/png/posTerminal.png";
   static const String pngEtibarname = "assets/png/etibar.png";
   static const String pngDino = "assets/png/homeDinopng.png";

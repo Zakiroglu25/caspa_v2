@@ -30,7 +30,6 @@ class CourierListPage extends StatelessWidget {
               return CaspaLoading();
             } else if (state is CourierListError) {
               return EmptyWidget(
-                text: state.error,
               );
             } else
               return EmptyWidget();

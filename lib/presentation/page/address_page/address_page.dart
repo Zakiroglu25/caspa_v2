@@ -31,9 +31,7 @@ class AdressPage extends StatelessWidget {
           } else if (state is AddressInProgress) {
             return CaspaLoading();
           } else if (state is AddressError) {
-            return EmptyWidget(
-              text: state.error,
-            );
+            return EmptyWidget();
           } else
             return EmptyWidget();
         },
@@ -49,7 +47,6 @@ class AdressPage extends StatelessWidget {
         .map((adress) => Tab(
               text: adress.name,
               height: 60,
-
             ))
         .toList();
   }

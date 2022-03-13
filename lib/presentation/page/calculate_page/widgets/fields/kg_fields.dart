@@ -23,8 +23,6 @@ class KgField extends StatelessWidget {
           textInputType: TextInputType.number,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
-          //onTap: () => context.read<CalculateKgCubit>().addKg(context),
           onChanged: (value) =>
               BlocProvider.of<CalculateKgCubit>(context).updateKg(value),
 

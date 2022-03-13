@@ -92,6 +92,8 @@ class CaspaField extends StatelessWidget {
                 child: TextFormField(
                   autocorrect: false,
                   controller: controller,
+                  textInputAction: TextInputAction.done,
+
                   obscureText: obscure ?? false,
                   maxLength: maxLenght,
                   maxLines: maxLines ?? null,
@@ -101,6 +103,7 @@ class CaspaField extends StatelessWidget {
                   //   enabled: false,
                   expands: maxLines != null ? false : true,
                   onTap: () => onTap?.call(),
+
                   keyboardType: textInputType ?? TextInputType.text,
                   textCapitalization:
                       textCapitalization ?? TextCapitalization.sentences,

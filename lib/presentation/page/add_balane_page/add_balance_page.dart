@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
@@ -29,10 +30,8 @@ class AddBalancePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        if (BlocProvider
-            .of<PaymentBalanceCubit>(context)
-            .state
-        is PaymentBalanceUrlFetched) {
+        if (BlocProvider.of<PaymentBalanceCubit>(context).state
+            is PaymentBalanceUrlFetched) {
           BlocProvider.of<PaymentBalanceCubit>(context).back();
           return false;
         } else {
@@ -45,47 +44,11 @@ class AddBalancePage extends StatelessWidget {
           contextA: context,
           user: false,
           onBack: () {
-            if (BlocProvider
-                .of<PaymentBalanceCubit>(context)
-                .state
-            is PaymentBalanceUrlFetched) {
+            if (BlocProvider.of<PaymentBalanceCubit>(context).state
+                is PaymentBalanceUrlFetched) {
               BlocProvider.of<PaymentBalanceCubit>(context).back();
             } else {
-              return Stack(
-                children: [
-                  ListView(
-                    padding: Paddings.paddingH16,
-                    children: [
-                      Text(
-                        MyText.balanceIncrease,
-                        style: UITextStyle.tW400BigBlack,
-                      ),
-                      MySizedBox.h32,
-                      AmountField(
-                        paymentBalance: paymentBalance,
-                        // controller: controller,
-                      ),
-                    ],
-                  ),
-                  // Positioned(
-                  //   top: 140,
-                  //   child: Text("30\$ odenish etdikde 10\$ cashback al"),
-                  // ),
-                  Positioned(
-                    child: CaspaButton(
-                      text: MyText.addBalance,
-                      onTap: () =>
-                          context
-                              .read<PaymentBalanceCubit>()
-                              .getPaymentUrl(context,
-                              paymentBalanceType: paymentBalance),
-                    ),
-                    bottom: 20,
-                    left: 16,
-                    right: 16,
-                  )
-                ],
-              );
+              Go.pop(context);
             }
           },
           notification: false,
@@ -115,10 +78,9 @@ class AddBalancePage extends StatelessWidget {
                 return WebviewPage(
                   url: state.url,
                   mainContext: context,
-                  whenSuccess: () =>
-                      context
-                          .read<PaymentBalanceCubit>()
-                          .paymentSuccess(context),
+                  whenSuccess: () => context
+                      .read<PaymentBalanceCubit>()
+                      .paymentSuccess(context),
                 );
               } else {
                 return Stack(
@@ -143,10 +105,9 @@ class AddBalancePage extends StatelessWidget {
                     Positioned(
                       child: CaspaButton(
                         text: MyText.addBalance,
-                        onTap: () =>
-                            context
-                                .read<PaymentBalanceCubit>()
-                                .getPaymentUrl(context,
+                        onTap: () => context
+                            .read<PaymentBalanceCubit>()
+                            .getPaymentUrl(context,
                                 paymentBalanceType: paymentBalance),
                       ),
                       bottom: 20,

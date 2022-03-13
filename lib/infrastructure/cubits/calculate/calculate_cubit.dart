@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/calculate_provider.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -15,28 +16,26 @@ import 'calculate_state.dart';
 class CalculateKgCubit extends Cubit<CalculateKgState> {
   CalculateKgCubit() : super(CalculateKgInitial());
 
-  double resultKg =0;
-
   void addKg(BuildContext context, [bool loading = true]) async {
+    double weight = double.parse(kg.valueOrNull!);
     if (loading) {
       emit(CalculateKgInAdding());
     }
     try {
       final result = await CalculateKgProvider.addKg(kg: kg.valueOrNull!);
-      if (result != null) {
-        // var a = result.data * kg.sink;
-
-        resultKg = resultKg * double.parse(result.data.price);
-
-        print(resultKg.toString()+"Aaaaa");
+      if (isSuccess(result.statusCode)) {
+        double resultKg;
+        if (weight >= 1) {
+          resultKg = weight * double.parse(result.data.price);
+        } else {
+          resultKg = double.parse(result.data.price);
+        }
         emit(CalculateKgAdded(resultKg.toStringAsFixed(2)));
-
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(CalculateKgNetworkError());
     } catch (e, s) {
-      eeee("CalculateKg cubit catch: $e => $s");
+      Recorder.recordCatchError(e, s, where: 'CalculateKgCubit.addKg');
       emit(CalculateKgError(error: e.toString()));
     }
   }
@@ -51,10 +50,8 @@ class CalculateKgCubit extends Cubit<CalculateKgState> {
       kg.value = '';
       kg.sink.addError(MyText.field_is_not_correct);
     } else {
-      resultKg= double.parse(value);
       kg.sink.add(value);
     }
-    // isUserInfoValid(registerType: _registerType);
   }
 
   bool get iscalculateIncorrect =>
@@ -64,8 +61,6 @@ class CalculateKgCubit extends Cubit<CalculateKgState> {
   @override
   Future<void> close() {
     kg.close();
-
     return super.close();
   }
-
 }

@@ -18,8 +18,12 @@ class CalculateKgButton extends StatelessWidget {
         return CaspaButton(
           isButtonActive: snp.hasData,
           text: MyText.apply,
-          loading: (context.watch<CalculateKgCubit>().state is CalculateKgInAdding),
-          onTap: () => context.read<CalculateKgCubit>().addKg(context),
+          loading:
+              (context.watch<CalculateKgCubit>().state is CalculateKgInAdding),
+          onTap: () {
+            context.read<CalculateKgCubit>().addKg(context);
+            //FocusManager.instance.primaryFocus?.unfocus();
+          },
         );
       },
     );

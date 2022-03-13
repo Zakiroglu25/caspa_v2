@@ -17,7 +17,6 @@ class GiftCodeField extends StatelessWidget {
           title: MyText.giftCode,
           maxLines: 1,
           hint: MyText.giftCode,
-          upperCase: true,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',

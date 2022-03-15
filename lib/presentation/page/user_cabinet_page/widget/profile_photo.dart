@@ -12,19 +12,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../locator.dart';
 
 class ProfilePhoto extends StatelessWidget {
-  HiveService get _prefs => locator<HiveService>();
-
   final double? w;
   final double? h;
   final bool? editable;
 
-  ProfilePhoto({this.w, this.h, this.editable});
+  ProfilePhoto({this.w, this.h, this.editable = false});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        UserPhoto(),
+        UserPhoto(
+          editOnTap: editable!,
+        ),
         Positioned(
           bottom: 0,
           right: 2,

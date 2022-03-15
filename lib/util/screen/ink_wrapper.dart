@@ -7,12 +7,14 @@ class InkWrapper extends StatelessWidget {
   final Widget? child;
   final double? radius;
   final VoidCallback? onTap;
+  final bool? tapable;
 
   InkWrapper({
     this.splashColor,
     this.highlightColor,
     this.radius,
-    @required this.child,
+    this.tapable = true,
+    required this.child,
     @required this.onTap,
   });
 
@@ -24,12 +26,15 @@ class InkWrapper extends StatelessWidget {
         Positioned.fill(
           child: Material(
             color: Colors.transparent,
-            child: InkWell(
-              splashColor: splashColor??MyColors.transparent,
-              highlightColor: highlightColor??Colors.white.withOpacity(.4),
-              onTap: onTap,
-              borderRadius: BorderRadius.circular(radius ?? 0),
-            ),
+            child: tapable!
+                ? InkWell(
+                    splashColor: splashColor ?? MyColors.transparent,
+                    highlightColor:
+                        highlightColor ?? Colors.white.withOpacity(.4),
+                    onTap: onTap,
+                    borderRadius: BorderRadius.circular(radius ?? 0),
+                  )
+                : Container(),
           ),
         ),
       ],

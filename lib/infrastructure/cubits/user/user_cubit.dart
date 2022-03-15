@@ -1,18 +1,25 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../locator.dart';
+import '../../../util/screen/alert.dart';
 
 part 'user_state.dart';
 
@@ -20,6 +27,74 @@ class UserCubit extends Cubit<UserState> {
   UserCubit() : super(UserInitial());
 
   HiveService get _prefs => locator<HiveService>();
+
+  void checkAndPickImage(BuildContext context) async {
+    try {
+      var galleryAccessStatus = await Permission.photos.status;
+      var cameraAccessStatus = await Permission.camera.status;
+      await Permission.photos.request();
+      await Permission.camera.request();
+      if (galleryAccessStatus != PermissionStatus.granted ||
+          cameraAccessStatus != PermissionStatus.granted) {
+        var statusPhotos = await Permission.photos.request();
+        var statusCamera = await Permission.camera.request();
+        // var status = await Permission.photos.request();
+        if (statusPhotos != PermissionStatus.granted) {
+          await showGalleryAccessAlert(context);
+        } else {
+          updateImage(await AppOperations.pickPhotoFromGallery());
+          editAvatar(context);
+        }
+      } else {
+        updateImage(await AppOperations.pickPhotoFromGallery());
+        editAvatar(context);
+      }
+    } on PlatformException catch (e) {
+      eeee("error: " + e.toString());
+      await showGalleryAccessAlert(context);
+    } catch (e) {
+      eeee("error: " + e.toString());
+      Snack.display(context: context, message: e.toString());
+    }
+  }
+
+  void checkAndTake(BuildContext context) async {
+    try {
+      var cameraAccessStatus = await Permission.camera.status;
+
+      await Permission.camera.request();
+      if (cameraAccessStatus != PermissionStatus.granted) {
+        var statusCamera = await Permission.camera.request();
+        // var status = await Permission.photos.request();
+
+        if (statusCamera != PermissionStatus.granted) {
+          await showGalleryAccessAlert(context);
+        } else {
+          updateImage(await AppOperations.pickPhotoFromGallery(
+              imageSource: ImageSource.camera));
+          editAvatar(context);
+        }
+      } else {
+        updateImage(await AppOperations.pickPhotoFromGallery(
+            imageSource: ImageSource.camera));
+        editAvatar(context);
+      }
+    } on PlatformException catch (e) {
+      eeee("error: " + e.toString());
+      await showGalleryAccessAlert(context);
+    } catch (e) {
+      eeee("error: " + e.toString());
+      Snack.display(context: context, message: e.toString());
+    }
+  }
+
+  Future<void> showGalleryAccessAlert(BuildContext context) async {
+    Alert.show(context,
+        title: MyText.we_need_access_to_gallery,
+        content: MyText.we_will_redirect_to_settings,
+        buttonText: MyText.goOn,
+        onTap: () async => await openAppSettings());
+  }
 
   void update(BuildContext context, {bool? isLoading = true}) async {
     if (isLoading!) {
@@ -52,6 +127,35 @@ class UserCubit extends Cubit<UserState> {
       } else {
         Snack.display(context: context, message: MyText.error);
         emit(UserFailed(response.statusCode.toString()));
+      }
+    } catch (e, s) {
+      emit(UserFailed("Errorlari doshuyecem"));
+    }
+  }
+
+  void editAvatar(BuildContext context, {bool? isLoading = true}) async {
+    if (isLoading!) {
+      emit(UserLoading());
+    }
+    try {
+      if (isPhotoValid()) {
+        final response = await AccountProvider.report(
+          invoice: image.valueOrNull,
+        );
+
+        if (isSuccess(response!.statusCode)) {
+          await UserOperations.configureUserDataWhenLogin(
+              fcmToken: _prefs.fcmToken,
+              accessToken: _prefs.accessToken!,
+              path: _prefs.userPath);
+          Snack.positive(context: context, message: MyText.operationIsSuccess);
+          emit(UserSuccess(response.data!));
+        } else {
+          Snack.display(context: context, message: MyText.error);
+          emit(UserFailed(response.statusCode.toString()));
+        }
+      } else {
+        emit(UserFailed(MyText.error));
       }
     } catch (e, s) {
       emit(UserFailed("Errorlari doshuyecem"));
@@ -294,6 +398,22 @@ class UserCubit extends Cubit<UserState> {
       birthDate.value == null ||
       birthDate.value.isEmpty);
 
+  //photo
+  final BehaviorSubject<File?> image = BehaviorSubject<File>();
+
+  Stream<File?> get imageStream => image.stream;
+
+  updateImage(File? value) {
+    if (value == null || value.path == null) {
+      image.sink.addError(MyText.field_is_not_correct);
+    } else {
+      image.sink.add(value);
+    }
+    // isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isImageIncorrect => (!image.hasValue || image.value == null);
+
   @override
   Future<void> close() {
     uEmail.close();
@@ -306,6 +426,7 @@ class UserCubit extends Cubit<UserState> {
     uPassSecond.close();
     uPassMain.close();
     adress.close();
+    image.close();
     anbar.close();
     phone.close();
     return super.close();
@@ -339,6 +460,17 @@ class UserCubit extends Cubit<UserState> {
         !isPhoneIncorrect) {
       emit(UserButtonActive());
 
+      //bbbb("---- true");
+      return true;
+    } else {
+      //bbbb("---- false");
+      return false;
+    }
+  }
+
+  bool isPhotoValid() {
+    if (!isImageIncorrect) {
+      //emit(UserButtonActive());
       //bbbb("---- true");
       return true;
     } else {

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -40,24 +41,24 @@ class HomePage extends StatelessWidget {
             Ads(),
             MySizedBox.h24,
             SectionName(
+              title: MyText.myPackages,
+              hP: 20,
+            ),
+            MySizedBox.h16,
+            BlocProvider(
+              create: (context) => ActivePackageCubit()..fetch(),
+              child: HomePackageList(),
+            ),
+            MySizedBox.h16,
+            SectionName(
               title: MyText.recognizeTariffs,
               hP: 20,
               tile: MoreButton(
                 onTap: () => Go.to(context, Pager.tarifDetails),
               ),
             ),
-            MySizedBox.h16,
+            MySizedBox.h10,
             Tariffs(),
-            MySizedBox.h24,
-            SectionName(
-              title: MyText.myPackages,
-              hP: 20,
-            ),
-            MySizedBox.h24,
-            BlocProvider(
-              create: (context) => PackageCubit()..fetch(),
-              child: HomePackageList(),
-            ),
           ],
         ),
       ),

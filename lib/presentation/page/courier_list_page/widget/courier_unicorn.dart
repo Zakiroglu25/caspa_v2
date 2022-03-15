@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'courier_edit_and_delete.dart';
 import 'courier_order_unicorn.dart';
 import 'courier_pay_button.dart';
 
@@ -17,6 +18,9 @@ class CourierUnicorn extends StatelessWidget {
             courier: courier,
           ),
           CourierPayButton(
+            courier: courier,
+          ),
+          CourierEditAndDelete(
             courier: courier,
           )
         ],

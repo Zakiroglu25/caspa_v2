@@ -37,15 +37,15 @@ class PackagePage extends StatelessWidget {
                           //   text: entry.key,
                           child: Row(
                             children: [
-                              Text(
-                                entry.key,
-                                style: AppTextStyles.sanF600.copyWith(
-                                    fontSize: 16.sp, letterSpacing: 0.3),
-                              ),
+                              Text(entry.key,style: AppTextStyles.sanF600.copyWith(fontSize: 15.sp,letterSpacing: 0.3),),
+                              // Text(
+                              //   entry.key,
+                              //   style: AppTextStyles.sanF600.copyWith(
+                              //       fontSize: 16.sp, letterSpacing: 0.3),
+                              // ),
                               MySizedBox.w5,
                               TabCount(
-                                  count: PackageAndCount.fromJson(entry.value)
-                                      .count)
+                                  count: PackageAndCount.fromJson(entry.value).count)
                             ],
                           ),
                           height: 65,

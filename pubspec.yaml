@@ -47,6 +47,8 @@ dependencies:
   sliver_tools: ^0.2.5
   device_info_plus: any
   device_information: ^0.0.4
+  device_apps: ^2.1.1
+  android_intent_plus: ^3.1.1
 
 
 

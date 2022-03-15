@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -8,6 +9,8 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
+import '../../../../infrastructure/services/hive_service.dart';
+import '../../../../locator.dart';
 import '../../../../util/screen/alert.dart';
 import '../../../../widget/custom/buttons/caspa_button.dart';
 import '../../../../widget/custom/caspa_payment_radio.dart';
@@ -16,6 +19,10 @@ import '../../../../util/constants/colors.dart';
 class CourierPayButton extends StatelessWidget {
   const CourierPayButton({Key? key, required this.courier}) : super(key: key);
   final CourierOrder courier;
+
+
+  static HiveService get _prefs => locator<HiveService>();
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -35,8 +42,8 @@ class CourierPayButton extends StatelessWidget {
                   .courierMakePayment(context: context, id: courier.id!),
               image: Image.asset(
                 Assets.linkGirl,
-                width: 100,
-                height: 100,
+                width: 140,
+                height: 140,
               ),
               content: StreamBuilder(
                 stream:
@@ -47,14 +54,17 @@ class CourierPayButton extends StatelessWidget {
                     padding: Paddings.paddingV12,
                     children: [
                       CaspaPaymentRadio(context,
-                          snapShoot: snapShoot, value: MyText.fromBalance),
+                          snapShoot: snapShoot, value: MyText.fromBalance+""
+                              " "+"(${_prefs.user.cargoBalance} \$)"),
                       CaspaPaymentRadio(context,
                           snapShoot: snapShoot, value: MyText.byCard),
                       CaspaPaymentRadio(context,
-                          snapShoot: snapShoot, value: MyText.fromCashback),
+                          snapShoot: snapShoot, value: MyText.fromCashback+""
+                              " "+"(${_prefs.user.cashback_balance} \$)"),
 
                       // buildCaspaRadio(context, snapShoot,
                       //     value: MyText.withPromoCode),
+                      MySizedBox.h16
                     ],
                   );
                 },

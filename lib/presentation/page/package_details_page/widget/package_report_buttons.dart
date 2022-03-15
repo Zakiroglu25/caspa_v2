@@ -28,7 +28,7 @@ class PackageReportButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     eeee("noInvoice: ${package.noInvoice}");
-    eeee("regNumber: ${package.regNumber}");
+    // eeee("regNumber: ${package.regNumber}");
     // package.payment_balance = 1;
     final sW = MediaQuery.of(context).size.width;
 
@@ -107,7 +107,7 @@ class PackageReportButtons extends StatelessWidget {
               onTap: () async {
                 if (Platform.isAndroid) {
                   await LaunchApp.openApp(
-                      androidPackageName: 'com.esev.ixtisas_sec',
+                      androidPackageName: 'com.crocusoft.smartcustoms',
                       iosUrlScheme: 'pulsesecure://',
                       appStoreLink:
                           'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',

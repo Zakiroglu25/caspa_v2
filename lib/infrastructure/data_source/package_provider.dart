@@ -17,6 +17,8 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
+import '../models/local/my_user.dart';
+import '../models/remote/response/user_result.dart';
 
 class PackageProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
@@ -68,6 +70,26 @@ class PackageProvider {
       statusDynamic.data = package.data;
     } else {
       eeee("fetchPackagesWithStatuses bad url :$api,response: ${response}");
+    }
+    return statusDynamic;
+  }
+  static Future<StatusDynamic> getActivePackage() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    late List<Package>? activePackageList;
+    final api = ApiKeys.user;
+    var url = Uri.parse(api);
+    //final response = await http.get(url, headers: headers);
+    final response = await dioAuth.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      activePackageList =
+          (UserResult.fromJson(gelenCavabJson)).data?.activePackages;
+
+      statusDynamic.data = activePackageList;
+    } else {
+      eeee("getNotification url :$url,response: $response");
     }
     return statusDynamic;
   }

@@ -33,7 +33,7 @@ class SectionName extends StatelessWidget {
               title!,
               overflow: TextOverflow.ellipsis,
               maxLines: maxLines,
-              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16),
+              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16,letterSpacing: 0.3),
             ),
           ),
           WidgetOrEmpty(

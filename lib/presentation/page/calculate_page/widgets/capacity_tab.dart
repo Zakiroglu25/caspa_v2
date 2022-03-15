@@ -37,7 +37,7 @@ class CapacityPage extends StatelessWidget {
           BlocBuilder<CalculateCapacityCubit, CalculateCapacityState>(
             builder: (context, state) {
               if (state is CalculateCapacityAdded) {
-                 final int? result = state.price;
+                 final num? result = state.price;
                 return ResultCalculate(result: result.toString());
               } else if (state is CalculateCapacityInAdding) {
                 return CaspaLoading();

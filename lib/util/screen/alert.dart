@@ -171,12 +171,15 @@ class Alert {
                         width: 120.sm,
                       ),
                   SizedBox(
-                    height: 10.sm,
+                    height: 16.sm,
                   ),
                   Text(
                     title ?? MyText.operationIsSuccess,
                     textAlign: textAlign,
                     style: AppTextStyles.sanF600.copyWith(fontSize: 18.sm),
+                  ),
+                  SizedBox(
+                    height: 16.sm,
                   ),
                   content ?? Container(),
                   Container(

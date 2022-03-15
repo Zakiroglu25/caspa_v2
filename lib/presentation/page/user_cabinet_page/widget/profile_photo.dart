@@ -12,8 +12,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../locator.dart';
 
 class ProfilePhoto extends StatelessWidget {
-  HiveService get _prefs => locator<HiveService>();
-
   final double? w;
   final double? h;
   final bool? editable;

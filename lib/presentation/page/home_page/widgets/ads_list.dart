@@ -33,7 +33,7 @@ class AdsWidget extends StatelessWidget {
     isVertical ??= false;
     return FadeIn(
       child: SizedBox(
-        height: 100.sp,
+        height: 94.sp,
         child: ListView.separated(
           separatorBuilder: (context, index) {
             return MySizedBox.w10;

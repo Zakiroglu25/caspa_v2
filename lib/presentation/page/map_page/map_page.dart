@@ -38,8 +38,6 @@ class _MapPageState extends State<MapPage> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
   }
 
   GoogleMapController? mapController; //contrller for Google map
@@ -55,14 +53,14 @@ class _MapPageState extends State<MapPage> {
 
   @override
   void initState() {
-    getLocation();
+    // getLocation();
 
     markers.add(Marker(
       markerId: MarkerId(locationStart.toString()),
       position: locationStart,
       onTap: () {
         if (Platform.isIOS) {
-          //launchWaze(lat, long);
+          launchWaze(lat, long);
         } else if (Platform.isAndroid) {
           launchGoogleMaps(lat, long);
         } else if (Platform.isAndroid) {
@@ -87,32 +85,36 @@ class _MapPageState extends State<MapPage> {
         notification: false,
         contextA: context,
       ),
-      body: GoogleMap(
-        zoomGesturesEnabled: true,
-        initialCameraPosition: CameraPosition(
-          target: locationStart, //initial position
-          zoom: 17.0, //initial zoom level
-        ),
-        myLocationButtonEnabled: true,
-        myLocationEnabled: true,
-        markers: markers,
-        mapType: MapType.normal,
-        onMapCreated: (controller) {
-          setState(() {
-            mapController = controller;
-          });
-        },
+      body: Stack(
+        children: [
+          GoogleMap(
+            zoomGesturesEnabled: true,
+            initialCameraPosition: CameraPosition(
+              target: locationStart, //initial position
+              zoom: 17.0, //initial zoom level
+            ),
+            myLocationButtonEnabled: true,
+            myLocationEnabled: true,
+            markers: markers,
+            mapType: MapType.normal,
+            onMapCreated: (controller) {
+              setState(() {
+                mapController = controller;
+              });
+            },
+          ),
+        ],
       ),
     );
   }
 
   void launchWaze(double lat, double lng) async {
+    var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
     // var fallbackUrl =
     //     'https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes';
     try {
-      var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
       bool launched =
-          await launch(url, forceSafariVC: false, forceWebView: false);
+      await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {
         //await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
       }
@@ -127,7 +129,7 @@ class _MapPageState extends State<MapPage> {
         'https://www.google.com/maps/search/?api=1&query=${lat.toString()},${lng.toString()}';
     try {
       bool launched =
-          await launch(url, forceSafariVC: false, forceWebView: false);
+      await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {
         await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
       }

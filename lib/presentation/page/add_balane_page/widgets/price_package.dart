@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
 
@@ -59,7 +60,7 @@ class PricePackage extends StatelessWidget {
                         //ySizedBox.h16,
                         Text('$price USD + $gift USD',
                             style:
-                                AppTextStyles.sanF600.copyWith(fontSize: 18)),
+                                AppTextStyles.sanF600.copyWith(fontSize: 16.sp)),
                         MySizedBox.h4,
                         Text(
                             'Daşınma balansını $price USD artırdıqda, keşbek balansınıza $gift USD hədiyyə olaraq əlavə olunacaqdır.',

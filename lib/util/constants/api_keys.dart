@@ -82,6 +82,7 @@ class ApiKeys {
 
 //courier
   static const courierList = "$baseUrl/user/couriers";
+  static const deleteCourier = "$baseUrl/user/couriers/delete";
 
   //gift
   static const giftList = "$baseUrl/user/gifts";

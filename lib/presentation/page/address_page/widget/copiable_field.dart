@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -40,13 +41,9 @@ class CopiableField extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          title ?? "",
-                          style: const TextStyle(
-                              color: MyColors.textBlack,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
-                        ),
+                        Text(title ?? "",
+                            style: AppTextStyles.sanF600
+                                .copyWith(fontSize: 14.sp, letterSpacing: 0.3)),
                         MySizedBox.h2,
                         Text(
                           data ?? "",
@@ -61,7 +58,11 @@ class CopiableField extends StatelessWidget {
                     ),
                   ),
                   MySizedBox.w10,
-                  CopyButton(data,color: MyColors.mainColor,)                ],
+                  CopyButton(
+                    data,
+                    color: MyColors.mainColor,
+                  )
+                ],
               ),
               decoration: BoxDecoration(
                   color: MyColors.mainGrey,

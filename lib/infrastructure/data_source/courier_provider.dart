@@ -49,7 +49,6 @@ class CourierProvider {
     var api = ApiKeys.courierList;
     var url = Uri.parse(api);
     final response = await dioAuth.dio.get(api);
-
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       // log("3 provider"+response.statusCode.toString());
@@ -64,4 +63,34 @@ class CourierProvider {
     }
     return statusDynamic;
   }
+
+  static Future<StatusDynamic?> deleteCourier({
+    required String? accessToken,
+    required int id,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.deleteCourier;
+    var url = Uri.parse(api);
+    final headers = ApiKeys.header(token: accessToken);
+
+    final body = {
+      "id": id,
+    };
+
+    bbbb("body: " + jsonEncode(body).toString());
+    // final response =
+    //     await http.post(url, headers: headers, body: jsonEncode(body));
+    final response = await dioAuth.dio.post(api, data: body);
+
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess201) {
+      statusDynamic.data = response.data;
+    } else {
+      eeee(
+          "deleteAttorney result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
 }

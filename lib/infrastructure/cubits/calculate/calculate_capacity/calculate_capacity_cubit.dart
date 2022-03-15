@@ -24,13 +24,12 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
     try {
       log("2 cubit");
       final result = await CalculateKgProvider.capacity(
-          lenght: lenght.valueOrNull,
+          length: lenght.valueOrNull,
           size: true,
           height: height.valueOrNull,
           width: width.valueOrNull);
       if (isSuccess(result.statusCode)) {
         emit(CalculateCapacityAdded(result.data));
-        log(result.toString());
       }
     } on SocketException catch (_) {
       //network olacaq

@@ -45,8 +45,8 @@ class CaspaRadio extends StatelessWidget {
                 duration: Duration(milliseconds: 500),
                 child: OrderSelectIndicator(
                   active: isActive,
-                  w: 14,
-                  h: 14,
+                  w: 20,
+                  h: 20,
                 ))
 
             //:

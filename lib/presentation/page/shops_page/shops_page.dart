@@ -27,9 +27,7 @@ class ShopPage extends StatelessWidget {
           } else if (state is ShopInProgress) {
             return CaspaLoading();
           } else if (state is ShopError) {
-            return EmptyWidget(
-              text: state.error,
-            );
+            return EmptyWidget(text:"Magazalar tapılmadı");
           } else
             return EmptyWidget();
         },

@@ -4,6 +4,7 @@ import 'package:caspa_v2/presentation/page/package_details_page/package_details_
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -15,8 +16,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../infrastructure/models/local/my_user.dart';
+
 class PackageBox extends StatelessWidget {
   Package package;
+
   double? w;
   int? index;
 
@@ -39,7 +43,6 @@ class PackageBox extends StatelessWidget {
             .copyWith(fontSize: 14.sp, color: MyColors.black),
         child: Container(
           width: w,
-
           decoration: BoxDecoration(
               color: AppOperations.colorWithId(package.id!),
               borderRadius: BorderRadius.circular(12)),
@@ -50,6 +53,7 @@ class PackageBox extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SvgPicture.asset(Assets.svgShop),
+                MySizedBox.h10,
                 Text(
                   package.store!,
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),

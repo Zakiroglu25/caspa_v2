@@ -1,5 +1,5 @@
 class CapacityModel {
-  int? price;
+  num? price;
 
   CapacityModel({this.price});
 

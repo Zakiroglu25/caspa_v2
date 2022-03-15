@@ -127,8 +127,8 @@ class MyText {
 
   //home
   static const String welcome = "Salam";
-  static const String recognizeTariffs = "Teriflərlə tanış olun";
-  static const String myPackages = "Mənim bağlamalarim";
+  static const String recognizeTariffs = "Tariflərlə tanış olun";
+  static const String myPackages = "Aktiv bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -139,9 +139,9 @@ class MyText {
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
-  static const String durtingCurrentMonth = "Cari ay ərzində";
-  static const String countOfOrders = "Bağlama sayı";
-  static const String cashbackProfile = "Cashback";
+  static const String durtingCurrentMonth = "Cari ay \nərzində";
+  static const String countOfOrders = "Aktiv \nbağlama";
+  static const String cashbackProfile = "Cashback\nbalans";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
 
@@ -247,7 +247,7 @@ class MyText {
   static const String attorneysX = "Etibarnamələr 📑";
   static const String new_attorney = "Yeni etibarnamə";
   static const String attorneyContent =
-      "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs,götürə bilər";
+      "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs götürə bilər";
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
@@ -388,7 +388,7 @@ class MyText {
 
   ///otherpage
   static const String emptyDesc =
-      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək 😎";
+      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək";
 
   ///kuryer page
   static const String kuryerTxt =
@@ -404,7 +404,7 @@ class MyText {
   static const String otherPage =
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
   static const String otherShop =
-      "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
+      "Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Əlavə tətbiqlərə gərək qalmadı 😎";
 
   ///beyan et
   static const String declareText =

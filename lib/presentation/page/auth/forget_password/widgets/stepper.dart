@@ -22,7 +22,7 @@ class ForgotPassStepper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: titles != null ? 65 : 40,
-      color: MyColors.statusError,
+      color: MyColors.transparent,
       child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

@@ -1,3 +1,6 @@
+import '../remote/response/categories_response.dart';
+import '../remote/response/packages_data.dart';
+
 class MyUser {
   int? id;
   String? username;
@@ -22,10 +25,15 @@ class MyUser {
   String? companyName;
   String? monthly;
   int? packages_count;
+  int? active_package_count;
   List<MyNotification>? notifications;
+  // List<ActivePackages>? activePackages;
+  List<Package>? activePackages;
 
   MyUser(
+
       {this.id,
+        this.active_package_count,
         this.cashback_balance,
         this.username,
         this.name,
@@ -48,7 +56,8 @@ class MyUser {
         this.monthly,
         this.notifications,
         this.packages_count,
-        this.companyName});
+        this.companyName,
+        this.activePackages});
 
   MyUser.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -66,7 +75,7 @@ class MyUser {
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
       json['notifications'].forEach((v) {
-        notifications!.add(new MyNotification.fromJson(v));
+        notifications!.add(MyNotification.fromJson(v));
       });
     }
     ;
@@ -76,17 +85,28 @@ class MyUser {
     packages_count = json['packages_count'];
     monthly = json['monthly'];
     cargoBalance = json['cargoBalance'];
-    city = json['city'] != null ? new City.fromJson(json['city']) : null;
+    city = json['city'] != null ? City.fromJson(json['city']) : null;
     business = json['business'];
     wareHouse = json['wareHouse'] != null
-        ? new WareHouse.fromJson(json['wareHouse'])
+        ? WareHouse.fromJson(json['wareHouse'])
         : null;
     taxNumber = json['taxNumber'];
     companyName = json['companyName'];
+    active_package_count = json['active_package_count'];
+    if (json['active_packages'] != null) {
+      activePackages = <Package>[];
+      // json['active_packages'].forEach((v) {
+      //   activePackages!.add(new ActivePackages.fromJson(v));
+      // });
+
+      json['active_packages'].forEach((v) {
+          activePackages!.add(Package.fromJson(v));
+        });
+    }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['username'] = this.username;
     data['name'] = this.name;
@@ -106,6 +126,7 @@ class MyUser {
     data['address'] = address;
     data['balance'] = this.balance;
     data['cargoBalance'] = this.cargoBalance;
+    data['active_package_count'] = this.active_package_count;
     if (this.city != null) {
       data['city'] = this.city!.toJson();
     }
@@ -118,8 +139,11 @@ class MyUser {
     if (this.notifications != null) {
       data['notifications'] =
           this.notifications!.map((v) => v.toJson()).toList();
+    };
+    if (this.activePackages != null) {
+      data['active_packages'] =
+          this.activePackages!.map((v) => v.toJson()).toList();
     }
-    ;
     return data;
   }
 
@@ -147,7 +171,7 @@ class City {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -180,7 +204,7 @@ class WareHouse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -224,7 +248,7 @@ class MyNotification {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -240,3 +264,146 @@ class MyNotification {
     return 'MyNotification{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, description: $description, read: $read}';
   }
 }
+class ActivePackages {
+  int? id;
+  String? status;
+  String? cargoTracking;
+  String? tracking;
+  String? store;
+  String? price;
+  String? cargoPrice;
+  double? weight;
+  Category? category;
+  Country? country;
+  int? payment;
+  String? note;
+  Null? regNumber;
+  int? noInvoice;
+  String? fromReport;
+  int? categoryId;
+  String? invoice;
+  String? date;
+  List<Archive>? archive;
+
+  ActivePackages(
+      {this.id,
+        this.status,
+        this.cargoTracking,
+        this.tracking,
+        this.store,
+        this.price,
+        this.cargoPrice,
+        this.weight,
+        this.category,
+        this.country,
+        this.payment,
+        this.note,
+        this.regNumber,
+        this.noInvoice,
+        this.fromReport,
+        this.categoryId,
+        this.invoice,
+        this.date,
+        this.archive});
+
+  ActivePackages.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    status = json['status'];
+    cargoTracking = json['cargo_tracking'];
+    tracking = json['tracking'];
+    store = json['store'];
+    price = json['price'];
+    cargoPrice = json['cargo_price'];
+    weight = json['weight'];
+    category = json['category'] != null
+        ? Category.fromJson(json['category'])
+        : null;
+    country =
+    json['country'] != null ? Country.fromJson(json['country']) : null;
+    payment = json['payment'];
+    note = json['note'];
+    regNumber = json['regNumber'];
+    noInvoice = json['no_invoice'];
+    fromReport = json['from_report'];
+    categoryId = json['category_id'];
+    invoice = json['invoice'];
+    date = json['date'];
+    if (json['archive'] != null) {
+      archive = <Archive>[];
+      json['archive'].forEach((v) {
+        archive!.add(Archive.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = this.id;
+    data['status'] = this.status;
+    data['cargo_tracking'] = this.cargoTracking;
+    data['tracking'] = this.tracking;
+    data['store'] = this.store;
+    data['price'] = this.price;
+    data['cargo_price'] = this.cargoPrice;
+    data['weight'] = this.weight;
+    if (this.category != null) {
+      data['category'] = this.category!.toJson();
+    }
+    if (this.country != null) {
+      data['country'] = this.country!.toJson();
+    }
+    data['payment'] = this.payment;
+    data['note'] = this.note;
+    data['regNumber'] = this.regNumber;
+    data['no_invoice'] = this.noInvoice;
+    data['from_report'] = this.fromReport;
+    data['category_id'] = this.categoryId;
+    data['invoice'] = this.invoice;
+    data['date'] = this.date;
+    if (this.archive != null) {
+      data['archive'] = this.archive!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Category {
+  int? id;
+  String? createdAt;
+  String? updatedAt;
+  String? name;
+  int? parentId;
+  int? goodsId;
+
+  Category(
+      {this.id,
+        this.createdAt,
+        this.updatedAt,
+        this.name,
+        this.parentId,
+        this.goodsId});
+
+  Category.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    createdAt = json['created_at'];
+    updatedAt = json['updated_at'];
+    name = json['name'];
+    parentId = json['parent_id'];
+    goodsId = json['goods_id'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = this.id;
+    data['created_at'] = this.createdAt;
+    data['updated_at'] = this.updatedAt;
+    data['name'] = this.name;
+    data['parent_id'] = this.parentId;
+    data['goods_id'] = this.goodsId;
+    return data;
+  }
+}
+
+
+
+

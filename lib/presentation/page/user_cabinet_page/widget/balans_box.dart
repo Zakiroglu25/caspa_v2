@@ -51,9 +51,9 @@ class BalanceBox extends StatelessWidget {
                 children: [
                   Text(title!,
                       style: AppTextStyles.sanF400.copyWith(
-                          fontSize: 13.sp, color: MyColors.textBlack)),
+                          fontSize: 14.sp, color: MyColors.textBlack)),
                   Text(subtitle!,
-                      style: AppTextStyles.sanF400.copyWith(fontSize: 13.sp)),
+                      style: AppTextStyles.sanF400.copyWith(fontSize: 14.sp)),
                   MySizedBox.h6,
                   Text(
                     price!,

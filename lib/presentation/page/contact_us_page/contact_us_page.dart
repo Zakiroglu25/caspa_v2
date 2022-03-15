@@ -81,7 +81,7 @@ class ContactPage extends StatelessWidget {
                   MySizedBox.h16,
                   SocialItem(
                     name: "Xəritədən bax",
-                    path: Assets.svgLocation,
+                    path: Assets.mapPin,
                     onTap: () {
                       Go.to(context, MapPage());
                     },

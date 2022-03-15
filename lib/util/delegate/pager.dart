@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
@@ -85,14 +86,18 @@ class Pager {
         ),
         BlocProvider.value(
           value: AdsCubit()..fetch(),
-        )
+        ),
       ], child: HomePage());
 
-  static get package => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: PackageStatusesCubit()..fetch(),
-        )
-      ], child: const PackagePage());
+  static package({bool back = false}) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: PackageStatusesCubit()..fetch(),
+            )
+          ],
+          child: PackagePage(
+            back: back,
+          ));
 
   static get newOrder => MultiBlocProvider(providers: [
         BlocProvider.value(
@@ -293,7 +298,10 @@ class Pager {
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(
           create: (context) => CourierListCubit()..fetch(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => PackageDetailsCubit(),
+        ),
       ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [

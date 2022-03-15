@@ -15,21 +15,22 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AdsCard extends StatelessWidget {
   final String? desc;
   final String? url;
+  final String? title;
   final double? w;
   final bool? isVertical;
 
-  const AdsCard({this.desc, this.w, this.isVertical = false, this.url});
+  const AdsCard({this.title,this.desc, this.w, this.isVertical = false, this.url});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200.sp,
+      width: 94.sp,
       child: Stack(
         //mainAxisSize: MainAxisSize.min,
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 100.sp,
+            height: 94.sp,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: MyColors.mainGrey),
@@ -39,13 +40,13 @@ class AdsCard extends StatelessWidget {
                 child: ErrorableImage(
                   url: url!,
                   fit: BoxFit.fill,
-                  w: 200.sp,
+                  w: 150.sp,
                 ),
               ),
             ), // Text(
           ),
           Positioned(
-            bottom: 2,
+            bottom: 0,
             child: Container(
               decoration: BoxDecoration(
                   color: MyColors.black.withOpacity(.3),
@@ -53,7 +54,7 @@ class AdsCard extends StatelessWidget {
                       BorderRadius.vertical(bottom: Radius.circular(12))),
               child: ScrollingText(
                 desc!,
-                w: 200.sp,
+                w: 94.sp,
                 //  overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                     fontSize: 12.sm,

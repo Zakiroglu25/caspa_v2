@@ -11,25 +11,19 @@ class CopyButton extends StatelessWidget {
   double? w;
   Color? color;
 
-
-  CopyButton(this.data,{this.w,this.h,this.color});
+  CopyButton(this.data, {this.w, this.h, this.color});
 
   @override
   Widget build(BuildContext context) {
-    return                   InkWrapper(
-
-      onTap: ()=>StringOperations.copy(data!, context),
+    return InkWrapper(
+      onTap: () => StringOperations.copy(data!, context),
       child: SizedBox(
-
-
-
-          width:w?? 20,
-          height:h?? 20,
+          width: w ?? 20,
+          height: h ?? 20,
           child: SvgPicture.asset(
             Assets.svgCopy,
-            color: color?? MyColors.grey153,
+            color: color ?? MyColors.grey153,
           )),
-    )
-;
+    );
   }
 }

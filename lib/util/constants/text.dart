@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class MyText {
   MyText._();
   static const String coppied = "Kopyalandı";
+
   ///etibarname
   static const String littleEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
   static const String infoEtibar = "Hüquqlarınızı başqasına həvalə edin 📑";
 
   ///order via link
   static const String littleOrderViaLink =
-      "Hüquqlarınızı başqasına həvalə edin littleOrderViaLink📑";
+      "Yalnız bağlantını göndərməyiniz kifayətdir";
   static const String infoOrderViaLink =
       "Sifarişlərinizin təsdiqlənməsi üçün ödəniş etməyi unutmayın :) 💵";
 
@@ -106,6 +107,7 @@ class MyText {
   static const String youHaveNotPay = "Ödəniş olunmayıb!";
   static const String waitinPaymentForConfirm = "Təsdiq üçün ödəniş gözlənilir";
   static const String paid = "Ödənilib";
+  static const String youMustPaid = "Ödənilməlidir";
 
   //new order
   static const String weBuyForYou =
@@ -126,7 +128,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Mənim bağlamalarim";
+  static const String myPackages = "Aktiv bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -137,9 +139,9 @@ class MyText {
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
-  static const String durtingCurrentMonth = "Cari ay ərzində";
-  static const String countOfOrders = "Bağalama sayı";
-  static const String cashbackProfile = "Cashback";
+  static const String durtingCurrentMonth = "Cari ay \nərzində";
+  static const String countOfOrders = "Aktiv \nbağlama";
+  static const String cashbackProfile = "Cashback\nbalans";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
 
@@ -199,8 +201,9 @@ class MyText {
   //promocode page
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
+  static const String courierOrderX = "Kuryer sifariş et 🕺🏻";
   static const String trendyolSms = "Trendyol SMS 📩";
-  static const String settingsX = 'Ayarlar ⚙️';
+  static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
   static const String help = "Yardım";
@@ -232,7 +235,9 @@ class MyText {
   static const String calculateTitle = 'Çəki və həcmə görə hesabla';
   static const String trendyolOtp = 'Trendyoldan təsdiq kodu al';
   static const String contactTitle = 'Caspa ilə əlaqə vasitələri';
-  static const String courier = 'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
+  static const String courierInfo =
+      'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
+  static const String courier = 'Kuryer';
 
   static const String forEditAppSettings =
       "Tətbiqin tənzimləmələrində düzəliş etmək üçün";
@@ -242,13 +247,13 @@ class MyText {
   static const String attorneysX = "Etibarnamələr 📑";
   static const String new_attorney = "Yeni etibarnamə";
   static const String attorneyContent =
-      "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs,götürə bilər";
+      "Etibarnamə verməklə,sizin bağlamanızı etibar etdiyiniz şəxs götürə bilər";
   static const String shops = "Mağazalar";
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromBalance = "Balansdan";
   static const String fromCashback = "Cashback ilə";
-  static const String withPromocode = "Cashback ilə";
+  //static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
   static const String packageGift = "Paketlər";
   static const String addBalance = "Balans artır";
@@ -323,7 +328,7 @@ class MyText {
   static const String trendyolSMS = 'Trendyol SMS';
   static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
   static const String trendyolSMSHowToWorkText =
-      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
+      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
 
   //calculate
   static const String kg_text = 'Çəkiyə görə';
@@ -383,7 +388,7 @@ class MyText {
 
   ///otherpage
   static const String emptyDesc =
-      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək 😎";
+      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək";
 
   ///kuryer page
   static const String kuryerTxt =
@@ -399,7 +404,7 @@ class MyText {
   static const String otherPage =
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: *1453";
   static const String otherShop =
-      "Yeni! Sifarişləri bizim mağaza bölməsindən sifariş edə ilərsiniz. Artıq əlavə tətbiqlərə gərək qalmadı 😎 ";
+      "Sifarişləri bizim mağaza bölməsindən sifariş edə bilərsiniz. Əlavə tətbiqlərə gərək qalmadı 😎";
 
   ///beyan et
   static const String declareText =

@@ -1,4 +1,6 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
@@ -19,14 +21,14 @@ class HomePackageList extends StatelessWidget {
   Widget build(BuildContext context) {
     return FocusDetector(
       onFocusGained: () {
-        context.read<PackageCubit>().fetch(false);
+        context.read<ActivePackageCubit>().fetch();
       },
-      child: BlocBuilder<PackageCubit, PackageState>(
-        builder: (context, state) {
-          if (state is PackagesInProgress) {
+      child: BlocBuilder<ActivePackageCubit, ActivePackageState>(
+        builder: (contextK, state) {
+          if (state is ActivePackageInProgress) {
             return Container(height: 150.sm, child: CaspaLoading.blue());
-          } else if (state is PackagesSuccess) {
-            final List<Package>? packageList = state.packageList!.toList();
+          } else if (state is ActivePackageSuccess) {
+            final List<Package>? packageList = state.activePackagesList;
             // packageList!.clear();
 
             return ListOrEmpty(

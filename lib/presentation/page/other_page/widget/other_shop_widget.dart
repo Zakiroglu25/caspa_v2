@@ -36,9 +36,9 @@ class OtherShopWidget extends StatelessWidget {
                     style: AppTextStyles.sanF600.copyWith(fontSize: 17.sm),
                   ),
                   MySizedBox.h6,
-                  Container(
-                    width: 165,
-                    height: 72,
+                  SizedBox(
+                    width: 165.sp,
+                    height: 75.sp,
                     child: Text(
                       MyText.otherShop,
                       textAlign: TextAlign.start,

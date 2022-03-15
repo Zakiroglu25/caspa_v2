@@ -47,6 +47,8 @@ dependencies:
   sliver_tools: ^0.2.5
   device_info_plus: any
   device_information: ^0.0.4
+  device_apps: ^2.1.1
+  android_intent_plus: ^3.1.1
 
 
 
@@ -79,6 +81,7 @@ dependencies:
   #webiew
   webview_flutter: ^3.0.0
   flutter_inappwebview: ^5.3.2
+  external_app_launcher: ^2.0.2
   #maps
   google_maps_flutter: ^2.1.1
   flutter_polyline_points: ^1.0.0

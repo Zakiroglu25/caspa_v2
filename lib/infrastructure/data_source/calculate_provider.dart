@@ -34,13 +34,13 @@ class CalculateKgProvider {
   static Future<StatusDynamic> capacity({
     required String? width,
     required String? height,
-    required String? lenght,
+    required String? length,
     required bool size,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.calculateKg;
 
-    final response = await dioG.dio.get(api + "?width=$width&height=$height&lenght=$lenght&size=$size");
+    final response = await dioG.dio.get(api + "?width=$width&height=$height&length=$length&size=$size");
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.responseSuccess) {

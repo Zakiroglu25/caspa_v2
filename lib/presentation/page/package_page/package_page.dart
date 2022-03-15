@@ -14,7 +14,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focus_detector/focus_detector.dart';
 
 class PackagePage extends StatelessWidget {
-  const PackagePage({Key? key}) : super(key: key);
+  const PackagePage({Key? key, this.back}) : super(key: key);
+  final bool? back;
   @override
   Widget build(BuildContext context) {
     return FocusDetector(
@@ -28,6 +29,7 @@ class PackagePage extends StatelessWidget {
               final Map<String, dynamic> packageMap = state.packageList!;
               return SliverCaspaBar(
                 appbarHeight: 1,
+                back: back,
                 isScrollable: true,
                 notification: true,
                 tabs: packageMap.entries
@@ -36,10 +38,14 @@ class PackagePage extends StatelessWidget {
                           child: Row(
                             children: [
                               Text(entry.key,style: AppTextStyles.sanF600.copyWith(fontSize: 15.sp,letterSpacing: 0.3),),
+                              // Text(
+                              //   entry.key,
+                              //   style: AppTextStyles.sanF600.copyWith(
+                              //       fontSize: 16.sp, letterSpacing: 0.3),
+                              // ),
                               MySizedBox.w5,
                               TabCount(
-                                  count: PackageAndCount.fromJson(entry.value)
-                                      .count)
+                                  count: PackageAndCount.fromJson(entry.value).count)
                             ],
                           ),
                           height: 65,

@@ -15,8 +15,7 @@ class CourierListError extends CourierListState {
 class CourierListNetworkError extends CourierListState {}
 
 class CourierListSuccess extends CourierListState {
-  final List<Data> courierList;
+  final List<CourierOrder> courierList;
   // final List<Products>? productList;
   CourierListSuccess(this.courierList);
-
 }

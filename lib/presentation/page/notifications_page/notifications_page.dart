@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
+import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../widget/general/empty_widget.dart';
@@ -35,9 +36,9 @@ class NotificationsPage extends StatelessWidget {
         //   return true;
         // },
         builder: (context, state) {
-          bbbb("state: $state");
+          //bbbb("state: $state");
           if (state is NotificationSuccess) {
-            bbbb("bnjkhjk; ${state.notificationList}");
+            //   bbbb("bnjkhjk; ${state.notificationList}");
             List<MyNotification>? notificationList = state.notificationList;
 
             return FadeEdge(
@@ -81,9 +82,12 @@ class NotificationsPage extends StatelessWidget {
     );
   }
 
-  NotificationsListNew notificationsList(List<MyNotification> result) {
-    return NotificationsListNew(
-      result: result,
+  ListOrEmpty notificationsList(List<MyNotification> result) {
+    return ListOrEmpty(
+      list: result,
+      child: NotificationsListNew(
+        result: result,
+      ),
     );
   }
 

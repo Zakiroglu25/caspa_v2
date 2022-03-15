@@ -153,8 +153,12 @@ class UserCabinetPage extends StatelessWidget {
                     MySizedBox.w16,
                     BalansMiniBox(
                       title: MyText.countOfOrders,
-                      content: "${_prefs.user.packages_count}",
+                      content: "${_prefs.user.active_package_count}",
                       color: MyColors.balanceCountPackage,
+                      onTap: () => Go.to(
+                        context,
+                        Pager.package(back: true),
+                      ),
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
                     ),
@@ -167,7 +171,7 @@ class UserCabinetPage extends StatelessWidget {
                     BalansMiniBox(
                       title: MyText.cashbackProfile,
                       content: "${_prefs.user.cashback_balance}\$ ",
-                      color: MyColors.etibarname,
+                      color: MyColors.balansCargo,
                       priceColor: MyColors.mainColor,
                       icon: const Icon(null),
                     ),

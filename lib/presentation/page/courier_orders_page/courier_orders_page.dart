@@ -10,6 +10,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:caspa_v2/widget/custom/caspa_payment_radio.dart';
 import 'package:flutter/material.dart';
 import '../../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
@@ -104,12 +105,15 @@ class CourierOrdersPage extends StatelessWidget {
                               shrinkWrap: true,
                               padding: Paddings.paddingV12,
                               children: [
-                                buildCaspaRadio(context, snapShoot,
+                                CaspaPaymentRadio(context,
+                                    snapShoot: snapShoot,
                                     value: MyText.fromBalance),
-                                buildCaspaRadio(context, snapShoot,
-                                    value: MyText.byCard),
-                                buildCaspaRadio(context, snapShoot,
+                                CaspaPaymentRadio(context,
+                                    snapShoot: snapShoot, value: MyText.byCard),
+                                CaspaPaymentRadio(context,
+                                    snapShoot: snapShoot,
                                     value: MyText.fromCashback),
+
                                 // buildCaspaRadio(context, snapShoot,
                                 //     value: MyText.withPromoCode),
                               ],
@@ -171,14 +175,5 @@ class CourierOrdersPage extends StatelessWidget {
             },
           ),
         ));
-  }
-
-  CaspaRadio buildCaspaRadio(
-      BuildContext context, AsyncSnapshot<Object?> snapShoot,
-      {required String value}) {
-    return CaspaRadio(
-        onTap: () => context.read<PackageDetailsCubit>().updatePayType(value),
-        title: value,
-        isActive: snapShoot.data == value);
   }
 }

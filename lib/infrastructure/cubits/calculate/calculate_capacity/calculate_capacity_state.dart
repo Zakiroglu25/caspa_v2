@@ -22,7 +22,7 @@ class CalculateCapacityNetworkError extends CalculateCapacityState {}
 
 class CalculateCapacityAdded extends CalculateCapacityState {
   CalculateCapacityAdded(this.price);
-  final int price;
+  final num price;
 
 }
 

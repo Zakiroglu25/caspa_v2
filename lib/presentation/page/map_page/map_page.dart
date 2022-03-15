@@ -40,9 +40,9 @@ class _MapPageState extends State<MapPage> {
   //
   // }
 
-  // GoogleMapController? mapController; //contrller for Google map
+  GoogleMapController? mapController; //contrller for Google map
 
-  // String googleAPiKey = "AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750";
+  String googleAPiKey = "AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750";
 
   Set<Marker> markers = Set(); //markers for google map
   var lat = 40.387281;
@@ -59,13 +59,13 @@ class _MapPageState extends State<MapPage> {
       markerId: MarkerId(locationStart.toString()),
       position: locationStart,
       onTap: () {
-        // if (Platform.isIOS) {
-        //   launchWaze(lat, long);
-        // } else if (Platform.isAndroid) {
-        //   launchGoogleMaps(lat, long);
-        // } else if (Platform.isAndroid) {
-        //   launchWaze(lat, long);
-        // }
+        if (Platform.isIOS) {
+          launchWaze(lat, long);
+        } else if (Platform.isAndroid) {
+          launchGoogleMaps(lat, long);
+        } else if (Platform.isAndroid) {
+          launchWaze(lat, long);
+        }
       },
       infoWindow: InfoWindow(
         title: 'Caspa Bakı Anbar',
@@ -107,34 +107,34 @@ class _MapPageState extends State<MapPage> {
       ),
     );
   }
-  //
-  // void launchWaze(double lat, double lng) async {
-  //   var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
-  //   // var fallbackUrl =
-  //   //     'https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes';
-  //   try {
-  //     bool launched =
-  //         await launch(url, forceSafariVC: false, forceWebView: false);
-  //     if (!launched) {
-  //       //await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-  //     }
-  //   } catch (e) {
-  //     // await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-  //   }
-  // }
-  //
-  // void launchGoogleMaps(double lat, double lng) async {
-  //   var url = 'google.navigation:q=${lat.toString()},${lng.toString()}';
-  //   var fallbackUrl =
-  //       'https://www.google.com/maps/search/?api=1&query=${lat.toString()},${lng.toString()}';
-  //   try {
-  //     bool launched =
-  //         await launch(url, forceSafariVC: false, forceWebView: false);
-  //     if (!launched) {
-  //       await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-  //     }
-  //   } catch (e) {
-  //     await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
-  //   }
-  // }
+
+  void launchWaze(double lat, double lng) async {
+    var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
+    // var fallbackUrl =
+    //     'https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes';
+    try {
+      bool launched =
+      await launch(url, forceSafariVC: false, forceWebView: false);
+      if (!launched) {
+        //await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+      }
+    } catch (e) {
+      // await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+    }
+  }
+
+  void launchGoogleMaps(double lat, double lng) async {
+    var url = 'google.navigation:q=${lat.toString()},${lng.toString()}';
+    var fallbackUrl =
+        'https://www.google.com/maps/search/?api=1&query=${lat.toString()},${lng.toString()}';
+    try {
+      bool launched =
+      await launch(url, forceSafariVC: false, forceWebView: false);
+      if (!launched) {
+        await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+      }
+    } catch (e) {
+      await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
+    }
+  }
 }

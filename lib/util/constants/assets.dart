@@ -5,6 +5,8 @@ class Assets {
   static const String pngRocket = 'assets/png/rocket.png';
   static const String pngGlobus = "assets/png/globusv2.png";
   static const String pngBox = "assets/png/boxpng.png";
+  static const String homeHearth = "assets/png/heartHome.png";
+  //static const String pngBox = "assets/png/boxpng.png";
   static const String pngSebet = 'assets/png/sebet.png';
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String pngColorfulBack = "assets/png/bck.png";
@@ -13,12 +15,14 @@ class Assets {
   static const String pngSad = 'assets/png/sad.png';
   // static const String pngQifil = 'assets/png/qifil.png';
   static const String pngQifil = 'assets/png/bigkey.png';
-  static const String pngPosTerminal = "assets/png/posTerminal.png";
+  static const String pngPosTerminal = "assets/png/posterminal2.png";
   static const String pngEtibarname = "assets/png/etibar.png";
   static const String pngDino = "assets/png/homeDinopng.png";
   static const String pngCaspacard = "assets/png/caspacard.png";
   static const String pngInstagram = "assets/png/instagram.png";
   static const String pngNote = "assets/png/note.png";
+  static const String homeMoto = "assets/png/motoNewPng.png";
+  // static const String homeMoto = "assets/png/homeMoto.png";
 
   static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";
@@ -33,7 +37,7 @@ class Assets {
       "assets/svg/caspa_logo_with_name.svg";
   static const String svgMinus = "assets/svg/minus.svg";
   static const String svgUser = "assets/svg/user.svg";
-  static const String svgUserCircle = "assets/svg/user_circle.svg";
+  static const String svgUserCircle = "assets/svg/usernew.svg";
   static const String svgEllipse = "assets/svg/ellipse.svg";
   static const String svgShop = "assets/svg/shop.svg";
   static const String svgMinus2 = "assets/svg/minus-2.svg";
@@ -44,7 +48,9 @@ class Assets {
   static const String svgHome = "assets/svg/home.svg";
   static const String svgBottomBox = 'assets/svg/box.svg';
   static const String svgPlusCircle = 'assets/svg/pluscircle.svg';
+  static const String svgPlusCircleNew = 'assets/svg/plusnew.svg';
   static const String svgLocation = 'assets/svg/location.svg';
+  static const String mapPin = 'assets/svg/mappin.svg';
   static const String svgOther = "assets/svg/other.svg";
   static const String svgEyeOff = "assets/svg/eye-off.svg";
   static const String svgEyeOn = "assets/svg/eye-on.svg";

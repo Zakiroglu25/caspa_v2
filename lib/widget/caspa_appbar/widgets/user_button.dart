@@ -14,7 +14,9 @@ class UserButton extends StatelessWidget {
       color: Colors.transparent,
       child: IconButton(
           onPressed: () => Go.to(context, Pager.userCabinet),
-          icon: UserPhoto()),
+          icon: UserPhoto(
+            editOnTap: false,
+          )),
     );
   }
 }

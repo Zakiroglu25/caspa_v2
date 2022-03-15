@@ -18,6 +18,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../../util/delegate/app_operations.dart';
 import 'report_state.dart';
 
 class ReportCubit extends Cubit<ReportState> {
@@ -34,10 +35,10 @@ class ReportCubit extends Cubit<ReportState> {
         if (status != PermissionStatus.granted) {
           await showGalleryAccessAlert(context);
         } else {
-          return pickPhotoFromGallery();
+          return updateImage(await AppOperations.pickPhotoFromGallery());
         }
       } else {
-        return pickPhotoFromGallery();
+        return updateImage(await AppOperations.pickPhotoFromGallery());
       }
     } on PlatformException catch (e) {
       eeee("error: " + e.toString());
@@ -333,7 +334,7 @@ class ReportCubit extends Cubit<ReportState> {
 
   Stream<File?> get imageStream => image.stream;
 
-  updateImage(File value) {
+  updateImage(File? value) {
     if (value == null || value.path == null) {
       image.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -356,19 +357,5 @@ class ReportCubit extends Cubit<ReportState> {
     price.close();
     seller.close();
     return super.close();
-  }
-
-  Future<File?> pickPhotoFromGallery() async {
-    XFile? pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.gallery,
-      maxWidth: 1800,
-      maxHeight: 1800,
-    );
-    if (pickedFile != null) {
-      File imageFile = File(pickedFile.path);
-      updateImage(imageFile);
-      bbbb("image picked succesfully!");
-      return imageFile;
-    }
   }
 }

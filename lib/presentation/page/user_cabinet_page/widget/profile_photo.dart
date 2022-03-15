@@ -18,13 +18,15 @@ class ProfilePhoto extends StatelessWidget {
   final double? h;
   final bool? editable;
 
-  ProfilePhoto({this.w, this.h, this.editable});
+  ProfilePhoto({this.w, this.h, this.editable = false});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        UserPhoto(),
+        UserPhoto(
+          editOnTap: editable!,
+        ),
         Positioned(
           bottom: 0,
           right: 2,

@@ -135,6 +135,7 @@ class Alert {
       String? title,
       String? buttonText,
       Widget? content,
+      TextAlign? textAlign,
       Function? onTapCancel,
       bool cancelButton = false,
       Function? onTap}) {
@@ -174,6 +175,7 @@ class Alert {
                   ),
                   Text(
                     title ?? MyText.operationIsSuccess,
+                    textAlign: textAlign,
                     style: AppTextStyles.sanF600.copyWith(fontSize: 18.sm),
                   ),
                   content ?? Container(),

@@ -16,29 +16,29 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  // void getLocation() async {
-  //   bool serviceEnabled;
-  //   LocationPermission permission;
-  //
-  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     return Future.error('Location services are disabled.');
-  //   }
-  //
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //     if (permission == LocationPermission.denied) {
-  //       return Future.error('Location permissions are denied');
-  //     }
-  //   }
-  //
-  //   if (permission == LocationPermission.deniedForever) {
-  //     return Future.error(
-  //         'Location permissions are permanently denied, we cannot request permissions.');
-  //   }
-  //
-  // }
+  void getLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+  }
 
   GoogleMapController? mapController; //contrller for Google map
 
@@ -87,22 +87,22 @@ class _MapPageState extends State<MapPage> {
       ),
       body: Stack(
         children: [
-          // GoogleMap(
-          //   zoomGesturesEnabled: true,
-          //   initialCameraPosition: CameraPosition(
-          //     target: locationStart, //initial position
-          //     zoom: 17.0, //initial zoom level
-          //   ),
-          //   myLocationButtonEnabled: true,
-          //   myLocationEnabled: true,
-          //   markers: markers,
-          //   mapType: MapType.normal,
-          //   onMapCreated: (controller) {
-          //     setState(() {
-          //       mapController = controller;
-          //     });
-          //   },
-          // ),
+          GoogleMap(
+            zoomGesturesEnabled: true,
+            initialCameraPosition: CameraPosition(
+              target: locationStart, //initial position
+              zoom: 17.0, //initial zoom level
+            ),
+            myLocationButtonEnabled: true,
+            myLocationEnabled: true,
+            markers: markers,
+            mapType: MapType.normal,
+            onMapCreated: (controller) {
+              setState(() {
+                mapController = controller;
+              });
+            },
+          ),
         ],
       ),
     );

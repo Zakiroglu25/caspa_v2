@@ -46,11 +46,14 @@ class ContactPage extends StatelessWidget {
                     style: UITextStyle.tW400BigBlack,
                   ),
                   MySizedBox.h32,
+                  ///bu kohne versiyadi umid edirem ishleyecekdir
+                  // onTap: () => launch(
+                  //     'https://wa.me/${contact.whatsapp}?text=${MyText.whatsappMessage}'),
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
                     onTap: () => launch(
-                        'https://wa.me/${contact.whatsapp}?text=${MyText.whatsappMessage}'),
+                        'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
                   ),
                   MySizedBox.h16,
                   // SocialItem(
@@ -81,6 +84,7 @@ class ContactPage extends StatelessWidget {
                   MySizedBox.h16,
                   SocialItem(
                     name: "Xəritədən bax",
+                    isPng: false,
                     path: Assets.mapPin,
                     onTap: () {
                       Go.to(context, MapPage());

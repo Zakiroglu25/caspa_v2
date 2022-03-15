@@ -21,7 +21,7 @@ class HomePackageList extends StatelessWidget {
   Widget build(BuildContext context) {
     return FocusDetector(
       onFocusGained: () {
-        context.read<ActivePackageCubit>().fetch();
+        // context.read<ActivePackageCubit>().fetch();
       },
       child: BlocBuilder<ActivePackageCubit, ActivePackageState>(
         builder: (contextK, state) {

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/general/delete_button.dart';
@@ -31,17 +32,34 @@ class CourierEditAndDelete extends StatelessWidget {
     return WidgetOrEmpty(
       value: courier.payment == 0,
       child: Positioned(
-          right: 16,
-          top: 16,
-          child: Row(
-            children: [
-              EditButton(onTap: () {}),
-              MySizedBox.w5,
-              DeleteButton(onTap: () {
-
-              }),
-            ],
-          )),
+        right: 16,
+        top: 16,
+        child: Row(
+          children: [
+            EditButton(
+              onTap: () {},
+            ),
+            MySizedBox.w5,
+            DeleteButton(
+              onTap: () => Alert.show(
+                context,
+                title: MyText.are_u_sure_delete,
+                //s  content: MyText.you_can_not_recovery_it_again,
+                buttonText: MyText.yes,
+                cancelButton: true,
+                onTap: () => context
+                    .read<CourierListCubit>()
+                    .delete(courier.id, loading: false),
+                image: SizedBox(
+                  width: 120.sm,
+                  height: 120.sm,
+                  child: Image.asset(Assets.pngSad),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

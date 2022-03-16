@@ -88,7 +88,35 @@ class CourierProvider {
       statusDynamic.data = response.data;
     } else {
       eeee(
-          "deleteAttorney result bad:  url: $url  ,  response: ${response.data}");
+          "deleteCourier result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+  static Future<StatusDynamic> updateCourier(
+      {required String phone,
+        required String adress,
+        required int regionId,
+        required int id,
+        required List<int> packages}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.editCourier;
+    final body = {
+      "phone": phone,
+      "address": adress,
+      "region": regionId,
+      "package": packages,
+      "id": id
+    };
+    final response = await dioAuth.dio.post(api, data: body);
+
+    eeee("respopop: ${response.requestOptions.data}");
+    eeee("respopop: ${response.data}");
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      statusDynamic.data = response.data;
+    } else {
+      eeee("editCourier bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

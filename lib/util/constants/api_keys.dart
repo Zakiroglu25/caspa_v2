@@ -41,6 +41,7 @@ class ApiKeys {
   static final allPackages = '$baseUrl/user/packages';
   static final packagesForCourier = '$baseUrl/user/couriers/packages';
   static final addCourier = '$baseUrl/user/couriers';
+  static final editCourier = '$baseUrl/user/couriers/edit';
   static final packagesStatuses = '$baseUrl/user/statuses';
 
   //------------------local-------------------------

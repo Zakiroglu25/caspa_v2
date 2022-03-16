@@ -6,6 +6,7 @@ class CourierListInitial extends CourierListState {}
 
 class CourierListInProgress extends CourierListState {}
 class CourierListDeleted extends CourierListState {}
+class CourierListEdit extends CourierListState {}
 
 class CourierListError extends CourierListState {
   String? error;

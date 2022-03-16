@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/report_provider.dart';
@@ -74,7 +75,7 @@ class ReportCubit extends Cubit<ReportState> {
           invoice: image.valueOrNull,
           note: note.valueOrNull,
         );
-
+        log(result.toString());
         if (isSuccess(result?.statusCode)) {
           emit(ReportSuccess());
         } else {

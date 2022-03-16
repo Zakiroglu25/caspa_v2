@@ -21,7 +21,7 @@ class KgField extends StatelessWidget {
           maxLines: 1,
           hint: MyText.enter_kg,
           textInputType:
-              TextInputType.numberWithOptions(decimal: true, signed: true),
+              TextInputType.numberWithOptions(decimal: true, signed: false),
           formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
 

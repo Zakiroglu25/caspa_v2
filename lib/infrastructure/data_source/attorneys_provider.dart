@@ -137,6 +137,7 @@ class AttorneyProvider {
     required String? birthday,
     required String? note,
     required int? id,
+
   }) async {
     AddAttorneysModel? updateAttorneys;
 
@@ -159,6 +160,7 @@ class AttorneyProvider {
     final response = await dioAuth.dio.post(api, data: body);
 
     if (response.statusCode == ResultKey.responseSuccess) {
+
       final dataGelenCavabJSON = response.data;
       updateAttorneys = AddAttorneysModel.fromJson(dataGelenCavabJSON);
 

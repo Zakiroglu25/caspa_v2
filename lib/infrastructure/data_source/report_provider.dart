@@ -70,6 +70,7 @@ class ReportProvider {
     if (statusDynamic.statusCode == ResultKey.successCode) {
       // statusDynamic.data=response['message'];
 
+
     } else {
       statusDynamic.data = MyText.reportIsNotAdded;
     }
@@ -81,7 +82,6 @@ class ReportProvider {
     required int? id,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
-
     var api = ApiKeys.deleteReport;
     var url = Uri.parse(api);
     // final headers = ApiKeys.header(token: token);

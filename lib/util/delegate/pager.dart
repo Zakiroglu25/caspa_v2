@@ -26,6 +26,7 @@ import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
@@ -302,6 +303,7 @@ class Pager {
         BlocProvider(
           create: (context) => PackageDetailsCubit(),
         ),
+
       ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [
@@ -355,6 +357,14 @@ class Pager {
       create: (context) => AddAttorneysCubit(),
       child: AddOrEditEtibarnamePage(
         attorney: attorney,
+      ));
+
+  static editCourier({CourierOrder? courierOrder,Package? package}) => BlocProvider(
+      create: (context) => CourierCubit(),
+      child: CourierListPage(
+        courierOrder: courierOrder,
+        package: package,
+
       ));
 
   static paymentPage({required PaymentBalanceType paymentBalanceType}) =>

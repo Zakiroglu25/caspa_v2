@@ -1,13 +1,16 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import '../../../../infrastructure/models/remote/response/packages_data.dart';
 import 'courier_edit_and_delete.dart';
 import 'courier_order_unicorn.dart';
 import 'courier_pay_button.dart';
 
 class CourierUnicorn extends StatelessWidget {
   final CourierOrder courier;
-  const CourierUnicorn({required this.courier});
+  final List<Package> packages;
+
+  const CourierUnicorn({required this.courier, required this.packages});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,6 +25,8 @@ class CourierUnicorn extends StatelessWidget {
           ),
           CourierEditAndDelete(
             courier: courier,
+            packages: packages,
+
           )
         ],
       ),

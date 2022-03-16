@@ -52,6 +52,8 @@ class HiveService {
 
   String? get accessToken => _box!.get(SharedKeys
       .accessToken); //??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
+  // String? get accessToke => '583|8G45krLD8Hj2VAZAFFS2N3dStuLYQ1ERgMlv4ZAy';
+  //??"265|dX6SpWKiv3sHDNAGsApUFPmtN3ToE5r0ntZJBvMI";
 
   bool get hasAccessToken =>
       (_box?.containsKey(SharedKeys.accessToken)) ?? false;
@@ -116,7 +118,6 @@ class HiveService {
   }
 
   String get userPath => _box!.get(SharedKeys.userPath) ?? "null";
-
 
   Future<void> persistFcmToken({String? fcmToken}) async {
     await _box!.put("fcm_token", fcmToken!);

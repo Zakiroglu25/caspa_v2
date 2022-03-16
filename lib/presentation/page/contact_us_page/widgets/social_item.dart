@@ -32,8 +32,9 @@ class SocialItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 32.sm,
-            backgroundColor: Color.fromRGBO(85, 169, 50, 0.1),
-            child: (isPng ?? false) ? Image.asset(path!) : SvgPicture.asset(path!),
+            backgroundColor: Colors.transparent,
+            child:
+                (isPng ?? false) ? Image.asset(path!) : SvgPicture.asset(path!),
           ),
           MySizedBox.w12,
           Column(

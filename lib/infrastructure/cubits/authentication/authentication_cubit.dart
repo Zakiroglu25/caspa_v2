@@ -19,7 +19,9 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import '../../../locator.dart';
+import '../../../util/constants/durations.dart';
 import 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
@@ -149,19 +151,24 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   void showLogoutDialog(BuildContext context, {bool goWithPager = false}) {
     Alert.show(context, image: Image.asset(Assets.pngQifil), cancelButton: true,
         onTap: () {
-          logOut(context, goWithPager: goWithPager);
-        }, title: MyText.are_u_sure_exit);
+      logOut(context, goWithPager: goWithPager);
+    }, title: MyText.are_u_sure_exit);
   }
 
   void logOut(BuildContext context, {bool goWithPager = false}) async {
-    emit(AuthenticationLoading());
-    await _prefs.persistIsLoggedIn(false);
-    //final logOutRes =
-    _prefs.clear();
-    PaintingBinding.instance!.imageCache!.clear();
-    imageCache!.clear();
-    if (goWithPager) Go.andRemove(context, Pager.login);
-    emit(AuthenticationUninitialized());
+    try {
+      //   emit(AuthenticationLoading());
+      if (goWithPager) Go.andRemove(context, Pager.login);
+      // emit(AuthenticationUninitialized());
+      // await _prefs.persistIsLoggedIn(false);
+      // //final logOutRes =
+      Future.delayed(Durations.s1).then((value) => _prefs.clear());
+      // //Hive.box('main').close();
+      PaintingBinding.instance!.imageCache!.clear();
+      imageCache!.clear();
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+    }
   }
 
   void onBoardHaveSeen(BuildContext context) async {

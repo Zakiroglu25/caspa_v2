@@ -31,7 +31,7 @@ class NotificationProvider {
       final gelenCavabJson = response.data;
       final k = (UserResult.fromJson(gelenCavabJson)).data?.notifications;
       bbbb("ghfghjbhjk: $k");
-      notificastionsList = [];
+      notificastionsList = k;
       statusDynamic.data = notificastionsList;
     } else {
       eeee("getNotification url :$url,response: $response");

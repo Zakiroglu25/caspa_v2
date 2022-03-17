@@ -72,7 +72,7 @@ class OrderViaUrlCubit extends Cubit<OrderViaUrlState> {
         emit(OrderViaUrlError(error: MyText.error));
       }
     } on SocketException catch (_) {
-      emit(OrderViaUrlError(error: 'network_error'));
+      emit(OrderViaUrlError(error: MyText.network_error));
     } catch (e) {
       print(e);
       emit(OrderViaUrlError(error: MyText.error + ": $e"));

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
@@ -72,19 +73,29 @@ class CourierCubit extends Cubit<CourierState> {
       required List<Package> packages,
       required String phone,
       required String adress,
+      int? courierId,
       required Region region}) async {
     try {
       if (loading) {
         emit(CourierInProgressButton());
       }
+
       final result = await CourierProvider.addCourier(
-          phone: AppOperations.formatNumber(phone),
+          phone: AppOperations.formatNumber(phone, addZero: false),
           adress: adress,
           regionId: region.id!,
+          courierId: courierId,
           packages: packages.map((e) => e.id!).toList());
       if (isSuccess(result.statusCode)) {
-        int courierId = result.data['message'];
-        emit(CourierAdded(courierId));
+        if (courierId == null) {
+          int courierId = result.data['message'];
+          emit(CourierAdded(courierId));
+        } else {
+          String message = result.data['message'];
+          emit(CourierEdited(message, courierId));
+        }
+
+        //  emit(CourierAdded(courierId));
         return courierId;
       } else {
         Snack.display(context: context, message: MyText.error);
@@ -99,7 +110,12 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
-  void configureCourier(BuildContext context, {bool loading = true}) async {
+  void configureCourier(
+    BuildContext context, {
+    bool loading = true,
+    int? courierId,
+  }) async {
+    bbbb("kiddd: $courierId");
     try {
       if (isUserDataValid()) {
         if (loading) {
@@ -112,6 +128,7 @@ class CourierCubit extends Cubit<CourierState> {
               phone: phone.value,
               packages: selectedPackages.value,
               adress: adress.value,
+              courierId: courierId,
               price: region.value!.price!,
               region: region.value!,
             ));
@@ -125,6 +142,7 @@ class CourierCubit extends Cubit<CourierState> {
       //network olacaq
       emit(CourierError());
     } catch (e, s) {
+      Recorder.recordCatchError(e, s, where: 'CourierCubit.configureCourier');
       eeee("fetchPackagesForCourier catch: $e => $s");
       emit(CourierError(error: e.toString()));
     }
@@ -154,8 +172,6 @@ class CourierCubit extends Cubit<CourierState> {
       emit(CourierError(error: e.toString()));
     }
   }
-
-
 
   // void fetchRegions([bool loading = true]) async {
   //   if (loading) {

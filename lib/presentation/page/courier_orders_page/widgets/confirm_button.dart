@@ -21,11 +21,13 @@ class ConfirmButton extends StatelessWidget {
       required this.phone,
       required this.region,
       required this.price,
+      this.courierid,
       required this.adress})
       : super(key: key);
   final List<Package> packages;
   final String phone;
   final String adress;
+  final int? courierid;
   final String price;
   final Region region;
 
@@ -43,6 +45,7 @@ class ConfirmButton extends StatelessWidget {
                 context,
                 region: region,
                 phone: phone,
+                courierId: courierid,
                 adress: adress,
                 packages: packages,
               ),

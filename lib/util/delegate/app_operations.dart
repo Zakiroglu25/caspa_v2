@@ -14,7 +14,25 @@ class AppOperations {
     return (index * 150) < 2000 ? index * 150 : 400;
   }
 
-  static String formatNumber(String num, {bool addZero = true}) {
+  static String formatNumber(String? num,
+      {bool addZero = true, bool fromSpaceToLine = true}) {
+    if (num != null) {
+      var a = num;
+      if (addZero) {
+        a = num.replaceAll('(', "(0");
+      }
+
+      if (fromSpaceToLine) {
+        return a.replaceAll(' ', "-");
+      } else {
+        return a.replaceAll('-', " ");
+      }
+    } else {
+      return '';
+    }
+  }
+
+  static String formatNumberWith070(String num, {bool addZero = true}) {
     var a = num;
     if (addZero) {
       a = num.replaceAll('(', "(0");

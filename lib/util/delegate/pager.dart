@@ -125,6 +125,7 @@ class Pager {
     required String adress,
     required String price,
     required Region region,
+    int? courierId,
   }) =>
       MultiBlocProvider(
           providers: [
@@ -139,6 +140,7 @@ class Pager {
               packages: packages,
               adress: adress,
               price: price,
+              courierId: courierId,
               region: region));
 
   static success({

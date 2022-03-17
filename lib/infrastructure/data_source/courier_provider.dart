@@ -20,19 +20,20 @@ class CourierProvider {
       {required String phone,
       required String adress,
       required int regionId,
+      int? courierId,
       required List<int> packages}) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.addCourier;
+    var api = courierId == null ? ApiKeys.addCourier : ApiKeys.editCourier;
     final body = {
+      'id': courierId,
       "phone": phone,
       "address": adress,
       "region": regionId,
       "package": packages
     };
+    bbbb("boddddd: $body");
     final response = await dioAuth.dio.post(api, data: body);
 
-    eeee("respopop: ${response.requestOptions.data}");
-    eeee("respopop: ${response.data}");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
@@ -54,8 +55,7 @@ class CourierProvider {
       // log("3 provider"+response.statusCode.toString());
       var gelenCavabJson = jsonDecode(response.toString());
       // log("4 provider"+gelenCavabJson.toString());
-      CourierListModel courierList =
-      CourierListModel.fromJson(gelenCavabJson);
+      CourierListModel courierList = CourierListModel.fromJson(gelenCavabJson);
       statusDynamic.data = courierList.data;
       bbbb("courier list: " + (statusDynamic.data).toString());
     } else {
@@ -92,12 +92,13 @@ class CourierProvider {
     }
     return statusDynamic;
   }
+
   static Future<StatusDynamic> updateCourier(
       {required String phone,
-        required String adress,
-        required int regionId,
-        required int id,
-        required List<int> packages}) async {
+      required String adress,
+      required int regionId,
+      required int id,
+      required List<int> packages}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.editCourier;
     final body = {
@@ -121,5 +122,4 @@ class CourierProvider {
     }
     return statusDynamic;
   }
-
 }

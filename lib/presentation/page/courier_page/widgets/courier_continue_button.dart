@@ -9,7 +9,13 @@ import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../infrastructure/models/remote/response/courier_orders_model.dart';
+
 class CourierContinueButton extends StatelessWidget {
+  final CourierOrder? courierOrder;
+
+  CourierContinueButton({this.courierOrder});
+
   @override
   Widget build(BuildContext context) {
     final courierCubit = context.watch<CourierCubit>();
@@ -24,7 +30,9 @@ class CourierContinueButton extends StatelessWidget {
             (context.watch<CourierCubit>().selectedOrdersId.value.isNotEmpty),
         text: MyText.goOn,
         //  onTap: () => Go.to(context, Pager.courier_order),
-        onTap: () => context.read<CourierCubit>().configureCourier(context),
+        onTap: () => context
+            .read<CourierCubit>()
+            .configureCourier(context, courierId: courierOrder?.id),
         /////////////////////////////////////
         // onTap: () => Alert.body(context,
         //     title: MyText.choosePaypentType,

@@ -1,6 +1,6 @@
 part of 'register_cubit.dart';
 
-abstract class RegisterState  {
+abstract class RegisterState {
   const RegisterState();
 }
 
@@ -22,5 +22,10 @@ class RegisterError extends RegisterState {
   final String? message;
 
   RegisterError({this.message});
+}
 
+class RegisterFailed extends RegisterState {
+  final String? message;
+
+  RegisterFailed({this.message});
 }

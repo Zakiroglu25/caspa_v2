@@ -81,11 +81,11 @@ class RegisterCubit extends Cubit<RegisterState> {
         emit(RegisterSuccess(''));
       } else {
         List<String> errors = response?.data;
-        emit(RegisterError(message: errors[0]));
+        emit(RegisterFailed(message: errors[0]));
       }
     } catch (e, s) {
       print("register cubit -> registrationPersonal ->catch : $e=> $s");
-      emit(RegisterError(message: e.toString()));
+      emit(RegisterFailed(message: e.toString()));
     }
   }
 

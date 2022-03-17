@@ -118,10 +118,11 @@ class UserCubit extends Cubit<UserState> {
           old_password: old_password.valueOrNull);
 
       if (isSuccess(response!.statusCode)) {
-        await UserOperations.configureUserDataWhenLogin(
-            fcmToken: _prefs.fcmToken,
-            accessToken: _prefs.accessToken!,
-            path: _prefs.userPath);
+        await UserOperations.configUserDataWhenOpenApp(
+          // fcmToken: _prefs.fcmToken,
+          accessToken: _prefs.accessToken!, fcm: _prefs.fcmToken,
+          //  path: _prefs.userPath
+        );
         Snack.positive(context: context, message: MyText.operationIsSuccess);
         emit(UserSuccess(response.data!));
       } else {
@@ -144,10 +145,11 @@ class UserCubit extends Cubit<UserState> {
         );
 
         if (isSuccess(response!.statusCode)) {
-          await UserOperations.configureUserDataWhenLogin(
-              fcmToken: _prefs.fcmToken,
-              accessToken: _prefs.accessToken!,
-              path: _prefs.userPath);
+          await UserOperations.configUserDataWhenOpenApp(
+            fcm: _prefs.fcmToken,
+            accessToken: _prefs.accessToken!,
+            // path: _prefs.userPath
+          );
           Snack.positive(context: context, message: MyText.operationIsSuccess);
           emit(UserSuccess(response.data!));
         } else {

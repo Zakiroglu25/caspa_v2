@@ -40,7 +40,8 @@ class CivilRegisterTab extends StatelessWidget {
         if (state is RegisterLoading) {
           FullScreenLoading.display(context, text: MyText.processing);
         }
-        if (state is RegisterError) {
+        if (state is RegisterFailed) {
+          FullScreenLoading.hide(context);
           Snack.display(
               context: context, message: state.message ?? MyText.error);
         }

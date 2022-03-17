@@ -53,10 +53,12 @@ class PayButton extends StatelessWidget {
                     CaspaPaymentRadio(
                       context,
                       snapShoot: snapShoot,
-                      value: MyText.fromBalance +
-                          " " +
-                          "${_prefs.user.cargoBalance}" +
-                          "\$",
+                      value: MyText.fromBalance,
+                      description: "${_prefs.user.cargoBalance} \$",
+                      // +
+                      // " " +
+                      // "${_prefs.user.cargoBalance}" +
+                      // "\$"
                     ),
                     CaspaPaymentRadio(
                       context,
@@ -66,10 +68,13 @@ class PayButton extends StatelessWidget {
                     CaspaPaymentRadio(
                       context,
                       snapShoot: snapShoot,
-                      value: MyText.fromCashback +
-                          " " +
-                          "${_prefs.user.cashback_balance}" +
-                          "\$",
+                      value: MyText.fromCashback,
+                      description: "${_prefs.user.cashback_balance} \$"
+                      // +
+                      // " " +
+                      // "${_prefs.user.cashback_balance}" +
+                      // "\$"
+                      ,
                     ),
                     //bubrada promo olmalidir
                     PromoPayButton(

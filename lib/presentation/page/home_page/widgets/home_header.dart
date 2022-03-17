@@ -49,7 +49,7 @@ class HomeHeader extends StatelessWidget {
             h: 44,
             textSize: 14,
             text: 'Kuryer sifariş et',
-            onTap: () => Go.to(context, Pager.courier),
+            onTap: () => Go.to(context, Pager.courier()),
           ),
         ],
       ),

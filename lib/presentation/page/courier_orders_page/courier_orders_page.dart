@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_unicorn.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/util/constants/alerts.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -16,6 +17,8 @@ import '../../../infrastructure/cubits/package_details/package_details_cubit.dar
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
 import '../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../infrastructure/models/remote/response/regions_model.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
 import '../../../util/constants/assets.dart';
 import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/screen/alert.dart';
@@ -34,6 +37,7 @@ class CourierOrdersPage extends StatelessWidget {
       required this.price,
       required this.region,
       required this.packages,
+      this.courierId,
       required this.adress})
       : super(key: key);
   final List<Package> packages;
@@ -41,6 +45,9 @@ class CourierOrdersPage extends StatelessWidget {
   final String adress;
   final String price;
   final Region region;
+  final int? courierId;
+
+  static HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -84,42 +91,13 @@ class CourierOrdersPage extends StatelessWidget {
               return BlocListener<CourierCubit, CourierState>(
                 listener: (context, state) {
                   if (state is CourierAdded) {
-                    Alert.body(context,
-                        title: MyText.choosePaypentType,
-                        cancelButton: true,
-                        buttonText: MyText.goOn,
-                        onTap: () => context
-                            .read<PackageDetailsCubit>()
-                            .courierMakePayment(
-                                context: context, id: state.courierId),
-                        image: Image.asset(
-                          Assets.linkGirl,
-                          width: 100,
-                          height: 100,
-                        ),
-                        content: StreamBuilder(
-                          stream: BlocProvider.of<PackageDetailsCubit>(context)
-                              .payTypeStream,
-                          builder: (contextK, snapShoot) {
-                            return ListView(
-                              shrinkWrap: true,
-                              padding: Paddings.paddingV12,
-                              children: [
-                                CaspaPaymentRadio(context,
-                                    snapShoot: snapShoot,
-                                    value: MyText.fromBalance),
-                                CaspaPaymentRadio(context,
-                                    snapShoot: snapShoot, value: MyText.byCard),
-                                CaspaPaymentRadio(context,
-                                    snapShoot: snapShoot,
-                                    value: MyText.fromCashback),
-
-                                // buildCaspaRadio(context, snapShoot,
-                                //     value: MyText.withPromoCode),
-                              ],
-                            );
-                          },
-                        ));
+                    final id = state.courierId;
+                    Alerts.courierPaymentAlert(context: context, courierId: id);
+                  }
+                  if (state is CourierEdited) {
+                    Snack.positive(message: MyText.operationIsSuccess);
+                    final id = state.courierId;
+                    Alerts.courierPaymentAlert(context: context, courierId: id);
                   }
                 },
                 child: Container(
@@ -130,6 +108,7 @@ class CourierOrdersPage extends StatelessWidget {
                         packages: packages,
                         price: price,
                         phone: phone,
+                        courierid: courierId,
                         adress: adress,
                         region: region),
                     child: ListView(
@@ -157,9 +136,7 @@ class CourierOrdersPage extends StatelessWidget {
                         MySizedBox.h16,
                         SectionName(title: MyText.general_info),
                         ProductPropertyV(
-                            h: 12,
-                            name: MyText.phone_number,
-                            value: "+994 ${phone}"),
+                            h: 12, name: MyText.phone_number, value: "$phone"),
                         ProductPropertyV(
                             h: 12, name: MyText.delivery_adress, value: adress),
                         ProductPropertyV(

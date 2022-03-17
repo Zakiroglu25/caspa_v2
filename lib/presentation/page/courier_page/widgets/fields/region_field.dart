@@ -13,11 +13,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RegionFieldCourier extends StatelessWidget {
   final TextEditingController? controller;
   final List<Region>? regionList;
+  final Region? selectedRegion;
   RegionFieldCourier(
       {this.controller,
+      this.selectedRegion,
       required this.regionList}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (selectedRegion != null) {
+      BlocProvider.of<CourierCubit>(context).updateRegion(selectedRegion);
+    }
     return StreamBuilder(
         stream: BlocProvider.of<CourierCubit>(context).region,
         builder: (contextP, snapShoot) {

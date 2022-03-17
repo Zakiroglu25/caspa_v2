@@ -13,7 +13,6 @@ import 'package:focus_detector/focus_detector.dart';
 import '../../../infrastructure/models/remote/response/packages_data.dart';
 
 class CourierPage extends StatelessWidget {
-
   CourierOrder? courierOrder;
   Package? package;
 
@@ -52,6 +51,7 @@ class CourierPage extends StatelessWidget {
               return CourierListView(
                 packageList: packageList,
                 regionList: regionsList,
+                courierOrder: courierOrder,
               );
             } else if (state is CourierInProgress) {
               return CaspaLoading();

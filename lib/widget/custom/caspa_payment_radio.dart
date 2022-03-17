@@ -6,17 +6,21 @@ import '../general/caspa_radio.dart';
 
 class CaspaPaymentRadio extends StatelessWidget {
   const CaspaPaymentRadio(this.mainContext,
-      {Key? key, required this.value, required this.snapShoot})
+      {Key? key,
+      required this.value,
+      required this.snapShoot,
+      this.description})
       : super(key: key);
   final BuildContext mainContext;
   final AsyncSnapshot<Object?> snapShoot;
   final String value;
+  final String? description;
   @override
   Widget build(BuildContext context) {
     return CaspaRadio(
         onTap: () =>
             mainContext.read<PackageDetailsCubit>().updatePayType(value),
-        title: value,
+        title: "${value} ${description ?? ""}",
         isActive: snapShoot.data == value);
   }
 }

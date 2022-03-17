@@ -140,7 +140,7 @@ class PackageReportButtons extends StatelessWidget {
           PackageMainButton(
               w: (sW - 32),
               text: MyText.courierOrder,
-              onTap: () => Go.to(context, Pager.courier)),
+              onTap: () => Go.to(context, Pager.courier())),
         ],
       );
     } else {

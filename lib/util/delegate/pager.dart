@@ -125,6 +125,7 @@ class Pager {
     required String adress,
     required String price,
     required Region region,
+    int? courierId,
   }) =>
       MultiBlocProvider(
           providers: [
@@ -139,6 +140,7 @@ class Pager {
               packages: packages,
               adress: adress,
               price: price,
+              courierId: courierId,
               region: region));
 
   static success({
@@ -159,11 +161,15 @@ class Pager {
             againPage: againPage,
           ));
 
-  static get courier => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: CourierCubit()..fetchPackagesForCourier(),
-        )
-      ], child: CourierPage());
+  static courier({CourierOrder? courierOrder}) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: CourierCubit()..fetchPackagesForCourier(),
+            )
+          ],
+          child: CourierPage(
+            courierOrder: courierOrder,
+          ));
 
   static get login => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => LoginCubit()),
@@ -303,7 +309,6 @@ class Pager {
         BlocProvider(
           create: (context) => PackageDetailsCubit(),
         ),
-
       ], child: CourierListPage());
 
   static get calculate => MultiBlocProvider(providers: [
@@ -359,13 +364,13 @@ class Pager {
         attorney: attorney,
       ));
 
-  static editCourier({CourierOrder? courierOrder,Package? package}) => BlocProvider(
-      create: (context) => CourierCubit(),
-      child: CourierPage(
-        courierOrder: courierOrder,
-        package: package,
-
-      ));
+  static editCourier({CourierOrder? courierOrder, Package? package}) =>
+      BlocProvider(
+          create: (context) => CourierCubit(),
+          child: CourierPage(
+            courierOrder: courierOrder,
+            package: package,
+          ));
 
   static paymentPage({required PaymentBalanceType paymentBalanceType}) =>
       BlocProvider(

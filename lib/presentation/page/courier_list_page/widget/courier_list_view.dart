@@ -11,12 +11,15 @@ import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/delegate/pager.dart';
 
 class CourierListView extends StatelessWidget {
   final List<CourierOrder> courierList;
-  CourierListView(this.courierList);
+  final List<Package> packages;
+
+  CourierListView(this.courierList,this.packages);
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,7 @@ class CourierListView extends StatelessWidget {
           itemBuilder: (context, index) {
             return CourierUnicorn(
               courier: courierList[index],
+              packages: packages,
             );
           },
         ));

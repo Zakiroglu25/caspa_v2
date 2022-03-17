@@ -128,7 +128,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Aktiv bağlamalarim";
+  static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -140,7 +140,7 @@ class MyText {
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay \nərzində";
-  static const String countOfOrders = "Aktiv \nbağlama";
+  static const String countOfOrders = "Mənim \nbağlamalarım";
   static const String cashbackProfile = "Cashback\nbalans";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";

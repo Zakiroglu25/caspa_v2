@@ -12,11 +12,14 @@ class UserButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: IconButton(
-          onPressed: () => Go.to(context, Pager.userCabinet),
-          icon: UserPhoto(
-            editOnTap: false,
-          )),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 12.0),
+        child: IconButton(
+            onPressed: () => Go.to(context, Pager.userCabinet),
+            icon: UserPhoto(
+              editOnTap: false,
+            )),
+      ),
     );
   }
 }

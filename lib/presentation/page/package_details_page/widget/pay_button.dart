@@ -15,11 +15,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/cubits/promo_code/promo_code_state.dart';
+import '../../../../infrastructure/services/hive_service.dart';
+import '../../../../locator.dart';
 import '../../../../widget/custom/caspa_payment_radio.dart';
 
 class PayButton extends StatelessWidget {
   const PayButton({Key? key, required this.package}) : super(key: key);
   final Package package;
+
+  HiveService get _prefs => locator<HiveService>();
+
   @override
   Widget build(BuildContext context) {
     return PackageMainButton(
@@ -34,8 +39,8 @@ class PayButton extends StatelessWidget {
                 .packageMakePayment(id: package.id!, context: context),
             image: Image.asset(
               Assets.linkGirl,
-              width: 100,
-              height: 100,
+              width: 140,
+              height: 140,
             ),
             content: StreamBuilder(
               stream:
@@ -48,7 +53,10 @@ class PayButton extends StatelessWidget {
                     CaspaPaymentRadio(
                       context,
                       snapShoot: snapShoot,
-                      value: MyText.fromBalance,
+                      value: MyText.fromBalance +
+                          " " +
+                          "${_prefs.user.cargoBalance}" +
+                          "\$",
                     ),
                     CaspaPaymentRadio(
                       context,
@@ -58,7 +66,10 @@ class PayButton extends StatelessWidget {
                     CaspaPaymentRadio(
                       context,
                       snapShoot: snapShoot,
-                      value: MyText.fromCashback,
+                      value: MyText.fromCashback +
+                          " " +
+                          "${_prefs.user.cashback_balance}" +
+                          "\$",
                     ),
                     //bubrada promo olmalidir
                     PromoPayButton(

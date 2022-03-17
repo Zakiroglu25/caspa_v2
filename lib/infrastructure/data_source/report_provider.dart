@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
@@ -56,6 +57,8 @@ class ReportProvider {
       });
     }
 
+    log(invoice.toString()+"salam");
+
     // await MultipartFile.fromFile(
     //   invoice!.path,
     //   filename: "invoice.png",
@@ -63,12 +66,14 @@ class ReportProvider {
     Dio dio = new Dio(BaseOptions(headers: headers));
     final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());
+      log(response.toString());
       statusDynamic.statusCode = response.statusCode;
       bbbb("report st code: " + statusDynamic.statusCode.toString());
     }).catchError((error) => print(error));
 
     if (statusDynamic.statusCode == ResultKey.successCode) {
       // statusDynamic.data=response['message'];
+
 
     } else {
       statusDynamic.data = MyText.reportIsNotAdded;
@@ -81,7 +86,6 @@ class ReportProvider {
     required int? id,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
-
     var api = ApiKeys.deleteReport;
     var url = Uri.parse(api);
     // final headers = ApiKeys.header(token: token);

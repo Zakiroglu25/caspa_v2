@@ -91,6 +91,14 @@ class ContactPage extends StatelessWidget {
                     onTap: () => StringOperations.launchCaller(MyText.c1453),
                   ),
 
+                  MySizedBox.h16,
+                  SocialItem(
+                    name: "Xəritədən bax",
+                    isPng: false,
+                    path: Assets.svgMapPin,
+                    onTap: () => Go.to(context, MapPage()),
+                  ),
+
                 ],
               );
             } else if (state is ContactInProgress) {

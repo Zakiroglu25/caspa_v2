@@ -202,8 +202,9 @@ class ReportCubit extends Cubit<ReportState> {
     //isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSubCategoryIncorrect =>
-      (!selectedSubCategory.hasValue || selectedSubCategory.value == null);
+  bool get isSubCategoryIncorrect => (!selectedSubCategory.hasValue ||
+      selectedSubCategory.value == null ||
+      selectedSubCategory.value?.id == 999999);
 
   //seller
   final BehaviorSubject<String> seller = BehaviorSubject<String>();
@@ -316,6 +317,7 @@ class ReportCubit extends Cubit<ReportState> {
 
   ////validation
   bool isUserInfoValid({int? id}) {
+    // bbbb("ghghgh: $isSubCategoryIncorrect");
     if (!isNoteIncorrect &&
         !isSellerIncorrect &&
         !isProductCountIncorrect &&

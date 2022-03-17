@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -13,17 +14,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
+import '../../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../../infrastructure/services/hive_service.dart';
 import '../../../../locator.dart';
+import '../../../../util/delegate/navigate_utils.dart';
+import '../../../../util/delegate/pager.dart';
 import '../../../../util/screen/alert.dart';
 import '../../../../widget/custom/buttons/caspa_button.dart';
 import '../../../../widget/custom/caspa_payment_radio.dart';
 import '../../../../util/constants/colors.dart';
 
 class CourierEditAndDelete extends StatelessWidget {
-  const CourierEditAndDelete({Key? key, required this.courier})
+  const CourierEditAndDelete({Key? key, required this.courier, required this.packages})
       : super(key: key);
   final CourierOrder courier;
+  final List<Package> packages;
+
 
   static HiveService get _prefs => locator<HiveService>();
 
@@ -37,7 +43,9 @@ class CourierEditAndDelete extends StatelessWidget {
         child: Row(
           children: [
             EditButton(
-              onTap: () {},
+              onTap: () =>
+                  context.read<CourierListCubit>().edit(context, courierOrder: courier, packages: packages)
+
             ),
             MySizedBox.w5,
             DeleteButton(

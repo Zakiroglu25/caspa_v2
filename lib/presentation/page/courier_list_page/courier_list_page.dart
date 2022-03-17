@@ -1,5 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_list_cubit/courier_list_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/courier_list_page/widget/courier_list_view.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
@@ -18,7 +20,10 @@ import '../webview_page/webview_page.dart';
 import 'widget/courier_order_button.dart';
 
 class CourierListPage extends StatelessWidget {
-  const CourierListPage({Key? key}) : super(key: key);
+  CourierOrder? courierOrder;
+  Package? package;
+
+  CourierListPage({this.courierOrder,this.package});
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +68,8 @@ class CourierListPage extends StatelessWidget {
                 builder: (context, state) {
                   if (state is CourierListSuccess) {
                     final courierList = state.courierList.reversed.toList();
-                    return CourierListView(courierList);
+                    final packageList = state.packageList;
+                    return CourierListView(courierList,packageList);
                   } else if (state is CourierListInProgress) {
                     return CaspaLoading();
                   } else if (state is CourierListError) {

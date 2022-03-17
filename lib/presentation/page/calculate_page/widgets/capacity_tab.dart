@@ -38,7 +38,7 @@ class CapacityPage extends StatelessWidget {
             builder: (context, state) {
               if (state is CalculateCapacityAdded) {
                  final num? result = state.price;
-                return ResultCalculate(result: result.toString());
+                return ResultCalculate(result: result!.toStringAsFixed(2));
               } else if (state is CalculateCapacityInAdding) {
                 return CaspaLoading();
               } else if (state is CalculateCapacityError) {

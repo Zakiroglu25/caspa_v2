@@ -8,6 +8,7 @@ class CourierInitial extends CourierState {}
 class CourierInProgress extends CourierState {}
 
 class CourierInProgressButton extends CourierState {}
+class CourierEdited extends CourierState {}
 
 class CourierableFetched extends CourierState {
   final List<Package>? packageList;

@@ -1,5 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/presentation/page/courier_page/widgets/courier_list_view.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
@@ -9,7 +10,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
 
+import '../../../infrastructure/models/remote/response/packages_data.dart';
+
 class CourierPage extends StatelessWidget {
+
+  CourierOrder? courierOrder;
+  Package? package;
+
+  CourierPage({this.courierOrder, this.package});
+
   @override
   Widget build(BuildContext context) {
     return FocusDetector(

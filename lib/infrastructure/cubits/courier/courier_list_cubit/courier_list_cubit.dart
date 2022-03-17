@@ -7,10 +7,14 @@ import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../locator.dart';
 import '../../../../util/constants/text.dart';
+import '../../../data_source/package_provider.dart';
+import '../../../models/remote/response/courier_orders_model.dart';
+import '../../../models/remote/response/packages_data.dart';
 import '../../../services/hive_service.dart';
 import 'courier_list_state.dart';
 
@@ -26,10 +30,11 @@ class CourierListCubit extends Cubit<CourierListState> {
     try {
       log("1 cubit");
       final result = await CourierProvider.fetchCourier();
-
+      final resultPackages = await PackageProvider.fetchPackagesForCourier();
       if (isSuccess(result?.statusCode)) {
         log("2 cubit");
-        emit(CourierListSuccess(result?.data));
+        emit(CourierListSuccess(
+            courierList: result!.data, packageList: resultPackages.data));
       } else {
         log("3 cubit");
         emit(CourierListError());
@@ -69,5 +74,33 @@ class CourierListCubit extends Cubit<CourierListState> {
     }
 
     //user/attorneys/delete
+  }
+
+  void edit(
+    BuildContext context, {
+    required CourierOrder courierOrder,
+    required List<Package> packages,
+  }) async {
+    emit(CourierListInProgress());
+    try {
+      final result = await CourierProvider.updateCourier(
+        id: courierOrder.id!,
+        adress: courierOrder.address!,
+        phone: courierOrder.phone!,
+        regionId: courierOrder.region!.id!,
+        packages: packages.map((e) => e.id!).toList(),
+      );
+
+      if (isSuccess(result.statusCode)) {
+        emit(CourierListEdit());
+      } else {
+        emit(CourierListError(error: MyText.error));
+      }
+    } on SocketException catch (_) {
+      emit(CourierListError(error: 'network_error'));
+    } catch (e) {
+      print(e);
+      emit(CourierListError(error: MyText.error + ": $e"));
+    }
   }
 }

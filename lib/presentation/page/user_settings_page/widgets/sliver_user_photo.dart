@@ -10,16 +10,18 @@ class SliverUserPhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
-      pinned: true,
+      pinned: false,
       delegate: StoreDelegate(
-        minHeight: 125,
-        maxHeight: 125,
+        minHeight: 145,
+        maxHeight: 145,
         child: Container(
           color: MyColors.white,
-          padding: Paddings.paddingH16,
-          height: 125,
+          padding: Paddings.paddingH16 + Paddings.paddingT24,
+          height: 145,
           child: Center(
-            child: ProfilePhoto(editable: true,),
+            child: ProfilePhoto(
+              editable: true,
+            ),
           ),
         ),
       ),

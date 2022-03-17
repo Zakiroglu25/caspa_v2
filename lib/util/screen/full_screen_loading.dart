@@ -42,7 +42,7 @@ class FullScreenLoading {
             ),
           ],
         ),
-        hideAuto: false,
+        hideAuto: true,
         backColor: MyColors.white70);
   }
 

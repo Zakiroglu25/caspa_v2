@@ -25,11 +25,11 @@ import '../../../../widget/custom/caspa_payment_radio.dart';
 import '../../../../util/constants/colors.dart';
 
 class CourierEditAndDelete extends StatelessWidget {
-  const CourierEditAndDelete({Key? key, required this.courier, required this.packages})
+  const CourierEditAndDelete(
+      {Key? key, required this.courier, required this.packages})
       : super(key: key);
   final CourierOrder courier;
   final List<Package> packages;
-
 
   static HiveService get _prefs => locator<HiveService>();
 
@@ -43,10 +43,9 @@ class CourierEditAndDelete extends StatelessWidget {
         child: Row(
           children: [
             EditButton(
-              onTap: () =>
-                  context.read<CourierListCubit>().edit(context, courierOrder: courier, packages: packages)
-
-            ),
+                onTap: () => context
+                    .read<CourierListCubit>()
+                    .edit(context, courierOrder: courier, packages: packages)),
             MySizedBox.w5,
             DeleteButton(
               onTap: () => Alert.show(
@@ -57,7 +56,7 @@ class CourierEditAndDelete extends StatelessWidget {
                 cancelButton: true,
                 onTap: () => context
                     .read<CourierListCubit>()
-                    .delete(courier.id, loading: false),
+                    .delete(courier.id, loading: true),
                 image: SizedBox(
                   width: 120.sm,
                   height: 120.sm,

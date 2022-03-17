@@ -12,7 +12,7 @@ import 'widget_or_empty.dart';
 
 class Snack {
   static display({
-    required BuildContext? context,
+    BuildContext? context,
     required String message,
     bool? positive = false,
     bool showSuccessIcon = false,
@@ -107,7 +107,8 @@ class Snack {
     //     "tester: ${NavigationService.instance.navigationKey!.currentWidget!.toString()}");
     // bbbb(
     //     "tester 2: ${ModalRoute.of(NavigationService.instance.navigationKey!.currentState!.context)!.settings.name}");
-    ScaffoldMessenger.of(context!)
+    ScaffoldMessenger.of(
+        NavigationService.instance.navigationKey!.currentContext!)
       ..hideCurrentSnackBar()
       ..removeCurrentSnackBar()
       //..removeCurrentMaterialBanner()
@@ -115,7 +116,7 @@ class Snack {
   }
 
   static positive({
-    required BuildContext? context,
+    BuildContext? context,
     required String? message,
     bool? positive = true,
     bool showSuccessIcon = true,

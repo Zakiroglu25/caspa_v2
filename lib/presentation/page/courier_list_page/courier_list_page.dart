@@ -23,7 +23,7 @@ class CourierListPage extends StatelessWidget {
   CourierOrder? courierOrder;
   Package? package;
 
-  CourierListPage({this.courierOrder,this.package});
+  CourierListPage({this.courierOrder, this.package});
 
   @override
   Widget build(BuildContext context) {
@@ -64,12 +64,26 @@ class CourierListPage extends StatelessWidget {
               onFocusGained: () {
                 context.read<CourierListCubit>()..fetch(false);
               },
-              child: BlocBuilder<CourierListCubit, CourierListState>(
+              child: BlocConsumer<CourierListCubit, CourierListState>(
+                listener: (c, state) {
+                  if (state is CourierListInEditing) {
+                    FullScreenLoading.display(context);
+                  }
+                },
+                buildWhen: (c, state) {
+                  if (state is CourierListDeleted ||
+                      state is CourierListInEditing) {
+                    return false;
+                  } else {
+                    return true;
+                  }
+                  ;
+                },
                 builder: (context, state) {
                   if (state is CourierListSuccess) {
                     final courierList = state.courierList.reversed.toList();
                     final packageList = state.packageList;
-                    return CourierListView(courierList,packageList);
+                    return CourierListView(courierList, packageList);
                   } else if (state is CourierListInProgress) {
                     return CaspaLoading();
                   } else if (state is CourierListError) {

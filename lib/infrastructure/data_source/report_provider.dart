@@ -36,9 +36,19 @@ class ReportProvider {
     var url = Uri.parse(api);
     final headers = ApiKeys.header(token: token);
 
-    FormData? data;
+    var data;
 
     if (invoice == null) {
+      data = {
+        "store": seller,
+        "qty": qty,
+        "id": id,
+        "category": category,
+        "tracking": tracking,
+        "price": price,
+        "currency": currency,
+        "note": note
+      };
     } else {
       data = FormData.fromMap({
         "invoice": await MultipartFile.fromFile(

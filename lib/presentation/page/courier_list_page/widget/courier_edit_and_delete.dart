@@ -43,9 +43,11 @@ class CourierEditAndDelete extends StatelessWidget {
         child: Row(
           children: [
             EditButton(
-                onTap: () => context
-                    .read<CourierListCubit>()
-                    .edit(context, courierOrder: courier, packages: packages)),
+              // onTap: () => context
+              //     .read<CourierListCubit>()
+              //     .edit(context, courierOrder: courier, packages: packages)
+              onTap: () => Go.to(context, Pager.courier(courierOrder: courier)),
+            ),
             MySizedBox.w5,
             DeleteButton(
               onTap: () => Alert.show(

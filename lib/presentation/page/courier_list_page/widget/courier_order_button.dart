@@ -11,7 +11,7 @@ class CourierOrderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CaspaButton(
-      onTap: () => Go.to(context, Pager.courier),
+      onTap: () => Go.to(context, Pager.courier()),
       w: 154,
       h: 52,
       text: MyText.courierOrderX,

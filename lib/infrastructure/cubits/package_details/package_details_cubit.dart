@@ -39,6 +39,7 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     } else if (paymentType.value == MyText.fromBalance) {
       packagePayFromBalance(context, id: id);
     } else if (paymentType.value == MyText.fromCashback) {
+      bbbb("yuyuyu:  ${paymentType.value}");
       packagePayFromCashback(context, id: id);
     } else if (paymentType.value == MyText.withPromoCode) {
       packagePayWithPromo(context, id: id);

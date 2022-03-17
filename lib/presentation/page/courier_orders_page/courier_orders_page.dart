@@ -16,6 +16,8 @@ import '../../../infrastructure/cubits/package_details/package_details_cubit.dar
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
 import '../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../infrastructure/models/remote/response/regions_model.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
 import '../../../util/constants/assets.dart';
 import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/screen/alert.dart';
@@ -41,6 +43,8 @@ class CourierOrdersPage extends StatelessWidget {
   final String adress;
   final String price;
   final Region region;
+
+  static HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -107,11 +111,15 @@ class CourierOrdersPage extends StatelessWidget {
                               children: [
                                 CaspaPaymentRadio(context,
                                     snapShoot: snapShoot,
+                                    description:
+                                        "(${_prefs.user.cargoBalance} \$)",
                                     value: MyText.fromBalance),
                                 CaspaPaymentRadio(context,
                                     snapShoot: snapShoot, value: MyText.byCard),
                                 CaspaPaymentRadio(context,
                                     snapShoot: snapShoot,
+                                    description:
+                                        "(${_prefs.user.cashback_balance} \$)",
                                     value: MyText.fromCashback),
 
                                 // buildCaspaRadio(context, snapShoot,

@@ -20,7 +20,6 @@ class CourierPayButton extends StatelessWidget {
   const CourierPayButton({Key? key, required this.courier}) : super(key: key);
   final CourierOrder courier;
 
-
   static HiveService get _prefs => locator<HiveService>();
 
   @override
@@ -54,13 +53,15 @@ class CourierPayButton extends StatelessWidget {
                     padding: Paddings.paddingV12,
                     children: [
                       CaspaPaymentRadio(context,
-                          snapShoot: snapShoot, value: MyText.fromBalance+""
-                              " "+"(${_prefs.user.cargoBalance} \$)"),
+                          description: "(${_prefs.user.cargoBalance} \$)",
+                          snapShoot: snapShoot,
+                          value: MyText.fromBalance),
                       CaspaPaymentRadio(context,
                           snapShoot: snapShoot, value: MyText.byCard),
                       CaspaPaymentRadio(context,
-                          snapShoot: snapShoot, value: MyText.fromCashback+""
-                              " "+"(${_prefs.user.cashback_balance} \$)"),
+                          description: "(${_prefs.user.cashback_balance} \$)",
+                          snapShoot: snapShoot,
+                          value: MyText.fromCashback),
 
                       // buildCaspaRadio(context, snapShoot,
                       //     value: MyText.withPromoCode),

@@ -29,9 +29,9 @@ class NotificationProvider {
 
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      notificastionsList =
-          (UserResult.fromJson(gelenCavabJson)).data?.notifications;
-
+      final k = (UserResult.fromJson(gelenCavabJson)).data?.notifications;
+      bbbb("ghfghjbhjk: $k");
+      notificastionsList = [];
       statusDynamic.data = notificastionsList;
     } else {
       eeee("getNotification url :$url,response: $response");

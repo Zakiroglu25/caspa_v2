@@ -68,7 +68,8 @@ class CourierListPage extends StatelessWidget {
                 builder: (context, state) {
                   if (state is CourierListSuccess) {
                     final courierList = state.courierList.reversed.toList();
-                    return CourierListView(courierList,[]);
+                    final packageList = state.packageList;
+                    return CourierListView(courierList,packageList);
                   } else if (state is CourierListInProgress) {
                     return CaspaLoading();
                   } else if (state is CourierListError) {

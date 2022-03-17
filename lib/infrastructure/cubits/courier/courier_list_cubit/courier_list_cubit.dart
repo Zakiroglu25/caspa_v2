@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../locator.dart';
 import '../../../../util/constants/text.dart';
+import '../../../data_source/package_provider.dart';
 import '../../../models/remote/response/courier_orders_model.dart';
 import '../../../models/remote/response/packages_data.dart';
 import '../../../services/hive_service.dart';
@@ -29,10 +30,11 @@ class CourierListCubit extends Cubit<CourierListState> {
     try {
       log("1 cubit");
       final result = await CourierProvider.fetchCourier();
-
+      final resultPackages = await PackageProvider.fetchPackagesForCourier();
       if (isSuccess(result?.statusCode)) {
         log("2 cubit");
-        emit(CourierListSuccess(result?.data));
+        emit(CourierListSuccess(
+            courierList: result!.data, packageList: resultPackages.data));
       } else {
         log("3 cubit");
         emit(CourierListError());
@@ -73,19 +75,20 @@ class CourierListCubit extends Cubit<CourierListState> {
 
     //user/attorneys/delete
   }
+
   void edit(
-      BuildContext context, {
-        required CourierOrder courierOrder,
-        required List<Package> packages,
-      }) async {
+    BuildContext context, {
+    required CourierOrder courierOrder,
+    required List<Package> packages,
+  }) async {
     emit(CourierListInProgress());
     try {
       final result = await CourierProvider.updateCourier(
-        adress: courierOrder.address!,
         id: courierOrder.id!,
-        packages: packages.map((e) => e.id!).toList(),
+        adress: courierOrder.address!,
         phone: courierOrder.phone!,
         regionId: courierOrder.region!.id!,
+        packages: packages.map((e) => e.id!).toList(),
       );
 
       if (isSuccess(result.statusCode)) {

@@ -63,9 +63,7 @@ class PackageProvider {
     var api = ApiKeys.packagesStatuses;
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
-    //bbbb("packages data : " + (response.data).toString());
-    // bbbb("packages data : " + (jsonEncode(response.data)).toString());
-    //
+
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       DataModel package = DataModel.fromJson(gelenCavabJson);

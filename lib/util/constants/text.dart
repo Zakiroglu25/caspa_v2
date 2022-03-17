@@ -128,7 +128,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Aktiv bağlamalarim";
+  static const String myPackages = "Mənim bağlamalarim";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -140,7 +140,7 @@ class MyText {
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
   static const String durtingCurrentMonth = "Cari ay \nərzində";
-  static const String countOfOrders = "Aktiv \nbağlama";
+  static const String countOfOrders = "Mənim \nbağlamalarım";
   static const String cashbackProfile = "Cashback\nbalans";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
@@ -302,6 +302,10 @@ class MyText {
   static const String order_date = "Sifariş tarixi";
   static const String we_need_access_to_gallery =
       "Fotolara əlçatanlıq üçün icazə lazımdır.";
+  static const String youMustSelectOneOfThem =
+      "Davam etmək üçün aşağıdakılardan birini seçməlisiniz:\n\n";
+  static const String gallery = "Qalerya";
+  static const String camera = "Kamera";
   static const String we_will_redirect_to_settings =
       "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
   static const String all_fields_must_be_filled =
@@ -314,6 +318,7 @@ class MyText {
   static const String invoice = "İnvoys";
   static const String factura = "Faktura";
   static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';
+  static const String avatarNotAdded = 'Foto əlavə edilmədi!';
   static const String reportSuccessTitle = 'Bəyannamə uğurla əlavə edildi!';
   static const String reportSuccessContent =
       'Bağlama bəyan olundu. Bağlamanın vaxtında əlavə olunması sifarişinizin sizə daha tez çatdırılmasına səbəb olacaq. Digər bağlamalar üçün prosesi təkrarlamaq istəsəniz "Prosesi təkrarla" butonuna toxunun.';
@@ -348,7 +353,7 @@ class MyText {
   static const String info =
       'Hava yolu daşıma şirkətlərinin (THY,AZAL, SİLKWAY, DHL) hesablama sistemlərini nəzərinizə çatdırmaq istəyirik. Həcm çəkisi bağlamanın ümumi tutduğu yer deməkdir. Bu yerin nə qədər olduğunu öyrənmək üçün Həcm ölçüsü hesablanmalıdır. Karqo ödənişlərində vacib amil bağlamanın əsas çəkisindən çox təyyarədə tutduğu yerdir.Göndəriş zamanı karqonun həcm çəkisi ilə əsas çəkisi qarşılaşdırılır hansı çox olarsa o əsas götürülür. Bu səbəbdən həcm çəkisinin doğru olması üçün doğru paketlənməlidir. Həcm çəkisinin hesablanması üçün düstur aşağıdakı kimidir: En * Hündürlük* Uzunluq / 6000 QEYD: Bağlamanızın həcm ölçüsü tam dəqiq olaraq xarici anbarımızda hesablanacaq. Narahatçılıq olarsa Bakı Təslimat Mərkəzimizdə yenidən hesablaya bilərsiniz';
 
-//packages
+  //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
 

@@ -31,33 +31,32 @@ class MyUser {
   List<Package>? activePackages;
 
   MyUser(
-
       {this.id,
-        this.active_package_count,
-        this.cashback_balance,
-        this.username,
-        this.name,
-        this.surname,
-        this.fullName,
-        this.email,
-        this.phone,
-        this.idNumber,
-        this.fin,
-        this.birthday,
-        this.gender,
-        this.avatar,
-        this.address,
-        this.balance,
-        this.cargoBalance,
-        this.city,
-        this.business,
-        this.wareHouse,
-        this.taxNumber,
-        this.monthly,
-        this.notifications,
-        this.packages_count,
-        this.companyName,
-        this.activePackages});
+      this.active_package_count,
+      this.cashback_balance,
+      this.username,
+      this.name,
+      this.surname,
+      this.fullName,
+      this.email,
+      this.phone,
+      this.idNumber,
+      this.fin,
+      this.birthday,
+      this.gender,
+      this.avatar,
+      this.address,
+      this.balance,
+      this.cargoBalance,
+      this.city,
+      this.business,
+      this.wareHouse,
+      this.taxNumber,
+      this.monthly,
+      this.notifications,
+      this.packages_count,
+      this.companyName,
+      this.activePackages});
 
   MyUser.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -85,7 +84,7 @@ class MyUser {
     packages_count = json['packages_count'];
     monthly = json['monthly'];
     cargoBalance = json['cargoBalance'];
-    city = json['city'] != null ? City.fromJson(json['city']) : null;
+    city = json['city'] != null ? new City.fromJson(json['city']) : null;
     business = json['business'];
     wareHouse = json['wareHouse'] != null
         ? WareHouse.fromJson(json['wareHouse'])
@@ -100,13 +99,13 @@ class MyUser {
       // });
 
       json['active_packages'].forEach((v) {
-          activePackages!.add(Package.fromJson(v));
-        });
+        activePackages!.add(Package.fromJson(v));
+      });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['username'] = this.username;
     data['name'] = this.name;
@@ -139,11 +138,13 @@ class MyUser {
     if (this.notifications != null) {
       data['notifications'] =
           this.notifications!.map((v) => v.toJson()).toList();
-    };
+    }
+    ;
     if (this.activePackages != null) {
       data['active_packages'] =
           this.activePackages!.map((v) => v.toJson()).toList();
     }
+    ;
     return data;
   }
 
@@ -171,7 +172,7 @@ class City {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -204,7 +205,7 @@ class WareHouse {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -230,12 +231,12 @@ class MyNotification {
 
   MyNotification(
       {this.id,
-        this.createdAt,
-        this.updatedAt,
-        this.userId,
-        this.title,
-        this.description,
-        this.read});
+      this.createdAt,
+      this.updatedAt,
+      this.userId,
+      this.title,
+      this.description,
+      this.read});
 
   MyNotification.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -248,7 +249,7 @@ class MyNotification {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
@@ -264,6 +265,7 @@ class MyNotification {
     return 'MyNotification{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, description: $description, read: $read}';
   }
 }
+
 class ActivePackages {
   int? id;
   String? status;
@@ -287,24 +289,24 @@ class ActivePackages {
 
   ActivePackages(
       {this.id,
-        this.status,
-        this.cargoTracking,
-        this.tracking,
-        this.store,
-        this.price,
-        this.cargoPrice,
-        this.weight,
-        this.category,
-        this.country,
-        this.payment,
-        this.note,
-        this.regNumber,
-        this.noInvoice,
-        this.fromReport,
-        this.categoryId,
-        this.invoice,
-        this.date,
-        this.archive});
+      this.status,
+      this.cargoTracking,
+      this.tracking,
+      this.store,
+      this.price,
+      this.cargoPrice,
+      this.weight,
+      this.category,
+      this.country,
+      this.payment,
+      this.note,
+      this.regNumber,
+      this.noInvoice,
+      this.fromReport,
+      this.categoryId,
+      this.invoice,
+      this.date,
+      this.archive});
 
   ActivePackages.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -315,11 +317,10 @@ class ActivePackages {
     price = json['price'];
     cargoPrice = json['cargo_price'];
     weight = json['weight'];
-    category = json['category'] != null
-        ? Category.fromJson(json['category'])
-        : null;
+    category =
+        json['category'] != null ? Category.fromJson(json['category']) : null;
     country =
-    json['country'] != null ? Country.fromJson(json['country']) : null;
+        json['country'] != null ? Country.fromJson(json['country']) : null;
     payment = json['payment'];
     note = json['note'];
     regNumber = json['regNumber'];
@@ -377,11 +378,11 @@ class Category {
 
   Category(
       {this.id,
-        this.createdAt,
-        this.updatedAt,
-        this.name,
-        this.parentId,
-        this.goodsId});
+      this.createdAt,
+      this.updatedAt,
+      this.name,
+      this.parentId,
+      this.goodsId});
 
   Category.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -403,7 +404,3 @@ class Category {
     return data;
   }
 }
-
-
-
-

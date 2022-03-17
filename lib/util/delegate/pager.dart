@@ -361,7 +361,7 @@ class Pager {
 
   static editCourier({CourierOrder? courierOrder,Package? package}) => BlocProvider(
       create: (context) => CourierCubit(),
-      child: CourierListPage(
+      child: CourierPage(
         courierOrder: courierOrder,
         package: package,
 

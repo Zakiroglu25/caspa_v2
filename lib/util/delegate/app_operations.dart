@@ -1,11 +1,13 @@
 // Flutter imports:
 import 'dart:convert';
+import 'dart:io';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AppOperations {
   static int getTime(index) {
@@ -102,5 +104,19 @@ class AppOperations {
       return context.read<AuthenticationCubit>()
         ..logOut(context, goWithPager: true);
     }, title: MyText.are_u_sure_exit);
+  }
+
+  static Future<File?> pickPhotoFromGallery({ImageSource? imageSource}) async {
+    XFile? pickedFile = await ImagePicker().pickImage(
+      source: imageSource ?? ImageSource.gallery,
+      maxWidth: 1800,
+      maxHeight: 1800,
+    );
+    if (pickedFile != null) {
+      File imageFile = File(pickedFile.path);
+      //updateImage(imageFile);
+      // bbbb("image picked succesfully!");
+      return imageFile;
+    }
   }
 }

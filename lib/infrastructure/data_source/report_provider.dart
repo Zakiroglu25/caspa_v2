@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
@@ -56,6 +57,8 @@ class ReportProvider {
       });
     }
 
+    log(invoice.toString()+"salam");
+
     // await MultipartFile.fromFile(
     //   invoice!.path,
     //   filename: "invoice.png",
@@ -63,6 +66,7 @@ class ReportProvider {
     Dio dio = new Dio(BaseOptions(headers: headers));
     final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());
+      log(response.toString());
       statusDynamic.statusCode = response.statusCode;
       bbbb("report st code: " + statusDynamic.statusCode.toString());
     }).catchError((error) => print(error));

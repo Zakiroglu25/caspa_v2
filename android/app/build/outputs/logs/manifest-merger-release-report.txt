@@ -1,0 +1,1137 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:2:1-46:12
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:2:1-15:12
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:2:1-15:12
+MERGED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-17:12
+MERGED from [:google_maps_flutter] /Users/baxtiyar/StudioProjects/caspa_v2/build/google_maps_flutter/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:2:1-19:12
+MERGED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:2:1-28:12
+MERGED from [:path_provider_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/path_provider_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:android_intent_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/android_intent_plus/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:2:1-29:12
+MERGED from [:external_app_launcher] /Users/baxtiyar/StudioProjects/caspa_v2/build/external_app_launcher/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_keyboard_visibility] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_keyboard_visibility/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:permission_handler] /Users/baxtiyar/StudioProjects/caspa_v2/build/permission_handler/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_plugin_android_lifecycle] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:2:1-36:12
+MERGED from [:sqflite] /Users/baxtiyar/StudioProjects/caspa_v2/build/sqflite/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-14:12
+MERGED from [:webview_flutter_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/webview_flutter_android/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:device_information] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_information/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:device_info_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_info_plus/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:2:1-18:12
+MERGED from [:device_apps] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_apps/intermediates/library_manifest/release/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.firebase:firebase-analytics:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4d5e7c1fafb89318ae880d213f09edf6/jetified-firebase-analytics-20.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:17:1-58:12
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:15:1-34:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/400e8e61845caf2fcd4b6790944e34b2/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:2:1-26:12
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:2:1-24:12
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f4990ac9acb4d0ec5cf81ad82cbf3ec2/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:15:1-26:12
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fbf5090a1c0f9e03d2e85ed22d9f5875/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:15:1-40:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/69b0b6d205b684c78e56ee0510152bd0/exifinterface-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.webkit:webkit:1.4.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fb5d46da0c9f43da4c0628db84bd9688/webkit-1.4.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0c77cefd3205846c4298685fbe18b418/browser-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d09ec7c05f6e17f83362151549179e68/appcompat-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/02ec079a29be13bc6bc428b217ddbec4/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/25c414de6992b9cc34efdd5d66d989c1/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77c438454faf216c6397930f46ec67c6/swiperefreshlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1bb811d06e60d652ea3c2fd28dc80728/media-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.3.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/871adabdb57e09094bcc565385f25482/jetified-core-ktx-1.3.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d5f9406629dc00e546df4556e1632273/jetified-play-services-location-17.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:17:1-46:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c0a4fd47382dab81678bb0a7ecf2a19a/jetified-play-services-measurement-sdk-20.0.2/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/93286395e994cbbc43a36f7fcd9262f0/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9954e00326fac665fce226f37daa2be/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/b71d2d5d9d4df08ed358a7d12f258aeb/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/af5dd8c5dcfed677f48a1ff966ed19c6/jetified-play-services-stats-17.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-base:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/485745bf45ac07f5c8a02f72a00acf74/jetified-play-services-measurement-base-20.0.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ed2d66393e277aea1a28bf208959581/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.firebase:firebase-database-collection:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cb0afa8ab85d95986b517ccbdc6479ba/jetified-firebase-database-collection-18.0.0/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f28ec7278315ddfe1519f4899b194938/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9d89cc2ebe3060e381ab4b5314d24ce/fragment-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5aeb2ede515fab2ed22f7b78a8c59478/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7a34594e4e87643ddb5d5b9a985d3eca/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/14ab0909c94f6cf7474f80974b41027d/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cf64afab63de7ab815519fe0d5d8c4aa/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cbc018887e91e4e6ca3292d9fe0b1b27/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6861a55194a5cf211dc4be1e19453544/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6e45d6e93b6aeb56e467c3833747552b/jetified-activity-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bc0ad872c2964b3c24ed2e8036400505/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d40f8f6bd8c4f0ed08f985781e75b66d/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0f72bc1b41ff469aa603d4e7b1b10398/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4a81b044af9484463fa770c864cacdf8/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb62d40fa324c436b0a800bc06cf7f47/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5e8ceaa7aedb312285a9a318e3b24674/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f27a25fe0cbe0d11bf14628e79e1e233/localbroadcastmanager-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3d10b7bf8b0b9be3e293065ff0b826d2/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d94e3039e39bf94dcd68b59cda8015d8/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d3ce7c5a2c6c4eda79ea26a55c608f0b/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb010fb82f46cafab724fa8fc396f2a1/jetified-transport-api-3.0.0/AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-components:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/085d5e006b4e7c9bf627a19aaf8f554f/jetified-firebase-components-17.0.0/AndroidManifest.xml:15:1-23:12
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/747aa90f8a2d964af0950985f922e7e1/jetified-tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5f1caf85419c383da14f7f1c55d0234d/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/096815012a38b55aabddcb403dbcc47a/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f09f0be4e230a31a246a7eee5d12efa/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f65d375d68a0cee2810d585d3208f62/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:17:1-32:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7d487f455462f2ef1e4384c581740ec2/lifecycle-runtime-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4b98fa77e7ab67be0ca1181575d15e64/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ef88da3671026f76add957bfc2ad8279/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/a0117f9d64b5ab0643f15666bf624874/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f6653a947c2095c5d31d99b7d91cbba6/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3fd3e51741b85bf114dfb07a50798c6d/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fd5ccee3f517a3fa5e26099dad625865/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [io.grpc:grpc-android:1.41.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7c644f4e19a8b27f408da6f430b3aebb/jetified-grpc-android-1.41.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/03c209edf7b9fb89b63e6c5bcf2d09c9/jetified-threetenabp-1.2.3/AndroidManifest.xml:2:1-9:12
+MERGED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:2:1-52:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7dcdc69bf33d16b8519be09342ff9fce/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3419a750827fcef17bf670f38601d66e/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+	package
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:2:5-23
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:1-79:12
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:3:5-66
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:7:5-67
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:7:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:10:5-67
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:10:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:14:5-67
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:14:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:3:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:4:5-81
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:4:22-78
+uses-permission#android.permission.CAMERA
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:5:22-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:6:22-77
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:7:5-78
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:8:5-79
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:8:5-79
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:7:22-76
+queries
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:8:5-29:15
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:7:5-11:15
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:7:5-11:15
+intent#action:name:android.intent.action.VIEW+data:scheme:https
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:10:9-13:18
+action#android.intent.action.VIEW
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:11:13-65
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:11:21-62
+data
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:12:13-44
+	android:scheme
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:12:19-41
+	android:mimeType
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:27:19-41
+intent#action:name:android.intent.action.DIAL+data:scheme:tel
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:15:9-18:18
+action#android.intent.action.DIAL
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:16:13-65
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:16:21-62
+intent#action:name:android.intent.action.SENDTO+data:scheme:smsto
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:20:9-23:18
+action#android.intent.action.SENDTO
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:21:13-67
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:21:21-64
+intent#action:name:android.intent.action.SEND+data:mimeType:*/*
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:25:9-28:18
+action#android.intent.action.SEND
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:26:13-65
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:26:21-62
+application
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:31:4-78:19
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:11:5-44:19
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:11:5-44:19
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:7:5-13:19
+MERGED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:9:5-15:19
+MERGED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:7:5-17:19
+MERGED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:7:5-17:19
+MERGED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:12:5-26:19
+MERGED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:12:5-26:19
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:13:5-27:19
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:13:5-27:19
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:10:5-34:19
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:10:5-34:19
+MERGED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:7:5-12:19
+MERGED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:7:5-12:19
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:10:5-16:19
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:10:5-16:19
+MERGED from [com.google.firebase:firebase-analytics:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4d5e7c1fafb89318ae880d213f09edf6/jetified-firebase-analytics-20.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4d5e7c1fafb89318ae880d213f09edf6/jetified-firebase-analytics-20.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:27:5-56:19
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:27:5-56:19
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:16:5-24:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:14:5-22:19
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f4990ac9acb4d0ec5cf81ad82cbf3ec2/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:24:5-20
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f4990ac9acb4d0ec5cf81ad82cbf3ec2/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:24:5-20
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fbf5090a1c0f9e03d2e85ed22d9f5875/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fbf5090a1c0f9e03d2e85ed22d9f5875/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d5f9406629dc00e546df4556e1632273/jetified-play-services-location-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d5f9406629dc00e546df4556e1632273/jetified-play-services-location-17.0.0/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:28:5-44:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c0a4fd47382dab81678bb0a7ecf2a19a/jetified-play-services-measurement-sdk-20.0.2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c0a4fd47382dab81678bb0a7ecf2a19a/jetified-play-services-measurement-sdk-20.0.2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/93286395e994cbbc43a36f7fcd9262f0/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/93286395e994cbbc43a36f7fcd9262f0/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9954e00326fac665fce226f37daa2be/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9954e00326fac665fce226f37daa2be/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/b71d2d5d9d4df08ed358a7d12f258aeb/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/b71d2d5d9d4df08ed358a7d12f258aeb/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:28:5-29:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:28:5-29:19
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/af5dd8c5dcfed677f48a1ff966ed19c6/jetified-play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/af5dd8c5dcfed677f48a1ff966ed19c6/jetified-play-services-stats-17.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:25:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/485745bf45ac07f5c8a02f72a00acf74/jetified-play-services-measurement-base-20.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/485745bf45ac07f5c8a02f72a00acf74/jetified-play-services-measurement-base-20.0.2/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f28ec7278315ddfe1519f4899b194938/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f28ec7278315ddfe1519f4899b194938/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5f1caf85419c383da14f7f1c55d0234d/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5f1caf85419c383da14f7f1c55d0234d/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:24:5-30:19
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/03c209edf7b9fb89b63e6c5bcf2d09c9/jetified-threetenabp-1.2.3/AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/03c209edf7b9fb89b63e6c5bcf2d09c9/jetified-threetenabp-1.2.3/AndroidManifest.xml:7:5-20
+	android:requestLegacyExternalStorage
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:33:8-51
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:32:9-41
+	android:icon
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:35:9-43
+	android:usesCleartextTraffic
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:34:8-43
+activity#az.caspa.MainActivity
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:36:9-66:20
+	android:launchMode
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:39:13-43
+	android:hardwareAccelerated
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:43:13-47
+	android:windowSoftInputMode
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:44:13-55
+	android:exported
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:38:13-36
+	android:configChanges
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:42:13-163
+	android:theme
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:41:13-47
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:37:13-41
+meta-data#io.flutter.embedding.android.NormalTheme
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:49:13-52:17
+	android:resource
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:51:15-52
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:50:15-70
+meta-data#io.flutter.embedding.android.SplashScreenDrawable
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:58:13-61:17
+	android:resource
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:60:15-61
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:59:15-79
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:62:13-65:29
+action#android.intent.action.MAIN
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:63:17-68
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:63:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:64:17-76
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:64:27-74
+meta-data#flutterEmbedding
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:69:9-71:33
+	android:value
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:71:13-30
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:70:13-44
+meta-data#firebase_crashlytics_collection_enabled
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:72:8-74:36
+	android:value
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:74:12-33
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:73:12-66
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:75:8-77:70
+	android:value
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:77:12-67
+	android:name
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml:76:12-57
+uses-sdk
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter] /Users/baxtiyar/StudioProjects/caspa_v2/build/google_maps_flutter/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:google_maps_flutter] /Users/baxtiyar/StudioProjects/caspa_v2/build/google_maps_flutter/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/path_provider_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:path_provider_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/path_provider_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:android_intent_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/android_intent_plus/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:android_intent_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/android_intent_plus/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/shared_preferences_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:external_app_launcher] /Users/baxtiyar/StudioProjects/caspa_v2/build/external_app_launcher/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:external_app_launcher] /Users/baxtiyar/StudioProjects/caspa_v2/build/external_app_launcher/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_keyboard_visibility/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_keyboard_visibility] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_keyboard_visibility/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler] /Users/baxtiyar/StudioProjects/caspa_v2/build/permission_handler/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:permission_handler] /Users/baxtiyar/StudioProjects/caspa_v2/build/permission_handler/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_plugin_android_lifecycle] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /Users/baxtiyar/StudioProjects/caspa_v2/build/sqflite/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:sqflite] /Users/baxtiyar/StudioProjects/caspa_v2/build/sqflite/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/webview_flutter_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:webview_flutter_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/webview_flutter_android/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_information] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_information/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_information] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_information/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_info_plus/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_info_plus] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_info_plus/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_apps] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_apps/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [:device_apps] /Users/baxtiyar/StudioProjects/caspa_v2/build/device_apps/intermediates/library_manifest/release/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4d5e7c1fafb89318ae880d213f09edf6/jetified-firebase-analytics-20.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4d5e7c1fafb89318ae880d213f09edf6/jetified-firebase-analytics-20.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/400e8e61845caf2fcd4b6790944e34b2/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-encoders-json:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/400e8e61845caf2fcd4b6790944e34b2/jetified-firebase-encoders-json-18.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:6:5-8:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f4990ac9acb4d0ec5cf81ad82cbf3ec2/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta02] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f4990ac9acb4d0ec5cf81ad82cbf3ec2/jetified-firebase-appcheck-interop-16.0.0-beta02/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fbf5090a1c0f9e03d2e85ed22d9f5875/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fbf5090a1c0f9e03d2e85ed22d9f5875/jetified-firebase-auth-interop-19.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/69b0b6d205b684c78e56ee0510152bd0/exifinterface-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/69b0b6d205b684c78e56ee0510152bd0/exifinterface-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.4.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fb5d46da0c9f43da4c0628db84bd9688/webkit-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.webkit:webkit:1.4.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fb5d46da0c9f43da4c0628db84bd9688/webkit-1.4.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0c77cefd3205846c4298685fbe18b418/browser-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.3.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0c77cefd3205846c4298685fbe18b418/browser-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d09ec7c05f6e17f83362151549179e68/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d09ec7c05f6e17f83362151549179e68/appcompat-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/02ec079a29be13bc6bc428b217ddbec4/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/02ec079a29be13bc6bc428b217ddbec4/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/25c414de6992b9cc34efdd5d66d989c1/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/25c414de6992b9cc34efdd5d66d989c1/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77c438454faf216c6397930f46ec67c6/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77c438454faf216c6397930f46ec67c6/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1bb811d06e60d652ea3c2fd28dc80728/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1bb811d06e60d652ea3c2fd28dc80728/media-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.3.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/871adabdb57e09094bcc565385f25482/jetified-core-ktx-1.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.3.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/871adabdb57e09094bcc565385f25482/jetified-core-ktx-1.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d5f9406629dc00e546df4556e1632273/jetified-play-services-location-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d5f9406629dc00e546df4556e1632273/jetified-play-services-location-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c0a4fd47382dab81678bb0a7ecf2a19a/jetified-play-services-measurement-sdk-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c0a4fd47382dab81678bb0a7ecf2a19a/jetified-play-services-measurement-sdk-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/93286395e994cbbc43a36f7fcd9262f0/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/93286395e994cbbc43a36f7fcd9262f0/jetified-play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9954e00326fac665fce226f37daa2be/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:19.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9954e00326fac665fce226f37daa2be/jetified-firebase-measurement-connector-19.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/b71d2d5d9d4df08ed358a7d12f258aeb/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/b71d2d5d9d4df08ed358a7d12f258aeb/jetified-firebase-iid-interop-17.1.0/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/af5dd8c5dcfed677f48a1ff966ed19c6/jetified-play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/af5dd8c5dcfed677f48a1ff966ed19c6/jetified-play-services-stats-17.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/485745bf45ac07f5c8a02f72a00acf74/jetified-play-services-measurement-base-20.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/485745bf45ac07f5c8a02f72a00acf74/jetified-play-services-measurement-base-20.0.2/AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ed2d66393e277aea1a28bf208959581/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-installations-interop:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ed2d66393e277aea1a28bf208959581/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cb0afa8ab85d95986b517ccbdc6479ba/jetified-firebase-database-collection-18.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-database-collection:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cb0afa8ab85d95986b517ccbdc6479ba/jetified-firebase-database-collection-18.0.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f28ec7278315ddfe1519f4899b194938/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f28ec7278315ddfe1519f4899b194938/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9d89cc2ebe3060e381ab4b5314d24ce/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d9d89cc2ebe3060e381ab4b5314d24ce/fragment-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5aeb2ede515fab2ed22f7b78a8c59478/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5aeb2ede515fab2ed22f7b78a8c59478/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7a34594e4e87643ddb5d5b9a985d3eca/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7a34594e4e87643ddb5d5b9a985d3eca/jetified-appcompat-resources-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/14ab0909c94f6cf7474f80974b41027d/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/14ab0909c94f6cf7474f80974b41027d/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cf64afab63de7ab815519fe0d5d8c4aa/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cf64afab63de7ab815519fe0d5d8c4aa/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cbc018887e91e4e6ca3292d9fe0b1b27/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/cbc018887e91e4e6ca3292d9fe0b1b27/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6861a55194a5cf211dc4be1e19453544/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6861a55194a5cf211dc4be1e19453544/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6e45d6e93b6aeb56e467c3833747552b/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/6e45d6e93b6aeb56e467c3833747552b/jetified-activity-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bc0ad872c2964b3c24ed2e8036400505/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bc0ad872c2964b3c24ed2e8036400505/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d40f8f6bd8c4f0ed08f985781e75b66d/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d40f8f6bd8c4f0ed08f985781e75b66d/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0f72bc1b41ff469aa603d4e7b1b10398/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/0f72bc1b41ff469aa603d4e7b1b10398/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4a81b044af9484463fa770c864cacdf8/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4a81b044af9484463fa770c864cacdf8/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb62d40fa324c436b0a800bc06cf7f47/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb62d40fa324c436b0a800bc06cf7f47/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5e8ceaa7aedb312285a9a318e3b24674/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5e8ceaa7aedb312285a9a318e3b24674/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/005fcd62c8b70d792d9bdd2b250f0401/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f27a25fe0cbe0d11bf14628e79e1e233/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f27a25fe0cbe0d11bf14628e79e1e233/localbroadcastmanager-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3d10b7bf8b0b9be3e293065ff0b826d2/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3d10b7bf8b0b9be3e293065ff0b826d2/jetified-lifecycle-viewmodel-savedstate-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d94e3039e39bf94dcd68b59cda8015d8/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d94e3039e39bf94dcd68b59cda8015d8/lifecycle-viewmodel-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d3ce7c5a2c6c4eda79ea26a55c608f0b/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-reactivestreams:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/d3ce7c5a2c6c4eda79ea26a55c608f0b/lifecycle-reactivestreams-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb010fb82f46cafab724fa8fc396f2a1/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:3.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb010fb82f46cafab724fa8fc396f2a1/jetified-transport-api-3.0.0/AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-components:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/085d5e006b4e7c9bf627a19aaf8f554f/jetified-firebase-components-17.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/085d5e006b4e7c9bf627a19aaf8f554f/jetified-firebase-components-17.0.0/AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/747aa90f8a2d964af0950985f922e7e1/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/747aa90f8a2d964af0950985f922e7e1/jetified-tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5f1caf85419c383da14f7f1c55d0234d/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/5f1caf85419c383da14f7f1c55d0234d/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/096815012a38b55aabddcb403dbcc47a/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/096815012a38b55aabddcb403dbcc47a/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f09f0be4e230a31a246a7eee5d12efa/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f09f0be4e230a31a246a7eee5d12efa/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f65d375d68a0cee2810d585d3208f62/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1f65d375d68a0cee2810d585d3208f62/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7d487f455462f2ef1e4384c581740ec2/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7d487f455462f2ef1e4384c581740ec2/lifecycle-runtime-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4b98fa77e7ab67be0ca1181575d15e64/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/4b98fa77e7ab67be0ca1181575d15e64/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ef88da3671026f76add957bfc2ad8279/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ef88da3671026f76add957bfc2ad8279/lifecycle-livedata-core-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/a0117f9d64b5ab0643f15666bf624874/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/a0117f9d64b5ab0643f15666bf624874/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f6653a947c2095c5d31d99b7d91cbba6/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/f6653a947c2095c5d31d99b7d91cbba6/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3fd3e51741b85bf114dfb07a50798c6d/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3fd3e51741b85bf114dfb07a50798c6d/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fd5ccee3f517a3fa5e26099dad625865/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/fd5ccee3f517a3fa5e26099dad625865/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [io.grpc:grpc-android:1.41.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7c644f4e19a8b27f408da6f430b3aebb/jetified-grpc-android-1.41.0/AndroidManifest.xml:7:5-9:41
+MERGED from [io.grpc:grpc-android:1.41.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7c644f4e19a8b27f408da6f430b3aebb/jetified-grpc-android-1.41.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/03c209edf7b9fb89b63e6c5bcf2d09c9/jetified-threetenabp-1.2.3/AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/03c209edf7b9fb89b63e6c5bcf2d09c9/jetified-threetenabp-1.2.3/AndroidManifest.xml:5:5-44
+MERGED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:7:5-9:41
+MERGED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7dcdc69bf33d16b8519be09342ff9fce/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7dcdc69bf33d16b8519be09342ff9fce/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3419a750827fcef17bf670f38601d66e/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/3419a750827fcef17bf670f38601d66e/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:7:5-9:41
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/baxtiyar/StudioProjects/caspa_v2/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:8:5-68
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:23:5-68
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:23:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:9:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:8:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:9:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:13:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/eb8d26def68c4ed57544b8fc121b593d/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:24:5-79
+MERGED from [io.grpc:grpc-android:1.41.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7c644f4e19a8b27f408da6f430b3aebb/jetified-grpc-android-1.41.0/AndroidManifest.xml:11:5-79
+MERGED from [io.grpc:grpc-android:1.41.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7c644f4e19a8b27f408da6f430b3aebb/jetified-grpc-android-1.41.0/AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:9:22-76
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingBackgroundService
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:12:9-15:72
+	android:exported
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:14:13-37
+	android:permission
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:15:13-69
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:13:13-107
+service#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingService
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:16:9-22:19
+	android:exported
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:17:13-97
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:19:13-21:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:17-78
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:20:25-75
+receiver#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingReceiver
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:24:9-31:20
+	android:exported
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:26:13-36
+	android:permission
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:27:13-73
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:25:13-98
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:28:13-30:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:17-81
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:29:25-78
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:33:9-37:19
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:49:9-55:19
+MERGED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:49:9-55:19
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:25:9-31:19
+MERGED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:25:9-31:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:33:9-37:35
+MERGED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:33:9-37:35
+	android:exported
+		ADDED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:17:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:37:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:35:13-43
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:33:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.messaging.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:34:13-36:85
+	android:value
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:36:17-82
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:35:17-128
+provider#io.flutter.plugins.firebase.messaging.FlutterFirebaseMessagingInitProvider
+ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:39:9-43:38
+	android:authorities
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:41:13-88
+	android:exported
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:42:13-37
+	android:initOrder
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:43:13-35
+	android:name
+		ADDED from [:firebase_messaging] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_messaging/intermediates/library_manifest/release/AndroidManifest.xml:40:13-102
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.crashlytics.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_crashlytics] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_crashlytics/intermediates/library_manifest/release/AndroidManifest.xml:10:17-130
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
+ADDED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:cloud_firestore] /Users/baxtiyar/StudioProjects/caspa_v2/build/cloud_firestore/intermediates/library_manifest/release/AndroidManifest.xml:10:17-134
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
+ADDED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_core] /Users/baxtiyar/StudioProjects/caspa_v2/build/firebase_core/intermediates/library_manifest/release/AndroidManifest.xml:10:17-124
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:7:5-77
+	android:name
+		ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:7:22-74
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:10:9-14:56
+	android:enabled
+		ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:12:13-35
+	android:exported
+		ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:13:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:14:13-53
+	android:name
+		ADDED from [:geolocator_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/geolocator_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-77
+provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
+ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:8:9-16:20
+	android:grantUriPermissions
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:12:13-47
+	android:authorities
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:10:13-74
+	android:exported
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:11:13-37
+	android:name
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:9:13-82
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:13:13-15:75
+	android:resource
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:15:17-72
+	android:name
+		ADDED from [:image_picker] /Users/baxtiyar/StudioProjects/caspa_v2/build/image_picker/intermediates/library_manifest/release/AndroidManifest.xml:14:17-67
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:7:5-81
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:7:5-81
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:7:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:8:5-66
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:8:5-66
+MERGED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:8:22-63
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:9:22-78
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:10:22-76
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:13:9-15:40
+	android:exported
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:14:13-97
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:16:9-25:20
+	android:exported
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:17:13-101
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:19:13-24:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:20:17-79
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:20:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:21:17-84
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:21:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:22:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:23:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_local_notifications/intermediates/library_manifest/release/AndroidManifest.xml:23:25-79
+intent#action:name:android.support.customtabs.action.CustomTabsService
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:8:9-10:18
+action#android.support.customtabs.action.CustomTabsService
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:9:13-90
+	android:name
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:9:21-87
+activity#com.pichillilorenzo.flutter_inappwebview.in_app_browser.InAppBrowserActivity
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:14:9-17:47
+	android:configChanges
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:16:13-137
+	android:theme
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:17:13-44
+	android:name
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:15:13-104
+activity#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ChromeCustomTabsActivity
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:18:9-20:55
+	android:theme
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:20:13-52
+	android:name
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:19:13-112
+receiver#com.pichillilorenzo.flutter_inappwebview.chrome_custom_tabs.ActionBroadcastReceiver
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:22:9-120
+	android:name
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:22:19-117
+meta-data#io.flutter.embedded_views_preview
+ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:24:9-26:36
+	android:value
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:26:13-33
+	android:name
+		ADDED from [:flutter_inappwebview] /Users/baxtiyar/StudioProjects/caspa_v2/build/flutter_inappwebview/intermediates/library_manifest/release/AndroidManifest.xml:25:13-61
+receiver#me.carda.awesome_notifications.notifications.broadcastReceivers.DismissedNotificationReceiver
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:11:9-13:40
+	android:exported
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:13:13-37
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:12:13-121
+receiver#me.carda.awesome_notifications.notifications.broadcastReceivers.ScheduledNotificationReceiver
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:14:9-16:40
+	android:exported
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:16:13-37
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:15:13-121
+receiver#me.carda.awesome_notifications.notifications.broadcastReceivers.KeepOnTopActionReceiver
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:17:9-19:40
+	android:exported
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:19:13-37
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:18:13-115
+receiver#me.carda.awesome_notifications.notifications.broadcastReceivers.RefreshSchedulesReceiver
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:20:9-33:20
+	android:exported
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:21:13-116
+intent-filter#action:name:android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED+action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.LOCKED_BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON+category:name:android.intent.category.DEFAULT
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:23:13-32:29
+category#android.intent.category.DEFAULT
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:24:17-76
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:24:27-73
+action#android.intent.action.LOCKED_BOOT_COMPLETED
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:27:17-86
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:27:25-83
+action#android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED
+ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:31:17-107
+	android:name
+		ADDED from [:awesome_notifications] /Users/baxtiyar/StudioProjects/caspa_v2/build/awesome_notifications/intermediates/library_manifest/release/AndroidManifest.xml:31:25-104
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:8:9-11:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:10:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:11:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/baxtiyar/StudioProjects/caspa_v2/build/url_launcher_android/intermediates/library_manifest/release/AndroidManifest.xml:9:13-74
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:7:22-78
+service#com.lyokone.location.FlutterLocationService
+ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:11:9-15:56
+	android:enabled
+		ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:13:13-35
+	android:exported
+		ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:14:13-37
+	android:foregroundServiceType
+		ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:15:13-53
+	android:name
+		ADDED from [:location] /Users/baxtiyar/StudioProjects/caspa_v2/build/location/intermediates/library_manifest/release/AndroidManifest.xml:12:13-71
+meta-data#com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar
+ADDED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-crashlytics:18.2.7] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/1be04c81a050682ee00192903e326b6c/jetified-firebase-crashlytics-18.2.7/AndroidManifest.xml:19:17-115
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:25:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:11:5-82
+MERGED from [com.google.android.gms:play-services-cloud-messaging:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/26cd21ee3fee70b634f2a7258de5ac84/jetified-play-services-cloud-messaging-17.0.0/AndroidManifest.xml:11:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:25:22-79
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:28:9-35:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:31:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:29:13-78
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:41:9-48:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:44:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:43:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:42:13-82
+meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
+ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:52:13-54:85
+	android:value
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:54:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:23.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/56fe2ff5dd61fee7ba66c57780696363/jetified-firebase-messaging-23.0.0/AndroidManifest.xml:53:17-119
+meta-data#com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar
+ADDED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:28:13-30:85
+	android:value
+		ADDED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:30:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-datatransport:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/782b46a3725f579a472aff955ed92679/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:29:17-115
+service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:36:9-38:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:31:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:30:13-103
+meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
+ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:32:13-34:39
+	android:value
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:34:17-36
+	android:name
+		ADDED from [com.google.android.datatransport:transport-backend-cct:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9fcdee22f1754e89b8112cf116d42812/jetified-transport-backend-cct-3.1.0/AndroidManifest.xml:33:17-94
+service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:26:9-30:19
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:28:13-37
+	android:permission
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:29:13-69
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:27:13-117
+receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
+ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:32:9-34:40
+	android:exported
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:34:13-37
+	android:name
+		ADDED from [com.google.android.datatransport:transport-runtime:3.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/89cac338278fd450c380d6e056c96137/jetified-transport-runtime-3.1.0/AndroidManifest.xml:33:13-132
+meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
+ADDED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:20:13-22:85
+	android:value
+		ADDED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-firestore:24.0.1] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/77f8eca957f2235b8704a8a249b20b15/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:21:17-111
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/edee4b590abeb1347b3ddf8ad6e27c60/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml:31:17-139
+meta-data#com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar
+ADDED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:18:13-20:85
+	android:value
+		ADDED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:20:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-installations:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/acfe116213e3d6fb77eb165f3235a675/jetified-firebase-installations-17.0.0/AndroidManifest.xml:19:17-127
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:26:9-31:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:28:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:30:13-37
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:29:13-43
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:31:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:20.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/917033683e798fcd79375129fbe0a785/jetified-firebase-common-20.0.0/AndroidManifest.xml:27:13-77
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/7ab93fd56c423b93e3a0342f76c562c9/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/469d6bcda90ad11fe70810fd25e41160/jetified-play-services-measurement-impl-20.0.2/AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:30:13-85
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:35:9-38:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:38:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:36:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:39:9-43:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:41:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:42:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:43:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:20.0.2] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/c136dec6281a6ce29b97c3b4a09a63f7/jetified-play-services-measurement-20.0.2/AndroidManifest.xml:40:13-87
+uses-permission#com.google.android.gms.permission.AD_ID
+ADDED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-identifier:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/ed2d10db9f68f3ab14b3a598e5ad91a9/jetified-play-services-ads-identifier-18.0.0/AndroidManifest.xml:23:22-76
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/bb4f13d4209bb43e6f7862b721569108/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/e76e7d618a5c85aa6f909680345e7ae8/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+	android:required
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [androidx.window:window:1.0.0-beta04] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/dc8b448313e5eb794cf693873563a479/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.2.0] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/607cb22cef3116c7968a6758f9d0677b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+uses-permission#com.sec.android.provider.badge.permission.READ
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:5-86
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:22-83
+uses-permission#com.sec.android.provider.badge.permission.WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:5-87
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:22-84
+uses-permission#com.htc.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:5-81
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:22-78
+uses-permission#com.htc.launcher.permission.UPDATE_SHORTCUT
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:22-80
+uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:22-85
+uses-permission#com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:22-89
+uses-permission#com.anddoes.launcher.permission.UPDATE_COUNT
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:5-84
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:22-81
+uses-permission#com.majeur.launcher.permission.UPDATE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:22-80
+uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:5-91
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:22-88
+uses-permission#com.huawei.android.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:5-92
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:22-89
+uses-permission#com.huawei.android.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:5-93
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:22-90
+uses-permission#android.permission.READ_APP_BADGE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:5-73
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:22-70
+uses-permission#com.oppo.launcher.permission.READ_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:5-82
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:22-79
+uses-permission#com.oppo.launcher.permission.WRITE_SETTINGS
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:5-83
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:22-80
+uses-permission#me.everything.badger.permission.BADGE_COUNT_READ
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:5-88
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:22-85
+uses-permission#me.everything.badger.permission.BADGE_COUNT_WRITE
+ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:5-89
+	android:name
+		ADDED from [me.leolin:ShortcutBadger:1.1.22] /Users/baxtiyar/.gradle/caches/transforms-2/files-2.1/9ea8a8c1e13ecb078bf7c068fbb13245/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:22-86

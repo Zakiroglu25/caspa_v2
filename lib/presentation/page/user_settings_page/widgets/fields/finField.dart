@@ -20,10 +20,9 @@ class FinFieldUser extends StatelessWidget {
         return CaspaField(
           title: MyText.fin,
           maxLines: 1,
-          hint: MyText.fin,
+          hint: MyText.fin, 
           upperCase: true,
-          suffixIcon: Tooltip(message: 'burda fin kod olacay',
-          child: SvgPicture.asset(Assets.svgHelpCircle)),
+          suffixIcon: Tooltip(message: 'burda fin kod olacay'),
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.characters,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',

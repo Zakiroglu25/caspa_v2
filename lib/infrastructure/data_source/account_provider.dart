@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
@@ -11,6 +12,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import '../../locator.dart';
+import '../../util/constants/text.dart';
 import 'tarif_provider.dart';
 
 // Package imports:
@@ -90,6 +92,45 @@ class AccountProvider {
     } else {
       eeee("updateAccountBody bad url :$api, response: ${response.data}");
     }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic?> report({
+    File? invoice,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+
+    var api = ApiKeys.updateAvatar;
+
+    FormData? data;
+
+    if (invoice == null) {
+    } else {
+      data = FormData.fromMap({
+        "avatar": await MultipartFile.fromFile(
+          invoice.path,
+          filename: "invoice.png",
+        ),
+      });
+    }
+
+    // await MultipartFile.fromFile(
+    //   invoice!.path,
+    //   filename: "invoice.png",
+    // )
+    final response = await dioAuth.dio.post(api, data: data).then((response) {
+      var jsonResponse = jsonDecode(response.toString());
+      statusDynamic.statusCode = response.statusCode;
+      bbbb("avatar st code: " + statusDynamic.statusCode.toString());
+    }).catchError((error) => print(error));
+
+    if (statusDynamic.statusCode == ResultKey.successCode) {
+      // statusDynamic.data=response['message'];
+
+    } else {
+      statusDynamic.data = MyText.avatarNotAdded;
+    }
+
     return statusDynamic;
   }
 }

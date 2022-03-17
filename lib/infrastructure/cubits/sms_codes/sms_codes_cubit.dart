@@ -22,36 +22,36 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
     try {
       final result = await ContactProvider.getSMSCodes();
 
-      List<LocalSms> localSmsList = [];
-
-      List<SmsCode> smsList = result.data;
-      List<String> dateList = [];
-      Map<String, List<String>> smsMapList = {};
-      for (SmsCode smsCode in smsList) {
-        if (!dateList.contains(smsCode.date)) {
-          dateList.add(smsCode.date!);
-          localSmsList.add(LocalSms(date: smsCode.date));
-        }
-      }
-      for (String date in dateList) {
-        List<String> smsForDateList = [];
-        List b = localSmsList.map((element) {
-          if (element.date == date) {
-            //  smsForDateList.add(element.code!);
-            //  localSmsList.
-            //element.smsList?.add(value);
-            for (SmsCode smsCode in smsList) {
-              if (smsCode.date == element.date) {
-                element.smsList?.add(
-                    LocalSmsElement(date: smsCode.date, sms: smsCode.code));
-              }
-            }
-          }
-          return localSmsList;
-        }).toList();
-        bbbb("hhhhhh: $b");
-        smsMapList['$date'] = smsForDateList;
-      }
+      // List<LocalSms> localSmsList = [];
+      //
+      // List<SmsCode> smsList = result.data;
+      // List<String> dateList = [];
+      // Map<String, List<String>> smsMapList = {};
+      // for (SmsCode smsCode in smsList) {
+      //   if (!dateList.contains(smsCode.date)) {
+      //     dateList.add(smsCode.date!);
+      //     localSmsList.add(LocalSms(date: smsCode.date));
+      //   }
+      // }
+      // for (String date in dateList) {
+      //   List<String> smsForDateList = [];
+      //   List b = localSmsList.map((element) {
+      //     if (element.date == date) {
+      //       //  smsForDateList.add(element.code!);
+      //       //  localSmsList.
+      //       //element.smsList?.add(value);
+      //       for (SmsCode smsCode in smsList) {
+      //         if (smsCode.date == element.date) {
+      //           element.smsList?.add(
+      //               LocalSmsElement(date: smsCode.date, sms: smsCode.code));
+      //         }
+      //       }
+      //     }
+      //     return localSmsList;
+      //   }).toList();
+      //  bbbb("hhhhhh: $b");
+      //   smsMapList['$date'] = smsForDateList;
+      // }
 
       if (result != null) {
         // bbbb("saalaml");

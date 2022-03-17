@@ -107,6 +107,7 @@ class CourierProvider {
       "package": packages,
       "id": id
     };
+    log(body.toString());
     final response = await dioAuth.dio.post(api, data: body);
 
     eeee("respopop: ${response.requestOptions.data}");

@@ -23,12 +23,12 @@ class HomePackageList extends StatelessWidget {
       onFocusGained: () {
         // context.read<ActivePackageCubit>().fetch();
       },
-      child: BlocBuilder<ActivePackageCubit, ActivePackageState>(
+      child: BlocBuilder<PackageCubit, PackageState>(
         builder: (contextK, state) {
-          if (state is ActivePackageInProgress) {
+          if (state is PackagesInProgress) {
             return Container(height: 150.sm, child: CaspaLoading.blue());
-          } else if (state is ActivePackageSuccess) {
-            final List<Package>? packageList = state.activePackagesList;
+          } else if (state is PackagesSuccess) {
+            final List<Package>? packageList = state.packageList;
             // packageList!.clear();
 
             return ListOrEmpty(

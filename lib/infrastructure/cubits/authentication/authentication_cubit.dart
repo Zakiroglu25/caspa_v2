@@ -164,6 +164,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       // //final logOutRes =
       Future.delayed(Durations.s1).then((value) => _prefs.clear());
       // //Hive.box('main').close();
+
       PaintingBinding.instance!.imageCache!.clear();
       imageCache!.clear();
     } catch (e, s) {

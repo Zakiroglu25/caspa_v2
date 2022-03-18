@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
@@ -132,7 +133,8 @@ class UserCubit extends Cubit<UserState> {
         emit(UserFailed(response.statusCode.toString()));
       }
     } catch (e, s) {
-      emit(UserFailed("Errorlari doshuyecem"));
+      Recorder.recordCatchError(e, s);
+      emit(UserFailed(MyText.error));
     }
   }
 

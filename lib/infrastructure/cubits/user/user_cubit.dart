@@ -313,10 +313,13 @@ class UserCubit extends Cubit<UserState> {
       uPassMain.sink.add(value);
     }
     isUserInfoValid();
-    if (uPassSecond.hasValue && value != uPassSecond.value) {
-      uPassSecond.sink.addError(MyText.every_past_must_be_same);
-    } else
-      uPassSecond.sink.add(uPassSecond.value);
+    if (uPassSecond.hasValue) {
+      if (value != uPassSecond.value) {
+        uPassSecond.sink.addError(MyText.every_past_must_be_same);
+      } else {
+        uPassSecond.sink.add(uPassSecond.value);
+      }
+    }
   }
 
   bool get isMainPassInCorrect => (!uPassMain.hasValue ||

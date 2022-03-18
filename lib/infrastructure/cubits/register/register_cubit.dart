@@ -298,12 +298,11 @@ class RegisterCubit extends Cubit<RegisterState> {
     }
     isUserInfoValid(registerType: _registerType);
     if (uPassSecond.hasValue) {
-      // bbbb("second: "+uPassSecond.value);
-      // bbbb("main: "+uPassMain.value);
       if (value != uPassSecond.value) {
         uPassSecond.sink.addError(MyText.every_past_must_be_same);
-      } else
+      } else {
         uPassSecond.sink.add(uPassSecond.value);
+      }
     }
   }
 

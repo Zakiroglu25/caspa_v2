@@ -21,7 +21,7 @@ class AdressFieldCourier extends StatelessWidget {
           maxLines: 1,
           hint: MyText.adress,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           controller: controller,

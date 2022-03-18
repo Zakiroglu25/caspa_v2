@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
+import 'package:caspa_v2/util/formatter/masked_text_controller_phone.dart';
 import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/single_child_bounce.dart';
@@ -60,7 +61,9 @@ class BusinessRegisterTab extends StatelessWidget {
                   MySizedBox.h3,
                   SurNameFieldRegister(),
                   MySizedBox.h3,
-                  PhoneFieldRegister(),
+                  PhoneFieldRegister(
+                    controller: MaskedTextController.app(),
+                  ),
                   MySizedBox.h3,
                   EmailFieldRegister(),
                   MySizedBox.h3,

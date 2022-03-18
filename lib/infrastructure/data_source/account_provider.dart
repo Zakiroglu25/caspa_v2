@@ -13,6 +13,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import '../../locator.dart';
 import '../../util/constants/text.dart';
+import '../../util/delegate/app_operations.dart';
 import 'tarif_provider.dart';
 
 // Package imports:
@@ -77,19 +78,14 @@ class AccountProvider {
         tax_number: tax_number,
         ware_house: 1);
 
-    llll("body: " + jsonEncode(body));
-
-    final headers = ApiKeys.header(token: token);
-    //final response =
-    //  await http.post(url, headers: headers, body: jsonEncode(body));
-    final response = await dioAuth.dio.post(api, data: body);
-    //  bbbb("huuhuhuh:"+response.body.toString() );
-    // //  final response =
-    // //      await dioA.dio .post(api, data: body);
+    final response = await dioAuth.dio.post(api,
+        data: body, options: Options(headers: {'Accept': "application/json"}));
     statusDynamic.statusCode = response.statusCode;
+    statusDynamic.data = response.data;
     if (response.statusCode == ResultKey.successCode) {
       statusDynamic.data = response.data;
     } else {
+      statusDynamic.data = response.data['errors'][0][0];
       eeee("updateAccountBody bad url :$api, response: ${response.data}");
     }
     return statusDynamic;

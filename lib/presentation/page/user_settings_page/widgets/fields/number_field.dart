@@ -8,13 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PhoneFieldUser extends StatelessWidget {
-  final TextEditingController? controller;
+  final TextEditingController controller;
 
-  PhoneFieldUser({this.controller});
+  PhoneFieldUser({required this.controller});
 
   //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller.text != null || controller.text != '') {
+      BlocProvider.of<UserCubit>(context).updatePhone(controller.text);
+    }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).phoneStream,
       builder: (context, snapshot) {
@@ -25,7 +28,7 @@ class PhoneFieldUser extends StatelessWidget {
           upperCase: true,
           controller: controller,
           textInputType: TextInputType.phone,
-          formatters: [PhoneNumberFormatter(with994: false)],
+          // formatters: [PhoneNumberFormatter(with994: false)],
           maxLenght: 15,
           //prefixIcon: Plus994(),
           textCapitalization: TextCapitalization.none,

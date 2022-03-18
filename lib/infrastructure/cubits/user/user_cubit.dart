@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/requset/register_request_model.dart';
@@ -126,11 +128,13 @@ class UserCubit extends Cubit<UserState> {
         Snack.positive(context: context, message: MyText.operationIsSuccess);
         emit(UserSuccess(response.data!));
       } else {
-        Snack.display(context: context, message: MyText.error);
+        final errors = response.data;
+        Snack.display(context: context, message: errors);
         emit(UserFailed(response.statusCode.toString()));
       }
     } catch (e, s) {
-      emit(UserFailed("Errorlari doshuyecem"));
+      Recorder.recordCatchError(e, s);
+      emit(UserFailed(MyText.error));
     }
   }
 
@@ -313,10 +317,13 @@ class UserCubit extends Cubit<UserState> {
       uPassMain.sink.add(value);
     }
     isUserInfoValid();
-    if (uPassSecond.hasValue && value != uPassSecond.value) {
-      uPassSecond.sink.addError(MyText.every_past_must_be_same);
-    } else
-      uPassSecond.sink.add(uPassSecond.value);
+    if (uPassSecond.hasValue) {
+      if (value != uPassSecond.value) {
+        uPassSecond.sink.addError(MyText.every_past_must_be_same);
+      } else {
+        uPassSecond.sink.add(uPassSecond.value);
+      }
+    }
   }
 
   bool get isMainPassInCorrect => (!uPassMain.hasValue ||

@@ -9,10 +9,25 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class PhoneFieldRegister extends StatelessWidget {
+import '../../../../../../util/formatter/masked_text_controller_phone.dart';
+
+class PhoneFieldRegister extends StatefulWidget {
   final TextEditingController? controller;
 
   PhoneFieldRegister({this.controller});
+
+  @override
+  State<PhoneFieldRegister> createState() => _PhoneFieldRegisterState();
+}
+
+class _PhoneFieldRegisterState extends State<PhoneFieldRegister> {
+  late TextEditingController? controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = MaskedTextController.app();
+  }
 
   //= new TextEditingController();
   @override
@@ -26,12 +41,12 @@ class PhoneFieldRegister extends StatelessWidget {
           hint: MyText.phone_number,
           upperCase: true,
           textInputType: TextInputType.phone,
-          formatters: [PhoneNumberFormatter()],
-          maxLenght: 14,
-          prefixIcon: Plus994(),
+          //formatters: [PhoneNumberFormatter()],
+          maxLenght: 15,
+          // prefixIcon: Plus994(),
           textCapitalization: TextCapitalization.none,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
+          controller: controller,
           onChanged: (value) =>
               BlocProvider.of<RegisterCubit>(context).updatePhone(value),
         );

@@ -26,10 +26,7 @@ class UserOperations {
       await _prefs.persistIsLoggedIn(true);
       await _prefs.persistFcmToken(fcmToken: fcmToken);
       if (locator.isRegistered(instance: await DioAuth.instance)) {
-        bbbb("zohhooo");
         locator.unregister(instance: await DioAuth.instance);
-        bbbb(
-            "abbbb: ${locator.isRegistered(instance: await DioAuth.instance)}");
       }
       locator.registerSingleton(await DioAuth.instance);
       final result = await AccountProvider.fetchUserInfo(token: accessToken);

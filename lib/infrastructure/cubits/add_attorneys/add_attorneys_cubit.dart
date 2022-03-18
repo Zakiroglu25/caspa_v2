@@ -12,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../../locator.dart';
-import '../../../util/formatter/phone_mask_formatter.dart';
+import '../../../util/formatter/masked_text_controller_phone.dart';
 import 'add_attorneys_state.dart';
 
 class AddAttorneysCubit extends Cubit<AddAttorneysState> {

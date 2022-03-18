@@ -25,6 +25,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
+  //bool registerActive = false;
 
   // set registerType(RegisterType value) {
   //   _registerType = value;
@@ -59,7 +60,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           email: uEmail.valueOrNull,
           password: uPassMain.value,
           password_confirmation: uPassSecond.value,
-          phone: AppOperations.formatNumber(phone.value),
+          phone: phone.valueOrNull,
           accept: 1,
           birthday: birthDate.valueOrNull,
           fin: fin.value,
@@ -319,9 +320,10 @@ class RegisterCubit extends Cubit<RegisterState> {
     if (value == null || value.isEmpty) {
       uPassSecond.value = '';
       uPassSecond.sink.addError(MyText.field_is_not_correct);
-    } else if (value != uPassMain.value) {
-      uPassSecond.sink.addError(MyText.every_past_must_be_same);
     } else {
+      if (uPassMain.hasValue && value != uPassMain.value) {
+        uPassSecond.sink.addError(MyText.every_past_must_be_same);
+      }
       uPassSecond.sink.add(value);
     }
     isUserInfoValid(registerType: _registerType);
@@ -425,6 +427,16 @@ class RegisterCubit extends Cubit<RegisterState> {
       birthDate.value == null ||
       birthDate.value.isEmpty);
 
+  //birthDate
+  final BehaviorSubject<bool> registerActive =
+      BehaviorSubject<bool>.seeded(false);
+
+  Stream<bool> get registerActiveeStream => registerActive.stream;
+
+  updateRegisterActivee(bool value) {
+    registerActive.sink.add(value);
+  }
+
   @override
   Future<void> close() {
     bbbb("hohoh");
@@ -440,6 +452,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     adress.close();
     checkbox.close();
     anbar.close();
+    registerActive.close();
     phone.close();
     return super.close();
   }
@@ -473,10 +486,12 @@ class RegisterCubit extends Cubit<RegisterState> {
           //  !isGenderIncorrect &&
           !isEmailIncorrect &&
           !isPhoneIncorrect) {
-        emit(RegisterButtonActive());
+        //  emit(RegisterButtonActive());
+        updateRegisterActivee(true);
         //   bbbb("---- true 4");
         return true;
       } else {
+        updateRegisterActivee(false);
         //bbbb("---- false 3");
         return false;
       }
@@ -497,10 +512,12 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isTaxNumberIncorrect &&
           !isCompanyNameIncorrect &&
           !isPhoneIncorrect) {
-        emit(RegisterButtonActive());
+        // emit(RegisterButtonActive());
+        updateRegisterActivee(true);
         //bbbb("---- true 1");
         return true;
       } else {
+        updateRegisterActivee(false);
         //bbbb("---- false 2");
         return false;
       }

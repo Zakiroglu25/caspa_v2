@@ -64,7 +64,8 @@ class MaskedTextController extends TextEditingController {
 
     this.updateText(this.text);
   }
-  MaskedTextController.app({String? text, this.mask = '(000) 000 00 00'})
+  MaskedTextController.app({String? text, this.mask = '(000)-000-00-00'})
+      //yuxardaki format deyise profil editde de deyisiklik olunmalidir
       : super(text: text) {
     this.translator = translator ?? MaskedTextController.getDefaultTranslator();
 

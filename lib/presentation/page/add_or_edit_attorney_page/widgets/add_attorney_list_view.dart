@@ -10,7 +10,7 @@ import 'package:caspa_v2/util/formatter/phone_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/src/provider.dart';
-import '../../../../util/formatter/phone_mask_formatter.dart';
+import '../../../../util/formatter/masked_text_controller_phone.dart';
 import 'fields/birthday_field.dart';
 import 'fields/id_serie_field.dart';
 import 'save_attorney_button.dart';

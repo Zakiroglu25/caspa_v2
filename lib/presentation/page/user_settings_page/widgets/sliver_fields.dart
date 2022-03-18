@@ -58,7 +58,7 @@ class SliverFields extends StatelessWidget {
             ),
             PhoneFieldUser(
               controller:
-                  StringOperations.stringToController(_prefs.user.phone),
+                  StringOperations.stringToControllerPhone(_prefs.user.phone),
             ),
             EmailFieldUser(
                 controller:

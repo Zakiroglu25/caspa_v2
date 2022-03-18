@@ -110,7 +110,6 @@ class LoginCubit extends Cubit<LoginState> {
         List<String> errors = response.data;
         Snack.display(context: context, message: errors[0]);
         emit(LoginError());
-        // result= MessageResponse.fromJson(response.data).message;
         eeee(
             "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.data)).message}");
       }

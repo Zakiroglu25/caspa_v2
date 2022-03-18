@@ -28,7 +28,7 @@ class PhoneFieldUser extends StatelessWidget {
           upperCase: true,
           controller: controller,
           textInputType: TextInputType.phone,
-          formatters: [PhoneNumberFormatter(with994: false)],
+          // formatters: [PhoneNumberFormatter(with994: false)],
           maxLenght: 15,
           //prefixIcon: Plus994(),
           textCapitalization: TextCapitalization.none,

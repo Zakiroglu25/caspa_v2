@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
@@ -126,7 +127,8 @@ class UserCubit extends Cubit<UserState> {
         Snack.positive(context: context, message: MyText.operationIsSuccess);
         emit(UserSuccess(response.data!));
       } else {
-        Snack.display(context: context, message: MyText.error);
+        final errors = response.data;
+        Snack.display(context: context, message: errors);
         emit(UserFailed(response.statusCode.toString()));
       }
     } catch (e, s) {

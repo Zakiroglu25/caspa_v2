@@ -66,6 +66,7 @@ class MyText {
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
   static const String phone_number = "Telefon nömrəsi";
+  static const String phone_example = "(070)-XXX-XX-XX";
   static const String note = "Qeyd";
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";

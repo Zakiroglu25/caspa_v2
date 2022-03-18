@@ -40,11 +40,6 @@ class ReportPage extends StatelessWidget {
       body: SafeArea(
         child: BlocListener<ReportCubit, ReportState>(
           listener: (context, state) {
-            if (state is ReportInProgress) {
-              FullScreenLoading.display(context);
-            } else {
-              FullScreenLoading.hide(context);
-            }
             if (state is ReportError) {
               if (state.error != null) {
                 Snack.display(

@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
@@ -67,7 +68,7 @@ class ReportProvider {
       });
     }
 
-    log(invoice.toString()+"salam");
+    log(invoice.toString() + "salam");
 
     // await MultipartFile.fromFile(
     //   invoice!.path,
@@ -79,11 +80,13 @@ class ReportProvider {
       log(response.toString());
       statusDynamic.statusCode = response.statusCode;
       bbbb("report st code: " + statusDynamic.statusCode.toString());
-    }).catchError((error) => print(error));
+    }).catchError((e, s) {
+      statusDynamic.statusCode = (e as DioError).response?.statusCode;
+      Recorder.recordCatchError(e, s);
+    });
 
     if (statusDynamic.statusCode == ResultKey.successCode) {
       // statusDynamic.data=response['message'];
-
 
     } else {
       statusDynamic.data = MyText.reportIsNotAdded;

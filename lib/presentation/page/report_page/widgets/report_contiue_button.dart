@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/report/report_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
@@ -13,6 +14,7 @@ class ReportContiueButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CaspaButton(
+      loading: (context.watch<ReportCubit>().state is ReportInProgress),
       text: MyText.goOn,
       // isButtonActive: () => context.read<ReportCubit>().report(),
       onTap: () => context.read<ReportCubit>().report(context, id: package?.id),

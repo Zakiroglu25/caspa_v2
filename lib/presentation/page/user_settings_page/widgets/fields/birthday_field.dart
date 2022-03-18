@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/field_c_lear_button.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -10,13 +9,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 class BirthdayFieldUser extends StatelessWidget {
-   TextEditingController controller ;
-
+  TextEditingController controller;
 
   BirthdayFieldUser({required this.controller});
 
   @override
   Widget build(BuildContext context) {
+    if (controller.text != null || controller.text != '') {
+      BlocProvider.of<UserCubit>(context).updateBirthDate(controller.text);
+    }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).birthDateStream,
       builder: (context, snapshot) {
@@ -29,12 +30,13 @@ class BirthdayFieldUser extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull??controller.text,
+            BlocProvider.of<UserCubit>(context).birthDate.valueOrNull ??
+                controller.text,
             onTap: () =>
-              BlocProvider.of<UserCubit>(context).updateBirthDate(''),
+                BlocProvider.of<UserCubit>(context).updateBirthDate(''),
             controller: controller,
           ),
-         // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
+          // errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           onTap: () {
             _openDatePicker(context, controller, null);
           },

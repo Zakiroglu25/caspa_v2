@@ -7,11 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CardIdFieldUser extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController controller;
 
-  CardIdFieldUser({this.controller}); //= new TextEditingController();
+  CardIdFieldUser({required this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller.text != null || controller.text != '') {
+      BlocProvider.of<UserCubit>(context).updateIdNumber(controller.text);
+    }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).idNumberStream,
       builder: (context, snapshot) {
@@ -23,7 +26,7 @@ class CardIdFieldUser extends StatelessWidget {
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.characters,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-          //  controller: controller,
+          controller: controller,
           onChanged: (value) =>
               BlocProvider.of<UserCubit>(context).updateIdNumber(value),
         );

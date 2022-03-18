@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EmailFieldUser extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController controller;
 
-  EmailFieldUser({this.controller}); //=//= new TextEditingController();
+  EmailFieldUser(
+      {required this.controller}); //=//= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    if (controller.text != null || controller.text != '') {
+      BlocProvider.of<UserCubit>(context).updateEmail(controller.text);
+    }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).emailStream,
       builder: (context, snapshot) {

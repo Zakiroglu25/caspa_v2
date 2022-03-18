@@ -82,7 +82,8 @@ class AccountProvider {
     final headers = ApiKeys.header(token: token);
     //final response =
     //  await http.post(url, headers: headers, body: jsonEncode(body));
-    final response = await dioAuth.dio.post(api, data: body);
+    final response = await dioAuth.dio.post(api,
+        data: body, options: Options(headers: {'Accept': "application/json"}));
     //  bbbb("huuhuhuh:"+response.body.toString() );
     // //  final response =
     // //      await dioA.dio .post(api, data: body);

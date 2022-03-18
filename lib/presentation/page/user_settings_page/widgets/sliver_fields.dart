@@ -21,6 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import 'fields/anbar_field.dart';
+import 'fields/cardIdField.dart';
 import 'fields/company_field.dart';
 import 'fields/tax_field.dart';
 
@@ -69,6 +70,9 @@ class SliverFields extends StatelessWidget {
             FinFieldUser(
                 controller:
                     StringOperations.stringToController(_prefs.user.fin)),
+            CardIdFieldUser(
+                controller:
+                    StringOperations.stringToController(_prefs.user.idNumber)),
             // AnbarFieldUser(),
             TaxFieldUser(),
             CompanyFieldUser(),

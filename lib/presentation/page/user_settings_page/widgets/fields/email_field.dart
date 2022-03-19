@@ -10,9 +10,14 @@ class EmailFieldUser extends StatelessWidget {
   EmailFieldUser({this.controller}); //=//= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // if(controller!.text != '' && controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateEmail(controller!.text);
+    // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).emailStream,
       builder: (context, snapshot) {
+
+
         return CaspaField(
           title: MyText.email,
           maxLines: 1,

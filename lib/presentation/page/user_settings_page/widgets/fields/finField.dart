@@ -9,14 +9,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class FinFieldUser extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   FinFieldUser({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // if(controller!.text != '' && controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateFin(controller!.text);
+    // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).finStream,
       builder: (context, snapshot) {
+
         return CaspaField(
           title: MyText.fin,
           maxLines: 1,

@@ -15,9 +15,14 @@ class PhoneFieldUser extends StatelessWidget {
   //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // if(controller!.text != '' && controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updatePhone(controller!.text);
+    // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).phoneStream,
       builder: (context, snapshot) {
+
+
         return CaspaField(
           title: MyText.phone_number,
           maxLines: 1,

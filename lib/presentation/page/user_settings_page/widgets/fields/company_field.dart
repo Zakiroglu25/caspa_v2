@@ -15,6 +15,9 @@ class CompanyFieldUser extends StatelessWidget {
   CompanyFieldUser({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // if(controller!.text != '' && controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateCompanyName(controller!.text);
+    // }
     return WidgetOrEmpty(
       value: _prefs.user.companyName != null &&
           _prefs.user.companyName!.isNotEmpty,

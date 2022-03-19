@@ -71,7 +71,7 @@ class SliverFields extends StatelessWidget {
                     StringOperations.stringToController(_prefs.user.fin)),
             // AnbarFieldUser(),
             TaxFieldUser(),
-            CompanyFieldUser(),
+            // CompanyFieldUser(),
             AdressFieldUser(
                 controller:
                     StringOperations.stringToController(_prefs.user.address)),

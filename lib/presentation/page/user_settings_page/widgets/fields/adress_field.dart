@@ -12,6 +12,11 @@ class AdressFieldUser extends StatelessWidget {
   AdressFieldUser({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+
+  // if(controller!.text != '' && controller!.text != null){
+  //     BlocProvider.of<UserCubit>(context).updateAdress(controller!.text);
+  //   }
+
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).adressStream,
       builder: (context, snapshot) {

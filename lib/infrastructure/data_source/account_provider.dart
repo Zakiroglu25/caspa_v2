@@ -61,7 +61,7 @@ class AccountProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.updateAccount;
-    //var url = Uri.parse(api);
+    var url = Uri.parse(api);
     final body = ApiKeys.updateAccountBody(
         address: address,
         language: language,
@@ -80,17 +80,17 @@ class AccountProvider {
     llll("body: " + jsonEncode(body));
 
     final headers = ApiKeys.header(token: token);
-    //final response =
-    //  await http.post(url, headers: headers, body: jsonEncode(body));
-    final response = await dioAuth.dio.post(api, data: body);
+    final response =
+      await http.post(url, headers: headers, body: jsonEncode(body));
+    // final response = await dioAuth.dio.post(api, data: body);
     //  bbbb("huuhuhuh:"+response.body.toString() );
     // //  final response =
     // //      await dioA.dio .post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
-      statusDynamic.data = response.data;
+      statusDynamic.data = response.body;
     } else {
-      eeee("updateAccountBody bad url :$api, response: ${response.data}");
+      eeee("updateAccountBody bad url :$api, response: ${response.body}");
     }
     return statusDynamic;
   }

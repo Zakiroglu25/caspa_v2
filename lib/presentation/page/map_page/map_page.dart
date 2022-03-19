@@ -81,7 +81,7 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       appBar: CaspaAppbar(
         user: false,
-        title: "Xerite",
+        title: "Xəritə",
         notification: false,
         contextA: context,
       ),

@@ -21,6 +21,9 @@ class _MainPassFieldUserState extends State<MainPassFieldUser> {
 
   @override
   Widget build(BuildContext context) {
+    // if(widget.controller!.text != '' && widget.controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateFin(widget.controller!.text);
+    // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).passMainStream,
       builder: (context, snapshot) {

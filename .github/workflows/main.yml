@@ -20,7 +20,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.2.0'
+          flutter-version: '2.10.0'
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk --debug --split-per-abi
@@ -37,7 +37,7 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/debug/*,build/ios/iphoneos/app.ipa"
           tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.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 }}
+          token: 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
 
 
 

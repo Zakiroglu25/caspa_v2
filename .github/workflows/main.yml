@@ -3,6 +3,7 @@ on:
     branches:
       - main
       - master
+      - sohrab
   push:
     branches:
       - main

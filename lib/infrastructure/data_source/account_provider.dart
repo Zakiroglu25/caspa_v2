@@ -30,7 +30,7 @@ class AccountProvider {
     final header = ApiKeys.header(token: token);
 
     final response =
-        await dioAuth.dio.get(api, options: Options(headers: header));
+    await dioAuth.dio.get(api, options: Options(headers: header));
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

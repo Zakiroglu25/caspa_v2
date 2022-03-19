@@ -19,39 +19,44 @@ class AdsDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false ,
+          backgroundColor: MyColors.white,
+          elevation: 0,
+          title: Text("Xəbərlər",
+              style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.clear,
+                    color: MyColors.black,
+                  )),
+            ),
+          ],
+        ),
         body: ListView(
           children: [
-            MySizedBox.h16,
-            Stack(
-              children: [
-                Center(
-                  child: Text("Xəbərlər",
-                      style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
-                ),
-                Positioned(
-                  right: 16,
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Icon(Icons.clear)),
-                ),
-              ],
-            ),
             MySizedBox.h16,
             Image.network(
               hList.image.toString(),
             ),
             MySizedBox.h16,
             Padding(
-              padding: const EdgeInsets.fromLTRB(16,16,16,12),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
               child: Text("${hList.title}",
                   style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
             ),
             Padding(
-              padding:const EdgeInsets.fromLTRB(16,16,16,0),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
               child: Text("${hList.description}",
-                  style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
+                  style:
+                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
             ),
             MySizedBox.h14,
           ],

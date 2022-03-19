@@ -52,7 +52,6 @@ class CourierOrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final courierCcubit = context.read<CourierCubit>();
-    bbbb('ccccc: ${courierCcubit.selectedOrdersId.value}');
 
     return Scaffold(
         appBar: CaspaAppbar(

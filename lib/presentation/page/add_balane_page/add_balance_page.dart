@@ -74,9 +74,14 @@ class AddBalancePage extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              bbbb("url:  ${state}");
               if (state is PaymentBalanceUrlFetched) {
-                return Container();
+                return WebviewPage(
+                  url: state.url,
+                  mainContext: context,
+                  whenSuccess: () => context
+                      .read<PaymentBalanceCubit>()
+                      .paymentSuccess(context),
+                );
               } else {
                 return Stack(
                   children: [

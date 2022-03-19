@@ -33,9 +33,6 @@ class BusinessRegisterTab extends StatelessWidget {
           return true;
       },
       listener: (context, state) {
-        if (state is RegisterLoading) {
-          FullScreenLoading.display(context, text: MyText.processing);
-        }
         if (state is RegisterError) {
           Snack.display(
               context: context, message: state.message ?? MyText.error);

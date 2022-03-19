@@ -12,7 +12,8 @@ class FullScreenLoading {
   static BuildContext? context;
   static String? text;
 
-  static void display(BuildContext context, {String? text}) {
+  static void display(BuildContext context,
+      {String? text, bool autoHide = false}) {
     FullScreenAlert.of(context).show(
         widget: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +43,7 @@ class FullScreenLoading {
             ),
           ],
         ),
-        hideAuto: true,
+        hideAuto: autoHide,
         backColor: MyColors.white70);
   }
 

@@ -24,23 +24,19 @@ class UserSettingsPage extends StatelessWidget {
         user: false,
       ),
       body: SafeArea(
-        child: BlocBuilder<UserCubit, UserState>(
-          builder: (context, state) {
-            return Stack(
-              children: [
-                CustomScrollView(
-                  physics: Physics.alwaysBounce,
-                  slivers: [
-                    SliverUserPhoto(),
-                    SliverFields(),
-                  ],
-                ),
-                PositionedTopFade(),
-                PositionedBottomFade(),
-                SaveButton()
+        child: Stack(
+          children: [
+            CustomScrollView(
+              physics: Physics.alwaysBounce,
+              slivers: [
+                SliverUserPhoto(),
+                SliverFields(),
               ],
-            );
-          },
+            ),
+            PositionedTopFade(),
+            PositionedBottomFade(),
+            SaveButton()
+          ],
         ),
       ),
     );

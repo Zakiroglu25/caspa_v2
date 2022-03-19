@@ -12,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../../locator.dart';
+import '../../../util/formatter/masked_text_controller_phone.dart';
 import 'add_attorneys_state.dart';
 
 class AddAttorneysCubit extends Cubit<AddAttorneysState> {
@@ -21,7 +22,7 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
 
   final full_name_controller = TextEditingController();
   final father_name_controller = TextEditingController();
-  final phone_controller = TextEditingController();
+  final phone_controller = MaskedTextController.app();
   final id_number_controller = TextEditingController();
   final fin_controller = TextEditingController();
   final note_controller = TextEditingController();
@@ -32,8 +33,10 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
       final result = await AttorneyProvider.addAttorneys(
         full_name: full_name_controller.text,
         father_name: father_name_controller.text,
-        phone:
-            AppOperations.formatNumber(phone_controller.text, addZero: false),
+        phone: AppOperations.formatNumber(
+          phone_controller.text,
+          addZero: false,
+        ),
         id_ext: serieType.valueOrNull,
         id_number: id_number_controller.text,
         fin: fin_controller.text,
@@ -129,15 +132,12 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
     // TODO: implement close
     birthDate.close();
     serieType.close();
-
-    // final full_name_controller = TextEditingController();
-    // final father_name_controller = TextEditingController();
-    // final phone_controller = TextEditingController();
-    //
-    // final id_number_controller = TextEditingController();
-    // final fin_controller = TextEditingController();
-    //
-    // final note_controller = TextEditingController();
+    full_name_controller.dispose();
+    father_name_controller.dispose();
+    phone_controller.dispose();
+    id_number_controller.dispose();
+    fin_controller.dispose();
+    note_controller.dispose();
     return super.close();
   }
 }

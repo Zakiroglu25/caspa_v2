@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../formatter/masked_text_controller_phone.dart';
+
 class StringOperations {
   //youtube
   static String idToIMG(String id) {
@@ -120,6 +122,10 @@ class StringOperations {
   static TextEditingController stringToController(String? string) {
     return TextEditingController.fromValue(
         TextEditingValue(text: (string) ?? ""));
+  }
+
+  static TextEditingController stringToControllerPhone(String? string) {
+    return MaskedTextController.app(text: (string) ?? "");
   }
 
   static String idSerieFromFullId(String string) {

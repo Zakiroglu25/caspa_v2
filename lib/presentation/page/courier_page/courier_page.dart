@@ -48,7 +48,7 @@ class CourierPage extends StatelessWidget {
             if (state is CourierableFetched) {
               final packageList = state.packageList;
               final regionsList = state.regionList;
-              return CourierListView(
+              return CourierPageListView(
                 packageList: packageList,
                 regionList: regionsList,
                 courierOrder: courierOrder,

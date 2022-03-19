@@ -13,17 +13,18 @@ import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../infrastructure/models/remote/response/courier_orders_model.dart';
+import '../../../../util/formatter/masked_text_controller_phone.dart';
 import 'courier_continue_button.dart';
 import 'fields/adress_field.dart';
 import 'fields/number_field.dart';
 import 'fields/region_field.dart';
 import 'order_list.dart';
 
-class CourierListView extends StatelessWidget {
+class CourierPageListView extends StatelessWidget {
   final List<Package>? packageList;
   final List<Region>? regionList;
   final CourierOrder? courierOrder;
-  CourierListView(
+  CourierPageListView(
       {required this.packageList, required this.regionList, this.courierOrder});
 
   @override
@@ -53,7 +54,7 @@ class CourierListView extends StatelessWidget {
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,
                 PhoneFieldCourier(
-                  controller: TextEditingController(
+                  controller: MaskedTextController.app(
                       text:
                           "${AppOperations.formatNumber(courierOrder?.phone, addZero: false, fromSpaceToLine: false)}"),
                 ),

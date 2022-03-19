@@ -1,4 +1,3 @@
-
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -7,16 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdressFieldUser extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController controller;
 
-  AdressFieldUser({this.controller}); //= new TextEditingController();
+  AdressFieldUser({required this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-
-  // if(controller!.text != '' && controller!.text != null){
-  //     BlocProvider.of<UserCubit>(context).updateAdress(controller!.text);
-  //   }
-
+    if (controller.text != null || controller.text != '') {
+      BlocProvider.of<UserCubit>(context).updateAdress(controller.text);
+    }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).adressStream,
       builder: (context, snapshot) {
@@ -28,7 +25,7 @@ class AdressFieldUser extends StatelessWidget {
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-            controller: controller,
+          controller: controller,
           onChanged: (value) =>
               BlocProvider.of<UserCubit>(context).updateAdress(value),
         );

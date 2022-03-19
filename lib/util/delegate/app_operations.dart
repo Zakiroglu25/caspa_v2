@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -66,6 +67,8 @@ class AppOperations {
     errorList.forEach((e) {
       esilErrorList.add(e[0]);
     });
+
+    bbbb("jbhjk: $esilErrorList");
 
     return esilErrorList;
   }

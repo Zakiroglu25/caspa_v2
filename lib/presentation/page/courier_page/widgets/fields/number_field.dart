@@ -26,7 +26,7 @@ class PhoneFieldCourier extends StatelessWidget {
           hint: MyText.phone_number,
           upperCase: true,
           textInputType: TextInputType.phone,
-          formatters: [PhoneNumberFormatter(with994: false)],
+          // formatters: [PhoneNumberFormatter(with994: false)],
           maxLenght: 15,
           //prefixIcon: Plus994(),
           textCapitalization: TextCapitalization.none,

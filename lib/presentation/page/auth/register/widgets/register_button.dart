@@ -19,14 +19,17 @@ class RegisterButton extends StatelessWidget {
       bottom: 20,
       left: 16,
       right: 16,
-      child: CaspaButton(
-        isButtonActive: context
-            .watch<RegisterCubit>()
-            .isUserInfoValid(registerType: registerType),
-        loading: (context.watch<RegisterCubit>().state is RegisterLoading),
-        text: MyText.registration,
-        onTap: () => context.read<RegisterCubit>().register(context),
-      ),
+      child: StreamBuilder<bool>(
+          stream: BlocProvider.of<RegisterCubit>(context).registerActiveeStream,
+          builder: (context, snapshot) {
+            return CaspaButton(
+              isButtonActive: snapshot.data,
+              loading:
+                  (context.watch<RegisterCubit>().state is RegisterLoading),
+              text: MyText.registration,
+              onTap: () => context.read<RegisterCubit>().register(context),
+            );
+          }),
     );
   }
 }

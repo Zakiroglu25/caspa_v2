@@ -132,76 +132,74 @@ class Snack {
       backgroundColor: Colors.transparent,
       behavior: SnackBarBehavior.floating,
       padding: const EdgeInsets.only(right: 0),
-      content: BounceInUp(
-        child: Container(
-          decoration: BoxDecoration(
+      content: Container(
+        decoration: BoxDecoration(
+            //color: MyColors.mainColor,
+            color: (positive!) ? color : MyColors.errorRED,
+            // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
+            borderRadius: BorderRadius.circular(10)),
+        height: 50.sp,
+        // height: 60.sp,
+        child: Stack(
+          fit: StackFit.loose,
+          children: [
+            Container(
               //color: MyColors.mainColor,
-              color: (positive!) ? color : MyColors.errorRED,
-              // gradient: (positive??false) ? Gradients.gBlues : Gradients.gReds,
-              borderRadius: BorderRadius.circular(10)),
-          height: 50.sp,
-          // height: 60.sp,
-          child: Stack(
-            fit: StackFit.loose,
-            children: [
-              Container(
-                //color: MyColors.mainColor,
-                //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
-                padding: EdgeInsets.only(
-                    left: (!positive || showSuccessIcon) ? 40 : 16,
-                    right: (!positive || showSuccessIcon) ? 40 : 16),
-                child: Center(
-                  child: Text(
-                    message ?? 'error_during_operation',
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: !showSuccessIcon ? 14.sp : 14.sp),
-                    overflow: TextOverflow.ellipsis,
-                  ),
+              //margin: EdgeInsets.only(left: (!positive || showSuccessIcon)?50:16),
+              padding: EdgeInsets.only(
+                  left: (!positive || showSuccessIcon) ? 40 : 16,
+                  right: (!positive || showSuccessIcon) ? 40 : 16),
+              child: Center(
+                child: Text(
+                  message ?? 'error_during_operation',
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: !showSuccessIcon ? 14.sp : 14.sp),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: WidgetOrEmpty(
-                      value: (!positive),
-                      elseChild: WidgetOrEmpty(
-                        value: showSuccessIcon,
-                        child: Container(
-                          width: 28,
-                          child: Row(
-                            children: [
-                              Flash(
-                                  child: const Icon(
-                                Icons.check_sharp,
-                                color: Colors.white,
-                              )),
-                              //    MySizedBox.w16,
-                            ],
-                          ),
-                        ),
-                      ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: WidgetOrEmpty(
+                    value: (!positive),
+                    elseChild: WidgetOrEmpty(
+                      value: showSuccessIcon,
                       child: Container(
                         width: 28,
                         child: Row(
                           children: [
                             Flash(
                                 child: const Icon(
-                              Icons.error_outline_sharp,
+                              Icons.check_sharp,
                               color: Colors.white,
                             )),
-                            //     MySizedBox.w8,
+                            //    MySizedBox.w16,
                           ],
                         ),
-                      )),
-                ),
-              )
-            ],
-          ),
+                      ),
+                    ),
+                    child: Container(
+                      width: 28,
+                      child: Row(
+                        children: [
+                          Flash(
+                              child: const Icon(
+                            Icons.error_outline_sharp,
+                            color: Colors.white,
+                          )),
+                          //     MySizedBox.w8,
+                        ],
+                      ),
+                    )),
+              ),
+            )
+          ],
         ),
       ),
     );

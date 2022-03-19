@@ -213,10 +213,10 @@ class _WebviewPageState extends State<WebviewPage> {
                 },
                 onLoadStop: (controller, url) async {
                   pullToRefreshController.endRefreshing();
-                  setState(() {
-                    this.url = url.toString();
-                    urlController.text = this.url;
-                  });
+                  //setState(() {
+                  this.url = url.toString();
+                  urlController.text = this.url;
+                  //});
                 },
                 onLoadError: (controller, url, code, message) {
                   print("-- mmessage: " + message.toUpperCase());

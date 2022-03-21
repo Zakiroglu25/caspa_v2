@@ -1,5 +1,5 @@
 // Flutter imports:
-import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
+
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';

@@ -34,9 +34,9 @@ class OrderBox extends StatelessWidget {
               style: UITextStyle.tW600Black.copyWith(fontSize: 16.sp),
             ),
             Spacer(),
-            EditButton(
-              onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
-            ),
+            // EditButton(
+            //   onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
+            // ),
             MySizedBox.w10,
             DeleteButton(
                 onTap: () => Alert.show(context,

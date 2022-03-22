@@ -8,13 +8,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../locator.dart';
 
 class TaxFieldUser extends StatelessWidget {
-  final TextEditingController? controller;
+  final  controller;
 
   HiveService get _prefs => locator<HiveService>();
 
   TaxFieldUser({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // if(controller!.text != '' && controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateTaxNumber(controller!.text);
+    // }
     return WidgetOrEmpty(
       value: _prefs.user.taxNumber != null && _prefs.user.taxNumber!.isNotEmpty,
       child: StreamBuilder<String>(

@@ -1,6 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';

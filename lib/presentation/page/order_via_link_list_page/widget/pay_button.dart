@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../../../infrastructure/models/remote/response/link_order_model.dart';
+import '../../../../infrastructure/services/hive_service.dart';
+import '../../../../locator.dart';
 import '../../../../util/constants/assets.dart';
 import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/text.dart';
@@ -15,7 +17,10 @@ import '../../../../widget/general/caspa_radio.dart';
 class PayButton extends StatelessWidget {
   const PayButton({Key? key, required this.order}) : super(key: key);
   final LinkOrder order;
+
   @override
+  HiveService get _prefs => locator<HiveService>();
+
   Widget build(BuildContext context) {
     return Positioned(
         bottom: 35,
@@ -37,8 +42,8 @@ class PayButton extends StatelessWidget {
                       .orderMakePayment(id: order.id!, context: context),
                   image: Image.asset(
                     Assets.linkGirl,
-                    width: 100,
-                    height: 100,
+                    width: 140,
+                    height: 140,
                   ),
                   content: StreamBuilder(
                     stream: BlocProvider.of<PackageDetailsCubit>(context)
@@ -49,11 +54,17 @@ class PayButton extends StatelessWidget {
                         padding: Paddings.paddingV12,
                         children: [
                           buildCaspaRadio(context, snapShoot,
-                              value: MyText.fromBalance),
+                              value: MyText.fromBalance +
+                                  " (" +
+                                  "${_prefs.user.cargoBalance}" +
+                                  ")\$"),
                           buildCaspaRadio(context, snapShoot,
                               value: MyText.byCard),
                           buildCaspaRadio(context, snapShoot,
-                              value: MyText.fromCashback),
+                              value: MyText.fromCashback +
+                                  " (" +
+                                  "${_prefs.user.cashback_balance}" +
+                                  ")"),
                           // buildCaspaRadio(context, snapShoot,
                           //     value: MyText.withPromoCode),
                         ],

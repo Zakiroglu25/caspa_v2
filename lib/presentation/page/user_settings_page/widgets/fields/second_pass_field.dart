@@ -8,7 +8,7 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SecondPassFieldUser extends StatefulWidget {
-  final controller;
+  final  controller;
 
   SecondPassFieldUser({this.controller});
 
@@ -21,6 +21,9 @@ class _SecondPassFieldUserState extends State<SecondPassFieldUser> {
 
   @override
   Widget build(BuildContext context) {
+    // if(widget.controller!.text != '' && widget.controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateMainPass(widget.controller!.text);
+    // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).passSecondStream,
       builder: (context, snapshot) {

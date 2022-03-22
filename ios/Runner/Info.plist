@@ -26,10 +26,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>App need gallery permission for select report photo of product</string>
 	<key>NSCameraUsageDescription</key>
 	<string>App need camera permission for select user photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App need gallery permission for select report photo of product</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

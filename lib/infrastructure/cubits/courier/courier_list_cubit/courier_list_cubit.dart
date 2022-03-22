@@ -13,6 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../locator.dart';
 import '../../../../util/constants/text.dart';
+import '../../../../util/delegate/navigate_utils.dart';
 import '../../../data_source/package_provider.dart';
 import '../../../models/remote/response/courier_orders_model.dart';
 import '../../../models/remote/response/packages_data.dart';
@@ -29,15 +30,12 @@ class CourierListCubit extends Cubit<CourierListState> {
       emit(CourierListInProgress());
     }
     try {
-      log("1 cubit");
       final result = await CourierProvider.fetchCourier();
       final resultPackages = await PackageProvider.fetchPackagesForCourier();
       if (isSuccess(result?.statusCode)) {
-        log("2 cubit");
         emit(CourierListSuccess(
             courierList: result!.data, packageList: resultPackages.data));
       } else {
-        log("3 cubit");
         emit(CourierListError());
         eeee(
             "login result bad: ${ResponseMessage.fromJson(jsonDecode(result!.data)).message}");
@@ -46,13 +44,16 @@ class CourierListCubit extends Cubit<CourierListState> {
       //network olacaq
       emit(CourierListNetworkError());
     } catch (e) {
-      log("4 cubit");
       eeee("shop cubit catch: $e");
       emit(CourierListError(error: e.toString()));
     }
   }
 
-  void delete(int? id, {bool loading = true}) async {
+  void delete(
+    BuildContext context,
+    int? id, {
+    bool loading = true,
+  }) async {
     if (loading) {
       emit(CourierListInEditing());
     }
@@ -74,6 +75,7 @@ class CourierListCubit extends Cubit<CourierListState> {
     } catch (e) {
       emit(CourierListError(error: MyText.error + " " + e.toString()));
     }
+    Go.pop(context);
 
     //user/attorneys/delete
   }

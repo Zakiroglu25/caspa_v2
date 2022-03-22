@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/caspa_payment_radio.dart';
 import 'package:flutter/material.dart';
+import 'package:focus_detector/focus_detector.dart';
 import '../../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
 import '../../../infrastructure/models/remote/response/packages_data.dart';
@@ -51,8 +52,6 @@ class CourierOrdersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final courierCcubit = context.read<CourierCubit>();
-
     return Scaffold(
         appBar: CaspaAppbar(
           title: MyText.confirm,

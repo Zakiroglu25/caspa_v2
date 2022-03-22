@@ -19,7 +19,7 @@ class CourierListView extends StatelessWidget {
   final List<CourierOrder> courierList;
   final List<Package> packages;
 
-  CourierListView(this.courierList,this.packages);
+  CourierListView(this.courierList, this.packages);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class CourierListView extends StatelessWidget {
         list: courierList,
         child: ListView.builder(
           itemCount: courierList.length,
-          padding: Paddings.paddingA16,
+          padding: Paddings.paddingA16 + Paddings.paddingB100,
           itemBuilder: (context, index) {
             return CourierUnicorn(
               courier: courierList[index],

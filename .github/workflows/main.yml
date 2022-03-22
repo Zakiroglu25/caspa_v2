@@ -3,12 +3,10 @@ on:
     branches:
       - main
       - master
-      - sohrab
   push:
     branches:
       - main
       - master
-      - sohrab
       - develop
 name: "Build & Release"
 jobs:

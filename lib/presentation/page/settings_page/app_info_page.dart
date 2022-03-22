@@ -37,13 +37,13 @@ class AppInfoPage extends StatelessWidget {
             SvgPicture.asset(Assets.svgCaspaLogoWithName),
             MySizedBox.h30,
             Text(
-              "Locale Version: 0.0.1",
+              "Locale Version: 1.0.0",
               style: AppTextStyles.sanF400
                   .copyWith(color: Colors.white, fontSize: 14.sp),
             ),
             MySizedBox.h20,
             Text(
-              "© 2020-2021 Caspa LLC",
+              "© 2020-2022 Caspa LLC",
               style: AppTextStyles.sanF400
                   .copyWith(color: Colors.white, fontSize: 14.sp),
             ),

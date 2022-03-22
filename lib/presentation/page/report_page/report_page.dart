@@ -90,11 +90,11 @@ class ReportPage extends StatelessWidget {
                   url: package?.invoice,
                 ),
                 MySizedBox.h12,
-                Text(
-                  MyText.facturaText,
-                  style:
-                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
-                ),
+                // Text(
+                //   MyText.facturaText,
+                //   style:
+                //       AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+                // ),
                 MySizedBox.h24,
                 ReportContiueButton(package: package),
                 MySizedBox.h40,

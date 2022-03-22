@@ -16,19 +16,17 @@ import 'fields/id_serie_field.dart';
 import 'save_attorney_button.dart';
 
 class AddOrEditFieldsAttorneyListView extends StatelessWidget {
-  Attorney? attorney;
+  final Attorney? attorney;
 
   AddOrEditFieldsAttorneyListView({this.attorney});
-  var maskedController = MaskedTextController(mask: '(000) 000-0000');
 
-  final TextEditingController birthdayController = TextEditingController();
-
+  TextEditingController birthdayController = TextEditingController();
+  bool first = true;
   @override
   Widget build(BuildContext context) {
     final addAttorneysCubit = context.watch<AddAttorneysCubit>();
-    if (attorney != null) {
-      bbbb("pppppp:  ${attorney}");
-      //  bbbb("pppppp:  ${attorney!.phone}");
+
+    if (attorney != null && first) {
       addAttorneysCubit.fin_controller.text = attorney!.fin!;
       addAttorneysCubit.birthDate.sink.add(attorney!.birthday!);
       addAttorneysCubit.full_name_controller.text = attorney!.fullName!;
@@ -39,6 +37,7 @@ class AddOrEditFieldsAttorneyListView extends StatelessWidget {
           .add(StringOperations.idSerieFromFullId(attorney!.idNumber!));
       addAttorneysCubit.father_name_controller.text = attorney!.fatherName!;
       addAttorneysCubit.note_controller.text = "";
+      first = false;
     }
     return ListView(
       padding: Paddings.paddingA16,

@@ -62,7 +62,7 @@ class CourierListPage extends StatelessWidget {
           } else {
             return FocusDetector(
               onFocusGained: () {
-                context.read<CourierListCubit>()..fetch(false);
+                context.read<CourierListCubit>().fetch(false);
               },
               child: BlocConsumer<CourierListCubit, CourierListState>(
                 listener: (c, state) {

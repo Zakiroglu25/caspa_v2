@@ -28,10 +28,7 @@ class AddOrEditEtibarnamePage extends StatelessWidget {
       body: SafeArea(
         child: BlocListener<AddAttorneysCubit, AddAttorneysState>(
           listener: (context, state) {
-            if (state is AddAttorneysInProgress) {
-              FullScreenLoading.display(context);
-            } else if (state is AddAttorneysSuccess ||
-                state is AddAttorneysEdited) {
+            if (state is AddAttorneysSuccess || state is AddAttorneysEdited) {
               Go.pop(context);
               Snack.display(
                   context: context,

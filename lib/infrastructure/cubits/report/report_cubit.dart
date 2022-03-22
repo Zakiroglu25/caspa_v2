@@ -321,15 +321,16 @@ class ReportCubit extends Cubit<ReportState> {
   ////validation
   bool isUserInfoValid({int? id}) {
     // bbbb("ghghgh: $isSubCategoryIncorrect");
-    if (!isNoteIncorrect &&
+    if (
+        //!isNoteIncorrect &&
         !isSellerIncorrect &&
-        !isProductCountIncorrect &&
-        (!isImageIncorrect || id != null) &&
-        !isPriceIncorrect &&
-        !isPriceTypeIncorrect &&
-        !isTrackingIDIncorrect &&
-        !isSubCategoryIncorrect &&
-        !isCategoryIncorrect) {
+            !isProductCountIncorrect &&
+            (!isImageIncorrect || id != null) &&
+            !isPriceIncorrect &&
+            !isPriceTypeIncorrect &&
+            !isTrackingIDIncorrect &&
+            !isSubCategoryIncorrect &&
+            !isCategoryIncorrect) {
       return true;
     } else {
       return false;

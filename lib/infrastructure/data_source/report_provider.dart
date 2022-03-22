@@ -49,7 +49,7 @@ class ReportProvider {
         "tracking": tracking,
         "price": price,
         "currency": currency,
-        "note": note
+        "note": null
       };
     } else {
       data = FormData.fromMap({

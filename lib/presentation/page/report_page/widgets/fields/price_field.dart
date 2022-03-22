@@ -29,7 +29,7 @@ class PriceFieldReport extends StatelessWidget {
               DecimalTextInputFormatter(
                   activatedNegativeValues: false, decimalRange: 3)
             ],
-            textCapitalization: TextCapitalization.sentences,
+            textCapitalization: TextCapitalization.none,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
             controller: controller,
             onChanged: (value) =>

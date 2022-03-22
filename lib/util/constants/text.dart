@@ -390,7 +390,7 @@ class MyText {
 
   /// esas sehife text
   static const String homePageText =
-      "Kuryer xidmətinin keyfiyyəti ilə sizi təcübləndirəcəyimizə inanırıq 😎. Əyər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
+      "Kuryer xidmətinin keyfiyyəti ilə sizi təəccübləndirəcəyimizə inanırıq 😎. Əgər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: *1453";
 
   ///otherpage
   static const String emptyDesc =

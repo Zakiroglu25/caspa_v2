@@ -1,4 +1,3 @@
-import 'package:caspa_v2/infrastructure/cubits/active_package_cubit/active_package_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';

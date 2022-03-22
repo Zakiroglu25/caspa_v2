@@ -5,7 +5,6 @@ class Assets {
   static const String pngRocket = 'assets/png/rocket.png';
   static const String pngGlobus = "assets/png/globusv2.png";
   static const String pngBox = "assets/png/boxpng.png";
-  static const String homeHearth = "assets/png/heartHome.png";
   //static const String pngBox = "assets/png/boxpng.png";
   static const String pngSebet = 'assets/png/sebet.png';
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
@@ -13,7 +12,6 @@ class Assets {
   static const String pngMoto = 'assets/png/moto.png';
   static const String pngSucs = 'assets/png/sucs.png';
   static const String pngSad = 'assets/png/sad.png';
-  // static const String pngQifil = 'assets/png/qifil.png';
   static const String pngQifil = 'assets/png/bigkey.png';
   static const String pngPosTerminal = "assets/png/posterminal2.png";
   static const String pngEtibarname = "assets/png/etibar.png";
@@ -22,9 +20,7 @@ class Assets {
   static const String pngInstagram = "assets/png/instagram.png";
   static const String pngNote = "assets/png/note.png";
   static const String homeMoto = "assets/png/motoNewPng.png";
-  // static const String homeMoto = "assets/png/homeMoto.png";
 
-  static const String homeDino2 = "assets/png/dinov2.png";
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
   static const String news3 = "assets/png/news3.png";

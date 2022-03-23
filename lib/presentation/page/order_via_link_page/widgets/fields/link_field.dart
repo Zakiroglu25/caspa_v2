@@ -19,7 +19,7 @@ class LinkFieldOrderViaUrl extends StatelessWidget {
           title: MyText.link_of_order,
           maxLines: 1,
           hint: MyText.link_of_order,
-          upperCase: true,
+          upperCase: false,
           textInputType: TextInputType.name,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',

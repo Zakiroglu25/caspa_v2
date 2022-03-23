@@ -70,10 +70,13 @@ class OrderUnicorn extends StatelessWidget {
                   ],
                 ),
               ),
-              onPressed: (){
+              onPressed: () {
+                // Go.to(context, Pager.orderViaLink(order: order)
+                // ),
+              }
 
-              }),
 
+            ),
             MySizedBox.h20,
           ],
         ),

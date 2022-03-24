@@ -20,6 +20,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>INStartCallIntent</key>
+	<string>Start call to Company when you click</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>pulsesecure</string>
@@ -28,6 +30,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>App need camera permission for select user photo</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Always And In Use Permission</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App need gallery permission for select report photo of product</string>
 	<key>UIBackgroundModes</key>

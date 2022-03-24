@@ -1,4 +1,3 @@
-import 'package:caspa_v2/util/screen/errorable_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -44,9 +43,8 @@ class AdsDetailsPage extends StatelessWidget {
         body: ListView(
           children: [
             MySizedBox.h16,
-            ErrorableImage(
-              url: hList.image.toString(),
-
+            Image.network(
+              hList.image.toString(),
             ),
             MySizedBox.h16,
             Padding(

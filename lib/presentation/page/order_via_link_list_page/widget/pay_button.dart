@@ -12,6 +12,7 @@ import '../../../../util/screen/widget_or_empty.dart';
 import '../../../../widget/custom/buttons/caspa_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../widget/custom/caspa_payment_radio.dart';
 import '../../../../widget/general/caspa_radio.dart';
 
 class PayButton extends StatelessWidget {
@@ -53,18 +54,19 @@ class PayButton extends StatelessWidget {
                         shrinkWrap: true,
                         padding: Paddings.paddingV12,
                         children: [
-                          buildCaspaRadio(context, snapShoot,
-                              value: MyText.fromBalance +
-                                  " (" +
-                                  "${_prefs.user.cargoBalance}" +
-                                  ")\$"),
-                          buildCaspaRadio(context, snapShoot,
-                              value: MyText.byCard),
-                          buildCaspaRadio(context, snapShoot,
-                              value: MyText.fromCashback +
-                                  " (" +
-                                  "${_prefs.user.cashback_balance}" +
-                                  ")"),
+                          CaspaPaymentRadio(
+                            context,
+                            snapShoot: snapShoot,
+                            description: "(${_prefs.user.cargoBalance} \$)",
+                            value: MyText.fromBalance,
+                          ),
+                          CaspaPaymentRadio(context,
+                              snapShoot: snapShoot, value: MyText.byCard),
+                          CaspaPaymentRadio(context,
+                              snapShoot: snapShoot,
+                              description:
+                                  "(${_prefs.user.cashback_balance} \$)",
+                              value: MyText.fromCashback),
                           // buildCaspaRadio(context, snapShoot,
                           //     value: MyText.withPromoCode),
                         ],
@@ -74,14 +76,5 @@ class PayButton extends StatelessWidget {
             ),
           ),
         ));
-  }
-
-  CaspaRadio buildCaspaRadio(
-      BuildContext context, AsyncSnapshot<Object?> snapShoot,
-      {required String value}) {
-    return CaspaRadio(
-        onTap: () => context.read<PackageDetailsCubit>().updatePayType(value),
-        title: value,
-        isActive: snapShoot.data == value);
   }
 }

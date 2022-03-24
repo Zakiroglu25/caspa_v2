@@ -103,7 +103,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: uEmail.valueOrNull,
         password: uPassMain.valueOrNull,
         password_confirmation: uPassSecond.valueOrNull,
-        phone: AppOperations.formatNumber(phone.value),
+        phone: phone.valueOrNull,
         accept: 1,
         deviceCode: deviceCode,
         deviceTypeId: StringOperations.platformId(),

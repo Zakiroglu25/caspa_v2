@@ -21,7 +21,7 @@ class OrderViaLinkPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CaspaAppbar(
-        title: MyText.new_order,
+        title: MyText.newOrder,
         user: false,
         contextA: context,
       ),

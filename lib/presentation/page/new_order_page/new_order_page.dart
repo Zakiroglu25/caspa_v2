@@ -20,7 +20,7 @@ class NewOrderPage extends StatelessWidget {
         children: <Widget>[
           ColorfullBackImage(
             path: Assets.pngSebet,
-            title: MyText.new_order,
+            title: MyText.newOrder,
           ),
           ViaLinkAndBeyanEtButtons()
         ],

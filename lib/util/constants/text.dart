@@ -120,7 +120,7 @@ class MyText {
   static const String declareIt = "Bəyan et";
   static const String declareItCustom = "SmartCustom-a bəyan et";
   static const String editIt = "Düzəliş et";
-  static const String new_order = "Yeni sifariş";
+  static const String newOrder = "Yeni sifariş";
 
   //userCabinet
   static const String emergencyCall =

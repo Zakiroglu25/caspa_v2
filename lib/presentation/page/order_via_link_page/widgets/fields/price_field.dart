@@ -26,10 +26,11 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
             hint: MyText.price,
             upperCase: true,
             suffixText: MyText.tryy + "   ",
-            textInputType: const TextInputType.numberWithOptions(signed: false,decimal: true),
+            textInputType: const TextInputType.numberWithOptions(
+                signed: false, decimal: true),
             formatters: [
               // WhitelistingTextInputFormatter.digitsOnly,
-              DecimalTextInputFormatter()
+              DecimalTextInputFormatter(decimalRange: 4)
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',

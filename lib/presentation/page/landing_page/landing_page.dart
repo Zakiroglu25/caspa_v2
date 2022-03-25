@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
               icon: SvgPicture.asset(
                 Assets.svgPlusCircle,
               ),
-              label: MyText.new_order,
+              label: MyText.newOrder,
             ),
             BottomNavigationBarItem(
               backgroundColor: Colors.white,

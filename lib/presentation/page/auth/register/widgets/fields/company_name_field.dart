@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CompanyNameFieldRegister extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   CompanyNameFieldRegister({this.controller}); //= new TextEditingController();
   @override
@@ -19,7 +19,7 @@ class CompanyNameFieldRegister extends StatelessWidget {
           maxLines: 1,
           hint: MyText.company_name,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,

@@ -281,6 +281,9 @@ class MyText {
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
 
+  //map
+  static const String map = "Xəritə";
+
   //report
   static const String report = "Bəyan et";
   static const String category = "Kateqoriya";

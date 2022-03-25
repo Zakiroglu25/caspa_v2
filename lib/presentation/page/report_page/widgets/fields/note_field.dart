@@ -23,7 +23,7 @@ class NoteFieldReport extends StatelessWidget {
           maxLines: 1,
           hint: MyText.note,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           controller: controller,

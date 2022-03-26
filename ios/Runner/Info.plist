@@ -31,14 +31,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>App need camera permission for select user photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Always And In Use Permission</string>
+	<string>Need your current location for delivery</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App need gallery permission for select report photo of product</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-		<string>remote-notification</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdressFieldRegister extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   AdressFieldRegister({this.controller}); //= new TextEditingController();
   @override
@@ -19,7 +19,7 @@ class AdressFieldRegister extends StatelessWidget {
           maxLines: 1,
           hint: MyText.adress,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,

@@ -23,8 +23,8 @@ class PriceFieldReport extends StatelessWidget {
             title: MyText.price,
             maxLines: 1,
             hint: MyText.price,
-            textInputType: const TextInputType.numberWithOptions(
-                signed: false, decimal: true),
+            textInputType: TextInputType.numberWithOptions(
+                signed: true,decimal: true),
             formatters: [
               DecimalTextInputFormatter(
                   activatedNegativeValues: false, decimalRange: 3)

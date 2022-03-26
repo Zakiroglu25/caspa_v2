@@ -30,7 +30,8 @@ class LocalCargoFieldOrderViaUrl extends StatelessWidget {
             hint: MyText.foreing_cargo_price,
             upperCase: true,
             suffixText: MyText.tryy + "   ",
-            textInputType: const TextInputType.numberWithOptions(signed: false),
+            textInputType: TextInputType.numberWithOptions(
+                signed: true,decimal: true),
             formatters: [
               // WhitelistingTextInputFormatter.digitsOnly,
               DecimalTextInputFormatter()

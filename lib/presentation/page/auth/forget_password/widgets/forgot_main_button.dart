@@ -14,12 +14,18 @@ class ForgotMainButton extends StatelessWidget {
       bottom: 20,
       left: 0,
       right: 0,
-      child: CaspaButton(
-        text: forgotCubit.buttonText,
-        loading: (forgotCubit.state is ForgotPassInProgress),
-        onTap: () {
-          context.read<ForgotPassCubit>().changeState(context: context);
-        },
+      child: StreamBuilder(
+        stream: BlocProvider.of<ForgotPassCubit>(context).phoneStream,
+        builder: (context, snapshot) {
+          return CaspaButton(
+            text: forgotCubit.buttonText,
+            isButtonActive: snapshot.hasData,
+            loading: (forgotCubit.state is ForgotPassInProgress),
+            onTap: () {
+              context.read<ForgotPassCubit>().changeState(context: context);
+            },
+          );
+        }
       ),
     );
   }

@@ -5,6 +5,8 @@ import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../util/formatter/decimal_input_formatter.dart';
+
 class LenghtField extends StatelessWidget {
   final TextEditingController? controller;
 
@@ -19,7 +21,9 @@ class LenghtField extends StatelessWidget {
           maxLines: 1,
           hint: MyText.lenght_hint,
           upperCase: true,
-          textInputType: TextInputType.number,
+          textInputType: TextInputType.numberWithOptions(
+              signed: true,decimal: true),
+          formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,

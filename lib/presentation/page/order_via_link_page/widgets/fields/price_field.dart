@@ -30,7 +30,7 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
                 signed: false, decimal: true),
             formatters: [
               // WhitelistingTextInputFormatter.digitsOnly,
-              DecimalTextInputFormatter(decimalRange: 4)
+              DecimalTextInputFormatter()
             ],
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',

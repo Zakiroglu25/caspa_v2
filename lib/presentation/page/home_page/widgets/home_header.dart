@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 
@@ -41,8 +42,21 @@ class HomeHeader extends StatelessWidget {
           Text("Kuryer xidməti 1₼-dan başlayaraq",
               style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
           MySizedBox.h16,
-          Text(MyText.homePageText,
-              style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
+          RichText(
+            textAlign: TextAlign.start,
+            text: TextSpan(
+              text: MyText.homePageText,
+              children: [
+                TextSpan(
+                    text: ' *1453',
+                    style: AppTextStyles.sanF400.copyWith(color: MyColors.mainColor))
+              ],
+              style: AppTextStyles.sanF400
+                  .copyWith(fontSize: 14.sm, color: MyColors.grey165),
+            ),
+          ),
+          // Text(MyText.homePageText,
+          //     style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
           MySizedBox.h14,
           CaspaButton(
             w: 156,

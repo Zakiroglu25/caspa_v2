@@ -367,8 +367,7 @@ class MyText {
   /////////////////////////////////////////////
   static const String splashText0 =
       "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın";
-  static const String splashText1 =
-      "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik";
+
   static const String splashText2 =
       "Pozitivlik qəlbimizdədir! Bunu yaymağı hədəfləyirik";
   static const String promocodetext =
@@ -376,9 +375,9 @@ class MyText {
 
   ///version 2 text
   static const String pageViewOne =
-      "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın. ";
+      "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın.";
   static const String pageViewTwo =
-      "Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik. Qısa zamanda Azərbaycanlılara çatdırılmasını təşkil edirik.";
+      "Siz əziyyət çəkmiyin, kuryerimiz istədiyiniz ünvana çatdırsın.";
 
   ///login
   static const String loginText =

@@ -20,11 +20,10 @@ class KgField extends StatelessWidget {
           title: MyText.enter_kg,
           maxLines: 1,
           hint: MyText.enter_kg,
-          textInputType:
-              TextInputType.numberWithOptions(decimal: true, signed: false),
+          textInputType: TextInputType.numberWithOptions(
+              signed: true,decimal: true),
           formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
-
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           onChanged: (value) =>
               BlocProvider.of<CalculateKgCubit>(context).updateKg(value),

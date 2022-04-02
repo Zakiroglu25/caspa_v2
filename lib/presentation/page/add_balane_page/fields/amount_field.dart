@@ -28,14 +28,14 @@ class AmountField extends StatelessWidget {
               ? (MyText.tryy + "   ")
               : (MyText.usd + "   "),
           textInputType: const TextInputType.numberWithOptions(
-              signed: false, decimal: true),
+              signed: true, decimal: true),
           formatters: [
             DecimalTextInputFormatter(
                 activatedNegativeValues: false, decimalRange: 3)
           ],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
-           // controller: controller,
+          // controller: controller,
           onChanged: (value) =>
               BlocProvider.of<PaymentBalanceCubit>(context).updatePrice(value),
         );

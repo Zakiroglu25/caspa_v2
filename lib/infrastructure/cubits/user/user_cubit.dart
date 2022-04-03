@@ -138,6 +138,21 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  void getUserData({bool? isLoading = true}) async {
+    if (isLoading!) {
+      emit(UserLoading());
+    }
+    try {
+      await UserOperations.configUserDataWhenOpenApp(
+        // fcmToken: _prefs.fcmToken,
+        accessToken: _prefs.accessToken!, fcm: _prefs.fcmToken,
+        //  path: _prefs.userPath
+      );
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+    }
+  }
+
   void editAvatar(BuildContext context, {bool? isLoading = true}) async {
     if (isLoading!) {
       emit(UserLoading());

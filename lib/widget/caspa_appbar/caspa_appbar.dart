@@ -25,6 +25,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
   final bool? notification;
   final bool? exitButton;
   final bool? user;
+  final bool? back;
   final BuildContext? contextA;
   final bool? actions;
   final Function? onTapActions;
@@ -38,6 +39,7 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
       this.exitButton,
       this.actions,
       this.color,
+      this.back = true,
       this.onBack,
       this.onTapActions,
       required this.contextA,
@@ -62,8 +64,11 @@ class CaspaAppbar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             (user ?? true)
                 ? UserButton()
-                : BackIOS(
-                    onBack: onBack,
+                : WidgetOrEmpty(
+                    value: back,
+                    child: BackIOS(
+                      onBack: onBack,
+                    ),
                   ),
             Center(
               child: Text(

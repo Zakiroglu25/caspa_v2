@@ -368,9 +368,11 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   bool get isIdNumberIncorrect => (!idNumber.hasValue ||
-      idNumber.value == null ||
-      idNumber.value.isEmpty |
-          !AppOperations.idCardSeriesControl(idNumber.value));
+          idNumber.value == null ||
+          idNumber.value.isEmpty ||
+          idNumber.value.length < 5
+      //|| !AppOperations.idCardSeriesControl(idNumber.value)
+      );
 
   //checkbox
   final BehaviorSubject<bool> checkbox = BehaviorSubject<bool>.seeded(false);

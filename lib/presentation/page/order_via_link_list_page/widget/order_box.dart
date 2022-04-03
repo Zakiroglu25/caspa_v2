@@ -34,24 +34,25 @@ class OrderBox extends StatelessWidget {
               style: UITextStyle.tW600Black.copyWith(fontSize: 16.sp),
             ),
             Spacer(),
-            if(order.payment == 1)
-            EditButton(
-              onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
-            ),
+            if (order.payment == 0)
+              EditButton(
+                onTap: () => Go.to(context, Pager.orderViaLink(order: order)),
+              ),
             MySizedBox.w10,
-            DeleteButton(
-                onTap: () => Alert.show(context,
-                    title: MyText.are_u_sure_delete,
-                    //s  content: MyText.you_can_not_recovery_it_again,
-                    buttonText: MyText.yes,
-                    cancelButton: true,
-                    onTap: () => context
-                        .read<OrderViaUrlListCubit>()
-                        .delete(order.id, loading: false),
-                    image: SizedBox(
-                        width: 120.sm,
-                        height: 120.sm,
-                        child: Image.asset(Assets.pngSad))))
+            if (order.payment == 0)
+              DeleteButton(
+                  onTap: () => Alert.show(context,
+                      title: MyText.are_u_sure_delete,
+                      //s  content: MyText.you_can_not_recovery_it_again,
+                      buttonText: MyText.yes,
+                      cancelButton: true,
+                      onTap: () => context
+                          .read<OrderViaUrlListCubit>()
+                          .delete(order.id, loading: false),
+                      image: SizedBox(
+                          width: 120.sm,
+                          height: 120.sm,
+                          child: Image.asset(Assets.pngSad))))
           ],
         ),
         OrderUnicorn(

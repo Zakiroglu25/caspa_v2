@@ -286,9 +286,9 @@ class Pager {
 
 //  static get trendyolOtp => const TrendyolOtpPage();
 
-  static get userCabinet => MultiBlocProvider(providers: [
+  static userCabinet({bool? showBack}) => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
-      ], child: const UserCabinetPage());
+      ], child: UserCabinetPage(showBack: showBack));
 
   static get adress => MultiBlocProvider(providers: [
         BlocProvider.value(

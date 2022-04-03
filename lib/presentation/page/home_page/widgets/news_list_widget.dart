@@ -23,7 +23,7 @@ class Ads extends StatelessWidget {
       child: BlocBuilder<AdsCubit, AdsState>(
         builder: (context, state) {
           if (state is AdsSuccess) {
-            List<Data>? adsList = state.adsList;
+            List<Data>? adsList = state.adsList.reversed.toList();
             return AdsWidget(hList: adsList);
           } else if (state is AdsInProgress) {
             return CaspaLoading(

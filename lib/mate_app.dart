@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:caspa_v2/infrastructure/configs/base.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -24,7 +25,7 @@ class MateApp extends StatelessWidget {
                   AuthenticationCubit()..startApp(context, showSplash: true),
               child: MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: MyText.caspa_azerbaijan,
+                  title: Configs.appName,
                   navigatorKey: NavigationService.instance.navigationKey,
                   //1. call BotToastInit
                   navigatorObservers: [BotToastNavigatorObserver()],

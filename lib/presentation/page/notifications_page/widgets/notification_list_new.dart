@@ -34,8 +34,8 @@ class NotificationsListNew extends StatelessWidget {
             padding: Paddings.paddingH16,
             child: notificationContainer(
               context,
-              0,
-              notification: result![0],
+              index,
+              notification: result![index],
             ),
           );
         } else {

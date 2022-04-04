@@ -38,7 +38,7 @@ class NotificationsPage extends StatelessWidget {
         builder: (context, state) {
           //bbbb("state: $state");
           if (state is NotificationSuccess) {
-            //   bbbb("bnjkhjk; ${state.notificationList}");
+            bbbb("bnjkhjk; ${state.notificationList}");
             List<MyNotification>? notificationList = state.notificationList;
 
             return FadeEdge(

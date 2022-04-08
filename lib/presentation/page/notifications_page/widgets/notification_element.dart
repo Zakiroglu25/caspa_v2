@@ -60,12 +60,12 @@ class _NotificationElementState extends State<NotificationElement>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-                StringOperations.dateConvertFromString(
-                    widget.notification.createdAt!, context),
-                style: const TextStyle(
-                    color: MyColors.grey163, fontWeight: FontWeight.w700)),
-            MySizedBox.h10,
+            // Text(
+            //     StringOperations.dateConvertFromString2(
+            //         widget.notification.createdAt!, context),
+            //     style: const TextStyle(
+            //         color: MyColors.grey163, fontWeight: FontWeight.w700)),
+            // MySizedBox.h10,
             Container(
               // height: 76,
 

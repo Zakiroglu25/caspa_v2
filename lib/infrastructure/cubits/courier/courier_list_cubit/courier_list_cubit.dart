@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
@@ -36,16 +37,14 @@ class CourierListCubit extends Cubit<CourierListState> {
         emit(CourierListSuccess(
             courierList: result!.data, packageList: resultPackages.data));
       } else {
-        emit(CourierListError());
-        eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(result!.data)).message}");
+        emit(CourierListError(error: MyText.error));
       }
     } on SocketException catch (_) {
       //network olacaq
       emit(CourierListNetworkError());
-    } catch (e) {
-      eeee("shop cubit catch: $e");
-      emit(CourierListError(error: e.toString()));
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s, where: 'CourierListCubit.fetch');
+      emit(CourierListError(error: MyText.error));
     }
   }
 

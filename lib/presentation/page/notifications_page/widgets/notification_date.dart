@@ -10,7 +10,7 @@ class NotificationDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Paddings.paddingV8,
+      padding: Paddings.paddingV8 + Paddings.paddingT8,
       child: Align(
         alignment: Alignment.topLeft,
         child: Text(

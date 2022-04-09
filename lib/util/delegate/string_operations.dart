@@ -38,7 +38,7 @@ class StringOperations {
     });
   }
 
-  static String dateConvert(DateTime date, BuildContext context) {
+  static String dateConvert(DateTime date) {
     // 2022-03-09T11:53:45.000000Z;
     var now = DateTime.now();
 
@@ -56,74 +56,46 @@ class StringOperations {
     }
   }
 
-  static String dateConvertFromString(String datex, BuildContext context) {
+  static String dateConvertFromString(String datex,
+      {bool smartDay = true, bool format = true}) {
     // 2022-03-09T11:53:45.000000Z;
-    DateTime date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(datex);
-    var now = DateTime.now();
+    DateFormat finalFormat = DateFormat('dd.MM.yyyy');
+    DateFormat givenFormat = DateFormat('yyyy-MM-dd HH:mm:ss');
+    DateTime date;
 
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
-
-    if (DateFormat('dd.MM.yyyy').format(today).toString() ==
-        DateFormat('dd.MM.yyyy').format(date).toString()) {
-      return MyText.today;
-    } else if (DateFormat('dd.MM.yyyy').format(yesterday).toString() ==
-        DateFormat('dd.MM.yyyy').format(date).toString()) {
-      return MyText.yesterday;
+    //in start date can be already formmatted , then we must not format it
+    //with givenFormat format , we must save it
+    if (format) {
+      date = givenFormat.parse(datex);
     } else {
-      return DateFormat('dd.MM.yyyy').format(date).toString();
+      date = finalFormat.parse(datex);
+    }
+
+    //if smart day is true thenn today,yesterday showing instead of date
+    if (smartDay) {
+      var now = DateTime.now();
+      DateTime today = DateTime(now.year, now.month, now.day);
+      DateTime yesterday = DateTime(now.year, now.month, now.day - 1);
+
+      if (finalFormat.format(today).toString() ==
+          finalFormat.format(date).toString()) {
+        return MyText.today;
+      } else if (finalFormat.format(yesterday).toString() ==
+          finalFormat.format(date).toString()) {
+        return MyText.yesterday;
+      } else {
+        //else return formatted normal date
+        return finalFormat.format(date).toString();
+      }
+    } else {
+      //else return formatted normal date
+      return finalFormat.format(date).toString();
     }
   }
 
-  static String dateConvertFromString6(String datex, BuildContext context) {
+  static DateTime formattedStringToDatetime(String datex) {
     // 2022-03-09T11:53:45.000000Z;
     DateTime date = DateFormat('dd.MM.yyyy').parse(datex);
-    var now = DateTime.now();
-
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
-
-    if (DateFormat('dd.MM.yyyy').format(today).toString() ==
-        DateFormat('dd.MM.yyyy').format(date).toString()) {
-      return MyText.today;
-    } else if (DateFormat('dd.MM.yyyy').format(yesterday).toString() ==
-        DateFormat('dd.MM.yyyy').format(date).toString()) {
-      return MyText.yesterday;
-    } else {
-      return DateFormat('dd.MM.yyyy').format(date).toString();
-    }
-  }
-
-  static String dateConvertFromString3(String datex, BuildContext context) {
-    // 2022-03-09T11:53:45.000000Z;
-    DateTime date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(datex);
-    var now = DateTime.now();
-
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
-
-    return DateFormat('dd.MM.yyyy').format(date).toString();
-  }
-
-  static String dateConvertFromString4(String datex, BuildContext context) {
-    // 2022-03-09T11:53:45.000000Z;
-    DateTime date = DateFormat('yyyy-MM-dd HH:mm:ss').parse(datex);
-    var now = DateTime.now();
-
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
-
-    return DateFormat('dd.MM.yyyy').format(date).toString();
-  }
-
-  static DateTime dateConvertFromString5(String datex, BuildContext context) {
-    // 2022-03-09T11:53:45.000000Z;
-    DateTime date = DateFormat('dd.MM.yyyy').parse(datex);
-    var now = DateTime.now();
-
-    final today = DateTime(now.year, now.month, now.day);
-    final yesterday = DateTime(now.year, now.month, now.day - 1);
-
     return date;
   }
 

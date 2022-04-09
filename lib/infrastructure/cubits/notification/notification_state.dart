@@ -19,5 +19,5 @@ class NotificationNetworkError extends NotificationState {}
 class NotificationSuccess extends NotificationState {
   NotificationSuccess(this.notificationList);
 
-  final List<MyNotification>? notificationList;
+  final List<MyNotification> notificationList;
 }

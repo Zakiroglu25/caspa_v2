@@ -129,7 +129,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Mənim bağlamalarim";
+  static const String myPackages = "Mənim bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -377,7 +377,7 @@ class MyText {
   static const String pageViewOne =
       "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın.";
   static const String pageViewTwo =
-      "Siz əziyyət çəkmiyin, kuryerimiz istədiyiniz ünvana çatdırsın.";
+      "Siz əziyyət çəkməyin, kuryerimiz istədiyiniz ünvana çatdırsın.";
 
   ///login
   static const String loginText =

@@ -38,7 +38,16 @@ class ProductProperties extends StatelessWidget {
             value: '${package.date ?? MyText.didntDetermine} '),
         ProductPropertyV(
             name: MyText.price,
-            value: "${package.price ?? MyText.didntDetermine} "),
+            value: "${package.price?? MyText.didntDetermine}"),
+        ProductPropertyV(
+            name: MyText.width_under,
+            value: "${package.width?? MyText.didntDetermine}"),
+        ProductPropertyV(
+            name: MyText.height_under,
+            value: "${package.height?? MyText.didntDetermine}"),
+        ProductPropertyV(
+            name: MyText.lenght_under,
+            value: "${package.length?? MyText.didntDetermine}"),
         ProductPropertyV(
             name: MyText.its_weight,
             value: ((((package.weight ?? 0.0).toString()) as String) + " kg")),

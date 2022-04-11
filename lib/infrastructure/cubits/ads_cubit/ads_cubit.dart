@@ -34,7 +34,7 @@ class AdsCubit extends Cubit<AdsState> {
       //network olacaq
       emit(AdsNetworkError());
     } catch (e) {
-      eeee("shop cubit catch: $e");
+      eeee("ads cubit catch: $e");
       emit(AdsError(error: e.toString()));
     }
   }

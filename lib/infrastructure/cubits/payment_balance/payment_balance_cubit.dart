@@ -36,6 +36,9 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
             amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
         if (isSuccess(result.statusCode)) {
           emit(PaymentBalanceUrlFetched(url: result.data));
+        }else if(result.statusCode == 302){
+          emit(PaymentPriceError(
+              error: MyText.errorPrice + " ${result.statusCode}"));
         } else {
           emit(PaymentBalanceError(
               error: MyText.error + " ${result.statusCode}"));

@@ -140,6 +140,17 @@ class UserCabinetPage extends StatelessWidget {
                           paymentBalanceType: PaymentBalanceType.order,
                         ))),
                 MySizedBox.h16,
+
+                BalansMiniBox(
+                  title: "Caspa-dan hədiyyə",
+                  w: MediaQuery.of(context).size.width,
+                  content: "\$ ${_prefs.user.monthly}",
+                  color: MyColors.balanceCountPackage,
+                  priceColor: MyColors.balanceBoxOrange,
+                  icon: Text("Bitmə vaxtı"),
+                  finishTime:"14 gün",
+                ),
+                MySizedBox.h16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -149,6 +160,7 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.shop,
                       priceColor: MyColors.balanceBoxRed,
                       icon: const Icon(null),
+                      finishTime:"",
                     ),
                     MySizedBox.w16,
                     BalansMiniBox(
@@ -161,6 +173,8 @@ class UserCabinetPage extends StatelessWidget {
                       ),
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
+                      finishTime:"",
+
                     ),
                   ],
                 ),
@@ -174,6 +188,7 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.balansCargo,
                       priceColor: MyColors.mainColor,
                       icon: const Icon(null),
+                      finishTime:"",
                     ),
                   ],
                 ),

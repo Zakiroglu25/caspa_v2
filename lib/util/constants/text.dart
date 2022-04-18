@@ -71,6 +71,7 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String trackingCode = "Kodu";
   static const String amount = "Miqdar";
   static const String amountmoney = "Məbləğ";
   static const String value = "Dəyər";

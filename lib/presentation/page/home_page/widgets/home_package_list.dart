@@ -33,7 +33,7 @@ class HomePackageList extends StatelessWidget {
                 list: packageList,
                 child: FadeIn(
                   child: SizedBox(
-                    height: 180.sm,
+                    height: 200.sp,
                     // width: 284,
                     child: ListView.separated(
                       padding: Paddings.paddingH20,

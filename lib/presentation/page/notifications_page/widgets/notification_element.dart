@@ -6,14 +6,19 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
+import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../infrastructure/models/local/my_user.dart';
+import '../../../../util/constants/assets.dart';
+import '../../../../util/constants/text.dart';
+import '../../../../util/screen/alert.dart';
 
 class NotificationElement extends StatelessWidget {
   final Function? onXTap;
   final bool? increase;
   final MyNotification notification;
+
   const NotificationElement({
     Key? key,
     required this.onXTap,
@@ -23,36 +28,69 @@ class NotificationElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            padding: Paddings.paddingA16,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  notification.title!,
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 16, color: MyColors.black34),
-                ),
-                MySizedBox.h4,
-                Text(
-                  notification.description!,
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 12, color: MyColors.grey153),
-                ),
-              ],
-            ),
-            decoration: BoxDecoration(
-                color: (notification.read == 0)
-                    ? MyColors.grey245
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(12)),
+    ///burda show dialog delete olacaq ama,
+    /// groupped dunen sozunu nece silecem bilmedim
+    return Dismissible(
+      key: Key(notification.toString()),
+      background: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: MyColors.secondRED,
+        ),
+        alignment: Alignment.centerRight,
+        child: const Padding(
+          padding: EdgeInsets.only(right: 16.0),
+          child: Icon(
+            Icons.delete_forever,
+            color: Colors.white,
           ),
-        ],
+        ),
+      ),
+      direction: DismissDirection.endToStart,
+      confirmDismiss: (DismissDirection direction) async {
+        return Alert.show(
+          context,
+          title: MyText.are_u_sure_delete,
+          buttonText: MyText.yes,
+          cancelButton: true,
+          image: SizedBox(
+            width: 120.sm,
+            height: 120.sm,
+            child: Image.asset(Assets.pngSad),
+          ),
+        );
+      },
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              padding: Paddings.paddingA16,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    notification.title!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 16, color: MyColors.black34),
+                  ),
+                  MySizedBox.h4,
+                  Text(
+                    notification.description!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 12, color: MyColors.grey153),
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: (notification.read == 0)
+                      ? MyColors.grey245
+                      : Colors.transparent,
+                  borderRadius: BorderRadius.circular(12)),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -541,6 +541,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.5"
+  grouped_list:
+    dependency: "direct main"
+    description:
+      name: grouped_list
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.0"
   hive:
     dependency: "direct main"
     description:
@@ -814,6 +821,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
+  popup_menu:
+    dependency: "direct main"
+    description:
+      name: popup_menu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   process:
     dependency: transitive
     description:

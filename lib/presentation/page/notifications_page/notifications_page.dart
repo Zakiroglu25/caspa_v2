@@ -32,7 +32,7 @@ class NotificationsPage extends StatelessWidget {
         builder: (context, state) {
           if (state is NotificationSuccess) {
             return NotificationGroupedList(
-              notificationList: state.notificationList,
+              notificationList: state.notificationList!,
             );
           } else if (state is NotificationInProgress) {
             return CaspaLoading();

@@ -50,17 +50,36 @@ class PackageBox extends StatelessWidget {
             padding: EdgeInsets.all(20.sp),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SvgPicture.asset(Assets.svgShop),
+                Row(
+                  children: [
+                    SvgPicture.asset(Assets.svgShop),
+                    Spacer(),
+                    InkWell(
+                      onTap: () {
+                        ///bu delete olacaq ama yuxxaridaki inkWrapperi legv etmek gereklidi
+                      },
+                      child: SvgPicture.asset(Assets.svgMenuAppbar,
+                          color: MyColors.grey153),
+                    ),
+                  ],
+                ),
                 MySizedBox.h10,
                 Text(
                   package.store!,
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sm),
                 ),
+                MySizedBox.h10,
+                PackageBoxDetailText(
+                    title: MyText.trackingCode, value: package.cargoTracking),
+                MySizedBox.h4,
                 PackageBoxDetailText(title: MyText.price, value: package.price),
+                MySizedBox.h4,
                 PackageBoxDetailText(
                     title: MyText.tracking_id, value: package.tracking),
+                MySizedBox.h4,
                 PackageBoxDetailText(
                     title: MyText.status, value: package.status!),
               ],
@@ -70,5 +89,55 @@ class PackageBox extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget myPopMenu() {
+    return PopupMenuButton(
+        onSelected: (value) {
+          // Fluttertoast.showToast(
+          //     msg: "You have selected " + value.toString(),
+          //     toastLength: Toast.LENGTH_SHORT,
+          //     gravity: ToastGravity.BOTTOM,
+          //     timeInSecForIosWeb: 1,
+          //     backgroundColor: Colors.black,
+          //     textColor: Colors.white,
+          //     fontSize: 16.0
+          // );
+        },
+        itemBuilder: (context) => [
+              PopupMenuItem(
+                  value: 1,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(2, 2, 8, 2),
+                        child: Icon(Icons.print),
+                      ),
+                      Text('Print')
+                    ],
+                  )),
+              PopupMenuItem(
+                  value: 2,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(2, 2, 8, 2),
+                        child: Icon(Icons.share),
+                      ),
+                      Text('Share')
+                    ],
+                  )),
+              PopupMenuItem(
+                  value: 3,
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(2, 2, 8, 2),
+                        child: Icon(Icons.add_circle),
+                      ),
+                      Text('Add')
+                    ],
+                  )),
+            ]);
   }
 }

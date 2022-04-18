@@ -4,6 +4,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,12 +14,14 @@ class BalansMiniBox extends StatelessWidget {
   final Color? priceColor;
   final String? title;
   final String? content;
+  final String? finishTime;
   final Widget icon;
   final double? h;
   final double? w;
 
   BalansMiniBox(
       {this.onTap,
+      this.finishTime,
       this.color,
       required this.icon,
       this.priceColor,
@@ -52,10 +55,20 @@ class BalansMiniBox extends StatelessWidget {
                 ],
               ),
               //MySizedBox.h6,
-              Text(
-                content!,
-                style: AppTextStyles.sanF600
-                    .copyWith(fontSize: 16.sp, color: priceColor!),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    content!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 16.sp, color: priceColor!),
+                  ),
+                  Text(
+                    finishTime!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 16.sp, color: priceColor!),
+                  ),
+                ],
               )
             ],
           ),

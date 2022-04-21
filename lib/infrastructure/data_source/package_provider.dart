@@ -17,11 +17,13 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
+import '../../util/constants/text.dart';
 import '../models/local/my_user.dart';
 import '../models/remote/response/user_result.dart';
 
 class PackageProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
+
   static Future<StatusDynamic> fetchAllPackages() async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.allPackages;
@@ -73,6 +75,7 @@ class PackageProvider {
     }
     return statusDynamic;
   }
+
   static Future<StatusDynamic> getActivePackage() async {
     StatusDynamic statusDynamic = StatusDynamic();
     late List<Package>? activePackageList;
@@ -90,6 +93,26 @@ class PackageProvider {
       statusDynamic.data = activePackageList;
     } else {
       eeee("getNotification url :$url,response: $response");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic?> deletePackage({
+    required int? id,
+    required String? token,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.packagesArchive + "?id=$id";
+    iiii(api+"Provider");
+
+    final response = await dioAuth.dio.get(api);
+    iiii(response.toString()+"Provider");
+    statusDynamic.statusCode = response.statusCode;
+    if (statusDynamic.statusCode == ResultKey.successCode) {
+      // statusDynamic.data=response['message'];
+      bbbb("silindi");
+    } else {
+      statusDynamic.data = MyText.reportIsNotAdded;
     }
     return statusDynamic;
   }

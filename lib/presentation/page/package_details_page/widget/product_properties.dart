@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../util/constants/app_text_styles.dart';
+import '../../../../util/delegate/navigate_utils.dart';
+import 'invoice_image_details.dart';
 
 class ProductProperties extends StatelessWidget {
   Package package;
@@ -37,27 +39,31 @@ class ProductProperties extends StatelessWidget {
         Row(
           children: [
             InkWell(
-              onTap: () {
-                ///bura details edeciyik
-              },
+              onTap: () => Go.to(
+                  context,
+                  InvoiceImageFullScreen(
+                    package: package,
+                  )),
               child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: MyColors.grey245),
-                  width: 72.w,
-                  height: 72.h,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: MyColors.grey245),
+                width: 72.w,
+                height: 72.h,
+                child: Hero(
+                  tag: 'full',
                   child: Image.network(
                     package.invoice.toString(),
                     fit: BoxFit.contain,
-                  )),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
-        Container(
-            height: 60,
-            child: ProductPropertyV(
-                name: MyText.tracking_id,
-                value: package.cargoTracking ?? MyText.didntDetermine)),
+        ProductPropertyV(
+            name: MyText.tracking_id,
+            value: package.cargoTracking ?? MyText.didntDetermine),
         ProductPropertyV(
             name: MyText.from_where,
             value: package.country!.name ?? MyText.didntDetermine),

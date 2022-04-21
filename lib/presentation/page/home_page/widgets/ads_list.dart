@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/ads_details_screen.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/ads_card.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/strory_ads.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
@@ -47,8 +48,8 @@ class AdsWidget extends StatelessWidget {
             return InkWrapper(
               onTap: () => Go.to(
                   context,
-                  AdsDetailsPage(
-                    hList: hList![index],
+                  MoreStories(
+                     hList: hList!,
                   )),
               child: AdsCard(
                 desc: ads.title,

@@ -109,7 +109,6 @@ class AttorneyProvider {
     final body = {
       "id": id,
     };
-
     bbbb("body: " + jsonEncode(body).toString());
     // final response =
     //     await http.post(url, headers: headers, body: jsonEncode(body));

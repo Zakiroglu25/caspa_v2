@@ -5,9 +5,12 @@ import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dar
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import '../../../locator.dart';
+import '../../../util/constants/text.dart';
+import '../../../util/screen/snack.dart';
 import 'packages_state.dart';
 
 class PackageCubit extends Cubit<PackageState> {
@@ -37,8 +40,7 @@ class PackageCubit extends Cubit<PackageState> {
       allPackages.sort(
           (a, b) => format.parse(a.date!).compareTo(format.parse(b.date!)));
       allPackages = allPackages.reversed.toList();
-      // bbbb('resul: ${allPackages[0].customStatus}');
-      // bbbb('resul: ${result.data}');
+
       emit(PackagesError());
       if (isSuccess(result.statusCode)) {
         emit(PackagesSuccess(allPackages));
@@ -51,6 +53,27 @@ class PackageCubit extends Cubit<PackageState> {
     } catch (e, s) {
       eeee("package cubit catch: $e=>$s");
       emit(PackagesError(error: e.toString()));
+    }
+  }
+
+  void delete({BuildContext? context,bool loading = true, int? id}) async {
+    if (loading) {
+      emit(PackagesInProgress());
+    }
+    iiii("delete");
+    try {
+      String? token = _prefs.accessToken;
+      final result = await PackageProvider.deletePackage(id: id, token: token);
+      iiii(result.toString());
+      if (isSuccess(result!.statusCode)) {
+        Snack.positive(message: MyText.operationIsSuccess);
+        fetch(false);
+      } else {
+        emit(PackagesError());
+      }
+    } catch (e) {
+      emit(PackagesError(error: MyText.error + "" + e.toString()));
+      print(e);
     }
   }
 }

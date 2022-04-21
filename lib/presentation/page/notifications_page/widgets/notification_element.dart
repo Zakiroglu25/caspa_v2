@@ -1,6 +1,7 @@
 // Flutter imports:
 // Package imports:
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/cubits/notification/notification_cubit.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -8,6 +9,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/models/local/my_user.dart';
 import '../../../../util/constants/assets.dart';
@@ -28,8 +30,6 @@ class NotificationElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ///burda show dialog delete olacaq ama,
-    /// groupped dunen sozunu nece silecem bilmedim
     return Dismissible(
       key: Key(notification.toString()),
       background: Container(
@@ -53,6 +53,8 @@ class NotificationElement extends StatelessWidget {
           title: MyText.are_u_sure_delete,
           buttonText: MyText.yes,
           cancelButton: true,
+          onTap: () => context.read<NotificationCubit>().removeNotificion(
+              context: context, loading: true, notificationId: notification.id),
           image: SizedBox(
             width: 120.sm,
             height: 120.sm,

@@ -6,6 +6,7 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,9 +37,10 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) => PageView(
-        controller: PageController(initialPage: 0),
+        controller: PageController(initialPage: 1),
+        physics: Physics.alwaysClamp,
         children: [
-          // Pager.userCabinet(showBack: false), //
+          Pager.userCabinet(showBack: false), //
           Scaffold(
             key: _key,
             extendBody: true,
@@ -54,51 +56,16 @@ class _LandingPageState extends State<LandingPage> {
               type: BottomNavigationBarType.fixed,
               selectedItemColor: MyColors.mainColor,
               items: [
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  activeIcon: Container(
-                      margin: EdgeInsets.only(bottom: 0),
-                      child: SvgPicture.asset(Assets.svgHome,
-                          color: MyColors.mainColor)),
-                  icon: SvgPicture.asset(Assets.svgHome),
-                  label: 'Əsas',
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  activeIcon: SvgPicture.asset(
-                    Assets.svgBottomBox,
-                    color: MyColors.mainColor,
-                  ),
-                  icon: SvgPicture.asset(Assets.svgBottomBox),
-                  label: MyText.packages,
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  activeIcon: SvgPicture.asset(Assets.svgPlusCircle,
-                      color: MyColors.mainColor),
-                  icon: SvgPicture.asset(
-                    Assets.svgPlusCircle,
-                  ),
-                  label: MyText.newOrder,
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  activeIcon: SvgPicture.asset(Assets.svgLocation,
-                      color: MyColors.mainColor),
-                  icon: SvgPicture.asset(
-                    Assets.svgLocation,
-                  ),
-                  label: 'Ünvanlar',
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.white,
-                  activeIcon: SvgPicture.asset(Assets.svgOther,
-                      color: MyColors.mainColor),
-                  icon: SvgPicture.asset(
-                    Assets.svgOther,
-                  ),
-                  label: 'Digər',
-                ),
+                buildBottomNavigationBarItem(
+                    icon: Assets.svgHome, label: MyText.main),
+                buildBottomNavigationBarItem(
+                    icon: Assets.svgBottomBox, label: MyText.packages),
+                buildBottomNavigationBarItem(
+                    icon: Assets.svgPlusCircle, label: MyText.newOrder),
+                buildBottomNavigationBarItem(
+                    icon: Assets.svgLocation, label: MyText.adresses),
+                buildBottomNavigationBarItem(
+                    icon: Assets.svgOther, label: MyText.other),
               ],
               currentIndex: index,
               onTap: onChangedTab,
@@ -107,6 +74,19 @@ class _LandingPageState extends State<LandingPage> {
           )
         ],
       );
+
+  BottomNavigationBarItem buildBottomNavigationBarItem(
+      {required String icon, required String label}) {
+    return BottomNavigationBarItem(
+      backgroundColor: Colors.white,
+      activeIcon: SvgPicture.asset(
+        icon,
+        color: MyColors.mainColor,
+      ),
+      icon: SvgPicture.asset(icon),
+      label: label,
+    );
+  }
 
   void onChangedTab(int index) {
     setState(() {

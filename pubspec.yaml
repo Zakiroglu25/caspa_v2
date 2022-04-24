@@ -87,6 +87,8 @@ dependencies:
   #geolocator: ^8.0.3
   #location: ^4.3.0
 
+#test:
+  pattern_formatter: ^2.0.0
 
 
 

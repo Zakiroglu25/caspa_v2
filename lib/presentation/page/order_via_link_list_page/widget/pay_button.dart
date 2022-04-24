@@ -57,7 +57,7 @@ class PayButton extends StatelessWidget {
                           CaspaPaymentRadio(
                             context,
                             snapShoot: snapShoot,
-                            description: "(${_prefs.user.cargoBalance} \$)",
+                            description: "(${_prefs.user.balance} TL)",
                             value: MyText.fromBalance,
                           ),
                           CaspaPaymentRadio(context,

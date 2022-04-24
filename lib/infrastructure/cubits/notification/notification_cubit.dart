@@ -34,9 +34,15 @@ class NotificationCubit extends Cubit<NotificationState> {
       List<MyNotification> notificationList =
           result.data as List<MyNotification>;
       // notificationList.forEach((element) {});
-
+      //notificationList.addAll(notificationList);
+      List<MyNotification> ab = [];
+      ab.addAll(notificationList);
+      // ab.addAll(notificationList);
+      // ab.addAll(notificationList);
+      // ab.addAll(notificationList);
+      // ab.addAll(notificationList);
       if (isSuccess(result.statusCode)) {
-        emit(NotificationSuccess(notificationList));
+        emit(NotificationSuccess(ab));
         // bbbb("hjgkhjk; $notificationList");
       } else {
         emit(NotificationError());

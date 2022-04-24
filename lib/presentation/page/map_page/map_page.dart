@@ -1,13 +1,9 @@
 import 'dart:io';
 
-import 'package:caspa_v2/util/screen/fade_edge.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'dart:math';
 import 'package:url_launcher/url_launcher.dart';
 
 class MapPage extends StatefulWidget {
@@ -16,33 +12,33 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  void getLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
-
-  }
+  // void getLocation() async {
+  //   bool serviceEnabled;
+  //   LocationPermission permission;
+  //
+  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
+  //   if (!serviceEnabled) {
+  //     return Future.error('Location services are disabled.');
+  //   }
+  //
+  //   permission = await Geolocator.checkPermission();
+  //   if (permission == LocationPermission.denied) {
+  //     permission = await Geolocator.requestPermission();
+  //     if (permission == LocationPermission.denied) {
+  //       return Future.error('Location permissions are denied');
+  //     }
+  //   }
+  //
+  //   if (permission == LocationPermission.deniedForever) {
+  //     return Future.error(
+  //         'Location permissions are permanently denied, we cannot request permissions.');
+  //   }
+  //
+  // }
 
   GoogleMapController? mapController; //contrller for Google map
 
-  String googleAPiKey = "AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750";
+  //String googleAPiKey = "AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750";
 
   Set<Marker> markers = Set(); //markers for google map
   var lat = 40.387281;
@@ -81,40 +77,34 @@ class _MapPageState extends State<MapPage> {
     return Scaffold(
       appBar: CaspaAppbar(
         user: false,
-        title: "Xəritə",
+        title: MyText.map,
         notification: false,
         contextA: context,
       ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            zoomGesturesEnabled: true,
-            initialCameraPosition: CameraPosition(
-              target: locationStart, //initial position
-              zoom: 17.0, //initial zoom level
-            ),
-            myLocationButtonEnabled: true,
-            myLocationEnabled: true,
-            markers: markers,
-            mapType: MapType.normal,
-            onMapCreated: (controller) {
-              setState(() {
-                mapController = controller;
-              });
-            },
-          ),
-        ],
+      body: GoogleMap(
+        zoomGesturesEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: locationStart, //initial position
+          zoom: 17.0, //initial zoom level
+        ),
+        myLocationButtonEnabled: false,
+        myLocationEnabled: false,
+        markers: markers,
+        mapType: MapType.normal,
+        onMapCreated: (controller) {
+          setState(() {
+            mapController = controller;
+          });
+        },
       ),
     );
   }
 
   void launchWaze(double lat, double lng) async {
     var url = 'waze://?ll=${lat.toString()},${lng.toString()}';
-    // var fallbackUrl =
-    //     'https://waze.com/ul?ll=${lat.toString()},${lng.toString()}&navigate=yes';
     try {
       bool launched =
-      await launch(url, forceSafariVC: false, forceWebView: false);
+          await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {
         //await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
       }
@@ -129,7 +119,7 @@ class _MapPageState extends State<MapPage> {
         'https://www.google.com/maps/search/?api=1&query=${lat.toString()},${lng.toString()}';
     try {
       bool launched =
-      await launch(url, forceSafariVC: false, forceWebView: false);
+          await launch(url, forceSafariVC: false, forceWebView: false);
       if (!launched) {
         await launch(fallbackUrl, forceSafariVC: false, forceWebView: false);
       }

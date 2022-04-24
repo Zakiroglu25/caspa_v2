@@ -31,7 +31,8 @@ import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserCabinetPage extends StatelessWidget {
-  const UserCabinetPage({Key? key}) : super(key: key);
+  UserCabinetPage({Key? key, this.showBack}) : super(key: key);
+  bool? showBack;
 
   HiveService get _prefs => locator<HiveService>();
 
@@ -43,6 +44,7 @@ class UserCabinetPage extends StatelessWidget {
         contextA: context,
         centerTitle: true,
         user: false,
+        back: showBack ?? true,
         notification: false,
         onTapActions: () {
           showCupertinoModalPopup(
@@ -148,7 +150,7 @@ class UserCabinetPage extends StatelessWidget {
                   color: MyColors.balanceCountPackage,
                   priceColor: MyColors.balanceBoxOrange,
                   icon: Text("Bitmə vaxtı"),
-                  finishTime:"14 gün",
+                  finishTime: "14 gün",
                 ),
                 MySizedBox.h16,
                 Row(
@@ -160,7 +162,7 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.shop,
                       priceColor: MyColors.balanceBoxRed,
                       icon: const Icon(null),
-                      finishTime:"",
+                      finishTime: "",
                     ),
                     MySizedBox.w16,
                     BalansMiniBox(
@@ -173,8 +175,7 @@ class UserCabinetPage extends StatelessWidget {
                       ),
                       priceColor: MyColors.balanceBoxOrange,
                       icon: SvgPicture.asset(Assets.svgBalanceUp),
-                      finishTime:"",
-
+                      finishTime: "",
                     ),
                   ],
                 ),
@@ -188,7 +189,7 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.balansCargo,
                       priceColor: MyColors.mainColor,
                       icon: const Icon(null),
-                      finishTime:"",
+                      finishTime: "",
                     ),
                   ],
                 ),

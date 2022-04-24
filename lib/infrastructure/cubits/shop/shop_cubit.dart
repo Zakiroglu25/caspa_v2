@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
@@ -17,19 +18,16 @@ class ShopCubit extends Cubit<ShopState> {
     }
     try {
       final result = await GeneralProvider.fetchShops();
-
       if (isSuccess(result?.statusCode)) {
         emit(ShopSuccess(result?.data));
       } else {
         emit(ShopError());
-        eeee(
-            "login result bad: ${ResponseMessage.fromJson(jsonDecode(result!.data)).message}");
       }
     } on SocketException catch (_) {
       //network olacaq
       emit(ShopNetworkError());
-    } catch (e) {
-      eeee("shop cubit catch: $e");
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s, where: 'ShopCubit.fetch');
       emit(ShopError(error: e.toString()));
     }
   }

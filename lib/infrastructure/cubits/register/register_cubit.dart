@@ -103,7 +103,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: uEmail.valueOrNull,
         password: uPassMain.valueOrNull,
         password_confirmation: uPassSecond.valueOrNull,
-        phone: AppOperations.formatNumber(phone.value),
+        phone: phone.valueOrNull,
         accept: 1,
         deviceCode: deviceCode,
         deviceTypeId: StringOperations.platformId(),
@@ -368,9 +368,11 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   bool get isIdNumberIncorrect => (!idNumber.hasValue ||
-      idNumber.value == null ||
-      idNumber.value.isEmpty |
-          !AppOperations.idCardSeriesControl(idNumber.value));
+          idNumber.value == null ||
+          idNumber.value.isEmpty ||
+          idNumber.value.length < 5
+      //|| !AppOperations.idCardSeriesControl(idNumber.value)
+      );
 
   //checkbox
   final BehaviorSubject<bool> checkbox = BehaviorSubject<bool>.seeded(false);

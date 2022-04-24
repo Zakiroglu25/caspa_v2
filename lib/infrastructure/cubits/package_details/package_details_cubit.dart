@@ -15,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../../util/delegate/user_operations.dart';
 import '../../data_source/promo_code_provider.dart';
 import 'package_details_state.dart';
 
@@ -44,6 +45,8 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     } else if (paymentType.value == MyText.withPromoCode) {
       packagePayWithPromo(context, id: id);
     } else {}
+
+    await getUserInfo();
   }
 
   void packagePayFromBalance(BuildContext context, {required int id}) async {
@@ -142,6 +145,7 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     } else if (paymentType.value == MyText.fromBalance) {
       orderPayFromBalance(context, id: id);
     } else {}
+    await getUserInfo();
   }
 
   void orderPayFromBalance(BuildContext context, {required int id}) async {
@@ -222,6 +226,7 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     } else if (paymentType.value == MyText.fromBalance) {
       courierPayFromBalance(context, id: id);
     } else {}
+    await getUserInfo();
     //}
   }
 
@@ -294,6 +299,12 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     emit(PackageDetailsPaid());
   }
 
+  Future<void> getUserInfo() async {
+    await UserOperations.configUserDataWhenOpenApp(
+      accessToken: _prefs.accessToken!,
+      fcm: _prefs.fcmToken,
+    );
+  }
   //values
   ///////////////////////////////////////////////////
 

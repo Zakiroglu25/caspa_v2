@@ -45,6 +45,7 @@ class OrderViaLinkListPage extends StatelessWidget {
           }
           if (state is PackageDetailsPaid) {
             //Go.pop(context);
+            context.read<OrderViaUrlListCubit>().fetch(false);
             Snack.positive(
                 context: context, message: MyText.operationIsSuccess);
           }

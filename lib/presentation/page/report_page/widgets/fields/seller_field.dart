@@ -22,7 +22,7 @@ class SellerFieldReport extends StatelessWidget {
           maxLines: 1,
           hint: MyText.seller,
           upperCase: true,
-          textInputType: TextInputType.name,
+          textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           controller: controller,
@@ -31,5 +31,6 @@ class SellerFieldReport extends StatelessWidget {
         );
       },
     );
+    //t
   }
 }

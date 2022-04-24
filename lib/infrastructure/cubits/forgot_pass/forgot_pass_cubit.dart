@@ -55,7 +55,10 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
       return true;
     } else {
       emit(ForgotPassError());
-      Snack.display(context: context, message: result.data['message']);
+      if (result.data.toString().contains('message')) {
+        Snack.display(context: context, message: result.data['message']);
+      }
+
       return false;
     }
   }

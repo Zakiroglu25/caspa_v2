@@ -34,8 +34,43 @@ class AdsCubit extends Cubit<AdsState> {
       //network olacaq
       emit(AdsNetworkError());
     } catch (e) {
-      eeee("shop cubit catch: $e");
+      eeee("ads cubit catch: $e");
       emit(AdsError(error: e.toString()));
     }
   }
+
+  //NeseCubit(NeseLoading());
+}
+
+class NeseCubit extends Cubit<NeseState> {
+  NeseCubit() : super(NeseInitial());
+
+  getAllDat() {
+    emit(NeseLoading());
+    //api sorgi atilir
+    //apiden resposne geldi
+    int resposne = 200;
+    if (resposne == 200) {
+      emit(NeseSuccess());
+    } else {
+      emit(NeseError());
+    }
+  }
+}
+
+abstract class NeseState {}
+
+class NeseSuccess extends NeseState {}
+
+class NeseInitial extends NeseState {}
+
+class NeseError extends NeseState {}
+
+class NeseLoading extends NeseState {}
+
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
+
+  void increment() => emit(state + 1);
+  void decrement() => emit(state - 1);
 }

@@ -121,7 +121,7 @@ class MyText {
   static const String declareIt = "Bəyan et";
   static const String declareItCustom = "SmartCustom-a bəyan et";
   static const String editIt = "Düzəliş et";
-  static const String new_order = "Yeni sifariş";
+  static const String newOrder = "Yeni sifariş";
 
   //userCabinet
   static const String emergencyCall =
@@ -282,6 +282,9 @@ class MyText {
   static const String more = "Ətraflı";
   static const String processing = "Əməliyyat aparılır...";
   static const String field_is_not_correct = "Xana düzgün doldurulmayıb!";
+
+  //map
+  static const String map = "Xəritə";
 
   //report
   static const String report = "Bəyan et";

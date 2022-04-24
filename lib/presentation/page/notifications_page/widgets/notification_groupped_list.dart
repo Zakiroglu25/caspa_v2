@@ -33,26 +33,25 @@ class NotificationGroupedList extends StatelessWidget {
               groupComparator: (item1, item2) {
                 return StringOperations.formattedStringToDatetime(item1)
                     .compareTo(
-                    StringOperations.formattedStringToDatetime(item2));
+                        StringOperations.formattedStringToDatetime(item2));
               },
               groupSeparatorBuilder: (String groupByValue) => NotificationDate(
                 date: groupByValue,
               ),
               separator: MySizedBox.h10,
               itemBuilder: (context, MyNotification element) {
-               return NotificationElement(
-                 notification: element,
-                 onXTap: () {
-                 },
-               );
+                return NotificationElement(
+                  notification: element,
+                  onXTap: () {},
+                );
               },
-               
+
               itemComparator: (item1, item2) {
                 return StringOperations.dateConvertFromString(item1.createdAt!,
-                    smartDay: false)
+                        smartDay: false)
                     .compareTo(StringOperations.dateConvertFromString(
-                    item2.createdAt!,
-                    smartDay: false));
+                        item2.createdAt!,
+                        smartDay: false));
               }, // optional
               useStickyGroupSeparators: false, // optional
               floatingHeader: true, // optional

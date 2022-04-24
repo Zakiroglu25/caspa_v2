@@ -160,6 +160,7 @@ class MyText {
   static const String own_cabinet = "Şəxsi kabinet";
   static const String adress = "Ünvan";
   static const String adresses = '''Ünvanlar''';
+  static const String other = '''Digər''';
   static const String warehouse = "Anbar";
   static const String birthday = "Doğum tarixi";
   static const String card_serie_and_id = "ŞV-nin seriya və nömrəsi";

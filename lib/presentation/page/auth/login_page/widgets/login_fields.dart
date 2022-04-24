@@ -12,8 +12,6 @@ import '../../../../../locator.dart';
 import 'email_field.dart';
 
 class LoginFields extends StatelessWidget {
-  final TextEditingController _emailController = new TextEditingController();
-  final TextEditingController _passController = new TextEditingController();
   static ConfigService get _configs => locator<ConfigService>();
 
   @override
@@ -21,10 +19,7 @@ class LoginFields extends StatelessWidget {
     return Column(
       children: [
         EmailFieldLogin(StringOperations.stringToController(_configs.email)),
-        //MySizedBox.h16,
-        PassField(
-            //    StringOperations.stringToController('b45631a2c')
-            ),
+        PassField(),
         MySizedBox.h16,
         CaspaTextButton(
           text: MyText.forgot_pass,

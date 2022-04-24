@@ -71,6 +71,7 @@ class MyText {
   static const String confirming = "Təsdiq edirəm";
   static const String total_price = "Toplam məbləğ";
   static const String price = "Qiymət";
+  static const String trackingCode = "Kodu";
   static const String amount = "Miqdar";
   static const String amountmoney = "Məbləğ";
   static const String value = "Dəyər";
@@ -276,6 +277,7 @@ class MyText {
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
+  static const String errorPrice = "Minumum 1 USD balansa yüklənməlidir";
   static const String sure_all_fields_correct_contact_us =
       "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";
   static const String more = "Ətraflı";

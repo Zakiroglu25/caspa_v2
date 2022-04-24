@@ -8,7 +8,6 @@ class ApiKeys {
   static const baseUrl = 'https://caspa.az/api';
 
   ///delete
-  static const baseUrlTest = 'https://demoapi.rahatapp.az/v1/couriers';
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
@@ -44,6 +43,7 @@ class ApiKeys {
   static final addCourier = '$baseUrl/user/couriers';
   static final editCourier = '$baseUrl/user/couriers/edit';
   static final packagesStatuses = '$baseUrl/user/statuses';
+  static final packagesArchive = '$baseUrl/user/package/archive';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -115,6 +115,9 @@ class ApiKeys {
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
   static const payForCourierCashback = "$baseUrl/user/courier/cashback";
+  //notification
+  static const deleteNotification = "$baseUrl/user/delete/notification";
+
 
   static loginBody({
     required String? email,

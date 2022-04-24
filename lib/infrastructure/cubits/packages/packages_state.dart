@@ -15,6 +15,12 @@ class PackagesError extends PackageState {
 
 class PackagesNetworkError extends PackageState {}
 
+class PackagesDeleteSuccess extends PackageState {
+  PackagesDeleteSuccess(this.messages);
+
+  String? messages;
+}
+
 class PackagesSuccess extends PackageState {
   PackagesSuccess(this.packageList);
 

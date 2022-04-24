@@ -39,11 +39,13 @@ class NotificationGroupedList extends StatelessWidget {
                 date: groupByValue,
               ),
               separator: MySizedBox.h10,
-              itemBuilder: (context, MyNotification element) =>
-                  NotificationElement(
-                notification: element,
-                onXTap: () {},
-              ),
+              itemBuilder: (context, MyNotification element) {
+                return NotificationElement(
+                  notification: element,
+                  onXTap: () {},
+                );
+              },
+
               itemComparator: (item1, item2) {
                 return StringOperations.dateConvertFromString(item1.createdAt!,
                         smartDay: false)

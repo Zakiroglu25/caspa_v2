@@ -6,23 +6,23 @@ class Paddings {
   //all
   static const EdgeInsets zero = const EdgeInsets.all(0);
   static const EdgeInsets paddingA1 =
-      const EdgeInsets.symmetric(vertical: 1, horizontal: 1);
+  const EdgeInsets.symmetric(vertical: 1, horizontal: 1);
   static const EdgeInsets paddingA2 =
-      const EdgeInsets.symmetric(vertical: 2, horizontal: 2);
+  const EdgeInsets.symmetric(vertical: 2, horizontal: 2);
   static const EdgeInsets paddingA4 =
-      const EdgeInsets.symmetric(vertical: 4, horizontal: 4);
+  const EdgeInsets.symmetric(vertical: 4, horizontal: 4);
   static const EdgeInsets paddingA8 =
-      const EdgeInsets.symmetric(vertical: 8, horizontal: 8);
+  const EdgeInsets.symmetric(vertical: 8, horizontal: 8);
   static const EdgeInsets paddingA12 =
-      const EdgeInsets.symmetric(vertical: 12, horizontal: 12);
+  const EdgeInsets.symmetric(vertical: 12, horizontal: 12);
   static const EdgeInsets paddingA14 =
-      const EdgeInsets.symmetric(vertical: 14, horizontal: 14);
+  const EdgeInsets.symmetric(vertical: 14, horizontal: 14);
   static const EdgeInsets paddingA16 =
-      const EdgeInsets.symmetric(vertical: 16, horizontal: 16);
+  const EdgeInsets.symmetric(vertical: 16, horizontal: 16);
   static const EdgeInsets paddingA20 =
-      const EdgeInsets.symmetric(vertical: 20, horizontal: 20);
+  const EdgeInsets.symmetric(vertical: 20, horizontal: 20);
   static const EdgeInsets paddingA24 =
-      const EdgeInsets.symmetric(vertical: 24, horizontal: 24);
+  const EdgeInsets.symmetric(vertical: 24, horizontal: 24);
 
   //symmetric
   //horizontal
@@ -31,15 +31,15 @@ class Paddings {
   static const EdgeInsets paddingH4 = const EdgeInsets.symmetric(horizontal: 4);
   static const EdgeInsets paddingH8 = const EdgeInsets.symmetric(horizontal: 8);
   static const EdgeInsets paddingH16 =
-      const EdgeInsets.symmetric(horizontal: 16);
+  const EdgeInsets.symmetric(horizontal: 16);
   static const EdgeInsets paddingH12 =
-      const EdgeInsets.symmetric(horizontal: 12);
+  const EdgeInsets.symmetric(horizontal: 12);
   static const EdgeInsets paddingH14 =
-      const EdgeInsets.symmetric(horizontal: 14);
+  const EdgeInsets.symmetric(horizontal: 14);
   static const EdgeInsets paddingH20 =
-      const EdgeInsets.symmetric(horizontal: 20);
+  const EdgeInsets.symmetric(horizontal: 20);
   static const EdgeInsets paddingH30 =
-      const EdgeInsets.symmetric(horizontal: 30);
+  const EdgeInsets.symmetric(horizontal: 30);
 
   //vertical
   static const EdgeInsets paddingV4 = EdgeInsets.symmetric(vertical: 4);

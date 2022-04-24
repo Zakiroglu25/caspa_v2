@@ -71,12 +71,11 @@ class CourierProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteCourier;
     var url = Uri.parse(api);
-    final headers = ApiKeys.header(token: accessToken);
+    // final headers = ApiKeys.header(token: accessToken);
 
     final body = {
       "id": id,
     };
-
     bbbb("body: " + jsonEncode(body).toString());
     // final response =
     //     await http.post(url, headers: headers, body: jsonEncode(body));

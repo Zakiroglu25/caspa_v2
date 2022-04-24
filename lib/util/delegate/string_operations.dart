@@ -125,13 +125,13 @@ class StringOperations {
 
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidDeviceInfo =
-          await DeviceInfoPlugin().androidInfo;
+      await DeviceInfoPlugin().androidInfo;
       deviceName =
-          '${androidDeviceInfo.brand!} ${androidDeviceInfo.model!} | Android: ${androidDeviceInfo.version.release}';
+      '${androidDeviceInfo.brand!} ${androidDeviceInfo.model!} | Android: ${androidDeviceInfo.version.release}';
     } else if (Platform.isIOS) {
       IosDeviceInfo iosDeviceInfo = await DeviceInfoPlugin().iosInfo;
       deviceName =
-          '${iosDeviceInfo.name!} | iOS: ${iosDeviceInfo.systemVersion}';
+      '${iosDeviceInfo.name!} | iOS: ${iosDeviceInfo.systemVersion}';
     } else {
       deviceName = 'unknown device';
     }

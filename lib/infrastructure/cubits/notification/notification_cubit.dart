@@ -9,7 +9,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../locator.dart';
+import '../../../util/constants/text.dart';
 import '../../../util/delegate/request_control.dart';
+import '../../../util/screen/snack.dart';
 import 'notification_state.dart';
 
 // Project imports:
@@ -18,6 +20,7 @@ class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit() : super(NotificationInitial());
 
   HiveService get _prefs => locator<HiveService>();
+
   //RenewTokenService get _token => locator<RenewTokenService>();
 
   void fetch({bool? loading}) async {
@@ -61,10 +64,15 @@ class NotificationCubit extends Cubit<NotificationState> {
     }
 
     try {
-      // String token = await _token.reNewToken(context);
-      String token = '';
+      String? token = _prefs.accessToken;
       final result = await NotificationProvider.removeNotification(
           token: token, notificationId: notificationId);
+      iiii(result.toString());
+      if (isSuccess(result!.data)) {
+        Snack.positive(message: MyText.operationIsSuccess);
+      } else {
+        emit(NotificationError());
+      }
       // if (result?.message == 'ok') {
       //   emit(NotificationRemoveSuccess());
       //   fetch(loading: false, context: context);

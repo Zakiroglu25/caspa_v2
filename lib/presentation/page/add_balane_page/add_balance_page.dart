@@ -17,6 +17,8 @@ import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import '../../../util/constants/assets.dart';
+import '../../../util/screen/alert.dart';
 import 'fields/amount_field.dart';
 import '../webview_page/webview_page.dart';
 import 'widgets/price_package.dart';
@@ -61,6 +63,13 @@ class AddBalancePage extends StatelessWidget {
               }
               if (state is PaymentBalanceSuccess) {
                 FullScreenLoading.hide(context);
+                //Go.pop(context);
+              }
+              if (state is PaymentPriceError) {
+                FullScreenLoading.hide(context);
+                Snack.display(
+                    context: context,
+                    message: state.error ?? MyText.errorPrice);
                 //Go.pop(context);
               }
               if (state is PaymentBalanceError) {

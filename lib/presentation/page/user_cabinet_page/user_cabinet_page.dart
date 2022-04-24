@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
@@ -17,7 +16,6 @@ import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
@@ -27,7 +25,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:focus_detector/focus_detector.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../locator.dart';
 import 'widget/cabinet_header.dart';
@@ -36,162 +33,171 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
+
   HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
-    bbbb("shoo: $showBack");
-    return FocusDetector(
-      onFocusGained: () {
-        context.read<UserCubit>().getUserData();
-      },
-      child: Scaffold(
-        appBar: CaspaAppbar(
-          title: MyText.own_cabinet,
-          contextA: context,
-          centerTitle: true,
-          user: false,
-          back: showBack ?? true,
-          notification: false,
-          onTapActions: () {
-            showCupertinoModalPopup(
-              context: context,
-              builder: (BuildContext contextA) => CupertinoActionSheet(
-                  actions: <Widget>[
-                    CupertinoActionSheetAction(
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(Assets.svgFile),
-                          MySizedBox.w20,
-                          Text(
-                            MyText.settings,
-                            style: AppTextStyles.sanF500
-                                .copyWith(color: Colors.black, fontSize: 16.sp),
-                          ),
-                        ],
-                      ),
-                      onPressed: () => Go.to(contextA, Pager.userSettingsPage),
-                    ),
-                    CupertinoActionSheetAction(
-                      child: Row(
-                        children: [
-                          SvgPicture.asset(Assets.svgLogOut),
-                          MySizedBox.w20,
-                          Text(
-                            MyText.logout,
-                            style: AppTextStyles.sanF500
-                                .copyWith(color: Colors.black, fontSize: 16.sp),
-                          ),
-                        ],
-                      ),
-                      onPressed: () => context
-                          .read<AuthenticationCubit>()
-                          .showLogoutDialog(context, goWithPager: true),
-                    )
-                  ],
-                  cancelButton: CupertinoActionSheetAction(
-                    child: Text(
-                      MyText.cancel,
-                      style: AppTextStyles.sanF500
-                          .copyWith(color: Colors.black, fontSize: 16.sp),
-                    ),
-                    isDefaultAction: true,
-                    onPressed: () {
-                      Navigator.pop(contextA, 'Cancel');
-                    },
-                  )),
-            );
-          },
-        ),
-        body: ValueListenableBuilder(
-          valueListenable: Hive.box('main').listenable(),
-          builder: (context, Box box, widget) {
-            final MyUser user =
-                MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
-            return SingleChildScrollView(
-              padding: Paddings.paddingH16,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // MySizedBox.h32,
-                  CabinetHeaderWidget(),
-                  SliverInfo(
-                    MyText.emergencyCall,
-                    align: TextAlign.center,
-                  ),
-                  MySizedBox.h16,
-                  BalanceBox(
-                    onTap: () {
-                      Go.to(
-                          context,
-                          Pager.paymentPage(
-                              paymentBalanceType: PaymentBalanceType.cargo));
-                      // context.read()<PaymentsOrderCubit>();
-                    },
-                    title: "Balans USD",
-                    price: "\$ ${user.cargoBalance}",
-                    subtitle: "(Daşınma)",
-                    color: MyColors.balansCargo,
-                    btnText: MyText.increaseBalance,
-                    colorbtn: MyColors.btnBlanceCargo,
-                  ),
-                  MySizedBox.h16,
-                  BalanceBox(
-                      title: "Balans TL",
-                      price: "${user.balance ?? 0} TL",
-                      subtitle: "(Sifariş)",
-                      color: MyColors.balansOrder,
-                      btnText: MyText.increaseBalance,
-                      colorbtn: MyColors.btnBlanceOrder,
-                      onTap: () => Go.to(
-                          context,
-                          Pager.paymentPage(
-                            paymentBalanceType: PaymentBalanceType.order,
-                          ))),
-                  MySizedBox.h16,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      BalansMiniBox(
-                        title: MyText.durtingCurrentMonth,
-                        content: "\$ ${_prefs.user.monthly}",
-                        color: MyColors.shop,
-                        priceColor: MyColors.balanceBoxRed,
-                        icon: const Icon(null),
-                      ),
-                      MySizedBox.w16,
-                      BalansMiniBox(
-                        title: MyText.countOfOrders,
-                        content: "${_prefs.user.active_package_count}",
-                        color: MyColors.balanceCountPackage,
-                        onTap: () => Go.to(
-                          context,
-                          Pager.package(back: true),
+    return Scaffold(
+      appBar: CaspaAppbar(
+        title: MyText.own_cabinet,
+        contextA: context,
+        centerTitle: true,
+        user: false,
+        back: showBack ?? true,
+        notification: false,
+        onTapActions: () {
+          showCupertinoModalPopup(
+            context: context,
+            builder: (BuildContext contextA) => CupertinoActionSheet(
+                actions: <Widget>[
+                  CupertinoActionSheetAction(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.svgFile),
+                        MySizedBox.w20,
+                        Text(
+                          MyText.settings,
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
                         ),
-                        priceColor: MyColors.balanceBoxOrange,
-                        icon: SvgPicture.asset(Assets.svgBalanceUp),
-                      ),
-                    ],
+                      ],
+                    ),
+                    onPressed: () => Go.to(contextA, Pager.userSettingsPage),
                   ),
-                  MySizedBox.h16,
-
-                  Row(
-                    children: [
-                      BalansMiniBox(
-                        title: MyText.cashbackProfile,
-                        content: "${_prefs.user.cashback_balance}\$ ",
-                        color: MyColors.balansCargo,
-                        priceColor: MyColors.mainColor,
-                        icon: const Icon(null),
-                      ),
-                    ],
-                  ),
-                  MySizedBox.h50,
+                  CupertinoActionSheetAction(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.svgLogOut),
+                        MySizedBox.w20,
+                        Text(
+                          MyText.logout,
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
+                        ),
+                      ],
+                    ),
+                    onPressed: () => context
+                        .read<AuthenticationCubit>()
+                        .showLogoutDialog(context, goWithPager: true),
+                  )
                 ],
-              ),
-            );
-          },
-        ),
+                cancelButton: CupertinoActionSheetAction(
+                  child: Text(
+                    MyText.cancel,
+                    style: AppTextStyles.sanF500
+                        .copyWith(color: Colors.black, fontSize: 16.sp),
+                  ),
+                  isDefaultAction: true,
+                  onPressed: () {
+                    Navigator.pop(contextA, 'Cancel');
+                  },
+                )),
+          );
+        },
+      ),
+      body: ValueListenableBuilder(
+        valueListenable: Hive.box('main').listenable(),
+        builder: (context, Box box, widget) {
+          final MyUser user =
+              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          return SingleChildScrollView(
+            padding: Paddings.paddingH16,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // MySizedBox.h32,
+                CabinetHeaderWidget(),
+                SliverInfo(
+                  MyText.emergencyCall,
+                  align: TextAlign.center,
+                ),
+                MySizedBox.h16,
+                BalanceBox(
+                  onTap: () {
+                    Go.to(
+                        context,
+                        Pager.paymentPage(
+                            paymentBalanceType: PaymentBalanceType.cargo));
+                    // context.read()<PaymentsOrderCubit>();
+                  },
+                  title: "Balans USD",
+                  price: "\$ ${user.cargoBalance}",
+                  subtitle: "(Daşınma)",
+                  color: MyColors.balansCargo,
+                  btnText: MyText.increaseBalance,
+                  colorbtn: MyColors.btnBlanceCargo,
+                ),
+                MySizedBox.h16,
+                BalanceBox(
+                    title: "Balans TL",
+                    price: "${user.balance ?? 0} TL",
+                    subtitle: "(Sifariş)",
+                    color: MyColors.balansOrder,
+                    btnText: MyText.increaseBalance,
+                    colorbtn: MyColors.btnBlanceOrder,
+                    onTap: () => Go.to(
+                        context,
+                        Pager.paymentPage(
+                          paymentBalanceType: PaymentBalanceType.order,
+                        ))),
+                MySizedBox.h16,
+
+                BalansMiniBox(
+                  title: "Caspa-dan hədiyyə",
+                  w: MediaQuery.of(context).size.width,
+                  content: "\$ ${_prefs.user.monthly}",
+                  color: MyColors.balanceCountPackage,
+                  priceColor: MyColors.balanceBoxOrange,
+                  icon: Text("Bitmə vaxtı"),
+                  finishTime: "14 gün",
+                ),
+                MySizedBox.h16,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    BalansMiniBox(
+                      title: MyText.durtingCurrentMonth,
+                      content: "\$ ${_prefs.user.monthly}",
+                      color: MyColors.shop,
+                      priceColor: MyColors.balanceBoxRed,
+                      icon: const Icon(null),
+                      finishTime: "",
+                    ),
+                    MySizedBox.w16,
+                    BalansMiniBox(
+                      title: MyText.countOfOrders,
+                      content: "${_prefs.user.active_package_count}",
+                      color: MyColors.balanceCountPackage,
+                      onTap: () => Go.to(
+                        context,
+                        Pager.package(back: true),
+                      ),
+                      priceColor: MyColors.balanceBoxOrange,
+                      icon: SvgPicture.asset(Assets.svgBalanceUp),
+                      finishTime: "",
+                    ),
+                  ],
+                ),
+                MySizedBox.h16,
+
+                Row(
+                  children: [
+                    BalansMiniBox(
+                      title: MyText.cashbackProfile,
+                      content: "${_prefs.user.cashback_balance}\$ ",
+                      color: MyColors.balansCargo,
+                      priceColor: MyColors.mainColor,
+                      icon: const Icon(null),
+                      finishTime: "",
+                    ),
+                  ],
+                ),
+                MySizedBox.h50,
+              ],
+            ),
+          );
+        },
       ),
     );
   }

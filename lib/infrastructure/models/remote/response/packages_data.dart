@@ -45,6 +45,9 @@ class Package {
   int? noInvoice;
   String? invoice;
   String? date;
+  String? width;
+  String? height;
+  String? length;
   List<Archive>? archive;
 
   Package(
@@ -66,6 +69,9 @@ class Package {
       this.noInvoice,
       this.invoice,
       this.date,
+        this.width,
+        this.height,
+        this.length,
       this.archive});
 
   Package.fromJson(Map<String, dynamic> json) {
@@ -74,6 +80,9 @@ class Package {
     cargoTracking = json['cargo_tracking'];
     tracking = json['tracking'];
     store = json['store'];
+    width = json['width'];
+    height = json['height'];
+    length = json['length'];
     from_report = json['from_report'];
     price = json['price'];
     cargoPrice = json['cargo_price'];
@@ -108,6 +117,9 @@ class Package {
     data['from_report'] = this.from_report;
     data['customStatus'] = this.customStatus;
     data['price'] = this.price;
+    data['width'] = this.width;
+    data['height'] = this.height;
+    data['length'] = this.length;
     data['cargo_price'] = this.cargoPrice;
     data['weight'] = this.weight;
     if (this.category != null) {

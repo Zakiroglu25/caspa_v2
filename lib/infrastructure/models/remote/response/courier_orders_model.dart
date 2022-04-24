@@ -11,13 +11,13 @@ class CourierListModel {
     if (json['data'] != null) {
       data = <CourierOrder>[];
       json['data'].forEach((v) {
-        data!.add(new CourierOrder.fromJson(v));
+        data!.add(CourierOrder.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -64,20 +64,20 @@ class CourierOrder {
     address = json['address'];
     price = json['price'];
     region =
-        json['region'] != null ? new Region.fromJson(json['region']) : null;
+        json['region'] != null ? Region.fromJson(json['region']) : null;
     usdPrice = json['usd_price'];
     date = json['date'];
     updateDate = json['update_date'];
     if (json['products'] != null) {
       products = <Package>[];
       json['products'].forEach((v) {
-        products!.add(new Package.fromJson(v));
+        products!.add(Package.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['payment'] = this.payment;
     data['delivery'] = this.delivery;
@@ -114,7 +114,7 @@ class Pivot {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['courier_id'] = this.courierId;
     data['package_id'] = this.packageId;
     return data;

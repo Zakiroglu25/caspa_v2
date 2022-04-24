@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:http/http.dart' as http;
 
@@ -18,6 +19,7 @@ import '../models/remote/response/user_result.dart';
 
 class NotificationProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
+
   static Future<StatusDynamic> getNotification() async {
     StatusDynamic statusDynamic = StatusDynamic();
     late List<MyNotification>? notificastionsList;
@@ -42,24 +44,17 @@ class NotificationProvider {
   static Future<GeneralResponse?> removeNotification(
       {@required String? token, @required int? notificationId}) async {
     GeneralResponse? generalResponse;
-    var api = ApiKeys.login;
-    //final headers = ApiKeys.headers;
-    final headers = {
-      "Content-Type": "application/json",
-      'Authorization': 'Bearer $token',
-    };
-    var url = Uri.parse(api);
-    llll("removeNotification url: " + url.toString());
-    final response = await http.post(url,
-        headers: headers, body: jsonEncode({"notificationId": notificationId}));
+    var api = ApiKeys.deleteNotification + "?id=$notificationId";
+
+    final response = await dioAuth.dio.post(api);
 
     if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.body);
+      var dataGelenCavabJSON = jsonDecode(response.data);
       //  print("removeNotification result: $dataGelenCavabJSON");
       generalResponse = GeneralResponse.fromJson(dataGelenCavabJSON);
     } else {
       eeee(
-          "removeNotification result bad:  url: $url  ,  response: ${response.body}");
+          "removeNotification result bad:  url: $api  ,  response: ${response.data}");
     }
     return generalResponse;
   }

@@ -15,9 +15,7 @@ class MoreStories extends StatefulWidget {
 
 class _MoreStoriesState extends State<MoreStories> {
   final storyController = StoryController();
-
   List<StoryItem> stories = [];
-
   @override
   void initState() {
     super.initState();
@@ -45,28 +43,6 @@ class _MoreStoriesState extends State<MoreStories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   backgroundColor: MyColors.black,
-      //   elevation: 0,
-      //   title: Text("Xəbərlər",
-      //       style: UITextStyle.tW600Black
-      //           .copyWith(fontSize: 16, color: MyColors.white)),
-      //   centerTitle: true,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 16.0),
-      //       child: InkWell(
-      //           onTap: () {
-      //             Navigator.pop(context);
-      //           },
-      //           child: Icon(
-      //             Icons.clear,
-      //             color: MyColors.white,
-      //           )),
-      //     ),
-      //   ],
-      // ),
       body: Stack(
         children: [
           StoryView(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
 
 import '../../../../util/constants/colors.dart';
+import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/text_styles.dart';
 
 class MoreStories extends StatefulWidget {
@@ -15,9 +16,7 @@ class MoreStories extends StatefulWidget {
 
 class _MoreStoriesState extends State<MoreStories> {
   final storyController = StoryController();
-
   List<StoryItem> stories = [];
-
   @override
   void initState() {
     super.initState();
@@ -45,45 +44,25 @@ class _MoreStoriesState extends State<MoreStories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   backgroundColor: MyColors.black,
-      //   elevation: 0,
-      //   title: Text("Xəbərlər",
-      //       style: UITextStyle.tW600Black
-      //           .copyWith(fontSize: 16, color: MyColors.white)),
-      //   centerTitle: true,
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 16.0),
-      //       child: InkWell(
-      //           onTap: () {
-      //             Navigator.pop(context);
-      //           },
-      //           child: Icon(
-      //             Icons.clear,
-      //             color: MyColors.white,
-      //           )),
-      //     ),
-      //   ],
-      // ),
+      backgroundColor: MyColors.black,
       body: Stack(
         children: [
-          StoryView(
-            storyItems: stories,
-            onComplete: () {
-              Navigator.pop(context);
-            },
-            progressPosition: ProgressPosition.top,
-            controller: storyController,
+          Container(
+            padding: Paddings.paddingT24,
+            child: StoryView(
+              storyItems: stories,
+              onComplete: () {
+                Navigator.pop(context);
+              },
+              progressPosition: ProgressPosition.top,
+              controller: storyController,
+            ),
           ),
           Positioned(
             right: 16,
-            top: 42,
+            top: 40,
             child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
               child: Icon(
                 Icons.clear,
                 color: MyColors.white,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:story_view/story_view.dart';
 
 import '../../../../util/constants/colors.dart';
+import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/text_styles.dart';
 
 class MoreStories extends StatefulWidget {
@@ -43,23 +44,25 @@ class _MoreStoriesState extends State<MoreStories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MyColors.black,
       body: Stack(
         children: [
-          StoryView(
-            storyItems: stories,
-            onComplete: () {
-              Navigator.pop(context);
-            },
-            progressPosition: ProgressPosition.top,
-            controller: storyController,
+          Container(
+            padding: Paddings.paddingT24,
+            child: StoryView(
+              storyItems: stories,
+              onComplete: () {
+                Navigator.pop(context);
+              },
+              progressPosition: ProgressPosition.top,
+              controller: storyController,
+            ),
           ),
           Positioned(
             right: 16,
-            top: 42,
+            top: 40,
             child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: () => Navigator.pop(context),
               child: Icon(
                 Icons.clear,
                 color: MyColors.white,

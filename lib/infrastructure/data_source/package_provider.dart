@@ -76,23 +76,23 @@ class PackageProvider {
     return statusDynamic;
   }
 
-  static Future<StatusDynamic> getActivePackage() async {
+  static Future<StatusDynamic> fetchActivePackages() async {
     StatusDynamic statusDynamic = StatusDynamic();
-    late List<Package>? activePackageList;
-    final api = ApiKeys.user;
-    var url = Uri.parse(api);
-    //final response = await http.get(url, headers: headers);
-    final response = await dioAuth.dio.get(api);
-    statusDynamic.statusCode = response.statusCode;
+    var api = ApiKeys.packagesActives;
+    //var url = Uri.parse(api);
+    //var headers = ApiKeys.header(token: token);
 
+    final response = await dioAuth.dio.get(api);
+    //final response = await http.get(url, headers: headers);
+    wtf(response.toString());
+    statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      activePackageList =
-          (UserResult.fromJson(gelenCavabJson)).data?.activePackages;
-
-      statusDynamic.data = activePackageList;
+      PackagesData userResult = PackagesData.fromJson(gelenCavabJson);
+      statusDynamic.data = userResult.data;
+      //bbbb("packages data : " + (statusDynamic.data).toString());
     } else {
-      eeee("getNotification url :$url,response: $response");
+      eeee("fetchAllPackages bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

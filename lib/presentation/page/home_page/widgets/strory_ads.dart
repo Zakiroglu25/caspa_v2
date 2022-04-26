@@ -60,7 +60,7 @@ class _MoreStoriesState extends State<MoreStories> {
           ),
           Positioned(
             right: 16,
-            top: 40,
+            top: 90,
             child: InkWell(
               onTap: () => Navigator.pop(context),
               child: Icon(

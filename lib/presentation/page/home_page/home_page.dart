@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
             ),
             MySizedBox.h16,
             BlocProvider(
-              create: (context) => PackageCubit()..fetch(),
+              create: (context) => PackageCubit()..fetchActive(),
               child: HomePackageList(),
             ),
             MySizedBox.h16,

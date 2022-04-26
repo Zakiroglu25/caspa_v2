@@ -48,7 +48,7 @@ class PackageBox extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: AppTextStyles.sanF400
           .copyWith(fontSize: 14.sp, color: MyColors.black),
-      child: InkWrapper(
+      child: InkWell(
         onTap: () => Go.to(
             context,
             Pager.packageDetails(

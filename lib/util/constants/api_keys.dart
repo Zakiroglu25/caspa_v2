@@ -14,22 +14,22 @@ class ApiKeys {
   };
 
   //reg and login
-  static final login = "$baseUrl/user/login";
-  static final registerPersonal = "$baseUrl/user/register";
-  static final registerCompany = "$baseUrl/user/company/register";
+  static const login = "$baseUrl/user/login";
+  static const registerPersonal = "$baseUrl/user/register";
+  static const registerCompany = "$baseUrl/user/company/register";
 
   //report
-  static final report = "$baseUrl/user/report";
-  static final editReport = "$baseUrl/user/report/edit";
-  static final deleteReport = "$baseUrl/user/report/delete";
+  static const report = "$baseUrl/user/report";
+  static const editReport = "$baseUrl/user/report/edit";
+  static const deleteReport = "$baseUrl/user/report/delete";
   static const orderViaLink = "$baseUrl/user/orders";
   static const orderViaLinkEdit = "$baseUrl/user/orders/edit";
   static const orderViaLinkDelete = "$baseUrl/user/orders/delete";
 
   //user
-  static final user = "$baseUrl/user/user";
-  static final updateAccount = "$baseUrl/user/account";
-  static final updateAvatar = "$baseUrl/user/avatar";
+  static const user = "$baseUrl/user/user";
+  static const updateAccount = "$baseUrl/user/account";
+  static const updateAvatar = "$baseUrl/user/avatar";
 
   //general
   static const shop = '$baseUrl/public/stores';
@@ -38,12 +38,13 @@ class ApiKeys {
   static const smsCodes = '$baseUrl/public/sms';
 
   //packages
-  static final allPackages = '$baseUrl/user/packages';
-  static final packagesForCourier = '$baseUrl/user/couriers/packages';
-  static final addCourier = '$baseUrl/user/couriers';
-  static final editCourier = '$baseUrl/user/couriers/edit';
-  static final packagesStatuses = '$baseUrl/user/statuses';
-  static final packagesArchive = '$baseUrl/user/package/archive';
+  static const allPackages = '$baseUrl/user/packages';
+  static const packagesForCourier = '$baseUrl/user/couriers/packages';
+  static const addCourier = '$baseUrl/user/couriers';
+  static const editCourier = '$baseUrl/user/couriers/edit';
+  static const packagesStatuses = '$baseUrl/user/statuses';
+  static const packagesArchive = '$baseUrl/user/package/archive';
+  static const packagesActives = '$baseUrl/user/package/actives';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";

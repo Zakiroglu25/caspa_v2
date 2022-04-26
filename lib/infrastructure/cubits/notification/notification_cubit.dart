@@ -37,6 +37,9 @@ class NotificationCubit extends Cubit<NotificationState> {
       //notificationList.addAll(notificationList);
       List<MyNotification> ab = [];
       ab.addAll(notificationList);
+      iiii(result.toString());
+      iiii(notificationList.toString());
+      iiii(notificationList.length.toString());
       // ab.addAll(notificationList);
       // ab.addAll(notificationList);
       // ab.addAll(notificationList);

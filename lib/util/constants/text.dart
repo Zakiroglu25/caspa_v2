@@ -92,7 +92,7 @@ class MyText {
   static const String yes = "Bəli";
   static const String no = "Xeyr";
   static const String orderOnTheWayInfo =
-      "Çox qısa zamanda bizim küryerlər sizi sevindirəcək,  bağlamaları qəbul etməyə hazır olun. 😎";
+      "Çox qısa zamanda bizim kuryerlər sizi sevindirəcək, bağlamaları qəbul etməyə hazır olun. 😎";
   static const String goToHomePage = "Ana səhifəyə keç";
 
   //courier

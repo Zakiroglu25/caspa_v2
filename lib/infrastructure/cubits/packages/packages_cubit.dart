@@ -55,6 +55,52 @@ class PackageCubit extends Cubit<PackageState> {
       emit(PackagesError(error: e.toString()));
     }
   }
+  void fetchActive([bool loading = true]) async {
+    iiii("fetchActive 1");
+    if (loading) {
+      emit(PackagesInProgress());
+    }
+    iiii("fetchActive 2");
+    try {
+      // String token = await _prefs.accessToken!;
+      // final result = await PackageProvider.fetchAllPackages();
+      final result = await PackageProvider.fetchActivePackages();
+      if(result.statusCode == 200){
+
+      }
+      // final Map<dynamic, dynamic> packageMap = result.data;
+      iiii(result.toString());
+      //    iiii("fetchActive 1");
+      // packageMap.entries.forEach((e) {
+      //   PackageAndCount packageAndCount = PackageAndCount.fromJson(e.value);
+      //   packageAndCount.packages!.forEach((f) => f.customStatus = e.key);
+      //   allPackages.addAll(packageAndCount.packages!.reversed.toList());
+      // });
+
+      // final format =
+      // DateFormat("dd.MM.yyyy H:mm"); //.format(DateTime.parse("2019-09-30"))
+      // allPackages.sort(
+      //         (a, b) => format.parse(a.date!).compareTo(format.parse(b.date!)));
+      // allPackages = allPackages.reversed.toList();
+
+      // emit(PackagesError());
+      // iiii("fetchActive 3");
+      if (isSuccess(result.statusCode)) {
+        emit(PackagesSuccess(result.data));
+        iiii("fetchActive 4");
+      } else {
+        iiii("fetchActive 5");
+        emit(PackagesError());
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(PackagesNetworkError());
+    } catch (e, s) {
+      iiii("fetchActive 6");
+      eeee("Active package cubit catch: $e=>$s");
+      emit(PackagesError(error: e.toString()));
+    }
+  }
 
   void delete({BuildContext? context,bool loading = true, int? id}) async {
     if (loading) {
@@ -66,7 +112,7 @@ class PackageCubit extends Cubit<PackageState> {
       final result = await PackageProvider.deletePackage(id: id, token: token);
       iiii(result.toString());
       if (isSuccess(result!.statusCode)) {
-        Snack.positive(message: MyText.operationIsSuccess);
+        emit(PackagesDeleteSuccess(""));
         fetch(false);
       } else {
         emit(PackagesError());

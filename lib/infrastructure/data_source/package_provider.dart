@@ -84,6 +84,7 @@ class PackageProvider {
 
     final response = await dioAuth.dio.get(api);
     //final response = await http.get(url, headers: headers);
+    wtf(response.toString());
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

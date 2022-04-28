@@ -73,10 +73,11 @@ class MyUser {
     avatar = json['avatar'];
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
-      json['notifications'] ??
-          [].forEach((v) {
-            notifications!.add(MyNotification.fromJson(v));
-          });
+      json['notifications'].forEach((v) {
+        notifications!.add(MyNotification.fromJson(v));
+      });
+    } else {
+      notifications = <MyNotification>[];
     }
     ;
     address = json['address'];

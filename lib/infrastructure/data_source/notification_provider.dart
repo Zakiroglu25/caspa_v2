@@ -32,7 +32,7 @@ class NotificationProvider {
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       final k = (UserResult.fromJson(gelenCavabJson)).data?.notifications;
-      bbbb("ghfghjbhjk: $k");
+      bbbb("ghfghjbhjk: ${UserResult.fromJson(gelenCavabJson).data}");
       notificastionsList = k;
       statusDynamic.data = notificastionsList;
     } else {

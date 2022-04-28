@@ -55,6 +55,7 @@ class PackageCubit extends Cubit<PackageState> {
       emit(PackagesError(error: e.toString()));
     }
   }
+
   void fetchActive([bool loading = true]) async {
     iiii("fetchActive 1");
     if (loading) {
@@ -65,9 +66,7 @@ class PackageCubit extends Cubit<PackageState> {
       // String token = await _prefs.accessToken!;
       // final result = await PackageProvider.fetchAllPackages();
       final result = await PackageProvider.fetchActivePackages();
-      if(result.statusCode == 200){
-
-      }
+      if (result.statusCode == 200) {}
       // final Map<dynamic, dynamic> packageMap = result.data;
       iiii(result.toString());
       //    iiii("fetchActive 1");
@@ -102,11 +101,10 @@ class PackageCubit extends Cubit<PackageState> {
     }
   }
 
-  void delete({BuildContext? context,bool loading = true, int? id}) async {
+  void delete({BuildContext? context, bool loading = true, int? id}) async {
     if (loading) {
       emit(PackagesInProgress());
     }
-    iiii("delete");
     try {
       String? token = _prefs.accessToken;
       final result = await PackageProvider.deletePackage(id: id, token: token);

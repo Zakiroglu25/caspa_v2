@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
+
 class HandleLine extends StatelessWidget {
   final double sW;
 
@@ -9,9 +10,9 @@ class HandleLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: (sW / 2) - 100),
-      width: sW / 4,
-      height: 2,
-      color: MyColors.mainColor,
+      width: 33,
+      height: 4,
+      color: MyColors.grey226,
     );
   }
 }

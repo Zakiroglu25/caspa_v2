@@ -18,8 +18,8 @@ class Sheet {
     Widget? child,
     final OnItemSelected? onItemSelected,
     final Function? onConfirm,
-    final bool? showCloseButton,
-    final bool? showConfirmButton,
+    final bool? showCloseButton = false,
+    final bool? showConfirmButton = false,
     final String? title,
   }) {
     //Scaffold.of(context).hideCurrentSnackBar();
@@ -33,7 +33,7 @@ class Sheet {
         isScrollControlled: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12.0), topRight: Radius.circular(12.0)),
+              topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0)),
         ),
         context: context!,
         builder: (contextZ) => OptimalBottomSheet(

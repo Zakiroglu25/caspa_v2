@@ -109,6 +109,8 @@ class MyColors {
   static const Color softGreen235 = Color.fromRGBO(235, 251, 228, 1);
   static const Color softPurple241 = Color.fromRGBO(241, 241, 249, 1);
   static const Color dividerVertical = Color.fromRGBO(255, 255, 255, 0.15);
+  //new dark text color
+  static const Color dark51 = Color.fromRGBO(51, 51, 51,1);
 
   // static const Color shopPurple =Color(0xFF5D5FEF);
   // static const Color shopBlue =Color(0xFF27E3D8);

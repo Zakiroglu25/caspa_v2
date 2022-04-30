@@ -51,6 +51,7 @@ class Assets {
   static const String svgEyeOff = "assets/svg/eye-off.svg";
   static const String svgEyeOn = "assets/svg/eye-on.svg";
   static const String svgMenuAppbar = "assets/svg/menu.svg";
+  static const String svgDots = "assets/svg/dots.svg";
   static const String svgFile = "assets/svg/file.svg";
   static const String svgCalendar = "assets/svg/calendar.svg";
   static const String svgHelpCircle = "assets/svg/help-circle.svg";
@@ -68,8 +69,6 @@ class Assets {
   static const String svgInfoApp = "assets/svg/info_app.svg";
   static const String svgLogOut = "assets/svg/logout.svg";
   static const String svgInfoCourier = "assets/svg/information-circle.svg";
-
-
 
   //test url
   static const String testImageURL =

@@ -20,43 +20,40 @@ class NotificationGroupedList extends StatelessWidget {
     return FadeEdge(
       child: ListOrEmpty(
         list: notificationList,
-        child: FadeInUp(
-          child: Padding(
-            padding: Paddings.paddingH16,
-            child: GroupedListView<MyNotification, String>(
-              physics: Physics.alwaysBounce,
-              elements: notificationList,
-              padding: Paddings.paddingB116 + Paddings.paddingT4,
-              groupBy: (element) => StringOperations.dateConvertFromString(
-                  element.createdAt!,
-                  smartDay: false),
-              groupComparator: (item1, item2) {
-                return StringOperations.formattedStringToDatetime(item1)
-                    .compareTo(
-                        StringOperations.formattedStringToDatetime(item2));
-              },
-              groupSeparatorBuilder: (String groupByValue) => NotificationDate(
-                date: groupByValue,
-              ),
-              separator: MySizedBox.h10,
-              itemBuilder: (context, MyNotification element) {
-                return NotificationElement(
-                  notification: element,
-                  onXTap: () {},
-                );
-              },
-
-              itemComparator: (item1, item2) {
-                return StringOperations.dateConvertFromString(item1.createdAt!,
-                        smartDay: false)
-                    .compareTo(StringOperations.dateConvertFromString(
-                        item2.createdAt!,
-                        smartDay: false));
-              }, // optional
-              useStickyGroupSeparators: false, // optional
-              floatingHeader: true, // optional
-              order: GroupedListOrder.DESC, // optional
+        child: Padding(
+          padding: Paddings.paddingH16,
+          child: GroupedListView<MyNotification, String>(
+            physics: Physics.alwaysBounce,
+            elements: notificationList,
+            padding: Paddings.paddingB116 + Paddings.paddingT4,
+            groupBy: (element) => StringOperations.dateConvertFromString(
+                element.createdAt!,
+                smartDay: false),
+            groupComparator: (item1, item2) {
+              return StringOperations.formattedStringToDatetime(item1)
+                  .compareTo(StringOperations.formattedStringToDatetime(item2));
+            },
+            groupSeparatorBuilder: (String groupByValue) => NotificationDate(
+              date: groupByValue,
             ),
+            separator: MySizedBox.h10,
+            itemBuilder: (context, MyNotification element) {
+              return NotificationElement(
+                notification: element,
+                onXTap: () {},
+              );
+            },
+
+            itemComparator: (item1, item2) {
+              return StringOperations.dateConvertFromString(item1.createdAt!,
+                      smartDay: false)
+                  .compareTo(StringOperations.dateConvertFromString(
+                      item2.createdAt!,
+                      smartDay: false));
+            }, // optional
+            useStickyGroupSeparators: false, // optional
+            floatingHeader: true, // optional
+            order: GroupedListOrder.DESC, // optional
           ),
         ),
       ),

@@ -11,17 +11,17 @@ class NotificationModel {
     if (json['result'] != null) {
       result = <NotificationResult>[];
       json['result'].forEach((v) {
-        result!.add(new NotificationResult.fromJson(v));
+        result!.add(NotificationResult.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['statusCode'] = this.statusCode;
-    data['message'] = this.message;
-    if (this.result != null) {
-      data['result'] = this.result!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['statusCode'] = statusCode;
+    data['message'] = message;
+    if (result != null) {
+      data['result'] = result!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -43,16 +43,16 @@ class NotificationResult {
     if (json['notification'] != null) {
       notification = <NotificationBody>[];
       json['notification'].forEach((v) {
-        notification!.add(new NotificationBody.fromJson(v));
+        notification!.add(NotificationBody.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date!.toIso8601String();
-    if (this.notification != null) {
-      data['notification'] = this.notification!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['date'] = date!.toIso8601String();
+    if (notification != null) {
+      data['notification'] = notification!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -77,10 +77,10 @@ class NotificationBody {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['text'] = this.text;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['id'] = id;
+    data['title'] = title;
+    data['text'] = text;
     return data;
   }
 

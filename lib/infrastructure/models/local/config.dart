@@ -1,14 +1,13 @@
-
 import 'package:caspa_v2/presentation/page/auth/register/widgets/selectable/gender_list.dart';
 import 'package:caspa_v2/util/enums/gender_type.dart';
 
 class ConfigFIre {
-   bool? writeUser;
-   bool? writePath;
+  bool? writeUser;
+  bool? writePath;
 
 //<editor-fold desc="Data Methods">
 
-   ConfigFIre({
+  ConfigFIre({
     this.writeUser,
     this.writePath,
   });
@@ -44,8 +43,8 @@ class ConfigFIre {
 
   Map<String, dynamic> toMap() {
     return {
-      'writeUser': this.writeUser,
-      'writePath': this.writePath,
+      'writeUser': writeUser,
+      'writePath': writePath,
     };
   }
 
@@ -56,14 +55,10 @@ class ConfigFIre {
     );
   }
 
-
-
   ConfigFIre.fromJson(Map<String, dynamic> json) {
     writeUser = json['writeUser'];
     writePath = json['writePath'];
-
   }
-
 
 //</editor-fold>
 }

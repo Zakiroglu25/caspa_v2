@@ -5,15 +5,15 @@ class CategoriesData {
 
   CategoriesData.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data =  <Category>[];
+      data = <Category>[];
       json['data'].forEach((v) {
-        data!.add(new Category.fromJson(v));
+        data!.add(Category.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -41,13 +41,13 @@ class Category {
     if (json['children'] != null) {
       children = <SubCategory>[];
       json['children'].forEach((v) {
-        children!.add(new SubCategory.fromJson(v));
+        children!.add(SubCategory.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
     data['parent_id'] = this.parentId;
@@ -64,7 +64,7 @@ class Category {
 }
 
 class SubCategory {
-  int   ?  id;
+  int? id;
   String? createdAt;
   String? updatedAt;
   String? name;
@@ -73,11 +73,11 @@ class SubCategory {
 
   SubCategory(
       {this.id,
-        this.createdAt,
-        this.updatedAt,
-        this.name,
-        this.parentId,
-        this.goodsId});
+      this.createdAt,
+      this.updatedAt,
+      this.name,
+      this.parentId,
+      this.goodsId});
 
   SubCategory.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -89,7 +89,7 @@ class SubCategory {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = this.id;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;

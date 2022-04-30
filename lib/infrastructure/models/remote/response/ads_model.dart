@@ -36,9 +36,9 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['image'] = this.image;
-    data['title'] = this.title;
-    data['description'] = this.description;
+    data['image'] = image;
+    data['title'] = title;
+    data['description'] = description;
     return data;
   }
 }

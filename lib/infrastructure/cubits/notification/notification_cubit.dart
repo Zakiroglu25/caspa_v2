@@ -32,14 +32,12 @@ class NotificationCubit extends Cubit<NotificationState> {
       final result = await NotificationProvider.getNotification();
       // bbbb('noy: ${result.statusCode}');
       List<MyNotification> notificationList =
-          result.data as List<MyNotification>;
+      result.data as List<MyNotification>;
+      wtf("cubit"+result.toString());
       // notificationList.forEach((element) {});
       //notificationList.addAll(notificationList);
       List<MyNotification> ab = [];
       ab.addAll(notificationList);
-      iiii(result.toString());
-      iiii(notificationList.toString());
-      iiii(notificationList.length.toString());
       // ab.addAll(notificationList);
       // ab.addAll(notificationList);
       // ab.addAll(notificationList);
@@ -60,8 +58,8 @@ class NotificationCubit extends Cubit<NotificationState> {
 
   Future<bool?> removeNotificion(
       {int? notificationId,
-      bool? loading,
-      required BuildContext? context}) async {
+        bool? loading,
+        required BuildContext? context}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }

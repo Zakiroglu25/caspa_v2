@@ -67,6 +67,9 @@ class Assets {
   static const String svgHelp = "assets/svg/help.svg";
   static const String svgInfoApp = "assets/svg/info_app.svg";
   static const String svgLogOut = "assets/svg/logout.svg";
+  static const String svgInfoCourier = "assets/svg/information-circle.svg";
+
+
 
   //test url
   static const String testImageURL =

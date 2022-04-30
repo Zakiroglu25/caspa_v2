@@ -1,7 +1,9 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -11,8 +13,11 @@ import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../infrastructure/models/remote/response/courier_orders_model.dart';
+import '../../../../util/constants/text_styles.dart';
 import '../../../../util/formatter/masked_text_controller_phone.dart';
 import 'courier_continue_button.dart';
 import 'fields/adress_field.dart';
@@ -24,6 +29,7 @@ class CourierPageListView extends StatelessWidget {
   final List<Package>? packageList;
   final List<Region>? regionList;
   final CourierOrder? courierOrder;
+
   CourierPageListView(
       {required this.packageList, required this.regionList, this.courierOrder});
 
@@ -50,6 +56,38 @@ class CourierPageListView extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                MySizedBox.h16,
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: MyColors.mainOpacity,
+                  ),
+                  child: Padding(
+                    padding: Paddings.paddingA16,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Diqqət!",
+                              style: UITextStyle.tW600Black
+                                  .copyWith(fontSize: 16, letterSpacing: 0.3),
+                            ),
+                            MySizedBox.h4,
+                            SvgPicture.asset(Assets.svgInfoCourier)
+                          ],
+                        ),
+                        Text(
+                          MyText.courierInfoTime,
+                          style: AppTextStyles.sanF400
+                              .copyWith(fontSize: 14.sp, letterSpacing: 0.3,color: MyColors.dark51),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 MySizedBox.h24,
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,

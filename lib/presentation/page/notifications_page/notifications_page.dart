@@ -3,7 +3,6 @@ import 'package:caspa_v2/infrastructure/cubits/notification/notification_state.d
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
-import 'package:caspa_v2/widget/general/new_empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../widget/general/empty_widget.dart';
@@ -38,7 +37,7 @@ class NotificationsPage extends StatelessWidget {
           } else if (state is NotificationInProgress) {
             return CaspaLoading();
           } else {
-            return NewEmptyWidget();
+            return EmptyWidget();
           }
         },
       ),

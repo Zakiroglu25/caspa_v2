@@ -130,7 +130,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Mənim bağlamalarım";
+  static const String myPackages = "Aktiv bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -384,7 +384,10 @@ class MyText {
       "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın.";
   static const String pageViewTwo =
       "Siz əziyyət çəkməyin, kuryerimiz istədiyiniz ünvana çatdırsın.";
+  ///courier info
 
+  static const String courierInfoTime =
+      "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 17:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
   ///login
   static const String loginText =
       "Zəhmət olmasa daxil olmaq üçün aşağıda qeyd olunan bəndləri doldurun.";

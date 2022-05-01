@@ -25,12 +25,9 @@ import '../../../infrastructure/models/local/my_user.dart';
 
 class PackageBox extends StatelessWidget {
   Package package;
-
   double? w;
   int? index;
-
   PackageBox({required this.package, this.w, this.index});
-
   CustomPopupMenuController _controller = CustomPopupMenuController();
 
   @override
@@ -98,38 +95,5 @@ class PackageBox extends StatelessWidget {
       ),
     );
     // );
-  }
-
-  Widget myPopMenu() {
-    return PopupMenuButton(
-      color: MyColors.black,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      onSelected: (value) {
-        // Fluttertoast.showToast(
-        //     msg: "You have selected " + value.toString(),
-        //     toastLength: Toast.LENGTH_SHORT,
-        //     gravity: ToastGravity.BOTTOM,
-        //     timeInSecForIosWeb: 1,
-        //     backgroundColor: Colors.black,
-        //     textColor: Colors.white,
-        //     fontSize: 16.0
-        // );
-      },
-      itemBuilder: (context) => [
-        PopupMenuItem(
-            height: 40,
-            value: 1,
-            child: Row(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  'Print',
-                  style: AppTextStyles.sanF400.copyWith(color: MyColors.white),
-                )
-              ],
-            )),
-      ],
-    );
   }
 }

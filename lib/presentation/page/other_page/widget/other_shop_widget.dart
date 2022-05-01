@@ -43,7 +43,7 @@ class OtherShopWidget extends StatelessWidget {
                       MyText.otherShop,
                       textAlign: TextAlign.start,
                       style: AppTextStyles.sanF400Grey.copyWith(
-                          fontSize: 13.sm, height: 1.3, letterSpacing: 0.2),
+                          fontSize: 11.sm, height: 1.3, letterSpacing: 0.2),
                     ),
                   ),
                 ],

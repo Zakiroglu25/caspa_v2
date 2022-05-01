@@ -5,6 +5,7 @@ import 'package:caspa_v2/presentation/page/package_page/widget/tab_count.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
@@ -25,6 +26,7 @@ class PackagePage extends StatelessWidget {
       child: Scaffold(body: SafeArea(
         child: BlocBuilder<PackageStatusesCubit, PackageStatusesState>(
           builder: (context, state) {
+            bbbb("state: $state");
             if (state is PackageStatusesSuccess) {
               final Map<String, dynamic> packageMap = state.packageList!;
               return SliverCaspaBar(
@@ -37,7 +39,11 @@ class PackagePage extends StatelessWidget {
                           //   text: entry.key,
                           child: Row(
                             children: [
-                              Text(entry.key,style: AppTextStyles.sanF600.copyWith(fontSize: 15.sp,letterSpacing: 0.3),),
+                              Text(
+                                entry.key,
+                                style: AppTextStyles.sanF600.copyWith(
+                                    fontSize: 15.sp, letterSpacing: 0.3),
+                              ),
                               // Text(
                               //   entry.key,
                               //   style: AppTextStyles.sanF600.copyWith(
@@ -45,7 +51,8 @@ class PackagePage extends StatelessWidget {
                               // ),
                               MySizedBox.w5,
                               TabCount(
-                                  count: PackageAndCount.fromJson(entry.value).count)
+                                  count: PackageAndCount.fromJson(entry.value)
+                                      .count)
                             ],
                           ),
                           height: 65,

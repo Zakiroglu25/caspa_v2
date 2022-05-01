@@ -7,6 +7,8 @@ class PackageStatusesInitial extends PackageStatusesState {}
 
 class PackageStatusesInProgress extends PackageStatusesState {}
 
+class PackagesStatusesDeleteSuccess extends PackageStatusesState {}
+
 class PackageStatusesError extends PackageStatusesState {
   String? error;
 

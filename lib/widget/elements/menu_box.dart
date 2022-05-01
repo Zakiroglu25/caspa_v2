@@ -45,7 +45,7 @@ class MenuBox extends StatelessWidget {
               Text(
                 content!,
                 style: AppTextStyles.sanF400.copyWith(
-                    fontSize: 12.sm,
+                    fontSize: 11.sm,
                     color: MyColors.grey153,
                     height: 1.3,
                     letterSpacing: 0.2),

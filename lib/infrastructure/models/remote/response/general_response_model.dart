@@ -16,7 +16,6 @@ class GeneralResponse<T> {
   Map<String, dynamic> toMap() {
     return {
       'data': this.data,
-      'data': this.data,
     };
   }
 

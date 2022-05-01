@@ -79,34 +79,28 @@ class PackageProvider {
   static Future<StatusDynamic> fetchActivePackages() async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.packagesActives;
-    //var url = Uri.parse(api);
-    //var headers = ApiKeys.header(token: token);
-
     final response = await dioAuth.dio.get(api);
-    //final response = await http.get(url, headers: headers);
-    wtf(response.toString());
     statusDynamic.statusCode = response.statusCode;
+
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      PackagesData userResult = PackagesData.fromJson(gelenCavabJson);
-      statusDynamic.data = userResult.data;
-      //bbbb("packages data : " + (statusDynamic.data).toString());
+      DataModel package = DataModel.fromJson(gelenCavabJson);
+      statusDynamic.data = package.data;
     } else {
-      eeee("fetchAllPackages bad url :$api,response: ${response}");
+      eeee("fetchPackagesWithStatuses bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }
 
   static Future<StatusDynamic?> deletePackage({
     required int? id,
-    required String? token,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.packagesArchive + "?id=$id";
-    iiii(api+"Provider");
+    iiii(api + "Provider");
 
     final response = await dioAuth.dio.get(api);
-    iiii(response.toString()+"Provider");
+    iiii(response.toString() + "Provider");
     statusDynamic.statusCode = response.statusCode;
     if (statusDynamic.statusCode == ResultKey.successCode) {
       // statusDynamic.data=response['message'];

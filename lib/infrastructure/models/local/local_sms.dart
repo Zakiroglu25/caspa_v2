@@ -7,13 +7,13 @@ class LocalSmsList {
     if (json['data'] != null) {
       data = <LocalSms>[];
       json['data'].forEach((v) {
-        data!.add(new LocalSms.fromJson(v));
+        data!.add(LocalSms.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -37,16 +37,16 @@ class LocalSms {
     if (json['sms_list'] != null) {
       smsList = <LocalSmsElement>[];
       json['sms_list'].forEach((v) {
-        smsList!.add(new LocalSmsElement.fromJson(v));
+        smsList!.add(LocalSmsElement.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
-    if (this.smsList != null) {
-      data['sms_list'] = this.smsList!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['date'] = date;
+    if (smsList != null) {
+      data['sms_list'] = smsList!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -69,9 +69,9 @@ class LocalSmsElement {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['date'] = this.date;
-    data['sms'] = this.sms;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['date'] = date;
+    data['sms'] = sms;
     return data;
   }
 

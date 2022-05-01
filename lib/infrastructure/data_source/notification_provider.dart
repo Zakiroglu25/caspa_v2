@@ -32,7 +32,6 @@ class NotificationProvider {
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       final k = (UserResult.fromJson(gelenCavabJson)).data?.notifications;
-      bbbb("ghfghjbhjk: ${UserResult.fromJson(gelenCavabJson).data}");
       notificastionsList = k;
       statusDynamic.data = notificastionsList;
     } else {
@@ -41,22 +40,19 @@ class NotificationProvider {
     return statusDynamic;
   }
 
-  static Future<GeneralResponse?> removeNotification(
-      {@required String? token, @required int? notificationId}) async {
-    GeneralResponse? generalResponse;
+  static Future<StatusDynamic?> removeNotification(
+      {required int notificationId}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteNotification + "?id=$notificationId";
 
     final response = await dioAuth.dio.post(api);
-
+    statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.responseSuccess) {
-      var dataGelenCavabJSON = jsonDecode(response.data);
-      //  print("removeNotification result: $dataGelenCavabJSON");
-      generalResponse = GeneralResponse.fromJson(dataGelenCavabJSON);
     } else {
       eeee(
           "removeNotification result bad:  url: $api  ,  response: ${response.data}");
     }
-    return generalResponse;
+    return statusDynamic;
   }
 
   static Future<GeneralResponse?> updateNotificationHeader({

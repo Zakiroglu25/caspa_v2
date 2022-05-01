@@ -6,7 +6,6 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class DioAuth {
   static HiveService get _prefs => locator<HiveService>();
@@ -17,9 +16,7 @@ class DioAuth {
   DioAuth._internal();
 
   static Future<DioAuth> get instance async {
-    if (_instance == null) {
-      _instance = DioAuth._internal();
-    }
+    _instance ??= DioAuth._internal();
 
     dioAuth = Dio(
       BaseOptions(

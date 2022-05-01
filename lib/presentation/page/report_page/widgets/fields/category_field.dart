@@ -100,7 +100,7 @@ class CategoryFields extends StatelessWidget {
     if (categoriesList != null && categoriesList.length != 0) {
       List<Category> categories = categoriesList;
       final sH = MediaQuery.of(context).size.height - 56 - 90;
-      final listHeight = categories.length * 35.0;
+      final listHeight = categories.length * 36.0;
 
       Sheet.display(
           context: context,
@@ -152,7 +152,7 @@ class CategoryFields extends StatelessWidget {
         selectedCategory.children!.isNotEmpty) {
       List<SubCategory> subCategories = (selectedCategory.children)!;
       final sH = MediaQuery.of(context).size.height - 56 - 90;
-      final listHeight = subCategories.length * 35.0;
+      final listHeight = subCategories.length * 36.0;
 
       Sheet.display(
           context: context,

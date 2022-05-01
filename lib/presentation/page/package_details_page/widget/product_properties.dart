@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../util/constants/app_text_styles.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import 'invoice_image_details.dart';
+import 'product_invoice.dart';
 
 class ProductProperties extends StatelessWidget {
   Package package;
@@ -22,45 +24,20 @@ class ProductProperties extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      //crossAxisAlignment: CrossAxisAlignment.start,
       padding: Paddings.paddingH16,
       physics: Physics.never,
       shrinkWrap: true,
       children: [
-        Text(
-          "Görüntü:",
-          style: AppTextStyles.sanF400.copyWith(
-            color: MyColors.grey153,
-            fontSize: 14.sm,
-          ),
-          overflow: TextOverflow.ellipsis,
+        ProductPropertyV(
+          name: MyText.view,
+          h: 0,
         ),
-        MySizedBox.h8,
-        Row(
-          children: [
-            InkWell(
-              onTap: () => Go.to(
-                  context,
-                  InvoiceImageFullScreen(
-                    package: package,
-                  )),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: MyColors.grey245),
-                width: 72.w,
-                height: 72.h,
-                child: Hero(
-                  tag: 'full',
-                  child: Image.network(
-                    package.invoice.toString(),
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        MySizedBox.h2,
+        ProductInvoice(
+          store: package.store!,
+          url: package.invoice,
         ),
+        MySizedBox.h16,
         ProductPropertyV(
             name: MyText.tracking_id,
             value: package.cargoTracking ?? MyText.didntDetermine),

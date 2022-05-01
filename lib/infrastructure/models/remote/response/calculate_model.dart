@@ -14,17 +14,17 @@ class CalculateModel {
 
   CalculateModel(
       {this.id,
-        this.createdAt,
-        this.updatedAt,
-        this.min,
-        this.max,
-        this.price,
-        this.countryId,
-        this.discount,
-        this.active,
-        this.description,
-        this.liquidPrice,
-        this.cityId});
+      this.createdAt,
+      this.updatedAt,
+      this.min,
+      this.max,
+      this.price,
+      this.countryId,
+      this.discount,
+      this.active,
+      this.description,
+      this.liquidPrice,
+      this.cityId});
 
   CalculateModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -43,18 +43,18 @@ class CalculateModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['min'] = this.min;
-    data['max'] = this.max;
-    data['price'] = this.price;
-    data['country_id'] = this.countryId;
-    data['discount'] = this.discount;
-    data['active'] = this.active;
-    data['description'] = this.description;
-    data['liquid_price'] = this.liquidPrice;
-    data['city_id'] = this.cityId;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['min'] = min;
+    data['max'] = max;
+    data['price'] = price;
+    data['country_id'] = countryId;
+    data['discount'] = discount;
+    data['active'] = active;
+    data['description'] = description;
+    data['liquid_price'] = liquidPrice;
+    data['city_id'] = cityId;
     return data;
   }
 
@@ -63,5 +63,3 @@ class CalculateModel {
     return 'CalculateModel{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, min: $min, max: $max, price: $price, countryId: $countryId, discount: $discount, active: $active, description: $description, liquidPrice: $liquidPrice, cityId: $cityId}';
   }
 }
-
-

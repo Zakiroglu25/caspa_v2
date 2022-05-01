@@ -24,7 +24,7 @@ class HomePackageList extends StatelessWidget {
       child: BlocBuilder<PackageCubit, PackageState>(
         builder: (contextK, state) {
           if (state is PackagesInProgress) {
-            return Container(height: 150.sm, child: CaspaLoading.blue());
+            return Container(height: 150.sm, child: CaspaLoading());
           } else if (state is PackagesSuccess) {
             final List<Package>? packageList = state.packageList;
             // packageList!.clear();

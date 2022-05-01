@@ -1,4 +1,3 @@
-import '../remote/response/categories_response.dart';
 import '../remote/response/packages_data.dart';
 
 class MyUser {
@@ -108,43 +107,41 @@ class MyUser {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['username'] = this.username;
-    data['name'] = this.name;
-    data['surname'] = this.surname;
-    data['fullName'] = this.fullName;
-    data['cashback_balance'] = this.cashback_balance;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['id_number'] = this.idNumber;
-    data['fin'] = this.fin;
-    data['birthday'] = this.birthday;
-    data['notifications'] = this.notifications;
-    data['packages_count'] = this.packages_count;
-    data['monthly'] = this.monthly;
-    data['gender'] = this.gender;
-    data['avatar'] = this.avatar;
+    data['id'] = id;
+    data['username'] = username;
+    data['name'] = name;
+    data['surname'] = surname;
+    data['fullName'] = fullName;
+    data['cashback_balance'] = cashback_balance;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['id_number'] = idNumber;
+    data['fin'] = fin;
+    data['birthday'] = birthday;
+    data['notifications'] = notifications;
+    data['packages_count'] = packages_count;
+    data['monthly'] = monthly;
+    data['gender'] = gender;
+    data['avatar'] = avatar;
     data['address'] = address;
-    data['balance'] = this.balance;
-    data['cargoBalance'] = this.cargoBalance;
-    data['active_package_count'] = this.active_package_count;
-    if (this.city != null) {
-      data['city'] = this.city!.toJson();
+    data['balance'] = balance;
+    data['cargoBalance'] = cargoBalance;
+    data['active_package_count'] = active_package_count;
+    if (city != null) {
+      data['city'] = city!.toJson();
     }
-    data['business'] = this.business;
-    if (this.wareHouse != null) {
-      data['wareHouse'] = this.wareHouse!.toJson();
+    data['business'] = business;
+    if (wareHouse != null) {
+      data['wareHouse'] = wareHouse!.toJson();
     }
-    data['taxNumber'] = this.taxNumber;
-    data['companyName'] = this.companyName;
-    if (this.notifications != null) {
-      data['notifications'] =
-          this.notifications!.map((v) => v.toJson()).toList();
+    data['taxNumber'] = taxNumber;
+    data['companyName'] = companyName;
+    if (notifications != null) {
+      data['notifications'] = notifications!.map((v) => v.toJson()).toList();
     }
     ;
-    if (this.activePackages != null) {
-      data['active_packages'] =
-          this.activePackages!.map((v) => v.toJson()).toList();
+    if (activePackages != null) {
+      data['active_packages'] = activePackages!.map((v) => v.toJson()).toList();
     }
     ;
     return data;
@@ -175,11 +172,11 @@ class City {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['name'] = this.name;
-    data['price'] = this.price;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['name'] = name;
+    data['price'] = price;
     return data;
   }
 
@@ -208,11 +205,11 @@ class WareHouse {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['city_id'] = this.cityId;
-    data['name'] = this.name;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['city_id'] = cityId;
+    data['name'] = name;
     return data;
   }
 
@@ -252,13 +249,13 @@ class MyNotification {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['user_id'] = this.userId;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['read'] = this.read;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['user_id'] = userId;
+    data['title'] = title;
+    data['description'] = description;
+    data['read'] = read;
     return data;
   }
 
@@ -341,30 +338,30 @@ class ActivePackages {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.id;
-    data['status'] = this.status;
-    data['cargo_tracking'] = this.cargoTracking;
-    data['tracking'] = this.tracking;
-    data['store'] = this.store;
-    data['price'] = this.price;
-    data['cargo_price'] = this.cargoPrice;
-    data['weight'] = this.weight;
-    if (this.category != null) {
-      data['category'] = this.category!.toJson();
+    data['id'] = id;
+    data['status'] = status;
+    data['cargo_tracking'] = cargoTracking;
+    data['tracking'] = tracking;
+    data['store'] = store;
+    data['price'] = price;
+    data['cargo_price'] = cargoPrice;
+    data['weight'] = weight;
+    if (category != null) {
+      data['category'] = category!.toJson();
     }
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
-    data['payment'] = this.payment;
-    data['note'] = this.note;
-    data['regNumber'] = this.regNumber;
-    data['no_invoice'] = this.noInvoice;
-    data['from_report'] = this.fromReport;
-    data['category_id'] = this.categoryId;
-    data['invoice'] = this.invoice;
-    data['date'] = this.date;
-    if (this.archive != null) {
-      data['archive'] = this.archive!.map((v) => v.toJson()).toList();
+    data['payment'] = payment;
+    data['note'] = note;
+    data['regNumber'] = regNumber;
+    data['no_invoice'] = noInvoice;
+    data['from_report'] = fromReport;
+    data['category_id'] = categoryId;
+    data['invoice'] = invoice;
+    data['date'] = date;
+    if (archive != null) {
+      data['archive'] = archive!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -397,12 +394,12 @@ class Category {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['name'] = this.name;
-    data['parent_id'] = this.parentId;
-    data['goods_id'] = this.goodsId;
+    data['id'] = id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['name'] = name;
+    data['parent_id'] = parentId;
+    data['goods_id'] = goodsId;
     return data;
   }
 }

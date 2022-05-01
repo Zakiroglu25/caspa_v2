@@ -22,54 +22,59 @@ class DotsButton extends StatelessWidget {
     return Positioned(
       top: 21.sp,
       right: 0.sp,
-      child: CustomPopupMenu(
-        arrowSize: 15,
-        position: PreferredPosition.top,
-        arrowColor: MyColors.black,
-        barrierColor: MyColors.transparent,
-        child: Container(
-          width: 40,
-          height: 40,
-          padding: EdgeInsets.only(right: 17.sp),
-          color: MyColors.transparent,
-          child: Align(
-            alignment: Alignment.topRight,
-            child: SvgPicture.asset(
-              Assets.svgDots,
-              color: MyColors.grey153,
+      child: WidgetOrEmpty(
+        value: package.customStatus == "Təhvil verilib" ||
+            package.customStatus == "Kuryer ilə Təhvil",
+        elseChild: Container(),
+        child: CustomPopupMenu(
+          arrowSize: 15,
+          position: PreferredPosition.top,
+          arrowColor: MyColors.black,
+          barrierColor: MyColors.transparent,
+          child: Container(
+            width: 40,
+            height: 40,
+            padding: EdgeInsets.only(right: 17.sp),
+            color: MyColors.transparent,
+            child: Align(
+              alignment: Alignment.topRight,
+              child: SvgPicture.asset(
+                Assets.svgDots,
+                color: MyColors.grey153,
+              ),
             ),
           ),
-        ),
 
-        menuBuilder: () => InkWell(
-          onTap: () => context
-              .read<PackageStatusesCubit>()
-              .delete(context: context, id: package.id, loading: false),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: Colors.black,
-            ),
-            padding: Paddings.paddingH4,
-            width: 110,
-            height: 40,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Center(
-                child: Text(
-                  "Baglamani sil",
-                  style: AppTextStyles.sanF400
-                      .copyWith(color: MyColors.white, fontSize: 14.sp),
+          menuBuilder: () => InkWell(
+            onTap: () => context
+                .read<PackageStatusesCubit>()
+                .delete(context: context, id: package.id, loading: false),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.black,
+              ),
+              padding: Paddings.paddingH4,
+              width: 110,
+              height: 40,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: Center(
+                  child: Text(
+                    "Baglamani sil",
+                    style: AppTextStyles.sanF400
+                        .copyWith(color: MyColors.white, fontSize: 14.sp),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        pressType: PressType.singleClick,
+          pressType: PressType.singleClick,
 
-        ///mesafe
-        verticalMargin: -5,
-        controller: controller,
+          ///mesafe
+          verticalMargin: -5,
+          controller: controller,
+        ),
       ),
     );
   }

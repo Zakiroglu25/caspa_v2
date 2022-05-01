@@ -27,11 +27,7 @@ class PackageReportButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    eeee("noInvoice: ${package.noInvoice}");
-    // eeee("regNumber: ${package.regNumber}");
-    // package.payment_balance = 1;
     final sW = MediaQuery.of(context).size.width;
-
     return WidgetOrEmpty(
         value: getStatus(context: context, package: package, sW: sW) != null,
         child: Column(
@@ -51,8 +47,6 @@ class PackageReportButtons extends StatelessWidget {
     required Package package,
     required double sW,
   }) {
-    // bbbb("package: $package");
-    // package.payment = 0;
     String customStatus = package.customStatus!;
     if (customStatus == MyText.stOrdered &&
         package.from_report == MyText.upex) {

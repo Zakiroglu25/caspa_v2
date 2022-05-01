@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../../util/constants/text.dart';
 import 'packages_statuses_state.dart';
@@ -36,6 +37,7 @@ class PackageStatusesCubit extends Cubit<PackageStatusesState> {
         });
         //  bbbb("vslue x in map: ${packageMap}");
         // bbbb("vslue x in map: ${mainPackageMap}");
+
         emit(PackageStatusesSuccess(mainPackageMap));
       } else {
         emit(PackageStatusesError());
@@ -67,5 +69,21 @@ class PackageStatusesCubit extends Cubit<PackageStatusesState> {
       emit(PackageStatusesError(error: MyText.error + "" + e.toString()));
       print(e);
     }
+  }
+
+  //statuses
+  final BehaviorSubject<Map<String, dynamic>> phone =
+      BehaviorSubject<Map<String, dynamic>>();
+
+  Stream<Map<String, dynamic>> get phoneStream => phone.stream;
+
+  updatePhone(Map<String, dynamic> value) {
+    if (value == null || value.isEmpty) {
+      // phone.value = '';
+      phone.sink.addError(MyText.field_is_not_correct);
+    } else {
+      phone.sink.add(value);
+    }
+    //isUserInfoValid(registerType: _registerType);
   }
 }

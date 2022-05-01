@@ -1,11 +1,13 @@
-
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
+import 'package:caspa_v2/util/constants/list_values.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../util/delegate/navigate_utils.dart';
 
 class PriceTypeFieldOrderViaUrl extends StatelessWidget {
   final TextEditingController? controller;
@@ -38,43 +40,34 @@ class PriceTypeFieldOrderViaUrl extends StatelessWidget {
             onTap: () => Sheet.display(
                 context: context,
                 child: SizedBox(
-                  //height: 100,
-                  height: 70,
+                  height: 80,
                   child: StreamBuilder(
-                      stream: BlocProvider.of<OrderViaUrlCubit>(context).priceType,
+                      stream:
+                          BlocProvider.of<OrderViaUrlCubit>(context).priceType,
                       builder: (contextP, snapShoot) {
-                        return ListView(
-                          children: [
-                            CaspaRadio(
-                              onTap: () {
-                                BlocProvider.of<OrderViaUrlCubit>(context)
-                                    .updatepriceType(MyText.tryy);
-                              },
-                              title: MyText.tryy,
-                              //  isActive: false,
-                              isActive: BlocProvider.of<OrderViaUrlCubit>(context)
-                                      .priceType
-                                      .valueOrNull ==
-                                  MyText.tryy,
-                            ),
-                            CaspaRadio(
-                              onTap: () {
-                                BlocProvider.of<OrderViaUrlCubit>(context)
-                                    .updatepriceType(MyText.usd);
-                              },
-                              title: MyText.usd,
-                              //   isActive: false,
-                              isActive: BlocProvider.of<OrderViaUrlCubit>(context)
-                                      .priceType
-                                      .valueOrNull ==
-                                  MyText.usd,
-                            ),
-                          ],
-                        );
+                        return ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: ListValues.priceTypes.length,
+                            itemBuilder: (contextL, index) {
+                              final value = ListValues.priceTypes[index];
+                              return CaspaRadio(
+                                onTap: () {
+                                  BlocProvider.of<OrderViaUrlCubit>(context)
+                                      .updatepriceType(MyText.tryy);
+                                  Go.pop(context);
+                                },
+                                title: value,
+                                isActive:
+                                    BlocProvider.of<OrderViaUrlCubit>(context)
+                                            .priceType
+                                            .valueOrNull ==
+                                        value,
+                              );
+                            });
                       }),
                 )),
-            onChanged: (value) =>
-                BlocProvider.of<OrderViaUrlCubit>(context).updatepriceType(value),
+            onChanged: (value) => BlocProvider.of<OrderViaUrlCubit>(context)
+                .updatepriceType(value),
           );
         },
       ),

@@ -261,6 +261,7 @@ class MyText {
   static const String packageGift = "Paketlər";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
+  static const String view = "Görüntü";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
   static const String withPromoCode = "Promokod ilə";

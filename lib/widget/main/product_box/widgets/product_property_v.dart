@@ -1,6 +1,7 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,7 +9,7 @@ import 'indicator.dart';
 
 class ProductPropertyV extends StatelessWidget {
   final String? name;
-  final dynamic value;
+  final dynamic? value;
   final double? h;
   final Color? mainColor;
   final Color? titleColor;
@@ -18,7 +19,7 @@ class ProductPropertyV extends StatelessWidget {
 
   ProductPropertyV(
       {required this.name,
-      required this.value,
+      this.value,
       this.h,
       this.onTap,
       this.statusId,
@@ -45,17 +46,20 @@ class ProductPropertyV extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               MySizedBox.h2,
-              Row(
-                children: [
-                  PropertyIndicator(statusId),
-                  Flexible(
-                    child: Text(
-                      "$value",
-                      style: AppTextStyles.sanF400
-                          .copyWith(color: mainColor ?? MyColors.black),
+              WidgetOrEmpty(
+                value: value != null,
+                child: Row(
+                  children: [
+                    PropertyIndicator(statusId),
+                    Flexible(
+                      child: Text(
+                        "$value",
+                        style: AppTextStyles.sanF400
+                            .copyWith(color: mainColor ?? MyColors.black),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               )
             ],
           ),

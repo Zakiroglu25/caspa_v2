@@ -14,6 +14,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focus_detector/focus_detector.dart';
 
+import 'widget/package_tab.dart';
+
 class PackagePage extends StatelessWidget {
   const PackagePage({Key? key, this.back}) : super(key: key);
   final bool? back;
@@ -34,6 +36,8 @@ class PackagePage extends StatelessWidget {
                 back: back,
                 isScrollable: true,
                 notification: true,
+                first: packageMap.values.toList().indexWhere(
+                    (element) => PackageAndCount.fromJson(element).count! > 0),
                 tabs: packageMap.entries
                     .map((entry) => Tab(
                           //   text: entry.key,

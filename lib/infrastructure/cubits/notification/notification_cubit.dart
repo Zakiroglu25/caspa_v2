@@ -32,8 +32,8 @@ class NotificationCubit extends Cubit<NotificationState> {
       final result = await NotificationProvider.getNotification();
       // bbbb('noy: ${result.statusCode}');
       List<MyNotification> notificationList =
-      result.data as List<MyNotification>;
-      wtf("cubit"+result.toString());
+          result.data as List<MyNotification>;
+      wtf("cubit" + result.toString());
       // notificationList.forEach((element) {});
       //notificationList.addAll(notificationList);
       List<MyNotification> ab = [];
@@ -46,20 +46,20 @@ class NotificationCubit extends Cubit<NotificationState> {
         emit(NotificationSuccess(ab));
         // bbbb("hjgkhjk; $notificationList");
       } else {
-        emit(NotificationError());
+        emit(NotificationError(""));
       }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      emit(NotificationError());
+      emit(NotificationError(e.toString()));
     }
   }
 
-  Future<bool?> removeNotificion(
+  Future<bool?> removeNotification(
       {int? notificationId,
-        bool? loading,
-        required BuildContext? context}) async {
+      bool? loading,
+      required BuildContext? context}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }
@@ -69,26 +69,19 @@ class NotificationCubit extends Cubit<NotificationState> {
       final result = await NotificationProvider.removeNotification(
           token: token, notificationId: notificationId);
       iiii(result.toString());
-      if (isSuccess(result!.data)) {
+        emit(NotificationRemoveSuccess());
+        // fetch();
         Snack.positive(message: MyText.operationIsSuccess);
-      } else {
-        emit(NotificationError());
-      }
-      // if (result?.message == 'ok') {
-      //   emit(NotificationRemoveSuccess());
-      //   fetch(loading: false, context: context);
-      //   return true;
-      // } else {
-      //   emit(NotificationError());
-      //   return false;
-      // }
+
+
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
       return false;
     } catch (e) {
-      emit(NotificationError());
+      emit(NotificationError(e.toString()));
       return false;
     }
+    return true;
   }
 
   void updateNotificionStatus({bool? loading}) async {
@@ -101,7 +94,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
     } catch (e) {
-      emit(NotificationError());
+      emit(NotificationError(e.toString()));
     }
   }
 }

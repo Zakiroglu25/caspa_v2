@@ -53,7 +53,7 @@ class NotificationElement extends StatelessWidget {
           title: MyText.are_u_sure_delete,
           buttonText: MyText.yes,
           cancelButton: true,
-          onTap: () => context.read<NotificationCubit>().removeNotificion(
+          onTap: () => context.read<NotificationCubit>().removeNotification(
               context: context, loading: true, notificationId: notification.id),
           image: SizedBox(
             width: 120.sm,

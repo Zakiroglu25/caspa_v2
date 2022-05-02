@@ -9,7 +9,6 @@ import 'widgets/title_and_row_buttons.dart';
 typedef OnItemSelected = void Function(List<String> selectedPromoCodeNames);
 
 class OptimalBottomSheet extends StatelessWidget {
-
   final Widget? child;
   final Function? onConfirm;
 
@@ -18,8 +17,7 @@ class OptimalBottomSheet extends StatelessWidget {
   final String? title;
 
   OptimalBottomSheet(
-      {
-      this.child,
+      {this.child,
       this.onConfirm,
       this.title,
       this.showCloseButton,
@@ -33,15 +31,15 @@ class OptimalBottomSheet extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white70,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
+            topLeft: Radius.circular(40),
+            topRight: Radius.circular(40),
           )),
       // height: 270,
       child: ListView(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         children: [
-          MySizedBox.h8,
+          MySizedBox.h10,
           Center(child: HandleLine(sW)),
           //    MySizedBox.h5,
           titleAndButtons(
@@ -49,7 +47,7 @@ class OptimalBottomSheet extends StatelessWidget {
               showCloseButton: showCloseButton,
               showConfirmButton: showConfirmButton,
               title: title),
-          MySizedBox.h5,
+          MySizedBox.h35,
           child!,
           MySizedBox.h10
         ],

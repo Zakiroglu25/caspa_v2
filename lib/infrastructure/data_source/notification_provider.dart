@@ -32,7 +32,7 @@ class NotificationProvider {
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       final k = (UserResult.fromJson(gelenCavabJson)).data?.notifications;
-      bbbb("ghfghjbhjk: $k");
+      bbbb("ghfghjbhjk: ${UserResult.fromJson(gelenCavabJson).data}");
       notificastionsList = k;
       statusDynamic.data = notificastionsList;
     } else {
@@ -44,14 +44,17 @@ class NotificationProvider {
   static Future<GeneralResponse?> removeNotification(
       {@required String? token, @required int? notificationId}) async {
     GeneralResponse? generalResponse;
-    var api = ApiKeys.deleteNotification + "?id=$notificationId";
-
+    var api = ApiKeys.deleteNotification+"?id=$notificationId";
+    iiii(api);
     final response = await dioAuth.dio.post(api);
-
+    iiii(response.toString()+"privier");
     if (response.statusCode == ResultKey.responseSuccess) {
       var dataGelenCavabJSON = jsonDecode(response.data);
+
       //  print("removeNotification result: $dataGelenCavabJSON");
       generalResponse = GeneralResponse.fromJson(dataGelenCavabJSON);
+      iiii(generalResponse.toString()+"privier");
+
     } else {
       eeee(
           "removeNotification result bad:  url: $api  ,  response: ${response.data}");

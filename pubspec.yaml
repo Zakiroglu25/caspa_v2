@@ -29,7 +29,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
   animate_do: ^2.1.0
-  flutter_screenutil: ^5.0.1
+  flutter_screenutil: ^5.5.1
   google_fonts:
   flutter_svg:
   cupertino_icons: ^1.0.4
@@ -61,7 +61,8 @@ dependencies:
   bot_toast: ^4.0.1
   flutter_local_notifications: ^9.3.2
   #flutter_local_notificzations: ^9.1.0
-  cloud_firestore: ^3.1.10
+  #cloud_firestore: ^3.1.10
+  cloud_firestore: ^3.1.14
 
 
   image_picker: ^0.8.4+6
@@ -88,7 +89,7 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   geolocator: ^8.0.3
   location: ^4.3.0
-
+  syncfusion_flutter_pdfviewer: ^20.1.52-beta
 #test:
   pattern_formatter: ^2.0.0
 

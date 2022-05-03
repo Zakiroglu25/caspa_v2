@@ -20,7 +20,12 @@ class NotificationsPage extends StatelessWidget {
         user: false,
         contextA: context,
       ),
-      body: BlocBuilder<NotificationCubit, NotificationState>(
+      body: BlocConsumer<NotificationCubit, NotificationState>(
+        listener: (context,state){
+          if(state is NotificationRemoveSuccess){
+            context.read<NotificationCubit>().fetch();
+          }
+        },
         // buildWhen: (context, state) {
         //   if (state is NotificationRemoveSuccess) {
         //     return false;

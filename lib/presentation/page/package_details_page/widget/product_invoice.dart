@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../util/constants/colors.dart';
+import '../../../../util/delegate/my_printer.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/screen/errorable_image.dart';
 import 'invoice_image_details.dart';
@@ -43,6 +44,7 @@ class ProductInvoice extends StatelessWidget {
                 child: ErrorableImage(
                   url: url,
                   fit: BoxFit.cover,
+                  errorIcon: Icon(Icons.photo),
                 ),
               ),
             ),

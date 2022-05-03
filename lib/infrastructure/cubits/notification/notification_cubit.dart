@@ -26,7 +26,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     try {
       final result = await NotificationProvider.getNotification();
       List<MyNotification> notificationList =
-          result.data as List<MyNotification>;
+      result.data as List<MyNotification>;
       if (isSuccess(result.statusCode)) {
         emit(NotificationSuccess(notificationList));
       } else {
@@ -42,8 +42,8 @@ class NotificationCubit extends Cubit<NotificationState> {
 
   Future<bool?> removeNotificion(
       {required int notificationId,
-      bool? loading,
-      required BuildContext? context}) async {
+        bool? loading,
+        required BuildContext? context}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }

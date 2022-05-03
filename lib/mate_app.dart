@@ -23,7 +23,7 @@ class MateApp extends StatelessWidget {
     //bbbb('runnnnning');
     return ScreenUtilInit(
         designSize: const Size(375, 812),
-        builder: () => BlocProvider(
+        builder: (child) => BlocProvider(
               create: (context) =>
                   AuthenticationCubit()..startApp(context, showSplash: true),
               child: MaterialApp(
@@ -50,7 +50,7 @@ class MateApp extends StatelessWidget {
                       fontFamily: 'CoHeadline',
                       scaffoldBackgroundColor: MyColors.white),
                   builder: (context, widget) {
-                    ScreenUtil.setContext(context);
+                    // ScreenUtil.setContext(context);
                     widget = BotToastInit().call(context, widget);
                     //  widget = botToastBuilder(context,widget);
                     return ScrollConfiguration(

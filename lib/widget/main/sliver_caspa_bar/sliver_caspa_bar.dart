@@ -15,6 +15,7 @@ class SliverCaspaBar extends StatefulWidget {
   final Color? selectedTabColor;
   final Color? selectedLabelColor;
   final Color? unSelectedLabelColor;
+  final int? first;
 
   final String? title;
   final Widget? sliverChild;
@@ -34,6 +35,7 @@ class SliverCaspaBar extends StatefulWidget {
     this.selectedTabColor,
     this.unSelectedLabelColor,
     this.isScrollable,
+    this.first,
     this.selectedLabelColor,
     this.back,
     this.notification,
@@ -56,6 +58,10 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     _tabController!.addListener(() {
       widget.tabController?.call(_tabController!.index);
     });
+
+    if (widget.first != null) {
+      _tabController!.animateTo(widget.first!);
+    }
   }
 
   @override

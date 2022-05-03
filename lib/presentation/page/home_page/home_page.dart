@@ -1,5 +1,5 @@
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
-import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -9,8 +9,8 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../locator.dart';
+import '../../../infrastructure/cubits/ads_cubit/ads_cubit.dart';
+import '../../../infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'widgets/home_header.dart';
 import 'widgets/news_list_widget.dart';
 import 'widgets/home_package_list.dart';

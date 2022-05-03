@@ -141,17 +141,17 @@ class UserCabinetPage extends StatelessWidget {
                         Pager.paymentPage(
                           paymentBalanceType: PaymentBalanceType.order,
                         ))),
-                MySizedBox.h16,
-
-                BalansMiniBox(
-                  title: "Caspa-dan hədiyyə",
-                  w: MediaQuery.of(context).size.width,
-                  content: "\$ ${_prefs.user.monthly}",
-                  color: MyColors.balanceCountPackage,
-                  priceColor: MyColors.balanceBoxOrange,
-                  icon: Text("Bitmə vaxtı"),
-                  finishTime: "14 gün",
-                ),
+                ///bu hediyye balansi novbeti update de olacaq
+                // MySizedBox.h16,
+                // BalansMiniBox(
+                //   title: "Caspa-dan hədiyyə",
+                //   w: MediaQuery.of(context).size.width,
+                //   content: "\$ ${_prefs.user.monthly}",
+                //   color: MyColors.balanceCountPackage,
+                //   priceColor: MyColors.balanceBoxOrange,
+                //   icon: Text("Bitmə vaxtı"),
+                //   finishTime: "14 gün",
+                // ),
                 MySizedBox.h16,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

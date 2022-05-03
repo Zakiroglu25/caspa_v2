@@ -60,41 +60,44 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   void report(BuildContext context, {bool loading = true, int? id}) async {
-    try {
-      if (loading) {
-        emit(ReportInProgress());
-      }
-
-      if (isUserInfoValid(id: id)) {
-        final result = await ReportProvider.report(
-          token: await _prefs.accessToken,
-          seller: seller.valueOrNull,
-          id: id,
-          qty: productCount.valueOrNull,
-          category: selectedSubCategory.valueOrNull!.id,
-          tracking: trackingID.valueOrNull,
-          price: price.valueOrNull,
-          currency: priceType.valueOrNull!.toLowerCase(),
-          invoice: image.valueOrNull,
-          note: note.valueOrNull,
-        );
-        log(result.toString());
-        if (isSuccess(result?.statusCode)) {
-          emit(ReportSuccess());
-          log(result.toString());
-        } else {
-          emit(ReportError(
-              error: MyText.error + " ${result!.statusCode ?? ''}"));
+    for (int i = 0; i < 30; i++) {
+      try {
+        if (loading) {
+          emit(ReportInProgress());
         }
-      } else {
-        emit(ReportError(error: MyText.all_fields_must_be_filled));
+
+        if (isUserInfoValid(id: id)) {
+          final result = await ReportProvider.report(
+            token: await _prefs.accessToken,
+            seller: seller.valueOrNull,
+            id: id,
+            qty: productCount.valueOrNull,
+            category: selectedSubCategory.valueOrNull!.id,
+            tracking: trackingID.valueOrNull,
+            price: price.valueOrNull,
+            currency: priceType.valueOrNull!.toLowerCase(),
+            invoice: image.valueOrNull,
+            note: note.valueOrNull,
+          );
+          log(result.toString());
+          if (isSuccess(result?.statusCode)) {
+            emit(ReportSuccess());
+            log(result.toString());
+          } else {
+            emit(ReportError(
+                error: MyText.error + " ${result!.statusCode ?? ''}"));
+          }
+        } else {
+          emit(ReportError(error: MyText.all_fields_must_be_filled));
+        }
+      } on SocketException catch (_) {
+        //network olacaq
+        emit(ReportError(error: MyText.network_error));
+      } catch (e, s) {
+        emit(ReportError());
+        Recorder.recordCatchError(e, s);
       }
-    } on SocketException catch (_) {
-      //network olacaq
-      emit(ReportError(error: MyText.network_error));
-    } catch (e, s) {
-      emit(ReportError());
-      Recorder.recordCatchError(e, s);
+      i++;
     }
   }
 

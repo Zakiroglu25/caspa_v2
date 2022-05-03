@@ -53,8 +53,10 @@ class NotificationElement extends StatelessWidget {
           title: MyText.are_u_sure_delete,
           buttonText: MyText.yes,
           cancelButton: true,
-          onTap: () => context.read<NotificationCubit>().removeNotification(
-              context: context, loading: true, notificationId: notification.id),
+          onTap: () => context.read<NotificationCubit>().removeNotificion(
+              context: context,
+              loading: false,
+              notificationId: notification.id!),
           image: SizedBox(
             width: 120.sm,
             height: 120.sm,
@@ -62,37 +64,35 @@ class NotificationElement extends StatelessWidget {
           ),
         );
       },
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: Paddings.paddingA16,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    notification.title!,
-                    style: AppTextStyles.sanF600
-                        .copyWith(fontSize: 16, color: MyColors.black34),
-                  ),
-                  MySizedBox.h4,
-                  Text(
-                    notification.description!,
-                    style: AppTextStyles.sanF600
-                        .copyWith(fontSize: 12, color: MyColors.grey153),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                  color: (notification.read == 0)
-                      ? MyColors.grey245
-                      : Colors.transparent,
-                  borderRadius: BorderRadius.circular(12)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: Paddings.paddingA16,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  notification.title!,
+                  style: AppTextStyles.sanF600
+                      .copyWith(fontSize: 16, color: MyColors.black34),
+                ),
+                MySizedBox.h4,
+                Text(
+                  notification.description!,
+                  style: AppTextStyles.sanF600
+                      .copyWith(fontSize: 12, color: MyColors.grey153),
+                ),
+              ],
             ),
-          ],
-        ),
+            decoration: BoxDecoration(
+                color: (notification.read == 0)
+                    ? MyColors.grey245
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(12)),
+          ),
+        ],
       ),
     );
   }

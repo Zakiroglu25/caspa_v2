@@ -6,11 +6,7 @@ class NotificationInitial extends NotificationState {}
 
 class NotificationInProgress extends NotificationState {}
 
-class NotificationError extends NotificationState {
-  String? error;
-
-  NotificationError(this.error);
-}
+class NotificationError extends NotificationState {}
 
 class NotificationStatusUpdated extends NotificationState {}
 

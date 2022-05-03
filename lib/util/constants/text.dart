@@ -219,7 +219,7 @@ class MyText {
   static const String date = "Tarix";
   static const String used = "İstifadə edilib";
   static const String congrated = "Təbrik edirik!";
-  static const String operationIsSuccess = "Əməliyyat uğurlu oldu.";
+  static const String operationIsSuccess = "Əməliyyat uğurlu oldu!";
   static const String promocodeContent =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz ;)";
   static const String applyToCustomerService =
@@ -261,6 +261,7 @@ class MyText {
   static const String packageGift = "Paketlər";
   static const String addBalance = "Balans artır";
   static const String bonuses = "Bonuslar";
+  static const String view = "Görüntü";
   static const String enter_code = "Kodu daxil edin";
   static const String byCard = "Kart ilə";
   static const String withPromoCode = "Promokod ilə";
@@ -384,10 +385,12 @@ class MyText {
       "Sürətli çatdırılma istəyirsən, amma yox səbr gözləmək? Etməyəcəyimizdən narahat olmayın.";
   static const String pageViewTwo =
       "Siz əziyyət çəkməyin, kuryerimiz istədiyiniz ünvana çatdırsın.";
+
   ///courier info
 
   static const String courierInfoTime =
       "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 17:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
+
   ///login
   static const String loginText =
       "Zəhmət olmasa daxil olmaq üçün aşağıda qeyd olunan bəndləri doldurun.";

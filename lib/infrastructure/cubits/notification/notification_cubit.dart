@@ -14,74 +14,57 @@ import '../../../util/delegate/request_control.dart';
 import '../../../util/screen/snack.dart';
 import 'notification_state.dart';
 
-// Project imports:
-
 class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit() : super(NotificationInitial());
 
   HiveService get _prefs => locator<HiveService>();
 
-  //RenewTokenService get _token => locator<RenewTokenService>();
-
   void fetch({bool? loading}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }
-    emit(NotificationInProgress());
     try {
       final result = await NotificationProvider.getNotification();
-      // bbbb('noy: ${result.statusCode}');
       List<MyNotification> notificationList =
-          result.data as List<MyNotification>;
-      wtf("cubit" + result.toString());
-      // notificationList.forEach((element) {});
-      //notificationList.addAll(notificationList);
-      List<MyNotification> ab = [];
-      ab.addAll(notificationList);
-      // ab.addAll(notificationList);
-      // ab.addAll(notificationList);
-      // ab.addAll(notificationList);
-      // ab.addAll(notificationList);
+      result.data as List<MyNotification>;
       if (isSuccess(result.statusCode)) {
-        emit(NotificationSuccess(ab));
-        // bbbb("hjgkhjk; $notificationList");
+        emit(NotificationSuccess(notificationList));
       } else {
-        emit(NotificationError(""));
+        emit(NotificationError());
       }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      emit(NotificationError(e.toString()));
+      emit(NotificationError());
     }
   }
 
-  Future<bool?> removeNotification(
-      {int? notificationId,
-      bool? loading,
-      required BuildContext? context}) async {
+  Future<bool?> removeNotificion(
+      {required int notificationId,
+        bool? loading,
+        required BuildContext? context}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }
 
     try {
-      String? token = _prefs.accessToken;
       final result = await NotificationProvider.removeNotification(
-          token: token, notificationId: notificationId);
-      iiii(result.toString());
-        emit(NotificationRemoveSuccess());
-        // fetch();
+          notificationId: notificationId);
+      if (isSuccess(result!.statusCode)) {
         Snack.positive(message: MyText.operationIsSuccess);
-
-
+        fetch(loading: false);
+      } else {
+        emit(NotificationError());
+      }
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
       return false;
-    } catch (e) {
-      emit(NotificationError(e.toString()));
+    } catch (e, s) {
+      emit(NotificationError());
+      Recorder.recordCatchError(e, s);
       return false;
     }
-    return true;
   }
 
   void updateNotificionStatus({bool? loading}) async {
@@ -94,7 +77,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     } on SocketException catch (_) {
       emit(NotificationNetworkError());
     } catch (e) {
-      emit(NotificationError(e.toString()));
+      emit(NotificationError());
     }
   }
 }

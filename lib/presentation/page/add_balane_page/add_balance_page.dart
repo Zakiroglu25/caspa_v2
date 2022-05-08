@@ -30,6 +30,7 @@ class AddBalancePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final payCubit = BlocProvider.of<PaymentBalanceCubit>(context);
     return WillPopScope(
       onWillPop: () async {
         if (BlocProvider.of<PaymentBalanceCubit>(context).state
@@ -59,14 +60,14 @@ class AddBalancePage extends StatelessWidget {
           child: BlocConsumer<PaymentBalanceCubit, PaymentBalanceState>(
             listener: (context, state) {
               if (state is PaymentBalanceUrlFetched) {
-                FullScreenLoading.hide(context);
+                //  FullScreenLoading.hide(context);
               }
               if (state is PaymentBalanceSuccess) {
-                FullScreenLoading.hide(context);
+                //  FullScreenLoading.hide(context);
                 //Go.pop(context);
               }
               if (state is PaymentPriceError) {
-                FullScreenLoading.hide(context);
+                // FullScreenLoading.hide(context);
                 Snack.display(
                     context: context,
                     message: state.error ?? MyText.errorPrice);
@@ -78,9 +79,9 @@ class AddBalancePage extends StatelessWidget {
                     message: state.error ?? MyText.error); //Go.pop(context);
               }
 
-              if (state is PaymentBalanceInProgress) {
-                FullScreenLoading.display(context);
-              }
+              // if (state is PaymentBalanceInProgress) {
+              //   FullScreenLoading.display(context);
+              // }
             },
             builder: (context, state) {
               if (state is PaymentBalanceUrlFetched) {
@@ -113,6 +114,7 @@ class AddBalancePage extends StatelessWidget {
                     ),
                     Positioned(
                       child: CaspaButton(
+                        loading: payCubit.state is PaymentBalanceInProgress,
                         text: MyText.addBalance,
                         onTap: () => context
                             .read<PaymentBalanceCubit>()

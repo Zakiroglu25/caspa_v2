@@ -24,10 +24,8 @@ import '../webview_page/webview_page.dart';
 import 'widgets/price_package.dart';
 
 class AddBalancePage extends StatelessWidget {
-  PaymentBalanceType paymentBalance;
-
-  AddBalancePage({required this.paymentBalance});
-
+  final PaymentBalanceType paymentBalance;
+  const AddBalancePage({required this.paymentBalance});
   @override
   Widget build(BuildContext context) {
     final payCubit = BlocProvider.of<PaymentBalanceCubit>(context);
@@ -47,9 +45,8 @@ class AddBalancePage extends StatelessWidget {
           contextA: context,
           user: false,
           onBack: () {
-            if (BlocProvider.of<PaymentBalanceCubit>(context).state
-                is PaymentBalanceUrlFetched) {
-              BlocProvider.of<PaymentBalanceCubit>(context).back();
+            if (payCubit.state is PaymentBalanceUrlFetched) {
+              payCubit.back();
             } else {
               Go.pop(context);
             }
@@ -59,29 +56,16 @@ class AddBalancePage extends StatelessWidget {
         body: SafeArea(
           child: BlocConsumer<PaymentBalanceCubit, PaymentBalanceState>(
             listener: (context, state) {
-              if (state is PaymentBalanceUrlFetched) {
-                //  FullScreenLoading.hide(context);
-              }
-              if (state is PaymentBalanceSuccess) {
-                //  FullScreenLoading.hide(context);
-                //Go.pop(context);
-              }
               if (state is PaymentPriceError) {
-                // FullScreenLoading.hide(context);
                 Snack.display(
                     context: context,
                     message: state.error ?? MyText.errorPrice);
-                //Go.pop(context);
               }
               if (state is PaymentBalanceError) {
                 Snack.display(
                     context: context,
                     message: state.error ?? MyText.error); //Go.pop(context);
               }
-
-              // if (state is PaymentBalanceInProgress) {
-              //   FullScreenLoading.display(context);
-              // }
             },
             builder: (context, state) {
               if (state is PaymentBalanceUrlFetched) {

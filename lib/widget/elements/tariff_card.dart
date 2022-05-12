@@ -15,7 +15,7 @@ class TariffCard extends StatelessWidget {
   String? price;
   double? w;
    bool? isVertical;
-  TariffCard({this.tarifName, this.price,this.w,this.isVertical});
+  TariffCard({Key? key, this.tarifName, this.price,this.w,this.isVertical}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

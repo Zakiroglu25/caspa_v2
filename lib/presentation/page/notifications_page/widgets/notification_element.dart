@@ -32,19 +32,20 @@ class NotificationElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dismissible(
       key: Key(notification.toString()),
+      secondaryBackground: Container(
+        alignment: Alignment.centerRight,
+        padding: EdgeInsets.only(right: 40.0),
+        color: MyColors.deleteREd,
+        child: Text("Sil",style: AppTextStyles.sanF600.copyWith(color: MyColors.errorRED),),
+      ),
       background: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: MyColors.secondRED,
+          color: MyColors.gradientRed,
         ),
         alignment: Alignment.centerRight,
-        child: const Padding(
-          padding: EdgeInsets.only(right: 16.0),
-          child: Icon(
-            Icons.delete_forever,
-            color: Colors.white,
-          ),
-        ),
+
+
       ),
       direction: DismissDirection.endToStart,
       confirmDismiss: (DismissDirection direction) async {
@@ -76,21 +77,21 @@ class NotificationElement extends StatelessWidget {
                 Text(
                   notification.title!,
                   style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 16, color: MyColors.black34),
+                      .copyWith(fontSize: 14, color: MyColors.black34),
                 ),
                 MySizedBox.h4,
                 Text(
                   notification.description!,
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 12, color: MyColors.grey153),
+                  style: AppTextStyles.sanF400
+                      .copyWith(fontSize: 14, color: MyColors.grey153),
                 ),
               ],
             ),
-            decoration: BoxDecoration(
-                color: (notification.read == 0)
-                    ? MyColors.grey245
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(12)),
+            // decoration: BoxDecoration(
+            //     color: (notification.read == 0)
+            //         ? MyColors.grey245
+            //         : Colors.transparent,
+            //     borderRadius: BorderRadius.circular(12)),
           ),
         ],
       ),

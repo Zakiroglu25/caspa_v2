@@ -34,6 +34,7 @@ class TarifListWidget extends StatelessWidget {
             return isVertical!?MySizedBox.h16: MySizedBox.w10;
           },
           shrinkWrap: true,
+          primary: false,
           itemCount: hList.length,
           scrollDirection: isVertical! ? Axis.vertical:Axis.horizontal,
           padding: Paddings.paddingH20,

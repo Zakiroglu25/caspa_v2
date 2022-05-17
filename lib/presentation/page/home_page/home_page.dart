@@ -16,6 +16,7 @@ import 'widgets/news_list_widget.dart';
 import 'widgets/home_package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tariffs.dart';
+import 'widgets/tariffs_courier.dart';
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -31,7 +32,17 @@ class HomePage extends StatelessWidget {
           padding: Paddings.paddingB12 + Paddings.paddingT14,
           children: [
             HomeHeader(),
-            MySizedBox.h24,
+            MySizedBox.h12,
+            SectionName(
+              title: "Kuryer tarifləri",
+              hP: 20,
+              tile: MoreButton(
+                onTap: () => Go.to(context, Pager.courierTarifDetails),
+              ),
+            ),
+            MySizedBox.h12,
+            TariffsCourier(),
+            MySizedBox.h12,
             SectionName(
               title: "Yeniliklər və xəbərləri izləyin",
               hP: 20,

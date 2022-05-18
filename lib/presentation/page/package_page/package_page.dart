@@ -7,6 +7,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
@@ -14,68 +15,102 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:focus_detector/focus_detector.dart';
 
+import '../../../util/constants/colors.dart';
+import '../../../util/delegate/navigate_utils.dart';
+import '../all_payment_packages/all_payment.dart';
 import 'widget/package_tab.dart';
 
 class PackagePage extends StatelessWidget {
   const PackagePage({Key? key, this.back}) : super(key: key);
   final bool? back;
+
   @override
   Widget build(BuildContext context) {
     return FocusDetector(
       onFocusGained: () {
         context.read<PackageStatusesCubit>().fetch(false);
       },
-      child: Scaffold(body: SafeArea(
-        child: BlocBuilder<PackageStatusesCubit, PackageStatusesState>(
-          builder: (context, state) {
-            bbbb("state: $state");
-            if (state is PackageStatusesSuccess) {
-              final Map<String, dynamic> packageMap = state.packageList!;
-              return SliverCaspaBar(
-                appbarHeight: 1,
-                back: back,
-                isScrollable: true,
-                notification: true,
-                first: packageMap.values.toList().indexWhere(
-                    (element) => PackageAndCount.fromJson(element).count! > 0),
-                tabs: packageMap.entries
-                    .map((entry) => Tab(
-                          //   text: entry.key,
-                          child: Row(
-                            children: [
-                              Text(
-                                entry.key,
-                                style: AppTextStyles.sanF600.copyWith(
-                                    fontSize: 15.sp, letterSpacing: 0.3),
-                              ),
-                              // Text(
-                              //   entry.key,
-                              //   style: AppTextStyles.sanF600.copyWith(
-                              //       fontSize: 16.sp, letterSpacing: 0.3),
-                              // ),
-                              MySizedBox.w5,
-                              TabCount(
-                                  count: PackageAndCount.fromJson(entry.value)
-                                      .count)
-                            ],
+      child: Scaffold(
+        body: SafeArea(
+          child: BlocBuilder<PackageStatusesCubit, PackageStatusesState>(
+            builder: (context, state) {
+              bbbb("state: $state");
+              if (state is PackageStatusesSuccess) {
+                final Map<String, dynamic> packageMap = state.packageList!;
+                return Stack(
+                  children: [
+                    Positioned(
+                      right: 16,
+                      bottom: 16,
+                      child: InkWrapper(
+                        onTap: (){
+                          Go.to(context, AllPaymentPackages());
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: MyColors.black34,
                           ),
-                          height: 65,
-                        ))
-                    .toList(),
-                tabPages: packageMap.entries
-                    .map((entry) => Pager.waitingPackages(
-                        packages:
-                            PackageAndCount.fromJson(entry.value).packages))
-                    .toList(),
-                title: MyText.packages,
-                sliverChild: MySizedBox.h0,
-              );
-            } else {
-              return CaspaLoading();
-            }
-          },
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text(
+                              "Toplam ödə 💰",
+                              style: AppTextStyles.sanF500
+                                  .copyWith(color: MyColors.white, fontSize: 14.sp),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SliverCaspaBar(
+                      appbarHeight: 1,
+                      back: back,
+                      isScrollable: true,
+                      notification: true,
+                      first: packageMap.values.toList().indexWhere((element) =>
+                          PackageAndCount.fromJson(element).count! > 0),
+                      tabs: packageMap.entries
+                          .map((entry) => Tab(
+                                //   text: entry.key,
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      entry.key,
+                                      style: AppTextStyles.sanF600.copyWith(
+                                          fontSize: 15.sp, letterSpacing: 0.3),
+                                    ),
+                                    // Text(
+                                    //   entry.key,
+                                    //   style: AppTextStyles.sanF600.copyWith(
+                                    //       fontSize: 16.sp, letterSpacing: 0.3),
+                                    // ),
+                                    MySizedBox.w5,
+                                    TabCount(
+                                        count: PackageAndCount.fromJson(entry.value)
+                                            .count)
+                                  ],
+                                ),
+                                height: 65,
+                              ))
+                          .toList(),
+                      tabPages: packageMap.entries
+                          .map((entry) => Pager.waitingPackages(
+                              packages:
+                                  PackageAndCount.fromJson(entry.value).packages))
+                          .toList(),
+                      title: MyText.packages,
+
+                      sliverChild: MySizedBox.h0,
+                    ),
+                  ],
+                );
+              } else {
+                return CaspaLoading();
+              }
+            },
+          ),
         ),
-      )),
+      ),
     );
   }
 }

@@ -349,6 +349,7 @@ class Pager {
           create: (context) => PackageCubit()..fetch(),
           child: PackagesList(
             packages: packages,
+
           ));
 
   static packageDetails({required Package package}) => MultiBlocProvider(

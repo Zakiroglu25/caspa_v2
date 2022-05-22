@@ -72,8 +72,10 @@ import '../../app.dart';
 import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
+import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
+import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
@@ -85,6 +87,9 @@ class Pager {
         BlocProvider.value(
           value: TarifCubit()..fetch(),
         ),
+    BlocProvider.value(
+      value: CourierTarifCubit()..fetch(),
+    ),
         BlocProvider.value(
           value: AdsCubit()..fetch(),
         ),
@@ -333,12 +338,18 @@ class Pager {
       child: TariffDetails(
         hList: [],
       ));
+  static get courierTarifDetails => BlocProvider(
+      create: (context) => CourierTarifCubit()..fetch(),
+      child: CourierTariffDetails(
+        hList: [],
+      ));
 
   static Widget waitingPackages({required List<Package>? packages}) =>
       BlocProvider(
           create: (context) => PackageCubit()..fetch(),
           child: PackagesList(
             packages: packages,
+
           ));
 
   static packageDetails({required Package package}) => MultiBlocProvider(

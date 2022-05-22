@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -13,11 +14,11 @@ import 'package:flutter_svg/svg.dart';
 
 import 'tariff_details.dart';
 
-class TarifListWidget extends StatelessWidget {
-  final List<Tariff> hList;
-   bool? isVertical;
+class CourierTarifListWidget extends StatelessWidget {
+  final List<Region> hList;
+  bool? isVertical;
 
-  TarifListWidget({
+  CourierTarifListWidget({
     Key? key,
     required this.hList,
     this.isVertical,
@@ -39,11 +40,11 @@ class TarifListWidget extends StatelessWidget {
           scrollDirection: isVertical! ? Axis.vertical:Axis.horizontal,
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
-            Tariff tariff = hList[index];
+            Region tariff = hList[index];
             return FadeInUp(
               duration: Duration(milliseconds: isVertical!?AppOperations.getTime(index):0),
               child: TariffCard(
-                tarifName: tariff.description,
+                tarifName: tariff.name,
                 price: tariff.price,
                 isVertical: isVertical,
                 //w: (isVertical ?? false) ? null : 284.sp,

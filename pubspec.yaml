@@ -92,7 +92,7 @@ dependencies:
   syncfusion_flutter_pdfviewer: ^20.1.52-beta
 
   #sdk
-  flutter_facebook_sdk: ^1.0.0
+
   facebook_app_events: ^0.16.0
 
 #test:

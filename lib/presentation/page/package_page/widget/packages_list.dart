@@ -57,7 +57,7 @@ class PackagesList extends StatelessWidget {
             child: GridView.builder(
               padding: Paddings.paddingA20,
               physics: Physics.alwaysBounce,
-              itemCount: packageList!.length,
+              itemCount: packageList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount:
                     MediaQuery.of(context).orientation == Orientation.landscape

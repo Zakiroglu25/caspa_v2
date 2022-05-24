@@ -17,32 +17,32 @@ class BalancePackages extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         MySizedBox.h48,
-        // Text(
-        //   MyText.packageGift,
-        //   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
-        // ),
-        // MySizedBox.h16,
-        // PricePackage(
-        //   gift: '5',
-        //   index: 1,
-        //   price: '15',
-        // ),
-        // PricePackage(
-        //   gift: '10',
-        //   index: 2,
-        //   price: '30',
-        // ),
-        // PricePackage(
-        //   gift: '20',
-        //   index: 3,
-        //   price: '50',
-        // ),
-        // PricePackage(
-        //   gift: '50',
-        //   index: 4,
-        //   price: '100',
-        // ),
-        // MySizedBox.h100
+        Text(
+          MyText.packageGift,
+          style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
+        ),
+        MySizedBox.h16,
+        PricePackage(
+          gift: '5',
+          index: 1,
+          price: '15',
+        ),
+        PricePackage(
+          gift: '10',
+          index: 2,
+          price: '30',
+        ),
+        PricePackage(
+          gift: '20',
+          index: 3,
+          price: '50',
+        ),
+        PricePackage(
+          gift: '50',
+          index: 4,
+          price: '100',
+        ),
+        MySizedBox.h100
       ],
     );
   }

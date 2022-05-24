@@ -40,8 +40,8 @@ class PricePackage extends StatelessWidget {
             context.read<PaymentBalanceCubit>().getPaymentUrl(context,
                 paymentBalanceType: PaymentBalanceType.cargo);
           },
-          child: FadeInUp(
-            delay: Duration(milliseconds: index * 100),
+          child: BounceInUp(
+            delay: Duration(milliseconds: index * 50),
             child: AnimatedContainer(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               margin: EdgeInsets.only(bottom: 20),
@@ -59,8 +59,8 @@ class PricePackage extends StatelessWidget {
                       children: [
                         //ySizedBox.h16,
                         Text('$price USD + $gift USD',
-                            style:
-                                AppTextStyles.sanF600.copyWith(fontSize: 16.sp)),
+                            style: AppTextStyles.sanF600
+                                .copyWith(fontSize: 16.sp)),
                         MySizedBox.h4,
                         Text(
                             'Daşınma balansını $price USD artırdıqda, keşbek balansınıza $gift USD hədiyyə olaraq əlavə olunacaqdır.',

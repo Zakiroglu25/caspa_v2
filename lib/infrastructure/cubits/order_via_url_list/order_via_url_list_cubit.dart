@@ -5,8 +5,11 @@ import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 import '../../../../locator.dart';
+import '../../../util/delegate/my_printer.dart';
 import '../../configs/recorder.dart';
 import 'order_via_url_list_state.dart';
 
@@ -58,5 +61,28 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
     }
 
     //user/attorneys/delete
+  }
+
+  /////////values
+  // List<int> selectedOrders = [];
+  ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
+  final BehaviorSubject<List<int>> selectedOrders =
+      BehaviorSubject<List<int>>.seeded([]);
+
+  Stream<List<int>> get paymentTypeStream => selectedOrders.stream;
+
+  ///////////////////
+
+  addOrderId(int id) {
+    id = id;
+    if (selectedOrdersId.value.contains(id)) {
+      selectedOrdersId.value.remove(id);
+    } else {
+      selectedOrdersId.value.add(id);
+      //  selectedOrders.value.add(4415);
+    }
+
+    //   isDataValid();
+    bbbb("selected order list in cubit : ${selectedOrdersId.value}");
   }
 }

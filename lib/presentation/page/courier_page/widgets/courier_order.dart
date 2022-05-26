@@ -68,7 +68,7 @@ class _CourierOrderState extends State<CourierOrder> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //ySizedBox.h16,
-                        Text(widget.package.store!,
+                        Text(widget.package.cargoTracking!,
                             style:
                                 AppTextStyles.sanF600.copyWith(fontSize: 16)),
                         MySizedBox.h4,

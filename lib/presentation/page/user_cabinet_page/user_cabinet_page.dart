@@ -181,18 +181,18 @@ class UserCabinetPage extends StatelessWidget {
                 ),
                 MySizedBox.h16,
 
-                Row(
-                  children: [
-                    BalansMiniBox(
-                      title: MyText.cashbackProfile,
-                      content: "${_prefs.user.cashback_balance}\$ ",
-                      color: MyColors.balansCargo,
-                      priceColor: MyColors.mainColor,
-                      icon: const Icon(null),
-                      finishTime: "",
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     BalansMiniBox(
+                //       title: MyText.cashbackProfile,
+                //       content: "${_prefs.user.cashback_balance}\$ ",
+                //       color: MyColors.balansCargo,
+                //       priceColor: MyColors.mainColor,
+                //       icon: const Icon(null),
+                //       finishTime: "",
+                //     ),
+                //   ],
+                // ),
                 MySizedBox.h50,
               ],
             ),

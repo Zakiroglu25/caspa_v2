@@ -7,6 +7,7 @@ class ListOrEmpty extends StatelessWidget {
   final Widget child;
   final String? text;
   final String? description;
+  // final Widget? image;
 
   ListOrEmpty(
       {required this.list, required this.child, this.text, this.description});
@@ -19,6 +20,7 @@ class ListOrEmpty extends StatelessWidget {
       elseChild: EmptyWidget(
         text: text,
         description: description,
+        // image: image,
       ),
     );
   }

@@ -65,24 +65,30 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
 
   /////////values
   // List<int> selectedOrders = [];
-  ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
-  final BehaviorSubject<List<int>> selectedOrders =
-      BehaviorSubject<List<int>>.seeded([]);
+  //ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
+  // final BehaviorSubject<List<int>> selectedOrderIds =
+  //     BehaviorSubject<List<int>>.seeded([]);
+  //
+  // Stream<List<int>> get selectedOrderIdsStream => selectedOrderIds.stream;
+  //
+  // addOrderId(int id) {
+  //   if (selectedOrderIds.value.contains(id)) {
+  //     selectedOrderIds.add(selectedOrderIds.value..remove(id));
+  //   } else {
+  //     selectedOrderIds.add(selectedOrderIds.value..add(id));
+  //   }
+  // }
 
-  Stream<List<int>> get paymentTypeStream => selectedOrders.stream;
+  final BehaviorSubject<List<LinkOrder>> selectedOrders =
+      BehaviorSubject<List<LinkOrder>>.seeded([]);
 
-  ///////////////////
+  Stream<List<LinkOrder>> get selectedOrdersStream => selectedOrders.stream;
 
-  addOrderId(int id) {
-    id = id;
-    if (selectedOrdersId.value.contains(id)) {
-      selectedOrdersId.value.remove(id);
+  addOrder(LinkOrder id) {
+    if (selectedOrders.value.contains(id)) {
+      selectedOrders.add(selectedOrders.value..remove(id));
     } else {
-      selectedOrdersId.value.add(id);
-      //  selectedOrders.value.add(4415);
+      selectedOrders.add(selectedOrders.value..add(id));
     }
-
-    //   isDataValid();
-    bbbb("selected order list in cubit : ${selectedOrdersId.value}");
   }
 }

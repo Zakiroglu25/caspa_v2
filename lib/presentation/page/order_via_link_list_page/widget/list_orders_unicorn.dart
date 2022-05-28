@@ -1,19 +1,20 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
-import 'package:caspa_v2/presentation/page/order_via_link_list_page/widget/pay_button.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/gradients.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import '../../../../infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
+import 'order_via_link_select_checkbox.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderUnicorn extends StatelessWidget {
   final LinkOrder order;
-
-  OrderUnicorn({
+  const OrderUnicorn({
     required this.order,
   });
 
@@ -24,18 +25,12 @@ class OrderUnicorn extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //SectionName(title:title??""),
             MySizedBox.h16,
             UnicornOutlineButton(
                 strokeWidth: 1.5,
                 radius: 16,
                 padding: Paddings.paddingH20 + Paddings.paddingV14,
-                gradient: LinearGradient(colors: [
-                  MyColors.gradientBlue,
-                  MyColors.gradientCyan,
-                  MyColors.gradientRed,
-                  MyColors.gradientOrange,
-                ]),
+                gradient: Gradients.unicorn,
                 child: Container(
                   //width: 200,
                   child: Column(
@@ -50,6 +45,8 @@ class OrderUnicorn extends StatelessWidget {
                       ProductPropertyV(
                           h: 8, name: MyText.amount, value: order.qty),
                       ProductPropertyV(
+                          h: 8, name: MyText.date, value: order.date),
+                      ProductPropertyV(
                           h: 8,
                           name: MyText.status,
                           mainColor: order.payment == 0
@@ -58,19 +55,15 @@ class OrderUnicorn extends StatelessWidget {
                           value: order.payment == 0
                               ? MyText.waitinPaymentForConfirm
                               : MyText.paid),
-                      ProductPropertyV(
-                          h: 8, name: MyText.date, value: order.date),
                     ],
                   ),
                 ),
-                onPressed: () {
-                  // Go.to(context, Pager.orderViaLink(order: order)
-                  // ),
-                }),
+                onPressed: () =>
+                    context.read<OrderViaUrlListCubit>().addOrder(order)),
             MySizedBox.h20,
           ],
         ),
-        PayButton(
+        OrderViaLinkSelectCheckbox(
           order: order,
         )
       ],

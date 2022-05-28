@@ -2,12 +2,12 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 
-class OrderSelectIndicator extends StatelessWidget {
+class OrderSelectRadioIndicator extends StatelessWidget {
   final bool? active;
   final double? w;
   final double? h;
 
-  OrderSelectIndicator({required this.active, this.h, this.w});
+  OrderSelectRadioIndicator({required this.active, this.h, this.w});
 
   @override
   Widget build(BuildContext context) {

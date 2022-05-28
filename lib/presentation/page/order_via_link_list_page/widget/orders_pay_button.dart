@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
+import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
+import '../../../../util/constants/assets.dart';
+import '../../../../util/screen/alert.dart';
+import '../../../../widget/custom/caspa_payment_radio.dart';
 
 class OrdersPayButton extends StatelessWidget {
   const OrdersPayButton({Key? key}) : super(key: key);
@@ -29,6 +33,7 @@ class OrdersPayButton extends StatelessWidget {
         return CaspaButton(
           isButtonActive: snapshot.data?.isNotEmpty,
           text: '${MyText.pay} (${selectedOrders?.length} ədəd) ',
+          onTap: () => context.read<OrderViaUrlListCubit>().paySelectedOrders(),
         );
         ;
       },

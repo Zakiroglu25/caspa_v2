@@ -18,7 +18,7 @@ class PaymentsProvider {
 
   static Future<StatusDynamic> getPaymentUrl(
       {required double? amount,
-        required PaymentBalanceType paymentBalanceType}) async {
+      required PaymentBalanceType paymentBalanceType}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = paymentBalanceType == PaymentBalanceType.order
         ? ApiKeys.paymentOrder
@@ -157,6 +157,24 @@ class PaymentsProvider {
   }
 
   static Future<StatusDynamic> orderGetPaymentUrl(
+      {required List<int> idList}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForOrderCard;
+    var url = Uri.parse(api);
+    final body = {"order": idList};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      GeneralResponse data = GeneralResponse.fromJson(response.data);
+      statusDynamic.data = data.data;
+    } else {
+      eeee(
+          "orderGetPaymentUrl  result bad:  url: $url  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> orderListGetPaymentUrl(
       {required List<int> idList}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForOrderCard;

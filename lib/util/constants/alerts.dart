@@ -53,4 +53,43 @@ class Alerts {
               );
             },
           ));
+  static selectedOrdersPaymentAlert(
+          {required BuildContext context, required List<int> selectedOrders}) =>
+      Alert.body(context,
+          title: MyText.choosePaypentType,
+          cancelButton: true,
+          buttonText: MyText.goOn,
+          onTap: () => context
+              .read<PackageDetailsCubit>()
+              .orderListMakePayment(context: context, ids: selectedOrders),
+          image: Image.asset(
+            Assets.linkGirl,
+            width: 140,
+            height: 140,
+          ),
+          content: StreamBuilder(
+            stream: BlocProvider.of<PackageDetailsCubit>(context).payTypeStream,
+            builder: (contextK, snapShoot) {
+              return ListView(
+                shrinkWrap: true,
+                padding: Paddings.paddingV12,
+                children: [
+                  CaspaPaymentRadio(
+                    context,
+                    snapShoot: snapShoot,
+                    description: "(${_prefs.user.balance} TL)",
+                    value: MyText.fromBalance,
+                  ),
+                  CaspaPaymentRadio(context,
+                      snapShoot: snapShoot, value: MyText.byCard),
+                  CaspaPaymentRadio(context,
+                      snapShoot: snapShoot,
+                      description: "(${_prefs.user.cashback_balance} \$)",
+                      value: MyText.fromCashback),
+                  // buildCaspaRadio(context, snapShoot,
+                  //     value: MyText.withPromoCode),
+                ],
+              );
+            },
+          ));
 }

@@ -16,8 +16,6 @@ import 'order_via_url_list_state.dart';
 class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
   OrderViaUrlListCubit() : super(OrderViaUrlListInProgress());
 
-  HiveService get _prefs => locator<HiveService>();
-
   void fetch([bool loading = true]) async {
     if (loading) {
       emit(OrderViaUrlListInProgress());
@@ -31,7 +29,6 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
         emit(OrderViaUrlListError());
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(OrderViaUrlListNetworkError());
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
@@ -54,30 +51,23 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
         emit(OrderViaUrlListError(error: MyText.error));
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(OrderViaUrlListNetworkError());
     } catch (e) {
       emit(OrderViaUrlListError(error: MyText.error + " " + e.toString()));
     }
+  }
+
+  void paySelectedOrders({bool loading = true}) async {
+    try {
+      emit(OrderViaUrlListShowPaymentDialog(
+          selectedOrders: selectedOrders.value.fold<List<int>>(
+              [], (previous, element) => previous..add(element.id!))));
+    } catch (e) {
+      emit(OrderViaUrlListError(error: MyText.error));
+    }
 
     //user/attorneys/delete
   }
-
-  /////////values
-  // List<int> selectedOrders = [];
-  //ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
-  // final BehaviorSubject<List<int>> selectedOrderIds =
-  //     BehaviorSubject<List<int>>.seeded([]);
-  //
-  // Stream<List<int>> get selectedOrderIdsStream => selectedOrderIds.stream;
-  //
-  // addOrderId(int id) {
-  //   if (selectedOrderIds.value.contains(id)) {
-  //     selectedOrderIds.add(selectedOrderIds.value..remove(id));
-  //   } else {
-  //     selectedOrderIds.add(selectedOrderIds.value..add(id));
-  //   }
-  // }
 
   final BehaviorSubject<List<LinkOrder>> selectedOrders =
       BehaviorSubject<List<LinkOrder>>.seeded([]);
@@ -90,5 +80,12 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
     } else {
       selectedOrders.add(selectedOrders.value..add(id));
     }
+  }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    selectedOrders.close();
+    return super.close();
   }
 }

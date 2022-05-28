@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
+import 'package:caspa_v2/util/constants/alerts.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -15,13 +16,19 @@ import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
+import '../../../util/screen/alert.dart';
 import '../../../util/screen/full_screen_loading.dart';
+import '../../../widget/custom/caspa_payment_radio.dart';
 import '../webview_page/webview_page.dart';
 import 'widget/add_order_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 
 class OrderViaLinkListPage extends StatelessWidget {
   const OrderViaLinkListPage({Key? key}) : super(key: key);
+
+  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +91,13 @@ class OrderViaLinkListPage extends StatelessWidget {
                         positive: true,
                         showSuccessIcon: true);
                   }
+                  if (state is OrderViaUrlListShowPaymentDialog) {
+                    Alerts.selectedOrdersPaymentAlert(
+                        context: context, selectedOrders: state.selectedOrders);
+                  }
                 }, buildWhen: (context, state) {
-                  if (state is OrderViaUrlListDeleted) {
+                  if (state is OrderViaUrlListDeleted ||
+                      state is OrderViaUrlListShowPaymentDialog) {
                     return false;
                   } else
                     return true;

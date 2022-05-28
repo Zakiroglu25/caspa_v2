@@ -40,7 +40,8 @@ class PayButton extends StatelessWidget {
                   buttonText: MyText.goOn,
                   onTap: () => context
                       .read<PackageDetailsCubit>()
-                      .orderMakePayment(id: order.id!, context: context),
+                      .orderMakePayment(
+                          id: order.id!, context: context, ids: []),
                   image: Image.asset(
                     Assets.linkGirl,
                     width: 140,

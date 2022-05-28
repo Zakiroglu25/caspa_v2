@@ -12,10 +12,8 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_text_button.dart';
 import 'package:flutter/material.dart';
-
-import 'order_select_indicator.dart';
+import '../../../../widget/custom/order_select_check_indicator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CourierOrder extends StatefulWidget {
@@ -81,7 +79,7 @@ class _CourierOrderState extends State<CourierOrder> {
                   Text("${widget.package.price!} TL",
                       style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
                   MySizedBox.w20,
-                  OrderSelectIndicator(
+                  OrderSelectCheckIndicator(
                     active: selectedOrders.contains(widget.package.id),
                   ),
                 ],

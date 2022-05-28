@@ -1,10 +1,11 @@
-import 'package:caspa_v2/presentation/page/courier_page/widgets/order_select_indicator.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/widgets/payment_unicorn.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../widget/custom/order_select_radio_indicator.dart';
 
 class PaymentWidget extends StatelessWidget {
   final String title;
@@ -29,7 +30,7 @@ class PaymentWidget extends StatelessWidget {
           child: SectionName(
             title: title,
             size: 16,
-            tile: OrderSelectIndicator(
+            tile: OrderSelectRadioIndicator(
               active: selected,
               w: 20,
               h: 20,

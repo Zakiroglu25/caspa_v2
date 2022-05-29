@@ -28,8 +28,8 @@ class TabCount extends StatelessWidget {
             decoration: BoxDecoration(
               color: MyColors.errorRED211,
               borderRadius: BorderRadius.horizontal(
-                left: Radius.circular(20),
-                right: Radius.circular(20),
+                left: Radius.circular(24),
+                right: Radius.circular(24),
               ),
               //    shape: BoxShape.circle
             ),

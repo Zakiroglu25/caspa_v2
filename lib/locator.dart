@@ -19,6 +19,7 @@ Future<void> setupLocator() async {
   locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
   final hiveMain = await HiveService.instance;
   final hiveConfig = await ConfigService.instance;
+  // final hiveConfig = await ConfigService.instance;
   final dioG = await DioG.instance;
 
   //   locator.registerSingleton<PreferencesService>(prefs);

@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/packages_statuses_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tab_count.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -16,7 +17,7 @@ import 'package:focus_detector/focus_detector.dart';
 
 
 class PackagePage extends StatelessWidget {
-  const PackagePage({Key? key, this.back}) : super(key: key);
+   PackagePage({Key? key, this.back}) : super(key: key);
   final bool? back;
 
   @override
@@ -44,6 +45,7 @@ class PackagePage extends StatelessWidget {
                             //   text: entry.key,
                             child: Row(
                               children: [
+
                                 Text(
                                   entry.key,
                                   style: AppTextStyles.sanF600.copyWith(

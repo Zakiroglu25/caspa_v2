@@ -5,31 +5,23 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
-import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import '../../../util/constants/assets.dart';
-import '../../../util/screen/alert.dart';
 import 'fields/amount_field.dart';
 import '../webview_page/webview_page.dart';
-import 'widgets/price_package.dart';
 
 class AddBalancePage extends StatelessWidget {
-  PaymentBalanceType paymentBalance;
-
-  AddBalancePage({required this.paymentBalance});
-
+  final PaymentBalanceType paymentBalance;
+  const AddBalancePage({required this.paymentBalance});
   @override
   Widget build(BuildContext context) {
+    final payCubit = BlocProvider.of<PaymentBalanceCubit>(context);
     return WillPopScope(
       onWillPop: () async {
         if (BlocProvider.of<PaymentBalanceCubit>(context).state
@@ -46,9 +38,8 @@ class AddBalancePage extends StatelessWidget {
           contextA: context,
           user: false,
           onBack: () {
-            if (BlocProvider.of<PaymentBalanceCubit>(context).state
-                is PaymentBalanceUrlFetched) {
-              BlocProvider.of<PaymentBalanceCubit>(context).back();
+            if (payCubit.state is PaymentBalanceUrlFetched) {
+              payCubit.back();
             } else {
               Go.pop(context);
             }
@@ -58,28 +49,15 @@ class AddBalancePage extends StatelessWidget {
         body: SafeArea(
           child: BlocConsumer<PaymentBalanceCubit, PaymentBalanceState>(
             listener: (context, state) {
-              if (state is PaymentBalanceUrlFetched) {
-                FullScreenLoading.hide(context);
-              }
-              if (state is PaymentBalanceSuccess) {
-                FullScreenLoading.hide(context);
-                //Go.pop(context);
-              }
               if (state is PaymentPriceError) {
-                FullScreenLoading.hide(context);
                 Snack.display(
                     context: context,
                     message: state.error ?? MyText.errorPrice);
-                //Go.pop(context);
               }
               if (state is PaymentBalanceError) {
                 Snack.display(
                     context: context,
                     message: state.error ?? MyText.error); //Go.pop(context);
-              }
-
-              if (state is PaymentBalanceInProgress) {
-                FullScreenLoading.display(context);
               }
             },
             builder: (context, state) {
@@ -113,6 +91,7 @@ class AddBalancePage extends StatelessWidget {
                     ),
                     Positioned(
                       child: CaspaButton(
+                        loading: payCubit.state is PaymentBalanceInProgress,
                         text: MyText.addBalance,
                         onTap: () => context
                             .read<PaymentBalanceCubit>()

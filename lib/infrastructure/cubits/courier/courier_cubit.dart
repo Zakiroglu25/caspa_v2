@@ -21,48 +21,61 @@ import 'package:rxdart/rxdart.dart';
 
 class CourierCubit extends Cubit<CourierState> {
   CourierCubit() : super(CourierInProgress()) {
-    selectedOrdersId.addListener(() {
-      isDataValid();
-    });
+    // selectedOrdersId.addListener(() {
+    //  // isDataValid();
+    // });
   }
 
-  // List<int> selectedOrders = [];
-  ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
-  ValueNotifier<List<Package>> selectedPackages =
-      ValueNotifier<List<Package>>([]);
+////////////////////
+//   ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
+//   ValueNotifier<List<Package>> selectedPackages =
+//       ValueNotifier<List<Package>>([]);
+//
+//
+//   addOrderId(int id) {
+//     id = id;
+//     if (selectedOrdersId.value.contains(id)) {
+//       selectedOrdersId.value.remove(id);
+//     } else {
+//       selectedOrdersId.value.add(id);
+//       //  selectedOrders.value.add(4415);
+//     }
+//
+//     isDataValid();
+//     bbbb("selected order list in cubit : ${selectedOrdersId.value}");
+//   }
+//
+//   addPackage(Package package) {
+//     // id = id;
+//     if (selectedPackages.value.contains(package)) {
+//       selectedPackages.value.remove(package);
+//     } else {
+//       selectedPackages.value.add(package);
+//       //  selectedOrders.value.add(4415);
+//     }
+//   }
+//
+//   bool isDataValid() {
+//     if (selectedOrdersId.value.length != 0) {
+//       emit(CourierContinueButtonActive());
+//       return false;
+//     } else
+//       emit(CourierContinueButtonPassive());
+//     return true;
+//   }
 
-  ///////////////////
+  ////////////////////////////////////////
+  final BehaviorSubject<List<Package>> selectedOrders =
+      BehaviorSubject<List<Package>>.seeded([]);
 
-  addOrderId(int id) {
-    id = id;
-    if (selectedOrdersId.value.contains(id)) {
-      selectedOrdersId.value.remove(id);
+  Stream<List<Package>> get selectedOrdersStream => selectedOrders.stream;
+
+  addOrder(Package package) {
+    if (selectedOrders.value.contains(package)) {
+      selectedOrders.add(selectedOrders.value..remove(package));
     } else {
-      selectedOrdersId.value.add(id);
-      //  selectedOrders.value.add(4415);
+      selectedOrders.add(selectedOrders.value..add(package));
     }
-
-    isDataValid();
-    bbbb("selected order list in cubit : ${selectedOrdersId.value}");
-  }
-
-  addPackage(Package package) {
-    // id = id;
-    if (selectedPackages.value.contains(package)) {
-      selectedPackages.value.remove(package);
-    } else {
-      selectedPackages.value.add(package);
-      //  selectedOrders.value.add(4415);
-    }
-  }
-
-  bool isDataValid() {
-    if (selectedOrdersId.value.length != 0) {
-      emit(CourierContinueButtonActive());
-      return false;
-    } else
-      emit(CourierContinueButtonPassive());
-    return true;
   }
 
   /////////////////////////////////////////////////////
@@ -126,7 +139,7 @@ class CourierCubit extends Cubit<CourierState> {
             context,
             Pager.courier_order(
               phone: phone.value,
-              packages: selectedPackages.value,
+              packages: selectedOrders.value,
               adress: adress.value,
               courierId: courierId,
               price: region.value!.price!,
@@ -154,6 +167,7 @@ class CourierCubit extends Cubit<CourierState> {
     }
 
     try {
+      selectedOrders.value.clear();
       final resultPackages = await PackageProvider.fetchPackagesForCourier();
       final resultRegions = await PublicProvider.getRegions();
       if (isSuccess(resultPackages.statusCode) &&
@@ -282,6 +296,7 @@ class CourierCubit extends Cubit<CourierState> {
     adress.close();
     region.close();
     phone.close();
+    selectedOrders.close();
     paymentType.close();
     return super.close();
   }

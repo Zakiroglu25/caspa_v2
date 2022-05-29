@@ -78,6 +78,43 @@ class PaymentsProvider {
     return statusDynamic;
   }
 
+  static Future<StatusDynamic> packageListPay({required List<int>? ids}) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackageListBalalnce;
+
+    final body = {};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+
+    if (response.statusCode == ResultKey.responseSuccess) {
+      //GeneralResponse data = GeneralResponse.fromJson(response.data);
+      // statusDynamic.data = data.data;
+    } else {
+      statusDynamic.data = response.data['message'];
+      eeee(
+          "payForPackage order result bad:  url: ${response.requestOptions.path}  ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> packageListGetPaymentUrl({
+    required List<int>? ids,
+  }) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.payForPackageListCard;
+    final body = {"id": ids};
+    final response = await dioAuth.dio.post(api, data: body);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.responseSuccess) {
+      GeneralResponse data = GeneralResponse.fromJson(response.data);
+      statusDynamic.data = data.data;
+    } else {
+      eeee(
+          "getPaymentUrlForPackage  result bad:  packageListGetPaymentUrl ,  response: ${response.data}");
+    }
+    return statusDynamic;
+  }
+
   static Future<StatusDynamic> packagePayWithCashback({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageCashback;

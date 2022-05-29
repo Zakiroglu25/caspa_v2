@@ -123,6 +123,71 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     }
   }
 
+  //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+  void packageListMakePayment(
+      {bool loading = true,
+      required List<int> ids,
+      required BuildContext context}) async {
+    if (loading) {
+      emit(PackageDetailsInProgress());
+    }
+    if (paymentType.value == MyText.byCard) {
+      packageListPayByCard(context, ids: ids);
+    } else if (paymentType.value == MyText.fromBalance) {
+      packageListPayFromBalance(context, ids: ids);
+    }
+    // else if (paymentType.value == MyText.fromCashback) {
+    //   bbbb("yuyuyu:  ${paymentType.value}");
+    //   packagePayFromCashback(context, id: id);
+    // } else if (paymentType.value == MyText.withPromoCode) {
+    //   packagePayWithPromo(context, id: id);
+    // }
+    else {}
+
+    await getUserInfo();
+  }
+
+  void packageListPayByCard(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final result = await PaymentsProvider.packageListGetPaymentUrl(ids: ids);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsUrlFetched(url: result.data));
+      } else {
+        //Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'packagePayByCard');
+    }
+  }
+
+  void packageListPayFromBalance(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.packageListPay(ids: ids);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'packagePayFromBalance');
+    }
+  }
+
+  //<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+
   //-------------------------------------//
   //-------c---h---e---c----k------------//
   //-------------------------------------//

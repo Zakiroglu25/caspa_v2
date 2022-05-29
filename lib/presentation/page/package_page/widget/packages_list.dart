@@ -1,7 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/presentation/page/all_payment_packages/all_payment.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -19,7 +18,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../util/constants/text.dart';
-import '../../../../util/delegate/navigate_utils.dart';
 
 class PackagesList extends StatelessWidget {
   final List<Package>? packages;
@@ -31,9 +29,28 @@ class PackagesList extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     final sW = size.width;
     final List<Package>? packageList = packages!.reversed.toList();
+    wtf(packageList!.length.toString());
     return Stack(
       children: [
         // if(packages[3].customStatus != null)
+        // Positioned(
+        //   right: 16,
+        //   bottom: 16,
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //       borderRadius: BorderRadius.circular(20),
+        //       color: MyColors.black34,
+        //     ),
+        //     child: Padding(
+        //       padding: const EdgeInsets.all(16.0),
+        //       child: Text(
+        //         "Toplam ödə 💰",
+        //         style: AppTextStyles.sanF500
+        //             .copyWith(color: MyColors.white, fontSize: 14.sp),
+        //       ),
+        //     ),
+        //   ),
+        // ),
         ListOrEmpty(
             description: MyText.emptyDesc,
             list: packageList,
@@ -61,31 +78,6 @@ class PackagesList extends StatelessWidget {
                 );
               },
             )),
-        ///bunu harda gostereciyik bilmirem deyesen catibda olacaq
-        ///birdeki bu butun tablarda gorsenmemelidi ne qeder eledim tapammadim
-        Positioned(
-          right: 16,
-          bottom: 16,
-          child: GestureDetector(
-            onTap: () {
-              Go.to(context, AllPaymentPackages());
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: MyColors.black34,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "Toplam ödə 💰",
-                  style: AppTextStyles.sanF500
-                      .copyWith(color: MyColors.white, fontSize: 14.sp),
-                ),
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }

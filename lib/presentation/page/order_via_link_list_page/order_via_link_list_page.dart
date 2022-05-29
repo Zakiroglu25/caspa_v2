@@ -16,19 +16,13 @@ import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
-import '../../../infrastructure/services/hive_service.dart';
-import '../../../locator.dart';
-import '../../../util/screen/alert.dart';
 import '../../../util/screen/full_screen_loading.dart';
-import '../../../widget/custom/caspa_payment_radio.dart';
 import '../webview_page/webview_page.dart';
 import 'widget/add_order_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 
 class OrderViaLinkListPage extends StatelessWidget {
   const OrderViaLinkListPage({Key? key}) : super(key: key);
-
-  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +61,8 @@ class OrderViaLinkListPage extends StatelessWidget {
             );
           }
           return FocusDetector(
-            onFocusGained: () {
-              context.read<OrderViaUrlListCubit>().fetch(false);
-            },
+            onFocusGained: () =>
+                context.read<OrderViaUrlListCubit>().fetch(false),
             child: ListView(
               padding: Paddings.paddingA16,
               children: [
@@ -80,7 +73,7 @@ class OrderViaLinkListPage extends StatelessWidget {
                   titleMaxLines: 2,
                 ),
                 MySizedBox.h16,
-                AddAttorneyButton(),
+                const AddAttorneyButton(),
                 MySizedBox.h32,
                 BlocConsumer<OrderViaUrlListCubit, OrderViaUrlListState>(
                     listener: (context, state) {

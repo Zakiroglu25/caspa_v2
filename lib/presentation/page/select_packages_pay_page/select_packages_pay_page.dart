@@ -1,20 +1,14 @@
-import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../util/constants/app_text_styles.dart';
 import '../../../util/constants/colors.dart';
-import '../../../util/constants/text.dart';
+import '../../../util/constants/sized_box.dart';
 
-class AllPaymentPackages extends StatefulWidget {
-  const AllPaymentPackages({Key? key}) : super(key: key);
+class SelectPackagesPayPage extends StatelessWidget {
+  const SelectPackagesPayPage({Key? key}) : super(key: key);
 
-  @override
-  State<AllPaymentPackages> createState() => _AllPaymentPackagesState();
-}
-
-class _AllPaymentPackagesState extends State<AllPaymentPackages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

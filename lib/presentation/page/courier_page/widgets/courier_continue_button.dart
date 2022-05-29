@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/models/remote/response/courier_orders_model.dart';
+import '../../../../infrastructure/models/remote/response/packages_data.dart';
 
 class CourierContinueButton extends StatelessWidget {
   final CourierOrder? courierOrder;
@@ -18,51 +19,23 @@ class CourierContinueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final courierCubit = context.watch<CourierCubit>();
     return Positioned(
       bottom: 30,
       left: 16,
       right: 16,
-      child: CaspaButton(
-        loading:
-            (context.read<CourierCubit>().state is CourierInProgressButton),
-        isButtonActive:
-            (context.watch<CourierCubit>().selectedOrdersId.value.isNotEmpty),
-        text: MyText.goOn,
-        //  onTap: () => Go.to(context, Pager.courier_order),
-        onTap: () => context
-            .read<CourierCubit>()
-            .configureCourier(context, courierId: courierOrder?.id),
-        /////////////////////////////////////
-        // onTap: () => Alert.body(context,
-        //     title: MyText.choosePaypentType,
-        //     cancelButton: true,
-        //     buttonText: MyText.goOn,
-        //     // onTap: () => context
-        //     //     .read<PackageDetailsCubit>()
-        //     //     .makePayment(id: package.id!, context: context),
-        //     image: Image.asset(
-        //       Assets.linkGirl,
-        //       width: 100,
-        //       height: 100,
-        //     ),
-        //     content: StreamBuilder(
-        //       stream: BlocProvider.of<CourierCubit>(context).payTypeStream,
-        //       builder: (contextK, snapShoot) {
-        //         return ListView(
-        //           padding: Paddings.paddingV12,
-        //           shrinkWrap: true,
-        //           children: [
-        //             buildCaspaRadio(context, snapShoot,
-        //                 value: MyText.fromBalance),
-        //             buildCaspaRadio(context, snapShoot, value: MyText.byCard),
-        //             // buildCaspaRadio(context, snapShoot,
-        //             //     value: MyText.withPromoCode),
-        //           ],
-        //         );
-        //       },
-        //     )),
-        /////////////////////////////////////////
+      child: StreamBuilder<List<Package>>(
+        stream: BlocProvider.of<CourierCubit>(context).selectedOrdersStream,
+        builder: (context, snapshot) {
+          return CaspaButton(
+            loading:
+                (context.read<CourierCubit>().state is CourierInProgressButton),
+            isButtonActive: snapshot.data?.isNotEmpty,
+            text: MyText.goOn,
+            onTap: () => context
+                .read<CourierCubit>()
+                .configureCourier(context, courierId: courierOrder?.id),
+          );
+        },
       ),
     );
   }

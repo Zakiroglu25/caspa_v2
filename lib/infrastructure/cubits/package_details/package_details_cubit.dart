@@ -412,7 +412,6 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
 
   @override
   Future<void> close() {
-    // TODO: implement close
     paymentType.close();
     return super.close();
   }

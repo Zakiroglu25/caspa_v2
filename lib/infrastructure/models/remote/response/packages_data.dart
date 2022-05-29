@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class PackagesData {
   List<Package>? data;
 
@@ -26,7 +28,7 @@ class PackagesData {
   }
 }
 
-class Package {
+class Package extends Equatable {
   int? id;
   String? status;
   String? customStatus;
@@ -69,9 +71,9 @@ class Package {
       this.noInvoice,
       this.invoice,
       this.date,
-        this.width,
-        this.height,
-        this.length,
+      this.width,
+      this.height,
+      this.length,
       this.archive});
 
   Package.fromJson(Map<String, dynamic> json) {
@@ -144,6 +146,33 @@ class Package {
   String toString() {
     return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment_balance: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [
+        id,
+        status,
+        customStatus,
+        cargoTracking,
+        tracking,
+        store,
+        price,
+        cargoPrice,
+        weight,
+        category,
+        country,
+        payment,
+        note,
+        regNumber,
+        from_report,
+        noInvoice,
+        invoice,
+        date,
+        width,
+        height,
+        length,
+        archive
+      ];
 }
 
 class Category {

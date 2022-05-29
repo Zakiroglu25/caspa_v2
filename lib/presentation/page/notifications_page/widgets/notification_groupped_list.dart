@@ -18,7 +18,6 @@ class NotificationGroupedList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListOrEmpty(
-       // image: Icon(Icons.add),
       list: notificationList,
       child: GroupedListView<MyNotification, String>(
         physics: Physics.alwaysBounce,

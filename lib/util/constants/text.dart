@@ -364,6 +364,7 @@ class MyText {
   //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
+  static const String totalPayX = "Toplam ödə 💰";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

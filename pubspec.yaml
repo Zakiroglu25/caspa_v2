@@ -48,6 +48,7 @@ dependencies:
   device_info_plus: any
   device_information: ^0.0.4
   grouped_list: ^4.2.0
+  equatable: ^2.0.3
   custom_pop_up_menu: ^1.2.3+1
   story_view: ^0.13.2
 
@@ -97,7 +98,6 @@ dependencies:
 
 #test:
   pattern_formatter: ^2.0.0
-#  facebook
 
 
 

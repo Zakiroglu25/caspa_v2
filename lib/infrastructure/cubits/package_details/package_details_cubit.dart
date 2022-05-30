@@ -134,16 +134,40 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
   void orderMakePayment(
       {bool loading = true,
       required int id,
+      required List<int> ids,
       required BuildContext context}) async {
     if (loading) {
       emit(PackageDetailsInProgress());
     }
     if (paymentType.value == MyText.byCard) {
-      orderPayByCard(context, id: id);
+      //orderPayByCard(context, id: id);
+      orderListPayByCard(context, ids: ids);
     } else if (paymentType.value == MyText.fromCashback) {
-      orderPayFromCashback(context, id: id);
+      // orderPayFromCashback(context, id: id);
+      orderListPayFromCashback(context, ids: ids);
     } else if (paymentType.value == MyText.fromBalance) {
-      orderPayFromBalance(context, id: id);
+      //orderPayFromBalance(context, id: id);
+      orderListPayFromBalance(context, ids: ids);
+    } else {}
+    await getUserInfo();
+  }
+
+  void orderListMakePayment(
+      {bool loading = true,
+      required List<int> ids,
+      required BuildContext context}) async {
+    if (loading) {
+      emit(PackageDetailsInProgress());
+    }
+    if (paymentType.value == MyText.byCard) {
+      //orderPayByCard(context, id: id);
+      orderListPayByCard(context, ids: ids);
+    } else if (paymentType.value == MyText.fromCashback) {
+      // orderPayFromCashback(context, id: id);
+      orderListPayFromCashback(context, ids: ids);
+    } else if (paymentType.value == MyText.fromBalance) {
+      //orderPayFromBalance(context, id: id);
+      orderListPayFromBalance(context, ids: ids);
     } else {}
     await getUserInfo();
   }
@@ -189,6 +213,64 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     try {
       final StatusDynamic result =
           await PaymentsProvider.orderPayWithCashback(idList: [id]);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'orderPayFromCashback');
+    }
+  }
+
+  void orderListPayByCard(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final result = await PaymentsProvider.orderGetPaymentUrl(idList: ids);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsUrlFetched(url: result.data));
+      } else {
+        //Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'orderPayByCard');
+    }
+  }
+
+  void orderListPayFromBalance(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final StatusDynamic result = await PaymentsProvider.orderPay(idList: ids);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'orderPayFromBalance');
+    }
+  }
+
+  void orderListPayFromCashback(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.orderPayWithCashback(idList: ids);
       if (isSuccess(result.statusCode)) {
         emit(PackageDetailsPaid());
       } else {
@@ -330,7 +412,6 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
 
   @override
   Future<void> close() {
-    // TODO: implement close
     paymentType.close();
     return super.close();
   }

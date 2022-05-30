@@ -13,7 +13,7 @@ import 'sad_smile.dart';
 
 class EmptyWidget extends StatelessWidget {
   final bool? smile;
-  // final Widget? image;
+
   final String? text;
   final String? description;
 

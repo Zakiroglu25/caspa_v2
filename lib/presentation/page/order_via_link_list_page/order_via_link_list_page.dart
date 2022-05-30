@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
+import 'package:caspa_v2/util/constants/alerts.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -60,9 +61,8 @@ class OrderViaLinkListPage extends StatelessWidget {
             );
           }
           return FocusDetector(
-            onFocusGained: () {
-              context.read<OrderViaUrlListCubit>().fetch(false);
-            },
+            onFocusGained: () =>
+                context.read<OrderViaUrlListCubit>().fetch(false),
             child: ListView(
               padding: Paddings.paddingA16,
               children: [
@@ -73,7 +73,7 @@ class OrderViaLinkListPage extends StatelessWidget {
                   titleMaxLines: 2,
                 ),
                 MySizedBox.h16,
-                AddAttorneyButton(),
+                const AddAttorneyButton(),
                 MySizedBox.h32,
                 BlocConsumer<OrderViaUrlListCubit, OrderViaUrlListState>(
                     listener: (context, state) {
@@ -84,8 +84,13 @@ class OrderViaLinkListPage extends StatelessWidget {
                         positive: true,
                         showSuccessIcon: true);
                   }
+                  if (state is OrderViaUrlListShowPaymentDialog) {
+                    Alerts.selectedOrdersPaymentAlert(
+                        context: context, selectedOrders: state.selectedOrders);
+                  }
                 }, buildWhen: (context, state) {
-                  if (state is OrderViaUrlListDeleted) {
+                  if (state is OrderViaUrlListDeleted ||
+                      state is OrderViaUrlListShowPaymentDialog) {
                     return false;
                   } else
                     return true;

@@ -74,6 +74,7 @@ import '../../infrastructure/cubits/notification_list/notification_list_cubit.da
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
 import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
@@ -87,9 +88,9 @@ class Pager {
         BlocProvider.value(
           value: TarifCubit()..fetch(),
         ),
-    BlocProvider.value(
-      value: CourierTarifCubit()..fetch(),
-    ),
+        BlocProvider.value(
+          value: CourierTarifCubit()..fetch(),
+        ),
         BlocProvider.value(
           value: AdsCubit()..fetch(),
         ),
@@ -175,6 +176,13 @@ class Pager {
           child: CourierPage(
             courierOrder: courierOrder,
           ));
+
+  static selectPackagesPayPage({CourierOrder? courierOrder}) =>
+      MultiBlocProvider(providers: [
+        BlocProvider.value(
+          value: CourierCubit()..fetchPackagesForCourier(),
+        )
+      ], child: SelectPackagesPayPage());
 
   static get login => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => LoginCubit()),
@@ -349,7 +357,6 @@ class Pager {
           create: (context) => PackageCubit()..fetch(),
           child: PackagesList(
             packages: packages,
-
           ));
 
   static packageDetails({required Package package}) => MultiBlocProvider(

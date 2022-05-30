@@ -1,18 +1,12 @@
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
-import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'moto_image.dart';
 
 class PageViewThree extends StatelessWidget {

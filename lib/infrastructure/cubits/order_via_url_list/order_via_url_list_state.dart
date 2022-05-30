@@ -8,6 +8,12 @@ class AttorneyListInitial extends OrderViaUrlListState {}
 
 class OrderViaUrlListInProgress extends OrderViaUrlListState {}
 
+class OrderViaUrlListShowPaymentDialog extends OrderViaUrlListState {
+  final List<int> selectedOrders;
+
+  OrderViaUrlListShowPaymentDialog({required this.selectedOrders});
+}
+
 class OrderViaUrlListError extends OrderViaUrlListState {
   final String? error;
 

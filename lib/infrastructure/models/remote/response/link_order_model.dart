@@ -1,3 +1,5 @@
+import 'package:equatable/equatable.dart';
+
 class LinkOrderResponse {
   List<LinkOrder>? data;
 
@@ -26,7 +28,7 @@ class LinkOrderResponse {
   }
 }
 
-class LinkOrder {
+class LinkOrder extends Equatable {
   int? id;
   String? link;
   String? date;
@@ -74,4 +76,9 @@ class LinkOrder {
   String toString() {
     return 'LinkOrder{id: $id, link: $link, date: $date, qty: $qty, payment: $payment, price: $price, cargoPrice: $cargoPrice, note: $note}';
   }
+
+  @override
+  // TODO: implement props
+  List<Object?> get props =>
+      [id, link, date, qty, payment, price, cargoPrice, note];
 }

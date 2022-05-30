@@ -5,15 +5,16 @@ import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 import '../../../../locator.dart';
+import '../../../util/delegate/my_printer.dart';
 import '../../configs/recorder.dart';
 import 'order_via_url_list_state.dart';
 
 class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
   OrderViaUrlListCubit() : super(OrderViaUrlListInProgress());
-
-  HiveService get _prefs => locator<HiveService>();
 
   void fetch([bool loading = true]) async {
     if (loading) {
@@ -28,7 +29,6 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
         emit(OrderViaUrlListError());
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(OrderViaUrlListNetworkError());
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
@@ -51,12 +51,41 @@ class OrderViaUrlListCubit extends Cubit<OrderViaUrlListState> {
         emit(OrderViaUrlListError(error: MyText.error));
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(OrderViaUrlListNetworkError());
     } catch (e) {
       emit(OrderViaUrlListError(error: MyText.error + " " + e.toString()));
     }
+  }
+
+  void paySelectedOrders({bool loading = true}) async {
+    try {
+      emit(OrderViaUrlListShowPaymentDialog(
+          selectedOrders: selectedOrders.value.fold<List<int>>(
+              [], (previous, element) => previous..add(element.id!))));
+    } catch (e) {
+      emit(OrderViaUrlListError(error: MyText.error));
+    }
 
     //user/attorneys/delete
+  }
+
+  final BehaviorSubject<List<LinkOrder>> selectedOrders =
+      BehaviorSubject<List<LinkOrder>>.seeded([]);
+
+  Stream<List<LinkOrder>> get selectedOrdersStream => selectedOrders.stream;
+
+  addOrder(LinkOrder id) {
+    if (selectedOrders.value.contains(id)) {
+      selectedOrders.add(selectedOrders.value..remove(id));
+    } else {
+      selectedOrders.add(selectedOrders.value..add(id));
+    }
+  }
+
+  @override
+  Future<void> close() {
+    // TODO: implement close
+    selectedOrders.close();
+    return super.close();
   }
 }

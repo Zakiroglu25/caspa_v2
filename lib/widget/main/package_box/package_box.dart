@@ -22,7 +22,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 
 import '../../../infrastructure/models/local/my_user.dart';
-import 'widgets/succes_payment_widget.dart';
 
 class PackageBox extends StatelessWidget {
   Package package;
@@ -70,7 +69,21 @@ class PackageBox extends StatelessWidget {
                     children: [
                       SvgPicture.asset(Assets.svgShop),
                       MySizedBox.w8,
-                      if (package.payment == 1) const SuccesPaymentWidget(),
+                      if(package.payment == 1)
+                      Container(
+                        width: 64.w,
+                        height: 24.h,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: MyColors.black34),
+                        child: Center(
+                          child: Text(
+                            "Ödənilib",
+                            style: AppTextStyles.sanF400.copyWith(
+                                color: MyColors.white, fontSize: 12.sp),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   MySizedBox.h10,

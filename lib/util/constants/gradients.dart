@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
+
 class Gradients {
   Gradients._();
 
@@ -26,6 +28,13 @@ class Gradients {
       colors: [
         Color.fromRGBO(248, 20, 80, 1),
         Color.fromRGBO(248, 90, 80, 1),
-       // Color.fromRGBO(248, 102, 170, 1),
+        // Color.fromRGBO(248, 102, 170, 1),
       ]);
+
+  static const LinearGradient unicorn = LinearGradient(colors: [
+    MyColors.gradientBlue,
+    MyColors.gradientCyan,
+    MyColors.gradientRed,
+    MyColors.gradientOrange,
+  ]);
 }

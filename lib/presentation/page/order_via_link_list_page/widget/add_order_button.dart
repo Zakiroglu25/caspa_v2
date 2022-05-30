@@ -11,9 +11,7 @@ class AddAttorneyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CaspaButton(
       text: MyText.newOrder,
-      onTap: () {
-        Go.to(context, Pager.orderViaLink());
-      },
+      onTap: () => Go.to(context, Pager.orderViaLink()),
     );
   }
 }

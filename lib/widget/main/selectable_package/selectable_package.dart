@@ -29,7 +29,7 @@ class SelectablePackage extends StatelessWidget {
         delay: Duration(milliseconds: index * 100),
         child: AnimatedContainer(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          margin: EdgeInsets.only(bottom: 20),
+          margin: EdgeInsets.only(bottom: 12),
           duration: Duration(milliseconds: 200),
           decoration: BoxDecoration(
             color: selected ? MyColors.mainOpacity : Colors.white,
@@ -40,6 +40,10 @@ class SelectablePackage extends StatelessWidget {
           ),
           child: Row(
             children: [
+              OrderSelectCheckIndicator(
+                active: selected,
+              ),
+              MySizedBox.w20,
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,9 +59,6 @@ class SelectablePackage extends StatelessWidget {
               ),
               Text(price, style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
               MySizedBox.w20,
-              OrderSelectCheckIndicator(
-                active: selected,
-              ),
             ],
           ),
         ),

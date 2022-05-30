@@ -22,6 +22,7 @@ import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_c
 import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
@@ -180,8 +181,9 @@ class Pager {
   static selectPackagesPayPage({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [
         BlocProvider.value(
-          value: CourierCubit()..fetchPackagesForCourier(),
-        )
+          value: SelectPackagesPayCubit()..fetchActiveUnpaid(),
+        ),
+        BlocProvider(create: (context) => PackageDetailsCubit()),
       ], child: SelectPackagesPayPage());
 
   static get login => MultiBlocProvider(providers: [

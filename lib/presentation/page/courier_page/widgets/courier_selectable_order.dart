@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../widget/main/selectable_package/selectable_package.dart';
-import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -14,9 +10,6 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:flutter/material.dart';
-import '../../../../widget/custom/order_select_check_indicator.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CourierSelectableOrder extends StatelessWidget {
   const CourierSelectableOrder(

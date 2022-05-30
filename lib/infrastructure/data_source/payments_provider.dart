@@ -82,7 +82,7 @@ class PaymentsProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageListBalalnce;
 
-    final body = {};
+    final body = {"package": ids};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
 
@@ -102,7 +102,7 @@ class PaymentsProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageListCard;
-    final body = {"id": ids};
+    final body = {"package": ids};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.responseSuccess) {

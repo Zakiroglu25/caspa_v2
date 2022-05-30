@@ -16,6 +16,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widget/bottom_element.dart';
 
+final globalPageController = PageController(initialPage: 1);
+
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
 
@@ -37,10 +39,10 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) => PageView(
-        controller: PageController(initialPage: 1),
+        controller: globalPageController,
         physics: Physics.alwaysClamp,
         children: [
-          Pager.userCabinet(showBack: false), //
+          Pager.userCabinet(showBack: true), //
           Scaffold(
             key: _key,
             extendBody: true,

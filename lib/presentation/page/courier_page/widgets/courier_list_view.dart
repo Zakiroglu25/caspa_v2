@@ -20,6 +20,7 @@ import '../../../../infrastructure/models/remote/response/courier_orders_model.d
 import '../../../../util/constants/text_styles.dart';
 import '../../../../util/formatter/masked_text_controller_phone.dart';
 import 'courier_continue_button.dart';
+import 'courier_info_box.dart';
 import 'fields/adress_field.dart';
 import 'fields/number_field.dart';
 import 'fields/region_field.dart';
@@ -57,37 +58,7 @@ class CourierPageListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MySizedBox.h16,
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: MyColors.mainOpacity,
-                  ),
-                  child: Padding(
-                    padding: Paddings.paddingA16,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Diqqət!",
-                              style: UITextStyle.tW600Black
-                                  .copyWith(fontSize: 16, letterSpacing: 0.3),
-                            ),
-                            MySizedBox.h4,
-                            SvgPicture.asset(Assets.svgInfoCourier)
-                          ],
-                        ),
-                        Text(
-                          MyText.courierInfoTime,
-                          style: AppTextStyles.sanF400
-                              .copyWith(fontSize: 14.sp, letterSpacing: 0.3,color: MyColors.dark51),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                CourierInfoBox(),
                 MySizedBox.h24,
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,

@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
             Ads(),
             MySizedBox.h24,
             SectionName(
-              title: MyText.myPackages,
+              title: MyText.activePackages,
               hP: 20,
             ),
             MySizedBox.h16,

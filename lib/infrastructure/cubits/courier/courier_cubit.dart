@@ -20,63 +20,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CourierCubit extends Cubit<CourierState> {
-  CourierCubit() : super(CourierInProgress()) {
-    // selectedOrdersId.addListener(() {
-    //  // isDataValid();
-    // });
-  }
-
-////////////////////
-//   ValueNotifier<List<int>> selectedOrdersId = ValueNotifier<List<int>>([]);
-//   ValueNotifier<List<Package>> selectedPackages =
-//       ValueNotifier<List<Package>>([]);
-//
-//
-//   addOrderId(int id) {
-//     id = id;
-//     if (selectedOrdersId.value.contains(id)) {
-//       selectedOrdersId.value.remove(id);
-//     } else {
-//       selectedOrdersId.value.add(id);
-//       //  selectedOrders.value.add(4415);
-//     }
-//
-//     isDataValid();
-//     bbbb("selected order list in cubit : ${selectedOrdersId.value}");
-//   }
-//
-//   addPackage(Package package) {
-//     // id = id;
-//     if (selectedPackages.value.contains(package)) {
-//       selectedPackages.value.remove(package);
-//     } else {
-//       selectedPackages.value.add(package);
-//       //  selectedOrders.value.add(4415);
-//     }
-//   }
-//
-//   bool isDataValid() {
-//     if (selectedOrdersId.value.length != 0) {
-//       emit(CourierContinueButtonActive());
-//       return false;
-//     } else
-//       emit(CourierContinueButtonPassive());
-//     return true;
-//   }
-
+  CourierCubit() : super(CourierInProgress());
   ////////////////////////////////////////
-  final BehaviorSubject<List<Package>> selectedOrders =
-      BehaviorSubject<List<Package>>.seeded([]);
-
-  Stream<List<Package>> get selectedOrdersStream => selectedOrders.stream;
-
-  addOrder(Package package) {
-    if (selectedOrders.value.contains(package)) {
-      selectedOrders.add(selectedOrders.value..remove(package));
-    } else {
-      selectedOrders.add(selectedOrders.value..add(package));
-    }
-  }
 
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
@@ -118,7 +63,7 @@ class CourierCubit extends Cubit<CourierState> {
       //network olacaq
       emit(CourierOperationFail());
     } catch (e, s) {
-      eeee("addCourier catch: $e => $s");
+      Recorder.recordCatchError(e, s);
       emit(CourierOperationFail());
     }
   }
@@ -128,7 +73,6 @@ class CourierCubit extends Cubit<CourierState> {
     bool loading = true,
     int? courierId,
   }) async {
-    bbbb("kiddd: $courierId");
     try {
       if (isUserDataValid()) {
         if (loading) {
@@ -156,7 +100,6 @@ class CourierCubit extends Cubit<CourierState> {
       emit(CourierError());
     } catch (e, s) {
       Recorder.recordCatchError(e, s, where: 'CourierCubit.configureCourier');
-      eeee("fetchPackagesForCourier catch: $e => $s");
       emit(CourierError(error: e.toString()));
     }
   }
@@ -290,6 +233,20 @@ class CourierCubit extends Cubit<CourierState> {
   bool get isPayTypeIncorrect => (!paymentType.hasValue ||
       paymentType.value == null ||
       paymentType.value.isEmpty);
+
+  //selected orders
+  final BehaviorSubject<List<Package>> selectedOrders =
+      BehaviorSubject<List<Package>>.seeded([]);
+
+  Stream<List<Package>> get selectedOrdersStream => selectedOrders.stream;
+
+  addOrder(Package package) {
+    if (selectedOrders.value.contains(package)) {
+      selectedOrders.add(selectedOrders.value..remove(package));
+    } else {
+      selectedOrders.add(selectedOrders.value..add(package));
+    }
+  }
 
   @override
   Future<void> close() {

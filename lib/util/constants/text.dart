@@ -62,6 +62,7 @@ class MyText {
   static const String you_can_not_recovery_it_again =
       "Xatırladaq ki, geri dönüş yoxdur!";
   static const String pay = "Ödəniş et";
+  static const String payTotal = "Toplam ödəniş et";
   static const String choosePaypentType = "Ödəniş növünü seçin :";
   static const String not_pay = "Ödənilməyib";
   static const String confirm = "Təsdiq";
@@ -130,7 +131,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Tariflərlə tanış olun";
-  static const String myPackages = "Aktiv bağlamalarım";
+  static const String activePackages = "Aktiv bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
@@ -336,6 +337,10 @@ class MyText {
 
   //static const String note = "İzləmə kodu";
   static const String link_of_order = 'Məhsulun linki';
+
+  //selected packages pag
+  static const String touchPayButtonText =
+      "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” butonuna toxunun.";
 
   //trendyol sms
   static const String trendyolSMS = 'Trendyol SMS';

@@ -40,10 +40,6 @@ class CourierEdited extends CourierState {
   CourierEdited(this.message, this.courierId);
 }
 
-class CourierContinueButtonActive extends CourierState {}
-
-class CourierContinueButtonPassive extends CourierState {}
-
 class CourierSuccess extends CourierState {
   CourierSuccess();
 }

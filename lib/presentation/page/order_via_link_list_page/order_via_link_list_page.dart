@@ -35,7 +35,6 @@ class OrderViaLinkListPage extends StatelessWidget {
       ),
       body: BlocConsumer<PackageDetailsCubit, PackageDetailsState>(
         listener: (context, state) {
-          // TODO: implement listener
           if (state is PackageDetailsPayError) {
             Snack.display(context: context, message: state.error);
           }

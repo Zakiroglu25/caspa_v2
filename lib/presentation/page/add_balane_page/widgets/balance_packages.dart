@@ -23,24 +23,24 @@ class BalancePackages extends StatelessWidget {
         ),
         MySizedBox.h16,
         PricePackage(
-          gift: '5',
+          gift: '25',
           index: 1,
-          price: '15',
-        ),
-        PricePackage(
-          gift: '10',
-          index: 2,
-          price: '30',
-        ),
-        PricePackage(
-          gift: '20',
-          index: 3,
-          price: '50',
+          price: '5',
         ),
         PricePackage(
           gift: '50',
+          index: 2,
+          price: '15',
+        ),
+        PricePackage(
+          gift: '75',
+          index: 3,
+          price: '25',
+        ),
+        PricePackage(
+          gift: '100',
           index: 4,
-          price: '100',
+          price: '50',
         ),
         MySizedBox.h100
       ],

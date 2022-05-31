@@ -35,12 +35,10 @@ class OrderList extends StatelessWidget {
               return CourierSelectableOrder(
                 index: index,
                 package: currentPackage,
-                onTap:
-                    //currentPackage.payment == 1
-                    //  ?
-                    () => context.read<CourierCubit>().addOrder(currentPackage)
-                //    : null
-                ,
+                onTap: currentPackage.payment == 1
+                    ? () =>
+                        context.read<CourierCubit>().addOrder(currentPackage)
+                    : null,
                 selected: snapshot.data?.contains(currentPackage) ?? false,
               );
             });

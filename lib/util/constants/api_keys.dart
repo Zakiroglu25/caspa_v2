@@ -99,7 +99,10 @@ class ApiKeys {
 
   //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";
+  static const payForPackageListBalalnce = "$baseUrl/user/package/payment/bulk";
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
+  static const payForPackageListCard =
+      "$baseUrl/user/package/payment/card/bulk";
   static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 
@@ -118,7 +121,6 @@ class ApiKeys {
   static const payForCourierCashback = "$baseUrl/user/courier/cashback";
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";
-
 
   static loginBody({
     required String? email,

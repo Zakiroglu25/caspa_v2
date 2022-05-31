@@ -13,6 +13,7 @@ import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../locator.dart';
+import 'tariffs_courier.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -24,7 +25,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: Paddings.paddingH20,
+      padding: EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -49,7 +50,8 @@ class HomeHeader extends StatelessWidget {
               children: [
                 TextSpan(
                     text: ' *1453',
-                    style: AppTextStyles.sanF400.copyWith(color: MyColors.mainColor))
+                    style: AppTextStyles.sanF400
+                        .copyWith(color: MyColors.mainColor))
               ],
               style: AppTextStyles.sanF400
                   .copyWith(fontSize: 14.sm, color: MyColors.grey165),
@@ -58,9 +60,12 @@ class HomeHeader extends StatelessWidget {
           // Text(MyText.homePageText,
           //     style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
           MySizedBox.h14,
+          TariffsCourier(),
+          MySizedBox.h12,
           CaspaButton(
-            w: 156,
+            w: 129,
             h: 44,
+            borderRadius: 12,
             textSize: 14,
             text: 'Kuryer sifariş et',
             onTap: () => Go.to(context, Pager.courier()),

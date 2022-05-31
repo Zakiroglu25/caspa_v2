@@ -34,16 +34,6 @@ class HomePage extends StatelessWidget {
             HomeHeader(),
             MySizedBox.h12,
             SectionName(
-              title: "Kuryer tarifləri",
-              hP: 20,
-              tile: MoreButton(
-                onTap: () => Go.to(context, Pager.courierTarifDetails),
-              ),
-            ),
-            MySizedBox.h12,
-            TariffsCourier(),
-            MySizedBox.h12,
-            SectionName(
               title: "Yeniliklər və xəbərləri izləyin",
               hP: 20,
             ),

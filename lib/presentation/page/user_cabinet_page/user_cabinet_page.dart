@@ -1,21 +1,25 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
+import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
@@ -45,6 +49,8 @@ class UserCabinetPage extends StatelessWidget {
         centerTitle: true,
         user: false,
         back: showBack ?? true,
+        onBack: () => globalPageController.nextPage(
+            duration: Durations.ms300, curve: Curves.linear),
         notification: false,
         onTapActions: () {
           showCupertinoModalPopup(
@@ -141,6 +147,7 @@ class UserCabinetPage extends StatelessWidget {
                         Pager.paymentPage(
                           paymentBalanceType: PaymentBalanceType.order,
                         ))),
+
                 ///bu hediyye balansi novbeti update de olacaq
                 // MySizedBox.h16,
                 // BalansMiniBox(
@@ -179,20 +186,20 @@ class UserCabinetPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                MySizedBox.h16,
-
-                Row(
-                  children: [
-                    BalansMiniBox(
-                      title: MyText.cashbackProfile,
-                      content: "${_prefs.user.cashback_balance}\$ ",
-                      color: MyColors.balansCargo,
-                      priceColor: MyColors.mainColor,
-                      icon: const Icon(null),
-                      finishTime: "",
-                    ),
-                  ],
-                ),
+                // MySizedBox.h16,
+                //
+                // Row(
+                //   children: [
+                //     BalansMiniBox(
+                //       title: MyText.cashbackProfile,
+                //       content: "${_prefs.user.cashback_balance}\$ ",
+                //       color: MyColors.balansCargo,
+                //       priceColor: MyColors.mainColor,
+                //       icon: const Icon(null),
+                //       finishTime: "",
+                //     ),
+                //   ],
+                // ),
                 MySizedBox.h50,
               ],
             ),

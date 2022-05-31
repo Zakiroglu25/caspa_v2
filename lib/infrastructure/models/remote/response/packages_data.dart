@@ -50,6 +50,7 @@ class Package extends Equatable {
   String? width;
   String? height;
   String? length;
+  int? orderable;
   List<Archive>? archive;
 
   Package(
@@ -74,10 +75,12 @@ class Package extends Equatable {
       this.width,
       this.height,
       this.length,
+        this.orderable,
       this.archive});
 
   Package.fromJson(Map<String, dynamic> json) {
     id = json['id'];
+    orderable = json['orderable'];
     status = json['status'];
     cargoTracking = json['cargo_tracking'];
     tracking = json['tracking'];
@@ -112,6 +115,7 @@ class Package extends Equatable {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
+    data['orderable'] = this.orderable;
     data['status'] = this.status;
     data['cargo_tracking'] = this.cargoTracking;
     data['tracking'] = this.tracking;

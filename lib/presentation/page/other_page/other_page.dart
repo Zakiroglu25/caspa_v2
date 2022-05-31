@@ -9,6 +9,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
+import '../test/product.dart';
 import 'widget/other_shop_widget.dart';
 
 class OtherPage extends StatelessWidget {
@@ -83,7 +84,7 @@ class OtherPage extends StatelessWidget {
                   title: MyText.courierX,
                   content: MyText.courierInfo,
                   color: MyColors.kuryer,
-                  onTap: () => Go.to(context, Pager.courierList),
+                  onTap: () => Go.to(context, TestForm()),
                 ),
                 MenuBox(
                   w: boxW,

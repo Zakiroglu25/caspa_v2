@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
@@ -26,21 +27,23 @@ class SelectablePackagesList extends StatelessWidget {
           padding: Paddings.paddingB110,
           itemBuilder: (context, index) {
             final currentPackage = packageList[index];
-
-            return StreamBuilder<List<Package>>(
-                stream: BlocProvider.of<SelectPackagesPayCubit>(context)
-                    .selectedOrdersStream,
-                builder: (context, snapshot) {
-                  return SelectablePackage(
-                    index: index,
-                    package: currentPackage,
-                    selected: snapshot.data?.contains(currentPackage) ?? false,
-                    price: "${currentPackage.cargoPrice!} USD",
-                    onTap: () => context
-                        .read<SelectPackagesPayCubit>()
-                        .addOrder(currentPackage),
-                  );
-                });
+            if(currentPackage.weight != null){
+              return StreamBuilder<List<Package>>(
+                  stream: BlocProvider.of<SelectPackagesPayCubit>(context)
+                      .selectedOrdersStream,
+                  builder: (context, snapshot) {
+                    return SelectablePackage(
+                      index: index,
+                      package: currentPackage,
+                      selected: snapshot.data?.contains(currentPackage) ?? false,
+                      price: "${currentPackage.cargoPrice!} USD",
+                      onTap: () => context
+                          .read<SelectPackagesPayCubit>()
+                          .addOrder(currentPackage),
+                    );
+                  });
+            }
+            return SizedBox();
           },
         ),
         SelectPackagesContinueButton()

@@ -32,6 +32,7 @@ class NewEmptyWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            if(image != null)
             Container(
               height: 120.sp,
               width: 120.sp,

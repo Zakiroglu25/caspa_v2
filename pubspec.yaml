@@ -45,7 +45,7 @@ dependencies:
   intl: ^0.17.0
   font_awesome_flutter: ^9.2.0
   sliver_tools: ^0.2.5
-  device_info_plus: any
+  device_info_plus: ^3.2.3
   device_information: ^0.0.4
   grouped_list: ^4.2.0
   equatable: ^2.0.3

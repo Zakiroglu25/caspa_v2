@@ -29,18 +29,21 @@ class TariffData {
 class Tariff {
   String? price;
   String? description;
+  String? type;
 
   Tariff({this.price, this.description});
 
   Tariff.fromJson(Map<String, dynamic> json) {
     price = json['price'];
     description = json['description'];
+    type = json['type'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['price'] = price;
     data['description'] = description;
+    data['type'] = type;
     return data;
   }
 

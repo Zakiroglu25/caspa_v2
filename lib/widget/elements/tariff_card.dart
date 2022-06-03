@@ -14,10 +14,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 class TariffCard extends StatelessWidget {
   String? tarifName;
   String? price;
+  String? type;
   double? w;
   bool? isVertical;
 
-  TariffCard({Key? key, this.tarifName, this.price, this.w, this.isVertical})
+  TariffCard(
+      {Key? key,
+      this.tarifName,
+      this.price,
+      this.w,
+      this.isVertical,
+      this.type})
       : super(key: key);
 
   @override
@@ -38,11 +45,11 @@ class TariffCard extends StatelessWidget {
             style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
           ),
           MySizedBox.h5,
-          if (tarifName!.length > 20)
+          if (type == "azn")
             Text(price.toString() + "USD",
-              style: AppTextStyles.sanF600
-                  .copyWith(color: MyColors.green, fontSize: 16.sm)),
-          if (tarifName!.length < 19)
+                style: AppTextStyles.sanF600
+                    .copyWith(color: MyColors.green, fontSize: 16.sm)),
+          if (type != "azn")
             Text(price.toString() + "AZN",
                 style: AppTextStyles.sanF600
                     .copyWith(color: MyColors.green, fontSize: 16.sm)),

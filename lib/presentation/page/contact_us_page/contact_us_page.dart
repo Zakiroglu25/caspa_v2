@@ -16,6 +16,7 @@ import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'widgets/social_item.dart';
 
 class ContactPage extends StatelessWidget {
@@ -53,7 +54,7 @@ class ContactPage extends StatelessWidget {
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
-                    onTap: () => launch(
+                    onTap: () => launchUrlString(
                         'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
                   ),
                   MySizedBox.h16,

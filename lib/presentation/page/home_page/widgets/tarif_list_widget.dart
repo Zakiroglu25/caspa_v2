@@ -3,6 +3,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_mo
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/widget/elements/tariff_card.dart';
@@ -40,12 +41,14 @@ class TarifListWidget extends StatelessWidget {
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
             Tariff tariff = hList[index];
+            wtf(tariff.type.toString());
             return FadeInUp(
               duration: Duration(milliseconds: isVertical!?AppOperations.getTime(index):0),
               child: TariffCard(
                 tarifName: tariff.description,
                 price: tariff.price,
                 isVertical: isVertical,
+                type: tariff.type,
                 //w: (isVertical ?? false) ? null : 284.sp,
               ),
             );

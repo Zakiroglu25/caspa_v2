@@ -41,7 +41,7 @@ class OrderViaLinkListview extends StatelessWidget {
           controller: TextEditingController(text: "${order?.qty ?? ''}"),
         ),
         PriceFieldOrderViaUrl(
-            controller: TextEditingController(text: "${order?.price ?? ''}")),
+            controller: TextEditingController(text: "${order?.price ?? ''}", )),
         CommissionField(),
         MySizedBox.h16,
         LocalCargoFieldOrderViaUrl(
@@ -50,6 +50,7 @@ class OrderViaLinkListview extends StatelessWidget {
         NoteFieldOrderViaUrl(
           controller: TextEditingController(text: "${order?.note ?? ''}"),
         ),
+        Text("Salam"),
         MySizedBox.h16,
         OrderViaLinkContinueButton(order: order),
         MySizedBox.h32,

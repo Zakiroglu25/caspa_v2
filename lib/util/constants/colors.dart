@@ -58,7 +58,10 @@ class MyColors {
   static const Color mainColor03 = Color.fromRGBO(111, 111, 191, 0.3);
   static const Color mainGrey = Color(0xFFF5F5F5);
   static const Color grey153 = Color.fromRGBO(153, 153, 153, 1);
+  static const Color wpColor = Color.fromRGBO(101, 207, 114, 1);
   static const Color textBlack = Color(0xFF222222);
+
+
 
   ///all background color
   static const Color bckColor = Color.fromRGBO(255, 255, 255, 0.7);

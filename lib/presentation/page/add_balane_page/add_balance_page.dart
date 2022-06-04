@@ -84,9 +84,9 @@ class AddBalancePage extends StatelessWidget {
                           paymentBalance: paymentBalance,
                           // controller: controller,
                         ),
-                        WidgetOrEmpty(
-                            value: paymentBalance == PaymentBalanceType.cargo,
-                            child: const BalancePackages())
+                        // WidgetOrEmpty(
+                        //     value: paymentBalance == PaymentBalanceType.cargo,
+                        //     child: const BalancePackages())
                       ],
                     ),
                     Positioned(

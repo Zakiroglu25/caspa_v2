@@ -28,6 +28,9 @@ class NotificationCubit extends Cubit<NotificationState> {
       List<MyNotification> notificationList =
       result.data as List<MyNotification>;
       if (isSuccess(result.statusCode)) {
+        if(notificationList.length < 0){
+          emit(NotificationError());
+        }
         emit(NotificationSuccess(notificationList));
       } else {
         emit(NotificationError());

@@ -14,18 +14,21 @@ class PackageBoxDetailText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return Row(
       children: [
         Text(
           title + ": ",
           style: AppTextStyles.sanF400
               .copyWith(fontSize: 12.sp, color: MyColors.grey153),
         ),
-        Text(
-          value ?? '',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
+        Expanded(
+          child: Text(
+            value ?? '',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            softWrap: true,
+            style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp),
+          ),
         ),
       ],
     );

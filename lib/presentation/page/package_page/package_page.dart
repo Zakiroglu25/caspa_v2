@@ -36,31 +36,31 @@ class PackagePage extends StatelessWidget {
                       isScrollable: true,
                       notification: true,
                       first: packageMap.values.toList().indexWhere((element) =>
-                          PackageAndCount.fromJson(element).count! > 0),
+                      PackageAndCount.fromJson(element).count! > 0),
                       tabs: packageMap.entries
                           .map((entry) => Tab(
-                                //   text: entry.key,
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      entry.key,
-                                      style: AppTextStyles.sanF600.copyWith(
-                                          fontSize: 15.sp, letterSpacing: 0.3),
-                                    ),
-                                    MySizedBox.w5,
-                                    TabCount(
-                                        count: PackageAndCount.fromJson(
-                                                entry.value)
-                                            .count)
-                                  ],
-                                ),
-                                height: 65,
-                              ))
+                        //   text: entry.key,
+                        child: Row(
+                          children: [
+                            Text(
+                              entry.key,
+                              style: AppTextStyles.sanF600.copyWith(
+                                  fontSize: 15.sp, letterSpacing: 0.3),
+                            ),
+                            MySizedBox.w5,
+                            TabCount(
+                                count: PackageAndCount.fromJson(
+                                    entry.value)
+                                    .count)
+                          ],
+                        ),
+                        height: 65,
+                      ))
                           .toList(),
                       tabPages: packageMap.entries
                           .map((entry) => Pager.waitingPackages(
-                              packages: PackageAndCount.fromJson(entry.value)
-                                  .packages))
+                          packages: PackageAndCount.fromJson(entry.value)
+                              .packages))
                           .toList(),
                       title: MyText.packages,
                       sliverChild: MySizedBox.h0,

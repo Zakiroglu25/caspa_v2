@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LocalCargoFieldOrderViaUrl extends StatelessWidget {
   final TextEditingController? controller;
-
+  int _value2 = 20;
   LocalCargoFieldOrderViaUrl(
       {this.controller}); //= new TextEditingController();
   @override

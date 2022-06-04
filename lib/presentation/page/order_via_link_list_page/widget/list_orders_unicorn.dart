@@ -63,6 +63,7 @@ class OrderUnicorn extends StatelessWidget {
             MySizedBox.h20,
           ],
         ),
+        if(order.payment == 0)
         OrderViaLinkSelectCheckbox(
           order: order,
         )

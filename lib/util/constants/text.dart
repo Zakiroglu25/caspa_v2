@@ -130,7 +130,7 @@ class MyText {
 
   //home
   static const String welcome = "Salam";
-  static const String recognizeTariffs = "Tariflərlə tanış olun";
+  static const String recognizeTariffs = "Xaricdən çatdırılma tarifləri ✈️";
   static const String activePackages = "Aktiv bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
@@ -370,6 +370,10 @@ class MyText {
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
   static const String totalPayX = "Toplam ödə 💰";
+  static const String emptyButton = "Bağlama sifariş et";
+  static const String emptyTitle = "Bura boşdur";
+
+
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
@@ -411,7 +415,7 @@ class MyText {
 
   ///otherpage
   static const String emptyDesc =
-      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək";
+      "Hörmətli müştəri, hazırda sizin aktiv sifarişləriniz olmadığı üçün bu bölmədə heç bir məlumat yoxdur.Təklif edirik vəziyyəti düzəldək 😎";
 
   ///kuryer page
   static const String kuryerTxt =

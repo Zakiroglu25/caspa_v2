@@ -35,7 +35,7 @@ class EmptyWidget extends StatelessWidget {
                 value: smile,
                 child: SadSmile(),
                 // elseChild:
-                elseChild: SadFaceAnim(),
+                elseChild: Image.asset(Assets.pngSebet),
               ),
             ),
             SizedBox(

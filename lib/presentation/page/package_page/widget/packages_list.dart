@@ -17,7 +17,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../util/constants/assets.dart';
+import '../../../../util/constants/sized_box.dart';
 import '../../../../util/constants/text.dart';
+import '../../../../util/delegate/navigate_utils.dart';
+import '../../../../util/delegate/pager.dart';
+import 'empty_widget_packages.dart';
 
 class PackagesList extends StatelessWidget {
   final List<Package>? packages;
@@ -29,55 +34,35 @@ class PackagesList extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     final sW = size.width;
     final List<Package>? packageList = packages!.reversed.toList();
-    wtf(packageList!.length.toString());
+    if (packages!.length == 0) {
+      return EmptyPackagesWidget();
+    }
     return Stack(
       children: [
-        // if(packages[3].customStatus != null)
-        // Positioned(
-        //   right: 16,
-        //   bottom: 16,
-        //   child: Container(
-        //     decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(20),
-        //       color: MyColors.black34,
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(16.0),
-        //       child: Text(
-        //         "Toplam ödə 💰",
-        //         style: AppTextStyles.sanF500
-        //             .copyWith(color: MyColors.white, fontSize: 14.sp),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        ListOrEmpty(
-            description: MyText.emptyDesc,
-            list: packageList,
-            child: GridView.builder(
-              padding: Paddings.paddingA20,
-              physics: Physics.alwaysBounce,
-              itemCount: packageList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount:
-                    MediaQuery.of(context).orientation == Orientation.landscape
-                        ? 3
-                        : 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: (1 / 1.15),
-              ),
-              itemBuilder: (
-                context,
-                index,
-              ) {
-                return PackageBox(
-                  package: packageList[index],
-                  w: sW,
-                  index: index,
-                );
-              },
-            )),
+        GridView.builder(
+          padding: Paddings.paddingA20,
+          physics: Physics.alwaysBounce,
+          itemCount: packageList!.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount:
+                MediaQuery.of(context).orientation == Orientation.landscape
+                    ? 3
+                    : 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: (1 / 1.15),
+          ),
+          itemBuilder: (
+            context,
+            index,
+          ) {
+            return PackageBox(
+              package: packageList[index],
+              w: sW,
+              index: index,
+            );
+          },
+        ),
       ],
     );
   }

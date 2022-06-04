@@ -25,17 +25,17 @@ class BalancePackages extends StatelessWidget {
         PricePackage(
           gift: '5',
           index: 1,
-          price: '15',
+          price: '25',
         ),
         PricePackage(
-          gift: '10',
+          gift: '15',
           index: 2,
-          price: '30',
+          price: '50',
         ),
         PricePackage(
-          gift: '20',
+          gift: '25',
           index: 3,
-          price: '50',
+          price: '75',
         ),
         PricePackage(
           gift: '50',

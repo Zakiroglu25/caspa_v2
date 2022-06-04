@@ -14,6 +14,7 @@ class CourierOrderUnicorn extends StatelessWidget {
   const CourierOrderUnicorn({Key? key, required this.courier})
       : super(key: key);
   final CourierOrder courier;
+
   @override
   Widget build(BuildContext context) {
     return UnicornOutlineButton(
@@ -43,6 +44,10 @@ class CourierOrderUnicorn extends StatelessWidget {
               MySizedBox.h8,
               Text(
                 "${courier.region!.name}",
+              ),
+              MySizedBox.h8,
+              Text(
+                "${courier.address}",
               ),
               MySizedBox.h8,
               Text(

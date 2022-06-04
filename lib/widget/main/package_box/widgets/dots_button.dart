@@ -46,9 +46,11 @@ class DotsButton extends StatelessWidget {
           ),
 
           menuBuilder: () => InkWell(
-            onTap: () => context
-                .read<PackageStatusesCubit>()
-                .delete(context: context, id: package.id, loading: false),
+            onTap: () {
+              controller.hideMenu();
+              context.read<PackageStatusesCubit>()
+                  .delete(context: context, id: package.id, loading: false);
+            },
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),

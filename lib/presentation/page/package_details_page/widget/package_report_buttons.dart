@@ -52,7 +52,8 @@ class PackageReportButtons extends StatelessWidget {
         package.from_report == MyText.upex) {
       //beyan et
       //silmek olmaz
-      return Row(
+      if(package.orderable == 1) {
+        return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           PackageMainButton(
@@ -61,10 +62,10 @@ class PackageReportButtons extends StatelessWidget {
               onTap: () => Go.to(context, Pager.report(package: package))),
         ],
       );
+      }
     } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
       //duzelish et
       //sil
-
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

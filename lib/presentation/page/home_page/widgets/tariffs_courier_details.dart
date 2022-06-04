@@ -6,6 +6,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_mo
 import 'package:caspa_v2/presentation/page/home_page/widgets/tarif_list_widget.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -40,9 +41,12 @@ class CourierTariffDetails extends StatelessWidget {
         builder: (context, state) {
           if (state is CourierTarifSuccess) {
             List<Region>? tarifList = state.tarifList;
-            return CourierTarifListWidget(
-              hList: tarifList,
-              isVertical: true,
+            return Padding(
+              padding:Paddings.paddingH16,
+              child: CourierTarifListWidget(
+                hList: tarifList,
+                isVertical: true,
+              ),
             );
           } else if (state is CourierTarifInProgress) {
             return CaspaLoading();

@@ -20,6 +20,7 @@ class Assets {
   static const String pngInstagram = "assets/png/instagram.png";
   static const String pngNote = "assets/png/note.png";
   static const String homeMoto = "assets/png/motoNewPng.png";
+  static const String pngHeart = "assets/png/heart.png";
 
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
@@ -69,6 +70,7 @@ class Assets {
   static const String svgInfoApp = "assets/svg/info_app.svg";
   static const String svgLogOut = "assets/svg/logout.svg";
   static const String svgInfoCourier = "assets/svg/information-circle.svg";
+  static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
 
   //test url
   static const String testImageURL =

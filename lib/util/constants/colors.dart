@@ -18,7 +18,7 @@ class MyColors {
   static const Color orange = Color.fromRGBO(249, 160, 0, 1);
   static const Color alternativ = Color.fromRGBO(196, 142, 209, 1);
   static const Color green = Color.fromRGBO(85, 169, 50, 1);
-  static const LinearGradient gra =
+  static LinearGradient gra =
       LinearGradient(colors: [Colors.blue, Colors.green]);
   static const Color mainRED = Color.fromRGBO(222, 37, 55, 1);
   static const Color mainOrange = Color.fromRGBO(246, 102, 46, 1);
@@ -60,8 +60,6 @@ class MyColors {
   static const Color grey153 = Color.fromRGBO(153, 153, 153, 1);
   static const Color wpColor = Color.fromRGBO(101, 207, 114, 1);
   static const Color textBlack = Color(0xFF222222);
-
-
 
   ///all background color
   static const Color bckColor = Color.fromRGBO(255, 255, 255, 0.7);
@@ -113,7 +111,7 @@ class MyColors {
   static const Color softPurple241 = Color.fromRGBO(241, 241, 249, 1);
   static const Color dividerVertical = Color.fromRGBO(255, 255, 255, 0.15);
   //new dark text color
-  static const Color dark51 = Color.fromRGBO(51, 51, 51,1);
+  static const Color dark51 = Color.fromRGBO(51, 51, 51, 1);
   static const Color deleteREd = Color.fromRGBO(253, 242, 244, 1);
 
   // static const Color shopPurple =Color(0xFF5D5FEF);

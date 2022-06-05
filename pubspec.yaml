@@ -89,8 +89,9 @@ dependencies:
   google_maps_flutter: ^2.1.1
   flutter_polyline_points: ^1.0.0
   geolocator: ^8.0.3
-  location: ^4.3.0
-  syncfusion_flutter_pdfviewer: ^20.1.57-beta
+  flutter_cached_pdfview: ^0.4.1
+  #location: ^4.3.0
+  #syncfusion_flutter_pdfviewer: ^20.1.58-beta
 
   #sdk
 

@@ -1,8 +1,7 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 import '../../../../util/delegate/my_printer.dart';
 
@@ -14,9 +13,7 @@ class InvoiceImageFullScreen extends StatelessWidget {
   final String store;
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
-
-    if(url[url.length - 1] == "f"){
+    if (url[url.length - 1] == "f") {
       return Scaffold(
         appBar: CaspaAppbar(
           user: false,
@@ -24,10 +21,9 @@ class InvoiceImageFullScreen extends StatelessWidget {
           contextA: context,
           notification: false,
         ),
-        body: SfPdfViewer.network(
-          url,
-          key: _pdfViewerKey,
-        ),
+        body: PDF(
+          swipeHorizontal: true,
+        ).cachedFromUrl(url),
       );
     }
     return Scaffold(

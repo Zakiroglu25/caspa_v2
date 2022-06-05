@@ -1,6 +1,7 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 class ConfirmButton extends StatelessWidget {
   final Function onConfirm;
 
@@ -15,8 +16,11 @@ class ConfirmButton extends StatelessWidget {
             onConfirm.call();
             Navigator.pop(context);
           },
-          child: Icon(FontAwesomeIcons.caretDown,color: MyColors.mainColor,
-          size: 25,)),
+          child: Icon(
+            FontAwesomeIcons.caretDown,
+            color: MyColors.mainColor,
+            size: 25,
+          )),
     );
   }
 }

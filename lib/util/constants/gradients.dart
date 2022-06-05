@@ -5,7 +5,7 @@ import 'colors.dart';
 class Gradients {
   Gradients._();
 
-  static const LinearGradient gBlues = LinearGradient(
+  static LinearGradient gBlues = LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [
@@ -14,7 +14,7 @@ class Gradients {
         Color.fromRGBO(89, 193, 228, 1),
       ]);
 
-  static const LinearGradient gGreens = LinearGradient(
+  static LinearGradient gGreens = LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [
@@ -22,7 +22,7 @@ class Gradients {
         Color.fromRGBO(36, 227, 194, 1),
       ]);
 
-  static const LinearGradient gReds = LinearGradient(
+  static LinearGradient gReds = LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
       colors: [
@@ -31,7 +31,7 @@ class Gradients {
         // Color.fromRGBO(248, 102, 170, 1),
       ]);
 
-  static const LinearGradient unicorn = LinearGradient(colors: [
+  static LinearGradient unicorn = LinearGradient(colors: [
     MyColors.gradientBlue,
     MyColors.gradientCyan,
     MyColors.gradientRed,

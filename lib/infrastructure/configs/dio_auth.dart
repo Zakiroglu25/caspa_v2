@@ -31,7 +31,6 @@ class DioAuth {
         },
       ),
     )..interceptors.add(CustomInterceptors());
-    ;
 
     return _instance!;
   }

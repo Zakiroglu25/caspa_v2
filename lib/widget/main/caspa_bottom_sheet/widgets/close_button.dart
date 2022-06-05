@@ -8,11 +8,15 @@ class BottomCloseButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 8),
       child: TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Icon(FontAwesomeIcons.caretLeft,color: MyColors.mainColor,
-            size: 25,)),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Icon(
+          FontAwesomeIcons.caretLeft,
+          color: MyColors.mainColor,
+          size: 25,
+        ),
+      ),
     );
   }
 }

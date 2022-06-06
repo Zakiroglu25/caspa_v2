@@ -54,6 +54,8 @@
 
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+    <true/>
 	<key>CFBundleURLTypes</key>
     <array>
       <dict>

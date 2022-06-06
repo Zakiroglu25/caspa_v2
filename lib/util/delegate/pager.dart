@@ -95,6 +95,9 @@ class Pager {
         BlocProvider.value(
           value: AdsCubit()..fetch(),
         ),
+        BlocProvider(
+          create: (context) => ContactCubit()..fetch(),
+        ),
       ], child: HomePage());
 
   static package({bool back = false}) => MultiBlocProvider(
@@ -110,7 +113,8 @@ class Pager {
   static get newOrder => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: PackageStatusesCubit()..fetch(),
-        )
+        ),
+
       ], child: NewOrderPage());
 
   static webviewPage({required String url, required BuildContext context}) =>
@@ -220,6 +224,7 @@ class Pager {
   static get orderViaLinkList => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => OrderViaUrlListCubit()..fetch()),
         BlocProvider(create: (context) => PackageDetailsCubit()),
+        BlocProvider(create: (context) => ContactCubit()),
       ], child: const OrderViaLinkListPage());
 
   static get userSettingsPage => MultiBlocProvider(
@@ -308,7 +313,10 @@ class Pager {
   static get adress => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: AddressCubit()..fetch(),
-        )
+        ),
+    // BlocProvider(
+    //   create: (context) => ContactCubit()..fetch(),
+    // )
       ], child: AdressPage());
 
   static get shops => MultiBlocProvider(providers: [
@@ -348,6 +356,7 @@ class Pager {
       child: TariffDetails(
         hList: [],
       ));
+
   static get courierTarifDetails => BlocProvider(
       create: (context) => CourierTarifCubit()..fetch(),
       child: CourierTariffDetails(

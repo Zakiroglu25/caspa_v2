@@ -50,7 +50,6 @@ class OrderViaLinkListview extends StatelessWidget {
         NoteFieldOrderViaUrl(
           controller: TextEditingController(text: "${order?.note ?? ''}"),
         ),
-        Text("Salam"),
         MySizedBox.h16,
         OrderViaLinkContinueButton(order: order),
         MySizedBox.h32,

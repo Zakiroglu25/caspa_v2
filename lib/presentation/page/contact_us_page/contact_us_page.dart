@@ -49,12 +49,13 @@ class ContactPage extends StatelessWidget {
                   MySizedBox.h32,
 
                   ///bu kohne versiyadi umid edirem ishleyecekdir
+                  ///bu launch deprecated olub ama bashqa cur ishlemir heleki
                   // onTap: () => launch(
                   //     'https://wa.me/${contact.whatsapp}?text=${MyText.whatsappMessage}'),
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
-                    onTap: () => launchUrlString(
+                    onTap: () => launch(
                         'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
                   ),
                   MySizedBox.h16,

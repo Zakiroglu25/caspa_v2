@@ -105,8 +105,8 @@ class HomePage extends StatelessWidget {
                     style: AppTextStyles.sanF500
                         .copyWith(color: MyColors.white, fontSize: 14.sp),
                   ),
-                  onPress: () => launchUrlString(
-                      'https://api.whatsapp.com/send?phone=997261453'),
+                  onPress: () => launch(
+                      'https://api.whatsapp.com/send?phone=994997261453'),
                   inverted: false,
                   animateIcon: false,
                   elevation: 0,

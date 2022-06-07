@@ -31,7 +31,7 @@ class TariffCard extends StatelessWidget {
   Widget build(BuildContext context) {
     isVertical ??= false;
     return Container(
-      width: (isVertical!) ? null : 284.sp,
+      width: (isVertical!) ? null : 280.sp,
       padding:
           isVertical! ? Paddings.paddingA20 : const EdgeInsets.only(left: 20.0),
       decoration: BoxDecoration(

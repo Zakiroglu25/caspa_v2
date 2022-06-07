@@ -12,9 +12,7 @@ class AdressSliverAppbarBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 120,
-            height: 120,
-            child: Image.asset(Assets.pngGlobus)),
+            width: 120, height: 120, child: Image.asset(Assets.pngGlobus)),
         SliverInfo(
             "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt:")
       ],

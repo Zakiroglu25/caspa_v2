@@ -41,7 +41,6 @@ class TarifListWidget extends StatelessWidget {
           padding: Paddings.paddingH20,
           itemBuilder: (context, index) {
             Tariff tariff = hList[index];
-            wtf(tariff.type.toString());
             return FadeInUp(
               duration: Duration(milliseconds: isVertical!?AppOperations.getTime(index):0),
               child: TariffCard(

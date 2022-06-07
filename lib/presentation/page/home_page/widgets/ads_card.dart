@@ -45,24 +45,24 @@ class AdsCard extends StatelessWidget {
               ),
             ), // Text(
           ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: MyColors.black.withOpacity(.3),
-                  borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(12))),
-              child: ScrollingText(
-                desc!,
-                w: 94.sp,
-                //  overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontSize: 12.sm,
-                    fontWeight: FontWeight.w600,
-                    color: MyColors.white),
-              ),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   child: Container(
+          //     decoration: BoxDecoration(
+          //         color: MyColors.black.withOpacity(.3),
+          //         borderRadius:
+          //             BorderRadius.vertical(bottom: Radius.circular(12))),
+          //     child: ScrollingText(
+          //       desc!,
+          //       w: 94.sp,
+          //       //  overflow: TextOverflow.ellipsis,
+          //       style: TextStyle(
+          //           fontSize: 12.sm,
+          //           fontWeight: FontWeight.w600,
+          //           color: MyColors.white),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

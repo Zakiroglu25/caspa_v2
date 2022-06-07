@@ -31,6 +31,7 @@ class CourierTarifListWidget extends StatelessWidget {
     return FadeIn(
       child: SizedBox(
         height: isVertical!? null:92.sp,
+
         child: ListView.separated(
           separatorBuilder: (context, index) {
             return isVertical!?MySizedBox.h16: MySizedBox.w10;
@@ -48,6 +49,7 @@ class CourierTarifListWidget extends StatelessWidget {
                   Go.to(context, Pager.courierTarifDetails);
                 },
                 child: TariffCard(
+                  w: 120,
                   tarifName: tariff.name,
                   price: tariff.price,
                   isVertical: isVertical,

@@ -42,7 +42,7 @@ class HomeHeader extends StatelessWidget {
           MySizedBox.h16,
           Text("Kuryer xidməti 1₼-dan başlayaraq",
               style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
-          MySizedBox.h16,
+          MySizedBox.h8,
           RichText(
             textAlign: TextAlign.start,
             text: TextSpan(
@@ -53,13 +53,13 @@ class HomeHeader extends StatelessWidget {
                     style: AppTextStyles.sanF400
                         .copyWith(color: MyColors.mainColor))
               ],
-              style: AppTextStyles.sanF400
-                  .copyWith(fontSize: 14.sm, color: MyColors.grey165),
+              style: AppTextStyles.sanF400.copyWith(
+                  fontSize: 14.sm, color: MyColors.grey165, height: 20 / 14),
             ),
           ),
           // Text(MyText.homePageText,
           //     style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
-          MySizedBox.h14,
+          MySizedBox.h18,
           TariffsCourier(),
           MySizedBox.h12,
           CaspaButton(

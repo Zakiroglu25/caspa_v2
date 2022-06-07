@@ -42,6 +42,7 @@ class ScrollingFabAnimation extends StatefulWidget {
 }
 
 class _ScrollingFabAnimatedState extends State<ScrollingFabAnimation> {
+  /// Double value for tween ending
   double _endTween = 100;
 
   @override
@@ -60,6 +61,8 @@ class _ScrollingFabAnimatedState extends State<ScrollingFabAnimation> {
     widget.scrollController!.removeListener(() {});
     super.dispose();
   }
+
+  /// Function to add listener for scroll
   void _handleScroll() {
     ScrollController _scrollController = widget.scrollController!;
     _scrollController.addListener(() {
@@ -99,7 +102,7 @@ class _ScrollingFabAnimatedState extends State<ScrollingFabAnimation> {
                   color: widget.color ?? Theme.of(context).primaryColor),
               height: widget.height,
               width: widget.height! + _widthPercent * size,
-              child: GestureDetector(
+              child: InkWell(
                 onTap: widget.onPress,
                 child: Ink(
                   child: Row(
@@ -108,7 +111,7 @@ class _ScrollingFabAnimatedState extends State<ScrollingFabAnimation> {
                         : MainAxisAlignment.center,
                     children: [
                       Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: Transform.rotate(
                             angle: widget.animateIcon!
                                 ? (3.6 * math.pi / 180) * size

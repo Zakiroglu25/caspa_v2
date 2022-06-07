@@ -20,16 +20,29 @@ class TotalPayButton extends StatelessWidget {
       child: InkWrapper(
         onTap: () => Go.to(context, Pager.selectPackagesPayPage()),
         child: Container(
+          width: 129,
+          height: 56,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(200),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, 0.10),
+                  spreadRadius: 0,
+                  blurRadius: 20,
+                  offset: Offset(0, 4), // changes position of shadow
+                ),
+              ],
+
             color: MyColors.black34,
           ),
           child: Padding(
             padding: Paddings.paddingA16,
-            child: Text(
-              MyText.totalPayX,
-              style: AppTextStyles.sanF500
-                  .copyWith(color: MyColors.white, fontSize: 14.sp),
+            child: Center(
+              child: Text(
+                MyText.totalPayX,
+                style: AppTextStyles.sanF500
+                    .copyWith(color: MyColors.white, fontSize: 14.sp),
+              ),
             ),
           ),
         ),

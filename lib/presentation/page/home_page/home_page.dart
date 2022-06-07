@@ -48,14 +48,14 @@ class HomePage extends StatelessWidget {
               padding: Paddings.paddingB12 + Paddings.paddingT14,
               children: [
                 HomeHeader(),
-                MySizedBox.h12,
+                MySizedBox.h36,
                 SectionName(
                   title: "Yeniliklər və xəbərləri izləyin",
                   hP: 20,
                 ),
                 MySizedBox.h16,
                 Ads(),
-                MySizedBox.h24,
+                MySizedBox.h36,
                 SectionName(
                   title: MyText.activePackages,
                   hP: 20,
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                   create: (context) => PackageCubit()..fetchActive(),
                   child: HomePackageList(),
                 ),
-                MySizedBox.h16,
+                MySizedBox.h36,
                 SectionName(
                   title: MyText.recognizeTariffs,
                   hP: 20,
@@ -78,37 +78,42 @@ class HomePage extends StatelessWidget {
                 MySizedBox.h80,
               ],
             ),
-            BlocBuilder<ContactCubit, ContactState>(
-              builder: (context, state) {
-                if (state is ContactSuccess) {
-                  final Contacts contact = state.contact;
-                  return Positioned(
-                    bottom: 16,
-                    right: 16,
-                    child: ScrollingFabAnimation(
-                      width: 129,
-                      height: 56,
-                      radius: 100,
-                      color: MyColors.wpColor,
-                      icon: SvgPicture.asset(Assets.svgMiniWhatsapp),
-                      scrollController: _scrollController,
-                      text: Text(
-                        'Whatsapp',
-                        style: AppTextStyles.sanF500
-                            .copyWith(color: MyColors.white, fontSize: 14.sp),
-                      ),
-                      onPress: () => launchUrlString(
-                          'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
-                      inverted: false,
-                      animateIcon: false,
-                      elevation: 0,
-                      // onPress: () {  },
+            Positioned(
+              bottom: 16,
+              right: 16,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(200),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(0, 0, 0, 0.1),
+                      spreadRadius: 0,
+                      blurRadius: 20,
+                      offset: Offset(0, 4), // changes position of shadow
                     ),
-                  );
-                }
-                return SizedBox();
-              },
-            )
+                  ],
+                ),
+                child: ScrollingFabAnimation(
+                  width: 129,
+                  height: 56,
+                  radius: 100,
+                  color: MyColors.wpColor,
+                  icon: SvgPicture.asset(Assets.svgMiniWhatsapp),
+                  scrollController: _scrollController,
+                  text: Text(
+                    'Whatsapp',
+                    style: AppTextStyles.sanF500
+                        .copyWith(color: MyColors.white, fontSize: 14.sp),
+                  ),
+                  onPress: () => launchUrlString(
+                      'https://api.whatsapp.com/send?phone=997261453'),
+                  inverted: false,
+                  animateIcon: false,
+                  elevation: 0,
+                  // onPress: () {  },
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -83,15 +83,22 @@ class TurkeyAnbar extends StatelessWidget {
               MySizedBox.h80
             ],
           ),
-          BlocProvider(
-            create: (context) => ContactCubit()..fetch(),
-            child: BlocBuilder<ContactCubit, ContactState>(
-              builder: (context, state) {
-                if (state is ContactSuccess) {
-                  final Contacts contact = state.contact;
-                  return Positioned(
-                    bottom: 16,
-                    right: 16,
+
+                 Positioned(
+                  bottom: 16,
+                  right: 16,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(200),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromRGBO(0, 0, 0, 0.1),
+                          spreadRadius: 0,
+                          blurRadius: 20,
+                          offset: Offset(0, 4), // changes position of shadow
+                        ),
+                      ],
+                    ),
                     child: ScrollingFabAnimation(
                       width: 129,
                       height: 56,
@@ -106,19 +113,15 @@ class TurkeyAnbar extends StatelessWidget {
                       ),
                       onPress: () =>
                           launchUrlString(
-                              'https://api.whatsapp.com/send?phone=${contact
-                                  .whatsapp}'),
+                              'https://api.whatsapp.com/send?phone=997261453'),
                       inverted: false,
                       animateIcon: false,
                       elevation: 0,
                       // onPress: () {  },
                     ),
-                  );
-                }
-                return SizedBox();
-              },
-            ),
-          ),
+                  ),
+                ),
+
 
         ],
       ),

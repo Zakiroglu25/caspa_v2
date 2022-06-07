@@ -35,12 +35,13 @@ class EmptyPackagesWidget extends StatelessWidget {
           child: Text(
             MyText.emptyDesc,
             textAlign: TextAlign.center,
-            style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+            style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153,height: 20/14),
           ),
         ),
         MySizedBox.h16,
         CaspaButton(
           text: MyText.emptyButton,
+          textSize: 14,
           w: 142,
           h: 44,
           onTap: () {

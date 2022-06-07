@@ -86,7 +86,6 @@ class ContactPage extends StatelessWidget {
                     onTap: () => StringOperations.launchCaller(MyText.c1453),
                   ),
                   MySizedBox.h16,
-
                 ],
               );
             } else if (state is ContactInProgress) {

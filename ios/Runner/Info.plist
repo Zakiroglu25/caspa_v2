@@ -24,7 +24,7 @@
 	<string>Start call to Company when you click</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>pulsesecure</string>
+		<string>whatsapp</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -54,20 +54,21 @@
 
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
-	<key>FacebookAutoLogAppEventsEnabled</key>
-    <true/>
+	<key>FacebookClientToken</key>
+    <string>f5d0d5f23ac6f6f317c52acb65d45f7a</string>
 	<key>CFBundleURLTypes</key>
     <array>
       <dict>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>fb802180454084956</string>
+        <string>fb690090242079651</string>
       </array>
       </dict>
     </array>
     <key>FacebookAppID</key>
-    <string>802180454084956</string>
+    <string>690090242079651</string>
     <key>FacebookDisplayName</key>
     <string>Caspa Azerbaijan</string>
+    <key>LSApplicationQueriesSchemes</key>
 </dict>
 </plist>

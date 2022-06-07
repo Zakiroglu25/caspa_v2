@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,7 +13,8 @@ class HomeWhatsappWidget extends StatelessWidget {
   const HomeWhatsappWidget({
     Key? key,
     required ScrollController scrollController,
-  }) : _scrollController = scrollController, super(key: key);
+  })  : _scrollController = scrollController,
+        super(key: key);
 
   final ScrollController _scrollController;
 
@@ -41,12 +43,12 @@ class HomeWhatsappWidget extends StatelessWidget {
           icon: SvgPicture.asset(Assets.svgMiniWhatsapp),
           scrollController: _scrollController,
           text: Text(
-            'Whatsapp',
+            MyText.whatsapp,
             style: AppTextStyles.sanF500
                 .copyWith(color: MyColors.white, fontSize: 14.sp),
           ),
-          onPress: () => launch(
-              'https://api.whatsapp.com/send?phone=994997261453'),
+          onPress: () =>
+              launch('https://api.whatsapp.com/send?phone=994997261453'),
           inverted: false,
           animateIcon: false,
           elevation: 0,

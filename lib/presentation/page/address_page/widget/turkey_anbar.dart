@@ -3,10 +3,20 @@ import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../../infrastructure/cubits/contact/contact_cubit.dart';
+import '../../../../infrastructure/cubits/contact/contact_state.dart';
+import '../../../../infrastructure/models/remote/response/contact_model.dart';
 import '../../../../locator.dart';
+import '../../../../util/constants/app_text_styles.dart';
+import '../../../../util/constants/assets.dart';
+import '../../../../util/constants/colors.dart';
+import '../../../../widget/custom/fab/fab_animation.dart';
 import 'copiable_field.dart';
 
 class TurkeyAnbar extends StatelessWidget {
@@ -66,7 +76,7 @@ class TurkeyAnbar extends StatelessWidget {
             title: "Adres Başlığı",
             data: "${adress.fields?.adresBashligi}",
           ),
-          MySizedBox.h50
+          MySizedBox.h80
         ],
       ),
     );

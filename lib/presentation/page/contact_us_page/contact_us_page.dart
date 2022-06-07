@@ -59,12 +59,6 @@ class ContactPage extends StatelessWidget {
                         'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
                   ),
                   MySizedBox.h16,
-                  // SocialItem(
-                  //   name: MyText.telegram,
-                  //   path: Assets.svgTelegram,
-                  //   onTap: () => launch(contact.whatsapp!),
-                  // ),
-                  // MySizedBox.h16,
                   SocialItem(
                     name: MyText.facebook,
                     path: Assets.svgMessenger,

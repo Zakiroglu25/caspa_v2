@@ -54,7 +54,7 @@ class ContactPage extends StatelessWidget {
                   SocialItem(
                     name: MyText.whatsapp,
                     path: Assets.svgWhatsapp,
-                    onTap: () => launchUrlString(
+                    onTap: () => launch(
                         'https://api.whatsapp.com/send?phone=${contact.whatsapp}'),
                   ),
                   MySizedBox.h16,
@@ -91,7 +91,6 @@ class ContactPage extends StatelessWidget {
                     onTap: () => StringOperations.launchCaller(MyText.c1453),
                   ),
                   MySizedBox.h16,
-
                 ],
               );
             } else if (state is ContactInProgress) {

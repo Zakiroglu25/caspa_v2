@@ -15,7 +15,7 @@ Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Firebase.initializeApp();
 
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
   await requestPermission();
   await Hive.initFlutter();
   await setupLocator();
@@ -23,14 +23,14 @@ Future<void> init() async {
   // FirebaseCrashlytics.instance.crash();
   //FirebaseCrashlytics.instance.crash();
 
-  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  // FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
 
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  if (Configs.enableLogging) {
-    //LoggingService(Configs.enableLogging);
-    //Bloc.observer = AppBlocObserver();
-    dio.interceptors.add(LogInterceptorService());
-  }
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  // if (Configs.enableLogging) {
+  //   //LoggingService(Configs.enableLogging);
+  //   //Bloc.observer = AppBlocObserver();
+  //   dio.interceptors.add(LogInterceptorService());
+  // }
 
 //  print("--------------------------------------------------");
 

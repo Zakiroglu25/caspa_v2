@@ -75,6 +75,9 @@ class OtherPage extends StatelessWidget {
               ],
             ),
             MySizedBox.h16,
+            const OtherShopWidget(),
+            MySizedBox.h16,
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

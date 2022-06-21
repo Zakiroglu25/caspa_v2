@@ -147,6 +147,14 @@ class MyText {
   static const String cashbackProfile = "Cashback\nbalans";
   static const String orders = "Sifarişlər";
   static const String order = "Sifariş";
+  static const String cargoBalance = "Daşınma balansı";
+  static const String orderBalance = "Sifariş balansı";
+  static const String giftBalance = "Hədiyyə balansı";
+  static const String balance = "Balans";
+  static const String desc = "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";
+
+
+
 
   //user settings
   static const String main = "Əsas";

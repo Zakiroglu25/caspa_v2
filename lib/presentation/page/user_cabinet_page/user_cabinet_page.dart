@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
+import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
@@ -28,6 +28,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../../../locator.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'widget/new_balans_box.dart';
 
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
@@ -113,89 +115,124 @@ class UserCabinetPage extends StatelessWidget {
                   MyText.emergencyCall,
                   align: TextAlign.center,
                 ),
+                MySizedBox.h24,
+                SectionName(title: "Balanslar"),
                 MySizedBox.h16,
-                BalanceBox(
+                NewBalanceBox(
                   onTap: () {
                     Go.to(
                         context,
                         Pager.paymentPage(
                             paymentBalanceType: PaymentBalanceType.cargo));
-                    // context.read()<PaymentsOrderCubit>();
                   },
-                  title: "Balans USD",
-                  price: "\$ ${user.cargoBalance}",
-                  subtitle: "(Daşınma)",
+                  icon: Assets.pngAirplane,
+                  boxTitle: MyText.cargoBalance,
+                  title: "Balans: ${user.cargoBalance} \$ ",
+                  subtitle: MyText.cargoBalance,
+                  subtitleColor: MyColors.mainColor,
+                  desc: MyText.desc,
                   color: MyColors.balansCargo,
-                  btnText: MyText.increaseBalance,
-                  colorbtn: MyColors.btnBlanceCargo,
                 ),
                 MySizedBox.h16,
-                BalanceBox(
-                    title: "Balans TL",
-                    price: "${user.balance ?? 0} TL",
-                    subtitle: "(Sifariş)",
-                    color: MyColors.balansOrder,
-                    btnText: MyText.increaseBalance,
-                    colorbtn: MyColors.btnBlanceOrder,
-                    onTap: () => Go.to(
+                NewBalanceBox(
+                  onTap: () {
+                    Go.to(
                         context,
                         Pager.paymentPage(
-                          paymentBalanceType: PaymentBalanceType.order,
-                        ))),
-
-                ///bu hediyye balansi novbeti update de olacaq
-                // MySizedBox.h16,
-                // BalansMiniBox(
-                //   title: "Caspa-dan hədiyyə",
-                //   w: MediaQuery.of(context).size.width,
-                //   content: "\$ ${_prefs.user.monthly}",
-                //   color: MyColors.balanceCountPackage,
-                //   priceColor: MyColors.balanceBoxOrange,
-                //   icon: Text("Bitmə vaxtı"),
-                //   finishTime: "14 gün",
-                // ),
+                            paymentBalanceType: PaymentBalanceType.order));
+                  },
+                  icon: Assets.pngDollar,
+                  boxTitle: MyText.orderBalance,
+                  title: "Balans: ${user.balance} TL ",
+                  subtitle: MyText.orderBalance,
+                  subtitleColor: MyColors.greenOrderBalance,
+                  desc: MyText.desc,
+                  color: MyColors.balansOrder,
+                ),
                 MySizedBox.h16,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    BalansMiniBox(
-                      title: MyText.durtingCurrentMonth,
-                      content: "\$ ${_prefs.user.monthly}",
-                      color: MyColors.shop,
-                      priceColor: MyColors.balanceBoxRed,
-                      icon: const Icon(null),
-                      finishTime: "",
-                    ),
-                    MySizedBox.w16,
-                    BalansMiniBox(
-                      title: MyText.countOfOrders,
-                      content: "${_prefs.user.active_package_count}",
-                      color: MyColors.balanceCountPackage,
-                      onTap: () => Go.to(
+
+                NewBalanceBox(
+                  onTap: () {
+                    Go.to(
                         context,
-                        Pager.package(back: true),
-                      ),
-                      priceColor: MyColors.balanceBoxOrange,
-                      icon: SvgPicture.asset(Assets.svgBalanceUp),
-                      finishTime: "",
-                    ),
-                  ],
+                        Pager.paymentPage(
+                            paymentBalanceType: PaymentBalanceType.cargo));
+                  },
+                  icon: Assets.pngGift,
+                  boxTitle: MyText.giftBalance,
+                  title: "Balans: ${user.balance} TL ",
+                  subtitle: MyText.giftBalance,
+                  subtitleColor: MyColors.balanceBoxRedAlternativ,
+                  desc: MyText.desc,
+                  color: MyColors.shop,
                 ),
                 // MySizedBox.h16,
+                // BalanceBox(
+                //     title: "Balans TL",
+                //     price: "${user.balance ?? 0} TL",
+                //     subtitle: "(Sifariş)",
+                //     color: MyColors.balansOrder,
+                //     btnText: MyText.increaseBalance,
+                //     colorbtn: MyColors.btnBlanceOrder,
+                //     onTap: () => Go.to(
+                //         context,
+                //         Pager.paymentPage(
+                //           paymentBalanceType: PaymentBalanceType.order,
+                //         ))),
                 //
+                // ///bu hediyye balansi novbeti update de olacaq
+                // // MySizedBox.h16,
+                // // BalansMiniBox(
+                // //   title: "Caspa-dan hədiyyə",
+                // //   w: MediaQuery.of(context).size.width,
+                // //   content: "\$ ${_prefs.user.monthly}",
+                // //   color: MyColors.balanceCountPackage,
+                // //   priceColor: MyColors.balanceBoxOrange,
+                // //   icon: Text("Bitmə vaxtı"),
+                // //   finishTime: "14 gün",
+                // // ),
+                // MySizedBox.h16,
                 // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 //   children: [
                 //     BalansMiniBox(
-                //       title: MyText.cashbackProfile,
-                //       content: "${_prefs.user.cashback_balance}\$ ",
-                //       color: MyColors.balansCargo,
-                //       priceColor: MyColors.mainColor,
+                //       title: MyText.durtingCurrentMonth,
+                //       content: "\$ ${_prefs.user.monthly}",
+                //       color: MyColors.shop,
+                //       priceColor: MyColors.balanceBoxRed,
                 //       icon: const Icon(null),
+                //       finishTime: "",
+                //     ),
+                //     MySizedBox.w16,
+                //     BalansMiniBox(
+                //       title: MyText.countOfOrders,
+                //       content: "${_prefs.user.active_package_count}",
+                //       color: MyColors.balanceCountPackage,
+                //       onTap: () => Go.to(
+                //         context,
+                //         Pager.package(back: true),
+                //       ),
+                //       priceColor: MyColors.balanceBoxOrange,
+                //       icon: SvgPicture.asset(Assets.svgBalanceUp),
                 //       finishTime: "",
                 //     ),
                 //   ],
                 // ),
-                MySizedBox.h50,
+                // // MySizedBox.h16,
+                // //
+                // // Row(
+                // //   children: [
+                // //     BalansMiniBox(
+                // //       title: MyText.cashbackProfile,
+                // //       content: "${_prefs.user.cashback_balance}\$ ",
+                // //       color: MyColors.balansCargo,
+                // //       priceColor: MyColors.mainColor,
+                // //       icon: const Icon(null),
+                // //       finishTime: "",
+                // //     ),
+                // //   ],
+                // // ),
+                // MySizedBox.h50,
               ],
             ),
           );

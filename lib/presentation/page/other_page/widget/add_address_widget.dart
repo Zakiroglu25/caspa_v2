@@ -16,12 +16,12 @@ class OtherAddAddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () => Go.to(context, Pager.shops),
+      onTap: () => Go.to(context, Pager.addAddress()),
       child: Container(
         padding: Paddings.paddingA20,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
-            color: Color.fromRGBO(251, 228, 228, 1)),
+            color: MyColors.mainOpacity),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -32,7 +32,7 @@ class OtherAddAddressWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    MyText.shops,
+                   "Çatdırılma ünvanları 🏢",
                     style: AppTextStyles.sanF600.copyWith(fontSize: 17.sm),
                   ),
                   MySizedBox.h6,
@@ -40,7 +40,7 @@ class OtherAddAddressWidget extends StatelessWidget {
                     width: 165.sp,
                     height: 75.sp,
                     child: Text(
-                      MyText.otherShop,
+                      "Bir neçə ünvan əlavə edə bilmək üçündür",
                       textAlign: TextAlign.start,
                       style: AppTextStyles.sanF400Grey.copyWith(
                           fontSize: 11.sm, height: 1.3, letterSpacing: 0.2),
@@ -53,7 +53,7 @@ class OtherAddAddressWidget extends StatelessWidget {
             Container(
                 height: 120.sp,
                 width: (MediaQuery.of(context).size.width - 72 - 24) / 2,
-                child: Image.asset(Assets.shopMobile)),
+                child: Image.asset(Assets.pngMoto)),
           ],
         ),
       ),

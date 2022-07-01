@@ -26,6 +26,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../locator.dart';
+import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -160,6 +161,19 @@ class UserCabinetPage extends StatelessWidget {
                   },
                   icon: Assets.pngGift,
                   boxTitle: MyText.giftBalance,
+                  title: "Balans: ${user.balance} TL ",
+                  subtitle: MyText.giftBalance,
+                  subtitleColor: MyColors.balanceBoxRedAlternativ,
+                  desc: MyText.desc,
+                  color: MyColors.shop,
+                ),
+                MySizedBox.h16,
+                NewBalanceBox(
+                  onTap: () {
+                    Go.to(context, MyHomePage());
+                  },
+                  icon: Assets.pngNote,
+                  boxTitle: "Carx",
                   title: "Balans: ${user.balance} TL ",
                   subtitle: MyText.giftBalance,
                   subtitleColor: MyColors.balanceBoxRedAlternativ,

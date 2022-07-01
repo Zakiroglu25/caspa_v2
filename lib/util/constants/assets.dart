@@ -33,6 +33,10 @@ class Assets {
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopMobile.png";
 
+  // test
+  static const String sekkiz300 = "assets/png/roulette-8-300.png";
+  static const String center300 = "assets/png/roulette-center-300.png";
+
   //--svg
   static const String svgCaspaLogoWithName =
       "assets/svg/caspa_logo_with_name.svg";

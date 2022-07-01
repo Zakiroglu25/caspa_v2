@@ -5,6 +5,7 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../widget/caspa_appbar/caspa_appbar.dart';
 import 'spinner_well.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -135,41 +136,47 @@ class Roulette extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xffDDC3FF), elevation: 0.0),
-      backgroundColor: Color(0xffDDC3FF),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SpinningWheel(
-              Image.asset(Assets.sekkiz300),
-              width: 310,
-              height: 310,
-              initialSpinAngle: _generateRandomAngle(),
-              spinResistance: 0.6,
-              canInteractWhileSpinning: false,
-              dividers: 8,
-              onUpdate: _dividerController.add,
-              onEnd: _dividerController.add,
-              secondaryImage:
-                  Image.asset(Assets.center300),
-              secondaryImageHeight: 110,
-              secondaryImageWidth: 110,
-              shouldStartOrStop: _wheelNotifier.stream,
-            ),
-            SizedBox(height: 30),
-            StreamBuilder<int>(
-              stream: _dividerController.stream,
-              builder: (context,  snapshot) =>
-                  snapshot.hasData ? RouletteScore(snapshot.data) : Container(),
-            ),
-            SizedBox(height: 30),
-            new RaisedButton(
-              child: new Text("Start"),
-              onPressed: () =>
-                  _wheelNotifier.sink.add(_generateRandomVelocity()),
-            )
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(Assets.bckgame),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SpinningWheel(
+                Image.asset(Assets.sekkiz300),
+                width: 310,
+                height: 310,
+                initialSpinAngle: _generateRandomAngle(),
+                spinResistance: 0.6,
+                canInteractWhileSpinning: false,
+                dividers: 8,
+                onUpdate: _dividerController.add,
+                onEnd: _dividerController.add,
+                secondaryImage: Image.asset(Assets.center300),
+                secondaryImageHeight: 110,
+                secondaryImageWidth: 110,
+                shouldStartOrStop: _wheelNotifier.stream,
+              ),
+              SizedBox(height: 30),
+              StreamBuilder<int>(
+                stream: _dividerController.stream,
+                builder: (context, snapshot) => snapshot.hasData
+                    ? RouletteScore(snapshot.data)
+                    : Container(),
+              ),
+              SizedBox(height: 30),
+              new RaisedButton(
+                child: new Text("Start"),
+                onPressed: () =>
+                    _wheelNotifier.sink.add(_generateRandomVelocity()),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -188,7 +195,6 @@ class RouletteScore extends StatelessWidget {
     2: '400\$',
     3: '800\$',
     4: '7000\$',
-
   };
 
   RouletteScore(this.selected);

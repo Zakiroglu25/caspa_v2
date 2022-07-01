@@ -36,6 +36,7 @@ class Assets {
   // test
   static const String sekkiz300 = "assets/png/roulette-8-300.png";
   static const String center300 = "assets/png/roulette-center-300.png";
+  static const String bckgame = "assets/png/bckgame.png";
 
   //--svg
   static const String svgCaspaLogoWithName =

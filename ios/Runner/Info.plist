@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -18,8 +20,23 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb690090242079651</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FacebookAppID</key>
+	<string>690090242079651</string>
+	<key>FacebookClientToken</key>
+	<string>f5d0d5f23ac6f6f317c52acb65d45f7a</string>
+	<key>FacebookDisplayName</key>
+	<string>Caspa Azerbaijan</string>
 	<key>INStartCallIntent</key>
 	<string>Start call to Company when you click</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -51,24 +68,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	<key>FacebookClientToken</key>
-    <string>f5d0d5f23ac6f6f317c52acb65d45f7a</string>
-	<key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb690090242079651</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>690090242079651</string>
-    <key>FacebookDisplayName</key>
-    <string>Caspa Azerbaijan</string>
-    <key>LSApplicationQueriesSchemes</key>
 </dict>
 </plist>

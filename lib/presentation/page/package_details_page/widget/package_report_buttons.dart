@@ -52,16 +52,16 @@ class PackageReportButtons extends StatelessWidget {
         package.from_report == MyText.upex) {
       //beyan et
       //silmek olmaz
-      if(package.orderable == 1) {
+      if (package.orderable == 0) {
         return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          PackageMainButton(
-              w: (sW - 32),
-              text: MyText.declareIt,
-              onTap: () => Go.to(context, Pager.report(package: package))),
-        ],
-      );
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            PackageMainButton(
+                w: (sW - 32),
+                text: MyText.declareIt,
+                onTap: () => Go.to(context, Pager.report(package: package))),
+          ],
+        );
       }
     } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
       //duzelish et

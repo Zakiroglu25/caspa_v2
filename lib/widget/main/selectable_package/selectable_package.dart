@@ -26,7 +26,7 @@ class SelectablePackage extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap?.call(),
       child: FadeInUp(
-        delay: Duration(milliseconds: index * 100),
+        delay: Duration(milliseconds: index * 50),
         child: AnimatedContainer(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
           margin: EdgeInsets.only(bottom: 12),

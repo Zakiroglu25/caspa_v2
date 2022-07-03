@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_state.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -89,7 +90,15 @@ class SelectPackagesPayPage extends StatelessWidget {
                           selectedOrders: state.selectedOrders);
                     }
                   },
+                  buildWhen: (context, state) {
+                    if (state is SelectPackagesPayShowPaymentDialog) {
+                      return false;
+                    } else {
+                      return true;
+                    }
+                  },
                   builder: (context, state) {
+                    bbbb("state on topli: $state");
                     if (state is SelectPackagesPaySuccess) {
                       return SelectablePackagesList(
                         packageList: state.packages,

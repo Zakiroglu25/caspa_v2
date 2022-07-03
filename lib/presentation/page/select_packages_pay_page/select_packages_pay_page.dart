@@ -35,6 +35,7 @@ class SelectPackagesPayPage extends StatelessWidget {
       ),
       body: BlocConsumer<PackageDetailsCubit, PackageDetailsState>(
         listener: (context, state) {
+          bbbb("pay state:  $state");
           if (state is PackageDetailsPayError) {
             Snack.display(context: context, message: state.error);
           }
@@ -49,12 +50,6 @@ class SelectPackagesPayPage extends StatelessWidget {
             Snack.positive(
                 context: context, message: MyText.operationIsSuccess);
           }
-        },
-        buildWhen: (context, state) {
-          if (state is SelectPackagesPayShowPaymentDialog) {
-            return false;
-          } else
-            return true;
         },
         builder: (context, state) {
           if (state is PackageDetailsUrlFetched) {
@@ -98,7 +93,6 @@ class SelectPackagesPayPage extends StatelessWidget {
                     }
                   },
                   builder: (context, state) {
-                    bbbb("state on topli: $state");
                     if (state is SelectPackagesPaySuccess) {
                       return SelectablePackagesList(
                         packageList: state.packages,

@@ -18,6 +18,7 @@ class MyColors {
   static const Color orange = Color.fromRGBO(249, 160, 0, 1);
   static const Color alternativ = Color.fromRGBO(196, 142, 209, 1);
   static const Color green = Color.fromRGBO(85, 169, 50, 1);
+  static const Color greenOrderBalance = Color.fromRGBO(87, 185, 114, 1);
   static LinearGradient gra =
       LinearGradient(colors: [Colors.blue, Colors.green]);
   static const Color mainRED = Color.fromRGBO(222, 37, 55, 1);
@@ -103,6 +104,7 @@ class MyColors {
   static const Color btnBlanceCargo = Color.fromRGBO(111, 111, 191, 1);
   static const Color btnBlanceOrder = Color.fromRGBO(85, 169, 50, 1);
   static const Color balanceBoxRed = Color.fromRGBO(211, 41, 45, 1);
+  static const Color balanceBoxRedAlternativ = Color.fromRGBO(231, 96, 96, 1);
   static const Color balanceBoxOrange = Color.fromRGBO(249, 160, 0, 1);
   static const Color balanceCountPackage = Color.fromRGBO(255, 246, 225, 1);
 

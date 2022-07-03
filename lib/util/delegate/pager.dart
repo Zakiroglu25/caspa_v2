@@ -30,6 +30,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_mod
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/presentation/page/add_address_page/add_address_page.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/add_or_edit_attorney_page/add_or_edit_etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
@@ -314,6 +315,7 @@ class Pager {
         BlocProvider.value(
           value: AddressCubit()..fetch(),
         ),
+
     // BlocProvider(
     //   create: (context) => ContactCubit()..fetch(),
     // )
@@ -324,6 +326,14 @@ class Pager {
           create: (context) => ShopCubit()..fetch(),
         )
       ], child: const ShopPage());
+
+  static addAddress({CourierOrder? courierOrder}) =>
+      MultiBlocProvider(providers: [
+        BlocProvider.value(
+          value: SelectPackagesPayCubit()..fetchActiveUnpaid(),
+        ),
+        BlocProvider(create: (context) => PackageDetailsCubit()),
+      ], child: AddAddressPage());
 
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(

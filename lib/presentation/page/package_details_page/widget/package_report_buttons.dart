@@ -52,7 +52,7 @@ class PackageReportButtons extends StatelessWidget {
         package.from_report == MyText.upex) {
       //beyan et
       //silmek olmaz
-      if(package.orderable == 1) {
+      if(package.orderable == 0) {
         return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -63,7 +63,8 @@ class PackageReportButtons extends StatelessWidget {
         ],
       );
       }
-    } else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
+    }
+    else if (customStatus == MyText.stOrdered && package.noInvoice == 0) {
       //duzelish et
       //sil
       return Row(

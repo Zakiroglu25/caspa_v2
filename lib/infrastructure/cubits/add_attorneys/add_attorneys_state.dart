@@ -1,6 +1,4 @@
-// Project imports:
 
-import 'package:caspa_v2/infrastructure/models/remote/response/add_attorneys_model.dart';
 
 abstract class AddAttorneysState {}
 

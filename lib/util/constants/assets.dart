@@ -21,6 +21,10 @@ class Assets {
   static const String pngNote = "assets/png/note.png";
   static const String homeMoto = "assets/png/motoNewPng.png";
   static const String pngHeart = "assets/png/heart.png";
+  static const String pngAirplane = "assets/png/airplane.png";
+  static const String pngDollar = "assets/png/dollar.png";
+  static const String pngGift = "assets/png/giftBox.png";
+
 
   static const String news1 = "assets/png/news1.png";
   static const String news2 = "assets/png/news2.png";
@@ -28,6 +32,11 @@ class Assets {
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopMobile.png";
+
+  // test
+  static const String sekkiz300 = "assets/png/roulette-8-300.png";
+  static const String center300 = "assets/png/roulette-center-300.png";
+  static const String bckgame = "assets/png/bckgame.png";
 
   //--svg
   static const String svgCaspaLogoWithName =

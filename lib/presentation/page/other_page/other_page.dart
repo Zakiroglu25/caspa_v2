@@ -1,4 +1,5 @@
 import 'package:caspa_v2/presentation/page/calculate_page/calculate_page.dart';
+import 'package:caspa_v2/presentation/page/other_page/widget/add_address_widget.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -75,6 +76,9 @@ class OtherPage extends StatelessWidget {
               ],
             ),
             MySizedBox.h16,
+            const OtherAddAddressWidget(),
+            MySizedBox.h16,
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

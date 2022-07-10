@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,16 +37,19 @@ class HomeWhatsappWidget extends StatelessWidget {
           ],
         ),
         child: ScrollingFabAnimation(
-          width: 129,
+          width: 137,
           height: 56,
           radius: 100,
           color: MyColors.wpColor,
           icon: SvgPicture.asset(Assets.svgMiniWhatsapp),
           scrollController: _scrollController,
-          text: Text(
-            MyText.whatsapp,
-            style: AppTextStyles.sanF500
-                .copyWith(color: MyColors.white, fontSize: 14.sp),
+          text: Container(
+            padding: EdgeInsets.only(right: 12),
+            child: Text(
+              MyText.whatsapp,
+              style: AppTextStyles.sanF500
+                  .copyWith(color: MyColors.white, fontSize: 14.sp),
+            ),
           ),
           onPress: () =>
               launch('https://api.whatsapp.com/send?phone=994997261453'),

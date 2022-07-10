@@ -1,6 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_state.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -34,6 +35,7 @@ class SelectPackagesPayPage extends StatelessWidget {
       ),
       body: BlocConsumer<PackageDetailsCubit, PackageDetailsState>(
         listener: (context, state) {
+          bbbb("pay state:  $state");
           if (state is PackageDetailsPayError) {
             Snack.display(context: context, message: state.error);
           }
@@ -48,12 +50,6 @@ class SelectPackagesPayPage extends StatelessWidget {
             Snack.positive(
                 context: context, message: MyText.operationIsSuccess);
           }
-        },
-        buildWhen: (context, state) {
-          if (state is SelectPackagesPayShowPaymentDialog) {
-            return false;
-          } else
-            return true;
         },
         builder: (context, state) {
           if (state is PackageDetailsUrlFetched) {
@@ -87,6 +83,13 @@ class SelectPackagesPayPage extends StatelessWidget {
                       Alerts.selectedPackagessPaymentAlert(
                           context: context,
                           selectedOrders: state.selectedOrders);
+                    }
+                  },
+                  buildWhen: (context, state) {
+                    if (state is SelectPackagesPayShowPaymentDialog) {
+                      return false;
+                    } else {
+                      return true;
                     }
                   },
                   builder: (context, state) {

@@ -8,6 +8,9 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
 import 'widgets/home_header.dart';
 import 'widgets/home_whatsapp_button.dart';
 import 'widgets/news_list_widget.dart';
@@ -17,6 +20,10 @@ import 'widgets/tariffs.dart';
 
 class HomePage extends StatelessWidget {
   final ScrollController _scrollController = ScrollController();
+
+  HiveService get _prefs => locator<HiveService>();
+
+  var date = DateTime.now();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +71,13 @@ class HomePage extends StatelessWidget {
               ],
             ),
             HomeWhatsappWidget(scrollController: _scrollController),
+            ///bu ad gunu ile elaqeder olaraq bottomsheete acmaqdir
+            // Column(
+            //   children: [
+            // if (_prefs.user.birthday!.substring(0,5) == DateFormat("dd-MM").format(DateTime.now()))
+            //
+            //   ],
+            // ),
           ],
         ),
       ),

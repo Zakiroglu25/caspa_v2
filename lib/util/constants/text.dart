@@ -138,7 +138,7 @@ class MyText {
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
-  static const String logout = "Cıxış et";
+  static const String logout = "Çıxış et";
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
   static const String last30days = "Son 30 gündə";
@@ -151,10 +151,8 @@ class MyText {
   static const String orderBalance = "Sifariş balansı";
   static const String giftBalance = "Hədiyyə balansı";
   static const String balance = "Balans";
-  static const String desc = "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";
-
-
-
+  static const String desc =
+      "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";
 
   //user settings
   static const String main = "Əsas";
@@ -377,11 +375,9 @@ class MyText {
   //packages
   static const String in_waiting = 'Gözləmədə olan';
   static const String history = 'Tarixçə';
-  static const String totalPayX = "Toplam ödə 💰";
+  static const String totalPayX = "Toplam ödə";
   static const String emptyButton = "Bağlama sifariş et";
   static const String emptyTitle = "Bura boşdur";
-
-
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

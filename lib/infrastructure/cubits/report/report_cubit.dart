@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -27,6 +28,10 @@ class ReportCubit extends Cubit<ReportState> {
   ReportCubit() : super(ReportInitial());
 
   HiveService get _prefs => locator<HiveService>();
+  TextEditingController subCategoryFilterController = TextEditingController();
+  TextEditingController categoryFilterController = TextEditingController();
+
+  List<Category> permanentCategories = [];
 
   Future<File?> checkAndPickImage(BuildContext context) async {
     try {
@@ -43,10 +48,9 @@ class ReportCubit extends Cubit<ReportState> {
         return updateImage(await AppOperations.pickPhotoFromGallery());
       }
     } on PlatformException catch (e) {
-      eeee("error: " + e.toString());
       await showGalleryAccessAlert(context);
-    } catch (e) {
-      eeee("error: " + e.toString());
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
       Snack.display(context: context, message: e.toString());
     }
   }
@@ -90,7 +94,6 @@ class ReportCubit extends Cubit<ReportState> {
         emit(ReportError(error: MyText.all_fields_must_be_filled));
       }
     } on SocketException catch (_) {
-      //network olacaq
       emit(ReportError(error: MyText.network_error));
     } catch (e, s) {
       emit(ReportError());
@@ -155,6 +158,18 @@ class ReportCubit extends Cubit<ReportState> {
     }
   }
 
+  clearSubFilter() async {
+    await Future.delayed(Durations.ms500);
+    subCategories.sink.add(selectedCategory.value?.children ?? []);
+    subCategoryFilterController.clear();
+  }
+
+  clearFilter() async {
+    await Future.delayed(Durations.ms500);
+    updateCategoriesList(permanentCategories);
+    categoryFilterController.clear();
+  }
+
   //--------------------values:-----------------
 
   //selected  category
@@ -179,6 +194,8 @@ class ReportCubit extends Cubit<ReportState> {
             goodsId: 999999));
       }
       selectedCategory.sink.add(value);
+      clearFilter();
+      filterSubCategoriesList('');
     }
 
     //isUserInfoValid(registerType: _registerType);
@@ -195,17 +212,74 @@ class ReportCubit extends Cubit<ReportState> {
       selectedSubCategory.stream;
 
   updateSelectedSubCategory(SubCategory? value) {
-    bbbb(value.toString());
     if (value == null) {
       selectedSubCategory.value = null;
-      //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       selectedSubCategory.sink.add(value);
+    }
+    clearSubFilter();
+  }
+
+  bool get isSubCategoryIncorrect => (!selectedSubCategory.hasValue ||
+      selectedSubCategory.value == null ||
+      selectedSubCategory.value?.id == 999999);
+
+  //  category list
+  final BehaviorSubject<List<Category>> categories =
+      BehaviorSubject<List<Category>>.seeded([]);
+
+  Stream<List<Category>> get categoriesListStream => categories.stream;
+
+  filterCategoriesList(String text) {
+    if (text == null) {
+      // subCategories.value = null;
+      //taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      //   subCategoriesList = selectedCategory.children!;
+      categories.sink.add(permanentCategories);
+      final mainList = <Category>[];
+      categories.value.forEach((userDetail) {
+        if (userDetail.name!.toLowerCase().contains(text.toLowerCase()) ||
+            userDetail.name!.toLowerCase().contains(text.toLowerCase()))
+          mainList.add(userDetail);
+      });
+      categories.sink.add(mainList);
     }
     //isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSubCategoryIncorrect => (!selectedSubCategory.hasValue ||
+  updateCategoriesList(List<Category> value) {
+    permanentCategories = value;
+    categories.sink.add(permanentCategories);
+  }
+
+  bool get isSubCategoriesListIncorrect => (!selectedSubCategory.hasValue ||
+      selectedSubCategory.value == null ||
+      selectedSubCategory.value?.id == 999999);
+
+  // sub category list
+  final BehaviorSubject<List<SubCategory>> subCategories =
+      BehaviorSubject<List<SubCategory>>.seeded([]);
+
+  Stream<List<SubCategory>> get subCategoriesListStream => subCategories.stream;
+
+  filterSubCategoriesList(String text) {
+    bbbb(text.toString());
+    if (text == null) {
+    } else {
+      subCategories.sink.add(selectedCategory.value?.children ?? []);
+      final mainList = <SubCategory>[];
+      subCategories.value.forEach((userDetail) {
+        if (userDetail.name!.toLowerCase().contains(text.toLowerCase()) ||
+            userDetail.name!.toLowerCase().contains(text.toLowerCase()))
+          mainList.add(userDetail);
+      });
+      subCategories.sink.add(mainList);
+    }
+    //isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isCategoriesListIncorrect => (!selectedSubCategory.hasValue ||
       selectedSubCategory.value == null ||
       selectedSubCategory.value?.id == 999999);
 
@@ -320,7 +394,6 @@ class ReportCubit extends Cubit<ReportState> {
 
   ////validation
   bool isUserInfoValid({int? id}) {
-    // bbbb("ghghgh: $isSubCategoryIncorrect");
     if (
         //!isNoteIncorrect &&
         !isSellerIncorrect &&

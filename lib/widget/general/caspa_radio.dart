@@ -1,7 +1,9 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
+import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/random.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,6 @@ class CaspaRadio extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWrapper(
       child: Container(
-        // height: 35,
         padding: Paddings.paddingV8 + Paddings.paddingH16 + Paddings.paddingB8,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,9 +35,7 @@ class CaspaRadio extends StatelessWidget {
                 style: AppTextStyles.sanF400.copyWith(fontSize: 16),
               ),
             ),
-            //context.read<RegisterCubit>().
             MySizedBox.w5,
-
             FlipInY(
                 duration: Duration(milliseconds: 500),
                 child: OrderSelectRadioIndicator(

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -5,14 +7,16 @@ import 'package:caspa_v2/infrastructure/models/remote/response/categories_respon
 import 'package:caspa_v2/presentation/page/report_page/widgets/field_loading.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'category_filter_field.dart';
 
 class CategoryFields extends StatelessWidget {
   CategoryFields(
@@ -30,6 +34,7 @@ class CategoryFields extends StatelessWidget {
           List<Category>? categories;
           if (state is CategorySuccess) {
             categories = state.categories;
+            context.read<ReportCubit>().updateCategoriesList(categories);
           }
           return Column(
             children: [
@@ -104,41 +109,76 @@ class CategoryFields extends StatelessWidget {
 
       Sheet.display(
           context: context,
-          child: SizedBox(
-            //height: 100,
-            height: listHeight > sH ? sH : listHeight,
-            child: StreamBuilder(
-                stream: BlocProvider.of<ReportCubit>(context)
-                    .selectedCategoryStream,
-                builder: (contextP, snapShoot) {
-                  return ListView.builder(
-                      physics: Physics.alwaysBounce,
-                      shrinkWrap: false,
-                      itemCount: categories.length,
-                      itemBuilder: (contextK, index) {
-                        Category category = categories[index];
+          child: StreamBuilder<List<Category>>(
+              stream:
+                  BlocProvider.of<ReportCubit>(context).categoriesListStream,
+              builder: (contextZ, listSnapshot) {
+                List<Category> categories = (listSnapshot.data ?? []);
+                final itemCount = categories.length;
+                final sH = MediaQuery.of(context).size.height - 56 - 90;
+                //   final listHeight = (itemCount) * 50.0 + 75;
+                final listHeight = (itemCount) * 50.0;
+                return SizedBox(
+                  height: min(listHeight, sH),
+                  child: ListView(
+                    physics: Physics.never,
+                    shrinkWrap: true,
+                    children: [
+                      // CategoryFilterField(
+                      //   onChanged: (text) => context
+                      //       .read<ReportCubit>()
+                      //       .filterCategoriesList(text),
+                      //   controller: BlocProvider.of<ReportCubit>(context)
+                      //       .categoryFilterController,
+                      // ),
+                      StreamBuilder(
+                          stream: BlocProvider.of<ReportCubit>(context)
+                              .selectedCategoryStream,
+                          builder: (contextP, snapShoot) {
+                            return categories.isEmpty
+                                ? CaspaLoading()
+                                : SizedBox(
+                                    height: min(listHeight, sH),
+                                    //height: min(listHeight - 75, sH - 75),
+                                    child: ListView.builder(
+                                        physics: Physics.alwaysBounce,
+                                        shrinkWrap: false,
+                                        itemCount: categories.length,
+                                        itemBuilder: (contextK, index) {
+                                          Category category = categories[index];
 
-                        return CaspaRadio(
-                          onTap: () {
-                            BlocProvider.of<ReportCubit>(context)
-                                .updateSelectedCategory(category);
-                            Go.pop(context);
-                          },
-                          title: category.name,
-//isActive: false,
-                          isActive: BlocProvider.of<ReportCubit>(context)
-                                  .selectedCategory
-                                  .valueOrNull
-                                  ?.id ==
-                              category.id,
-                        );
-                      });
-                }),
-          ));
+                                          return CaspaRadio(
+                                            onTap: () {
+                                              BlocProvider.of<ReportCubit>(
+                                                      context)
+                                                  .updateSelectedCategory(
+                                                      category);
+                                              Go.pop(context);
+                                            },
+                                            title: category.name,
+                                            isActive:
+                                                BlocProvider.of<ReportCubit>(
+                                                            context)
+                                                        .selectedCategory
+                                                        .valueOrNull
+                                                        ?.id ==
+                                                    category.id,
+                                          );
+                                        }),
+                                  );
+                          }),
+                    ],
+                  ),
+                );
+              }));
     } else {
       Snack.display(context: context, message: MyText.none_category_is_found);
     }
   }
+
+  // filter ucun her 2 listviewin ustundeki sized box duzeldilmeli
+  //listHeight ve min(listHeight , sH - 75) bura aiddir
+  // birinci listviewde filed commentden cixarilmalidir
 
   showSheetSub(BuildContext context, List<Category>? categoriesList) {
     Category? selectedCategory =
@@ -150,46 +190,72 @@ class CategoryFields extends StatelessWidget {
       return;
     } else if (selectedCategory.children != null &&
         selectedCategory.children!.isNotEmpty) {
-      List<SubCategory> subCategories = (selectedCategory.children)!;
-      final sH = MediaQuery.of(context).size.height - 56 - 90;
-      final listHeight = subCategories.length * 36.0;
-
       Sheet.display(
           context: context,
-          child: SizedBox(
-            //height: 100,
-            height: listHeight > sH ? sH : listHeight,
-            child: StreamBuilder(
-                stream: BlocProvider.of<ReportCubit>(context)
-                    .selectedSubCategoryStream,
-                builder: (contextP, snapShoot) {
-                  return ListView.builder(
-                      physics: Physics.alwaysBounce,
-                      shrinkWrap: false,
-                      itemCount: subCategories.length,
-                      itemBuilder: (contextK, index) {
-                        SubCategory category = subCategories[index];
+          child: StreamBuilder<List<SubCategory>>(
+              stream:
+                  BlocProvider.of<ReportCubit>(context).subCategoriesListStream,
+              builder: (contextZ, listSnapshot) {
+                List<SubCategory> subCategories = (listSnapshot.data ?? []);
+                final itemCount = subCategories.length;
+                final sH = MediaQuery.of(context).size.height - 56 - 90;
+                //     final listHeight = (itemCount) * 50.0 + 75;
+                final listHeight = (itemCount) * 50.0;
+                return SizedBox(
+                  height: min(listHeight, sH),
+                  child: ListView(
+                    physics: Physics.never,
+                    shrinkWrap: true,
+                    children: [
+                      // CategoryFilterField(
+                      //   onChanged: (text) => context
+                      //       .read<ReportCubit>()
+                      //       .filterSubCategoriesList(text),
+                      //   controller: BlocProvider.of<ReportCubit>(context)
+                      //       .subCategoryFilterController,
+                      // ),
+                      StreamBuilder(
+                          stream: BlocProvider.of<ReportCubit>(context)
+                              .selectedSubCategoryStream,
+                          builder: (contextP, snapShoot) {
+                            return subCategories.isEmpty
+                                ? CaspaLoading()
+                                : SizedBox(
+                                    //   height: min(listHeight - 75, sH - 75),
+                                    height: min(listHeight, sH),
+                                    child: ListView.builder(
+                                        physics: Physics.alwaysBounce,
+                                        shrinkWrap: true,
+                                        itemCount: itemCount,
+                                        itemBuilder: (contextK, index) {
+                                          SubCategory category =
+                                              subCategories[index];
 
-                        return CaspaRadio(
-                          onTap: () {
-                            BlocProvider.of<ReportCubit>(context)
-                                .updateSelectedSubCategory(category);
-                            Go.pop(context);
-                          },
-                          title: category.name,
-//isActive: false,
-                          isActive: BlocProvider.of<ReportCubit>(context)
-                                  .selectedSubCategory
-                                  .valueOrNull
-                                  ?.id ==
-                              category.id,
-                        );
-                      });
-                }),
-          ));
+                                          return CaspaRadio(
+                                            onTap: () {
+                                              BlocProvider.of<ReportCubit>(
+                                                      context)
+                                                  .updateSelectedSubCategory(
+                                                      category);
+                                              Go.pop(context);
+                                            },
+                                            title: category.name,
+                                            isActive:
+                                                BlocProvider.of<ReportCubit>(
+                                                            context)
+                                                        .selectedSubCategory
+                                                        .valueOrNull
+                                                        ?.id ==
+                                                    category.id,
+                                          );
+                                        }),
+                                  );
+                          }),
+                    ],
+                  ),
+                );
+              }));
     } else {
-      //List<Category> categories = categoriesList!;
-
       Snack.display(context: context, message: MyText.none_category_is_found);
     }
   }

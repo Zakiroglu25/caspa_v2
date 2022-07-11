@@ -144,7 +144,7 @@ class UserCabinetPage extends StatelessWidget {
                   },
                   icon: Assets.pngDollar,
                   boxTitle: MyText.orderBalance,
-                  title: "Balans: ${user.balance} TL ",
+                  title: "${MyText.balance}: ${user.balance} TL ",
                   subtitle: MyText.orderBalance,
                   subtitleColor: MyColors.greenOrderBalance,
                   desc: MyText.desc,
@@ -153,15 +153,13 @@ class UserCabinetPage extends StatelessWidget {
                 MySizedBox.h16,
 
                 NewBalanceBox(
-                  onTap: () {
-                    Go.to(
-                        context,
-                        Pager.paymentPage(
-                            paymentBalanceType: PaymentBalanceType.cargo));
-                  },
+                  onTap: () => Go.to(
+                      context,
+                      Pager.paymentPage(
+                          paymentBalanceType: PaymentBalanceType.cargo)),
                   icon: Assets.pngGift,
                   boxTitle: MyText.giftBalance,
-                  title: "Balans: ${user.balance} TL ",
+                  title: "${MyText.balance}: ${user.balance} TL ",
                   subtitle: MyText.giftBalance,
                   subtitleColor: MyColors.balanceBoxRedAlternativ,
                   desc: MyText.desc,
@@ -174,7 +172,7 @@ class UserCabinetPage extends StatelessWidget {
                   },
                   icon: Assets.pngNote,
                   boxTitle: "Carx",
-                  title: "Balans: ${user.balance} TL ",
+                  title: "${MyText.balance}: ${user.balance} TL ",
                   subtitle: MyText.giftBalance,
                   subtitleColor: MyColors.balanceBoxRedAlternativ,
                   desc: MyText.desc,

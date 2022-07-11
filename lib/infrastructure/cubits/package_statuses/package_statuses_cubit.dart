@@ -64,9 +64,9 @@ class PackageStatusesCubit extends Cubit<PackageStatusesState> {
       } else {
         emit(PackageStatusesError());
       }
-    } catch (e) {
+    } catch (e, s) {
       emit(PackageStatusesError(error: MyText.error + "" + e.toString()));
-      print(e);
+      Recorder.recordCatchError(e, s);
     }
   }
 

@@ -21,6 +21,7 @@ class CaspaField extends StatelessWidget {
   final int? maxLenght;
   final int? maxLines;
   final double? topMargin;
+  final bool? showTitle;
   final TextCapitalization? textCapitalization;
   bool? obscure = false;
   bool? readOnly = false;
@@ -52,6 +53,7 @@ class CaspaField extends StatelessWidget {
       this.textCapitalization,
       this.onChanged,
       this.onTap,
+      this.showTitle = true,
       this.prefixIcon,
       this.suffixText,
       this.textInputType})
@@ -69,12 +71,15 @@ class CaspaField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // SizedBox(height:topMargin?? 6,),
-          Text(
-            title ?? "",
-            style: TextStyle(
-                fontSize: 14,
-                color: MyColors.grey153,
-                fontFamily: "San Francisco"),
+          WidgetOrEmpty(
+            value: showTitle,
+            child: Text(
+              title ?? "",
+              style: TextStyle(
+                  fontSize: 14,
+                  color: MyColors.grey153,
+                  fontFamily: "San Francisco"),
+            ),
           ),
           MySizedBox.h3,
           Stack(

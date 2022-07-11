@@ -47,7 +47,7 @@ class OptimalBottomSheet extends StatelessWidget {
               showCloseButton: showCloseButton,
               showConfirmButton: showConfirmButton,
               title: title),
-          MySizedBox.h35,
+          MySizedBox.h26,
           child!,
           MySizedBox.h10
         ],

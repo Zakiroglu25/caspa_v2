@@ -52,6 +52,7 @@ class MyText {
   static const String code = 'Kod';
   static const String codeHasSent = 'Kod sizin e-poçt ünvanınıza göndərildi.';
   static const String send = 'Göndər';
+  static const String searchX = 'Axtar 🔍';
   static const String ok = 'OK';
   static const String reject = 'İmtina';
 
@@ -378,6 +379,7 @@ class MyText {
   static const String totalPayX = "Toplam ödə";
   static const String emptyButton = "Bağlama sifariş et";
   static const String emptyTitle = "Bura boşdur";
+  static const String removePackage = "Bağlamanı sil";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

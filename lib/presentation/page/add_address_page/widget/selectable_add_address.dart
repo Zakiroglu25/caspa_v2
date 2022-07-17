@@ -9,7 +9,6 @@ import '../../../../widget/custom/order_select_check_indicator.dart';
 class SelectableAddAddress extends StatelessWidget {
   Function? onTap;
   bool selected;
-  String price;
   Package package;
   int index;
 
@@ -17,7 +16,6 @@ class SelectableAddAddress extends StatelessWidget {
       {this.onTap,
         required this.package,
         required this.index,
-        required this.price,
         required this.selected});
 
   @override
@@ -27,7 +25,7 @@ class SelectableAddAddress extends StatelessWidget {
       onTap: () => onTap?.call(),
       child: SizedBox(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           margin: EdgeInsets.only(bottom: 12),
           child: Row(
             children: [

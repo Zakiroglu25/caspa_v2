@@ -16,7 +16,7 @@ class OtherAddAddressWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () => Go.to(context, Pager.addAddress()),
+      onTap: () => Go.to(context, Pager.deliveryAddress()),
       child: Container(
         padding: Paddings.paddingA20,
         decoration: BoxDecoration(
@@ -32,7 +32,7 @@ class OtherAddAddressWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                   "Çatdırılma ünvanları 🏢",
+                    "Çatdırılma ünvanları 🏢",
                     style: AppTextStyles.sanF600.copyWith(fontSize: 17.sm),
                   ),
                   MySizedBox.h6,

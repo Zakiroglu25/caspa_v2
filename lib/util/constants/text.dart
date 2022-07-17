@@ -381,6 +381,10 @@ class MyText {
   static const String emptyTitle = "Bura boşdur";
   static const String removePackage = "Bağlamanı sil";
 
+  //deliver adress page
+  static const String currentAdress = "Mövcüd ünvan";
+  static const String addNewAdress = "+ Yeni ünvan əlavə et";
+
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 

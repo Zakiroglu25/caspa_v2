@@ -1,11 +1,11 @@
 // import 'package:caspa_v2/util/constants/paddings.dart';
-// import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+// import 'package:caspa_v2/widgets/caspa_appbar/caspa_appbar.dart';
 // import 'package:flutter/material.dart';
 //
 // import '../../../util/constants/app_text_styles.dart';
 // import '../../../util/constants/colors.dart';
 // import '../../../util/constants/sized_box.dart';
-// import '../address_page/widget/copiable_field.dart';
+// import '../address_page/widgets/copiable_field.dart';
 // import '../home_page/widgets/section_name.dart';
 //
 // class TrendyolOtpPage extends StatelessWidget {

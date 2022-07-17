@@ -43,7 +43,7 @@ typedef BottomSheetDragEndHandler = void Function(
 ///    sheets can be created and displayed with the [showModalBottomSheet]
 ///    function.
 ///
-/// The [BottomSheet] widget itself is rarely used directly. Instead, prefer to
+/// The [BottomSheet] widgets itself is rarely used directly. Instead, prefer to
 /// create a persistent bottom sheet with [ScaffoldState.showBottomSheet] or
 /// [Scaffold.bottomSheet], and a modal bottom sheet with [showModalBottomSheet].
 ///
@@ -81,7 +81,7 @@ class BottomSheet extends StatefulWidget {
   /// The animation controller that controls the bottom sheet's entrance and
   /// exit animations.
   ///
-  /// The BottomSheet widget will manipulate the position of this animation, it
+  /// The BottomSheet widgets will manipulate the position of this animation, it
   /// is not just a passive observer.
   final AnimationController? animationController;
 
@@ -94,8 +94,8 @@ class BottomSheet extends StatefulWidget {
 
   /// A builder for the contents of the sheet.
   ///
-  /// The bottom sheet will wrap the widget produced by this builder in a
-  /// [Material] widget.
+  /// The bottom sheet will wrap the widgets produced by this builder in a
+  /// [Material] widgets.
   final WidgetBuilder builder;
 
   /// If true, the bottom sheet can be dragged up and down and dismissed by
@@ -542,7 +542,7 @@ class _ModalBottomSheetRoute<T> extends PopupRoute<T> {
 /// straight line, and the top-right quarter will contain the entire contents of
 /// [Curves.easeOut].
 ///
-/// This is useful in situations where a widget must track the user's finger
+/// This is useful in situations where a widgets must track the user's finger
 /// (which requires a linear animation), and afterwards can be flung using a
 /// curve specified with the [curve] argument, after the finger is released. In
 /// such a case, the value of [startingPoint] would be the progress of the
@@ -594,7 +594,7 @@ class _BottomSheetSuspendedCurve extends ParametricCurve<double> {
 /// A modal bottom sheet is an alternative to a menu or a dialog and prevents
 /// the user from interacting with the rest of the app.
 ///
-/// A closely related widget is a persistent bottom sheet, which shows
+/// A closely related widgets is a persistent bottom sheet, which shows
 /// information that supplements the primary content of the app without
 /// preventing the use from interacting with the app. Persistent bottom sheets
 /// can be created and displayed with the [showBottomSheet] function or the
@@ -602,7 +602,7 @@ class _BottomSheetSuspendedCurve extends ParametricCurve<double> {
 ///
 /// The `context` argument is used to look up the [Navigator] and [Theme] for
 /// the bottom sheet. It is only used when the method is called. Its
-/// corresponding widget can be safely removed from the tree before the bottom
+/// corresponding widgets can be safely removed from the tree before the bottom
 /// sheet is closed.
 ///
 /// The `isScrollControlled` parameter specifies whether this is a route for
@@ -681,7 +681,7 @@ class _BottomSheetSuspendedCurve extends ParametricCurve<double> {
 /// {@end-tool}
 /// See also:
 ///
-///  * [BottomSheet], which becomes the parent of the widget returned by the
+///  * [BottomSheet], which becomes the parent of the widgets returned by the
 ///    function passed as the `builder` argument to [showModalBottomSheet].
 ///  * [showBottomSheet] and [ScaffoldState.showBottomSheet], for showing
 ///    non-modal bottom sheets.
@@ -758,18 +758,18 @@ Future<T?> showModalBottomSheet<T>({
 /// does not add a back button to the enclosing Scaffold's app bar, use the
 /// [Scaffold.bottomSheet] constructor parameter.
 ///
-/// A closely related widget is a modal bottom sheet, which is an alternative
+/// A closely related widgets is a modal bottom sheet, which is an alternative
 /// to a menu or a dialog and prevents the user from interacting with the rest
 /// of the app. Modal bottom sheets can be created and displayed with the
 /// [showModalBottomSheet] function.
 ///
 /// The `context` argument is used to look up the [Scaffold] for the bottom
-/// sheet. It is only used when the method is called. Its corresponding widget
+/// sheet. It is only used when the method is called. Its corresponding widgets
 /// can be safely removed from the tree before the bottom sheet is closed.
 ///
 /// See also:
 ///
-///  * [BottomSheet], which becomes the parent of the widget returned by the
+///  * [BottomSheet], which becomes the parent of the widgets returned by the
 ///    `builder`.
 ///  * [showModalBottomSheet], which can be used to display a modal bottom
 ///    sheet.

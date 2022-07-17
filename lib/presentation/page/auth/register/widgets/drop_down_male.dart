@@ -28,9 +28,9 @@ class _DropDownGenderState extends State<DropDownGender> {
             hint: Text('Cinsiyyət'),
             // Not necessary for Option 1
             //  value: _selectedLocation,
-            value: _gender ,
-                // ??
-                // StringOperations.genderConvertFromId(widget.genderId),
+            value: _gender,
+            // ??
+            // StringOperations.genderConvertFromId(widgets.genderId),
 
             onChanged: (newValue) {
               setState(() {
@@ -41,12 +41,11 @@ class _DropDownGenderState extends State<DropDownGender> {
             items: _genderList!.map((gender) {
               return DropdownMenuItem(
                 child: Container(
-                  // width: sW/4,
+                    // width: sW/4,
                     child: new Text(gender)),
                 value: gender,
               );
             }).toList(),
-
           ),
         ),
       ),

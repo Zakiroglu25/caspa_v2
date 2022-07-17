@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'utils.dart';
 
-/// Returns a widget which displays a rotating image.
-/// This widget can be interacted with with drag gestures and could be used as a "fortune wheel".
+/// Returns a widgets which displays a rotating image.
+/// This widgets can be interacted with with drag gestures and could be used as a "fortune wheel".
 ///
 /// Required arguments are dimensions and the image to be used as the wheel.
 ///
@@ -40,11 +40,11 @@ class SpinningWheel extends StatefulWidget {
   final Image secondaryImage;
 
   /// x dimension for the secondaty image, if provided
-  /// if provided, has to be smaller than widget height
+  /// if provided, has to be smaller than widgets height
   final double? secondaryImageHeight;
 
   /// y dimension for the secondary image, if provided
-  /// if provided, has to be smaller than widget width
+  /// if provided, has to be smaller than widgets width
   final double? secondaryImageWidth;
 
   /// can be used to fine tune the position for the secondary image, otherwise it will be centered
@@ -65,22 +65,22 @@ class SpinningWheel extends StatefulWidget {
   final Stream? shouldStartOrStop;
 
   SpinningWheel(
-      this.image, {
-        required this.width,
-        required this.height,
-        required this.dividers,
-        this.initialSpinAngle: 0.0,
-        this.spinResistance: 0.5,
-        this.canInteractWhileSpinning: true,
-        required this.secondaryImage,
-         this.secondaryImageHeight,
-         this.secondaryImageWidth,
-        this.secondaryImageTop,
-         this.secondaryImageLeft,
-        required this.onUpdate,
-        required this.onEnd,
-         this.shouldStartOrStop,
-      })  : assert(width > 0.0 && height > 0.0),
+    this.image, {
+    required this.width,
+    required this.height,
+    required this.dividers,
+    this.initialSpinAngle: 0.0,
+    this.spinResistance: 0.5,
+    this.canInteractWhileSpinning: true,
+    required this.secondaryImage,
+    this.secondaryImageHeight,
+    this.secondaryImageWidth,
+    this.secondaryImageTop,
+    this.secondaryImageLeft,
+    required this.onUpdate,
+    required this.onEnd,
+    this.shouldStartOrStop,
+  })  : assert(width > 0.0 && height > 0.0),
         assert(spinResistance > 0.0 && spinResistance <= 1.0),
         assert(initialSpinAngle >= 0.0 && initialSpinAngle <= (2 * pi)),
         assert(secondaryImage == null ||
@@ -95,7 +95,7 @@ class _SpinningWheelState extends State<SpinningWheel>
   AnimationController? _animationController;
   Animation<double>? _animation;
 
-  // we need to store if has the widget behaves differently depending on the status
+  // we need to store if has the widgets behaves differently depending on the status
   // AnimationStatus _animationStatus = AnimationStatus.dismissed;
 
   // it helps calculating the velocity based on position and pixels per second velocity and angle
@@ -177,11 +177,11 @@ class _SpinningWheelState extends State<SpinningWheel>
 
   double get topSecondaryImage =>
       widget.secondaryImageTop ??
-          (widget.height / 2) - (widget.secondaryImageHeight! / 2);
+      (widget.height / 2) - (widget.secondaryImageHeight! / 2);
 
   double get leftSecondaryImage =>
       widget.secondaryImageLeft ??
-          (widget.width / 2) - (widget.secondaryImageWidth! / 2);
+      (widget.width / 2) - (widget.secondaryImageWidth! / 2);
 
   double get widthSecondaryImage => widget.secondaryImageWidth ?? widget.width;
 
@@ -213,20 +213,20 @@ class _SpinningWheelState extends State<SpinningWheel>
           ),
           widget.secondaryImage != null
               ? Positioned(
-              top: topSecondaryImage,
-              left: leftSecondaryImage,
-              child: Container(
-                height: heightSecondaryImage,
-                width: widthSecondaryImage,
-                child: widget.secondaryImage,
-              ))
+                  top: topSecondaryImage,
+                  left: leftSecondaryImage,
+                  child: Container(
+                    height: heightSecondaryImage,
+                    width: widthSecondaryImage,
+                    child: widget.secondaryImage,
+                  ))
               : Container(),
         ],
       ),
     );
   }
 
-  // user can interact only if widget allows or wheel is not spinning
+  // user can interact only if widgets allows or wheel is not spinning
   bool get _userCanInteract =>
       !_animationController!.isAnimating || widget.canInteractWhileSpinning;
 
@@ -271,7 +271,7 @@ class _SpinningWheelState extends State<SpinningWheel>
 
     if (_contains(_localPositionOnPanUpdate!)) {
       // we need to update the rotation
-      // so, calculate the new rotation angle and rebuild the widget
+      // so, calculate the new rotation angle and rebuild the widgets
       var angle = _spinVelocity!.offsetToRadians(_localPositionOnPanUpdate!);
       setState(() {
         // initialSpinAngle will be added later on build
@@ -312,7 +312,7 @@ class _SpinningWheelState extends State<SpinningWheel>
 
   void _startAnimation(Offset pixelsPerSecond) {
     var velocity =
-    _spinVelocity!.getVelocity(_localPositionOnPanUpdate!, pixelsPerSecond);
+        _spinVelocity!.getVelocity(_localPositionOnPanUpdate!, pixelsPerSecond);
 
     _localPositionOnPanUpdate = null;
     _isBackwards = velocity < 0;

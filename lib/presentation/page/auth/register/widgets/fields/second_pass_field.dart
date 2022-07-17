@@ -42,7 +42,7 @@ class _SecondPassFieldRegisterState extends State<SecondPassFieldRegister> {
           ),
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          //controller: widget.controller,
+          //controller: widgets.controller,
           onChanged: (value) =>
               BlocProvider.of<RegisterCubit>(context).updateSecondPass(value),
         );

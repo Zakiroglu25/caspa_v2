@@ -51,7 +51,7 @@ class MateApp extends StatelessWidget {
                   builder: (context, widget) {
                     // ScreenUtil.setContext(context);
                     widget = BotToastInit().call(context, widget);
-                    //  widget = botToastBuilder(context,widget);
+                    //  widgets = botToastBuilder(context,widgets);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget);
                   },

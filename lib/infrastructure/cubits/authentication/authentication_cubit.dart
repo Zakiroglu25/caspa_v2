@@ -164,8 +164,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       Future.delayed(Durations.s1).then((value) => _prefs.clear());
       // //Hive.box('main').close();
 
-      PaintingBinding.instance?.imageCache?.clear();
-      imageCache?.clear();
+      PaintingBinding.instance.imageCache.clear();
+      imageCache.clear();
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
     }

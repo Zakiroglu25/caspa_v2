@@ -21,8 +21,8 @@ class _MainPassFieldUserState extends State<MainPassFieldUser> {
 
   @override
   Widget build(BuildContext context) {
-    // if(widget.controller!.text != '' && widget.controller!.text != null){
-    //   BlocProvider.of<UserCubit>(context).updateFin(widget.controller!.text);
+    // if(widgets.controller!.text != '' && widgets.controller!.text != null){
+    //   BlocProvider.of<UserCubit>(context).updateFin(widgets.controller!.text);
     // }
     return StreamBuilder<String>(
       stream: BlocProvider.of<UserCubit>(context).passMainStream,
@@ -45,7 +45,7 @@ class _MainPassFieldUserState extends State<MainPassFieldUser> {
           obscure: obscure,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //infoMessage: MyText.confirm_your_email,
-          // controller: widget.controller,
+          // controller: widgets.controller,
           onChanged: (value) =>
               BlocProvider.of<UserCubit>(context).updateMainPass(value),
         );

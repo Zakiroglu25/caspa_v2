@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -15,8 +14,6 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'category_filter_field.dart';
 
 class CategoryFields extends StatelessWidget {
   CategoryFields(

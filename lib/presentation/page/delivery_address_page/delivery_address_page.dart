@@ -48,16 +48,13 @@ class DeliveryAddressPage extends StatelessWidget {
         builder: (context, state) {
           if (state is DeliveryAdressSuccess) {
             return FadeEdge(
+              fadeHeight: 15,
               bottomButton: CurrentAdressButton(),
               child: Padding(
                 padding: Paddings.paddingH16,
-                child: Stack(
-                  children: [
-                    SelectableAddAddressList(
-                      packageList: [1, 2, 3],
-                      // packageList: state.packages,
-                    ),
-                  ],
+                child: SelectableAddAddressList(
+                  packageList: [1, 2, 3],
+                  // packageList: state.packages,
                 ),
               ),
             );

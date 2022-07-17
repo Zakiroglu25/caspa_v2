@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 class FadeEdge extends StatelessWidget {
   final Widget? child;
   final Widget? bottomButton;
+  final double? fadeHeight;
 
-  FadeEdge({@required this.child, this.bottomButton});
+  FadeEdge({required this.child, this.bottomButton, this.fadeHeight});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class FadeEdge extends StatelessWidget {
           left: 0,
           right: 0,
           child: Container(
-            height: 35,
+            height: fadeHeight ?? 35,
             decoration: new BoxDecoration(
               gradient: new LinearGradient(
                 colors: [

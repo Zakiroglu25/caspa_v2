@@ -81,6 +81,7 @@ dependencies:
   custom_pop_up_menu: ^1.2.4
   flutter_slidable: ^2.0.0
   story_view: ^0.13.2
+  modal_bottom_sheet: ^2.1.0
 
   #webiew
   webview_flutter: ^3.0.4

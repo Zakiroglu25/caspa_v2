@@ -21,7 +21,7 @@ class SelectableAddAddressList extends StatelessWidget {
           shrinkWrap: true,
           physics: Physics.never,
           itemCount: packageList.length,
-          padding: Paddings.paddingB16,
+          padding: Paddings.paddingB16 + Paddings.paddingT8,
           itemBuilder: (context, index) {
             final currentPackage = packageList[index];
             return StreamBuilder<int?>(

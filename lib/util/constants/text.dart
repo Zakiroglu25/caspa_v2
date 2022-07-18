@@ -383,7 +383,8 @@ class MyText {
 
   //deliver adress page
   static const String currentAdress = "Mövcüd ünvan";
-  static const String addNewAdress = "+ Yeni ünvan əlavə et";
+  static const String addNewAdressX = "+ Yeni ünvan əlavə et";
+  static const String addNewAdress = "Yeni ünvan əlavə et";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

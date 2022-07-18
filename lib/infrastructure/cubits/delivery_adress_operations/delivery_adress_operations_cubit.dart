@@ -15,18 +15,19 @@ import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../models/remote/response/regions_model.dart';
-import 'delivery_adress_state.dart';
+import 'delivery_adress_operations_state.dart';
 
-class DeliveryAdressCubit extends Cubit<DeliveryAdressState> {
-  DeliveryAdressCubit() : super(DeliveryAdressInitial());
+class DeliveryAdressOperationsCubit
+    extends Cubit<DeliveryAdressOperationsState> {
+  DeliveryAdressOperationsCubit() : super(DeliveryAdressOperationsInitial());
 
   HiveService get _prefs => locator<HiveService>();
 
-  void get([bool loading = true]) async {
+  void add(BuildContext context, [bool loading = true]) async {
     // try {
-    //   if (isUserDataValid()) {
+    //   if (isUserInfoValid()) {
     //     if (loading) {
-    //       emit(DeliveryAdressInProgress());
+    //       emit(DeliveryAdressOperationsInProgress());
     //     }
     //     final result = await DeliveryAdressProvider.add(
     //         qty: productCount.valueOrNull,
@@ -39,22 +40,83 @@ class DeliveryAdressCubit extends Cubit<DeliveryAdressState> {
     //     bbbb("resoooo: " + result.toString());
     //
     //     if (isSuccess(result?.statusCode)) {
-    //       emit(DeliveryAdressSuccess());
+    //       emit(DeliveryAdressOperationsSuccess());
     //     } else {
-    //       emit(DeliveryAdressError(
+    //       emit(DeliveryAdressOperationsError(
     //           error: MyText.error + " ${result!.statusCode}"));
     //     }
-    //     emit(DeliveryAdressInProgress());
+    //     emit(DeliveryAdressOperationsInProgress());
     //   } else {
-    //     emit(DeliveryAdressError(error: MyText.all_fields_must_be_filled));
+    //     emit(DeliveryAdressOperationsError(
+    //         error: MyText.all_fields_must_be_filled));
     //   }
     // } on SocketException catch (_) {
     //   //network olacaq
-    //   emit(DeliveryAdressError(error: MyText.network_error));
+    //   emit(DeliveryAdressOperationsError(error: MyText.network_error));
     // } catch (e) {
-    //   emit(DeliveryAdressError());
+    //   emit(DeliveryAdressOperationsError());
     // }
-    emit(DeliveryAdressSuccess());
+  }
+
+  void get([bool loading = true]) async {
+    // try {
+    //   if (isUserDataValid()) {
+    //     if (loading) {
+    //       emit(DeliveryAdressOperationsInProgress());
+    //     }
+    //     final result = await DeliveryAdressProvider.add(
+    //         qty: productCount.valueOrNull,
+    //         price: price.valueOrNull,
+    //         link: link.valueOrNull,
+    //         cargo_price: localCargo.valueOrNull,
+    //         detail: note.valueOrNull,
+    //         token: await _prefs.accessToken);
+    //
+    //     bbbb("resoooo: " + result.toString());
+    //
+    //     if (isSuccess(result?.statusCode)) {
+    //       emit(DeliveryAdressOperationsSuccess());
+    //     } else {
+    //       emit(DeliveryAdressOperationsError(
+    //           error: MyText.error + " ${result!.statusCode}"));
+    //     }
+    //     emit(DeliveryAdressOperationsInProgress());
+    //   } else {
+    //     emit(DeliveryAdressOperationsError(
+    //         error: MyText.all_fields_must_be_filled));
+    //   }
+    // } on SocketException catch (_) {
+    //   //network olacaq
+    //   emit(DeliveryAdressOperationsError(error: MyText.network_error));
+    // } catch (e) {
+    //   emit(DeliveryAdressOperationsError());
+    // }
+    emit(DeliveryAdressOperationsSuccess());
+  }
+
+  void edit(BuildContext context, {required LinkOrder order}) async {
+    emit(DeliveryAdressOperationsInProgress());
+    // try {
+    //   final result = await OrderViaLinkProvider.editOrder(
+    //     id: order.id!,
+    //     qty: productCount.valueOrNull,
+    //     price: price.valueOrNull,
+    //     link: link.valueOrNull,
+    //     cargo_price: localCargo.valueOrNull,
+    //     detail: note.valueOrNull,
+    //   );
+    //
+    //   if (isSuccess(result!.statusCode)) {
+    //     emit(DeliveryAdressOperationsEdited());
+    //   } else {
+    //     emit(DeliveryAdressOperationsError(error: MyText.error));
+    //   }
+    // } on SocketException catch (_) {
+    //   emit(DeliveryAdressOperationsError(error: MyText.network_error));
+    // } catch (e) {
+    //   print(e);
+    //   emit(DeliveryAdressOperationsError(error: MyText.error + ": $e"));
+    // }
   }
 
   //--------------------values:-----------------

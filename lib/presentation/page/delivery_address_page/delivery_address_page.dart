@@ -1,6 +1,7 @@
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress/delivery_adress_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress/delivery_adress_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_state.dart';
 import 'package:caspa_v2/presentation/page/delivery_address_page/widgets/modal_with_scroll.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,6 +11,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../util/constants/paddings.dart';
 import '../../../util/delegate/my_printer.dart';
 import '../../../util/delegate/navigate_utils.dart';
+import '../../../util/screen/snack.dart';
 import '../../../widget/general/caspa_loading.dart';
 import '../../../widget/general/cupertino_modal_body.dart';
 import '../../../widget/general/empty_widget.dart';
@@ -30,11 +32,11 @@ class DeliveryAddressPage extends StatelessWidget {
         title: "Çatdırılma ünvanlarım",
         contextA: context,
       ),
-      body: BlocConsumer<DeliveryAdressCubit, DeliveryAdressState>(
+      body: BlocConsumer<DeliveryAddressCubit, DeliveryAdressState>(
         listener: (context, state) {
-          // if (state is PackageDetailsPayError) {
-          //  // Snack.display(context: context, message: state.error);
-          // }
+          if (state is DeliveryAdressDeleted) {
+            Snack.display(context: context, message: MyText.operationIsSuccess);
+          }
           // if (state is PackageDetailsInProgress) {
           //   FullScreenLoading.display(context);
           // } else {
@@ -47,21 +49,24 @@ class DeliveryAddressPage extends StatelessWidget {
           //       context: context, message: MyText.operationIsSuccess);
           // }
         },
-        buildWhen: (context, state) {
-          if (state is DeliveryAdressError) {
-            return false;
-          } else
-            return true;
-        },
+        // buildWhen: (context, state) {
+        //   if (state is DeliveryAdressError) {
+        //     return false;
+        //   } else
+        //     return true;
+        // },
         builder: (context, state) {
+          bbbb("sttttt: $state");
           if (state is DeliveryAdressSuccess) {
+            final deliveryAddress = state.deliveryAddress;
+            final regionList = state.regionList;
             return FadeEdge(
               fadeHeight: 15,
               bottomButton: CurrentAdressButton(),
               child: Padding(
                 padding: Paddings.paddingH16,
                 child: SelectableAddAddressList(
-                  packageList: [1, 2, 3],
+                  deliveryAddress: deliveryAddress,
                   // packageList: state.packages,
                 ),
               ),

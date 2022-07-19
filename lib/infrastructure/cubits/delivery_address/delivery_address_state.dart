@@ -1,3 +1,6 @@
+import '../../models/remote/response/delivery_address_model.dart';
+import '../../models/remote/response/regions_model.dart';
+
 abstract class DeliveryAdressState {}
 
 class DeliveryAdressInitial extends DeliveryAdressState {}
@@ -15,6 +18,9 @@ class DeliveryAdressDeleted extends DeliveryAdressState {}
 class DeliveryAdressEdited extends DeliveryAdressState {}
 
 class DeliveryAdressSuccess extends DeliveryAdressState {
-  // ReportSuccess(this.tarifList);
-  // final List<Tariff>  tarifList;
+  DeliveryAdressSuccess(
+      {required this.deliveryAddress, required this.regionList});
+
+  final List<DeliveryAddress>? deliveryAddress;
+  final List<Region> regionList;
 }

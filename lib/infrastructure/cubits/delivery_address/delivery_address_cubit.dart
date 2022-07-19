@@ -1,9 +1,12 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
+import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -13,48 +16,62 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
+import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
-import 'delivery_adress_state.dart';
+import 'delivery_address_state.dart';
 
-class DeliveryAdressCubit extends Cubit<DeliveryAdressState> {
-  DeliveryAdressCubit() : super(DeliveryAdressInitial());
+class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
+  DeliveryAddressCubit() : super(DeliveryAdressInitial());
 
   HiveService get _prefs => locator<HiveService>();
+  final context = NavigationService.instance.navigationKey?.currentContext;
 
   void get([bool loading = true]) async {
-    // try {
-    //   if (isUserDataValid()) {
-    //     if (loading) {
-    //       emit(DeliveryAdressInProgress());
-    //     }
-    //     final result = await DeliveryAdressProvider.add(
-    //         qty: productCount.valueOrNull,
-    //         price: price.valueOrNull,
-    //         link: link.valueOrNull,
-    //         cargo_price: localCargo.valueOrNull,
-    //         detail: note.valueOrNull,
-    //         token: await _prefs.accessToken);
-    //
-    //     bbbb("resoooo: " + result.toString());
-    //
-    //     if (isSuccess(result?.statusCode)) {
-    //       emit(DeliveryAdressSuccess());
-    //     } else {
-    //       emit(DeliveryAdressError(
-    //           error: MyText.error + " ${result!.statusCode}"));
-    //     }
-    //     emit(DeliveryAdressInProgress());
-    //   } else {
-    //     emit(DeliveryAdressError(error: MyText.all_fields_must_be_filled));
-    //   }
-    // } on SocketException catch (_) {
-    //   //network olacaq
-    //   emit(DeliveryAdressError(error: MyText.network_error));
-    // } catch (e) {
-    //   emit(DeliveryAdressError());
-    // }
-    emit(DeliveryAdressSuccess());
+    try {
+      if (loading) {
+        emit(DeliveryAdressInProgress());
+      }
+      final resultAddress = await DeliveryAdressProvider.getAddresses();
+      final resultRegions = await PublicProvider.getRegions();
+      if (resultAddress != null && isSuccess(resultRegions.statusCode)) {
+        emit(DeliveryAdressSuccess(
+            regionList: resultRegions.data,
+            deliveryAddress: resultAddress.data));
+      } else {
+        emit(DeliveryAdressError(error: MyText.error));
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressError(error: MyText.network_error));
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+      emit(DeliveryAdressError());
+    }
+    // emit(DeliveryAdressSuccess());
+  }
+
+  void delete(int id, [bool loading = true]) async {
+    try {
+      if (loading) {
+        emit(DeliveryAdressInProgress());
+      }
+      final result = await DeliveryAdressProvider.delete(id: id);
+      if (isSuccess(result?.statusCode)) {
+        emit(DeliveryAdressDeleted());
+        Snack.display(context: context, message: MyText.operationIsSuccess);
+      } else {
+        emit(DeliveryAdressError(error: MyText.error));
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressError(error: MyText.network_error));
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+      emit(DeliveryAdressError());
+    }
+    get();
   }
 
   //--------------------values:-----------------

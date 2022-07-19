@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -9,15 +10,22 @@ import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../../../widget/custom/buttons/slidable_action_button.dart';
 import '../../../../widget/custom/order_select_check_indicator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectableAddAddress extends StatelessWidget {
-  Function? onTap;
-  bool selected;
-  int id;
+  final Function? onTap;
+  final bool selected;
+  final int id;
+  final DeliveryAddress deliveryAddress;
 
-  SelectableAddAddress({this.onTap, required this.id, required this.selected});
+  SelectableAddAddress(
+      {this.onTap,
+      required this.id,
+      required this.selected,
+      required this.deliveryAddress});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +46,9 @@ class SelectableAddAddress extends StatelessWidget {
             SlidableActionButton(
               color: MyColors.statusError,
               child: SvgPicture.asset(Assets.svgTrashIcon),
-              onTap: null,
+              onTap: () => context
+                  .read<DeliveryAddressCubit>()
+                  .delete(deliveryAddress.id!),
             ),
           ],
         ),
@@ -59,11 +69,11 @@ class SelectableAddAddress extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         //ySizedBox.h16,
-                        Text("Adress $id",
+                        Text("${deliveryAddress.name}",
                             style:
                                 AppTextStyles.sanF600.copyWith(fontSize: 16)),
                         MySizedBox.h4,
-                        Text("Adress description $id",
+                        Text("${deliveryAddress.address}",
                             style: AppTextStyles.sanF400Grey),
                         // MySizedBox.h16,
                       ],

@@ -11,6 +11,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
+import '../models/remote/response/delivery_address_model.dart';
 
 class DeliveryAdressProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
@@ -75,31 +76,28 @@ class DeliveryAdressProvider {
 
   static Future<StatusDynamic?> delete({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.orderViaLinkDelete;
-    var url = Uri.parse(api);
-    //final headers = ApiKeys.header(token: token);
-    var body = {"id": id};
-    final response = await dioAuth.dio.post(api, data: body);
+    var api = ApiKeys.deleteAddress + "?id=$id";
+    final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       statusDynamic.data = response.data;
     } else {
-      eeee("deleteOrder bad url :$url,response: ${response}");
+      eeee("deleteOrder bad url :$api, response: ${response}");
     }
     return statusDynamic;
   }
 
-  static Future<LinkOrderResponse> getOrders() async {
-    late LinkOrderResponse attorneyListModel;
-    const api = ApiKeys.orderViaLink;
+  static Future<DeliveryAdressResponse?> getAddresses() async {
+    DeliveryAdressResponse? deliveryAdressResponse;
+    const api = ApiKeys.addresses;
     var url = Uri.parse(api);
     final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      attorneyListModel = LinkOrderResponse.fromJson(gelenCavabJson);
+      deliveryAdressResponse = DeliveryAdressResponse.fromJson(gelenCavabJson);
     } else {
       eeee("getOrders bad url :$url,response: $response");
     }
-    return attorneyListModel;
+    return deliveryAdressResponse;
   }
 }

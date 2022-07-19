@@ -8,7 +8,7 @@ import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress/delivery_adress_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
@@ -329,8 +329,11 @@ class Pager {
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [
+        // BlocProvider(
+        //   create: (contex) => DeliveryAddressCubit()..get(),
+        // ),
         BlocProvider.value(
-          value: DeliveryAdressCubit()..get(),
+          value: DeliveryAddressCubit()..get(),
         ),
         BlocProvider(create: (context) => PackageDetailsCubit()),
       ], child: DeliveryAddressPage());

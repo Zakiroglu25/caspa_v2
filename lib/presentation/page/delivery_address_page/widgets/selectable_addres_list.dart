@@ -2,17 +2,21 @@ import 'package:caspa_v2/presentation/page/delivery_address_page/widgets/add_new
 import 'package:caspa_v2/presentation/page/delivery_address_page/widgets/selectable_add_address.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import '../../../../infrastructure/models/remote/response/delivery_address_model.dart';
+import '../../../../infrastructure/models/remote/response/regions_model.dart';
 
 class SelectableAddAddressList extends StatelessWidget {
   //final List<int> deliveryAddress;
-  List<DeliveryAddress>? deliveryAddress;
+  final List<DeliveryAddress>? deliveryAddress;
+  final List<Region> regions;
   SelectableAddAddressList({
     required this.deliveryAddress,
+    required this.regions,
   });
 
   @override
@@ -42,7 +46,10 @@ class SelectableAddAddressList extends StatelessWidget {
             return SizedBox();
           },
         ),
-        AddNewAdressButton()
+        AddNewAdressButton(
+          regions: regions,
+        ),
+        MySizedBox.h100
       ],
     );
   }

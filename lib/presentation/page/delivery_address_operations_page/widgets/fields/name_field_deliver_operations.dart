@@ -6,25 +6,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../util/constants/text.dart';
 import '../../../../../widget/general/caspa_field.dart';
 
-class DetailsFieldDeliverOperations extends StatelessWidget {
+class NameFieldDeliverOperations extends StatelessWidget {
   final TextEditingController? controller;
 
-  DetailsFieldDeliverOperations(
+  NameFieldDeliverOperations(
       {this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
-    // if (controller!.text != '' && controller!.text != 'null')
-    //   BlocProvider.of<DeliveryAdressOperationsCubit>(context)
-    //       .updateDetails(controller!.text);
+    if (controller!.text != '' && controller!.text != 'null')
+      BlocProvider.of<DeliveryAdressOperationsCubit>(context)
+          .updateName(controller!.text);
 
     return StreamBuilder<String>(
       stream:
-          BlocProvider.of<DeliveryAdressOperationsCubit>(context).detailsStream,
+          BlocProvider.of<DeliveryAdressOperationsCubit>(context).nameStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.enterTheDetails,
+          title: MyText.name,
           maxLines: 1,
-          hint: MyText.aptOfficeFloor,
+          hint: MyText.myHomeOrWork,
           upperCase: true,
           textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,
@@ -32,7 +32,7 @@ class DetailsFieldDeliverOperations extends StatelessWidget {
           controller: controller,
           onChanged: (value) =>
               BlocProvider.of<DeliveryAdressOperationsCubit>(context)
-                  .updateDetails(value),
+                  .updateName(value),
         );
       },
     );

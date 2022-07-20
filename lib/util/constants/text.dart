@@ -168,6 +168,7 @@ class MyText {
   static const String save = "Yadda saxla";
   static const String own_cabinet = "Şəxsi kabinet";
   static const String adress = "Ünvan";
+  static const String myHomeOrWork = "Evim, İş yerim";
   static const String enterTheDetails = "Enter the details";
   static const String instructionForTheCourier = "Instruction for the courier";
   static const String aptPasswordIs25K = "apt password is 25K";

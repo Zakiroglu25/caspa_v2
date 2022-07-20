@@ -7,6 +7,7 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:focus_detector/focus_detector.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../util/constants/paddings.dart';
 import '../../../util/delegate/my_printer.dart';
@@ -32,51 +33,60 @@ class DeliveryAddressPage extends StatelessWidget {
         title: "Çatdırılma ünvanlarım",
         contextA: context,
       ),
-      body: BlocConsumer<DeliveryAddressCubit, DeliveryAdressState>(
-        listener: (context, state) {
-          if (state is DeliveryAdressDeleted) {
-            Snack.display(context: context, message: MyText.operationIsSuccess);
-          }
-          // if (state is PackageDetailsInProgress) {
-          //   FullScreenLoading.display(context);
-          // } else {
-          //   FullScreenLoading.hide(context);
-          // }
-          // if (state is PackageDetailsPaid) {
-          //   //Go.pop(context);
-          //   context.read<SelectPackagesPayCubit>()..fetchActiveUnpaid();
-          //   Snack.positive(
-          //       context: context, message: MyText.operationIsSuccess);
-          // }
+      body: FocusDetector(
+        onVisibilityGained: () {
+          bbbb("sttttt innkk: ");
+          context.read<DeliveryAddressCubit>().get();
         },
-        // buildWhen: (context, state) {
-        //   if (state is DeliveryAdressError) {
-        //     return false;
-        //   } else
-        //     return true;
-        // },
-        builder: (context, state) {
-          bbbb("sttttt: $state");
-          if (state is DeliveryAdressSuccess) {
-            final deliveryAddress = state.deliveryAddress;
-            final regionList = state.regionList;
-            return FadeEdge(
-              fadeHeight: 15,
-              bottomButton: CurrentAdressButton(),
-              child: Padding(
-                padding: Paddings.paddingH16,
-                child: SelectableAddAddressList(
-                  deliveryAddress: deliveryAddress,
-                  // packageList: state.packages,
+        child: BlocConsumer<DeliveryAddressCubit, DeliveryAdressState>(
+          listener: (contextK, state) {
+            bbbb("sttttt inn: $state");
+            if (state is DeliveryAdressSuccess) {
+              Snack.positive(
+                  context: context, message: MyText.operationIsSuccess);
+            }
+            // if (state is PackageDetailsInProgress) {
+            //   FullScreenLoading.display(context);
+            // } else {
+            //   FullScreenLoading.hide(context);
+            // }
+            // if (state is PackageDetailsPaid) {
+            //   //Go.pop(context);
+            //   context.read<SelectPackagesPayCubit>()..fetchActiveUnpaid();
+            //   Snack.positive(
+            //       context: context, message: MyText.operationIsSuccess);
+            // }
+          },
+          // buildWhen: (context, state) {
+          //   if (state is DeliveryAdressError) {
+          //     return false;
+          //   } else
+          //     return true;
+          // },
+          builder: (context, state) {
+            bbbb("sttttt: $state");
+            if (state is DeliveryAdressSuccess) {
+              final deliveryAddress = state.deliveryAddress;
+              final regionList = state.regionList;
+              return FadeEdge(
+                fadeHeight: 15,
+                bottomButton: CurrentAdressButton(),
+                child: Padding(
+                  padding: Paddings.paddingH16,
+                  child: SelectableAddAddressList(
+                    regions: regionList,
+                    deliveryAddress: deliveryAddress,
+                    // packageList: state.packages,
+                  ),
                 ),
-              ),
-            );
-          } else if (state is DeliveryAdressInProgress) {
-            return CaspaLoading();
-          } else {
-            return EmptyWidget();
-          }
-        },
+              );
+            } else if (state is DeliveryAdressInProgress) {
+              return CaspaLoading();
+            } else {
+              return EmptyWidget();
+            }
+          },
+        ),
       ),
     ));
   }

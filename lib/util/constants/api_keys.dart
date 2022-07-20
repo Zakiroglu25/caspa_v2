@@ -50,7 +50,7 @@ class ApiKeys {
   static const addresses = '$baseUrl/user/addresses';
   static const editAddresses = '$baseUrl/user/address/edit';
   static const deleteAddress = '$baseUrl/user/address/delete';
-  static const addAddresses = '$baseUrl/user/address/add';
+  static const addAddress = '$baseUrl/user/address/add';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -168,6 +168,27 @@ class ApiKeys {
       "price": price,
       "cargo_price": cargo_price,
       "detail": detail,
+    };
+
+    map.removeWhere(
+        (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+
+  static addressBody({
+    required int? id,
+    required int? region,
+    required String name,
+    required String phone,
+    required String address,
+  }) {
+    //
+    final map = {
+      "id": id,
+      "region": region,
+      "phone": phone,
+      "address": address,
+      "name": name,
     };
 
     map.removeWhere(

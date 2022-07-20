@@ -60,7 +60,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       final result = await DeliveryAdressProvider.delete(id: id);
       if (isSuccess(result?.statusCode)) {
         emit(DeliveryAdressDeleted());
-        Snack.display(context: context, message: MyText.operationIsSuccess);
+        // Snack.display(context: context, message: MyText.operationIsSuccess);
       } else {
         emit(DeliveryAdressError(error: MyText.error));
       }

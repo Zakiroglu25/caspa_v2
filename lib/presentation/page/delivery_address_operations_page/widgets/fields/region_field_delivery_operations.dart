@@ -50,9 +50,6 @@ class RegionFieldDeliveryOperations extends StatelessWidget {
   }
 
   showSheet(BuildContext context, List<Region>? regionsList) {
-    // categories != null
-    //     ? showSheet(context, categories)
-    //     : Snack.display(context: context,message: MyText.none_category_is_found),
     if (regionsList != null && regionsList.length != 0) {
       List<Region> regions = regionsList;
       final sH = MediaQuery.of(context).size.height - 56 - 90;

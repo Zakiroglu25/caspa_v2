@@ -18,4 +18,8 @@ class DeliveryAdressOperationsEdited extends DeliveryAdressOperationsState {}
 class DeliveryAdressOperationsSuccess extends DeliveryAdressOperationsState {
   // ReportSuccess(this.tarifList);
   // final List<Tariff>  tarifList;
+
+  final int? id;
+
+  DeliveryAdressOperationsSuccess({this.id});
 }

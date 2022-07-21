@@ -86,6 +86,7 @@ class MyText {
   static const String hot_contact = "Qaynar xətt";
   static const String serie = "Seriya";
   static const String delivery_adress = "Çatdırılma ünvanı";
+  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
   static const String general_info = "Ümumi məlumat";
 
   //order success
@@ -390,6 +391,8 @@ class MyText {
   static const String currentAdress = "Mövcüd ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
+  static const String emptyDeliveryAddressDesc =
+      "Hal-hazırda sənin çatdırılacaq ünvanların qeyd olunmayıb. Yeni ünvan əlavə et.";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

@@ -78,6 +78,7 @@ import '../../infrastructure/cubits/delivery_adress_operations/delivery_adress_o
 import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
+import '../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
@@ -335,11 +336,13 @@ class Pager {
         ),
       ], child: DeliveryAddressPage());
 
-  static deliveryAddressOperations({required List<Region> regions}) =>
+  static deliveryAddressOperations(
+          {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
       MultiBlocProvider(
           providers: [
             BlocProvider.value(
-              value: DeliveryAdressOperationsCubit()..get(),
+              value: DeliveryAdressOperationsCubit()
+                ..get(deliveryAddress: deliveryAddress),
             ),
           ],
           child: DeliveryAddressOperationsPage(

@@ -1,6 +1,4 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -11,19 +9,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../infrastructure/models/remote/response/delivery_address_model.dart';
+import '../../../../infrastructure/models/remote/response/regions_model.dart';
 import '../../../../widget/custom/buttons/slidable_action_button.dart';
 import '../../../../widget/custom/order_select_check_indicator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SelectableAddAddress extends StatelessWidget {
+class DeliveryAddressElement extends StatelessWidget {
   final Function? onTap;
   final bool selected;
   final int id;
   final DeliveryAddress deliveryAddress;
-
-  SelectableAddAddress(
+  final List<Region> regions;
+  DeliveryAddressElement(
       {this.onTap,
       required this.id,
+      required this.regions,
       required this.selected,
       required this.deliveryAddress});
 
@@ -40,7 +40,10 @@ class SelectableAddAddress extends StatelessWidget {
             SlidableActionButton(
               color: MyColors.mainOpacity,
               child: SvgPicture.asset(Assets.svgEditIcon),
-              onTap: null,
+              onTap: () => context.read<DeliveryAddressCubit>().goToAddPage(
+                  context: context,
+                  regions: regions,
+                  deliveryAddress: deliveryAddress),
             ),
             MySizedBox.w12,
             SlidableActionButton(

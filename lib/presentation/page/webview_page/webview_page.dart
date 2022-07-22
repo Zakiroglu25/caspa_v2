@@ -305,7 +305,7 @@ class _WebviewPageState extends State<WebviewPage> {
 //     extends State<ChromeSafariBrowserExampleScreen> {
 //   @override
 //   void initState() {
-//     widget.browser.addMenuItem(ChromeSafariBrowserMenuItem(
+//     widgets.browser.addMenuItem(ChromeSafariBrowserMenuItem(
 //         id: 1,
 //         label: 'Custom item menu 1',
 //         action: (url, title) {
@@ -313,7 +313,7 @@ class _WebviewPageState extends State<WebviewPage> {
 //           print(url);
 //           print(title);
 //         }));
-//     widget.browser.addMenuItem(ChromeSafariBrowserMenuItem(
+//     widgets.browser.addMenuItem(ChromeSafariBrowserMenuItem(
 //         id: 2,
 //         label: 'Custom item menu 2',
 //         action: (url, title) {
@@ -335,7 +335,7 @@ class _WebviewPageState extends State<WebviewPage> {
 //         body: Center(
 //           child: ElevatedButton(
 //               onPressed: () async {
-//                 await widget.browser.open(
+//                 await widgets.browser.open(
 //                     url: Uri.parse("https://flutter.dev/"),
 //                     options: ChromeSafariBrowserClassOptions(
 //                         android: AndroidChromeCustomTabsOptions(

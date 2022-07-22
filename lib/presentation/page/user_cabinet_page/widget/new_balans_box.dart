@@ -63,25 +63,28 @@ class NewBalanceBox extends StatelessWidget {
             ),
           ),
           MySizedBox.w16,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title!,
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 14.sp, color: MyColors.black34)),
-              MySizedBox.h4,
-              Text(subtitle!,
-                  style: AppTextStyles.sanF600
-                      .copyWith(fontSize: 14.sp, color: subtitleColor!)),
-              MySizedBox.h4,
-              SizedBox(
-                  width: 175,
-                  child: Text(
-                    desc!,
-                    style: AppTextStyles.sanF400.copyWith(fontSize: 12.sp,color: MyColors.grey153),
-                  )),
-            ],
+          Flexible(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 14.sp, color: MyColors.black34)),
+                MySizedBox.h4,
+                Text(subtitle!,
+                    style: AppTextStyles.sanF600
+                        .copyWith(fontSize: 14.sp, color: subtitleColor!)),
+                MySizedBox.h4,
+                Text(
+                  desc!,
+                  style: AppTextStyles.sanF400
+                      .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+                ),
+              ],
+            ),
           ),
+          MySizedBox.w8
         ],
       ),
     );

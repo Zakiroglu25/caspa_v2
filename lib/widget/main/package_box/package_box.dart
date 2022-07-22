@@ -30,7 +30,7 @@ class PackageBox extends StatelessWidget {
 
   PackageBox({required this.package, this.w, this.index});
 
-  CustomPopupMenuController _controller = CustomPopupMenuController();
+  final CustomPopupMenuController _controller = CustomPopupMenuController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,21 +69,21 @@ class PackageBox extends StatelessWidget {
                     children: [
                       SvgPicture.asset(Assets.svgShop),
                       MySizedBox.w8,
-                      if(package.payment == 1)
-                      Container(
-                        width: 64.w,
-                        height: 24.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            color: MyColors.black34),
-                        child: Center(
-                          child: Text(
-                            "Ödənilib",
-                            style: AppTextStyles.sanF400.copyWith(
-                                color: MyColors.white, fontSize: 12.sp),
+                      if (package.payment == 1)
+                        Container(
+                          width: 64.w,
+                          height: 24.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: MyColors.black34),
+                          child: Center(
+                            child: Text(
+                              "Ödənilib",
+                              style: AppTextStyles.sanF400.copyWith(
+                                  color: MyColors.white, fontSize: 12.sp),
+                            ),
                           ),
                         ),
-                      ),
                     ],
                   ),
                   MySizedBox.h10,
@@ -110,6 +110,7 @@ class PackageBox extends StatelessWidget {
             ),
           ),
           DotsButton(
+            key: Key("${package.id}"),
             package: package,
             controller: _controller,
           )

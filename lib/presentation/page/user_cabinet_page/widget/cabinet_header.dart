@@ -31,56 +31,56 @@ class CabinetHeaderWidget extends StatelessWidget {
           UserName(),
           MySizedBox.h16,
           UserID(),
-          MySizedBox.h16,
-          CupertinoContextMenu(
-            actions: [
-              CupertinoContextMenuAction(
-                onPressed: (){
-                  Navigator.pop(context);
-                },
-                isDefaultAction: true,
-                child: SizedBox(
-                  width:300,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Yeni profil əlavə et",
-                        style:
-                        AppTextStyles.sanF500.copyWith(
-                            color: MyColors.black34, fontSize: 14.sp),
-                      ),
-                      Icon(Icons.add)
-                    ],
-                  ),
-                )
-              )
-            ],
-            child: Container(
-              width: 160,
-              height: 44,
-              decoration: BoxDecoration(
-                color: MyColors.black34,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(
-                    Assets.svgUser,
-                    color: MyColors.white,
-                  ),
-                  MySizedBox.w12,
-                  Text(
-                    "Profili dəyiş" + "(2)",
-                    style:
-                        AppTextStyles.sanF500.copyWith(color: MyColors.white,fontSize: 14.sp),
-                  ),
-                ],
-              ),
-            ),
-          )
+          ///user elave et buttonu
+          // CupertinoContextMenu(
+          //   actions: [
+          //     CupertinoContextMenuAction(
+          //       onPressed: (){
+          //         Navigator.pop(context);
+          //       },
+          //       isDefaultAction: true,
+          //       child: SizedBox(
+          //         width:300,
+          //         child: Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //           crossAxisAlignment: CrossAxisAlignment.center,
+          //           children: [
+          //             Text(
+          //               "Yeni profil əlavə et",
+          //               style:
+          //               AppTextStyles.sanF500.copyWith(
+          //                   color: MyColors.black34, fontSize: 14.sp),
+          //             ),
+          //             Icon(Icons.add)
+          //           ],
+          //         ),
+          //       )
+          //     )
+          //   ],
+          //   child: Container(
+          //     width: 160,
+          //     height: 44,
+          //     decoration: BoxDecoration(
+          //       color: MyColors.black34,
+          //       borderRadius: BorderRadius.circular(12),
+          //     ),
+          //     child: Row(
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         SvgPicture.asset(
+          //           Assets.svgUser,
+          //           color: MyColors.white,
+          //         ),
+          //         MySizedBox.w12,
+          //         Text(
+          //           "Profili dəyiş" + "(2)",
+          //           style:
+          //               AppTextStyles.sanF500.copyWith(color: MyColors.white,fontSize: 14.sp),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

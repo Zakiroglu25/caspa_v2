@@ -52,6 +52,7 @@ class MyText {
   static const String code = 'Kod';
   static const String codeHasSent = 'Kod sizin e-poçt ünvanınıza göndərildi.';
   static const String send = 'Göndər';
+  static const String searchX = 'Axtar 🔍';
   static const String ok = 'OK';
   static const String reject = 'İmtina';
 
@@ -167,6 +168,10 @@ class MyText {
   static const String save = "Yadda saxla";
   static const String own_cabinet = "Şəxsi kabinet";
   static const String adress = "Ünvan";
+  static const String enterTheDetails = "Enter the details";
+  static const String instructionForTheCourier = "Instruction for the courier";
+  static const String aptPasswordIs25K = "apt password is 25K";
+  static const String aptOfficeFloor = "Apt/Office/Floor";
   static const String adresses = '''Ünvanlar''';
   static const String other = '''Digər''';
   static const String warehouse = "Anbar";
@@ -378,6 +383,12 @@ class MyText {
   static const String totalPayX = "Toplam ödə";
   static const String emptyButton = "Bağlama sifariş et";
   static const String emptyTitle = "Bura boşdur";
+  static const String removePackage = "Bağlamanı sil";
+
+  //deliver adress page
+  static const String currentAdress = "Mövcüd ünvan";
+  static const String addNewAdressX = "+ Yeni ünvan əlavə et";
+  static const String addNewAdress = "Yeni ünvan əlavə et";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

@@ -46,6 +46,12 @@ class ApiKeys {
   static const packagesArchive = '$baseUrl/user/package/archive';
   static const packagesActives = '$baseUrl/user/package/actives';
 
+  //adress
+  static const addresses = '$baseUrl/user/addresses';
+  static const editAddresses = '$baseUrl/user/address/edit';
+  static const deleteAddress = '$baseUrl/user/address/delete';
+  static const addAddresses = '$baseUrl/user/address/add';
+
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
   static const youtube = "https://youtube.com/";

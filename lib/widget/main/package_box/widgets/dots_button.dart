@@ -1,4 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 import 'package:flutter/material.dart';
@@ -12,19 +14,37 @@ import '../../../../util/constants/assets.dart';
 import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/paddings.dart';
 
-class DotsButton extends StatelessWidget {
+class DotsButton extends StatefulWidget {
   const DotsButton({Key? key, required this.package, required this.controller})
       : super(key: key);
   final Package package;
   final CustomPopupMenuController controller;
+
+  @override
+  State<DotsButton> createState() => _DotsButtonState();
+}
+
+class _DotsButtonState extends State<DotsButton> {
+  late CustomPopupMenuController _controller;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = CustomPopupMenuController();
+    // _controller.addListener(() {
+    //   eeee("is showinng: ${_controller.menuIsShowing}");
+    //   eeee("is has listeners: ${_controller.hasListeners}");
+    // });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
       top: 21.sp,
       right: 0.sp,
       child: WidgetOrEmpty(
-        value: package.customStatus == "Təhvil verilib" ||
-            package.customStatus == "Kuryer ilə Təhvil",
+        value: widget.package.customStatus == MyText.stGave ||
+            widget.package.customStatus == MyText.stGaveByCourier,
         elseChild: Container(),
         child: CustomPopupMenu(
           arrowSize: 15,
@@ -47,9 +67,10 @@ class DotsButton extends StatelessWidget {
 
           menuBuilder: () => InkWell(
             onTap: () {
-              controller.hideMenu();
-              context.read<PackageStatusesCubit>()
-                  .delete(context: context, id: package.id, loading: false);
+              _controller.hideMenu();
+              //      bbbb("ssss");
+              context.read<PackageStatusesCubit>().delete(
+                  context: context, id: widget.package.id, loading: false);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -63,7 +84,7 @@ class DotsButton extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Center(
                   child: Text(
-                    "Baglamani sil",
+                    MyText.removePackage,
                     style: AppTextStyles.sanF400
                         .copyWith(color: MyColors.white, fontSize: 14.sp),
                   ),
@@ -75,7 +96,7 @@ class DotsButton extends StatelessWidget {
 
           ///mesafe
           verticalMargin: -5,
-          controller: controller,
+          controller: _controller,
         ),
       ),
     );

@@ -8,6 +8,7 @@ import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/gift_balance/gift_balance_cubit.dart';
@@ -30,7 +31,6 @@ import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_mod
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/presentation/page/add_address_page/add_address_page.dart';
 import 'package:caspa_v2/presentation/page/add_balane_page/add_balance_page.dart';
 import 'package:caspa_v2/presentation/page/add_or_edit_attorney_page/add_or_edit_etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
@@ -41,6 +41,7 @@ import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart'
 import 'package:caspa_v2/presentation/page/courier_list_page/courier_list_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
+import 'package:caspa_v2/presentation/page/delivery_address_page/delivery_address_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
@@ -326,13 +327,16 @@ class Pager {
         )
       ], child: const ShopPage());
 
-  static addAddress({CourierOrder? courierOrder}) =>
+  static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [
+        // BlocProvider(
+        //   create: (contex) => DeliveryAddressCubit()..get(),
+        // ),
         BlocProvider.value(
-          value: SelectPackagesPayCubit()..fetchActiveUnpaid(),
+          value: DeliveryAddressCubit()..get(),
         ),
         BlocProvider(create: (context) => PackageDetailsCubit()),
-      ], child: AddAddressPage());
+      ], child: DeliveryAddressPage());
 
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(

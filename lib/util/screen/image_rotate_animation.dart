@@ -17,8 +17,6 @@ class _ImageAnimateRotateState extends State<ImageAnimateRotate>
     with TickerProviderStateMixin {
   late final AnimationController _controller;
 
-
-
   @override
   void initState() {
     super.initState();
@@ -27,20 +25,15 @@ class _ImageAnimateRotateState extends State<ImageAnimateRotate>
         duration: Duration(milliseconds: 1000),
         upperBound: indexValueNotifier.value / 4,
         lowerBound: (indexValueNotifier.value - 1) / 4);
-      //..forward(from: (widget.index - 1) / 4);
+    //..forward(from: (widgets.index - 1) / 4);
 
-indexValueNotifier.addListener(() {
-
-
-    forwardAnimation();
-
-});
+    indexValueNotifier.addListener(() {
+      forwardAnimation();
+    });
   }
 
-  void forwardAnimation(){
-
-    _controller
-      .forward(from: (indexValueNotifier.value- 1) / 4);
+  void forwardAnimation() {
+    _controller.forward(from: (indexValueNotifier.value - 1) / 4);
   }
 
   @override

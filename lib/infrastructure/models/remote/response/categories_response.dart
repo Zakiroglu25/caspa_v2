@@ -101,6 +101,7 @@ class SubCategory {
 
   @override
   String toString() {
-    return 'Children{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, parentId: $parentId, goodsId: $goodsId}';
+    //return 'Children{id: $id,  name: $name, parentId: $parentId, goodsId: $goodsId}';
+    return 'Children{id: $id,  name: $name, parentId: $parentId, goodsId: $goodsId}\n';
   }
 }

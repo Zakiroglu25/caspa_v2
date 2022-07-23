@@ -90,6 +90,8 @@ import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../presentation/page/calculate_page/calculate_page.dart';
 
 class Pager {
+  Pager._();
+
   static get home => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: TarifCubit()..fetch(),
@@ -180,7 +182,10 @@ class Pager {
           providers: [
             BlocProvider.value(
               value: CourierCubit()..fetchPackagesForCourier(),
-            )
+            ),
+            BlocProvider(
+              create: (BuildContext context) => DeliveryAddressCubit()..get(),
+            ),
           ],
           child: CourierPage(
             courierOrder: courierOrder,
@@ -330,8 +335,7 @@ class Pager {
         )
       ], child: const ShopPage());
 
-  static deliveryAddress({CourierOrder? courierOrder}) =>
-      MultiBlocProvider(providers: [
+  static deliveryAddress() => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: DeliveryAddressCubit()..get(),
         ),
@@ -420,14 +424,6 @@ class Pager {
       child: AddOrEditEtibarnamePage(
         attorney: attorney,
       ));
-
-  static editCourier({CourierOrder? courierOrder, Package? package}) =>
-      BlocProvider(
-          create: (context) => CourierCubit(),
-          child: CourierPage(
-            courierOrder: courierOrder,
-            package: package,
-          ));
 
   static paymentPage({required PaymentBalanceType paymentBalanceType}) =>
       BlocProvider(

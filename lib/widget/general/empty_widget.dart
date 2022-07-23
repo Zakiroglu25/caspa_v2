@@ -29,7 +29,8 @@ class EmptyWidget extends StatelessWidget {
         height: h,
         padding: Paddings.paddingA12,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment:
+              h != null ? MainAxisAlignment.end : MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(

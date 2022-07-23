@@ -85,8 +85,6 @@ class MyText {
   static const String c1453 = "*1453";
   static const String hot_contact = "Qaynar xətt";
   static const String serie = "Seriya";
-  static const String delivery_adress = "Çatdırılma ünvanı";
-  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
   static const String general_info = "Ümumi məlumat";
 
   //order success
@@ -100,8 +98,6 @@ class MyText {
 
   //courier
   static const String therIsYourData = "Sizin məlumatlarınız bizdə var 😊";
-  static const String deliveryInfo = "Çatdırılma məlumatları";
-  static const String deliveryPrice = "Çatdırılma xidməti";
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
@@ -388,6 +384,12 @@ class MyText {
   static const String removePackage = "Bağlamanı sil";
 
   //delivery adress page
+  static const String delivery_adress = "Çatdırılma ünvanı";
+  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
+  static const String deliveryInfo = "Çatdırılma məlumatları";
+  static const String deliveryPrice = "Çatdırılma xidməti";
+  static const String selectedAddress = "Seçilmiş ünvan";
+  static const String selectAddress = "Çatdırılma üçün ünvan seç";
   static const String currentAdress = "Mövcud ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";

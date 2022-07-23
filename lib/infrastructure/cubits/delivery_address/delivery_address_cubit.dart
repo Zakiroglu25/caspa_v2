@@ -9,6 +9,7 @@ import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/courier_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
@@ -43,7 +44,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
       if (resultAddress != null && isSuccess(resultRegions.statusCode)) {
         regionList = resultRegions.data;
         final List<DeliveryAddress>? addresses = resultAddress.data;
-        determineSelecteAddress(addresses: addresses);
+        determineSelectedAddress(addresses: addresses);
         emit(DeliveryAdressSuccess(
             regionList: regionList, deliveryAddress: addresses));
       } else {
@@ -59,22 +60,18 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
     // emit(DeliveryAdressSuccess());
   }
 
-  void setAdress(
+  void setAddress(
       {bool loading = true, required DeliveryAddress address}) async {
-    try {
-      await _prefs.persistAddress(address: address);
-    } catch (e, s) {
-      Recorder.recordCatchError(e, s);
-    }
+    await _prefs.persistAddress(address: address);
   }
 
-  void determineSelecteAddress(
+  void determineSelectedAddress(
       {required List<DeliveryAddress>? addresses}) async {
     try {
       final selected =
-          addresses?.where((element) => element.id == _prefs.address.id);
-      if (selected != null && selected.isNotEmpty) {
-        updateSelectedAdressId(selected.first);
+          CourierOperations.determineSelecteAddress(addresses: addresses);
+      if (selected != null) {
+        updateSelectedAdressId(selected);
       }
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
@@ -136,7 +133,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
       selectedAdressId.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
-      setAdress(address: address);
+      setAddress(address: address);
       selectedAdressId.sink.add(address.id);
     }
   }

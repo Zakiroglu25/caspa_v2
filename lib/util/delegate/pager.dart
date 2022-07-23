@@ -74,7 +74,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
 import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
-import '../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
+import '../../infrastructure/cubits/delivery_address_current/delivery_address_current_cubit.dart';
+import '../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
@@ -333,6 +334,9 @@ class Pager {
       MultiBlocProvider(providers: [
         BlocProvider.value(
           value: DeliveryAddressCubit()..get(),
+        ),
+        BlocProvider(
+          create: (context) => DeliveryAddressCurrentCubit()..get(),
         ),
       ], child: DeliveryAddressPage());
 

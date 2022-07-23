@@ -93,6 +93,10 @@ dependencies:
   geocoding: ^2.0.4
   flutter_polyline_points: ^1.0.0
   geolocator: ^8.2.1
+  geocoder2: ^1.1.2
+
+  geocode: ^1.0.1
+  location:
 
   #pdf
   flutter_cached_pdfview: ^0.4.1

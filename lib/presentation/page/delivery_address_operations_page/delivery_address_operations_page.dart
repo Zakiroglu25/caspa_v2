@@ -3,13 +3,13 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
-import '../../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_state.dart';
+import '../../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
+import '../../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_state.dart';
 import '../../../util/delegate/navigate_utils.dart';
 import 'widgets/delivery_address_operations_fields.dart';
 import 'widgets/delivery_address_operations_title.dart';
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_state.dart';
-import '../../../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_address_operations_state.dart';
+import '../../../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../../../infrastructure/models/remote/response/regions_model.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 

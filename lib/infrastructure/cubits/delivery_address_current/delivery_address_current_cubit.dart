@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/delivery_address_model.dart';
@@ -16,6 +17,8 @@ import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
@@ -24,83 +27,102 @@ import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
-import 'delivery_address_state.dart';
+import 'delivery_address_current_state.dart';
 
-class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
-  DeliveryAddressCubit() : super(DeliveryAdressInitial());
+class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
+  DeliveryAddressCurrentCubit() : super(DeliveryAdressCurrentInitial());
 
   HiveService get _prefs => locator<HiveService>();
   final context = NavigationService.instance.navigationKey?.currentContext;
-  List<Region> regionList = [];
+
+  String? coordinates;
+  String? address;
+  String? regionTitle;
 
   void get([bool loading = true]) async {
+    emit(DeliveryAdressCurrentInProgress());
     try {
       if (loading) {
-        emit(DeliveryAdressInProgress());
+        emit(DeliveryAdressCurrentInProgress());
       }
-      final resultAddress = await DeliveryAdressProvider.getAddresses();
-      final resultRegions = await PublicProvider.getRegions();
-      if (resultAddress != null && isSuccess(resultRegions.statusCode)) {
-        regionList = resultRegions.data;
-        final List<DeliveryAddress>? addresses = resultAddress.data;
-        determineSelecteAddress(addresses: addresses);
-        emit(DeliveryAdressSuccess(
-            regionList: regionList, deliveryAddress: addresses));
+      final position = await _determinePosition();
+
+      final lat = position.latitude;
+      final long = position.longitude;
+      final _location = "$lat , $long";
+      List<Placemark> addresses = await placemarkFromCoordinates(lat, long);
+
+      var first = addresses.first;
+      print("nname: ${first.name} :administrativeArea:  ${first}");
+      if (first != null) {
+        final _address = (first.thoroughfare == null ||
+                first.thoroughfare == '')
+            ? '${first.subAdministrativeArea}'
+            : '${first.subAdministrativeArea}, ${first.subLocality}, ${first.thoroughfare} ${first.subThoroughfare}';
+
+        address = _address;
+        regionTitle = first.subAdministrativeArea;
+        coordinates = _location;
+
+        emit(DeliveryAdressCurrentSuccess(
+            location: _location, address: _address));
       } else {
-        emit(DeliveryAdressError(error: MyText.error));
+        emit(DeliveryAdressCurrentError(error: MyText.error));
       }
     } on SocketException catch (_) {
       //network olacaq
-      emit(DeliveryAdressError(error: MyText.network_error));
+      emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      emit(DeliveryAdressError());
+      // emit(DeliveryAdressCurrentError());
     }
     // emit(DeliveryAdressSuccess());
   }
 
-  void setAdress(
-      {bool loading = true, required DeliveryAddress address}) async {
-    try {
-      await _prefs.persistAddress(address: address);
-    } catch (e, s) {
-      Recorder.recordCatchError(e, s);
-    }
-  }
-
-  void determineSelecteAddress(
-      {required List<DeliveryAddress>? addresses}) async {
-    try {
-      final selected =
-          addresses?.where((element) => element.id == _prefs.address.id);
-      if (selected != null && selected.isNotEmpty) {
-        updateSelectedAdressId(selected.first);
-      }
-    } catch (e, s) {
-      Recorder.recordCatchError(e, s);
-    }
-  }
-
-  void delete(int id, [bool loading = true]) async {
+  void add(BuildContext context, {bool loading = true}) async {
     try {
       if (loading) {
-        emit(DeliveryAdressInProgress());
+        emit(DeliveryAdressCurrentInProgress());
       }
-      final result = await DeliveryAdressProvider.delete(id: id);
+
+      if (regionTitle == null || coordinates == null) {
+        return;
+      }
+      final regionList = context.read<DeliveryAddressCubit>().regionList;
+      final region =
+          declareRedionId(region: regionTitle!, regionList: regionList);
+      final result = await DeliveryAdressProvider.add(
+          region: region,
+          name: address ?? '',
+          phone: _prefs.user.phone!,
+          address: "${address ?? ''} | $coordinates");
+
       if (isSuccess(result?.statusCode)) {
-        emit(DeliveryAdressDeleted());
-        // Snack.display(context: context, message: MyText.operationIsSuccess);
-      } else {
-        emit(DeliveryAdressError(error: MyText.error));
+        emit(DeliveryAdressCurrentAdded());
       }
+      emit(DeliveryAdressCurrentSuccess(
+          location: coordinates!, address: address!));
+      // emit(DeliveryAdressOperationsInProgress());
+
     } on SocketException catch (_) {
       //network olacaq
-      emit(DeliveryAdressError(error: MyText.network_error));
-    } catch (e, s) {
-      Recorder.recordCatchError(e, s);
-      emit(DeliveryAdressError());
+      emit(DeliveryAdressCurrentError(error: MyText.network_error));
+    } catch (e) {
+      emit(DeliveryAdressCurrentError());
     }
-    get();
+  }
+
+  int declareRedionId({
+    required String region,
+    required List<Region> regionList,
+  }) {
+    try {} on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressCurrentError(error: MyText.network_error));
+    } catch (e) {
+      emit(DeliveryAdressCurrentError());
+    }
+    return 14;
   }
 
   void goToAddPage(
@@ -117,11 +139,51 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
       );
     } on SocketException catch (_) {
       //network olacaq
-      emit(DeliveryAdressError(error: MyText.network_error));
+      emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      emit(DeliveryAdressError());
+      // emit(DeliveryAdressCurrentError());
     }
+  }
+
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Location services are not enabled don't continue
+      // accessing the position and request users of the
+      // App to enable the location services.
+      emit(DeliveryAdressCurrentDenied());
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Permissions are denied, next time you could try
+        // requesting permissions again (this is also where
+        // Android's shouldShowRequestPermissionRationale
+        // returned true. According to Android guidelines
+        // your App should show an explanatory UI now.
+        emit(DeliveryAdressCurrentDenied());
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      emit(DeliveryAdressCurrentDisabled());
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    // When we reach here, permissions are granted and we can
+    // continue accessing the position of the device.
+    return await Geolocator.getCurrentPosition();
   }
 
   //--------------------values:-----------------
@@ -131,13 +193,12 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
 
   Stream<int?> get selectedAdressIdStream => selectedAdressId.stream;
 
-  updateSelectedAdressId(DeliveryAddress address) {
-    if (address == null) {
+  updateSelectedAdressId(int? value) {
+    if (value == null) {
       selectedAdressId.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
-      setAdress(address: address);
-      selectedAdressId.sink.add(address.id);
+      selectedAdressId.sink.add(value);
     }
   }
 

@@ -19,6 +19,7 @@ class SharedKeys {
   //local
   static const String userId = "userId";
   static const String user = "user";
+  static const String address = "address";
   static const String customerGuid = "customerGuid";
 
   //payment_balance type

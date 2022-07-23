@@ -19,6 +19,11 @@ class RegionData {
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'RegionData{data: $data}';
+  }
 }
 
 class Region {
@@ -40,5 +45,10 @@ class Region {
     data['name'] = name;
     data['price'] = price;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'Region{id: $id, name: $name, price: $price}';
   }
 }

@@ -7,6 +7,9 @@ import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/remote/response/delivery_address_model.dart';
+import '../models/remote/response/regions_model.dart';
+
 // Project imports:
 
 class HiveService {
@@ -74,6 +77,17 @@ class HiveService {
   }
 
   MyUser get user => MyUser.fromJson(json.decode(_box!.get(SharedKeys.user)!));
+
+  //user
+  persistAddress({required DeliveryAddress address}) async {
+    if (address == null) {
+      return await _box!.delete(SharedKeys.address);
+    } else
+      return await _box!.put(SharedKeys.address, json.encode(address.toJson()));
+  }
+
+  DeliveryAddress get address =>
+      DeliveryAddress.fromJson(json.decode(_box!.get(SharedKeys.address)!));
 
   //user
   // Future<void> persistUser({MyUser? user}) async {

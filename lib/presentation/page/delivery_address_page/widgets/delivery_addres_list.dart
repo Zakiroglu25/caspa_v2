@@ -44,10 +44,10 @@ class DeliveryAddressList extends StatelessWidget {
                     return DeliveryAddressElement(
                       regions: regions,
                       id: index,
-                      selected: snapshot.data == current,
+                      selected: snapshot.data == current?.id,
                       onTap: () => context
                           .read<DeliveryAddressCubit>()
-                          .updateSelectedAdressId(current?.id),
+                          .updateSelectedAdressId(current!),
                       deliveryAddress: current!,
                     );
                   });

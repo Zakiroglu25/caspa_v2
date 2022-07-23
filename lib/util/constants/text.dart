@@ -387,10 +387,14 @@ class MyText {
   static const String emptyTitle = "Bura boşdur";
   static const String removePackage = "Bağlamanı sil";
 
-  //deliver adress page
-  static const String currentAdress = "Mövcüd ünvan";
+  //delivery adress page
+  static const String currentAdress = "Mövcud ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
+  //static const String locationAccessDenied = "Ərazi məlumatları üçün icazə rədd edildi";
+  static const String locationAccessDenied = "İcazə rədd edildi";
+  static const String locationAccessDisabled =
+      "İcazə qalıcı olaraq rədd edilib";
   static const String emptyDeliveryAddressDesc =
       "Hal-hazırda sənin çatdırılacaq ünvanların qeyd olunmayıb. Yeni ünvan əlavə et.";
 

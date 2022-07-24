@@ -32,7 +32,7 @@ class DeliveryAddressPage extends StatelessWidget {
         contextA: context,
       ),
       body: FocusDetector(
-        onVisibilityGained: () {
+        onForegroundGained: () {
           context.read<DeliveryAddressCubit>().get();
         },
         child: BlocConsumer<DeliveryAddressCubit, DeliveryAddressState>(
@@ -46,7 +46,6 @@ class DeliveryAddressPage extends StatelessWidget {
           //     return true;
           // },
           builder: (context, state) {
-            bbbb("sttttt: $state");
             if (state is DeliveryAdressSuccess) {
               final deliveryAddress = state.deliveryAddress;
               final regionList = state.regionList;

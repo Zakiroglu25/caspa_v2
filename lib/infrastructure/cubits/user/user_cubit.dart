@@ -93,7 +93,7 @@ class UserCubit extends Cubit<UserState> {
   Future<void> showGalleryAccessAlert(BuildContext context) async {
     Alert.show(context,
         title: MyText.we_need_access_to_gallery,
-        content: MyText.we_will_redirect_to_settings,
+        content: MyText.we_will_redirect_to_settings_gallery,
         buttonText: MyText.goOn,
         onTap: () async => await openAppSettings());
   }

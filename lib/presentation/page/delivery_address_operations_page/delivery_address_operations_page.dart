@@ -7,7 +7,7 @@ import '../../../infrastructure/cubits/delivery_adress_operations/delivery_addre
 import '../../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_state.dart';
 import '../../../util/delegate/navigate_utils.dart';
 import 'widgets/delivery_address_operations_fields.dart';
-import 'widgets/delivery_address_operations_title.dart';
+import 'widgets/fields/delivery_address_operations_title.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_address_operations_state.dart';
 import '../../../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../../../infrastructure/models/remote/response/regions_model.dart';

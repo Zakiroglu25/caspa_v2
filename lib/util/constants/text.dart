@@ -319,13 +319,17 @@ class MyText {
   static const String shipping_price = "Çatdırılma haqqı";
   static const String order_date = "Sifariş tarixi";
   static const String we_need_access_to_gallery =
-      "Fotolara əlçatanlıq üçün icazə lazımdır.";
+      "Fotolara əlçatanlıq üçün icazə lazımdır";
+  static const String we_need_access_to_locatoin =
+      "Cari yer məlumatlarına əlçatanlıq üçün icazə lazımdır";
   static const String youMustSelectOneOfThem =
       "Davam etmək üçün aşağıdakılardan birini seçməlisiniz:\n\n";
   static const String gallery = "Qalerya";
   static const String camera = "Kamera";
-  static const String we_will_redirect_to_settings =
+  static const String we_will_redirect_to_settings_gallery =
       "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
+  static const String we_will_redirect_to_settings_locatoin =
+      "Sizi tətbiq icazələrinə yönləndirəcəyik. Location --> While Using the App. Daha sonra geri qayıdın.";
   static const String all_fields_must_be_filled =
       "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";

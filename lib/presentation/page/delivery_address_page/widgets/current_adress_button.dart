@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address_current/delivery_address_current_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
@@ -38,9 +39,18 @@ class CurrentAddressButton extends StatelessWidget {
         //isButtonActive: !(state is DeliveryAddressCurrentError),
         onTap: () async {
           bbbb('kllllll: ${context.read<DeliveryAddressCurrentCubit>().state}');
-          if ((context.read<DeliveryAddressCurrentCubit>().state
-              is DeliveryAddressCurrentError)) {
+          final state = context.read<DeliveryAddressCurrentCubit>().state;
+          if (state is DeliveryAdressCurrentDisabled) {
+            context
+                .read<DeliveryAddressCurrentCubit>()
+                .showAccessAlert(context);
+          }
+          if ((state is DeliveryAddressCurrentError)) {
             context.read<DeliveryAddressCurrentCubit>().get();
+            // context
+            // .read<DeliveryAddressCurrentCubit>()
+            // .showAccessAlert(context);
+
             return;
           }
           context.read<DeliveryAddressCurrentCubit>().add(context);

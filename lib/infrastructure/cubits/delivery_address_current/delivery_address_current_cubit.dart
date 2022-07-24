@@ -20,14 +20,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/pager.dart';
+import '../../../util/screen/alert.dart';
 import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
 import 'delivery_address_current_state.dart';
+import 'package:location/location.dart' as loc;
 
 class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
   DeliveryAddressCurrentCubit() : super(DeliveryAdressCurrentInitial());
@@ -149,9 +152,28 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
   Future<Position> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
+    loc.Location location = loc.Location();
+    bool _serviceEnabled;
+    PermissionStatus _permissionGranted;
+    loc.LocationData _locationData;
+
+    // await location.requestService();
+    // _serviceEnabled = await location.serviceEnabled();
+    // if (!_serviceEnabled) {
+    //   _serviceEnabled = await location.requestService();
+    //   if (!_serviceEnabled) {}
+    // }
+    //
+    // _permissionGranted = (await location.hasPermission()) as PermissionStatus;
+    // if (_permissionGranted == PermissionStatus.denied) {
+    //   _permissionGranted =
+    //       (await location.requestPermission()) as PermissionStatus;
+    //   if (_permissionGranted != PermissionStatus.granted) {}
+    // }
 
     // Test if location services are enabled.
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    serviceEnabled = await location.requestService();
+
     if (!serviceEnabled) {
       // Location services are not enabled don't continue
       // accessing the position and request users of the
@@ -184,6 +206,14 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     return await Geolocator.getCurrentPosition();
+  }
+
+  Future<void> showAccessAlert(BuildContext context) async {
+    Alert.show(context,
+        title: MyText.we_need_access_to_locatoin,
+        content: MyText.we_will_redirect_to_settings_locatoin,
+        buttonText: MyText.goOn,
+        onTap: () async => await openAppSettings());
   }
 
   //--------------------values:-----------------

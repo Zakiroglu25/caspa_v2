@@ -342,6 +342,9 @@ class Pager {
         BlocProvider(
           create: (context) => DeliveryAddressCurrentCubit()..get(),
         ),
+        BlocProvider(
+          create: (context) => ReportCubit(),
+        ),
       ], child: DeliveryAddressPage());
 
   static deliveryAddressOperations(

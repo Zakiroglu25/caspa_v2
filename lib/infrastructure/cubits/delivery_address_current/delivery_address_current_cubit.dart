@@ -2,18 +2,12 @@ import 'dart:async';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
-import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/delivery_address_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
-import 'package:caspa_v2/util/delegate/string_operations.dart';
-import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,9 +19,7 @@ import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/pager.dart';
 import '../../../util/screen/alert.dart';
-import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
-import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
 import 'delivery_address_current_state.dart';
 import 'package:location/location.dart' as loc;
@@ -66,7 +58,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
         address = _address;
         regionTitle = first.subAdministrativeArea;
         coordinates = _location;
-
+        await Future<void>.delayed(Durations.ms100);
         emit(DeliveryAdressCurrentSuccess(
             location: _location, address: _address));
       } else {

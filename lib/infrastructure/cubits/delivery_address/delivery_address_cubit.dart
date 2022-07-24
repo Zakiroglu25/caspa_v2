@@ -35,6 +35,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
   HiveService get _prefs => locator<HiveService>();
   final context = NavigationService.instance.navigationKey?.currentContext;
   List<Region> regionList = [];
+  bool inOperations = false;
 
   void get([bool loading = true]) async {
     try {
@@ -47,6 +48,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
         regionList = resultRegions.data;
         final List<DeliveryAddress>? addresses = resultAddress.data;
         determineSelectedAddress(addresses: addresses);
+        inOperations = false;
         emit(DeliveryAdressSuccess(
             regionList: regionList, deliveryAddress: addresses));
       } else {
@@ -107,8 +109,10 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
       required List<Region> regions,
       DeliveryAddress? deliveryAddress}) async {
     try {
+      inOperations = true;
       showCupertinoModalBottomSheet(
         expand: true,
+        //isDismissible: true,
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) => Pager.deliveryAddressOperations(

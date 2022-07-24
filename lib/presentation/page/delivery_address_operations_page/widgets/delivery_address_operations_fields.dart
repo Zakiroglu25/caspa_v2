@@ -33,15 +33,11 @@ class DeliveryAddressOperationsFields extends StatelessWidget {
       children: [
         SectionName(title: MyText.delivery_adress),
         MySizedBox.h16,
-        NameFieldDeliverOperations(
-            controller:
-                context.read<DeliveryAdressOperationsCubit>().nameController),
+        NameFieldDeliverOperations(controller: TextEditingController()),
         RegionFieldDeliveryOperations(
           regionList: regions,
         ),
-        PhoneFieldDeliveryOperations(
-            controller:
-                context.read<DeliveryAdressOperationsCubit>().phoneController),
+        PhoneFieldDeliveryOperations(controller: TextEditingController()),
         DetailsFieldDeliverOperations(
             controller: context
                 .read<DeliveryAdressOperationsCubit>()

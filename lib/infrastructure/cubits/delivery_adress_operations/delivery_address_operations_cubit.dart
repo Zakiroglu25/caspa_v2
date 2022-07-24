@@ -26,8 +26,7 @@ class DeliveryAdressOperationsCubit
 
   HiveService get _prefs => locator<HiveService>();
 
-  final TextEditingController nameController =
-      TextEditingController(text: "${''}");
+  final TextEditingController nameController = TextEditingController();
 
   final TextEditingController phoneController = MaskedTextController.app(
       text:
@@ -224,6 +223,9 @@ class DeliveryAdressOperationsCubit
     address.close();
     phone.close();
     region.close();
+    nameController.dispose();
+    phoneController.dispose();
+    detailsController.dispose();
     return super.close();
   }
 }

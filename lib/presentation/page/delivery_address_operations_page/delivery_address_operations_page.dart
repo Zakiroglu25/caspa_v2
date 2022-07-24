@@ -21,6 +21,7 @@ class DeliveryAddressOperationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Material(
           child: SafeArea(
         top: false,
@@ -35,16 +36,18 @@ class DeliveryAddressOperationsPage extends StatelessWidget {
           builder: (context, state) {
             if (state is DeliveryAdressOperationsSuccess) {
               final id = state.id;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  DeliveryAddressOperationsTitle(),
-                  DeliveryAddressOperationsFields(
-                    regions: regions,
-                    id: id,
-                  ),
-                ],
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    DeliveryAddressOperationsTitle(),
+                    DeliveryAddressOperationsFields(
+                      regions: regions,
+                      id: id,
+                    ),
+                  ],
+                ),
               );
             } else if (state is DeliveryAdressOperationsInProgress) {
               return CaspaLoading();

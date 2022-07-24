@@ -1,5 +1,6 @@
 import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../util/constants/colors.dart';
 import '../../../util/screen/ink_wrapper.dart';
@@ -17,8 +18,8 @@ class SlidableActionButton extends StatelessWidget {
     return InkWrapper(
       onTap: onTap,
       child: Container(
-        width: 84,
-        height: 72,
+        width: 84.sp,
+        height: 72.sp,
         child: SizedBox(width: 18, height: 18, child: Center(child: child)),
         decoration: BoxDecoration(
           color: color,

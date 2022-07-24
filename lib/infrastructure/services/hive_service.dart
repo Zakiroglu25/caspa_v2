@@ -86,8 +86,13 @@ class HiveService {
       return await _box!.put(SharedKeys.address, json.encode(address.toJson()));
   }
 
-  DeliveryAddress get address =>
-      DeliveryAddress.fromJson(json.decode(_box!.get(SharedKeys.address)!));
+  DeliveryAddress? get address {
+    String? address = _box!.get(SharedKeys.address);
+    if (address == null) {
+      return null;
+    } else
+      return DeliveryAddress.fromJson(json.decode(address));
+  }
 
   //user
   // Future<void> persistUser({MyUser? user}) async {

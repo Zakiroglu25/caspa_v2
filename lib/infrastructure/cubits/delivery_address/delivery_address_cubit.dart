@@ -69,7 +69,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
       {required List<DeliveryAddress>? addresses}) async {
     try {
       final selected =
-          CourierOperations.determineSelecteAddress(addresses: addresses);
+          CourierOperations.determineSelectedAddress(addresses: addresses);
       if (selected != null) {
         updateSelectedAdressId(selected);
       }

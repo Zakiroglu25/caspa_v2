@@ -43,7 +43,7 @@ class CourierCubit extends Cubit<CourierState> {
     if (resultAddress != null) {
       final List<DeliveryAddress>? addresses = resultAddress.data;
       final address =
-          CourierOperations.determineSelecteAddress(addresses: addresses);
+          CourierOperations.determineSelectedAddress(addresses: addresses);
       updatedeliveryAddress(address?.name ?? '');
       return address;
     }
@@ -104,6 +104,10 @@ class CourierCubit extends Cubit<CourierState> {
         emit(CourierInProgressButton());
       }
       ;
+      if (_address == null) {
+        emit(CourierError());
+        return null;
+      }
       Go.to(
           context,
           Pager.courier_order(

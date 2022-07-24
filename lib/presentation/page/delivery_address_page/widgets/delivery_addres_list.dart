@@ -58,7 +58,7 @@ class DeliveryAddressList extends StatelessWidget {
         AddNewAdressButton(
           regions: regions,
         ),
-        MySizedBox.h100
+        MySizedBox.h150
       ],
     );
   }

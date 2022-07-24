@@ -20,51 +20,45 @@ class DeliveryAddressOperationsPage extends StatelessWidget {
       : super(key: key);
   final List<Region> regions;
 
+  TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: WillPopScope(
-        onWillPop: () async {
-          Go.to(context, Pager.deliveryAddress());
-          return false;
-        },
-        child: Material(
-            child: SafeArea(
-          top: false,
-          child: BlocConsumer<DeliveryAdressOperationsCubit,
-              DeliveryAdressOperationsState>(
-            listener: (context, state) {
-              if (state is DeliveryAdressOperationsSuccess) {
-                Go.pop(context);
-                context.read<DeliveryAddressCubit>().get();
-              }
-            },
-            builder: (context, state) {
-              if (state is DeliveryAdressOperationsSuccess) {
-                final id = state.id;
-                return SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      DeliveryAddressOperationsTitle(),
-                      DeliveryAddressOperationsFields(
-                        regions: regions,
-                        id: id,
-                      ),
-                    ],
-                  ),
-                );
-              } else if (state is DeliveryAdressOperationsInProgress) {
-                return CaspaLoading();
-              } else {
-                return EmptyWidget();
-              }
-            },
-          ),
-        )),
-      ),
+      body: Material(
+          child: SafeArea(
+        top: false,
+        child: BlocConsumer<DeliveryAdressOperationsCubit,
+            DeliveryAdressOperationsState>(
+          listener: (context, state) {
+            if (state is DeliveryAdressOperationsSuccess) {
+              Go.pop(context);
+              context.read<DeliveryAddressCubit>().get();
+            }
+          },
+          builder: (context, state) {
+            if (state is DeliveryAdressOperationsSuccess) {
+              final id = state.id;
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    DeliveryAddressOperationsTitle(),
+                    DeliveryAddressOperationsFields(
+                        regions: regions, id: id, controller: controller),
+                  ],
+                ),
+              );
+            } else if (state is DeliveryAdressOperationsInProgress) {
+              return CaspaLoading();
+            } else {
+              return EmptyWidget();
+            }
+          },
+        ),
+      )),
     );
   }
 }

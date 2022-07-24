@@ -22,46 +22,47 @@ import 'delivery_address_operations_state.dart';
 
 class DeliveryAdressOperationsCubit
     extends Cubit<DeliveryAdressOperationsState> {
-  DeliveryAdressOperationsCubit() : super(DeliveryAdressOperationsInitial());
+  DeliveryAdressOperationsCubit() : super(DeliveryAdressOperationsInitial()) {
+    nameController = TextEditingController();
+    phoneController = MaskedTextController.app(
+        text:
+            "${AppOperations.formatNumber("", addZero: false, fromSpaceToLine: false)}");
+    detailsController = TextEditingController();
+  }
 
   HiveService get _prefs => locator<HiveService>();
 
-  final TextEditingController nameController = TextEditingController();
+  late TextEditingController nameController;
 
-  final TextEditingController phoneController = MaskedTextController.app(
-      text:
-          "${AppOperations.formatNumber("", addZero: false, fromSpaceToLine: false)}");
+  late TextEditingController phoneController;
 
-  final TextEditingController detailsController =
-      TextEditingController(text: "${''}");
+  late TextEditingController detailsController;
 
   void add(BuildContext context, {bool loading = true, int? id}) async {
     try {
-      if (isUserDataValid()) {
-        if (loading) {
-          emit(DeliveryAdressOperationsInProgress());
-        }
-
-        final result = await DeliveryAdressProvider.add(
-            region: region.valueOrNull?.id!,
-            name: name.value,
-            phone: phone.value,
-            id: id,
-            address: address.value);
-
-        bbbb("resoooo: " + result.toString());
-
-        if (isSuccess(result?.statusCode)) {
-          emit(DeliveryAdressOperationsSuccess());
-        } else {
-          emit(DeliveryAdressOperationsError(
-              error: MyText.error + " ${result!.statusCode}"));
-        }
+      if (!isUserDataValid()) {
+        return;
+      }
+      if (loading) {
         emit(DeliveryAdressOperationsInProgress());
+      }
+
+      final result = await DeliveryAdressProvider.add(
+          region: region.valueOrNull?.id!,
+          name: name.value,
+          phone: phone.value,
+          id: id,
+          address: address.value);
+
+      bbbb("resoooo: " + result.toString());
+
+      if (isSuccess(result?.statusCode)) {
+        emit(DeliveryAdressOperationsSuccess());
       } else {
         emit(DeliveryAdressOperationsError(
-            error: MyText.all_fields_must_be_filled));
+            error: MyText.error + " ${result!.statusCode}"));
       }
+      emit(DeliveryAdressOperationsInProgress());
     } on SocketException catch (_) {
       //network olacaq
       emit(DeliveryAdressOperationsError(error: MyText.network_error));

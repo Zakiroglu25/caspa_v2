@@ -351,8 +351,8 @@ class Pager {
           {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
       MultiBlocProvider(
           providers: [
-            BlocProvider.value(
-              value: DeliveryAdressOperationsCubit()
+            BlocProvider(
+              create: (context) => DeliveryAdressOperationsCubit()
                 ..get(deliveryAddress: deliveryAddress),
             ),
           ],

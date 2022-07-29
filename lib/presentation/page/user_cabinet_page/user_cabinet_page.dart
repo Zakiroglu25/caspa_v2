@@ -160,10 +160,10 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.h16,
 
                   NewBalanceBox(
-                    onTap: () => Go.to(
-                        context,
-                        Pager.paymentPage(
-                            paymentBalanceType: PaymentBalanceType.cargo)),
+                    // onTap: () => Go.to(
+                    //     context,
+                    //     Pager.paymentPage(
+                    //         paymentBalanceType: PaymentBalanceType.cargo)),
                     icon: Assets.pngGift,
                     boxTitle: MyText.giftBalance,
                     title: "${MyText.balance}: ${user.balance} TL ",

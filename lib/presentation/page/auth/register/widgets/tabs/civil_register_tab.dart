@@ -8,6 +8,7 @@ import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/number_f
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/second_pass_field.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/surname_field.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/register_button.dart';
+import 'package:caspa_v2/presentation/page/report_page/widgets/fields/wares_field.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -25,6 +26,7 @@ import '../fields/email_field.dart';
 import '../fields/gender_field.dart';
 import '../fields/name_field.dart';
 import '../fields/policy_checkbox.dart';
+import '../fields/wares_field.dart';
 
 class CivilRegisterTab extends StatelessWidget {
   @override
@@ -88,7 +90,7 @@ class CivilRegisterTab extends StatelessWidget {
                   CardIdFieldRegister(),
                   MySizedBox.h3,
                   GenderFieldRegister(),
-
+                  WaresRegisterField(),
                   PolicyCheckbox(),
                   MySizedBox.h90,
                 ],

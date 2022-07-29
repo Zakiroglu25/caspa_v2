@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/delivery_address_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
@@ -13,9 +14,12 @@ import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
 import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../../util/delegate/pager.dart';
 import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../data_source/public_provider.dart';
@@ -60,7 +64,7 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       final result = await DeliveryAdressProvider.delete(id: id);
       if (isSuccess(result?.statusCode)) {
         emit(DeliveryAdressDeleted());
-        Snack.display(context: context, message: MyText.operationIsSuccess);
+        // Snack.display(context: context, message: MyText.operationIsSuccess);
       } else {
         emit(DeliveryAdressError(error: MyText.error));
       }
@@ -72,6 +76,27 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       emit(DeliveryAdressError());
     }
     get();
+  }
+
+  void goToAddPage(
+      {required BuildContext context,
+      required List<Region> regions,
+      DeliveryAddress? deliveryAddress}) async {
+    try {
+      showCupertinoModalBottomSheet(
+        expand: true,
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) => Pager.deliveryAddressOperations(
+            regions: regions, deliveryAddress: deliveryAddress),
+      );
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressError(error: MyText.network_error));
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+      emit(DeliveryAdressError());
+    }
   }
 
   //--------------------values:-----------------

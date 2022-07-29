@@ -7,6 +7,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+
 // Package imports:
 import 'package:http/http.dart' as http;
 
@@ -15,32 +16,24 @@ import '../models/remote/response/delivery_address_model.dart';
 
 class DeliveryAdressProvider {
   static DioAuth get dioAuth => locator<DioAuth>();
+
   static Future<StatusDynamic?> add({
-    required int? qty,
-    required double? price,
-    required String? link,
-    required double? cargo_price,
-    required String? detail,
-    required String? token,
+    int? id,
+    required int? region,
+    required String name,
+    required String phone,
+    required String address,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.orderViaLink;
-    var url = Uri.parse(api);
-    final headers = ApiKeys.header(token: token);
-    var body = ApiKeys.orderViaLinkBody(
-        link: link,
-        price: price,
-        cargo_price: cargo_price,
-        detail: detail,
-        qty: qty);
-    bbbb("iiii: " + jsonEncode(body));
-    final response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
+    var api = id == null ? ApiKeys.addAddress : ApiKeys.editAddresses;
+    var body = ApiKeys.addressBody(
+        id: id, name: name, address: address, phone: phone, region: region);
+    final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
-      statusDynamic.data = response.body;
+      statusDynamic.data = response.data;
     } else {
-      eeee("orderViaLink bad url :$url,response: ${response}");
+      eeee("add or edit adress bad url :$api ,response: ${response}");
     }
     return statusDynamic;
   }
@@ -63,7 +56,6 @@ class DeliveryAdressProvider {
         detail: detail,
         id: id,
         qty: qty);
-    bbbb("iiii: " + jsonEncode(body));
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {

@@ -36,6 +36,7 @@ class ApiKeys {
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
   static const smsCodes = '$baseUrl/public/sms';
+  static const wares = '$baseUrl/public/wares';
 
   //packages
   static const allPackages = '$baseUrl/user/packages';
@@ -50,7 +51,7 @@ class ApiKeys {
   static const addresses = '$baseUrl/user/addresses';
   static const editAddresses = '$baseUrl/user/address/edit';
   static const deleteAddress = '$baseUrl/user/address/delete';
-  static const addAddresses = '$baseUrl/user/address/add';
+  static const addAddress = '$baseUrl/user/address/add';
 
   //------------------local-------------------------
   static const youtubeIMG = "https://img.youtube.com/";
@@ -175,6 +176,27 @@ class ApiKeys {
     return map;
   }
 
+  static addressBody({
+    required int? id,
+    required int? region,
+    required String name,
+    required String phone,
+    required String address,
+  }) {
+    //
+    final map = {
+      "id": id,
+      "region": region,
+      "phone": phone,
+      "address": address,
+      "name": name,
+    };
+
+    map.removeWhere(
+        (key, value) => key == null || value == null || value == 'null');
+    return map;
+  }
+
   static registrationBusinessBody({
     required String? name,
     required String? surname,
@@ -255,6 +277,7 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
+    required int? ware,
   }) {
     final map = {
       "name": name,
@@ -270,6 +293,7 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": 1,
+      "ware":ware,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language

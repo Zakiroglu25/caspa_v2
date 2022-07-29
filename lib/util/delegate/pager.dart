@@ -27,6 +27,7 @@ import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packag
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/wares_cubit/wares_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
@@ -41,6 +42,7 @@ import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart'
 import 'package:caspa_v2/presentation/page/courier_list_page/courier_list_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
 import 'package:caspa_v2/presentation/page/courier_page/courier_page.dart';
+import 'package:caspa_v2/presentation/page/delivery_address_operations_page/delivery_address_operations_page.dart';
 import 'package:caspa_v2/presentation/page/delivery_address_page/delivery_address_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
@@ -73,9 +75,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
 import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
+import '../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
 import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
+import '../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
@@ -83,7 +87,6 @@ import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
-import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/calculate_page/calculate_page.dart';
 
 class Pager {
@@ -201,9 +204,14 @@ class Pager {
         // BlocProvider(create: (context) => AuthenticationCubit())
       ], child: const SmsCodesPage());
 
-  static get register => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => RegisterCubit())],
-      child: RegisterPage());
+  static get register => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => RegisterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => WaresCubit(),
+        ),
+      ], child: RegisterPage());
 
   static get forgotPass => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
@@ -276,6 +284,7 @@ class Pager {
           providers: [
             BlocProvider(create: (context) => ReportCubit()),
             BlocProvider(create: (context) => CategoryCubit()),
+            BlocProvider(create: (context) => CourierCubit()),
           ],
           child: ReportPage(
             package: package,
@@ -329,14 +338,23 @@ class Pager {
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [
-        // BlocProvider(
-        //   create: (contex) => DeliveryAddressCubit()..get(),
-        // ),
         BlocProvider.value(
           value: DeliveryAddressCubit()..get(),
         ),
-        BlocProvider(create: (context) => PackageDetailsCubit()),
       ], child: DeliveryAddressPage());
+
+  static deliveryAddressOperations(
+          {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
+      MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: DeliveryAdressOperationsCubit()
+                ..get(deliveryAddress: deliveryAddress),
+            ),
+          ],
+          child: DeliveryAddressOperationsPage(
+            regions: regions,
+          ));
 
   static get courierList => MultiBlocProvider(providers: [
         BlocProvider(

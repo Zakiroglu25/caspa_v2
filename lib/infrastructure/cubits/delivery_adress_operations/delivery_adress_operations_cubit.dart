@@ -13,7 +13,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../../util/delegate/app_operations.dart';
+import '../../../util/formatter/masked_text_controller_phone.dart';
 import '../../data_source/delivery_adress_provider.dart';
+import '../../models/remote/response/delivery_address_model.dart';
 import '../../models/remote/response/regions_model.dart';
 import 'delivery_adress_operations_state.dart';
 
@@ -23,75 +26,70 @@ class DeliveryAdressOperationsCubit
 
   HiveService get _prefs => locator<HiveService>();
 
-  void add(BuildContext context, [bool loading = true]) async {
-    // try {
-    //   if (isUserInfoValid()) {
-    //     if (loading) {
-    //       emit(DeliveryAdressOperationsInProgress());
-    //     }
-    //     final result = await DeliveryAdressProvider.add(
-    //         qty: productCount.valueOrNull,
-    //         price: price.valueOrNull,
-    //         link: link.valueOrNull,
-    //         cargo_price: localCargo.valueOrNull,
-    //         detail: note.valueOrNull,
-    //         token: await _prefs.accessToken);
-    //
-    //     bbbb("resoooo: " + result.toString());
-    //
-    //     if (isSuccess(result?.statusCode)) {
-    //       emit(DeliveryAdressOperationsSuccess());
-    //     } else {
-    //       emit(DeliveryAdressOperationsError(
-    //           error: MyText.error + " ${result!.statusCode}"));
-    //     }
-    //     emit(DeliveryAdressOperationsInProgress());
-    //   } else {
-    //     emit(DeliveryAdressOperationsError(
-    //         error: MyText.all_fields_must_be_filled));
-    //   }
-    // } on SocketException catch (_) {
-    //   //network olacaq
-    //   emit(DeliveryAdressOperationsError(error: MyText.network_error));
-    // } catch (e) {
-    //   emit(DeliveryAdressOperationsError());
-    // }
+  final TextEditingController nameController =
+      TextEditingController(text: "${''}");
+
+  final TextEditingController phoneController = MaskedTextController.app(
+      text:
+          "${AppOperations.formatNumber("", addZero: false, fromSpaceToLine: false)}");
+
+  final TextEditingController detailsController =
+      TextEditingController(text: "${''}");
+
+  void add(BuildContext context, {bool loading = true, int? id}) async {
+    try {
+      if (isUserDataValid()) {
+        if (loading) {
+          emit(DeliveryAdressOperationsInProgress());
+        }
+
+        final result = await DeliveryAdressProvider.add(
+            region: region.valueOrNull?.id!,
+            name: name.value,
+            phone: phone.value,
+            id: id,
+            address: address.value);
+
+        bbbb("resoooo: " + result.toString());
+
+        if (isSuccess(result?.statusCode)) {
+          emit(DeliveryAdressOperationsSuccess());
+        } else {
+          emit(DeliveryAdressOperationsError(
+              error: MyText.error + " ${result!.statusCode}"));
+        }
+        emit(DeliveryAdressOperationsInProgress());
+      } else {
+        emit(DeliveryAdressOperationsError(
+            error: MyText.all_fields_must_be_filled));
+      }
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressOperationsError(error: MyText.network_error));
+    } catch (e) {
+      emit(DeliveryAdressOperationsError());
+    }
   }
 
-  void get([bool loading = true]) async {
-    // try {
-    //   if (isUserDataValid()) {
-    //     if (loading) {
-    //       emit(DeliveryAdressOperationsInProgress());
-    //     }
-    //     final result = await DeliveryAdressProvider.add(
-    //         qty: productCount.valueOrNull,
-    //         price: price.valueOrNull,
-    //         link: link.valueOrNull,
-    //         cargo_price: localCargo.valueOrNull,
-    //         detail: note.valueOrNull,
-    //         token: await _prefs.accessToken);
-    //
-    //     bbbb("resoooo: " + result.toString());
-    //
-    //     if (isSuccess(result?.statusCode)) {
-    //       emit(DeliveryAdressOperationsSuccess());
-    //     } else {
-    //       emit(DeliveryAdressOperationsError(
-    //           error: MyText.error + " ${result!.statusCode}"));
-    //     }
-    //     emit(DeliveryAdressOperationsInProgress());
-    //   } else {
-    //     emit(DeliveryAdressOperationsError(
-    //         error: MyText.all_fields_must_be_filled));
-    //   }
-    // } on SocketException catch (_) {
-    //   //network olacaq
-    //   emit(DeliveryAdressOperationsError(error: MyText.network_error));
-    // } catch (e) {
-    //   emit(DeliveryAdressOperationsError());
-    // }
-    emit(DeliveryAdressOperationsSuccess());
+  void get({bool loading = true, DeliveryAddress? deliveryAddress}) async {
+    try {
+      if (loading) {
+        emit(DeliveryAdressOperationsInProgress());
+      }
+      if (deliveryAddress != null) {
+        nameController.text = deliveryAddress.name!;
+        phoneController.text = deliveryAddress.phone!;
+        detailsController.text = deliveryAddress.address!;
+        updateRegion(deliveryAddress.region);
+      }
+      emit(DeliveryAdressOperationsSuccess(id: deliveryAddress?.id));
+    } on SocketException catch (_) {
+      //network olacaq
+      emit(DeliveryAdressOperationsError(error: MyText.network_error));
+    } catch (e) {
+      emit(DeliveryAdressOperationsError());
+    }
+    //emit(DeliveryAdressOperationsSuccess());
   }
 
   void edit(BuildContext context, {required LinkOrder order}) async {
@@ -138,41 +136,42 @@ class DeliveryAdressOperationsCubit
   bool get isSelectedAdressIdIncorrect =>
       (!selectedAdressId.hasValue || selectedAdressId.value == null);
 
-//note
-  final BehaviorSubject<String> note = BehaviorSubject<String>();
+//name
+  final BehaviorSubject<String> name = BehaviorSubject<String>();
 
-  Stream<String> get noteStream => note.stream;
+  Stream<String> get nameStream => name.stream;
 
-  updateNote(String value) {
+  updateName(String value) {
     if (value == null || value.isEmpty) {
-      note.value = '';
-      note.sink.addError(MyText.field_is_not_correct);
+      name.value = '';
+      name.sink.addError(MyText.field_is_not_correct);
     } else {
-      note.sink.add(value);
+      name.sink.add(value);
     }
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isNoteIncorrect =>
-      (!note.hasValue || note.value == null || note.value.isEmpty);
+  bool get isNameIncorrect =>
+      (!name.hasValue || name.value == null || name.value.isEmpty);
 
-  //details
-  final BehaviorSubject<String> details = BehaviorSubject<String>();
+  //adress
+  final BehaviorSubject<String> address = BehaviorSubject<String>();
 
-  Stream<String> get detailsStream => note.stream;
+  Stream<String> get adressStream => address.stream;
 
-  updateDetails(String value) {
+  updateAdress(String value) {
     if (value == null || value.isEmpty) {
-      details.value = '';
-      details.sink.addError(MyText.field_is_not_correct);
+      address.value = '';
+      address.sink.addError(MyText.field_is_not_correct);
+    } else if (value.length < 10) {
+      address.sink.addError(MyText.adress_minumum_10);
     } else {
-      details.sink.add(value);
+      address.sink.add(value);
     }
-    // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isDetailsIncorrect =>
-      (!details.hasValue || details.value == null || details.value.isEmpty);
+  bool get isAddressIncorrect =>
+      (!address.hasValue || address.value == null || address.value.isEmpty);
 
   //region
   final BehaviorSubject<Region?> region = BehaviorSubject<Region>();
@@ -190,9 +189,29 @@ class DeliveryAdressOperationsCubit
 
   bool get isRegionIncorrect => (!region.hasValue || region.value == null);
 
+  //phone
+  final BehaviorSubject<String> phone = BehaviorSubject<String>();
+
+  Stream<String> get phoneStream => phone.stream;
+
+  updatePhone(String value) {
+    if (value == null || value.isEmpty) {
+      phone.value = '';
+      phone.sink.addError(MyText.field_is_not_correct);
+    } else {
+      phone.sink.add(value);
+    }
+  }
+
+  bool get isPhoneIncorrect =>
+      (!phone.hasValue || phone.value == null || phone.value.isEmpty);
+
   //is user data valid
   bool isUserDataValid() {
-    if (!isRegionIncorrect && !isDetailsIncorrect && !isNoteIncorrect) {
+    if (!isRegionIncorrect &&
+        !isAddressIncorrect &&
+        !isNameIncorrect &&
+        !isPhoneIncorrect) {
       return true;
     } else {
       return false;
@@ -201,8 +220,9 @@ class DeliveryAdressOperationsCubit
 
   @override
   Future<void> close() {
-    note.close();
-    details.close();
+    name.close();
+    address.close();
+    phone.close();
     region.close();
     return super.close();
   }

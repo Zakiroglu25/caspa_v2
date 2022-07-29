@@ -16,16 +16,20 @@ class EmptyWidget extends StatelessWidget {
 
   final String? text;
   final String? description;
+  final Widget? elseChild;
+  final double? h;
 
-  EmptyWidget({this.smile, this.text, this.description});
+  EmptyWidget(
+      {this.smile, this.text, this.description, this.elseChild, this.h});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
+        height: h,
         padding: Paddings.paddingA12,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
@@ -35,7 +39,7 @@ class EmptyWidget extends StatelessWidget {
                 value: smile,
                 child: SadSmile(),
                 // elseChild:
-                elseChild: Image.asset(Assets.pngSebet),
+                elseChild: elseChild ?? Image.asset(Assets.pngSebet),
               ),
             ),
             SizedBox(
@@ -60,6 +64,7 @@ class EmptyWidget extends StatelessWidget {
                         height: 1.3)),
               ),
             ),
+            MySizedBox.h8,
           ],
         ),
       ),

@@ -132,6 +132,7 @@ class AuthProvider {
     required int? deviceTypeId,
     required String? deviceCode,
     required String? language,
+    required int? ware,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.registerPersonal;
@@ -153,6 +154,7 @@ class AuthProvider {
         id_number: id_number,
         deviceCode: deviceCode,
         deviceTypeId: deviceTypeId,
+        ware:ware,
         language: language);
 
     final response =

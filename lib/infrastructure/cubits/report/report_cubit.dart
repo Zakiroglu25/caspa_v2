@@ -22,6 +22,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/app_operations.dart';
+import '../../models/remote/response/wares.dart';
 import 'report_state.dart';
 
 class ReportCubit extends Cubit<ReportState> {
@@ -32,6 +33,7 @@ class ReportCubit extends Cubit<ReportState> {
   TextEditingController categoryFilterController = TextEditingController();
 
   List<Category> permanentCategories = [];
+  List<Data> permanentWares = [];
 
   Future<File?> checkAndPickImage(BuildContext context) async {
     try {
@@ -201,6 +203,27 @@ class ReportCubit extends Cubit<ReportState> {
     //isUserInfoValid(registerType: _registerType);
   }
 
+  ///selectedWares
+  final BehaviorSubject<Data?> selectedWares =
+  BehaviorSubject<Data>();
+
+  Stream<Data?> get selectedWaresStream => selectedWares.stream;
+
+  updateWares(Data value) {
+    if (value == null) {
+      selectedWares.value = null;
+      //taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      if (selectedWares.valueOrNull?.id != value.id) {
+
+      selectedWares.sink.add(value);
+      }
+    }
+
+    //isUserInfoValid(registerType: _registerType);
+  }
+  ///selectedWares
+
   bool get isCategoryIncorrect =>
       (!selectedCategory.hasValue || selectedCategory.value == null);
 
@@ -230,6 +253,13 @@ class ReportCubit extends Cubit<ReportState> {
 
   Stream<List<Category>> get categoriesListStream => categories.stream;
 
+  ///wares list
+  final BehaviorSubject<List<Data>> wares =
+  BehaviorSubject<List<Data>>.seeded([]);
+
+  Stream<List<Data>> get waresListStream => wares.stream;
+  ///wares list
+
   filterCategoriesList(String text) {
     if (text == null) {
       // subCategories.value = null;
@@ -247,6 +277,13 @@ class ReportCubit extends Cubit<ReportState> {
     }
     //isUserInfoValid(registerType: _registerType);
   }
+
+  //update wares list
+  updateWaresList(List<Data> value) {
+    permanentWares = value;
+    wares.sink.add(permanentWares);
+  }
+
 
   updateCategoriesList(List<Category> value) {
     permanentCategories = value;

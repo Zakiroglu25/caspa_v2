@@ -31,6 +31,7 @@ class Assets {
   static const String linkGirl = "assets/png/linkgirl.png";
   static const String otherBox = "assets/png/other.png";
   static const String shopMobile = "assets/png/shopMobile.png";
+  static const String bottomBirthday = "assets/png/birthdayimage.png";
 
   // test
   static const String sekkiz300 = "assets/png/roulette-8-300.png";

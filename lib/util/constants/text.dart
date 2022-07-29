@@ -86,6 +86,7 @@ class MyText {
   static const String hot_contact = "Qaynar xətt";
   static const String serie = "Seriya";
   static const String delivery_adress = "Çatdırılma ünvanı";
+  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
   static const String general_info = "Ümumi məlumat";
 
   //order success
@@ -168,6 +169,7 @@ class MyText {
   static const String save = "Yadda saxla";
   static const String own_cabinet = "Şəxsi kabinet";
   static const String adress = "Ünvan";
+  static const String myHomeOrWork = "Evim, İş yerim";
   static const String enterTheDetails = "Enter the details";
   static const String instructionForTheCourier = "Instruction for the courier";
   static const String aptPasswordIs25K = "apt password is 25K";
@@ -305,9 +307,13 @@ class MyText {
   static const String category = "Kateqoriya";
   static const String tapForselectCategory = "Kateqoriya seçmək üçün toxunun";
   static const String tapForselectRegion = "Rayon seçmək üçün toxunun";
+  static const String topWares = "Məntəqəni seçmək üçün toxunun";
+  static const String hintWares = "Təhvil Məntəqəsi";
+
   static const String sub_category = "Alt kateqoriya";
   static const String category_is_not_found = "Kateqoriya tapılmadı";
   static const String none_category_is_found = "Heç bir kateqoriya tapılmadı.";
+  static const String none_wares_is_found = "Heç bir məntəqə tapılmadı.";
   static const String none_region_is_found = "Heç bir rayon tapılmadı.";
   static const String first_select_main_category =
       "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
@@ -389,6 +395,8 @@ class MyText {
   static const String currentAdress = "Mövcüd ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
+  static const String emptyDeliveryAddressDesc =
+      "Hal-hazırda sənin çatdırılacaq ünvanların qeyd olunmayıb. Yeni ünvan əlavə et.";
 
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';

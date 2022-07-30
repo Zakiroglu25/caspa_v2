@@ -31,6 +31,7 @@ class CaspaField extends StatelessWidget {
   final Function? onTap;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final Widget? child;
   final String? suffixText;
   final TextInputType? textInputType;
 
@@ -44,6 +45,7 @@ class CaspaField extends StatelessWidget {
       this.obscure,
       this.readOnly,
       this.upperCase,
+      this.child,
       this.formatters,
       this.suffixIcon,
       this.title,
@@ -94,48 +96,53 @@ class CaspaField extends StatelessWidget {
                         color: errorMessage == null
                             ? MyColors.transparent
                             : MyColors.errorRED)),
-                child: TextFormField(
-                  autocorrect: false,
-                  controller: controller,
-                  textInputAction: TextInputAction.done,
+                child: child ??
+                    TextFormField(
+                      autocorrect: false,
+                      controller: controller,
+                      textInputAction: TextInputAction.done,
 
-                  obscureText: obscure ?? false,
-                  maxLength: maxLenght,
-                  maxLines: maxLines ?? null,
-                  onChanged: onChanged,
-                  initialValue: initialValue,
-                  readOnly: readOnly ?? false,
-                  //   enabled: false,
-                  expands: maxLines != null ? false : true,
-                  onTap: () => onTap?.call(),
+                      obscureText: obscure ?? false,
+                      maxLength: maxLenght,
+                      maxLines: maxLines,
+                      onChanged: onChanged,
+                      initialValue: initialValue,
+                      readOnly: readOnly ?? false,
 
-                  keyboardType: textInputType ?? TextInputType.text,
-                  textCapitalization:
-                      textCapitalization ?? TextCapitalization.sentences,
-                  inputFormatters: [...?customInputFormat(), ...?formatters],
-                  decoration: InputDecoration(
-                    counterText: '',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(
-                        width: 0,
-                        style: BorderStyle.none,
+                      //   enabled: false,
+                      expands: maxLines != null ? false : true,
+                      onTap: () => onTap?.call(),
+
+                      keyboardType: textInputType ?? TextInputType.text,
+                      textCapitalization:
+                          textCapitalization ?? TextCapitalization.sentences,
+                      inputFormatters: [
+                        ...?customInputFormat(),
+                        ...?formatters
+                      ],
+                      decoration: InputDecoration(
+                        counterText: '',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide: BorderSide(
+                            width: 0,
+                            style: BorderStyle.none,
+                          ),
+                        ),
+                        hintText: hint ?? "",
+                        hintStyle: AppTextStyles.sanF400
+                            .copyWith(fontSize: 15, color: MyColors.grey153),
+                        suffixText: suffixText ?? "",
+                        filled: true,
+                        prefixIcon: prefixIcon,
+                        fillColor: MyColors.mainGrey,
+                        contentPadding: EdgeInsets.only(
+                            left: 14.0,
+                            bottom: 6.0,
+                            top: 8.0,
+                            right: (suffixIcon != null) ? 40 : 0),
                       ),
                     ),
-                    hintText: hint ?? "",
-                    hintStyle: AppTextStyles.sanF400
-                        .copyWith(fontSize: 15, color: MyColors.grey153),
-                    suffixText: suffixText ?? "",
-                    filled: true,
-                    prefixIcon: prefixIcon,
-                    fillColor: MyColors.mainGrey,
-                    contentPadding: EdgeInsets.only(
-                        left: 14.0,
-                        bottom: 6.0,
-                        top: 8.0,
-                        right: (suffixIcon != null) ? 40 : 0),
-                  ),
-                ),
               ),
               Positioned(
                 right: 0,

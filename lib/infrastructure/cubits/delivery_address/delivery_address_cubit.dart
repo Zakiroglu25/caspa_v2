@@ -9,6 +9,7 @@ import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/courier_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
@@ -17,20 +18,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/pager.dart';
+import '../../../util/screen/alert.dart';
 import '../../../util/screen/snack.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
 import 'delivery_address_state.dart';
 
-class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
+class DeliveryAddressCubit extends Cubit<DeliveryAddressState> {
   DeliveryAddressCubit() : super(DeliveryAdressInitial());
 
   HiveService get _prefs => locator<HiveService>();
   final context = NavigationService.instance.navigationKey?.currentContext;
+  List<Region> regionList = [];
+  bool inOperations = false;
 
   void get([bool loading = true]) async {
     try {
@@ -40,9 +45,12 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       final resultAddress = await DeliveryAdressProvider.getAddresses();
       final resultRegions = await PublicProvider.getRegions();
       if (resultAddress != null && isSuccess(resultRegions.statusCode)) {
+        regionList = resultRegions.data;
+        final List<DeliveryAddress>? addresses = resultAddress.data;
+        determineSelectedAddress(addresses: addresses);
+        inOperations = false;
         emit(DeliveryAdressSuccess(
-            regionList: resultRegions.data,
-            deliveryAddress: resultAddress.data));
+            regionList: regionList, deliveryAddress: addresses));
       } else {
         emit(DeliveryAdressError(error: MyText.error));
       }
@@ -54,6 +62,24 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       emit(DeliveryAdressError());
     }
     // emit(DeliveryAdressSuccess());
+  }
+
+  void setAddress(
+      {bool loading = true, required DeliveryAddress address}) async {
+    await _prefs.persistAddress(address: address);
+  }
+
+  void determineSelectedAddress(
+      {required List<DeliveryAddress>? addresses}) async {
+    try {
+      final selected =
+          CourierOperations.determineSelectedAddress(addresses: addresses);
+      if (selected != null) {
+        updateSelectedAdressId(selected);
+      }
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
+    }
   }
 
   void delete(int id, [bool loading = true]) async {
@@ -83,8 +109,10 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
       required List<Region> regions,
       DeliveryAddress? deliveryAddress}) async {
     try {
+      inOperations = true;
       showCupertinoModalBottomSheet(
         expand: true,
+        //isDismissible: true,
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) => Pager.deliveryAddressOperations(
@@ -106,12 +134,13 @@ class DeliveryAddressCubit extends Cubit<DeliveryAdressState> {
 
   Stream<int?> get selectedAdressIdStream => selectedAdressId.stream;
 
-  updateSelectedAdressId(int? value) {
-    if (value == null) {
+  updateSelectedAdressId(DeliveryAddress address) {
+    if (address == null) {
       selectedAdressId.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
-      selectedAdressId.sink.add(value);
+      setAddress(address: address);
+      selectedAdressId.sink.add(address.id);
     }
   }
 

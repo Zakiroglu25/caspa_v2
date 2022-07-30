@@ -4,7 +4,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/resizable_content.dart';
 import 'package:flutter/material.dart';
-import 'package:keyboard_attachable/keyboard_attachable.dart';
+
 import 'widgets/log_reg_buttons.dart';
 import 'widgets/login_header.dart';
 

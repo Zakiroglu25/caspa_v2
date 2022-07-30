@@ -1,9 +1,8 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../widget/custom/order_select_check_indicator.dart';
 
 class SelectablePackage extends StatelessWidget {
@@ -15,10 +14,10 @@ class SelectablePackage extends StatelessWidget {
 
   SelectablePackage(
       {this.onTap,
-        required this.package,
-        required this.index,
-        required this.price,
-        required this.selected});
+      required this.package,
+      required this.index,
+      required this.price,
+      required this.selected});
 
   @override
   Widget build(BuildContext context) {

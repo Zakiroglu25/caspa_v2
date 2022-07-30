@@ -1,5 +1,5 @@
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_state.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/delivery_adress_operations/delivery_address_operations_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

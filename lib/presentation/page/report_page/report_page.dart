@@ -2,7 +2,6 @@ import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
-import 'package:caspa_v2/presentation/page/report_page/widgets/fields/wares_field.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -26,6 +25,7 @@ import 'widgets/fields/price_field.dart';
 import 'widgets/fields/price_type_field.dart';
 import 'widgets/fields/seller_field.dart';
 import 'widgets/fields/tracking_id_field.dart';
+import 'widgets/fields/wares_field.dart';
 import 'widgets/photo_pickment.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

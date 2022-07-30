@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class MyText {
   MyText._();
   static const String coppied = "Kopyalandı";
@@ -85,8 +83,6 @@ class MyText {
   static const String c1453 = "*1453";
   static const String hot_contact = "Qaynar xətt";
   static const String serie = "Seriya";
-  static const String delivery_adress = "Çatdırılma ünvanı";
-  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
   static const String general_info = "Ümumi məlumat";
 
   //order success
@@ -100,8 +96,6 @@ class MyText {
 
   //courier
   static const String therIsYourData = "Sizin məlumatlarınız bizdə var 😊";
-  static const String deliveryInfo = "Çatdırılma məlumatları";
-  static const String deliveryPrice = "Çatdırılma xidməti";
   static const String selectOrder = "Bağlamanı seçin";
   static const String goOn = "Davam et";
   static const String courierOrder = "Kuryer sifarişi";
@@ -308,7 +302,7 @@ class MyText {
   static const String tapForselectCategory = "Kateqoriya seçmək üçün toxunun";
   static const String tapForselectRegion = "Rayon seçmək üçün toxunun";
   static const String topWares = "Məntəqəni seçmək üçün toxunun";
-  static const String hintWares = "Təhvil Məntəqəsi";
+  static const String deliveryPoint = "Təhvil Məntəqəsi";
 
   static const String sub_category = "Alt kateqoriya";
   static const String category_is_not_found = "Kateqoriya tapılmadı";
@@ -327,13 +321,17 @@ class MyText {
   static const String shipping_price = "Çatdırılma haqqı";
   static const String order_date = "Sifariş tarixi";
   static const String we_need_access_to_gallery =
-      "Fotolara əlçatanlıq üçün icazə lazımdır.";
+      "Fotolara əlçatanlıq üçün icazə lazımdır";
+  static const String we_need_access_to_locatoin =
+      "Cari yer məlumatlarına əlçatanlıq üçün icazə lazımdır";
   static const String youMustSelectOneOfThem =
       "Davam etmək üçün aşağıdakılardan birini seçməlisiniz:\n\n";
   static const String gallery = "Qalerya";
   static const String camera = "Kamera";
-  static const String we_will_redirect_to_settings =
+  static const String we_will_redirect_to_settings_gallery =
       "Sizi tətbiq icazələrinə yönləndirəcəyik. Fotolar --> Bütün fotolar yolunu izləyin. Daha sonra geri qayıdın.";
+  static const String we_will_redirect_to_settings_locatoin =
+      "Sizi tətbiq icazələrinə yönləndirəcəyik. Location --> While Using the App. Daha sonra geri qayıdın.";
   static const String all_fields_must_be_filled =
       "Bütün xanalar doldurulmalıdır!";
   static const String usd = "USD";
@@ -391,10 +389,20 @@ class MyText {
   static const String emptyTitle = "Bura boşdur";
   static const String removePackage = "Bağlamanı sil";
 
-  //deliver adress page
-  static const String currentAdress = "Mövcüd ünvan";
+  //delivery adress page
+  static const String delivery_adress = "Çatdırılma ünvanı";
+  static const String myDeliveryAddresses = "Çatdırılma ünvanlarım";
+  static const String deliveryInfo = "Çatdırılma məlumatları";
+  static const String deliveryPrice = "Çatdırılma xidməti";
+  static const String selectedAddress = "Seçilmiş ünvan";
+  static const String selectAddress = "Çatdırılma üçün ünvan seç";
+  static const String currentAdress = "Mövcud ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
+  //static const String locationAccessDenied = "Ərazi məlumatları üçün icazə rədd edildi";
+  static const String locationAccessDenied = "İcazə rədd edildi";
+  static const String locationAccessDisabled =
+      "İcazə qalıcı olaraq rədd edilib";
   static const String emptyDeliveryAddressDesc =
       "Hal-hazırda sənin çatdırılacaq ünvanların qeyd olunmayıb. Yeni ünvan əlavə et.";
 

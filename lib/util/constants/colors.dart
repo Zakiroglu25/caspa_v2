@@ -87,6 +87,7 @@ class MyColors {
 
   ///kuryer package selected color
   static const Color mainOpacity = Color.fromRGBO(241, 241, 249, 1);
+  static const Color mainOpacityDark = Color.fromRGBO(211, 211, 219, 1);
 
   ///other page colors
   static const Color promokodColor = Color.fromRGBO(255, 246, 225, 1);

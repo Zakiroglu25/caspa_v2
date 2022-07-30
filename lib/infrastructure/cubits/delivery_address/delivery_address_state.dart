@@ -1,23 +1,23 @@
 import '../../models/remote/response/delivery_address_model.dart';
 import '../../models/remote/response/regions_model.dart';
 
-abstract class DeliveryAdressState {}
+abstract class DeliveryAddressState {}
 
-class DeliveryAdressInitial extends DeliveryAdressState {}
+class DeliveryAdressInitial extends DeliveryAddressState {}
 
-class DeliveryAdressInProgress extends DeliveryAdressState {}
+class DeliveryAdressInProgress extends DeliveryAddressState {}
 
-class DeliveryAdressError extends DeliveryAdressState {
+class DeliveryAdressError extends DeliveryAddressState {
   String? error;
 
   DeliveryAdressError({this.error});
 }
 
-class DeliveryAdressDeleted extends DeliveryAdressState {}
+class DeliveryAdressDeleted extends DeliveryAddressState {}
 
-class DeliveryAdressEdited extends DeliveryAdressState {}
+class DeliveryAdressEdited extends DeliveryAddressState {}
 
-class DeliveryAdressSuccess extends DeliveryAdressState {
+class DeliveryAdressSuccess extends DeliveryAddressState {
   DeliveryAdressSuccess(
       {required this.deliveryAddress, required this.regionList});
 

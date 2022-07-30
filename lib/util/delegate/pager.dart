@@ -46,26 +46,26 @@ import 'package:caspa_v2/presentation/page/delivery_address_operations_page/deli
 import 'package:caspa_v2/presentation/page/delivery_address_page/delivery_address_page.dart';
 import 'package:caspa_v2/presentation/page/etibarname_page/etibarname_page.dart';
 import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
-import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
-import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/widget/packages_list.dart';
-import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/tariff_details.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/presentation/page/order_via_link_page/order_via_link_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
 import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
+import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
+import 'package:caspa_v2/presentation/page/order_via_link_page/order_via_link_page.dart';
+import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/packages_list.dart';
+import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
+import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/app_info_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
-import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
-import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
-import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
@@ -74,22 +74,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
+import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
-import '../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
-import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
+import '../../infrastructure/cubits/delivery_address_current/delivery_address_current_cubit.dart';
+import '../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
 import '../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
-import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
-import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
-import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
-import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
-import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../presentation/page/calculate_page/calculate_page.dart';
+import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
+import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
+import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 
 class Pager {
+  Pager._();
+
   static get home => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: TarifCubit()..fetch(),
@@ -180,7 +182,10 @@ class Pager {
           providers: [
             BlocProvider.value(
               value: CourierCubit()..fetchPackagesForCourier(),
-            )
+            ),
+            BlocProvider(
+              create: (BuildContext context) => DeliveryAddressCubit()..get(),
+            ),
           ],
           child: CourierPage(
             courierOrder: courierOrder,
@@ -336,10 +341,15 @@ class Pager {
         )
       ], child: const ShopPage());
 
-  static deliveryAddress({CourierOrder? courierOrder}) =>
-      MultiBlocProvider(providers: [
+  static deliveryAddress() => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: DeliveryAddressCubit()..get(),
+        ),
+        BlocProvider(
+          create: (context) => DeliveryAddressCurrentCubit()..get(),
+        ),
+        BlocProvider(
+          create: (context) => ReportCubit(),
         ),
       ], child: DeliveryAddressPage());
 
@@ -347,8 +357,8 @@ class Pager {
           {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
       MultiBlocProvider(
           providers: [
-            BlocProvider.value(
-              value: DeliveryAdressOperationsCubit()
+            BlocProvider(
+              create: (context) => DeliveryAdressOperationsCubit()
                 ..get(deliveryAddress: deliveryAddress),
             ),
           ],
@@ -423,14 +433,6 @@ class Pager {
       child: AddOrEditEtibarnamePage(
         attorney: attorney,
       ));
-
-  static editCourier({CourierOrder? courierOrder, Package? package}) =>
-      BlocProvider(
-          create: (context) => CourierCubit(),
-          child: CourierPage(
-            courierOrder: courierOrder,
-            package: package,
-          ));
 
   static paymentPage({required PaymentBalanceType paymentBalanceType}) =>
       BlocProvider(

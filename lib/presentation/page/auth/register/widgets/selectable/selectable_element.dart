@@ -1,6 +1,5 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/local/gender.dart';
-import 'package:caspa_v2/presentation/page/auth/register/widgets/selectable/gender_list.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/enums/gender_type.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +10,8 @@ class SelectableGender extends StatelessWidget {
   Function? onTap;
   GenderType? selectedGenderType;
 
-  SelectableGender({Key? key,this.gender, this.onTap, this.selectedGenderType}): super(key: key);
-
+  SelectableGender({Key? key, this.gender, this.onTap, this.selectedGenderType})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +24,9 @@ class SelectableGender extends StatelessWidget {
             Text(
               gender!.title!,
               style: TextStyle(
-                  color:
-                  selectedGenderType == gender!.type
-                           ? MyColors.mainColor
-                           :
-
-                      Colors.black),
+                  color: selectedGenderType == gender!.type
+                      ? MyColors.mainColor
+                      : Colors.black),
             ),
             selectedGenderType == gender!.type
                 ? FlipInY(

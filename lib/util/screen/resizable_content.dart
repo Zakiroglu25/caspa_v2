@@ -1,6 +1,4 @@
-import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:flutter/material.dart';
 import 'package:keyboard_attachable/keyboard_attachable.dart';
 

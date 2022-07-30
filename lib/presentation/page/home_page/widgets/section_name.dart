@@ -1,4 +1,3 @@
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text_styles.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/cupertino.dart';
@@ -33,7 +32,8 @@ class SectionName extends StatelessWidget {
               title!,
               overflow: TextOverflow.ellipsis,
               maxLines: maxLines,
-              style: UITextStyle.tW600Black.copyWith(fontSize: size ?? 16,letterSpacing: 0.3),
+              style: UITextStyle.tW600Black
+                  .copyWith(fontSize: size ?? 16, letterSpacing: 0.3),
             ),
           ),
           WidgetOrEmpty(

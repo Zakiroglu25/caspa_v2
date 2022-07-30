@@ -27,6 +27,7 @@ import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packag
 import 'package:caspa_v2/infrastructure/cubits/shop/shop_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/wares_cubit/wares_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
@@ -208,9 +209,14 @@ class Pager {
         // BlocProvider(create: (context) => AuthenticationCubit())
       ], child: const SmsCodesPage());
 
-  static get register => MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => RegisterCubit())],
-      child: RegisterPage());
+  static get register => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => RegisterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => WaresCubit(),
+        ),
+      ], child: RegisterPage());
 
   static get forgotPass => MultiBlocProvider(
       providers: [BlocProvider(create: (context) => ForgotPassCubit())],
@@ -283,6 +289,7 @@ class Pager {
           providers: [
             BlocProvider(create: (context) => ReportCubit()),
             BlocProvider(create: (context) => CategoryCubit()),
+            BlocProvider(create: (context) => CourierCubit()),
           ],
           child: ReportPage(
             package: package,

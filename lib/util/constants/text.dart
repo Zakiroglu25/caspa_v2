@@ -301,9 +301,13 @@ class MyText {
   static const String category = "Kateqoriya";
   static const String tapForselectCategory = "Kateqoriya seçmək üçün toxunun";
   static const String tapForselectRegion = "Rayon seçmək üçün toxunun";
+  static const String topWares = "Məntəqəni seçmək üçün toxunun";
+  static const String deliveryPoint = "Təhvil Məntəqəsi";
+
   static const String sub_category = "Alt kateqoriya";
   static const String category_is_not_found = "Kateqoriya tapılmadı";
   static const String none_category_is_found = "Heç bir kateqoriya tapılmadı.";
+  static const String none_wares_is_found = "Heç bir məntəqə tapılmadı.";
   static const String none_region_is_found = "Heç bir rayon tapılmadı.";
   static const String first_select_main_category =
       "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";

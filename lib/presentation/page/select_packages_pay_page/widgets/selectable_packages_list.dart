@@ -32,7 +32,8 @@ class SelectablePackagesList extends StatelessWidget {
               padding: Paddings.paddingB110,
               itemBuilder: (context, index) {
                 final currentPackage = packageList[index];
-                if (currentPackage.weight != null) {
+                //burda hem hecmine baxiram hemde odenilib ya odenilmeyibe baxiram
+                if (currentPackage.payment == 0 && currentPackage.weight != null ) {
                   return StreamBuilder<List<Package>>(
                       stream: BlocProvider.of<SelectPackagesPayCubit>(context)
                           .selectedOrdersStream,

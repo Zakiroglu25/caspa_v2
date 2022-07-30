@@ -41,6 +41,7 @@ class Package extends Equatable {
   Category? category;
   Country? country;
   int? payment;
+  int? inCourier;
   String? note;
   String? regNumber;
   String? from_report;
@@ -67,6 +68,7 @@ class Package extends Equatable {
       this.country,
       this.payment,
       this.from_report,
+      this.inCourier,
       this.note,
       this.regNumber,
       this.noInvoice,
@@ -75,7 +77,7 @@ class Package extends Equatable {
       this.width,
       this.height,
       this.length,
-        this.orderable,
+      this.orderable,
       this.archive});
 
   Package.fromJson(Map<String, dynamic> json) {
@@ -91,6 +93,7 @@ class Package extends Equatable {
     from_report = json['from_report'];
     price = json['price'];
     cargoPrice = json['cargo_price'];
+    inCourier = json['in_courier'];
     weight = json['weight'];
     category = json['category'] != null
         ? new Category.fromJson(json['category'])
@@ -125,6 +128,7 @@ class Package extends Equatable {
     data['price'] = this.price;
     data['width'] = this.width;
     data['height'] = this.height;
+    data['in_courier'] = this.inCourier;
     data['length'] = this.length;
     data['cargo_price'] = this.cargoPrice;
     data['weight'] = this.weight;
@@ -148,7 +152,7 @@ class Package extends Equatable {
 
   @override
   String toString() {
-    return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment_balance: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
+    return 'Package{id: $id, status: $status, customStatus: $customStatus, cargoTracking: $cargoTracking, tracking: $tracking, store: $store, price: $price, inCourier: $inCourier, cargoPrice: $cargoPrice, weight: $weight, category: $category, country: $country, payment_balance: $payment, note: $note, regNumber: $regNumber, from_report: $from_report, noInvoice: $noInvoice, invoice: $invoice, date: $date, archive: $archive}';
   }
 
   @override
@@ -163,6 +167,7 @@ class Package extends Equatable {
         price,
         cargoPrice,
         weight,
+        inCourier,
         category,
         country,
         payment,

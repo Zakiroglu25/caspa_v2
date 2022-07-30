@@ -93,27 +93,22 @@ class PackageReportButtons extends StatelessWidget {
       );
     } else if (customStatus == MyText.stWarehouse) {
       //gomruye beyan et
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          PackageMainButton(
-              w: (sW - 32),
-              text: MyText.declareItCustom,
-              onTap: () async {
-                if (Platform.isAndroid) {
-                  await LaunchApp.openApp(
-                      androidPackageName: 'com.crocusoft.smartcustoms',
-                      iosUrlScheme: 'pulsesecure://',
-                      appStoreLink:
-                          'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
-                      openStore: false);
-                } else {
-                  launch(
-                      "https://e.customs.gov.az/for-individuals/post-declaration");
-                }
-              }),
-        ],
-      );
+      return PackageMainButton(
+          w: (sW - 32),
+          text: MyText.declareItCustom,
+          onTap: () async {
+            if (Platform.isAndroid) {
+              await LaunchApp.openApp(
+                  androidPackageName: 'com.crocusoft.smartcustoms',
+                  iosUrlScheme: 'pulsesecure://',
+                  appStoreLink:
+                      'itms-apps://itunes.apple.com/us/app/smart-customs/id1500376466',
+                  openStore: false);
+            } else {
+              launch(
+                  "https://e.customs.gov.az/for-individuals/post-declaration");
+            }
+          });
     } else if (package.payment == 0) {
       //odenish et
       return Row(
@@ -124,7 +119,9 @@ class PackageReportButtons extends StatelessWidget {
           ),
         ],
       );
-    } else if (package.payment == 1 && customStatus == MyText.stArrived
+    } else if (package.payment == 1 &&
+            customStatus == MyText.stArrived &&
+            package.inCourier! < 1
         // (customStatus != MyText.stGave ||
         //     customStatus != MyText.stGaveByCourier)
         ) {

@@ -35,6 +35,7 @@ class ApiKeys {
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
   static const smsCodes = '$baseUrl/public/sms';
+  static const wares = '$baseUrl/public/wares';
 
   //packages
   static const allPackages = '$baseUrl/user/packages';
@@ -275,6 +276,7 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
+    required int? ware,
   }) {
     final map = {
       "name": name,
@@ -290,6 +292,7 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": 1,
+      "ware":ware,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language

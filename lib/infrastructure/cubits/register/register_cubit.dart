@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -15,6 +14,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
 import '../../../locator.dart';
+import '../../models/remote/response/wares.dart';
 
 part 'register_state.dart';
 
@@ -22,9 +22,11 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
+  List<Data> permanentWares = [];
 
   HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
+
   //bool registerActive = false;
 
   // set registerType(RegisterType value) {
@@ -69,7 +71,8 @@ class RegisterCubit extends Cubit<RegisterState> {
           deviceCode: deviceCode,
           deviceTypeId: StringOperations.platformId(),
           language: _prefs.language,
-          ware_house: 1);
+          ware_house: 1,
+          ware: selectedWares.valueOrNull!.id);
 
       bbbb("register bloc result: " + response.toString());
 
@@ -438,6 +441,42 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateRegisterActivee(bool value) {
     registerActive.sink.add(value);
   }
+
+  ///selectedWares
+  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
+
+  Stream<Data?> get selectedWaresStream => selectedWares.stream;
+
+  updateWares(Data value) {
+    if (value == null) {
+      selectedWares.value = null;
+      //taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      if (selectedWares.valueOrNull?.id != value.id) {
+        selectedWares.sink.add(value);
+      }
+    }
+
+    //isUserInfoValid(registerType: _registerType);
+  }
+
+  ///selectedWares
+
+  ///wares list
+  final BehaviorSubject<List<Data>> wares =
+      BehaviorSubject<List<Data>>.seeded([]);
+
+  Stream<List<Data>> get waresListStream => wares.stream;
+
+  ///wares list
+
+  ///update wares list
+  updateWaresList(List<Data> value) {
+    permanentWares = value;
+    wares.sink.add(permanentWares);
+  }
+
+  ///update wares list
 
   @override
   Future<void> close() {

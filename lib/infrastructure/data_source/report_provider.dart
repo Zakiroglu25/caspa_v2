@@ -31,6 +31,7 @@ class ReportProvider {
     File? invoice,
     required String? token,
     required String? note,
+    required int? ware,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
 
@@ -49,7 +50,8 @@ class ReportProvider {
         "tracking": tracking,
         "price": price,
         "currency": currency,
-        "note": null
+        "note": null,
+        "ware":ware
       };
     } else {
       data = FormData.fromMap({

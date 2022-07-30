@@ -83,6 +83,7 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
+          ware: selectedWares.valueOrNull!.id
         );
         log(result.toString());
         if (isSuccess(result?.statusCode)) {
@@ -119,6 +120,7 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
+          ware: selectedWares.valueOrNull!.id
         );
 
         if (isSuccess(result?.statusCode)) {

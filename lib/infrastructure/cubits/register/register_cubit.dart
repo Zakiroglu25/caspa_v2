@@ -72,7 +72,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           deviceTypeId: StringOperations.platformId(),
           language: _prefs.language,
           ware_house: 1,
-          ware: ware);
+          ware: selectedWares.valueOrNull!.id);
 
       bbbb("register bloc result: " + response.toString());
 

@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+
 import 'infrastructure/configs/dio_general.dart';
 import 'infrastructure/services/config_service.dart';
 import 'infrastructure/services/hive_service.dart';

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class MyText {
   MyText._();
   static const String coppied = "Kopyalandı";

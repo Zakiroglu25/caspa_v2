@@ -1,12 +1,10 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_main_text.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_second_text.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
+
 import 'fields/code_field_forgot.dart';
 
 class EnterCodeBody extends StatelessWidget {

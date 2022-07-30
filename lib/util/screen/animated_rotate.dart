@@ -1,6 +1,7 @@
+import 'dart:math' show pi;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:math' show pi;
 
 /// Animated version of [Transform.rotate] which automatically transitions the
 /// rotation over time.

@@ -1,16 +1,12 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
-import 'package:caspa_v2/presentation/page/courier_orders_page/widgets/order_price_info.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/screen/snack.dart';
-import 'package:caspa_v2/widget/general/errorable_image.dart';
-import 'package:flutter/material.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
-import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
+import 'package:caspa_v2/widget/general/errorable_image.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,18 +39,20 @@ class ShopUnicorn extends StatelessWidget {
               w: 78.sp,
               h: 78.sp,
             ),
-            SectionName(title: shop.name,size: 16.sm,)
+            SectionName(
+              title: shop.name,
+              size: 16.sm,
+            )
           ],
         ),
       ),
       onPressed: () {
-       if(shop.link!=null){
-         launch(shop.link!);
-       }
-       else{
-         Snack.display(context: context,message: MyText.error,positive: false);
-
-       }
+        if (shop.link != null) {
+          launch(shop.link!);
+        } else {
+          Snack.display(
+              context: context, message: MyText.error, positive: false);
+        }
       },
     );
   }

@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'dart:io';
+
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -8,7 +9,6 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../formatter/masked_text_controller_phone.dart';
@@ -125,13 +125,13 @@ class StringOperations {
 
     if (Platform.isAndroid) {
       AndroidDeviceInfo androidDeviceInfo =
-      await DeviceInfoPlugin().androidInfo;
+          await DeviceInfoPlugin().androidInfo;
       deviceName =
-      '${androidDeviceInfo.brand!} ${androidDeviceInfo.model!} | Android: ${androidDeviceInfo.version.release}';
+          '${androidDeviceInfo.brand!} ${androidDeviceInfo.model!} | Android: ${androidDeviceInfo.version.release}';
     } else if (Platform.isIOS) {
       IosDeviceInfo iosDeviceInfo = await DeviceInfoPlugin().iosInfo;
       deviceName =
-      '${iosDeviceInfo.name!} | iOS: ${iosDeviceInfo.systemVersion}';
+          '${iosDeviceInfo.name!} | iOS: ${iosDeviceInfo.systemVersion}';
     } else {
       deviceName = 'unknown device';
     }

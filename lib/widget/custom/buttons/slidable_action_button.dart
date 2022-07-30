@@ -1,8 +1,6 @@
-import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../util/constants/colors.dart';
 import '../../../util/screen/ink_wrapper.dart';
 
 class SlidableActionButton extends StatelessWidget {

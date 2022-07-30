@@ -1,21 +1,12 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:flutter/material.dart';
-
-//class PassChangedBody extends StatelessWidget {
-
-
-import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/fields/main_pass_field_forgot.dart';
-import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/fields/second_pass_field_forgot.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_main_text.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/widgets/forgot_second_text.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-
 
 class PassChangedBody extends StatelessWidget {
   @override
@@ -30,7 +21,7 @@ class PassChangedBody extends StatelessWidget {
         Container(
             height: 200.sp,
             width: 200.sp,
-            child: Lottie.asset(Assets.animSuccessOpt,repeat: false))
+            child: Lottie.asset(Assets.animSuccessOpt, repeat: false))
       ],
     );
   }

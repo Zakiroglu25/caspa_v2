@@ -1,23 +1,14 @@
 import 'package:caspa_v2/infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
-import 'package:caspa_v2/presentation/page/home_page/widgets/tarif_list_widget.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
-import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../infrastructure/cubits/courier/courier_cubit.dart';
 import '../../../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_state.dart';
-import '../../calculate_page/widgets/news_calculate.dart';
 import 'tariffs_courier_list_widget.dart';
 
 class CourierTariffDetails extends StatelessWidget {
@@ -42,7 +33,7 @@ class CourierTariffDetails extends StatelessWidget {
           if (state is CourierTarifSuccess) {
             List<Region>? tarifList = state.tarifList;
             return Padding(
-              padding:Paddings.paddingH16,
+              padding: Paddings.paddingH16,
               child: CourierTarifListWidget(
                 hList: tarifList,
                 isVertical: true,

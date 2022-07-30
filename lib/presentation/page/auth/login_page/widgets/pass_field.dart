@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
-import 'package:caspa_v2/presentation/page/auth/register/widgets/field_c_lear_button.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/icons/invisible_icon.dart';

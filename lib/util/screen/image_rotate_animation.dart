@@ -1,6 +1,7 @@
+import 'dart:math' as math;
+
 import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class ImageAnimateRotate extends StatefulWidget {
   final Widget child;

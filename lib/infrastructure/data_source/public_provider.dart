@@ -22,6 +22,7 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
 import '../../locator.dart';
+import '../models/remote/response/wares.dart';
 
 class PublicProvider {
   static Future<StatusDynamic> getRegions() async {
@@ -35,6 +36,21 @@ class PublicProvider {
     } else {
       eeee(
           "getRegions bad url :${response.requestOptions.path},response: $response");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> getWares() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    const api = ApiKeys.wares;
+    final response = await dioG.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      statusDynamic.data = Wares.fromJson(gelenCavabJson).data;
+    } else {
+      eeee(
+          "getWares bad url :${response.requestOptions.path},response: $response");
     }
     return statusDynamic;
   }

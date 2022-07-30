@@ -1,10 +1,16 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/infrastructure/configs/base.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
+import 'package:caspa_v2/presentation/page/delivery_address_page/widgets/modal_with_scroll.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
+import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'test.dart';
 import 'util/constants/colors.dart';
@@ -16,6 +22,7 @@ import 'widget/general/caspa_field.dart';
 
 class MateApp extends StatelessWidget {
   const MateApp({Key? key}) : super(key: key);
+
   //final botToastBuilder = BotToastInit(); //
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,8 @@ class MateApp extends StatelessWidget {
                           ),
                           TargetPlatform.iOS: CupertinoPageTransitionsBuilder(
                               //transitionType: SharedAxisTransitionType.,
-                              ) // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(
+                              )
+                          // TargetPlatform.iOS: CupertinoPageTransitionsBuilder(
                           //  // transitionType: SharedAxisTransitionType.scaled,
                           // ),
                         },
@@ -51,7 +59,7 @@ class MateApp extends StatelessWidget {
                   builder: (context, widget) {
                     // ScreenUtil.setContext(context);
                     widget = BotToastInit().call(context, widget);
-                    //  widget = botToastBuilder(context,widget);
+                    //  widgets = botToastBuilder(context,widgets);
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget);
                   },

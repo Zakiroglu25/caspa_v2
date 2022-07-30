@@ -13,7 +13,7 @@
 //     FullScreenAlert.of(context).show(
 //         hideAuto: true,
 //         backColor: Colors.black38,
-//         widget: Center(
+//         widgets: Center(
 //             child: Container(
 //           width: 80,
 //           height: 80,
@@ -30,7 +30,7 @@
 //     FullScreenAlert.of(context).show(
 //         hideAuto: true,
 //         backColor: Colors.black38,
-//         widget: Center(
+//         widgets: Center(
 //             child: Container(
 //           width: 80,
 //           height: 80,
@@ -44,7 +44,7 @@
 //     FullScreenAlert.of(context).show(
 //         backColor: Colors.white54,
 //         hideAuto: hideAuto,
-//         widget: Center(
+//         widgets: Center(
 //             child: Container(
 //           width: 200,
 //           height: 200,
@@ -61,7 +61,7 @@
 //     FullScreenAlert.of(context).show(
 //       hideAuto: hideAuto,
 //       backColor: color ?? Colors.transparent,
-//       widget: Center(
+//       widgets: Center(
 //           child: Container(
 //         width: 20,
 //         height: 20,

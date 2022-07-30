@@ -3,10 +3,12 @@ import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dar
 import 'package:caspa_v2/presentation/page/add_address_page/widget/selectable_add_address.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import '../../../../infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
 import '../../../../util/constants/app_text_styles.dart';
 import '../../../../util/constants/colors.dart';
@@ -36,14 +38,48 @@ class SelectableAddAddressList extends StatelessWidget {
                   stream: BlocProvider.of<SelectPackagesPayCubit>(context)
                       .selectedOrdersStream,
                   builder: (context, snapshot) {
-                    return SelectableAddAddress(
-                      index: index,
-                      package: currentPackage,
-                      selected: snapshot.data?.contains(currentPackage) ?? false,
-                      price: "${currentPackage.cargoPrice!} USD",
-                      onTap: () => context
-                          .read<SelectPackagesPayCubit>()
-                          .addOrder(currentPackage),
+                    return Slidable(
+
+                        key: const ValueKey(0),
+
+                    // The start action pane is the one at the left or the top side.
+                    endActionPane: ActionPane(
+
+                    // A motion is a widget used to control how the pane animates.
+                    motion:  ScrollMotion(),
+
+                    // A pane can dismiss the Slidable.
+                    dismissible: DismissiblePane(
+
+                        onDismissed: () {}),
+                      children: [
+
+                        SlidableAction(
+                          borderRadius: BorderRadius.circular(12),
+                          onPressed: doNothing,
+                          backgroundColor: MyColors.mainOpacity,
+                          foregroundColor: MyColors.mainColor,
+                          icon: Icons.delete_outline,
+                        ),
+                        MySizedBox.w4,
+                        SlidableAction(
+                          autoClose: false,
+                          borderRadius: BorderRadius.circular(12),
+                          onPressed: doNothing,
+                          backgroundColor: Color(0xFF21B7CA),
+                          foregroundColor: Colors.white,
+                          icon: Icons.share,
+                        ),
+                    ],
+                    ),
+                      child: SelectableAddAddress(
+                        index: index,
+                        package: currentPackage,
+                        selected: snapshot.data?.contains(currentPackage) ?? false,
+                        onTap: () => context
+                            .read<SelectPackagesPayCubit>()
+                            .addOrder(currentPackage),
+                      ),
                     );
                   });
             }
@@ -71,3 +107,4 @@ class SelectableAddAddressList extends StatelessWidget {
     );
   }
 }
+void doNothing(BuildContext context) {}

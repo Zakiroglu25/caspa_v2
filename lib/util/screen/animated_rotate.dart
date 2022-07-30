@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math' show pi;
@@ -6,7 +5,7 @@ import 'dart:math' show pi;
 /// Animated version of [Transform.rotate] which automatically transitions the
 /// rotation over time.
 class AnimatedRotate extends ImplicitlyAnimatedWidget {
-  /// Creates a widget that rotates its child by a value that animates
+  /// Creates a widgets that rotates its child by a value that animates
   /// implicitly.
   ///
   /// The [angle], [curve], and [duration] arguments must not be null.
@@ -21,7 +20,7 @@ class AnimatedRotate extends ImplicitlyAnimatedWidget {
   /// The amount degrees to rotate the child clockwise.
   final num angle;
 
-  /// The widget to rotate
+  /// The widgets to rotate
   final Widget child;
 
   @override
@@ -42,7 +41,7 @@ class _AnimatedRotationState extends AnimatedWidgetBaseState<AnimatedRotate> {
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
     _angle = visitor(_angle, widget.angle,
-            (dynamic value) => Tween<num>(begin: value as num)) as Tween<num>?;
+        (dynamic value) => Tween<num>(begin: value as num)) as Tween<num>?;
   }
 
   @override

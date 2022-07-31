@@ -49,7 +49,7 @@ class NewBalanceBox extends StatelessWidget {
             child: Padding(
               padding: Paddings.paddingA16,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(width: 24, height: 24, child: Image.asset(icon!)),

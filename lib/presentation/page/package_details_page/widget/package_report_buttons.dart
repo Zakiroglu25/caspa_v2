@@ -111,13 +111,8 @@ class PackageReportButtons extends StatelessWidget {
           });
     } else if (package.payment == 0) {
       //odenish et
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          PayButton(
-            package: package,
-          ),
-        ],
+      return PayButton(
+        package: package,
       );
     } else if (package.payment == 1 &&
             customStatus == MyText.stArrived &&

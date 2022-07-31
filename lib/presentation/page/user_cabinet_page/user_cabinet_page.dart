@@ -27,6 +27,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../infrastructure/cubits/user/user_cubit.dart';
 import '../../../locator.dart';
+import '../bonus_page/bonus_page.dart';
 import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -160,13 +161,12 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.h16,
 
                   NewBalanceBox(
-                    // onTap: () => Go.to(
-                    //     context,
-                    //     Pager.paymentPage(
-                    //         paymentBalanceType: PaymentBalanceType.cargo)),
+                    onTap: () => Go.to(
+                        context,
+                        Pager.bonus),
                     icon: Assets.pngGift,
-                    boxTitle: MyText.giftBalance,
-                    title: "${MyText.balance}: ${user.balance} TL ",
+                    boxTitle: MyText.bonus,
+                    title: "${MyText.balance}: ${user.bonus} \$ ",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: MyText.desc,

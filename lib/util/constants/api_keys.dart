@@ -127,6 +127,8 @@ class ApiKeys {
   static const payForCourierCashback = "$baseUrl/user/courier/cashback";
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";
+  //bonus
+  static const bonus = "$baseUrl/user/bonus";
 
   static loginBody({
     required String? email,

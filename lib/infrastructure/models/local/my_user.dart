@@ -28,6 +28,7 @@ class MyUser {
   List<MyNotification>? notifications;
   // List<ActivePackages>? activePackages;
   List<Package>? activePackages;
+  int? bonus;
 
   MyUser(
       {this.id,
@@ -35,6 +36,7 @@ class MyUser {
       this.cashback_balance,
       this.username,
       this.name,
+        this.bonus,
       this.surname,
       this.fullName,
       this.email,
@@ -70,6 +72,7 @@ class MyUser {
     birthday = json['birthday'];
     gender = json['gender'];
     avatar = json['avatar'];
+    bonus = json['bonus'];
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
       json['notifications'].forEach((v) {
@@ -125,6 +128,8 @@ class MyUser {
     data['avatar'] = avatar;
     data['address'] = address;
     data['balance'] = balance;
+    data['bonus'] = this.bonus;
+
     data['cargoBalance'] = cargoBalance;
     data['active_package_count'] = active_package_count;
     if (city != null) {

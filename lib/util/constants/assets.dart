@@ -84,6 +84,8 @@ class Assets {
   static const String svgLogOut = "assets/svg/logout.svg";
   static const String svgInfoCourier = "assets/svg/information-circle.svg";
   static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
+  static const String svgBonusIn = "assets/svg/inbonus.svg";
+  static const String svgClock = "assets/svg/clock.svg";
 
   //test url
   static const String testImageURL =

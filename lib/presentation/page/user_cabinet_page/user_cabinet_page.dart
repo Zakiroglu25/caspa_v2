@@ -38,7 +38,6 @@ class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
 
-  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {

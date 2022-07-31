@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/bonus_cubit/bonus_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/commission/comission_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/contact/contact_cubit.dart';
@@ -38,6 +39,7 @@ import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
+import 'package:caspa_v2/presentation/page/bonus_page/bonus_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_list_page/courier_list_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
@@ -318,6 +320,7 @@ class Pager {
 
   static userCabinet({bool? showBack}) => MultiBlocProvider(providers: [
         BlocProvider(create: (context) => UserCubit()),
+        BlocProvider(create: (context) => BonusCubit()),
       ], child: UserCabinetPage(showBack: showBack));
 
   static get adress => MultiBlocProvider(providers: [
@@ -335,6 +338,12 @@ class Pager {
           create: (context) => ShopCubit()..fetch(),
         )
       ], child: const ShopPage());
+
+  static get bonus => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => BonusCubit()..fetch(),
+        )
+      ], child: const BonusPage());
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [

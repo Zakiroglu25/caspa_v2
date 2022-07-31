@@ -10,6 +10,7 @@ class MyColors {
   static const Color mainBlue03 = Color.fromRGBO(64, 157, 209, 0.3);
   static const Color greyWhite = Color.fromRGBO(245, 245, 245, 1);
   static const Color white = Colors.white;
+
   // static const Color white70 = Color.fromRGBO(255, 255, 255, .7);
   static const Color black = Colors.black;
   static const Color black34 = Color.fromRGBO(34, 34, 34, 1);
@@ -19,8 +20,13 @@ class MyColors {
   static const Color alternativ = Color.fromRGBO(196, 142, 209, 1);
   static const Color green = Color.fromRGBO(85, 169, 50, 1);
   static const Color greenOrderBalance = Color.fromRGBO(87, 185, 114, 1);
-  static LinearGradient gra =
-      LinearGradient(colors: [Colors.blue, Colors.green]);
+
+  static LinearGradient bonusBackground = LinearGradient(colors: [
+    Color.fromRGBO(248, 235, 253, 1),
+    Color.fromRGBO(251, 228, 228, 1),
+    Color.fromRGBO(255, 246, 225, 1),
+    Color.fromRGBO(251, 228, 228, 1),
+  ]);
   static const Color mainRED = Color.fromRGBO(222, 37, 55, 1);
   static const Color mainOrange = Color.fromRGBO(246, 102, 46, 1);
   static const Color secondRED = Color.fromRGBO(237, 50, 55, 1);
@@ -35,6 +41,7 @@ class MyColors {
   static const Color backMainColor = Color.fromRGBO(240, 243, 248, 1);
   static const Color formGrey = Color.fromRGBO(118, 118, 118, 1);
   static const Color halfGrey = Color.fromRGBO(214, 214, 214, 1);
+
   //static Color purple = HexColor.fromHex('#b74093');
   static const Color grey165 = Color.fromRGBO(168, 172, 185, 1);
   static const Color grey163 = Color.fromRGBO(163, 165, 167, 1);
@@ -112,13 +119,16 @@ class MyColors {
   static const Color softGreen235 = Color.fromRGBO(235, 251, 228, 1);
   static const Color softPurple241 = Color.fromRGBO(241, 241, 249, 1);
   static const Color dividerVertical = Color.fromRGBO(255, 255, 255, 0.15);
+
   //new dark text color
   static const Color dark51 = Color.fromRGBO(51, 51, 51, 1);
   static const Color deleteREd = Color.fromRGBO(253, 242, 244, 1);
 
-  // static const Color shopPurple =Color(0xFF5D5FEF);
-  // static const Color shopBlue =Color(0xFF27E3D8);
-  // static const Color shopRed =Color(0xFFE32E2E);
-  // static const Color shopYellow =Color(0xFFFEB201);
+//bonus background
+  static const Color bonus = Color.fromRGBO(251, 228, 228, 1);
+// static const Color shopPurple =Color(0xFF5D5FEF);
+// static const Color shopBlue =Color(0xFF27E3D8);
+// static const Color shopRed =Color(0xFFE32E2E);
+// static const Color shopYellow =Color(0xFFFEB201);
 
 }

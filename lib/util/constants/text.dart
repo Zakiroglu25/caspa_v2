@@ -152,6 +152,7 @@ class MyText {
   static const String cargoBalance = "Daşınma balansı";
   static const String orderBalance = "Sifariş balansı";
   static const String giftBalance = "Hədiyyə balansı";
+  static const String bonus = "Bonuslar";
   static const String balance = "Balans";
   static const String desc =
       "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";

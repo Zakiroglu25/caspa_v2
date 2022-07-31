@@ -5,6 +5,7 @@ class ApiKeys {
   ApiKeys._();
 
   static const baseUrl = 'https://caspa.az/api';
+  static const bigDataCloud = 'https://api.bigdatacloud.net/data';
 
   ///delete
   static const headers = {
@@ -34,6 +35,7 @@ class ApiKeys {
   static const shop = '$baseUrl/public/stores';
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
+  static const localityInfo = '$bigDataCloud/reverse-geocode-client';
   static const smsCodes = '$baseUrl/public/sms';
   static const wares = '$baseUrl/public/wares';
 
@@ -294,7 +296,7 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": 1,
-      "ware":ware,
+      "ware": ware,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language

@@ -2,12 +2,15 @@ import 'dart:async';
 import 'dart:io';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/big_data_info.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/delivery_address_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:caspa_v2/util/extensions/word.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +23,7 @@ import '../../../locator.dart';
 import '../../../util/delegate/pager.dart';
 import '../../../util/screen/alert.dart';
 import '../../data_source/delivery_adress_provider.dart';
+import '../../data_source/public_provider.dart';
 import '../../models/remote/response/regions_model.dart';
 import 'delivery_address_current_state.dart';
 import 'package:location/location.dart' as loc;
@@ -45,18 +49,28 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       final lat = position.latitude;
       final long = position.longitude;
       final _location = "$lat , $long";
-      List<Placemark> addresses = await placemarkFromCoordinates(lat, long);
 
+      List<Placemark> addresses = await placemarkFromCoordinates(lat, long);
+      final locData = await PublicProvider.getLocData(lat: lat, long: long);
       var first = addresses.first;
       print("nname: ${first.name} :administrativeArea:  ${first}");
+
+      if (isSuccess(locData.statusCode)) {
+        regionTitle = (locData.data as LocalityInfo).administrative?.last.name;
+      }
+      bbbb("regionnnn: $regionTitle");
+
       if (first != null) {
-        final _address = (first.thoroughfare == null ||
-                first.thoroughfare == '')
-            ? '${first.subAdministrativeArea}'
-            : '${first.subAdministrativeArea}, ${first.subLocality}, ${first.thoroughfare} ${first.subThoroughfare}';
+        final _address =
+            (first.thoroughfare == null || first.thoroughfare == '')
+                ? '${first.subAdministrativeArea}'
+                : '${first.subAdministrativeArea}, '.notEmpty +
+                    '${first.subLocality}, '.notEmpty +
+                    '${first.thoroughfare} '.notEmpty +
+                    '${first.subThoroughfare}'.notEmpty;
 
         address = _address;
-        regionTitle = first.subAdministrativeArea;
+        // regionTitle = first.subAdministrativeArea;
         coordinates = _location;
         await Future<void>.delayed(Durations.ms100);
         emit(DeliveryAdressCurrentSuccess(
@@ -85,7 +99,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       }
       final regionList = context.read<DeliveryAddressCubit>().regionList;
       final region =
-          declareRedionId(region: regionTitle!, regionList: regionList);
+          declareRegionId(region: regionTitle!, regionList: regionList);
       final result = await DeliveryAdressProvider.add(
           region: region,
           name: address ?? '',
@@ -107,11 +121,21 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     }
   }
 
-  int declareRedionId({
+  int declareRegionId({
     required String region,
     required List<Region> regionList,
   }) {
-    try {} on SocketException catch (_) {
+    try {
+      final regionFirstPart = region.first;
+
+      final declaredRegions = regionList.where((element) =>
+          element.eng == regionFirstPart ||
+          element.name?.first == regionFirstPart);
+      if (declaredRegions.isNotEmpty) {
+        final int id = declaredRegions.first.id!;
+        return id;
+      }
+    } on SocketException catch (_) {
       //network olacaq
       emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e) {

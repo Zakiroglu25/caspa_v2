@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
@@ -22,6 +24,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+HiveService get _prefsLocale => locator<HiveService>();
+
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
@@ -35,11 +39,15 @@ class _HomePageState extends State<HomePage> {
 
   void showSheetWidget() {
     if (!issheetShown) {
-      Future.delayed(Duration(seconds: 1), () {
-        modalBottomSheetMenu(context);
-      });
-      issheetShown = true;
-      _prefs!.setBool('show_sheet', issheetShown);
+      if (_prefsLocale.user.birthday!.substring(0, 5) ==
+          DateFormat("dd-MM").format(now)) {
+        Future.delayed(Duration(seconds: 1), () {
+          modalBottomSheetMenu(context);
+        });
+        issheetShown = true;
+        _prefs!.setBool('show_sheet', issheetShown);
+      }
+
     }
   }
 
@@ -50,7 +58,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     ///burdaki tarix deyishecek
-    if ("28-07" == DateFormat("dd-MM").format(now)) ;
+
     showSheetWidget();
     return Scaffold(
       appBar: CaspaAppbar(

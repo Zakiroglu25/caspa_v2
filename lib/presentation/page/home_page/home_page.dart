@@ -57,7 +57,6 @@ class _HomePageState extends State<HomePage> {
   var now = DateTime.now();
 
   Widget build(BuildContext context) {
-    ///burdaki tarix deyishecek
 
     showSheetWidget();
     return Scaffold(

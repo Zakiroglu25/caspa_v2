@@ -1,44 +1,49 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
+import 'package:caspa_v2/presentation/page/courier_page/widgets/delivery_address_select_field.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
+import 'package:caspa_v2/widget/general/caspa_field.dart';
+import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../infrastructure/cubits/courier/courier_cubit.dart';
 import '../../../../infrastructure/models/remote/response/courier_orders_model.dart';
-import '../../../../util/constants/text_styles.dart';
-import '../../../../util/formatter/masked_text_controller_phone.dart';
+import '../../../../infrastructure/models/remote/response/delivery_address_model.dart';
+import '../../../../widget/custom/buttons/accent_button.dart';
 import 'courier_continue_button.dart';
 import 'courier_info_box.dart';
-import 'fields/adress_field.dart';
-import 'fields/number_field.dart';
-import 'fields/region_field.dart';
 import 'order_list.dart';
 
 class CourierPageListView extends StatelessWidget {
   final List<Package>? packageList;
   final List<Region>? regionList;
   final CourierOrder? courierOrder;
-
+  final DeliveryAddress? address;
   CourierPageListView(
-      {required this.packageList, required this.regionList, this.courierOrder});
+      {required this.packageList,
+      this.address,
+      required this.regionList,
+      this.courierOrder});
 
   @override
   Widget build(BuildContext context) {
     if (courierOrder != null) {
-      bbbb("courierOrder: $courierOrder");
+      bbbb("courierOrder: $address");
     }
+    bbbb("courierOrder: $address");
     return ListOrEmpty(
       list: packageList,
       text: MyText.youMustHaveProduct,
@@ -62,18 +67,21 @@ class CourierPageListView extends StatelessWidget {
                 MySizedBox.h24,
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,
-                PhoneFieldCourier(
-                  controller: MaskedTextController.app(
-                      text:
-                          "${AppOperations.formatNumber(courierOrder?.phone, addZero: false, fromSpaceToLine: false)}"),
-                ),
-                RegionFieldCourier(
-                  regionList: regionList,
-                  selectedRegion: courierOrder?.region,
-                ),
-                AdressFieldCourier(
-                    controller: TextEditingController(
-                        text: "${courierOrder?.address ?? ''}")),
+
+                DeliveryAddressSelectField(address: address),
+                MySizedBox.h16,
+                // PhoneFieldCourier(
+                //   controller: MaskedTextController.app(
+                //       text:
+                //           "${AppOperations.formatNumber(courierOrder?.phone, addZero: false, fromSpaceToLine: false)}"),
+                // ),
+                // RegionFieldCourier(
+                //   regionList: regionList,
+                //   selectedRegion: courierOrder?.region,
+                // ),
+                // AdressFieldCourier(
+                //     controller: TextEditingController(
+                //         text: "${courierOrder?.address ?? ''}")),
                 SectionName(title: MyText.selectOrder),
                 MySizedBox.h20,
                 OrderList(

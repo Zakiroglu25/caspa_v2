@@ -46,7 +46,7 @@ class WaresField extends StatelessWidget {
                                       .valueOrNull
                                       ?.name) ??
                                   '')),
-                      title: MyText.hintWares,
+                      title: MyText.deliveryPoint,
                       onTap: () => wares != null
                           ? showSheet(context, wares)
                           : Snack.display(
@@ -62,7 +62,7 @@ class WaresField extends StatelessWidget {
   }
 
   showSheet(BuildContext context, List<Data>? waresList) {
-    if (waresList != null && waresList.length != 0) {
+    if (waresList != null && waresList.isNotEmpty) {
       Sheet.display(
           context: context,
           child: StreamBuilder<List<Data>>(

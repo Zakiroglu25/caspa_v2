@@ -8,6 +8,7 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'widgets/enter_code_body.dart';
 import 'widgets/enter_mail_body.dart';
 import 'widgets/forgot_main_button.dart';
@@ -56,11 +57,16 @@ class ForgetPasswordPage extends StatelessWidget {
                       return FadeIn(key: Key("a"), child: EnterMailBody());
                     }
                     if (state is ForgotPassEnterCode) {
-                      return FadeInRight(duration: Duration(milliseconds: 500),key: Key("b"), child: EnterCodeBody());
+                      return FadeInRight(
+                          duration: Duration(milliseconds: 500),
+                          key: Key("b"),
+                          child: EnterCodeBody());
                     }
                     if (state is ForgotPassChanged) {
-                      return FadeInRight(duration: Duration(milliseconds: 500),
-                          key: Key("c"), child: PassChangedBody());
+                      return FadeInRight(
+                          duration: Duration(milliseconds: 500),
+                          key: Key("c"),
+                          child: PassChangedBody());
                     } else {
                       return CaspaLoading.blue();
                     }

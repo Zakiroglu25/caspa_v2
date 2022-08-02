@@ -14,6 +14,8 @@ class Go {
   //           ], child: page)));
   // }
 
+  Go._();
+
   static replace(BuildContext context, Widget page) async {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => page));

@@ -1,5 +1,4 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -10,9 +9,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'sad_face_anim.dart';
-import 'sad_smile.dart';
-
 class NewEmptyWidget extends StatelessWidget {
   final bool? smile;
 
@@ -21,7 +17,8 @@ class NewEmptyWidget extends StatelessWidget {
   final Widget? button;
   final String? image;
 
-  NewEmptyWidget({this.smile, this.text, this.description,this.button,this.image});
+  NewEmptyWidget(
+      {this.smile, this.text, this.description, this.button, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +29,12 @@ class NewEmptyWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            if(image != null)
-            Container(
-              height: 120.sp,
-              width: 120.sp,
-              child: Image.asset(image!),
-            ),
+            if (image != null)
+              Container(
+                height: 120.sp,
+                width: 120.sp,
+                child: Image.asset(image!),
+              ),
             SizedBox(
               height: 16.sp,
             ),

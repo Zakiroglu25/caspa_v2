@@ -47,7 +47,7 @@ class WaresRegisterField extends StatelessWidget {
                                       .valueOrNull
                                       ?.name) ??
                                   '')),
-                      title: MyText.hintWares,
+                      title: MyText.deliveryPoint,
                       onTap: () => wares != null
                           ? showSheet(context, wares)
                           : Snack.display(

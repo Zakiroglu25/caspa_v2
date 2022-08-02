@@ -3,22 +3,19 @@ import 'dart:io';
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:rxdart/rxdart.dart';
+
 import '../../locator.dart';
 import '../../util/constants/text.dart';
 import '../../util/delegate/navigate_utils.dart';
 import '../../util/screen/ink_wrapper.dart';
-import '../../util/screen/widget_or_empty.dart';
 import 'photo_with_url.dart';
 
 class UserPhoto extends StatelessWidget {

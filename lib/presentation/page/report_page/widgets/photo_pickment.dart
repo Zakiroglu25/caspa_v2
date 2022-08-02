@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -6,8 +7,8 @@ import 'package:caspa_v2/util/screen/errorable_image.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rxdart/src/subjects/behavior_subject.dart';
 
 class PhotoPickment extends StatelessWidget {

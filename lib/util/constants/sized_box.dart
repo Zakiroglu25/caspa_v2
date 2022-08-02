@@ -35,10 +35,11 @@ class MySizedBox {
   static const SizedBox h70 = SizedBox(height: 70);
   static const SizedBox h75 = SizedBox(height: 75);
   static const SizedBox h80 = SizedBox(height: 80);
+  static const SizedBox h90 = SizedBox(height: 90);
   static const SizedBox h100 = SizedBox(height: 100);
   static const SizedBox h110 = SizedBox(height: 110);
-  static const SizedBox h90 = SizedBox(height: 90);
   static const SizedBox h150 = SizedBox(height: 150);
+  static const SizedBox h200 = SizedBox(height: 200);
 
   //-width
   static const SizedBox w2 = SizedBox(width: 2);

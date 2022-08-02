@@ -35,6 +35,7 @@ class DeliveryAddressElement extends StatelessWidget {
       child: Slidable(
         key: Key("id"),
         endActionPane: ActionPane(
+          extentRatio: 0.55,
           motion: const ScrollMotion(),
           children: [
             SlidableActionButton(

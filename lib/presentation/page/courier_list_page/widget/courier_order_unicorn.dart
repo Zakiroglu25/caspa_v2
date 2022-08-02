@@ -38,7 +38,7 @@ class CourierOrderUnicorn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                  "${courier.products!.map((e) => e.tracking).toList().join(', ')}",
+                  "${courier.products!.map((e) => e.cargoTracking).toList().join(', ')}",
                   style: AppTextStyles.sanF600
                       .copyWith(color: MyColors.black, fontSize: 16.sm)),
               MySizedBox.h8,

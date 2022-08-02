@@ -9,6 +9,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dar
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
+import 'package:caspa_v2/util/delegate/courier_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -19,12 +20,35 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
+import '../../../locator.dart';
+import '../../../util/constants/durations.dart';
+import '../../data_source/delivery_adress_provider.dart';
+import '../../models/remote/response/delivery_address_model.dart';
+import '../../services/hive_service.dart';
+
 class CourierCubit extends Cubit<CourierState> {
   CourierCubit() : super(CourierInProgress());
-  ////////////////////////////////////////
 
+  ////////////////////////////////////////
+  HiveService get _prefs => locator<HiveService>();
   /////////////////////////////////////////////////////
   /////////////////////////////////////////////////////
+
+  Future<DeliveryAddress?> getAddress([bool loading = true]) async {
+    bbbb("huuhuh");
+    // emit(CourierAddressInProgress());
+    // await Future.delayed(Durations.s1);
+    final resultAddress = await DeliveryAdressProvider.getAddresses();
+
+    if (resultAddress != null) {
+      final List<DeliveryAddress>? addresses = resultAddress.data;
+      final address =
+          CourierOperations.determineSelectedAddress(addresses: addresses);
+      updatedeliveryAddress(address?.name ?? '');
+      return address;
+    }
+    return null;
+  }
 
   Future<int?> addCourier(BuildContext context,
       {bool loading = true,
@@ -74,27 +98,32 @@ class CourierCubit extends Cubit<CourierState> {
     int? courierId,
   }) async {
     try {
-      if (isUserDataValid()) {
-        if (loading) {
-          emit(CourierInProgressButton());
-        }
-        ;
-        Go.to(
-            context,
-            Pager.courier_order(
-              phone: phone.value,
-              packages: selectedOrders.value,
-              adress: adress.value,
-              courierId: courierId,
-              price: region.value!.price!,
-              region: region.value!,
-            ));
-        emit(CourierConfigured());
-      } else {
-        Snack.display(
-            context: context, message: MyText.all_fields_must_be_filled);
-        emit(CourierOperationFail());
+      // if (isUserDataValid()) {
+      final _address = _prefs.address;
+      if (loading) {
+        emit(CourierInProgressButton());
       }
+      ;
+      if (_address == null) {
+        emit(CourierError());
+        return null;
+      }
+      Go.to(
+          context,
+          Pager.courier_order(
+            phone: _address.phone!,
+            packages: selectedOrders.value,
+            adress: _address.address!,
+            courierId: courierId,
+            price: _address.region!.price!,
+            region: _address.region!,
+          ));
+      emit(CourierConfigured());
+      // } else {
+      //   Snack.display(
+      //       context: context, message: MyText.all_fields_must_be_filled);
+      //   emit(CourierOperationFail());
+      // }
     } on SocketException catch (_) {
       //network olacaq
       emit(CourierError());
@@ -103,21 +132,62 @@ class CourierCubit extends Cubit<CourierState> {
       emit(CourierError(error: e.toString()));
     }
   }
+  // void configureCourier(
+  //   BuildContext context, {
+  //   bool loading = true,
+  //   int? courierId,
+  // }) async {
+  //   try {
+  //     if (isUserDataValid()) {
+  //       if (loading) {
+  //         emit(CourierInProgressButton());
+  //       }
+  //       ;
+  //       Go.to(
+  //           context,
+  //           Pager.courier_order(
+  //             phone: phone.value,
+  //             packages: selectedOrders.value,
+  //             adress: adress.value,
+  //             courierId: courierId,
+  //             price: region.value!.price!,
+  //             region: region.value!,
+  //           ));
+  //       emit(CourierConfigured());
+  //     } else {
+  //       Snack.display(
+  //           context: context, message: MyText.all_fields_must_be_filled);
+  //       emit(CourierOperationFail());
+  //     }
+  //   } on SocketException catch (_) {
+  //     //network olacaq
+  //     emit(CourierError());
+  //   } catch (e, s) {
+  //     Recorder.recordCatchError(e, s, where: 'CourierCubit.configureCourier');
+  //     emit(CourierError(error: e.toString()));
+  //   }
+  // }
 
   void fetchPackagesForCourier({bool loading = true}) async {
     if (loading) {
       emit(CourierInProgress());
     }
+    updatedeliveryAddress("");
 
     try {
       selectedOrders.value.clear();
       final resultPackages = await PackageProvider.fetchPackagesForCourier();
       final resultRegions = await PublicProvider.getRegions();
+
+      final address = await getAddress();
+
+      //  await Future.delayed(Durations.ms100);
       if (isSuccess(resultPackages.statusCode) &&
           isSuccess(resultRegions.statusCode)) {
-        //bbbb("kkkk: ${(resultPackages.data[0] as Package).payment}");
         emit(CourierableFetched(
-            packageList: resultPackages.data, regionList: resultRegions.data));
+            address: address,
+            packageList: (resultPackages.data as List<Package>).where((element) => element.inCourier!<1).toList(),
+            regionList: resultRegions.data));
       } else {
         emit(CourierError());
       }
@@ -152,6 +222,19 @@ class CourierCubit extends Cubit<CourierState> {
   // }
 
   ////////////////////////////fields
+
+//deliveryAddress
+  final BehaviorSubject<String> deliveryAddress = BehaviorSubject<String>();
+
+  Stream<String> get deliveryAddressStream => deliveryAddress.stream;
+
+  updatedeliveryAddress(String value) {
+    deliveryAddress.sink.add(value);
+  }
+
+  bool get isDeliveryAddressIncorrect => (!deliveryAddress.hasValue ||
+      deliveryAddress.value == null ||
+      deliveryAddress.value.isEmpty);
 
   //adress
   final BehaviorSubject<String> adress = BehaviorSubject<String>();

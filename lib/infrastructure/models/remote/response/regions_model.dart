@@ -19,18 +19,25 @@ class RegionData {
     }
     return data;
   }
+
+  @override
+  String toString() {
+    return 'RegionData{data: $data}';
+  }
 }
 
 class Region {
   int? id;
   String? name;
+  String? eng;
   String? price;
 
-  Region({this.id, this.name, this.price});
+  Region({this.id, this.name, this.price, this.eng});
 
   Region.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    eng = json['eng'] ?? 'Sabunchu';
     price = json['price'];
   }
 
@@ -38,7 +45,13 @@ class Region {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
+    data['eng'] = eng;
     data['price'] = price;
     return data;
+  }
+
+  @override
+  String toString() {
+    return 'Region{id: $id, name: $name, eng: $eng, price: $price}';
   }
 }

@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/birthday_field.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/cardIdField.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/fields/finField.dart';
@@ -14,12 +13,12 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
-import 'package:caspa_v2/util/screen/full_screen_loading.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/single_child_bounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../../util/formatter/masked_text_controller_phone.dart';
 import '../fields/adress_field.dart';
 import '../fields/email_field.dart';

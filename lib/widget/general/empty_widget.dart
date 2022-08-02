@@ -8,7 +8,6 @@ import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'sad_face_anim.dart';
 import 'sad_smile.dart';
 
 class EmptyWidget extends StatelessWidget {
@@ -29,7 +28,8 @@ class EmptyWidget extends StatelessWidget {
         height: h,
         padding: Paddings.paddingA12,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment:
+              h != null ? MainAxisAlignment.end : MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(

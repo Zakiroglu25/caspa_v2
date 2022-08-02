@@ -18,51 +18,51 @@ import '../../../util/formatter/masked_text_controller_phone.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../models/remote/response/delivery_address_model.dart';
 import '../../models/remote/response/regions_model.dart';
-import 'delivery_adress_operations_state.dart';
+import 'delivery_address_operations_state.dart';
 
 class DeliveryAdressOperationsCubit
     extends Cubit<DeliveryAdressOperationsState> {
-  DeliveryAdressOperationsCubit() : super(DeliveryAdressOperationsInitial());
+  DeliveryAdressOperationsCubit() : super(DeliveryAdressOperationsInitial()) {
+    nameController = TextEditingController();
+    phoneController = MaskedTextController.app(
+        text:
+            "${AppOperations.formatNumber("", addZero: false, fromSpaceToLine: false)}");
+    detailsController = TextEditingController();
+  }
 
   HiveService get _prefs => locator<HiveService>();
 
-  final TextEditingController nameController =
-      TextEditingController(text: "${''}");
+  late TextEditingController nameController;
 
-  final TextEditingController phoneController = MaskedTextController.app(
-      text:
-          "${AppOperations.formatNumber("", addZero: false, fromSpaceToLine: false)}");
+  late TextEditingController phoneController;
 
-  final TextEditingController detailsController =
-      TextEditingController(text: "${''}");
+  late TextEditingController detailsController;
 
   void add(BuildContext context, {bool loading = true, int? id}) async {
     try {
-      if (isUserDataValid()) {
-        if (loading) {
-          emit(DeliveryAdressOperationsInProgress());
-        }
-
-        final result = await DeliveryAdressProvider.add(
-            region: region.valueOrNull?.id!,
-            name: name.value,
-            phone: phone.value,
-            id: id,
-            address: address.value);
-
-        bbbb("resoooo: " + result.toString());
-
-        if (isSuccess(result?.statusCode)) {
-          emit(DeliveryAdressOperationsSuccess());
-        } else {
-          emit(DeliveryAdressOperationsError(
-              error: MyText.error + " ${result!.statusCode}"));
-        }
+      if (!isUserDataValid()) {
+        return;
+      }
+      if (loading) {
         emit(DeliveryAdressOperationsInProgress());
+      }
+
+      final result = await DeliveryAdressProvider.add(
+          region: region.valueOrNull?.id!,
+          name: name.value,
+          phone: phone.value,
+          id: id,
+          address: address.value);
+
+      bbbb("resoooo: " + result.toString());
+
+      if (isSuccess(result?.statusCode)) {
+        emit(DeliveryAdressOperationsSuccess());
       } else {
         emit(DeliveryAdressOperationsError(
-            error: MyText.all_fields_must_be_filled));
+            error: MyText.error + " ${result!.statusCode}"));
       }
+      emit(DeliveryAdressOperationsInProgress());
     } on SocketException catch (_) {
       //network olacaq
       emit(DeliveryAdressOperationsError(error: MyText.network_error));
@@ -224,6 +224,9 @@ class DeliveryAdressOperationsCubit
     address.close();
     phone.close();
     region.close();
+    nameController.dispose();
+    phoneController.dispose();
+    detailsController.dispose();
     return super.close();
   }
 }

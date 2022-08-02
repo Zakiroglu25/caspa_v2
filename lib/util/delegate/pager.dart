@@ -39,7 +39,6 @@ import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
 import 'package:caspa_v2/presentation/page/auth/forget_password/forget_pass_page.dart';
 import 'package:caspa_v2/presentation/page/auth/login_page/login_page.dart';
 import 'package:caspa_v2/presentation/page/auth/register/register_page.dart';
-import 'package:caspa_v2/presentation/page/bonus_page/bonus_page.dart';
 import 'package:caspa_v2/presentation/page/contact_us_page/contact_us_page.dart';
 import 'package:caspa_v2/presentation/page/courier_list_page/courier_list_page.dart';
 import 'package:caspa_v2/presentation/page/courier_orders_page/courier_orders_page.dart';
@@ -61,6 +60,14 @@ import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
 import 'package:caspa_v2/presentation/page/new_order_payment_page/new_order_payment_page.dart';
 import 'package:caspa_v2/presentation/page/notifications_page/notifications_page.dart';
 import 'package:caspa_v2/presentation/page/onboard_page/onboard_page.dart';
+import 'package:caspa_v2/presentation/page/order_via_link_list_page/order_via_link_list_page.dart';
+import 'package:caspa_v2/presentation/page/order_via_link_page/order_via_link_page.dart';
+import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
+import 'package:caspa_v2/presentation/page/package_details_page/package_details_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
+import 'package:caspa_v2/presentation/page/package_page/widget/packages_list.dart';
+import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
+import 'package:caspa_v2/presentation/page/report_page/report_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/app_info_page.dart';
 import 'package:caspa_v2/presentation/page/settings_page/settings_page.dart';
 import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
@@ -68,6 +75,7 @@ import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/promo_code_page.dart';
 import 'package:caspa_v2/presentation/page/shops_page/shops_page.dart';
 import 'package:caspa_v2/presentation/page/splash_page/splash_page.dart';
+import 'package:caspa_v2/presentation/page/success_page/success_page.dart';
 import 'package:caspa_v2/presentation/page/user_cabinet_page/user_cabinet_page.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/user_settings_page.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
@@ -76,22 +84,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../app.dart';
+import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
+import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
-import '../../infrastructure/cubits/delivery_adress_operations/delivery_adress_operations_cubit.dart';
-import '../../infrastructure/cubits/notification_list/notification_list_cubit.dart';
+import '../../infrastructure/cubits/delivery_address_current/delivery_address_current_cubit.dart';
+import '../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
 import '../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
+import '../../presentation/page/bonus_page/bonus_page.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
-import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
-import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
-import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
-import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
 import '../../presentation/page/calculate_page/calculate_page.dart';
+import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
+import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
+import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
 
 class Pager {
+  Pager._();
+
   static get home => MultiBlocProvider(providers: [
         BlocProvider.value(
           value: TarifCubit()..fetch(),
@@ -182,7 +194,10 @@ class Pager {
           providers: [
             BlocProvider.value(
               value: CourierCubit()..fetchPackagesForCourier(),
-            )
+            ),
+            BlocProvider(
+              create: (BuildContext context) => DeliveryAddressCubit()..get(),
+            ),
           ],
           child: CourierPage(
             courierOrder: courierOrder,
@@ -339,6 +354,7 @@ class Pager {
         )
       ], child: const ShopPage());
 
+  //static deliveryAddress() => MultiBlocProvider(providers: [
   static get bonus => MultiBlocProvider(providers: [
         BlocProvider(
           create: (context) => BonusCubit()..fetch(),
@@ -350,14 +366,20 @@ class Pager {
         BlocProvider.value(
           value: DeliveryAddressCubit()..get(),
         ),
+        BlocProvider(
+          create: (context) => DeliveryAddressCurrentCubit()..get(),
+        ),
+        BlocProvider(
+          create: (context) => ReportCubit(),
+        ),
       ], child: DeliveryAddressPage());
 
   static deliveryAddressOperations(
           {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
       MultiBlocProvider(
           providers: [
-            BlocProvider.value(
-              value: DeliveryAdressOperationsCubit()
+            BlocProvider(
+              create: (context) => DeliveryAdressOperationsCubit()
                 ..get(deliveryAddress: deliveryAddress),
             ),
           ],

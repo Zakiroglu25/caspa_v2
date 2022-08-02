@@ -78,7 +78,6 @@ class PackageCubit extends Cubit<PackageState> {
       allPackages.sort(
           (a, b) => format.parse(a.date!).compareTo(format.parse(b.date!)));
       allPackages = allPackages.reversed.toList();
-      bbbb("hoho");
       emit(PackagesError());
       if (isSuccess(result.statusCode)) {
         emit(PackagesSuccess(allPackages));

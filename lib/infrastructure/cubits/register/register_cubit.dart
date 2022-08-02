@@ -480,7 +480,6 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   @override
   Future<void> close() {
-    bbbb("hohoh");
     uEmail.close();
     uName.close();
     surName.close();

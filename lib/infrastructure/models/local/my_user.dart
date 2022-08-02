@@ -26,9 +26,10 @@ class MyUser {
   int? packages_count;
   int? active_package_count;
   List<MyNotification>? notifications;
+
   // List<ActivePackages>? activePackages;
   List<Package>? activePackages;
-  int? bonus;
+  num? bonus;
 
   MyUser(
       {this.id,
@@ -36,7 +37,7 @@ class MyUser {
       this.cashback_balance,
       this.username,
       this.name,
-        this.bonus,
+      this.bonus,
       this.surname,
       this.fullName,
       this.email,

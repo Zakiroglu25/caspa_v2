@@ -27,7 +27,7 @@ class Sheet {
         isScrollControlled: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40.0), topRight: Radius.circular(40.0)),
+              topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
         ),
         context: context!,
         builder: (contextZ) => OptimalBottomSheet(

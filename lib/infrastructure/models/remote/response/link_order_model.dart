@@ -37,6 +37,7 @@ class LinkOrder extends Equatable {
   String? price;
   String? cargoPrice;
   String? note;
+  String? total;
 
   LinkOrder(
       {this.id,
@@ -45,6 +46,7 @@ class LinkOrder extends Equatable {
       this.qty,
       this.payment,
       this.price,
+      this.total,
       this.cargoPrice,
       this.note});
 
@@ -55,6 +57,7 @@ class LinkOrder extends Equatable {
     qty = json['qty'];
     payment = json['payment'];
     price = json['price'];
+    total = json['total'];
     cargoPrice = json['cargo_price'];
     note = json['note'];
   }
@@ -67,6 +70,7 @@ class LinkOrder extends Equatable {
     data['qty'] = this.qty;
     data['payment'] = this.payment;
     data['price'] = this.price;
+    data['total'] = this.total;
     data['cargo_price'] = this.cargoPrice;
     data['note'] = this.note;
     return data;
@@ -80,5 +84,5 @@ class LinkOrder extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props =>
-      [id, link, date, qty, payment, price, cargoPrice, note];
+      [id, link, date, qty, payment, total, price, cargoPrice, note];
 }

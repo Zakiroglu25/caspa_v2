@@ -51,7 +51,7 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": null,
-        "ware":ware
+        "ware": ware
       };
     } else {
       data = FormData.fromMap({
@@ -66,11 +66,10 @@ class ReportProvider {
         "tracking": tracking,
         "price": price,
         "currency": currency,
-        "note": note
+        "note": note,
+        "ware": ware
       });
     }
-
-    log(invoice.toString() + "salam");
 
     // await MultipartFile.fromFile(
     //   invoice!.path,

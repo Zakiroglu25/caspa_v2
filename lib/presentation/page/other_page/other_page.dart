@@ -44,13 +44,12 @@ class OtherPage extends StatelessWidget {
                 ),
                 MenuBox(
                   w: boxW,
-                  title: MyText.giftBalanceX,
-                  content: MyText.infoGift,
-                  color: MyColors.partnyoColor,
-                  onTap: () {
-                    Go.to(context, Pager.giftBalance);
-                  },
+                  title: MyText.trendyolSms,
+                  content: MyText.trendyolOtp,
+                  color: MyColors.shop,
+                  onTap: () => Go.to(context, Pager.smsCodes),
                 ),
+
               ],
             ),
             MySizedBox.h14,
@@ -103,10 +102,12 @@ class OtherPage extends StatelessWidget {
               children: [
                 MenuBox(
                   w: boxW,
-                  title: MyText.trendyolSms,
-                  content: MyText.trendyolOtp,
-                  color: MyColors.shop,
-                  onTap: () => Go.to(context, Pager.smsCodes),
+                  title: MyText.giftBalanceX,
+                  content: MyText.infoGift,
+                  color: MyColors.partnyoColor,
+                  onTap: () {
+                    Go.to(context, Pager.giftBalance);
+                  },
                 ),
                 MenuBox(
                   w: boxW,

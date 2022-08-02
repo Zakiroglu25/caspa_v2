@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../infrastructure/services/hive_service.dart';
 import '../../../../locator.dart';
@@ -31,14 +32,13 @@ class BirthdaySheet extends StatelessWidget {
           SizedBox(
             width: 375,
             height: 375,
-            child: Image.asset(Assets.bottomBirthday),
+            child:Lottie.asset(Assets.animPasta, repeat: true),
           ),
           Padding(
             padding: Paddings.paddingH16,
             child: Column(
               children: [
                 MySizedBox.h16,
-
                 Text(
                   "Caspa Azerbaijan ailəsi səni təbrik edir, ${_prefsLocale.user.name} 🎉",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 25.sp),

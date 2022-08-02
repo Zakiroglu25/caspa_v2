@@ -96,4 +96,5 @@ class Assets {
   static const String animSadFace = "assets/anim/sad_face.json";
   static const String animSuccessOpt = "assets/anim/success_operation.json";
   static const String animProgressbar = "assets/anim/progressbar.json";
+  static const String animPasta = "assets/anim/birthday_pasta.json";
 }

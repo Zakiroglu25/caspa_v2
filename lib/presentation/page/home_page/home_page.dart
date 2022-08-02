@@ -2,6 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,6 @@ class _HomePageState extends State<HomePage> {
   var now = DateTime.now();
 
   Widget build(BuildContext context) {
-
     showSheetWidget();
     return Scaffold(
       appBar: CaspaAppbar(
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                 SectionName(
                   title: MyText.recognizeTariffs,
                   hP: 20,
-                  tile: MoreButton(onTap: () => modalBottomSheetMenu(context)),
+                  tile: MoreButton(onTap: () => Pager.tarifDetails),
                 ),
                 MySizedBox.h10,
                 Tariffs(),

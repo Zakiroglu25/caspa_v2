@@ -127,8 +127,10 @@ class ApiKeys {
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
   static const payForCourierCashback = "$baseUrl/user/courier/cashback";
+
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";
+
   //bonus
   static const bonus = "$baseUrl/user/bonus";
 
@@ -229,7 +231,7 @@ class ApiKeys {
       "tax_number": tax_number,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
-      "language": language
+      "language": language,
     };
 
     map.removeWhere(
@@ -280,7 +282,6 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
-    required int? ware,
   }) {
     final map = {
       "name": name,
@@ -295,8 +296,7 @@ class ApiKeys {
       "fin": fin,
       "birthday": birthday,
       "gender": gender,
-      "ware_house": 1,
-      "ware": ware,
+      "ware_house": ware_house,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language
@@ -315,7 +315,6 @@ class ApiKeys {
     required String? old_password,
     required String? password_confirmation,
     required String? phone,
-    //required int? accept,
     required String? id_number,
     required String? fin,
     required String? birthday,
@@ -335,7 +334,7 @@ class ApiKeys {
       "company_name": company_name,
       "tax_number": tax_number,
       "phone": phone,
-      "ware_house": 1,
+      "ware_house": ware_house,
       "language": language
     };
 

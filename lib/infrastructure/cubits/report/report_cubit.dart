@@ -212,11 +212,13 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<Data?> get selectedWaresStream => selectedWares.stream;
 
   updateWares(Data value) {
+    print("selectedWaresStream"+selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {
+    print(selectedWares.valueOrNull?.id);
 
       selectedWares.sink.add(value);
       }

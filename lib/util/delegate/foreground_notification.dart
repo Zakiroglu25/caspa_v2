@@ -28,7 +28,8 @@ class ForegroundNotification {
             color: MyColors.mainColor,
             id: Random.secure().nextInt(999),
             displayOnBackground: true,
-            channelKey: 'basic_channel',
+            channelKey: 'sound_tests',
+            //    customSound: 'assets/sounds/alert.mp3',
             title: (event!.notification!.title)!,
             showWhen: true,
             body: event.notification!.body));

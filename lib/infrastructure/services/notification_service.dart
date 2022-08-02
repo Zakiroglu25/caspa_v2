@@ -32,6 +32,7 @@ void configureFcm({String? topic, required BuildContext? context}) async {
 
   FirebaseMessaging.onMessage.listen((event) {
     bbbb("sss: " + event.notification!.title.toString());
+    // _showNotificationCustomSound();
     ForegroundNotification.show(event);
   });
 
@@ -43,13 +44,14 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
   messaging.subscribeToTopic('all');
   messaging.subscribeToTopic('1.0.0');
-  messaging.subscribeToTopic('test2');
+  messaging.subscribeToTopic('test3');
 }
 
 initializeFCMNotification() async {
   bbbb("fcm token: ${messaging.getToken()}");
-  var initializationSettingsAndroid =
-      AndroidInitializationSettings('@mipmap/ic_launcher_notf');
+  var initializationSettingsAndroid = AndroidInitializationSettings(
+    '@mipmap/ic_launcher_notf',
+  );
   var initializationSettingsIOS = IOSInitializationSettings(
     requestSoundPermission: true,
     requestBadgePermission: true,
@@ -65,6 +67,36 @@ initializeFCMNotification() async {
   });
 
   // generalSubscribtion();
+}
+
+Future<void> _showNotificationCustomSound() async {
+  const AndroidNotificationDetails androidPlatformChannelSpecifics =
+      AndroidNotificationDetails(
+    'your other channel id',
+    'your other channel name',
+    channelDescription: 'your other channel description',
+    sound: RawResourceAndroidNotificationSound('alert'),
+  );
+  const IOSNotificationDetails iOSPlatformChannelSpecifics =
+      IOSNotificationDetails(sound: 'slow_spring_board.aiff');
+  const MacOSNotificationDetails macOSPlatformChannelSpecifics =
+      MacOSNotificationDetails(sound: 'slow_spring_board.aiff');
+  final LinuxNotificationDetails linuxPlatformChannelSpecifics =
+      LinuxNotificationDetails(
+    sound: AssetsLinuxSound('sound/slow_spring_board.mp3'),
+  );
+  final NotificationDetails platformChannelSpecifics = NotificationDetails(
+    android: androidPlatformChannelSpecifics,
+    iOS: iOSPlatformChannelSpecifics,
+    macOS: macOSPlatformChannelSpecifics,
+    linux: linuxPlatformChannelSpecifics,
+  );
+  await flutterLocalNotificationsPlugin.show(
+    0,
+    'custom sound notification title',
+    'custom sound notification body',
+    platformChannelSpecifics,
+  );
 }
 
 Future onSelectNotification(var payload) async {

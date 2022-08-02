@@ -15,6 +15,7 @@
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		CE39940027DCB55D00E95356 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3993FF27DCB55D00E95356 /* AuthenticationServices.framework */; };
+		CE63BC502899BE5B009DFC17 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE63BC4F2899BE5B009DFC17 /* MapKit.framework */; };
 		CE805D8E27E398EC00E6614F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE805D8D27E398EC00E6614F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		CE3993FE27DCB55D00E95356 /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		CE3993FF27DCB55D00E95356 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		CE39940127DCB58900E95356 /* RunnerRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RunnerRelease.entitlements; sourceTree = "<group>"; };
+		CE63BC4F2899BE5B009DFC17 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CE805D8D27E398EC00E6614F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA416CBE9DAD0F37674FF268 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		F3F4B8EC52A3F938BC590D1E /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE39940027DCB55D00E95356 /* AuthenticationServices.framework in Frameworks */,
+				CE63BC502899BE5B009DFC17 /* MapKit.framework in Frameworks */,
 				214C9F3DA1D470D2DD8228B0 /* Pods_Runner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +132,7 @@
 		BECEF97BAD3CA0AAE0FC665B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE63BC4F2899BE5B009DFC17 /* MapKit.framework */,
 				CE3993FF27DCB55D00E95356 /* AuthenticationServices.framework */,
 				7F86187D9CF3041F5575341C /* Pods_Runner.framework */,
 			);
@@ -396,7 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = az.caspa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -531,7 +535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = az.caspa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -561,7 +565,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = az.caspa.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

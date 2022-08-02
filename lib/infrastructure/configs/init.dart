@@ -50,11 +50,16 @@ Future<void> init() async {
       'resource://drawable/circle_icon',
       [
         NotificationChannel(
-            channelKey: 'basic_channel',
-            channelName: 'Basic notifications',
-            channelDescription: 'Notification channel for basic tests',
-            defaultColor: MyColors.mainRED,
-            ledColor: Colors.white)
+            channelGroupKey: 'sound_tests',
+            //icon: 'resource://drawable/res_power_ranger_thunder',
+            channelKey: "custom_sound",
+            channelName: "Custom sound notifications",
+            channelDescription: "Notifications with custom sound",
+            playSound: true,
+            soundSource: 'resource://raw/alert',
+            defaultColor: Colors.red,
+            ledColor: Colors.red,
+            vibrationPattern: lowVibrationPattern),
       ]);
 
   AwesomeNotifications().isNotificationAllowed().then((isAllowed) {

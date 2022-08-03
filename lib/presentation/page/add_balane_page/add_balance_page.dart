@@ -87,26 +87,10 @@ class AddBalancePage extends StatelessWidget {
                           paymentBalance: paymentBalance,
                           // controller: controller,
                         ),
-                        PricePackage(
-                          price: '25',
-                          gift: '5',
-                          index: 1,
+                        BalancePackages(
+                          paymentBalance: paymentBalance,
                         ),
-                        PricePackage(
-                          price: '50',
-                          gift: '15',
-                          index: 2,
-                        ),
-                        PricePackage(
-                          price: '75',
-                          gift: '25',
-                          index: 3,
-                        ),
-                        PricePackage(
-                          price: '100',
-                          gift: '50',
-                          index: 4,
-                        ),
+
                         MySizedBox.h100,
                         // WidgetOrEmpty(
                         //     value: paymentBalance == PaymentBalanceType.cargo,

@@ -137,11 +137,9 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
       packageListPayByCard(context, ids: ids);
     } else if (paymentType.value == MyText.fromBalance) {
       packageListPayFromBalance(context, ids: ids);
+    } else if (paymentType.value == MyText.fromBonus) {
+      packageListPayFromBonus(context, ids: ids);
     }
-    // else if (paymentType.value == MyText.fromCashback) {
-    //   bbbb("yuyuyu:  ${paymentType.value}");
-    //   packagePayFromCashback(context, id: id);
-    // }
     //
     // else if (paymentType.value == MyText.withPromoCode) {
     //   packagePayWithPromo(context, id: id);
@@ -175,6 +173,26 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
     try {
       final StatusDynamic result =
           await PaymentsProvider.packageListPay(ids: ids);
+      if (isSuccess(result.statusCode)) {
+        emit(PackageDetailsPaid());
+      } else {
+        // Snack.display(context: context, message: result.data ?? MyText.error);
+        emit(PackageDetailsPayError(error: result.data ?? MyText.error));
+        // emit(PackageDetailsPaid());
+      }
+    } on SocketException catch (e) {
+      emit(PackageDetailsNetworkError());
+    } catch (e, s) {
+      emit(PackageDetailsPayError(error: MyText.error));
+      Recorder.recordCatchError(e, s, where: 'packagePayFromBalance');
+    }
+  }
+
+  void packageListPayFromBonus(BuildContext context,
+      {required List<int> ids}) async {
+    try {
+      final StatusDynamic result =
+          await PaymentsProvider.packageListBonus(ids: ids);
       if (isSuccess(result.statusCode)) {
         emit(PackageDetailsPaid());
       } else {

@@ -200,11 +200,9 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
             regions: regions, deliveryAddress: deliveryAddress),
       );
     } on SocketException catch (_) {
-      //network olacaq
       emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      // emit(DeliveryAdressCurrentError());
     }
   }
 

@@ -53,6 +53,7 @@ class Alerts {
               );
             },
           ));
+
   static selectedOrdersPaymentAlert(
           {required BuildContext context, required List<int> selectedOrders}) =>
       Alert.body(context,
@@ -92,6 +93,7 @@ class Alerts {
               );
             },
           ));
+
   static selectedPackagessPaymentAlert(
           {required BuildContext context, required List<int> selectedOrders}) =>
       Alert.body(context,
@@ -121,6 +123,10 @@ class Alerts {
                   ),
                   CaspaPaymentRadio(context,
                       snapShoot: snapShoot, value: MyText.byCard),
+                  CaspaPaymentRadio(context,
+                      snapShoot: snapShoot,
+                      description: "(${_prefs.user.bonus} \$)",
+                      value: MyText.fromBonus),
                   // CaspaPaymentRadio(context,
                   //     snapShoot: snapShoot,
                   //     description: "(${_prefs.user.cashback_balance} \$)",

@@ -51,7 +51,8 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       final _location = "$lat , $long";
 
       List<Placemark> addresses = await placemarkFromCoordinates(lat, long);
-      final locData = await PublicProvider.getLocData(lat: lat, long: long);
+      final locData =
+          await PublicProvider.getLocDataFromBigData(lat: lat, long: long);
       var first = addresses.first;
       print("nname: ${first.name} :administrativeArea:  ${first}");
 
@@ -128,6 +129,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     try {
       final regionFirstPart = region.first;
 
+      bbbb("reg fffff:  $regionFirstPart");
       final declaredRegions = regionList.where((element) =>
           element.eng == regionFirstPart ||
           element.name?.first == regionFirstPart);

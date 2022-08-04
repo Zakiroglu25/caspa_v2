@@ -6,6 +6,7 @@ class ApiKeys {
 
   static const baseUrl = 'https://caspa.az/api';
   static const bigDataCloud = 'https://api.bigdatacloud.net/data';
+  static const googleMap = ' https://maps.googleapis.com/maps/api/geocode';
 
   ///delete
   static const headers = {
@@ -35,7 +36,9 @@ class ApiKeys {
   static const shop = '$baseUrl/public/stores';
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
-  static const localityInfo = '$bigDataCloud/reverse-geocode-client';
+  static const localityInfoBigData = '$bigDataCloud/reverse-geocode-client';
+  static const localityInfoGoogleMap = '$googleMap/json';
+
   static const smsCodes = '$baseUrl/public/sms';
   static const wares = '$baseUrl/public/wares';
 
@@ -111,7 +114,7 @@ class ApiKeys {
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
   static const payForPackageListCard =
       "$baseUrl/user/package/payment/card/bulk";
-  static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
+  static const payForPackageCashback = "$baseUrl/user/package/payment/bonus";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 
   //check for promo
@@ -121,12 +124,12 @@ class ApiKeys {
   //pay order
   static const payForOrderBalance = "$baseUrl/user/orders/balance";
   static const payForOrderCard = "$baseUrl/user/orders/card";
-  static const payForOrderCashback = "$baseUrl/user/orders/cashback";
+  static const payForOrderCashback = "$baseUrl/user/orders/bonus";
 
   //pay courier
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
-  static const payForCourierCashback = "$baseUrl/user/courier/cashback";
+  static const payForCourierCashback = "$baseUrl/user/courier/bonus";
 
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";

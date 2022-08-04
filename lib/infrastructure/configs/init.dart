@@ -55,7 +55,7 @@ Future<void> init() async {
           channelKey: "custom_sound",
           channelName: "Custom sound notifications",
           channelDescription: "Notifications with custom sound",
-          playSound: true,
+          playSound: false,
           soundSource: 'resource://raw/alert',
           defaultColor: Colors.red,
           ledColor: Colors.red,

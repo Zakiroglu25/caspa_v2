@@ -46,7 +46,7 @@ class OtherPage extends StatelessWidget {
                   w: boxW,
                   title: MyText.trendyolSms,
                   content: MyText.trendyolOtp,
-                  color: MyColors.shop,
+                  color: MyColors.partnyoColor,
                   onTap: () => Go.to(context, Pager.smsCodes),
                 ),
 
@@ -104,7 +104,7 @@ class OtherPage extends StatelessWidget {
                   w: boxW,
                   title: MyText.giftBalanceX,
                   content: MyText.infoGift,
-                  color: MyColors.partnyoColor,
+                  color: MyColors.shop,
                   onTap: () {
                     Go.to(context, Pager.giftBalance);
                   },

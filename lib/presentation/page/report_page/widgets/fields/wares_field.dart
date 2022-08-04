@@ -119,7 +119,7 @@ class WaresField extends StatelessWidget {
                 );
               }));
     } else {
-      Snack.display(context: context, message: MyText.none_category_is_found);
+      Snack.display(context: context, message: MyText.none_wares_is_found);
     }
   }
 }

@@ -51,7 +51,7 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": null,
-        "ware": ware
+        "ware_house": ware
       };
     } else {
       data = FormData.fromMap({
@@ -67,7 +67,7 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": note,
-        "ware": ware
+        "ware_house": ware
       });
     }
 

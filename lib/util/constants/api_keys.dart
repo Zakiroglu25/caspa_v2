@@ -124,12 +124,12 @@ class ApiKeys {
   //pay order
   static const payForOrderBalance = "$baseUrl/user/orders/balance";
   static const payForOrderCard = "$baseUrl/user/orders/card";
-  static const payForOrderCashback = "$baseUrl/user/orders/bonus";
+  static const payForOrderCashback = "$baseUrl/user/orders/cashback";
 
   //pay courier
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
-  static const payForCourierCashback = "$baseUrl/user/courier/bonus";
+  static const payForCourierCashback = "$baseUrl/user/courier/cashback";
 
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";

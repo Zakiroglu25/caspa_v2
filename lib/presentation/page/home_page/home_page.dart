@@ -11,6 +11,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
+import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
@@ -94,7 +95,9 @@ class _HomePageState extends State<HomePage> {
                 SectionName(
                   title: MyText.recognizeTariffs,
                   hP: 20,
-                  tile: MoreButton(onTap: () => Pager.tarifDetails),
+                  tile: MoreButton(
+                    onTap: () => Go.to(context, Pager.tarifDetails),
+                  ),
                 ),
                 MySizedBox.h10,
                 Tariffs(),

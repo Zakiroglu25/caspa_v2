@@ -16,34 +16,31 @@ class BottomConyainerBonus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      child: Container(
-        height: 375,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(40.0),
-            topRight: Radius.circular(40.0),
-          ),
-          color: MyColors.white,
+    return Container(
+      height: 375,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(40.0),
+          topRight: Radius.circular(40.0),
         ),
-        child: BlocBuilder<BonusCubit, BonusState>(
-          builder: (context, state) {
-            if (state is BonusSuccess) {
-              List<Data> bonus = state.bonusList;
-              if (bonus.length < 1) {
-                return EmptyWidget(
-                  text: "Balansınızda bonus yoxdur😞",
-                );
-              }
-              return BonusListWidget(bonus: bonus);
-            } else if (state is BonusInProgress) {
-              return CaspaLoading();
+        color: MyColors.white,
+      ),
+      child: BlocBuilder<BonusCubit, BonusState>(
+        builder: (context, state) {
+          if (state is BonusSuccess) {
+            List<Data> bonus = state.bonusList;
+            if (bonus.length < 1) {
+              return EmptyWidget(
+                text: "Balansınızda bonus yoxdur😞",
+              );
             }
-            return Center(child: EmptyWidget());
-          },
-        ),
+            return BonusListWidget(bonus: bonus);
+          } else if (state is BonusInProgress) {
+            return CaspaLoading();
+          }
+          return Center(child: EmptyWidget());
+        },
       ),
     );
   }

@@ -43,7 +43,11 @@
        android:requestLegacyExternalStorage="true"
        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
-        <activity
+
+       <meta-data
+           android:name="com.google.firebase.messaging.default_notification_channel_id"
+           android:value="@string/default_notification_channel_id"/>
+       <activity
             android:name=".MainActivity"
 
             android:launchMode="singleTop"
@@ -84,7 +88,7 @@
            android:value="false" />
        <meta-data
            android:name="com.google.android.geo.API_KEY"
-           android:value="AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750" />
+           android:value="AIzaSyAWS1iQ1d1g9t4KClJ5cz58gNdLnQ5c1YE" />
        <meta-data
            android:name="com.facebook.sdk.ApplicationId"
            android:value="@string/facebook_app_id" />

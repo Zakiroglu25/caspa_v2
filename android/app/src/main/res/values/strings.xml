@@ -4,6 +4,6 @@
     <string name="title_activity_main">MyApp</string>
     <string name="package_name">com.domain.appname</string>
     <string name="custom_url_scheme">com.domain.appname</string>
-    <string name="default_notification_channel_id">com.domain.appname.urgent</string>
+    <string name="default_notification_channel_id">1</string>
     <string name="facebook_app_id">690090242079651</string>
 </resources>

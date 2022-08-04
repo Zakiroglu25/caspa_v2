@@ -27,6 +27,7 @@ class OrderList extends StatelessWidget {
         return StreamBuilder<List<Package>>(
             stream: BlocProvider.of<CourierCubit>(context).selectedOrdersStream,
             builder: (context, snapshot) {
+
               return CourierSelectableOrder(
                 index: index,
                 package: currentPackage,

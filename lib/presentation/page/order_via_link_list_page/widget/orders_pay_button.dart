@@ -15,15 +15,15 @@ class OrdersPayButton extends StatelessWidget {
           BlocProvider.of<OrderViaUrlListCubit>(context).selectedOrdersStream,
       builder: (context, snapshot) {
         final selectedOrders = snapshot.data;
-        final res = selectedOrders?.fold<double>(
-            0,
-            (double previousValue, LinkOrder element) =>
-                previousValue +
-                (double.parse(element.price!) * element.qty! +
-                    double.parse(element.cargoPrice!)));
+        final totalPrice = (selectedOrders
+            ?.fold<double>(
+                0,
+                (previousValue, element) =>
+                    previousValue + double.parse(element.total!))
+            .toStringAsFixed(2));
         return CaspaButton(
           isButtonActive: snapshot.data?.isNotEmpty,
-          text: '${MyText.pay} (${selectedOrders?.length} ədəd) ',
+          text: '${MyText.pay} (${totalPrice} ${MyText.tryy})',
           onTap: () => context.read<OrderViaUrlListCubit>().paySelectedOrders(),
         );
         ;

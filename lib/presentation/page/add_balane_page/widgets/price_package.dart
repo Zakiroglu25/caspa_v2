@@ -63,7 +63,7 @@ class PricePackage extends StatelessWidget {
                                 .copyWith(fontSize: 16.sp)),
                         MySizedBox.h4,
                         Text(
-                            'Daşınma balansını $price USD artırdıqda, keşbek balansınıza $gift USD hədiyyə olaraq əlavə olunacaqdır.',
+                            'Daşınma balansını $price USD artırdıqda, bonus balansınıza $gift USD hədiyyə olaraq əlavə olunacaqdır.',
                             style: AppTextStyles.sanF400Grey),
                         // MySizedBox.h16,
                       ],

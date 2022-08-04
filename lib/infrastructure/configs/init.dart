@@ -46,16 +46,26 @@ Future<void> init() async {
   );
 
   AwesomeNotifications().initialize(
-      // set the icon to null if you want to use the default app icon
-      'resource://drawable/circle_icon',
-      [
-        NotificationChannel(
-            channelKey: 'basic_channel',
-            channelName: 'Basic notifications',
-            channelDescription: 'Notification channel for basic tests',
-            defaultColor: MyColors.mainRED,
-            ledColor: Colors.white)
-      ]);
+    // set the icon to null if you want to use the default app icon
+    'resource://drawable/circle_icon',
+    [
+      NotificationChannel(
+          channelGroupKey: 'sound_tests',
+          //icon: 'resource://drawable/res_power_ranger_thunder',
+          channelKey: "custom_sound",
+          channelName: "Custom sound notifications",
+          channelDescription: "Notifications with custom sound",
+          playSound: false,
+          soundSource: 'resource://raw/alert',
+          defaultColor: Colors.red,
+          ledColor: Colors.red,
+          vibrationPattern: lowVibrationPattern),
+    ],
+    channelGroups: [
+      NotificationChannelGroup(
+          channelGroupkey: 'sound_tests', channelGroupName: 'Basic group')
+    ],
+  );
 
   AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
     if (!isAllowed) {

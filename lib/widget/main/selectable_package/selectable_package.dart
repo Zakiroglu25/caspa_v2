@@ -50,7 +50,7 @@ class SelectablePackage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //ySizedBox.h16,
-                    Text(package.store!,
+                    Text(package.cargoTracking!,
                         style: AppTextStyles.sanF600.copyWith(fontSize: 16)),
                     MySizedBox.h4,
                     Text(package.date!, style: AppTextStyles.sanF400Grey),

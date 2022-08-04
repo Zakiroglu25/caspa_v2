@@ -15,10 +15,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'fields/amount_field.dart';
 import '../webview_page/webview_page.dart';
+import 'widgets/price_package.dart';
 
 class AddBalancePage extends StatelessWidget {
   final PaymentBalanceType paymentBalance;
+
   const AddBalancePage({required this.paymentBalance});
+
   @override
   Widget build(BuildContext context) {
     final payCubit = BlocProvider.of<PaymentBalanceCubit>(context);
@@ -84,6 +87,11 @@ class AddBalancePage extends StatelessWidget {
                           paymentBalance: paymentBalance,
                           // controller: controller,
                         ),
+                        BalancePackages(
+                          paymentBalance: paymentBalance,
+                        ),
+
+                        MySizedBox.h100,
                         // WidgetOrEmpty(
                         //     value: paymentBalance == PaymentBalanceType.cargo,
                         //     child: const BalancePackages())

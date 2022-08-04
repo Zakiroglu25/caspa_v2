@@ -43,7 +43,9 @@ class OrderUnicorn extends StatelessWidget {
                             value: order.link),
                       ),
                       ProductPropertyV(
-                          h: 8, name: MyText.amount, value: order.qty),
+                          h: 8,
+                          name: MyText.price,
+                          value: "${order.total} ${MyText.tryy}"),
                       ProductPropertyV(
                           h: 8, name: MyText.date, value: order.date),
                       ProductPropertyV(
@@ -63,10 +65,10 @@ class OrderUnicorn extends StatelessWidget {
             MySizedBox.h20,
           ],
         ),
-        if(order.payment == 0)
-        OrderViaLinkSelectCheckbox(
-          order: order,
-        )
+        if (order.payment == 0)
+          OrderViaLinkSelectCheckbox(
+            order: order,
+          )
       ],
     );
   }

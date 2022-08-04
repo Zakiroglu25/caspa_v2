@@ -2,12 +2,16 @@ import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
+import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
@@ -22,6 +26,8 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+HiveService get _prefsLocale => locator<HiveService>();
+
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
@@ -35,11 +41,15 @@ class _HomePageState extends State<HomePage> {
 
   void showSheetWidget() {
     if (!issheetShown) {
-      Future.delayed(Duration(seconds: 1), () {
-        modalBottomSheetMenu(context);
-      });
-      issheetShown = true;
-      _prefs!.setBool('show_sheet', issheetShown);
+      if (_prefsLocale.user.birthday!.substring(0, 5) ==
+          DateFormat("dd-MM").format(now)) {
+        Future.delayed(Duration(seconds: 1), () {
+          modalBottomSheetMenu(context);
+        });
+        issheetShown = true;
+        _prefs!.setBool('show_sheet', issheetShown);
+      }
+
     }
   }
 
@@ -49,8 +59,6 @@ class _HomePageState extends State<HomePage> {
   var now = DateTime.now();
 
   Widget build(BuildContext context) {
-    ///burdaki tarix deyishecek
-    if ("28-07" == DateFormat("dd-MM").format(now)) ;
     showSheetWidget();
     return Scaffold(
       appBar: CaspaAppbar(
@@ -87,7 +95,9 @@ class _HomePageState extends State<HomePage> {
                 SectionName(
                   title: MyText.recognizeTariffs,
                   hP: 20,
-                  tile: MoreButton(onTap: () => modalBottomSheetMenu(context)),
+                  tile: MoreButton(
+                    onTap: () => Go.to(context, Pager.tarifDetails),
+                  ),
                 ),
                 MySizedBox.h10,
                 Tariffs(),

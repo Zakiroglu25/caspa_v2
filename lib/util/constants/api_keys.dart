@@ -5,6 +5,8 @@ class ApiKeys {
   ApiKeys._();
 
   static const baseUrl = 'https://caspa.az/api';
+  static const bigDataCloud = 'https://api.bigdatacloud.net/data';
+  static const googleMap = 'https://maps.googleapis.com/maps/api/geocode';
 
   ///delete
   static const headers = {
@@ -34,6 +36,9 @@ class ApiKeys {
   static const shop = '$baseUrl/public/stores';
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
+  static const localityInfoBigData = '$bigDataCloud/reverse-geocode-client';
+  static const localityInfoGoogleMap = '$googleMap/json';
+
   static const smsCodes = '$baseUrl/public/sms';
   static const wares = '$baseUrl/public/wares';
 
@@ -105,11 +110,13 @@ class ApiKeys {
 
   //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";
-  static const payForPackageListBalalnce = "$baseUrl/user/package/payment/bulk";
+  static const payForPackageListBalance = "$baseUrl/user/package/payment/bulk";
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
   static const payForPackageListCard =
       "$baseUrl/user/package/payment/card/bulk";
-  static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
+  static const payForPackageListBonus =
+      "$baseUrl/user/package/payment/bonus/bulk";
+  static const payForPackageCashback = "$baseUrl/user/package/payment/bonus";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 
   //check for promo
@@ -125,8 +132,10 @@ class ApiKeys {
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
   static const payForCourierCashback = "$baseUrl/user/courier/cashback";
+
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";
+
   //bonus
   static const bonus = "$baseUrl/user/bonus";
 
@@ -227,7 +236,7 @@ class ApiKeys {
       "tax_number": tax_number,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
-      "language": language
+      "language": language,
     };
 
     map.removeWhere(
@@ -278,7 +287,6 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
-    required int? ware,
   }) {
     final map = {
       "name": name,
@@ -293,8 +301,7 @@ class ApiKeys {
       "fin": fin,
       "birthday": birthday,
       "gender": gender,
-      "ware_house": 1,
-      "ware":ware,
+      "ware_house": ware_house,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language
@@ -313,7 +320,6 @@ class ApiKeys {
     required String? old_password,
     required String? password_confirmation,
     required String? phone,
-    //required int? accept,
     required String? id_number,
     required String? fin,
     required String? birthday,
@@ -333,7 +339,7 @@ class ApiKeys {
       "company_name": company_name,
       "tax_number": tax_number,
       "phone": phone,
-      "ware_house": 1,
+      "ware_house": ware_house,
       "language": language
     };
 

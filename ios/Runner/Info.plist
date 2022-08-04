@@ -45,10 +45,12 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>NSCameraUsageDescription</key>
 	<string>App need camera permission for select user photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Need your current location for delivery</string>
+	<string>This app needs access to location when open.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App need gallery permission for select report photo of product</string>
 	<key>UILaunchStoryboardName</key>
@@ -68,8 +70,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>This app needs access to location when open.</string>
-
 </dict>
 </plist>

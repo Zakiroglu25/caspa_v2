@@ -6,7 +6,7 @@ class ApiKeys {
 
   static const baseUrl = 'https://caspa.az/api';
   static const bigDataCloud = 'https://api.bigdatacloud.net/data';
-  static const googleMap = ' https://maps.googleapis.com/maps/api/geocode';
+  static const googleMap = 'https://maps.googleapis.com/maps/api/geocode';
 
   ///delete
   static const headers = {

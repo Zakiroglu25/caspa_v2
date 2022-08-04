@@ -1,6 +1,6 @@
 class GoogleMapDataResponse {
   PlusCode? plusCode;
-  List<Results>? results;
+  List<GoogleMapResults>? results;
   String? status;
 
   GoogleMapDataResponse({this.plusCode, this.results, this.status});
@@ -10,9 +10,9 @@ class GoogleMapDataResponse {
         ? new PlusCode.fromJson(json['plus_code'])
         : null;
     if (json['results'] != null) {
-      results = <Results>[];
+      results = <GoogleMapResults>[];
       json['results'].forEach((v) {
-        results!.add(new Results.fromJson(v));
+        results!.add(new GoogleMapResults.fromJson(v));
       });
     }
     status = json['status'];
@@ -60,7 +60,7 @@ class PlusCode {
   }
 }
 
-class Results {
+class GoogleMapResults {
   List<AddressComponents>? addressComponents;
   String? formattedAddress;
   Geometry? geometry;
@@ -68,7 +68,7 @@ class Results {
   List<String>? types;
   PlusCode? plusCode;
 
-  Results(
+  GoogleMapResults(
       {this.addressComponents,
       this.formattedAddress,
       this.geometry,
@@ -76,7 +76,7 @@ class Results {
       this.types,
       this.plusCode});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  GoogleMapResults.fromJson(Map<String, dynamic> json) {
     if (json['address_components'] != null) {
       addressComponents = <AddressComponents>[];
       json['address_components'].forEach((v) {

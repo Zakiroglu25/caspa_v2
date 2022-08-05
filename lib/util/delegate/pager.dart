@@ -375,7 +375,9 @@ class Pager {
       ], child: DeliveryAddressPage());
 
   static deliveryAddressOperations(
-          {required List<Region> regions, DeliveryAddress? deliveryAddress}) =>
+          {required List<Region> regions,
+          DeliveryAddress? deliveryAddress,
+          required BuildContext context}) =>
       MultiBlocProvider(
           providers: [
             BlocProvider(

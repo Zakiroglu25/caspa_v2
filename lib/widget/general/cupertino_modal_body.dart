@@ -16,9 +16,11 @@ class CupertinoModalBody extends StatelessWidget {
         switch (settings.name) {
           case '/':
             return MaterialWithModalsPageRoute(
-                builder: (_) => Material(
-                      child: body,
-                    ),
+                builder: (_) {
+                  return Material(
+                    child: body,
+                  );
+                },
                 settings: settings);
         }
         return MaterialPageRoute(builder: (context) {
@@ -32,32 +34,33 @@ class CupertinoModalBody extends StatelessWidget {
             body: Builder(
               builder: (context) => CupertinoPageScaffold(
                 navigationBar: CupertinoNavigationBar(
-                  transitionBetweenRoutes: false,
+                  transitionBetweenRoutes: true,
                   middle: Text('Normal Navigation Presentation'),
                   trailing: GestureDetector(
                     child: Icon(Icons.arrow_upward),
-                    onTap: () =>
-                        CupertinoScaffold.showCupertinoModalBottomSheet(
-                      expand: true,
-                      context: context,
-                      backgroundColor: Colors.transparent,
-                      builder: (context) => Stack(
-                        children: <Widget>[
-                          ModalWithScroll(),
-                          Positioned(
-                            height: 40,
-                            left: 40,
-                            right: 40,
-                            bottom: 20,
-                            child: MaterialButton(
-                              onPressed: () => Navigator.of(context).popUntil(
-                                  (route) => route.settings.name == '/'),
-                              child: Text('Pop back home'),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    onTap: () {
+                      CupertinoScaffold.showCupertinoModalBottomSheet(
+                        expand: true,
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => Stack(
+                          children: <Widget>[
+                            ModalWithScroll(),
+                            Positioned(
+                              height: 40,
+                              left: 40,
+                              right: 40,
+                              bottom: 20,
+                              child: MaterialButton(
+                                onPressed: () => Navigator.of(context).popUntil(
+                                    (route) => route.settings.name == '/'),
+                                child: Text('Pop back home'),
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    },
                   ),
                 ),
                 child: Center(child: Container()),

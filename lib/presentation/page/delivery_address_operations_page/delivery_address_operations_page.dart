@@ -16,8 +16,10 @@ import '../../../../infrastructure/models/remote/response/regions_model.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 
 class DeliveryAddressOperationsPage extends StatelessWidget {
-  DeliveryAddressOperationsPage({Key? key, required this.regions})
-      : super(key: key);
+  DeliveryAddressOperationsPage({
+    Key? key,
+    required this.regions,
+  }) : super(key: key);
   final List<Region> regions;
 
   TextEditingController controller = TextEditingController();
@@ -33,7 +35,6 @@ class DeliveryAddressOperationsPage extends StatelessWidget {
             DeliveryAdressOperationsState>(
           listener: (context, state) {
             if (state is DeliveryAdressOperationsSuccess) {
-              Go.pop(context);
               context.read<DeliveryAddressCubit>().get();
             }
           },

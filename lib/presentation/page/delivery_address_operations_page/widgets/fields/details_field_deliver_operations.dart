@@ -23,9 +23,9 @@ class DetailsFieldDeliverOperations extends StatelessWidget {
           BlocProvider.of<DeliveryAdressOperationsCubit>(context).adressStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.enterTheDetails,
+          title: MyText.address,
           maxLines: 1,
-          hint: MyText.aptOfficeFloor,
+          hint: MyText.address,
           upperCase: true,
           textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,

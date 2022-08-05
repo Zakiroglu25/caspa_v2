@@ -9,7 +9,7 @@ class CourierInitial extends CourierState {}
 
 class CourierInProgress extends CourierState {}
 
-class CourierAddressInProgress extends CourierState {}
+class CourierAddressError extends CourierState {}
 
 class CourierInProgressButton extends CourierState {}
 

@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_mo
 import 'package:caspa_v2/presentation/page/courier_page/widgets/courier_list_view.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
@@ -33,12 +34,17 @@ class CourierPage extends StatelessWidget {
           centerTitle: true,
           contextA: context,
         ),
-        body: BlocBuilder<CourierCubit, CourierState>(
+        body: BlocConsumer<CourierCubit, CourierState>(
+          listener: (context, state) {
+            if (state is CourierAddressError) {
+              Snack.display(message: MyText.adressError);
+            }
+          },
           buildWhen: (context, state) {
             if (state is CourierInProgressButton ||
                 state is CourierConfigured ||
                 state is CourierAdded ||
-                state is CourierAddressInProgress ||
+                state is CourierAddressError ||
                 state is CourierOperationFail) {
               return false;
             } else

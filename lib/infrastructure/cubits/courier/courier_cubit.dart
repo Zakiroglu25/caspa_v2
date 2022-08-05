@@ -105,7 +105,7 @@ class CourierCubit extends Cubit<CourierState> {
       }
       ;
       if (_address == null) {
-        emit(CourierError());
+        emit(CourierAddressError());
         return null;
       }
       Go.to(
@@ -186,7 +186,9 @@ class CourierCubit extends Cubit<CourierState> {
           isSuccess(resultRegions.statusCode)) {
         emit(CourierableFetched(
             address: address,
-            packageList: (resultPackages.data as List<Package>).where((element) => element.inCourier!<1).toList(),
+            packageList: (resultPackages.data as List<Package>)
+                .where((element) => element.inCourier! < 1)
+                .toList(),
             regionList: resultRegions.data));
       } else {
         emit(CourierError());

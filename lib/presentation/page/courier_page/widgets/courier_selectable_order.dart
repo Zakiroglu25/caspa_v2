@@ -34,7 +34,7 @@ class CourierSelectableOrder extends StatelessWidget {
           index: index,
           package: package,
           selected: selected,
-          price: "${package.price!} TL",
+          price: "${package.price ?? 0} TL",
           onTap: () => onTap?.call(),
         ),
         Positioned.fill(

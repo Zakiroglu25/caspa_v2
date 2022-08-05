@@ -115,7 +115,7 @@ class ApiKeys {
   static const payForPackageListCard =
       "$baseUrl/user/package/payment/card/bulk";
   static const payForPackageListBonus =
-      "$baseUrl/user/package/payment/bonus/bulk";
+      "$baseUrl/user/package/payment/bulk/bonus";
   static const payForPackageCashback = "$baseUrl/user/package/payment/bonus";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 
@@ -159,7 +159,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -182,7 +182,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -203,7 +203,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -240,7 +240,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -266,7 +266,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -308,7 +308,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -344,7 +344,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -360,7 +360,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-            (key, value) => key == null || value == null || value == 'null');
+        (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 }

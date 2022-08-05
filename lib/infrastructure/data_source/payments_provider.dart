@@ -121,10 +121,8 @@ class PaymentsProvider {
     var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
-    wtf("bura girdi3");
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.responseSuccess) {
-      wtf("bura girdi");
       //GeneralResponse data = GeneralResponse.fromJson(response.data);
       // statusDynamic.data = data.data;
     } else {

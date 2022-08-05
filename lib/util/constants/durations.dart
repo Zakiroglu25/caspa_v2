@@ -15,6 +15,7 @@ class Durations {
   static const Duration s1 = Duration(seconds: 1);
   static const Duration s2 = Duration(seconds: 2);
   static const Duration s3 = Duration(seconds: 3);
+  static const Duration s4 = Duration(seconds: 4);
   static const Duration s5 = Duration(seconds: 5);
   static const Duration s7 = Duration(seconds: 7);
   static const Duration s9 = Duration(seconds: 9);

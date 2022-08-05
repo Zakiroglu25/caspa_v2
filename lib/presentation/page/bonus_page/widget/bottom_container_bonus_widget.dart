@@ -7,6 +7,8 @@ import '../../../../infrastructure/models/remote/response/bonus_model.dart';
 import '../../../../util/constants/colors.dart';
 import '../../../../widget/general/caspa_loading.dart';
 import '../../../../widget/general/empty_widget.dart';
+import '../../../../widget/general/sad_face_anim.dart';
+import '../../../../widget/general/sad_smile.dart';
 import 'bonus_list.dart';
 
 class BottomConyainerBonus extends StatelessWidget {
@@ -30,9 +32,9 @@ class BottomConyainerBonus extends StatelessWidget {
         builder: (context, state) {
           if (state is BonusSuccess) {
             List<Data> bonus = state.bonusList;
-            if (bonus.length < 1) {
-              return EmptyWidget(
-                text: "Balansınızda bonus yoxdur😞",
+            if (bonus.length <1) {
+              return SadSmile(
+                // text: "Balansınızda bonus yoxdur😞",
               );
             }
             return BonusListWidget(bonus: bonus);

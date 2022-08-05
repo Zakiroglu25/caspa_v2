@@ -165,7 +165,7 @@ class UserCabinetPage extends StatelessWidget {
                         Pager.bonus),
                     icon: Assets.pngGift,
                     boxTitle: MyText.bonus,
-                    title: "${MyText.balance}: ${user.bonus} \$ ",
+                    title: "${MyText.balance}"+"${user.bonus}".substring(0,4)+"\$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: MyText.desc,

@@ -86,16 +86,15 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
   }
 
   void packagePayFromCashback(BuildContext context, {required int id}) async {
+
     try {
       final StatusDynamic result =
           await PaymentsProvider.packagePayWithCashback(id: id);
       if (isSuccess(result.statusCode)) {
-        wtf("bura girdi");
         emit(PackageDetailsPaid());
       } else {
         // Snack.display(context: context, message: result.data ?? MyText.error);
         emit(PackageDetailsPayError(error: result.data ?? MyText.error));
-        wtf("bura girdi2");
         // emit(PackageDetailsPaid());
       }
     } on SocketException catch (e) {

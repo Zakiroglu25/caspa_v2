@@ -401,6 +401,7 @@ class MyText {
   static const String currentAdress = "Mövcud ünvan";
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
+  static const String adressError = "Çatdırılma ünvanı seçilməyib";
   //static const String locationAccessDenied = "Ərazi məlumatları üçün icazə rədd edildi";
   static const String locationAccessDenied = "İcazə rədd edildi";
   static const String locationAccessDisabled =

@@ -43,7 +43,7 @@ class CourierPageListView extends StatelessWidget {
     if (courierOrder != null) {
       bbbb("courierOrder: $address");
     }
-    bbbb("courierOrder: $address");
+
     return ListOrEmpty(
       list: packageList,
       text: MyText.youMustHaveProduct,

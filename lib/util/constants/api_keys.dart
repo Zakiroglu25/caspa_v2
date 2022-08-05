@@ -115,7 +115,7 @@ class ApiKeys {
   static const payForPackageListCard =
       "$baseUrl/user/package/payment/card/bulk";
   static const payForPackageListBonus =
-      "$baseUrl/user/package/payment/bonus/bulk";
+      "$baseUrl/user/package/payment/bulk/bonus";
   static const payForPackageCashback = "$baseUrl/user/package/payment/bonus";
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 

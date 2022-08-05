@@ -36,7 +36,7 @@ void configureFcm({String? topic, required BuildContext? context}) async {
 
   FirebaseMessaging.onMessage.listen((event) {
     //bbbb("sss: " + event.notification!.title.toString());
-    // _showNotificationCustomSound();
+    _showNotificationCustomSound();
     ForegroundNotification.show(event);
   });
 

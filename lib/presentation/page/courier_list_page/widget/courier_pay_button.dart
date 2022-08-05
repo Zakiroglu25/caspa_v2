@@ -1,4 +1,5 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
+import 'package:caspa_v2/util/constants/alerts.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
@@ -32,44 +33,8 @@ class CourierPayButton extends StatelessWidget {
         child: CaspaButton(
           h: 44.sp,
           w: 135.sp,
-          onTap: () => Alert.body(context,
-              title: MyText.choosePaypentType,
-              cancelButton: true,
-              buttonText: MyText.goOn,
-              onTap: () => context
-                  .read<PackageDetailsCubit>()
-                  .courierMakePayment(context: context, id: courier.id!),
-              image: Image.asset(
-                Assets.linkGirl,
-                width: 140,
-                height: 140,
-              ),
-              content: StreamBuilder(
-                stream:
-                    BlocProvider.of<PackageDetailsCubit>(context).payTypeStream,
-                builder: (contextK, snapShoot) {
-                  return ListView(
-                    shrinkWrap: true,
-                    padding: Paddings.paddingV12,
-                    children: [
-                      CaspaPaymentRadio(context,
-                          description: "(${_prefs.user.cargoBalance} \$)",
-                          snapShoot: snapShoot,
-                          value: MyText.fromBalance),
-                      CaspaPaymentRadio(context,
-                          snapShoot: snapShoot, value: MyText.byCard),
-                      CaspaPaymentRadio(context,
-                          description: "(${_prefs.user.cashback_balance} \$)",
-                          snapShoot: snapShoot,
-                          value: MyText.fromCashback),
-
-                      // buildCaspaRadio(context, snapShoot,
-                      //     value: MyText.withPromoCode),
-                      MySizedBox.h16
-                    ],
-                  );
-                },
-              )),
+          onTap: () => Alerts.courierPaymentAlert(
+              context: context, courierId: courier.id),
           color: MyColors.black,
           textColor: MyColors.white,
           borderRadius: 12,

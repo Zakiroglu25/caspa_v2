@@ -56,7 +56,7 @@ class BonusPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  _prefs.user.bonus.toString() + " \$",
+                  _prefs.user.bonus.toString().substring(0,4) + " \$",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Text(

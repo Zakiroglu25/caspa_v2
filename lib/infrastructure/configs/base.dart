@@ -7,6 +7,7 @@ abstract class Configs {
   static const baseUrl = 'https://caspa.az/api/';
   static const appVersion = '1.1.0';
   static const appName = 'Caspa Azerbaijan';
+  static const googleMapKey = 'AIzaSyAWS1iQ1d1g9t4KClJ5cz58gNdLnQ5c1YE';
 
   static const enableSentry = kReleaseMode;
 }

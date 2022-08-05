@@ -6,6 +6,7 @@ class ApiKeys {
 
   static const baseUrl = 'https://caspa.az/api';
   static const bigDataCloud = 'https://api.bigdatacloud.net/data';
+  static const googleMap = 'https://maps.googleapis.com/maps/api/geocode';
 
   ///delete
   static const headers = {
@@ -35,7 +36,9 @@ class ApiKeys {
   static const shop = '$baseUrl/public/stores';
   static const commission = '$baseUrl/public/order/commission';
   static const regions = '$baseUrl/public/regions';
-  static const localityInfo = '$bigDataCloud/reverse-geocode-client';
+  static const localityInfoBigData = '$bigDataCloud/reverse-geocode-client';
+  static const localityInfoGoogleMap = '$googleMap/json';
+
   static const smsCodes = '$baseUrl/public/sms';
   static const wares = '$baseUrl/public/wares';
 
@@ -107,14 +110,13 @@ class ApiKeys {
 
   //pay package
   static const payForPackageBalalnce = "$baseUrl/user/package/payment";
-  static const payForPackageListBalalnce = "$baseUrl/user/package/payment/bulk";
+  static const payForPackageListBalance = "$baseUrl/user/package/payment/bulk";
   static const payForPackageCard = "$baseUrl/user/package/payment/card";
   static const payForPackageListCard =
       "$baseUrl/user/package/payment/card/bulk";
-  ///evvelki
-  // static const payForPackageCashback = "$baseUrl/user/package/payment/cashback";
+  static const payForPackageListBonus =
+      "$baseUrl/user/package/payment/bonus/bulk";
   static const payForPackageCashback = "$baseUrl/user/package/payment/bonus";
-  ///indiki
   static const payForPackagePromo = "$baseUrl/user/package/payment/promo";
 
   //check for promo
@@ -124,12 +126,12 @@ class ApiKeys {
   //pay order
   static const payForOrderBalance = "$baseUrl/user/orders/balance";
   static const payForOrderCard = "$baseUrl/user/orders/card";
-  static const payForOrderCashback = "$baseUrl/user/orders/bonus";
+  static const payForOrderCashback = "$baseUrl/user/orders/cashback";
 
   //pay courier
   static const payForCourierBalance = "$baseUrl/user/courier/balance";
   static const payForCourierCard = "$baseUrl/user/courier/card";
-  static const payForCourierCashback = "$baseUrl/user/courier/bonus";
+  static const payForCourierCashback = "$baseUrl/user/courier/cashback";
 
   //notification
   static const deleteNotification = "$baseUrl/user/delete/notification";
@@ -157,7 +159,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -180,7 +182,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -201,7 +203,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -238,7 +240,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -264,7 +266,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -306,7 +308,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -342,7 +344,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 
@@ -358,7 +360,7 @@ class ApiKeys {
     };
 
     map.removeWhere(
-        (key, value) => key == null || value == null || value == 'null');
+            (key, value) => key == null || value == null || value == 'null');
     return map;
   }
 }

@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/delivery_address/delivery_address_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/big_data_info.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/delivery_address_model.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/google_map_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
@@ -37,6 +38,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
   String? coordinates;
   String? address;
   String? regionTitle;
+  late Position position;
 
   void get([bool loading = true]) async {
     emit(DeliveryAdressCurrentInProgress());
@@ -44,14 +46,15 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       if (loading) {
         emit(DeliveryAdressCurrentInProgress());
       }
-      final position = await _determinePosition();
+      position = await _determinePosition();
 
       final lat = position.latitude;
       final long = position.longitude;
       final _location = "$lat , $long";
 
       List<Placemark> addresses = await placemarkFromCoordinates(lat, long);
-      final locData = await PublicProvider.getLocData(lat: lat, long: long);
+      final locData =
+          await PublicProvider.getLocDataFromBigData(lat: lat, long: long);
       var first = addresses.first;
       print("nname: ${first.name} :administrativeArea:  ${first}");
 
@@ -88,6 +91,40 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     // emit(DeliveryAdressSuccess());
   }
 
+  Future<int?> getLocationFromGoogle({required List<Region> regionList}) async {
+    final lat = position.latitude;
+    final long = position.longitude;
+    final _location = "$lat , $long";
+
+    final locData =
+        await PublicProvider.getLocDataFromGoogleMap(lat: lat, long: long);
+    //print("nname: ${first.name} :administrativeArea:  ${first}");
+
+    if (isSuccess(locData.statusCode)) {
+      final mapResult = (locData.data as List<GoogleMapResults>);
+
+      if (mapResult.isEmpty) return null;
+
+      for (GoogleMapResults res in mapResult) {
+        if (res.addressComponents == null) return null;
+        for (AddressComponents comp in res.addressComponents!) {
+          final regionFirstPart = comp.longName?.first;
+
+          final declaredRegions = regionList.where((element) =>
+              element.eng == regionFirstPart ||
+              element.name?.first == regionFirstPart);
+          if (declaredRegions.isNotEmpty) {
+            final int id = declaredRegions.first.id!;
+            eeee("mapppo: $id");
+            return id;
+          }
+        }
+      }
+    }
+
+    // emit(DeliveryAdressSuccess());
+  }
+
   void add(BuildContext context, {bool loading = true}) async {
     try {
       if (loading) {
@@ -99,9 +136,9 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       }
       final regionList = context.read<DeliveryAddressCubit>().regionList;
       final region =
-          declareRegionId(region: regionTitle!, regionList: regionList);
+          await declareRegionId(region: regionTitle!, regionList: regionList);
       final result = await DeliveryAdressProvider.add(
-          region: region,
+          region: region ?? 14,
           name: address ?? '',
           phone: _prefs.user.phone!,
           address: "${address ?? ''} | $coordinates");
@@ -121,27 +158,33 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     }
   }
 
-  int declareRegionId({
+  Future<int?> declareRegionId({
     required String region,
     required List<Region> regionList,
-  }) {
+  }) async {
     try {
       final regionFirstPart = region.first;
-
+      int? id;
       final declaredRegions = regionList.where((element) =>
           element.eng == regionFirstPart ||
           element.name?.first == regionFirstPart);
+      //burada evvelce bigDataCloud apisinden region axtarrir
+      //tapmayanda ise elsenin icinde
+      //googlemap apisinde region axtarir
+      //oradad da tapmasa id 14 - Diger qaytarir
       if (declaredRegions.isNotEmpty) {
-        final int id = declaredRegions.first.id!;
-        return id;
+        //bigDataCloud
+        id = declaredRegions.first.id!;
+      } else {
+        //googleMap
+        id = await getLocationFromGoogle(regionList: regionList);
       }
+      return id;
     } on SocketException catch (_) {
-      //network olacaq
       emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e) {
       emit(DeliveryAdressCurrentError());
     }
-    return 14;
   }
 
   void goToAddPage(
@@ -157,11 +200,9 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
             regions: regions, deliveryAddress: deliveryAddress),
       );
     } on SocketException catch (_) {
-      //network olacaq
       emit(DeliveryAdressCurrentError(error: MyText.network_error));
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
-      // emit(DeliveryAdressCurrentError());
     }
   }
 
@@ -257,7 +298,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
   Stream<String> get noteStream => note.stream;
 
   updateNote(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       note.value = '';
       note.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -266,8 +307,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isNoteIncorrect =>
-      (!note.hasValue || note.value == null || note.value.isEmpty);
+  bool get isNoteIncorrect => (!note.hasValue || note.value.isEmpty);
 
   //details
   final BehaviorSubject<String> details = BehaviorSubject<String>();
@@ -275,7 +315,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
   Stream<String> get detailsStream => note.stream;
 
   updateDetails(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       details.value = '';
       details.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -284,8 +324,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isDetailsIncorrect =>
-      (!details.hasValue || details.value == null || details.value.isEmpty);
+  bool get isDetailsIncorrect => (!details.hasValue || details.value.isEmpty);
 
   //region
   final BehaviorSubject<Region?> region = BehaviorSubject<Region>();

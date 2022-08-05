@@ -46,8 +46,8 @@ class ColorfullBackImage extends StatelessWidget {
             children: [
               FadeIn(
                 child: Container(
-                  width: w ?? 355.sp, // MediaQuery.of(context).size.width,
-                  height: h ?? 355.sp, //MediaQuery.of(context).size.height / 2,
+                  width: w ?? 315.sp, // MediaQuery.of(context).size.width,
+                  height: h ?? 315.sp, //MediaQuery.of(context).size.height / 2,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(Assets.pngColorfulBack),

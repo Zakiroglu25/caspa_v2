@@ -44,7 +44,7 @@ class Alerts {
                       snapShoot: snapShoot, value: MyText.byCard),
                   CaspaPaymentRadio(context,
                       snapShoot: snapShoot,
-                      description: "(${_prefs.user.bonus} \$)",
+                      description: "(${_prefs.user.bonus} \$)".substring(0,5),
                       value: MyText.fromBonus),
 
                   // buildCaspaRadio(context, snapShoot,

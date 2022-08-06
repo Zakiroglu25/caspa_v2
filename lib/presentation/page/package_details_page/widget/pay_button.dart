@@ -69,7 +69,7 @@ class PayButton extends StatelessWidget {
                       context,
                       snapShoot: snapShoot,
                       value: MyText.fromBonus,
-                      description: "${_prefs.user.bonus} \$"
+                      description: "${_prefs.user.bonus} \$".substring(0,5)
                       // +
                       // " " +
                       // "${_prefs.user.cashback_balance}" +

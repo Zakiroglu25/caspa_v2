@@ -118,7 +118,8 @@ class CategoryFields extends StatelessWidget {
                 final listHeight = (itemCount) * 50.0 + 75;
                 // final listHeight = (itemCount) * 50.0;
                 return SizedBox(
-                  height: min(listHeight, sH),
+                  height: sH,
+                  // height: min(listHeight, sH),
                   child: ListView(
                     physics: Physics.never,
                     shrinkWrap: true,
@@ -138,7 +139,8 @@ class CategoryFields extends StatelessWidget {
                                 ? CaspaLoading()
                                 : SizedBox(
                                     //height: min(listHeight, sH),
-                                    height: min(listHeight - 75, sH - 75),
+                                    // height: min(listHeight - 75, sH - 75),
+                                    height: sH - 75,
                                     child: ListView.builder(
                                         physics: Physics.alwaysBounce,
                                         shrinkWrap: false,
@@ -201,7 +203,8 @@ class CategoryFields extends StatelessWidget {
                 final listHeight = (itemCount) * 50.0 + 75;
                 //final listHeight = (itemCount) * 50.0;
                 return SizedBox(
-                  height: min(listHeight, sH),
+                  height: sH,
+                  // height: min(listHeight, sH),
                   child: ListView(
                     physics: Physics.never,
                     shrinkWrap: true,
@@ -220,7 +223,8 @@ class CategoryFields extends StatelessWidget {
                             return subCategories.isEmpty
                                 ? CaspaLoading()
                                 : SizedBox(
-                                    height: min(listHeight - 75, sH - 75),
+                                    height: sH - 75,
+                                    //  height: min(listHeight - 75, sH - 75),
                                     //height: min(listHeight, sH),
                                     child: ListView.builder(
                                         physics: Physics.alwaysBounce,

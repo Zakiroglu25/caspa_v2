@@ -56,7 +56,7 @@ class BonusPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  _prefs.user.bonus.toString().substring(0,4) + " \$",
+                  _prefs.user.bonus.toString() + " \$",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Text(
@@ -65,6 +65,15 @@ class BonusPage extends StatelessWidget {
                       .copyWith(fontSize: 12.sp, color: MyColors.grey153),
                 ),
               ],
+            ),
+          ),
+          MySizedBox.h16,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Bonuslar qazandiginiz gunder etibaren 35 gun ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə silinəcəkdir xoş alışverislər",
+              style: AppTextStyles.sanF400
+                  .copyWith(fontSize: 12.sp, color: MyColors.grey153),
             ),
           ),
           Spacer(),

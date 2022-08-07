@@ -46,8 +46,8 @@ class BonusPage extends StatelessWidget {
           ),
           MySizedBox.h26,
           Container(
-            width: 130,
             height: 62,
+            width: 130,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
                 color: Color.fromRGBO(0, 0, 0, 0.05)),
@@ -69,11 +69,21 @@ class BonusPage extends StatelessWidget {
           ),
           MySizedBox.h16,
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "Bonuslar qazandiginiz gunder etibaren 35 gun ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə silinəcəkdir xoş alışverislər",
-              style: AppTextStyles.sanF400
-                  .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              height: 62,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: Color.fromRGBO(0, 0, 0, 0.05)),
+              child: Center(
+                child: Text(
+                  "Bonuslar qazandığınız gündən etibarən, 30 gün ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə, silinəcəkdir xoş alışverişlər 😎",
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.sanF400
+                      .copyWith(fontSize: 12.sp, color: MyColors.grey153),
+                ),
+              ),
             ),
           ),
           Spacer(),

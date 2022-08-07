@@ -2,12 +2,9 @@ import 'dart:convert';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
-import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_box.dart';
-import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/balans_mini_box.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -26,9 +23,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../infrastructure/cubits/user/user_cubit.dart';
-import '../../../locator.dart';
-import '../bonus_page/bonus_page.dart';
-import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -138,7 +132,7 @@ class UserCabinetPage extends StatelessWidget {
                     title: "Balans: ${user.cargoBalance} \$ ",
                     subtitle: MyText.cargoBalance,
                     subtitleColor: MyColors.mainColor,
-                    desc: MyText.desc,
+                    desc: "",
                     color: MyColors.balansCargo,
                   ),
                   MySizedBox.h16,
@@ -154,7 +148,7 @@ class UserCabinetPage extends StatelessWidget {
                     title: "${MyText.balance}: ${user.balance} TL ",
                     subtitle: MyText.orderBalance,
                     subtitleColor: MyColors.greenOrderBalance,
-                    desc: MyText.desc,
+                    desc: "",
                     color: MyColors.balansOrder,
                   ),
                   MySizedBox.h16,
@@ -168,7 +162,7 @@ class UserCabinetPage extends StatelessWidget {
                     title: "${MyText.balance}: "+"${user.bonus}"+" \$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
-                    desc: MyText.desc,
+                    desc: "",
                     color: MyColors.shop,
                   ),
                   MySizedBox.h16,

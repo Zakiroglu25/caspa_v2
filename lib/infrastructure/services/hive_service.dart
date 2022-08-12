@@ -125,6 +125,13 @@ class HiveService {
 
   bool get isLoggedIn => _box!.get('is_logged_in') ?? false;
 
+  //delete account
+  Future<void> persistDeleteAccount(bool value) async {
+    await _box!.put('deleteAccount', value);
+  }
+
+  bool get deleteAccount => _box!.get('deleteAccount') ?? false;
+
   Future<void> persistIsGuest(bool value) async {
     await _box!.put('isGuest', value);
   }

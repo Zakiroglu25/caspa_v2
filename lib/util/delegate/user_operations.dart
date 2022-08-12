@@ -7,12 +7,14 @@ import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 import '../../locator.dart';
 
 class UserOperations {
   static HiveService get _prefs => locator<HiveService>();
   static ConfigService get _configs => locator<ConfigService>();
+  static final remoteConfig = FirebaseRemoteConfig.instance;
 
   static Future<void> configureUserDataWhenLogin(
       //MyUser user,
@@ -49,7 +51,7 @@ class UserOperations {
     MyUser userData;
     try {
       final result = await AccountProvider.fetchUserInfo(token: accessToken);
-
+      final deleteAccount = await remoteConfig.getBool('deleteAccount');
       if (isSuccess(result!.statusCode)) {
         userData = result.data;
         //userData.cargoBalance = "0.55";
@@ -61,11 +63,11 @@ class UserOperations {
         await _prefs.persistUser(user: userData);
         await _prefs.persistIsGuest(false);
         await _prefs.persistIsLoggedIn(true);
+        await _prefs.persistDeleteAccount(deleteAccount);
         return true;
       } else
         return false;
     } catch (e, s) {
-      eeee("eeee configUserDataWhenOpenApp $e => $s");
       Recorder.recordCatchError(e, s);
       return false;
     }

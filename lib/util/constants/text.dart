@@ -134,6 +134,7 @@ class MyText {
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
+  static const String deleteAccount = "Delete Account";
   static const String logout = "Çıxış et";
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';

@@ -55,9 +55,12 @@ dependencies:
 
 
   #firebase \\ notification:
-  firebase_messaging: ^11.2.6
-  firebase: ^9.0.2
-  firebase_core: ^1.12.0
+  firebase_messaging: ^12.0.1
+  firebase: ^9.0.3
+  firebase_core: ^1.20.0
+  firebase_crashlytics: ^2.8.6
+  firebase_remote_config: ^2.0.13
+
   awesome_notifications: any
   bot_toast: ^4.0.1
   flutter_local_notifications: ^9.3.2
@@ -70,7 +73,7 @@ dependencies:
 
   #  sentry_flutter: ^6.2.2
   logging: ^1.0.2
-  firebase_crashlytics: ^2.8.1
+
 
 
   #ui
@@ -107,6 +110,7 @@ dependencies:
 
   #test:
   pattern_formatter: ^2.0.0
+
 
 
 

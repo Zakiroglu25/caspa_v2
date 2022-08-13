@@ -1,12 +1,8 @@
 import 'package:caspa_v2/presentation/page/add_balane_page/widgets/price_package.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../util/constants/sized_box.dart';
-import '../../../../util/constants/text.dart';
-import '../../../../util/constants/text_styles.dart';
 import '../../../../util/enums/payment_balance.dart';
 
 class BalancePackages extends StatelessWidget {

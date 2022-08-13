@@ -7,11 +7,9 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:caspa_v2/widget/general/list_or_empty.dart';
 import 'package:flutter/material.dart';
-
-import '../promo_code_page.dart';
-import 'promo_code_list_element.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'promo_code_list_element.dart';
 import 'promo_table_title.dart';
 
 class PromoCodesList extends StatelessWidget {

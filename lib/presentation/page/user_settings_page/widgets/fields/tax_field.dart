@@ -5,10 +5,11 @@ import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../locator.dart';
 
 class TaxFieldUser extends StatelessWidget {
-  final  controller;
+  final controller;
 
   HiveService get _prefs => locator<HiveService>();
 

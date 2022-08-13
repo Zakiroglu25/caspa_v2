@@ -1,18 +1,13 @@
-import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_state.dart';
 import 'package:caspa_v2/presentation/page/promo_code_page/widgets/promo_code_field.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'widgets/promo_code_apply_button.dart';
 import 'widgets/promo_codes_list.dart';
 

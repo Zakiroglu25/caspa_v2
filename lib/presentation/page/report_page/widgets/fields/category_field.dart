@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';

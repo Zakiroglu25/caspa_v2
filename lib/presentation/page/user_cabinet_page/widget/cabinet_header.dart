@@ -30,8 +30,8 @@ class CabinetHeaderWidget extends StatelessWidget {
           UserID(),
 
           ///user elave et buttonu
-          // MySizedBox.h16,
-          // ChangeProfileButton()
+          MySizedBox.h16,
+          ChangeProfileButton()
         ],
       ),
     );

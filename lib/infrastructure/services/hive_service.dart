@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 // Package imports:
+import 'package:caspa_v2/infrastructure/models/local/app_member.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -124,6 +125,13 @@ class HiveService {
   }
 
   bool get isLoggedIn => _box!.get('is_logged_in') ?? false;
+
+  //delete account
+  Future<void> persistDeleteAccount(bool value) async {
+    await _box!.put(SharedKeys.deleteAccount, value);
+  }
+
+  bool get deleteAccount => _box!.get(SharedKeys.deleteAccount) ?? false;
 
   Future<void> persistIsGuest(bool value) async {
     await _box!.put('isGuest', value);

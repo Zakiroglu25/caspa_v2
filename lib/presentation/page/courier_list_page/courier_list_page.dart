@@ -8,6 +8,7 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
+
 import '../../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
 import '../../../util/delegate/navigate_utils.dart';

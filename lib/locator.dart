@@ -1,11 +1,13 @@
 // Package imports:
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import 'infrastructure/configs/dio_general.dart';
+import 'infrastructure/services/app_members_service.dart';
 import 'infrastructure/services/config_service.dart';
 import 'infrastructure/services/hive_service.dart';
 
@@ -17,20 +19,26 @@ final locator = GetIt.I;
 final dio = Dio();
 
 Future<void> setupLocator() async {
-  locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
-  final hiveMain = await HiveService.instance;
-  final hiveConfig = await ConfigService.instance;
-  // final hiveConfig = await ConfigService.instance;
-  final dioG = await DioG.instance;
+  try {
+    locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
+    final hiveAppMember = await AppMembersService.instance;
+    final hiveMain = await HiveService.instance;
+    final hiveConfig = await ConfigService.instance;
+    // final hiveConfig = await ConfigService.instance;
+    final dioG = await DioG.instance;
 
-  //   locator.registerSingleton<PreferencesService>(prefs);
-  locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
-  locator.registerLazySingleton(() => hiveConfig);
-  locator.registerLazySingleton(() => hiveMain);
-  //locator.registerSingleton<DioG>(await DioG.instance);
-  locator.registerLazySingleton<DioG>(() => dioG);
-  final dioA = await DioAuth.instance;
-  locator.registerLazySingleton<DioAuth>(() => dioA);
+    //   locator.registerSingleton<PreferencesService>(prefs);
+    locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
+    locator.registerLazySingleton(() => hiveAppMember);
+    locator.registerLazySingleton(() => hiveConfig);
+    locator.registerLazySingleton(() => hiveMain);
+    //locator.registerSingleton<DioG>(await DioG.instance);
+    locator.registerLazySingleton<DioG>(() => dioG);
+    final dioA = await DioAuth.instance;
+    locator.registerLazySingleton<DioAuth>(() => dioA);
+  } catch (e, s) {
+    Recorder.recordCatchError(e, s);
+  }
 
   // locator.registerLazySingleton<RegisterRepository>(() => RegisterS)
 }

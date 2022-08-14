@@ -1,8 +1,6 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
 
 class TabCount extends StatelessWidget {

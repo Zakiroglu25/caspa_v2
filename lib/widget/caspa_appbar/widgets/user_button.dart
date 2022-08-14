@@ -1,9 +1,8 @@
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/durations.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/general/user_photo.dart';
 import 'package:flutter/material.dart';
+
 import '../../../locator.dart';
 import '../../../presentation/page/landing_page/landing_page.dart';
 

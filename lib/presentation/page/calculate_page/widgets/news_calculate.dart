@@ -2,7 +2,6 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 class DescriptionTextWidget extends StatefulWidget {
   final String text;
@@ -41,7 +40,8 @@ class _DescriptionTextWidgetState extends State<DescriptionTextWidget> {
               children: <Widget>[
                 Text(
                   flag ? (firstHalf! + "...") : (firstHalf! + secondHalf!),
-                  style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
+                  style:
+                      AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
                 ),
                 InkWell(
                   child: Row(

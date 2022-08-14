@@ -1,8 +1,5 @@
-
 import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/presentation/page/auth/register/widgets/plus994.dart';
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/formatter/phone_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';

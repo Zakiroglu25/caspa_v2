@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:caspa_v2/infrastructure/cubits/category/category_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/category/category_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
@@ -14,6 +13,8 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'category_filter_field.dart';
 
 class CategoryFields extends StatelessWidget {
   CategoryFields(
@@ -113,21 +114,22 @@ class CategoryFields extends StatelessWidget {
                 List<Category> categories = (listSnapshot.data ?? []);
                 final itemCount = categories.length;
                 final sH = MediaQuery.of(context).size.height - 56 - 90;
-                //   final listHeight = (itemCount) * 50.0 + 75;
-                final listHeight = (itemCount) * 50.0;
+                final listHeight = (itemCount) * 50.0 + 75;
+                // final listHeight = (itemCount) * 50.0;
                 return SizedBox(
-                  height: min(listHeight, sH),
+                  height: sH,
+                  // height: min(listHeight, sH),
                   child: ListView(
                     physics: Physics.never,
                     shrinkWrap: true,
                     children: [
-                      // CategoryFilterField(
-                      //   onChanged: (text) => context
-                      //       .read<ReportCubit>()
-                      //       .filterCategoriesList(text),
-                      //   controller: BlocProvider.of<ReportCubit>(context)
-                      //       .categoryFilterController,
-                      // ),
+                      CategoryFilterField(
+                        onChanged: (text) => context
+                            .read<ReportCubit>()
+                            .filterCategoriesList(text),
+                        controller: BlocProvider.of<ReportCubit>(context)
+                            .categoryFilterController,
+                      ),
                       StreamBuilder(
                           stream: BlocProvider.of<ReportCubit>(context)
                               .selectedCategoryStream,
@@ -135,8 +137,9 @@ class CategoryFields extends StatelessWidget {
                             return categories.isEmpty
                                 ? CaspaLoading()
                                 : SizedBox(
-                                    height: min(listHeight, sH),
-                                    //height: min(listHeight - 75, sH - 75),
+                                    //height: min(listHeight, sH),
+                                    // height: min(listHeight - 75, sH - 75),
+                                    height: sH - 75,
                                     child: ListView.builder(
                                         physics: Physics.alwaysBounce,
                                         shrinkWrap: false,
@@ -196,21 +199,22 @@ class CategoryFields extends StatelessWidget {
                 List<SubCategory> subCategories = (listSnapshot.data ?? []);
                 final itemCount = subCategories.length;
                 final sH = MediaQuery.of(context).size.height - 56 - 90;
-                //     final listHeight = (itemCount) * 50.0 + 75;
-                final listHeight = (itemCount) * 50.0;
+                final listHeight = (itemCount) * 50.0 + 75;
+                //final listHeight = (itemCount) * 50.0;
                 return SizedBox(
-                  height: min(listHeight, sH),
+                  height: sH,
+                  // height: min(listHeight, sH),
                   child: ListView(
                     physics: Physics.never,
                     shrinkWrap: true,
                     children: [
-                      // CategoryFilterField(
-                      //   onChanged: (text) => context
-                      //       .read<ReportCubit>()
-                      //       .filterSubCategoriesList(text),
-                      //   controller: BlocProvider.of<ReportCubit>(context)
-                      //       .subCategoryFilterController,
-                      // ),
+                      CategoryFilterField(
+                        onChanged: (text) => context
+                            .read<ReportCubit>()
+                            .filterSubCategoriesList(text),
+                        controller: BlocProvider.of<ReportCubit>(context)
+                            .subCategoryFilterController,
+                      ),
                       StreamBuilder(
                           stream: BlocProvider.of<ReportCubit>(context)
                               .selectedSubCategoryStream,
@@ -218,8 +222,9 @@ class CategoryFields extends StatelessWidget {
                             return subCategories.isEmpty
                                 ? CaspaLoading()
                                 : SizedBox(
-                                    //   height: min(listHeight - 75, sH - 75),
-                                    height: min(listHeight, sH),
+                                    height: sH - 75,
+                                    //  height: min(listHeight - 75, sH - 75),
+                                    //height: min(listHeight, sH),
                                     child: ListView.builder(
                                         physics: Physics.alwaysBounce,
                                         shrinkWrap: true,

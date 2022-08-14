@@ -8,21 +8,14 @@ import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/fin
 import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/main_pass_field.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/number_field.dart';
 import 'package:caspa_v2/presentation/page/user_settings_page/widgets/fields/second_pass_field.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
-
 import 'package:flutter/material.dart';
-import 'package:sliver_tools/sliver_tools.dart';
 
-import 'fields/anbar_field.dart';
 import 'fields/cardIdField.dart';
-import 'fields/company_field.dart';
 import 'fields/tax_field.dart';
 
 class SliverFields extends StatelessWidget {

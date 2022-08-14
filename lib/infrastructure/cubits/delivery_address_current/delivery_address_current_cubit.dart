@@ -197,7 +197,9 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) => Pager.deliveryAddressOperations(
-            regions: regions, deliveryAddress: deliveryAddress),
+            context: context,
+            regions: regions,
+            deliveryAddress: deliveryAddress),
       );
     } on SocketException catch (_) {
       emit(DeliveryAdressCurrentError(error: MyText.network_error));

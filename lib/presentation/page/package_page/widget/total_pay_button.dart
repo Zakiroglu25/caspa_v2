@@ -1,13 +1,13 @@
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../util/constants/app_text_styles.dart';
 import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/screen/ink_wrapper.dart';
-import '../../select_packages_pay_page/select_packages_pay_page.dart';
 
 class TotalPayButton extends StatelessWidget {
   const TotalPayButton({Key? key}) : super(key: key);
@@ -23,16 +23,15 @@ class TotalPayButton extends StatelessWidget {
           width: 129,
           height: 56,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200),
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.10),
-                  spreadRadius: 0,
-                  blurRadius: 20,
-                  offset: Offset(0, 4), // changes position of shadow
-                ),
-              ],
-
+            borderRadius: BorderRadius.circular(200),
+            boxShadow: [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.10),
+                spreadRadius: 0,
+                blurRadius: 20,
+                offset: Offset(0, 4), // changes position of shadow
+              ),
+            ],
             color: MyColors.black34,
           ),
           child: Padding(

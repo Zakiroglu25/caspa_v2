@@ -123,6 +123,8 @@ class MyText {
   //userCabinet
   static const String emergencyCall =
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
+  static const String add = "Əlavə et";
+  static const String changeUser = "Profili dəyiş";
 
   //home
   static const String welcome = "Salam";
@@ -134,6 +136,7 @@ class MyText {
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
+  static const String deleteAccount = "Delete Account";
   static const String logout = "Çıxış et";
   static const String cancel = 'Ləğv et';
   static const String increaseBalance = '+ Balansı artır';
@@ -163,7 +166,7 @@ class MyText {
   static const String nationality = "Vətandaşlıq";
   static const String save = "Yadda saxla";
   static const String own_cabinet = "Şəxsi kabinet";
-  static const String adress = "Ünvan";
+  static const String address = "Ünvan";
   static const String myHomeOrWork = "Evim, İş yerim";
   static const String enterTheDetails = "Enter the details";
   static const String instructionForTheCourier = "Instruction for the courier";

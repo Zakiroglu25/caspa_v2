@@ -13,6 +13,7 @@ import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:focus_detector/focus_detector.dart';
+
 import 'widget/add_attorney_button.dart';
 import 'widget/attorney_get_list_widget.dart';
 

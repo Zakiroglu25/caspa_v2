@@ -9,15 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
+import 'widgets/home_package_list.dart';
 import 'widgets/home_whatsapp_button.dart';
 import 'widgets/news_list_widget.dart';
-import 'widgets/home_package_list.dart';
 import 'widgets/section_name.dart';
 import 'widgets/tariffs.dart';
 
@@ -49,7 +50,6 @@ class _HomePageState extends State<HomePage> {
         issheetShown = true;
         _prefs!.setBool('show_sheet', issheetShown);
       }
-
     }
   }
 

@@ -8,11 +8,8 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
-import 'package:caspa_v2/widget/general/no_data_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../calculate_page/widgets/news_calculate.dart';
 
 class TariffDetails extends StatelessWidget {
   final List<Tariff> hList;
@@ -34,7 +31,6 @@ class TariffDetails extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
             BlocBuilder<TarifCubit, TarifState>(
               builder: (context, state) {
                 if (state is TarifSuccess) {
@@ -56,16 +52,17 @@ class TariffDetails extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: MyColors.mainColor01
-                ),
+                    borderRadius: BorderRadius.circular(12),
+                    color: MyColors.mainColor01),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text(MyText.info,style: AppTextStyles.sanF400,),
+                  child: Text(
+                    MyText.info,
+                    style: AppTextStyles.sanF400,
+                  ),
                 ),
               ),
             ),
-
           ],
         ),
       ),

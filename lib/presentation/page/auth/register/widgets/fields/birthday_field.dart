@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+
 import '../field_c_lear_button.dart';
 
 class BirthdayFieldRegister extends StatelessWidget {
@@ -25,9 +26,9 @@ class BirthdayFieldRegister extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           readOnly: true,
           suffixIcon: FieldCLearButton(
-
             BlocProvider.of<RegisterCubit>(context).birthDate.valueOrNull ?? '',
-            onTap: () => BlocProvider.of<RegisterCubit>(context).updateBirthDate(''),
+            onTap: () =>
+                BlocProvider.of<RegisterCubit>(context).updateBirthDate(''),
             controller: controller,
           ),
           // errorMessage: snapshot.error == null ? null : '${snapshot.error}',

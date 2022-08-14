@@ -76,7 +76,9 @@ class RegionFieldDeliveryOperations extends StatelessWidget {
                             BlocProvider.of<DeliveryAdressOperationsCubit>(
                                     context)
                                 .updateRegion(currentRegion);
-                            // Go.pop(context);
+                            // Navigator.of(context).pop();
+                            Go.pop(context);
+                            //Go.pop(context);
                           },
                           title:
                               ("${currentRegion.name} ${currentRegion.price} AZN"),

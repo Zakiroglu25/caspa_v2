@@ -2,8 +2,10 @@
 import 'dart:convert';
 import 'dart:io';
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
+import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -32,6 +34,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
   HiveService get _prefs => locator<HiveService>();
+  ConfigService get _configS => locator<ConfigService>();
 
   FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
 
@@ -117,6 +120,14 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginError(error: 'network_error'));
     } catch (e) {
       emit(LoginError(error: e.toString()));
+    }
+  }
+
+  void seenOnboard(BuildContext context, {bool? loading}) async {
+    try {
+      _configS.persistOnBoard(seen: true);
+    } catch (e, s) {
+      Recorder.recordCatchError(e, s);
     }
   }
 

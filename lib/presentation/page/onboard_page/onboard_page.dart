@@ -1,9 +1,9 @@
-
 import 'package:caspa_v2/presentation/page/onboard_page/widgets/page_view_two.dart';
 import 'package:caspa_v2/util/constants/size_config.dart';
 import 'package:caspa_v2/util/screen/animated_rotate.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'widgets/bck_image_widget.dart';
 import 'widgets/btn_skip.dart';
 import 'widgets/indicator_widget.dart';
@@ -18,9 +18,10 @@ class OnboardPage extends StatefulWidget {
 
 ValueNotifier<int> indexValueNotifier = ValueNotifier(1);
 
-class _OnboardPageState extends State<OnboardPage> with TickerProviderStateMixin {
+class _OnboardPageState extends State<OnboardPage>
+    with TickerProviderStateMixin {
   PageController? pageController;
-  double currentPageValue=1;
+  double currentPageValue = 1;
 
   @override
   void initState() {
@@ -28,7 +29,7 @@ class _OnboardPageState extends State<OnboardPage> with TickerProviderStateMixin
     pageController = PageController();
     pageController!.addListener(() {
       setState(() {
-        currentPageValue=(pageController!.page!+1);
+        currentPageValue = (pageController!.page! + 1);
       });
     });
   }
@@ -41,11 +42,13 @@ class _OnboardPageState extends State<OnboardPage> with TickerProviderStateMixin
         child: Stack(
           children: <Widget>[
             AnimatedRotate(
-                angle: (currentPageValue) * 90, child: BackgroundImage(),
-            duration: Duration(milliseconds: 0),),
+              angle: (currentPageValue) * 90,
+              child: BackgroundImage(),
+              duration: Duration(milliseconds: 0),
+            ),
             Indicator(curr: currentPageValue.round()),
             PageView(
-              onPageChanged: (index)  {},
+              onPageChanged: (index) {},
               controller: pageController,
               children: [PageViewOne(), PageViewTwo(), PageViewThree()],
             ),

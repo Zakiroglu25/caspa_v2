@@ -19,7 +19,7 @@ class Sheet {
     //Scaffold.of(context).hideCurrentSnackBar();
 
     bs.showModalBottomSheet(
-        useRootNavigator: true,
+        useRootNavigator: false,
         enableDrag: true,
         isDismissible: true,
         barrierColor: Colors.black.withOpacity(.2),

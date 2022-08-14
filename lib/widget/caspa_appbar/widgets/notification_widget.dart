@@ -2,10 +2,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'ellipse.dart';
 
 class NotificationWidget extends StatelessWidget {
   @override

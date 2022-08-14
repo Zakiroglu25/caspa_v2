@@ -123,6 +123,8 @@ class MyText {
   //userCabinet
   static const String emergencyCall =
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
+  static const String add = "Əlavə et";
+  static const String changeUser = "Profili dəyiş";
 
   //home
   static const String welcome = "Salam";

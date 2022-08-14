@@ -96,6 +96,7 @@ class UserCabinetPage extends StatelessWidget {
           final MyUser user =
               MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
+            color: MyColors.mainColor,
             onRefresh: () async {
               context.read<UserCubit>().getUserData();
             },
@@ -106,6 +107,7 @@ class UserCabinetPage extends StatelessWidget {
                 children: [
                   // MySizedBox.h32,
                   CabinetHeaderWidget(),
+                  MySizedBox.h16,
                   SliverInfo(
                     MyText.emergencyCall,
                     align: TextAlign.center,

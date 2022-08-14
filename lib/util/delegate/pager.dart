@@ -202,7 +202,7 @@ class Pager {
       ], child: SelectPackagesPayPage());
 
   static get login => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => LoginCubit()..seenOnboard(context)),
         // BlocProvider(create: (context) => AuthenticationCubit())
       ], child: const LoginPage());
 
@@ -400,9 +400,9 @@ class Pager {
   //         AuthenticationCubit()..startApp(context, showSplash: true),
   //     child: App());
 
-  static app({bool? showSplash}) => BlocProvider(
+  static app({bool? showSplash, String? token}) => BlocProvider(
       create: (context) => AuthenticationCubit()
-        ..startApp(context, showSplash: showSplash ?? true),
+        ..startApp(context, showSplash: showSplash ?? true, token: token),
       child: const App());
 
   static get tarifDetails => BlocProvider(

@@ -23,6 +23,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../../../infrastructure/cubits/user/user_cubit.dart';
+import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -167,18 +168,18 @@ class UserCabinetPage extends StatelessWidget {
                   ),
                   MySizedBox.h16,
                   ///carx
-                  // NewBalanceBox(
-                  //   onTap: () {
-                  //     Go.to(context, MyHomePage());
-                  //   },
-                  //   icon: Assets.pngNote,
-                  //   boxTitle: "Carx",
-                  //   title: "${MyText.balance}: ${user.balance} TL ",
-                  //   subtitle: MyText.giftBalance,
-                  //   subtitleColor: MyColors.balanceBoxRedAlternativ,
-                  //   desc: MyText.desc,
-                  //   color: MyColors.shop,
-                  // ),
+                  NewBalanceBox(
+                    onTap: () {
+                      Go.to(context, MyHomePage());
+                    },
+                    icon: Assets.pngNote,
+                    boxTitle: "Carx",
+                    title: "${MyText.balance}: ${user.balance} TL ",
+                    subtitle: MyText.giftBalance,
+                    subtitleColor: MyColors.balanceBoxRedAlternativ,
+                    desc: MyText.desc,
+                    color: MyColors.shop,
+                  ),
                   // MySizedBox.h16,
                   // BalanceBox(
                   //     title: "Balans TL",

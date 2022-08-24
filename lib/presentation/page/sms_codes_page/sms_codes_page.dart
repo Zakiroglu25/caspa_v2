@@ -15,10 +15,12 @@ import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../infrastructure/models/remote/response/sms_code_model.dart';
+import '../../../util/enums/sms_types.dart';
 import '../../../widget/main/sms_box/sms_box.dart';
 
 class SmsCodesPage extends StatelessWidget {
-  const SmsCodesPage({Key? key}) : super(key: key);
+  const SmsCodesPage({Key? key, required this.smsType}) : super(key: key);
+  final SmsTypes smsType;
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +28,23 @@ class SmsCodesPage extends StatelessWidget {
       appBar: CaspaAppbar(
         user: false,
         contextA: context,
-        title: MyText.trendyolSMS,
+        title:
+            smsType == SmsTypes.trendyol ? MyText.trendyolSMS : MyText.pasajSMS,
       ),
       body: ListView(
         shrinkWrap: true,
         padding: Paddings.paddingA16,
         children: [
           SectionName(
-            title: MyText.trendyolSMSHowToWork,
+            title: smsType == SmsTypes.trendyol
+                ? MyText.trendyolSMSHowToWork
+                : MyText.pasajSMSHowToWork,
           ),
           MySizedBox.h12,
           Text(
-            MyText.trendyolSMSHowToWorkText,
+            smsType == SmsTypes.trendyol
+                ? MyText.trendyolSMSHowToWorkText
+                : MyText.pasajSMSHowToWork,
             style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
           ),
           Container(

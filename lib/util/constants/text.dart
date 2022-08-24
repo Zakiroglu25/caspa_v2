@@ -362,11 +362,18 @@ class MyText {
   static const String touchPayButtonText =
       "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” butonuna toxunun.";
 
+  //pasaj sms
+  static const String pasajSMS = 'Turkcell Pasaj SMS';
+  static const String pasajSMSHowToWork =
+      'Turkcell Pasaj SMS necə işləyir ? 🛍';
+  static const String pasajSMSHowToWorkText =
+      'Turkcell Pasaj tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdə görə bilərsiniz.(Vaxtlara diqqət edin)';
+
   //trendyol sms
   static const String trendyolSMS = 'Trendyol SMS';
   static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
   static const String trendyolSMSHowToWorkText =
-      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
+      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdə görə bilərsiniz.(Vaxtlara diqqət edin)';
 
   //calculate
   static const String kg_text = 'Çəkiyə görə';

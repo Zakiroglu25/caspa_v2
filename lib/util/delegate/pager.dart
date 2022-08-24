@@ -90,6 +90,7 @@ import '../../presentation/page/calculate_page/calculate_page.dart';
 import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
+import '../enums/sms_types.dart';
 
 class Pager {
   Pager._();
@@ -206,10 +207,11 @@ class Pager {
         // BlocProvider(create: (context) => AuthenticationCubit())
       ], child: const LoginPage());
 
-  static get smsCodes => MultiBlocProvider(providers: [
-        BlocProvider(create: (context) => SmsCodesCubit()..start()),
+  static smsCodes({required SmsTypes smsType}) => MultiBlocProvider(providers: [
+        BlocProvider(
+            create: (context) => SmsCodesCubit()..start(smsType: smsType)),
         // BlocProvider(create: (context) => AuthenticationCubit())
-      ], child: const SmsCodesPage());
+      ], child: SmsCodesPage(smsType: smsType));
 
   static get register => MultiBlocProvider(providers: [
         BlocProvider(

@@ -10,6 +10,7 @@ import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/elements/menu_box.dart';
 import 'package:flutter/material.dart';
 
+import '../../../util/enums/sms_types.dart';
 import 'widget/other_shop_widget.dart';
 
 class OtherPage extends StatelessWidget {
@@ -47,9 +48,9 @@ class OtherPage extends StatelessWidget {
                   title: MyText.trendyolSms,
                   content: MyText.trendyolOtp,
                   color: MyColors.partnyoColor,
-                  onTap: () => Go.to(context, Pager.smsCodes),
+                  onTap: () => Go.to(
+                      context, Pager.smsCodes(smsType: SmsTypes.trendyol)),
                 ),
-
               ],
             ),
             MySizedBox.h14,
@@ -115,6 +116,19 @@ class OtherPage extends StatelessWidget {
                   content: MyText.forEditAppSettings,
                   color: MyColors.grey245,
                   onTap: () => Go.to(context, Pager.settings),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                MenuBox(
+                  w: boxW,
+                  title: MyText.trendyolSms,
+                  content: MyText.trendyolOtp,
+                  color: MyColors.partnyoColor,
+                  onTap: () =>
+                      Go.to(context, Pager.smsCodes(smsType: SmsTypes.pasaj)),
                 ),
               ],
             ),

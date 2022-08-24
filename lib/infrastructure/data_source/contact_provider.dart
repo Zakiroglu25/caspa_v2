@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/enums/sms_types.dart';
 
 import '../../locator.dart';
 
@@ -23,9 +24,10 @@ class ContactProvider {
     return statusDynamic;
   }
 
-  static Future<StatusDynamic> getSMSCodes() async {
+  static Future<StatusDynamic> getSMSCodes({required SmsTypes smsType}) async {
     StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.smsCodes;
+    var api =
+        smsType == SmsTypes.pasaj ? ApiKeys.smsCodesPasaj : ApiKeys.smsCodes;
     final response = await dioG.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
@@ -33,7 +35,7 @@ class ContactProvider {
       SmsCodeData model = SmsCodeData.fromJson(gelenCavabJson);
       statusDynamic.data = model.data;
     } else {
-      eeee("getSMSCCodes bad url :$api,response: ${response}");
+      eeee("getSMSCCodes $smsType bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

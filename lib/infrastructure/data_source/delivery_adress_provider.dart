@@ -47,8 +47,7 @@ class DeliveryAdressProvider {
       required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.orderViaLinkEdit;
-    var url = Uri.parse(api);
-    //final headers = ApiKeys.header(token: token);
+
     var body = ApiKeys.orderViaLinkBody(
         link: link,
         price: price,
@@ -61,7 +60,7 @@ class DeliveryAdressProvider {
     if (response.statusCode == ResultKey.successCode) {
       statusDynamic.data = response.data;
     } else {
-      eeee("editOrder bad url :$url,response: ${response}");
+      eeee("editOrder bad url :$api ,response: ${response}");
     }
     return statusDynamic;
   }
@@ -82,13 +81,13 @@ class DeliveryAdressProvider {
   static Future<DeliveryAdressResponse?> getAddresses() async {
     DeliveryAdressResponse? deliveryAdressResponse;
     const api = ApiKeys.addresses;
-    var url = Uri.parse(api);
+
     final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       deliveryAdressResponse = DeliveryAdressResponse.fromJson(gelenCavabJson);
     } else {
-      eeee("getOrders bad url :$url,response: $response");
+      eeee("getOrders bad url :$api ,response: $response");
     }
     return deliveryAdressResponse;
   }

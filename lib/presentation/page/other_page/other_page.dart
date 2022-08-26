@@ -45,7 +45,7 @@ class OtherPage extends StatelessWidget {
                 ),
                 MenuBox(
                   w: boxW,
-                  title: MyText.trendyolSms,
+                  title: MyText.trendyolSMSx,
                   content: MyText.trendyolOtp,
                   color: MyColors.partnyoColor,
                   onTap: () => Go.to(
@@ -119,13 +119,14 @@ class OtherPage extends StatelessWidget {
                 ),
               ],
             ),
+            MySizedBox.h16,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MenuBox(
                   w: boxW,
-                  title: MyText.trendyolSms,
-                  content: MyText.trendyolOtp,
+                  title: MyText.pasajSMSx,
+                  content: MyText.pasajOtp,
                   color: MyColors.partnyoColor,
                   onTap: () =>
                       Go.to(context, Pager.smsCodes(smsType: SmsTypes.pasaj)),

@@ -44,7 +44,7 @@ class SmsCodesPage extends StatelessWidget {
           Text(
             smsType == SmsTypes.trendyol
                 ? MyText.trendyolSMSHowToWorkText
-                : MyText.pasajSMSHowToWork,
+                : MyText.pasajSMSHowToWorkText,
             style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153),
           ),
           Container(

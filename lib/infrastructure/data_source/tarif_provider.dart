@@ -18,21 +18,13 @@ class TarifProvider {
   static Future<TariffData> getTarif() async {
     late TariffData priceModel;
     final api = ApiKeys.tariff;
-    final headers = ApiKeys.headers;
-    var url = Uri.parse(api);
-    llll(api);
 
     final response = await dioG.dio.get(api);
-    // _prefs.user;
-    //final responseX = await http.get(url, headers: headers);
-
-    // bbbb("resuu: " + response.data .toString());
-    //  bbbb("resuu X: " + responseX.body .toString());
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       priceModel = TariffData.fromJson(gelenCavabJson);
     } else {
-      eeee("bad url :$url,response: ${response}");
+      eeee("bad url :$api ,response: ${response}");
     }
     return priceModel;
   }

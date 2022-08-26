@@ -2,6 +2,7 @@ class Durations {
   Durations._();
 
   //milliseconds
+  static const Duration ms0 = Duration(milliseconds: 0);
   static const Duration ms100 = Duration(milliseconds: 100);
   static const Duration ms200 = Duration(milliseconds: 200);
   static const Duration ms300 = Duration(milliseconds: 300);
@@ -12,6 +13,7 @@ class Durations {
   static const Duration ms1000 = Duration(milliseconds: 1000);
 
   //seconds
+  static const Duration s0 = Duration(seconds: 0);
   static const Duration s1 = Duration(seconds: 1);
   static const Duration s2 = Duration(seconds: 2);
   static const Duration s3 = Duration(seconds: 3);

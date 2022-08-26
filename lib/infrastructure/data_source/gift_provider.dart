@@ -21,14 +21,13 @@ class GiftProvider {
   static Future<StatusDynamic> addGift({required String code}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addGiftCode;
-    var url = Uri.parse(api);
     final body = {"code": code};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
     statusDynamic.data = response.data;
     if (response.statusCode == ResultKey.responseSuccess) {
     } else {
-      eeee("addGift result bad:  url: $url  ,  response: ${response.data}");
+      eeee("addGift result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

@@ -56,7 +56,7 @@ class ForgotProvider {
     late AttorneyListModel attorneyListModel;
     const api = ApiKeys.addAttorneys;
     final headers = ApiKeys.header(token: accessToken);
-    var url = Uri.parse(api);
+
     llll(api);
     //final response = await http.get(url, headers: headers);
     final response = await dioAuth.dio.get(api);
@@ -64,7 +64,7 @@ class ForgotProvider {
       final gelenCavabJson = response.data;
       attorneyListModel = AttorneyListModel.fromJson(gelenCavabJson);
     } else {
-      eeee("bad url :$url,response: $response");
+      eeee("bad url :$api ,response: $response");
     }
     return attorneyListModel;
   }

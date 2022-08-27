@@ -60,8 +60,9 @@ class OrderUnicorn extends StatelessWidget {
                     ],
                   ),
                 ),
-                onPressed: () =>
-                    context.read<OrderViaUrlListCubit>().addOrder(order)),
+                onPressed: () => order.payment == 0
+                    ? context.read<OrderViaUrlListCubit>().addOrder(order)
+                    : null),
             MySizedBox.h20,
           ],
         ),

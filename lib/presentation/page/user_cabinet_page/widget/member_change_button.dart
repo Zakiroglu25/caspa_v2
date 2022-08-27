@@ -18,27 +18,30 @@ class MemberChangeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 160,
-      height: 44,
-      decoration: BoxDecoration(
-        color: MyColors.black34,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            Assets.svgUser,
-            color: MyColors.white,
-          ),
-          MySizedBox.w12,
-          Text(
-            MyText.changeUser + " (${_memS.appMembers.length})",
-            style: AppTextStyles.sanF500
-                .copyWith(color: MyColors.white, fontSize: 14.sm),
-          ),
-        ],
+    return Material(
+      color: MyColors.transparent,
+      child: Container(
+        width: 160,
+        height: 44,
+        decoration: BoxDecoration(
+          color: MyColors.black34,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              Assets.svgUser,
+              color: MyColors.white,
+            ),
+            MySizedBox.w12,
+            Text(
+              MyText.changeUser + " (${_memS.appMembers.length})",
+              style: AppTextStyles.sanF500
+                  .copyWith(color: MyColors.white, fontSize: 14.sm),
+            ),
+          ],
+        ),
       ),
     );
   }

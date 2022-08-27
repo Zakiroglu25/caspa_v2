@@ -152,7 +152,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   Future<void> delay(bool showSplash) async {
-    if (showSplash) await Future.delayed(Duration(seconds: 4));
+    if (showSplash) await Future.delayed(Duration(seconds: 1));
   }
 
   void showLogoutDialog(BuildContext context, {bool goWithPager = false}) {

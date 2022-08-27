@@ -48,7 +48,6 @@ class CourierProvider {
   static Future<StatusDynamic?> fetchCourier() async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.courierList;
-    var url = Uri.parse(api);
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
@@ -59,7 +58,7 @@ class CourierProvider {
       statusDynamic.data = courierList.data;
       bbbb("courier list: " + (statusDynamic.data).toString());
     } else {
-      eeee("courier List bad url :$url,response: ${response}");
+      eeee("courier List bad url :$api ,response: ${response}");
     }
     return statusDynamic;
   }
@@ -70,8 +69,6 @@ class CourierProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteCourier;
-    var url = Uri.parse(api);
-    // final headers = ApiKeys.header(token: accessToken);
 
     final body = {
       "id": id,
@@ -87,7 +84,7 @@ class CourierProvider {
       statusDynamic.data = response.data;
     } else {
       eeee(
-          "deleteCourier result bad:  url: $url  ,  response: ${response.data}");
+          "deleteCourier result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

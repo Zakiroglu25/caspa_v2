@@ -48,8 +48,10 @@ class MemberItem extends StatelessWidget {
               child: Text(
                 "${user.fullName}",
                 overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.sanF600.copyWith(
-                    color: isCurrentUser ? MyColors.black : MyColors.grey153,
+                style: AppTextStyles.sanF500.copyWith(
+                    color: isCurrentUser ? MyColors.mainColor : MyColors.black,
+                    fontWeight:
+                        isCurrentUser ? FontWeight.w600 : FontWeight.w500,
                     fontSize: 14.sm),
               ),
             ),

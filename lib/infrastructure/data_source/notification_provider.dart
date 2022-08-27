@@ -24,8 +24,7 @@ class NotificationProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     late List<MyNotification>? notificastionsList;
     final api = ApiKeys.user;
-    var url = Uri.parse(api);
-    //final response = await http.get(url, headers: headers);
+
     final response = await dioAuth.dio.get(api);
     statusDynamic.statusCode = response.statusCode;
 
@@ -35,7 +34,7 @@ class NotificationProvider {
       notificastionsList = k;
       statusDynamic.data = notificastionsList;
     } else {
-      eeee("getNotification url :$url,response: $response");
+      eeee("getNotification url :$api ,response: $response");
     }
     return statusDynamic;
   }

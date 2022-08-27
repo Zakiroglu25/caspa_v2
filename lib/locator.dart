@@ -35,7 +35,7 @@ Future<void> setupLocator() async {
     //locator.registerSingleton<DioG>(await DioG.instance);
     locator.registerLazySingleton<DioG>(() => dioG);
     final dioA = await DioAuth.instance;
-    locator.registerLazySingleton<DioAuth>(() => dioA);
+    locator.registerFactory<DioAuth>(() => dioA);
   } catch (e, s) {
     Recorder.recordCatchError(e, s);
   }

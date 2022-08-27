@@ -25,7 +25,6 @@ class AttorneyProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addAttorneys;
-    var url = Uri.parse(api);
 
     final body = {
       "full_name": full_name,
@@ -46,11 +45,8 @@ class AttorneyProvider {
     if (response.statusCode == ResultKey.responseSuccess201) {
       statusDynamic.data = response.data;
     } else {
-      eeee("addAttorney result bad:  url: $url  ,  response: ${response.data}");
       eeee(
-          "addAttorney result bad: 2 url: $url  ,  response: ${response.requestOptions.headers}");
-      eeee(
-          "addAttorney result bad:   v3url: $url  ,  response: ${response.headers}");
+          "addAttorney result bad:   v3url: $api  ,  response: ${response.headers}");
     }
     return statusDynamic;
   }
@@ -69,8 +65,6 @@ class AttorneyProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.editAttorneys;
-    var url = Uri.parse(api);
-    final headers = ApiKeys.header(token: accessToken);
 
     final body = {
       "id": id,
@@ -92,7 +86,7 @@ class AttorneyProvider {
     if (response.statusCode == ResultKey.responseSuccess201) {
       statusDynamic.data = response.data;
     } else {
-      eeee("addAttorney result bad:  url: $url  ,  response: ${response.data}");
+      eeee("addAttorney result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -103,8 +97,6 @@ class AttorneyProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteAttorneys;
-    var url = Uri.parse(api);
-    final headers = ApiKeys.header(token: accessToken);
 
     final body = {
       "id": id,
@@ -120,7 +112,7 @@ class AttorneyProvider {
       statusDynamic.data = response.data;
     } else {
       eeee(
-          "deleteAttorney result bad:  url: $url  ,  response: ${response.data}");
+          "deleteAttorney result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -136,7 +128,6 @@ class AttorneyProvider {
     required String? birthday,
     required String? note,
     required int? id,
-
   }) async {
     AddAttorneysModel? updateAttorneys;
 
@@ -159,7 +150,6 @@ class AttorneyProvider {
     final response = await dioAuth.dio.post(api, data: body);
 
     if (response.statusCode == ResultKey.responseSuccess) {
-
       final dataGelenCavabJSON = response.data;
       updateAttorneys = AddAttorneysModel.fromJson(dataGelenCavabJSON);
 
@@ -175,16 +165,12 @@ class AttorneyProvider {
       {required String? accessToken}) async {
     late AttorneyListModel attorneyListModel;
     const api = ApiKeys.addAttorneys;
-    final headers = ApiKeys.header(token: accessToken);
-    var url = Uri.parse(api);
-    llll(api);
-    //final response = await http.get(url, headers: headers);
     final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       attorneyListModel = AttorneyListModel.fromJson(gelenCavabJson);
     } else {
-      eeee("bad url :$url,response: $response");
+      eeee("bad url :$api ,response: $response");
     }
     return attorneyListModel;
   }

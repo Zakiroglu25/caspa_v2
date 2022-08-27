@@ -14,6 +14,7 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
@@ -50,6 +51,7 @@ class UserCabinetPage extends StatelessWidget {
             duration: Durations.ms300, curve: Curves.linear),
         notification: false,
         onTapActions: () {
+          bbbb("uiuiu:  ${_prefs.deleteAccount}");
           showCupertinoModalPopup(
             context: context,
             builder: (BuildContext contextA) => CupertinoActionSheet(

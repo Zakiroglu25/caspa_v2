@@ -6,9 +6,11 @@ import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/firestore_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 import '../../infrastructure/services/app_members_service.dart';
@@ -19,6 +21,7 @@ class UserOperations {
 
   static ConfigService get _configs => locator<ConfigService>();
   static final remoteConfig = FirebaseRemoteConfig.instance;
+  static final fireStore = FirebaseFirestore.instance;
 
   static AppMembersService get _memS => locator<AppMembersService>();
 
@@ -27,7 +30,6 @@ class UserOperations {
       {required String fcmToken,
       required String accessToken,
       required String? path}) async {
-    //llll("configureUserData result result: " + user.toString());
     try {
       // await _prefs.persistIsLoggedIn(true);
       // await _prefs.persistIsGuest(false);
@@ -35,11 +37,6 @@ class UserOperations {
       await _prefs.persistPath(path!);
 
       // await _prefs.persistFcmToken(fcmToken: fcmToken);
-      final dioAuth = await DioAuth.instance;
-      if (locator.isRegistered(instance: dioAuth)) {
-        locator.unregister(instance: dioAuth);
-        locator.registerSingleton(dioAuth);
-      }
 
       await configUserDataWhenOpenApp(
           fcm: fcmToken, path: path, accessToken: accessToken);
@@ -58,10 +55,23 @@ class UserOperations {
   static Future<bool> configUserDataWhenOpenApp(
       {required accessToken, required fcm, String? path}) async {
     try {
+      await register();
       await _prefs.persistAccessToken(accessToken: accessToken);
       final result = await AccountProvider.fetchUserInfo(token: accessToken);
-      final deleteAccount =
-          await remoteConfig.getBool(SharedKeys.deleteAccount);
+      // final deleteAccountu =
+      //     await remoteConfig.getBool(SharedKeys.deleteAccount);
+      bool deleteAccount = false;
+      (await fireStore
+          .collection('app')
+          .doc("config")
+          //.collection(SharedKeys.deleteAccount)
+          .get()
+          .then((value) {
+        deleteAccount = value.data()![SharedKeys.deleteAccount] ?? false;
+      }));
+
+      // final deleteAccount = false;
+      //bbbb("jghjhjggh:  ${deleteAccount}");
       if (isSuccess(result!.statusCode)) {
         final MyUser user = result.data;
         //userData.cargoBalance = "0.55";
@@ -92,6 +102,14 @@ class UserOperations {
     // print("token: " + accessToken.toString());
 
     //FirestoreDBService.saveUser(userData!);
+  }
+
+  static Future<void> register() async {
+    final dioAuth = await DioAuth.instance;
+    if (locator.isRegistered(instance: dioAuth)) {
+      await locator.unregister(instance: dioAuth);
+      locator.registerSingleton(dioAuth);
+    }
   }
 
   static Future<void> checkAndAddAppMember(

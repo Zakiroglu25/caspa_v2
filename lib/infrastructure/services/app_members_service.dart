@@ -46,7 +46,7 @@ class AppMembersService {
 
   List<AppMember> get appMembers {
     final List<dynamic> members =
-        (_box!.get(SharedKeys.appMembers)) as List<dynamic>;
+        ((_box!.get(SharedKeys.appMembers)) ?? []) as List<dynamic>;
     List<AppMember> appMemberList = [];
 
     if (members.isEmpty) return [];

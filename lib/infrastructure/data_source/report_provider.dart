@@ -36,7 +36,6 @@ class ReportProvider {
     StatusDynamic statusDynamic = StatusDynamic();
 
     var api = id != null ? ApiKeys.editReport : ApiKeys.report;
-    var url = Uri.parse(api);
     final headers = ApiKeys.header(token: token);
 
     var data;
@@ -101,14 +100,11 @@ class ReportProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteReport;
-    var url = Uri.parse(api);
-    // final headers = ApiKeys.header(token: token);
+
     final data = {"id": id};
     final response = await dioAuth.dio.post(api, data: data);
     statusDynamic.statusCode = response.statusCode;
     if (statusDynamic.statusCode == ResultKey.successCode) {
-      // statusDynamic.data=response['message'];
-      bbbb("silindi");
     } else {
       statusDynamic.data = MyText.reportIsNotAdded;
     }

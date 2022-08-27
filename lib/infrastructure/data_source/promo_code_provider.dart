@@ -14,7 +14,6 @@ class PromoCodeProvider {
   static Future<StatusDynamic> addPromoCode({required String code}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.addPromoCode;
-    var url = Uri.parse(api);
     final body = {"code": code};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -22,7 +21,7 @@ class PromoCodeProvider {
     if (response.statusCode == ResultKey.responseSuccess) {
     } else {
       eeee(
-          "addPromoCode result bad:  url: $url  ,  response: ${response.data}");
+          "addPromoCode result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

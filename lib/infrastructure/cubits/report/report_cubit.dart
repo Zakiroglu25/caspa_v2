@@ -73,18 +73,17 @@ class ReportCubit extends Cubit<ReportState> {
 
       if (isUserInfoValid(id: id)) {
         final result = await ReportProvider.report(
-          token: await _prefs.accessToken,
-          seller: seller.valueOrNull,
-          id: id,
-          qty: productCount.valueOrNull,
-          category: selectedSubCategory.valueOrNull!.id,
-          tracking: trackingID.valueOrNull,
-          price: price.valueOrNull,
-          currency: priceType.valueOrNull!.toLowerCase(),
-          invoice: image.valueOrNull,
-          note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id
-        );
+            token: await _prefs.accessToken,
+            seller: seller.valueOrNull,
+            id: id,
+            qty: productCount.valueOrNull,
+            category: selectedSubCategory.valueOrNull!.id,
+            tracking: trackingID.valueOrNull,
+            price: price.valueOrNull,
+            currency: priceType.valueOrNull!.toLowerCase(),
+            invoice: image.valueOrNull,
+            note: note.valueOrNull,
+            ware: selectedWares.valueOrNull!.id);
         log(result.toString());
         if (isSuccess(result?.statusCode)) {
           emit(ReportSuccess());
@@ -111,17 +110,16 @@ class ReportCubit extends Cubit<ReportState> {
           emit(ReportInProgress());
         }
         final result = await ReportProvider.report(
-          token: await _prefs.accessToken,
-          seller: seller.valueOrNull,
-          qty: productCount.valueOrNull,
-          category: selectedSubCategory.valueOrNull!.id,
-          tracking: trackingID.valueOrNull,
-          price: price.valueOrNull,
-          currency: priceType.valueOrNull!.toLowerCase(),
-          invoice: image.valueOrNull,
-          note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id
-        );
+            token: await _prefs.accessToken,
+            seller: seller.valueOrNull,
+            qty: productCount.valueOrNull,
+            category: selectedSubCategory.valueOrNull!.id,
+            tracking: trackingID.valueOrNull,
+            price: price.valueOrNull,
+            currency: priceType.valueOrNull!.toLowerCase(),
+            invoice: image.valueOrNull,
+            note: note.valueOrNull,
+            ware: selectedWares.valueOrNull!.id);
 
         if (isSuccess(result?.statusCode)) {
           emit(ReportSuccess());
@@ -206,26 +204,26 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   ///selectedWares
-  final BehaviorSubject<Data?> selectedWares =
-  BehaviorSubject<Data>();
+  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
 
   Stream<Data?> get selectedWaresStream => selectedWares.stream;
 
   updateWares(Data value) {
-    print("selectedWaresStream"+selectedWares.toString());
+    print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {
-    print(selectedWares.valueOrNull?.id);
+        print(selectedWares.valueOrNull?.id);
 
-      selectedWares.sink.add(value);
+        selectedWares.sink.add(value);
       }
     }
 
     //isUserInfoValid(registerType: _registerType);
   }
+
   ///selectedWares
 
   bool get isCategoryIncorrect =>
@@ -259,9 +257,10 @@ class ReportCubit extends Cubit<ReportState> {
 
   ///wares list
   final BehaviorSubject<List<Data>> wares =
-  BehaviorSubject<List<Data>>.seeded([]);
+      BehaviorSubject<List<Data>>.seeded([]);
 
   Stream<List<Data>> get waresListStream => wares.stream;
+
   ///wares list
 
   filterCategoriesList(String text) {
@@ -287,7 +286,6 @@ class ReportCubit extends Cubit<ReportState> {
     permanentWares = value;
     wares.sink.add(permanentWares);
   }
-
 
   updateCategoriesList(List<Category> value) {
     permanentCategories = value;
@@ -439,7 +437,9 @@ class ReportCubit extends Cubit<ReportState> {
         //!isNoteIncorrect &&
         !isSellerIncorrect &&
             !isProductCountIncorrect &&
-            (!isImageIncorrect || id != null) &&
+            (!isImageIncorrect
+            //|| id != null
+            ) &&
             !isPriceIncorrect &&
             !isPriceTypeIncorrect &&
             !isTrackingIDIncorrect &&

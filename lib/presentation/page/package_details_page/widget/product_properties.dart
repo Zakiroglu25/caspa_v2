@@ -71,6 +71,8 @@ class ProductProperties extends StatelessWidget {
         ProductPropertyV(
             name: MyText.product_kind, value: '${package.category!.name} '),
         ProductPropertyV(
+            name: MyText.product_kind, value: '${package.} '),
+        ProductPropertyV(
           name: MyText.status,
           value: package.status,
           statusId: (package.status == MyText.deliveredWithCourier ||

@@ -30,6 +30,7 @@ class HomePackageList extends StatelessWidget {
 
             return ListOrEmpty(
                 list: packageList,
+                h: 215.sp,
                 child: FadeIn(
                   child: SizedBox(
                     height: 185.sp,

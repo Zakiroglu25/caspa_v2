@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
@@ -7,10 +8,10 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter/cupertino.dart';
-
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+
 import '../../../../locator.dart';
 import '../../../util/formatter/masked_text_controller_phone.dart';
 import 'add_attorneys_state.dart';

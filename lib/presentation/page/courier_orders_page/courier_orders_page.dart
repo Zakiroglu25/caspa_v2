@@ -7,29 +7,24 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/fade_edge.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
-import 'package:caspa_v2/widget/custom/caspa_payment_radio.dart';
 import 'package:flutter/material.dart';
-import 'package:focus_detector/focus_detector.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../../infrastructure/cubits/package_details/package_details_state.dart';
 import '../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../infrastructure/models/remote/response/regions_model.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
-import '../../../util/constants/assets.dart';
 import '../../../util/delegate/navigate_utils.dart';
-import '../../../util/screen/alert.dart';
 import '../../../util/screen/full_screen_loading.dart';
 import '../../../util/screen/snack.dart';
-import '../../../widget/general/caspa_radio.dart';
 import '../../../widget/main/product_box/widgets/product_property_v.dart';
 import '../webview_page/webview_page.dart';
 import 'widgets/confirm_button.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CourierOrdersPage extends StatelessWidget {
   const CourierOrdersPage(

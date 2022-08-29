@@ -22,16 +22,16 @@ import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import '../../../infrastructure/cubits/user/user_cubit.dart';
-import '../test/spinner_game.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
+import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widget/new_balans_box.dart';
 
 class UserCabinetPage extends StatelessWidget {
@@ -51,7 +51,6 @@ class UserCabinetPage extends StatelessWidget {
             duration: Durations.ms300, curve: Curves.linear),
         notification: false,
         onTapActions: () {
-          bbbb("uiuiu:  ${_prefs.deleteAccount}");
           showCupertinoModalPopup(
             context: context,
             builder: (BuildContext contextA) => CupertinoActionSheet(

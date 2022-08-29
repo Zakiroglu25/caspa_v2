@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/report_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
@@ -16,10 +17,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import 'package:rxdart/rxdart.dart';
+
 import '../../../locator.dart';
 import '../../../util/delegate/app_operations.dart';
 import '../../models/remote/response/wares.dart';

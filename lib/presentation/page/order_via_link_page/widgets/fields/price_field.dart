@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../util/formatter/decimal_input_formatter.dart';
-import '../../../../../util/formatter/decimal_input_formatter2.dart';
-
 class PriceFieldOrderViaUrl extends StatelessWidget {
   final TextEditingController? controller;
 

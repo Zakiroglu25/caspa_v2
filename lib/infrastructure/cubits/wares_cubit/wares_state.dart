@@ -1,4 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/wares.dart';
 
 abstract class WaresState {}

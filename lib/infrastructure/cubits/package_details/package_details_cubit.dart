@@ -1,22 +1,18 @@
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/data_source/payments_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
-import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rxdart/rxdart.dart';
+
 import '../../../locator.dart';
 import '../../../util/delegate/user_operations.dart';
-import '../../data_source/promo_code_provider.dart';
 import 'package_details_state.dart';
 
 class PackageDetailsCubit extends Cubit<PackageDetailsState> {
@@ -86,7 +82,6 @@ class PackageDetailsCubit extends Cubit<PackageDetailsState> {
   }
 
   void packagePayFromCashback(BuildContext context, {required int id}) async {
-
     try {
       final StatusDynamic result =
           await PaymentsProvider.packagePayWithCashback(id: id);

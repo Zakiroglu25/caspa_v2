@@ -3,12 +3,7 @@ import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/general/color_fully_back_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../util/constants/app_text_styles.dart';
-import '../../../../util/constants/assets.dart';
-import '../../../../util/constants/colors.dart';
 import 'change_profile_button.dart';
 import 'profile_photo.dart';
 import 'user_name.dart';

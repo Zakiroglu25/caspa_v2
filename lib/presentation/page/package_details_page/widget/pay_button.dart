@@ -1,20 +1,14 @@
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/widget/package_main_button.dart';
 import 'package:caspa_v2/presentation/page/package_details_page/widget/promo_pay_button.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
-import 'package:caspa_v2/widget/general/caspa_loading.dart';
-import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../infrastructure/cubits/promo_code/promo_code_state.dart';
 import '../../../../infrastructure/services/hive_service.dart';
 import '../../../../locator.dart';
 import '../../../../widget/custom/caspa_payment_radio.dart';

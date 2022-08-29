@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 
 abstract class AdsState {}
 

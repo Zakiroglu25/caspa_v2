@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'infrastructure/configs/dio_general.dart';
 import 'infrastructure/services/app_members_service.dart';
@@ -21,6 +22,7 @@ final dio = Dio();
 Future<void> setupLocator() async {
   try {
     locator.registerSingleton<GlobalKey<NavigatorState>>(_navigatorKey);
+    final conf = await PackageInfo.fromPlatform();
     final hiveAppMember = await AppMembersService.instance;
     final hiveMain = await HiveService.instance;
     final hiveConfig = await ConfigService.instance;
@@ -29,6 +31,7 @@ Future<void> setupLocator() async {
 
     //   locator.registerSingleton<PreferencesService>(prefs);
     locator.registerSingleton<FirebaseMessaging>(FirebaseMessaging.instance);
+    locator.registerLazySingleton(() => conf);
     locator.registerLazySingleton(() => hiveAppMember);
     locator.registerLazySingleton(() => hiveConfig);
     locator.registerLazySingleton(() => hiveMain);

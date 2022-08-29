@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/sms_codes/sms_codes_state.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
@@ -14,6 +13,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../infrastructure/models/remote/response/sms_code_model.dart';
 import '../../../util/enums/sms_types.dart';
 import '../../../widget/main/sms_box/sms_box.dart';

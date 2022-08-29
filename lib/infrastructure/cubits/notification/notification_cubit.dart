@@ -1,10 +1,10 @@
 // Dart imports:
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/notification_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,9 +26,9 @@ class NotificationCubit extends Cubit<NotificationState> {
     try {
       final result = await NotificationProvider.getNotification();
       List<MyNotification> notificationList =
-      result.data as List<MyNotification>;
+          result.data as List<MyNotification>;
       if (isSuccess(result.statusCode)) {
-        if(notificationList.length < 0){
+        if (notificationList.length < 0) {
           emit(NotificationError());
         }
         emit(NotificationSuccess(notificationList));
@@ -45,8 +45,8 @@ class NotificationCubit extends Cubit<NotificationState> {
 
   Future<bool?> removeNotificion(
       {required int notificationId,
-        bool? loading,
-        required BuildContext? context}) async {
+      bool? loading,
+      required BuildContext? context}) async {
     if (loading ?? true) {
       emit(NotificationInProgress());
     }

@@ -220,6 +220,7 @@ class MyText {
   static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
+  static const String version = 'Versiya';
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
   static const String userRulesandAgreements = "Şərtlər və qaydalar";

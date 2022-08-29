@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.1.0+19
+version: 1.1.1+20
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -23,30 +23,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  hive: ^2.0.5
+  hive: ^2.2.3
   hive_flutter: ^1.1.0
-  shared_preferences: ^2.0.13
+  shared_preferences: ^2.0.15
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
   animate_do: ^2.1.0
-  flutter_screenutil: ^5.5.1
+  flutter_screenutil: ^5.5.3+2
   google_fonts:
   flutter_svg:
-  cupertino_icons: ^1.0.4
+  cupertino_icons: ^1.0.5
   focus_detector: ^2.0.1
   animations:
   rxdart:
-  dio: ^4.0.4
-  cached_network_image: ^3.2.0
+  dio: ^4.0.6
+  cached_network_image: ^3.2.1
   url_launcher: ^6.0.8
-  carousel_slider: ^4.0.0
-  flutter_staggered_grid_view: ^0.4.1
+  carousel_slider: ^4.1.1
+  flutter_staggered_grid_view: ^0.6.2
   http: ^0.13.4
   intl: ^0.17.0
   font_awesome_flutter: ^9.2.0
   sliver_tools: ^0.2.5
-  device_info_plus: ^3.2.3
+  device_info_plus: ^4.1.2
   device_information: ^0.0.4
+  package_info_plus: ^1.4.3+1
   grouped_list: ^5.1.2
   equatable: ^2.0.3
 
@@ -107,11 +108,6 @@ dependencies:
   flutter_cached_pdfview: ^0.4.1
 
 
-  #sdk
-  facebook_app_events: ^0.16.0
-
-  #test:
-  pattern_formatter: ^2.0.0
 
 
 

@@ -1,19 +1,12 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../util/constants/app_text_styles.dart';
-import '../../../../util/delegate/navigate_utils.dart';
-import 'invoice_image_details.dart';
 import 'product_invoice.dart';
 
 class ProductProperties extends StatelessWidget {

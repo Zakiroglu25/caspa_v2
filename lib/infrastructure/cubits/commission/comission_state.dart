@@ -1,5 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
-
 abstract class CommissionState {}
 
 class CommissionInitial extends CommissionState {}

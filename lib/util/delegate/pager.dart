@@ -114,7 +114,10 @@ class Pager {
           providers: [
             BlocProvider.value(
               value: PackageStatusesCubit()..fetch(),
-            )
+            ),
+            BlocProvider.value(
+              value: PackageCubit()..fetchActive(),
+            ),
           ],
           child: PackagePage(
             back: back,

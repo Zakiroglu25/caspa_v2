@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 
 class Staggerd extends StatefulWidget {
   @override
@@ -91,8 +88,8 @@ class ProductsGrid extends StatelessWidget {
     });
     return ClipRRect(
         borderRadius: const BorderRadius.only(
-          bottomLeft:const Radius.circular(40),
-          bottomRight:const Radius.circular(40),
+          bottomLeft: const Radius.circular(40),
+          bottomRight: const Radius.circular(40),
         ),
         child: Scrollable(
           physics: ClampingScrollPhysics(),
@@ -108,8 +105,8 @@ class ProductsGrid extends StatelessWidget {
                     offset: viewportOffset,
                     slivers: oddList
                         .map((el) => SliverToBoxAdapter(
-                      child: VerticalProductCard(el),
-                    ))
+                              child: VerticalProductCard(el),
+                            ))
                         .toList(),
                   ),
                 ),
@@ -122,16 +119,16 @@ class ProductsGrid extends StatelessWidget {
                         .asMap()
                         .map(
                           (key, el) => MapEntry(
-                        key,
-                        SliverToBoxAdapter(
-                          child: Padding(
-                            padding:
-                            EdgeInsets.only(top: key == 0 ? 70 : 0),
-                            child: VerticalProductCard(el),
+                            key,
+                            SliverToBoxAdapter(
+                              child: Padding(
+                                padding:
+                                    EdgeInsets.only(top: key == 0 ? 70 : 0),
+                                child: VerticalProductCard(el),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    )
+                        )
                         .values
                         .toList(),
                   ),

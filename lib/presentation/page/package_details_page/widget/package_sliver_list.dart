@@ -6,8 +6,8 @@ import 'package:caspa_v2/util/constants/status_list.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
 
-import 'product_properties.dart';
 import 'package_report_buttons.dart';
+import 'product_properties.dart';
 
 class PackageSliverList extends StatelessWidget {
   const PackageSliverList({Key? key, required this.package}) : super(key: key);

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 import '../../../../infrastructure/services/app_members_service.dart';
 import '../../../../locator.dart';
 import '../../../../util/constants/app_text_styles.dart';

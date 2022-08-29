@@ -1,21 +1,21 @@
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
+import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
-import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'info_mini_button.dart';
 import 'package_main_button.dart';
 import 'pay_button.dart';

@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:caspa_v2/infrastructure/cubits/forgot_pass/forgot_pass_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -8,12 +7,10 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/status_list.dart';
-import 'package:caspa_v2/util/delegate/random.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/icons/check_icon.dart';
 import 'package:caspa_v2/widget/icons/minus_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PackageStepper extends StatelessWidget {
   List<String> titles;

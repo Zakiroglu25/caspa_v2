@@ -1,6 +1,6 @@
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/data_source/gift_provider.dart';
-import 'package:caspa_v2/infrastructure/data_source/promo_code_provider.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';

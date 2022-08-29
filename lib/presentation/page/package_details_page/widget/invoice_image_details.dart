@@ -3,8 +3,6 @@ import 'package:caspa_v2/widget/general/errorable_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
-import '../../../../util/delegate/my_printer.dart';
-
 class InvoiceImageFullScreen extends StatelessWidget {
   const InvoiceImageFullScreen(
       {Key? key, required this.url, required this.store})

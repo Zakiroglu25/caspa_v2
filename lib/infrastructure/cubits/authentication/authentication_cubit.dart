@@ -5,8 +5,8 @@ import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/infrastructure/services/config_service.dart';
-import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -17,6 +17,7 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../locator.dart';
 import '../../../util/constants/durations.dart';
 import '../../services/app_members_service.dart';

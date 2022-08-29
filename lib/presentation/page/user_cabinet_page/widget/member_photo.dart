@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../util/constants/assets.dart';
 import '../../../../util/screen/errorable_image.dart';
 import '../../../../util/screen/widget_or_empty.dart';
-import '../../../../widget/general/photo_with_url.dart';
 
 class MemberPhoto extends StatelessWidget {
   const MemberPhoto({

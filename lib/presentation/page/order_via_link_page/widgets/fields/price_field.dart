@@ -1,11 +1,10 @@
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/enums/field_type.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../util/formatter/decimal_input_formatter.dart';
 
 class PriceFieldOrderViaUrl extends StatelessWidget {
   final TextEditingController? controller;
@@ -27,11 +26,8 @@ class PriceFieldOrderViaUrl extends StatelessWidget {
             upperCase: true,
             suffixText: MyText.tryy + "   ",
             textInputType: const TextInputType.numberWithOptions(
-                signed: true, decimal: true),
-            formatters: [
-              // WhitelistingTextInputFormatter.digitsOnly,
-              DecimalTextInputFormatter()
-            ],
+                signed: false, decimal: true),
+            fieldType: FieldType.currency,
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
             controller: controller,

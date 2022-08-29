@@ -1,6 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/contact_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
-
 import '../../models/remote/response/sms_code_model.dart';
 
 abstract class SmsCodesState {}

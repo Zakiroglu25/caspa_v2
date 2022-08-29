@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
 
 import 'list_sliver_handler.dart';

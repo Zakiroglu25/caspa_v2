@@ -37,7 +37,7 @@ class ReportProvider {
 
     var api = id != null ? ApiKeys.editReport : ApiKeys.report;
     final headers = ApiKeys.header(token: token);
-
+    bbbb("token:  $token");
     var data;
 
     if (invoice == null) {
@@ -74,7 +74,7 @@ class ReportProvider {
     //   invoice!.path,
     //   filename: "invoice.png",
     // )
-    Dio dio = new Dio(BaseOptions(headers: headers));
+    Dio dio = dioAuth.dio;
     final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());
       log(response.toString());

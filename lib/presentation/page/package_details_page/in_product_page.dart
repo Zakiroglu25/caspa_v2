@@ -1,9 +1,6 @@
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'widget/in_product_image_list.dart';
 import 'widget/in_product_info_widget.dart';

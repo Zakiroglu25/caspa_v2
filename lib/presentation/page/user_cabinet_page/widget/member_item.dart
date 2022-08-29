@@ -1,22 +1,13 @@
-import 'dart:ffi';
-
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import '../../../../util/delegate/navigate_utils.dart';
-import 'member_photo.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
-import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import '../../../../infrastructure/services/app_members_service.dart';
 import '../../../../locator.dart';
 import '../../../../util/constants/app_text_styles.dart';
-import '../../../../util/constants/assets.dart';
 import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/sized_box.dart';
 import '../../../../util/delegate/navigate_utils.dart';

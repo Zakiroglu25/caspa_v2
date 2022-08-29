@@ -1,0 +1,1 @@
+enum FieldType { currency, normal }

@@ -1,6 +1,4 @@
-import 'package:caspa_v2/infrastructure/cubits/get_attorneys/attorney_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -12,10 +10,10 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/general/delete_button.dart';
 import 'package:caspa_v2/widget/general/edit_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
-import 'list_orders_unicorn.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'list_orders_unicorn.dart';
 
 class OrderBox extends StatelessWidget {
   LinkOrder order;

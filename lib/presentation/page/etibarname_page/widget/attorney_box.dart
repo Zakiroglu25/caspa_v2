@@ -10,9 +10,10 @@ import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/general/delete_button.dart';
 import 'package:caspa_v2/widget/general/edit_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'list_attornneys_unicorn.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'list_attornneys_unicorn.dart';
 
 class AttorneyBox extends StatelessWidget {
   Attorney attorney;

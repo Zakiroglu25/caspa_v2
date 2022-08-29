@@ -1,9 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/calculate_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/promo_code_response.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
-
-import '../../../models/remote/response/capacity_model.dart';
-
 abstract class CalculateCapacityState {}
 
 class CalculateCapacityInitial extends CalculateCapacityState {}
@@ -23,7 +17,6 @@ class CalculateCapacityNetworkError extends CalculateCapacityState {}
 class CalculateCapacityAdded extends CalculateCapacityState {
   CalculateCapacityAdded(this.price);
   final num price;
-
 }
 
 class CalculateCapacityNotAdded extends CalculateCapacityState {

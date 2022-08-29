@@ -1,9 +1,7 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/package_details/package_details_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -12,6 +10,7 @@ import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'widget/package_details.dart';
 
 class PackageDetailsPage extends StatelessWidget {

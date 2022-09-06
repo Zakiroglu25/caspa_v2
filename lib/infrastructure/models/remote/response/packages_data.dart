@@ -186,13 +186,56 @@ class Package extends Equatable {
 
 class Category {
   int? id;
+  String? name;
+  int? parentId;
+  List<Parent>? children;
+  Parent? parent;
+
+  Category({this.id, this.name, this.parentId, this.children, this.parent});
+
+  Category.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    parentId = json['parent_id'];
+    if (json['children'] != null) {
+      children = <Parent>[];
+      json['children'].forEach((v) {
+        children!.add(Parent.fromJson(v));
+      });
+    }
+    parent =
+        json['parent'] != null ? new Parent.fromJson(json['parent']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['parent_id'] = this.parentId;
+    if (this.children != null) {
+      data['children'] = this.children!.map((v) => v.toJson()).toList();
+    }
+    if (this.parent != null) {
+      data['parent'] = this.parent!.toJson();
+    }
+    return data;
+  }
+
+  @override
+  String toString() {
+    return 'Category{id: $id, name: $name, parentId: $parentId, children: $children, parent: $parent}';
+  }
+}
+
+class Parent {
+  int? id;
   String? createdAt;
   String? updatedAt;
   String? name;
   int? parentId;
   int? goodsId;
 
-  Category(
+  Parent(
       {this.id,
       this.createdAt,
       this.updatedAt,
@@ -200,7 +243,7 @@ class Category {
       this.parentId,
       this.goodsId});
 
-  Category.fromJson(Map<String, dynamic> json) {
+  Parent.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
@@ -222,7 +265,7 @@ class Category {
 
   @override
   String toString() {
-    return 'Category{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, parentId: $parentId, goodsId: $goodsId}';
+    return 'Parent{id: $id, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, parentId: $parentId, goodsId: $goodsId}';
   }
 }
 

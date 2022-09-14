@@ -25,6 +25,7 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 
 import '../../locator.dart';
+import '../models/remote/response/branches_model.dart';
 import '../models/remote/response/wares.dart';
 
 class PublicProvider {
@@ -90,6 +91,21 @@ class PublicProvider {
     } else {
       eeee(
           "getWares bad url :${response.requestOptions.path},response: $response");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic> getBranch() async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    const api = ApiKeys.branches;
+    final response = await dioG.dio.get(api);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      statusDynamic.data = Branches.fromJson(gelenCavabJson).data;
+    } else {
+      eeee(
+          "getBranches bad url :${response.requestOptions.path},response: $response");
     }
     return statusDynamic;
   }

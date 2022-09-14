@@ -32,6 +32,7 @@ class ReportProvider {
     required String? token,
     required String? note,
     required int? ware,
+    required int? branch,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
 
@@ -50,7 +51,8 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": null,
-        "ware_house": ware
+        "ware_house": ware,
+        "branch": branch,
       };
     } else {
       data = FormData.fromMap({

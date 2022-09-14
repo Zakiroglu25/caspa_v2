@@ -20,6 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../util/formatter/masked_text_controller_phone.dart';
 import '../fields/adress_field.dart';
+import '../fields/branches_field.dart';
 import '../fields/email_field.dart';
 import '../fields/gender_field.dart';
 import '../fields/name_field.dart';
@@ -86,6 +87,9 @@ class CivilRegisterTab extends StatelessWidget {
                   MySizedBox.h3,
                   GenderFieldRegister(),
                   WaresRegisterField(),
+                  MySizedBox.h3,
+
+                  BrachesRegisterField(),
                   PolicyCheckbox(),
                   MySizedBox.h90,
                 ],

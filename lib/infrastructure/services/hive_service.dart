@@ -17,6 +17,7 @@ class HiveService {
   static HiveService? _instance;
   static Box? _box;
 
+
   HiveService._internal();
 
   static Future<HiveService> get instance async {

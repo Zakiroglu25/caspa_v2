@@ -34,6 +34,8 @@ class _DotsButtonState extends State<DotsButton> {
     //   eeee("is showinng: ${_controller.menuIsShowing}");
     //   eeee("is has listeners: ${_controller.hasListeners}");
     // });
+    //  WidgetsBinding.instance.addPostFrameCallback((timeStamp) { })
+    //Future.microtask(computation);
   }
 
   @override

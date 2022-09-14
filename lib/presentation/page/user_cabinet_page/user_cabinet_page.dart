@@ -19,14 +19,14 @@ import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import '../../../infrastructure/cubits/user/user_cubit.dart';
 import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widget/new_balans_box.dart';
 
 class UserCabinetPage extends StatelessWidget {
@@ -102,6 +102,7 @@ class UserCabinetPage extends StatelessWidget {
           final MyUser user =
               MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
+            color: MyColors.mainColor,
             onRefresh: () async {
               context.read<UserCubit>().getUserData(
 
@@ -114,6 +115,7 @@ class UserCabinetPage extends StatelessWidget {
                 children: [
                   // MySizedBox.h32,
                   CabinetHeaderWidget(),
+                  MySizedBox.h16,
                   SliverInfo(
                     MyText.emergencyCall,
                     align: TextAlign.center,

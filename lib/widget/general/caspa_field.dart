@@ -3,12 +3,15 @@ import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/formatter/decimal_input_formatter2.dart';
 import 'package:caspa_v2/util/formatter/lower_case_formatter.dart';
 import 'package:caspa_v2/util/formatter/upper_case_formatter.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../util/enums/field_type.dart';
 
 class CaspaField extends StatelessWidget {
   final TextEditingController? controller;
@@ -17,6 +20,7 @@ class CaspaField extends StatelessWidget {
   final String? title;
   final String? errorMessage;
   final String? infoMessage;
+  final FieldType? fieldType;
   final String? initialValue;
   final int? maxLenght;
   final int? maxLines;
@@ -45,6 +49,7 @@ class CaspaField extends StatelessWidget {
       this.obscure,
       this.readOnly,
       this.upperCase,
+      this.fieldType,
       this.child,
       this.formatters,
       this.suffixIcon,
@@ -118,7 +123,10 @@ class CaspaField extends StatelessWidget {
                           textCapitalization ?? TextCapitalization.sentences,
                       inputFormatters: [
                         ...?customInputFormat(),
-                        ...?formatters
+                        ...?formatters,
+                        ...(fieldType == FieldType.currency
+                            ? decimalInputFormatters
+                            : [])
                       ],
                       decoration: InputDecoration(
                         counterText: '',

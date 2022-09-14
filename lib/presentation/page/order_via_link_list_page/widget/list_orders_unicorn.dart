@@ -7,10 +7,11 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+
 import '../../../../infrastructure/cubits/order_via_url_list/order_via_url_list_cubit.dart';
 import 'order_via_link_select_checkbox.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderUnicorn extends StatelessWidget {
   final LinkOrder order;
@@ -60,8 +61,9 @@ class OrderUnicorn extends StatelessWidget {
                     ],
                   ),
                 ),
-                onPressed: () =>
-                    context.read<OrderViaUrlListCubit>().addOrder(order)),
+                onPressed: () => order.payment == 0
+                    ? context.read<OrderViaUrlListCubit>().addOrder(order)
+                    : null),
             MySizedBox.h20,
           ],
         ),

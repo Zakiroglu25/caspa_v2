@@ -1,12 +1,7 @@
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
-import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

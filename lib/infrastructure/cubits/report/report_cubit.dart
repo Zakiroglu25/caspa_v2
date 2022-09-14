@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/report_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
@@ -16,12 +17,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import 'package:rxdart/rxdart.dart';
+
 import '../../../locator.dart';
 import '../../../util/delegate/app_operations.dart';
+import '../../models/remote/response/branches_model.dart';
 import '../../models/remote/response/wares.dart';
 import 'report_state.dart';
 
@@ -34,6 +35,7 @@ class ReportCubit extends Cubit<ReportState> {
 
   List<Category> permanentCategories = [];
   List<Data> permanentWares = [];
+  List<Branch> permanentBranch = [];
 
   Future<File?> checkAndPickImage(BuildContext context) async {
     try {
@@ -83,7 +85,8 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id
+          ware: selectedWares.valueOrNull!.id,
+          branch: selectedBranch.valueOrNull!.id,
         );
         log(result.toString());
         if (isSuccess(result?.statusCode)) {
@@ -120,7 +123,8 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id
+          ware: selectedWares.valueOrNull!.id,
+          branch: selectedBranch.valueOrNull!.id,
         );
 
         if (isSuccess(result?.statusCode)) {
@@ -206,27 +210,50 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   ///selectedWares
-  final BehaviorSubject<Data?> selectedWares =
-  BehaviorSubject<Data>();
+  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
 
   Stream<Data?> get selectedWaresStream => selectedWares.stream;
 
   updateWares(Data value) {
-    print("selectedWaresStream"+selectedWares.toString());
+    print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {
-    print(selectedWares.valueOrNull?.id);
+        print(selectedWares.valueOrNull?.id);
 
-      selectedWares.sink.add(value);
+        selectedWares.sink.add(value);
       }
     }
 
     //isUserInfoValid(registerType: _registerType);
   }
+
   ///selectedWares
+
+  ///selectedBranch
+  final BehaviorSubject<Branch?> selectedBranch = BehaviorSubject<Branch>();
+
+  Stream<Branch?> get selectedBranchStream => selectedBranch.stream;
+
+  updateBranch(Branch value) {
+    print("selectedBranchStream" + selectedBranch.toString());
+    if (value == null) {
+      selectedBranch.value = null;
+      //taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      if (selectedBranch.valueOrNull?.id != value.id) {
+        print(selectedBranch.valueOrNull?.id);
+
+        selectedBranch.sink.add(value);
+      }
+    }
+
+    //isUserInfoValid(registerType: _registerType);
+  }
+
+  ///selectedBranch
 
   bool get isCategoryIncorrect =>
       (!selectedCategory.hasValue || selectedCategory.value == null);
@@ -259,10 +286,19 @@ class ReportCubit extends Cubit<ReportState> {
 
   ///wares list
   final BehaviorSubject<List<Data>> wares =
-  BehaviorSubject<List<Data>>.seeded([]);
+      BehaviorSubject<List<Data>>.seeded([]);
 
   Stream<List<Data>> get waresListStream => wares.stream;
+
   ///wares list
+
+  ///branch list
+  final BehaviorSubject<List<Branch>> branch =
+      BehaviorSubject<List<Branch>>.seeded([]);
+
+  Stream<List<Branch>> get branchListStream => branch.stream;
+
+  ///branch list
 
   filterCategoriesList(String text) {
     if (text == null) {
@@ -288,6 +324,11 @@ class ReportCubit extends Cubit<ReportState> {
     wares.sink.add(permanentWares);
   }
 
+  //update branch list
+  updateBranchList(List<Branch> value) {
+    permanentBranch = value;
+    branch.sink.add(permanentBranch);
+  }
 
   updateCategoriesList(List<Category> value) {
     permanentCategories = value;
@@ -439,7 +480,9 @@ class ReportCubit extends Cubit<ReportState> {
         //!isNoteIncorrect &&
         !isSellerIncorrect &&
             !isProductCountIncorrect &&
-            (!isImageIncorrect || id != null) &&
+            (!isImageIncorrect
+            //|| id != null
+            ) &&
             !isPriceIncorrect &&
             !isPriceTypeIncorrect &&
             !isTrackingIDIncorrect &&

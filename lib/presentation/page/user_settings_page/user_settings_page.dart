@@ -1,15 +1,13 @@
-import 'package:caspa_v2/infrastructure/cubits/user/user_cubit.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/positioned_bottom_fade.dart';
 import 'package:caspa_v2/util/screen/positioned_fade.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'widgets/save_button.dart';
-import 'widgets/sliver_user_photo.dart';
 import 'widgets/sliver_fields.dart';
+import 'widgets/sliver_user_photo.dart';
 
 class UserSettingsPage extends StatelessWidget {
   const UserSettingsPage({Key? key}) : super(key: key);

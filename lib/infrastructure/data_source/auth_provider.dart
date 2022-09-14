@@ -42,7 +42,6 @@ class AuthProvider {
     final response =
         await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
 
-    // final response = await dioG.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
 
     if (response.statusCode == ResultKey.successCode) {
@@ -79,19 +78,20 @@ class AuthProvider {
     var url = Uri.parse(api);
 
     var body = ApiKeys.registrationBusinessBody(
-        name: name,
-        surname: surname,
-        address: address,
-        email: email,
-        password: password,
-        password_confirmation: password_confirmation,
-        phone: phone,
-        accept: accept,
-        company_name: company_name,
-        tax_number: tax_number,
-        deviceTypeId: deviceTypeId,
-        deviceCode: deviceCode,
-        language: language, );
+      name: name,
+      surname: surname,
+      address: address,
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+      phone: phone,
+      accept: accept,
+      company_name: company_name,
+      tax_number: tax_number,
+      deviceTypeId: deviceTypeId,
+      deviceCode: deviceCode,
+      language: language,
+    );
 
     // final response =
     //     await http.post(url, headers: ApiKeys.headers, body: jsonEncode(body));
@@ -129,6 +129,7 @@ class AuthProvider {
     required String? birthday,
     required String? gender,
     required int? ware_house,
+    required int? branch,
     required int? deviceTypeId,
     required String? deviceCode,
     required String? language,
@@ -147,6 +148,7 @@ class AuthProvider {
         phone: phone,
         accept: accept,
         ware_house: ware_house,
+        branch: branch,
         fin: fin,
         birthday: birthday,
         gender: gender,

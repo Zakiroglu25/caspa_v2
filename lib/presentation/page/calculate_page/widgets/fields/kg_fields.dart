@@ -1,6 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/formatter/decimal_input_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
@@ -20,8 +18,8 @@ class KgField extends StatelessWidget {
           title: MyText.enter_kg,
           maxLines: 1,
           hint: MyText.enter_kg,
-          textInputType: TextInputType.numberWithOptions(
-              signed: true,decimal: true),
+          textInputType:
+              TextInputType.numberWithOptions(signed: true, decimal: true),
           formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',

@@ -23,7 +23,7 @@ class PaymentsProvider {
     var api = paymentBalanceType == PaymentBalanceType.order
         ? ApiKeys.paymentOrder
         : ApiKeys.paymentCargo;
-    var url = Uri.parse(api);
+
     final body = {"amount": amount};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -34,7 +34,7 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "payment_balance order result bad:  url: $url  ,  response: ${response.data}");
+          "payment_balance order result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -43,7 +43,7 @@ class PaymentsProvider {
   static Future<StatusDynamic> packagePay({required int? id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageBalalnce + "?id=$id";
-    var url = Uri.parse(api);
+
     final body = {};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -54,7 +54,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "payForPackage order result bad:  url: $url  ,  response: ${response.data}");
+          "payForPackage order result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -64,7 +64,6 @@ class PaymentsProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageCard + "?id=$id";
-    var url = Uri.parse(api);
     final body = {};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -73,7 +72,7 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "getPaymentUrlForPackage  result bad:  url: $url  ,  response: ${response.data}");
+          "getPaymentUrlForPackage  result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -138,7 +137,6 @@ class PaymentsProvider {
   static Future<StatusDynamic> packagePayWithCashback({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackageCashback;
-    var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -148,7 +146,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "packagePayWithCashback result bad:  url: $url  ,  response: ${response.data}");
+          "packagePayWithCashback result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -156,7 +154,6 @@ class PaymentsProvider {
   static Future<StatusDynamic> packagePayWithPromo({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackagePromo;
-    var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -166,7 +163,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "packagePayWithPromo result bad:  url: $url  ,  response: ${response.data}");
+          "packagePayWithPromo result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -175,7 +172,6 @@ class PaymentsProvider {
       {required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForPackagePromoCheck;
-    var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -185,7 +181,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "packagePayWithPromoCheck result bad:  url: $url  ,  response: ${response.data}");
+          "packagePayWithPromoCheck result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -198,7 +194,6 @@ class PaymentsProvider {
   static Future<StatusDynamic> orderPay({required List<int> idList}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForOrderBalance;
-    var url = Uri.parse(api);
     final body = {"order": idList};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -208,7 +203,7 @@ class PaymentsProvider {
       // statusDynamic.data = data.data;
     } else {
       statusDynamic.data = response.data['message'];
-      eeee("orderPay result bad:  url: $url  ,  response: ${response.data}");
+      eeee("orderPay result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -217,7 +212,6 @@ class PaymentsProvider {
       {required List<int> idList}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForOrderCard;
-    var url = Uri.parse(api);
     final body = {"order": idList};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -226,7 +220,7 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "orderGetPaymentUrl  result bad:  url: $url  ,  response: ${response.data}");
+          "orderGetPaymentUrl  result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -235,7 +229,6 @@ class PaymentsProvider {
       {required List<int> idList}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForOrderCard;
-    var url = Uri.parse(api);
     final body = {"order": idList};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -244,7 +237,7 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "orderGetPaymentUrl  result bad:  url: $url  ,  response: ${response.data}");
+          "orderGetPaymentUrl  result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -253,7 +246,6 @@ class PaymentsProvider {
       {required List<int> idList}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForOrderCashback;
-    var url = Uri.parse(api);
     final body = {"order": idList};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -263,7 +255,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "orderPayWithCashback result bad:  url: $url  ,  response: ${response.data}");
+          "orderPayWithCashback result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -293,7 +285,6 @@ class PaymentsProvider {
   static Future<StatusDynamic> courierGetPaymentUrl({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForCourierCard;
-    var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -302,7 +293,7 @@ class PaymentsProvider {
       statusDynamic.data = data.data;
     } else {
       eeee(
-          "courierGetPaymentUrl  result bad:  url: $url  ,  response: ${response.data}");
+          "courierGetPaymentUrl  result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }
@@ -310,7 +301,6 @@ class PaymentsProvider {
   static Future<StatusDynamic> courierPayWithCashback({required int id}) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.payForCourierCashback;
-    var url = Uri.parse(api);
     final body = {"id": id};
     final response = await dioAuth.dio.post(api, data: body);
     statusDynamic.statusCode = response.statusCode;
@@ -320,7 +310,7 @@ class PaymentsProvider {
     } else {
       statusDynamic.data = response.data['message'];
       eeee(
-          "courierPayWithCashback result bad:  url: $url  ,  response: ${response.data}");
+          "courierPayWithCashback result bad:  url: $api  ,  response: ${response.data}");
     }
     return statusDynamic;
   }

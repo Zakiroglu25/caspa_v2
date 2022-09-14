@@ -1,10 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:io';
 
-import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/bonus_cubit/bonus_state.dart';
-import 'package:caspa_v2/infrastructure/cubits/shop/shop_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';

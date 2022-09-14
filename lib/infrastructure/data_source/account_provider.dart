@@ -26,18 +26,17 @@ class AccountProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.user;
-    var url = Uri.parse(api);
     final header = ApiKeys.header(token: token);
 
     final response =
-    await dioAuth.dio.get(api, options: Options(headers: header));
+        await dioAuth.dio.get(api, options: Options(headers: header));
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       UserResult userResult = UserResult.fromJson(gelenCavabJson);
       statusDynamic.data = userResult.data;
     } else {
-      eeee("fetchUserInfo bad url :$url, response: ${response}");
+      eeee("fetchUserInfo bad url :$api, response: ${response}");
     }
 
     return statusDynamic;

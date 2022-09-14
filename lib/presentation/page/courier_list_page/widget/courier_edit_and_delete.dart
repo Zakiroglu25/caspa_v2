@@ -1,28 +1,21 @@
-import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_list_cubit/courier_list_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/general/delete_button.dart';
 import 'package:caspa_v2/widget/general/edit_button.dart';
 import 'package:flutter/material.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
+
 import '../../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../../infrastructure/services/hive_service.dart';
 import '../../../../locator.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/delegate/pager.dart';
 import '../../../../util/screen/alert.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
-import '../../../../widget/custom/caspa_payment_radio.dart';
-import '../../../../util/constants/colors.dart';
 
 class CourierEditAndDelete extends StatelessWidget {
   const CourierEditAndDelete(

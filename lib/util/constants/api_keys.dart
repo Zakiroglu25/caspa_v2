@@ -40,7 +40,9 @@ class ApiKeys {
   static const localityInfoGoogleMap = '$googleMap/json';
 
   static const smsCodes = '$baseUrl/public/sms';
+  static const smsCodesPasaj = '$smsCodes/pasaj';
   static const wares = '$baseUrl/public/wares';
+  static const branches = '$baseUrl/public/branches';
 
   //packages
   static const allPackages = '$baseUrl/user/packages';
@@ -287,6 +289,7 @@ class ApiKeys {
     required String? birthday,
     required String? gender,
     required int? ware_house,
+    required int? branch,
   }) {
     final map = {
       "name": name,
@@ -302,9 +305,10 @@ class ApiKeys {
       "birthday": birthday,
       "gender": gender,
       "ware_house": ware_house,
+      "branch": branch,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
-      "language": language
+      "language": language,
     };
 
     map.removeWhere(
@@ -353,7 +357,7 @@ class ApiKeys {
   }) {
     //
     final map = {
-      'Authorization': 'Bearer $token',
+      //'Authorization': 'Bearer $token',
       "Accept": "application/json",
       //'Bearer 767|sCxXpk9PKU5QdCKcaLBh2Tj3t5QG0gQYOqLTcY8f',
       "Content-Type": "application/json",

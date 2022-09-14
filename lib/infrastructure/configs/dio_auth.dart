@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
@@ -30,7 +32,9 @@ class DioAuth {
           return true;
         },
       ),
-    )..interceptors.add(CustomInterceptors());
+    )
+      ..interceptors.add(CustomInterceptors())
+      ..interceptors.add(TokenInterceptor());
 
     return _instance!;
   }
@@ -57,6 +61,7 @@ class JwtInterceptor extends Interceptor {
 
 class CustomInterceptors extends Interceptor {
   HiveService get _prefs => locator<HiveService>();
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     print('REQUEST[${options.method}] => PATH: ${options.path}');
@@ -84,5 +89,17 @@ class CustomInterceptors extends Interceptor {
     Recorder.recordDioError(err);
     //return
     super.onError(err, handler);
+  }
+}
+
+class TokenInterceptor extends Interceptor {
+  static HiveService get _prefs => locator<HiveService>();
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    // TODO: implement onRequest
+    final token = _prefs.accessToken;
+    options.headers['Authorization'] = "Bearer $token";
+    super.onRequest(options, handler);
   }
 }

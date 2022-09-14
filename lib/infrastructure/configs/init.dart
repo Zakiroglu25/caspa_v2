@@ -25,8 +25,8 @@ Future<void> init() async {
   //FirebaseCrashlytics.instance.crash();
   final remoteConfig = FirebaseRemoteConfig.instance;
   await remoteConfig.setConfigSettings(RemoteConfigSettings(
-    fetchTimeout: const Duration(minutes: 1),
-    minimumFetchInterval: const Duration(minutes: 15),
+    fetchTimeout: const Duration(seconds: 1),
+    minimumFetchInterval: const Duration(seconds: 1),
   ));
 
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);

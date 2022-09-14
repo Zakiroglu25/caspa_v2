@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/infrastructure/configs/base.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
@@ -9,15 +10,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'util/constants/colors.dart';
 import 'util/delegate/scroll_behaivor.dart';
-import 'package:animations/animations.dart';
 
 class MateApp extends StatelessWidget {
   const MateApp({Key? key}) : super(key: key);
-
-  //final botToastBuilder = BotToastInit(); //
   @override
   Widget build(BuildContext context) {
-    //bbbb('runnnnning');
     return ScreenUtilInit(
         designSize: const Size(375, 812),
         builder: (context, child) => BlocProvider(
@@ -54,12 +51,7 @@ class MateApp extends StatelessWidget {
                     return ScrollConfiguration(
                         behavior: ScrollBehaviorModified(), child: widget);
                   },
-                  home:
-                      //Pager.newOrder
-                      // Pager.shops,
-                      // Pager.report
-                      // Pager.payment_balance
-                      Builder(
+                  home: Builder(
                     builder: (ctx) {
                       return Pager.app();
                     },

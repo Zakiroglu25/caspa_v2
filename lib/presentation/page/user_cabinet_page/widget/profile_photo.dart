@@ -19,51 +19,57 @@ import '../../../../widget/custom/buttons/caspa_button.dart';
 class ProfilePhoto extends StatelessWidget {
   final double? w;
   final double? h;
-  final bool? editable;
+  final bool editable;
 
   ProfilePhoto({this.w, this.h, this.editable = false});
 
   @override
   Widget build(BuildContext context) {
     return InkWrapper(
-      onTap: () => Alert.body(context,
-          buttonText: MyText.gallery,
-          textAlign: TextAlign.center,
-          title: MyText.youMustSelectOneOfThem,
-          image: MySizedBox.h16,
-          onTap: () => context.read<UserCubit>().checkAndPickImage(context),
-          secondButton: CaspaButton(
-            onTap: () {
-              Go.pop(context);
-              context.read<UserCubit>().checkAndTake(context);
-            },
-            text: MyText.camera,
-          )),
-      child: Stack(
-        children: [
-          UserPhoto(
-            editOnTap: editable!,
-          ),
-          Positioned(
-            bottom: 0,
-            right: 2,
-            child: WidgetOrEmpty(
-                value: (editable ?? false),
-                child: Container(
-                    height: 36.sm,
-                    width: 36.sm,
-                    decoration: BoxDecoration(
-                        color: MyColors.mainColor,
-                        borderRadius: BorderRadius.circular(36.sm)),
-                    padding: Paddings.paddingA4,
-                    child: Center(
-                      child: Container(
-                          height: 20.sm,
-                          width: 20.sm,
-                          child: SvgPicture.asset(Assets.svgCamera)),
-                    ))),
-          )
-        ],
+      onTap: editable
+          ? () => Alert.body(context,
+              buttonText: MyText.gallery,
+              textAlign: TextAlign.center,
+              title: MyText.youMustSelectOneOfThem,
+              image: MySizedBox.h16,
+              onTap: () => context.read<UserCubit>().checkAndPickImage(context),
+              secondButton: CaspaButton(
+                onTap: () {
+                  Go.pop(context);
+                  context.read<UserCubit>().checkAndTake(context);
+                },
+                text: MyText.camera,
+              ))
+          : null,
+      child: Container(
+        child: Stack(
+          children: [
+            UserPhoto(
+              h: h,
+              w: w,
+              editOnTap: editable,
+            ),
+            Positioned(
+              bottom: 0,
+              right: 2,
+              child: WidgetOrEmpty(
+                  value: (editable),
+                  child: Container(
+                      height: 36.sm,
+                      width: 36.sm,
+                      decoration: BoxDecoration(
+                          color: MyColors.mainColor,
+                          borderRadius: BorderRadius.circular(36.sm)),
+                      padding: Paddings.paddingA4,
+                      child: Center(
+                        child: Container(
+                            height: 20.sm,
+                            width: 20.sm,
+                            child: SvgPicture.asset(Assets.svgCamera)),
+                      ))),
+            )
+          ],
+        ),
       ),
     );
   }

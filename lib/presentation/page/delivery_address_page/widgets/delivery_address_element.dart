@@ -6,13 +6,14 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../../../infrastructure/models/remote/response/regions_model.dart';
 import '../../../../widget/custom/buttons/slidable_action_button.dart';
 import '../../../../widget/custom/order_select_check_indicator.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DeliveryAddressElement extends StatelessWidget {
   final Function? onTap;

@@ -7,12 +7,14 @@ class ListOrEmpty extends StatelessWidget {
   final Widget child;
   final Widget? elseChild;
   final String? text;
+  final double? h;
   final String? description;
 
   ListOrEmpty(
       {required this.list,
       required this.child,
       this.text,
+      this.h,
       this.description,
       this.elseChild});
 
@@ -23,7 +25,7 @@ class ListOrEmpty extends StatelessWidget {
       child: child,
       elseChild: EmptyWidget(
         elseChild: elseChild,
-        h: MediaQuery.of(context).size.height / 2,
+        h: h ?? MediaQuery.of(context).size.height / 2,
         text: text,
         description: description,
       ),

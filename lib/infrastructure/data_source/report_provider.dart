@@ -32,13 +32,13 @@ class ReportProvider {
     required String? token,
     required String? note,
     required int? ware,
+    required int? branch,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
 
     var api = id != null ? ApiKeys.editReport : ApiKeys.report;
-    var url = Uri.parse(api);
     final headers = ApiKeys.header(token: token);
-
+    bbbb("token:  $token");
     var data;
 
     if (invoice == null) {
@@ -51,7 +51,8 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": null,
-        "ware_house": ware
+        "ware_house": ware,
+        "branch": branch,
       };
     } else {
       data = FormData.fromMap({
@@ -75,7 +76,7 @@ class ReportProvider {
     //   invoice!.path,
     //   filename: "invoice.png",
     // )
-    Dio dio = new Dio(BaseOptions(headers: headers));
+    Dio dio = dioAuth.dio;
     final response = await dio.post(api, data: data).then((response) {
       var jsonResponse = jsonDecode(response.toString());
       log(response.toString());
@@ -101,14 +102,11 @@ class ReportProvider {
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.deleteReport;
-    var url = Uri.parse(api);
-    // final headers = ApiKeys.header(token: token);
+
     final data = {"id": id};
     final response = await dioAuth.dio.post(api, data: data);
     statusDynamic.statusCode = response.statusCode;
     if (statusDynamic.statusCode == ResultKey.successCode) {
-      // statusDynamic.data=response['message'];
-      bbbb("silindi");
     } else {
       statusDynamic.data = MyText.reportIsNotAdded;
     }

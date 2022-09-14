@@ -1,10 +1,10 @@
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/courier_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/package_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/public_provider.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -16,12 +16,10 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../locator.dart';
-import '../../../util/constants/durations.dart';
 import '../../data_source/delivery_adress_provider.dart';
 import '../../models/remote/response/delivery_address_model.dart';
 import '../../services/hive_service.dart';

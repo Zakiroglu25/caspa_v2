@@ -10,6 +10,12 @@ class SharedKeys {
   static const String phoneNumber = "phoneNumber";
   static const String language = "language";
   static const String userPath = "userPath";
+
+  static const String config = "config";
+  static const String appMember = "appMember";
+
+  static const String deleteAccount = "deleteAccount";
+  static const String appMembers = "appMembers";
   static const String favoritesCount = "favorites_count";
   static const String cardsCount = "cards_count";
   static const String cardsPrice = "cards_price";

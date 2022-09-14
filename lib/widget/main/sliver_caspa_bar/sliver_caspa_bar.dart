@@ -18,7 +18,7 @@ class SliverCaspaBar extends StatefulWidget {
   final Color? selectedLabelColor;
   final Color? unSelectedLabelColor;
   final int? first;
-
+  final RefreshCallback? onRefresh;
   final String? title;
   final Widget? sliverChild;
   final double? appbarHeight;
@@ -32,6 +32,7 @@ class SliverCaspaBar extends StatefulWidget {
     this.tabs,
     this.tabPages,
     this.title,
+    this.onRefresh,
     this.tabbarPadding,
     this.tabController,
     this.selectedTabColor,
@@ -62,7 +63,6 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     });
 
     if (widget.first != null && widget.first != -1) {
-      bbbb("wwww: ${widget.first}");
       _tabController!.animateTo(widget.first!);
     }
   }
@@ -154,8 +154,11 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
               child: TabBarView(
                 physics: Physics.alwaysBounce,
                 controller: _tabController,
-                children: widget.tabPages!.map((Widget widget) {
-                  return widget;
+                children: widget.tabPages!.map((Widget child) {
+                  return RefreshIndicator(
+                      color: MyColors.mainColor,
+                      onRefresh: () async => widget.onRefresh?.call(),
+                      child: child);
                 }).toList(),
               ),
             )));

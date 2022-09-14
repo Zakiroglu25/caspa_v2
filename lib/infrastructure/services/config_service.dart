@@ -10,7 +10,7 @@ class ConfigService {
 
   static Future<ConfigService> get instance async {
     _instance ??= ConfigService._internal();
-    _box = await Hive.openBox('config');
+    _box = await Hive.openBox(SharedKeys.config);
     return _instance!;
   }
 

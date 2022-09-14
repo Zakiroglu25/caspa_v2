@@ -1,13 +1,10 @@
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_state.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/calculate_model.dart';
 import 'package:caspa_v2/presentation/page/calculate_page/widgets/fields/kg_fields.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
-import 'package:caspa_v2/widget/general/text_field_on_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +30,7 @@ class KgPage extends StatelessWidget {
             builder: (context, state) {
               if (state is CalculateKgAdded) {
                 final String? result = state.calculate;
-                return ResultCalculate(result:result!);
+                return ResultCalculate(result: result!);
               } else if (state is CalculateKgInAdding) {
                 return CaspaLoading();
               } else if (state is CalculateKgError) {

@@ -123,6 +123,8 @@ class MyText {
   //userCabinet
   static const String emergencyCall =
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
+  static const String add = "Əlavə et";
+  static const String changeUser = "Profili dəyiş";
 
   //home
   static const String welcome = "Salam";
@@ -215,10 +217,10 @@ class MyText {
   static const String promoCodeX = "Promokod 🎉";
   static const String courierX = "Kuryer 🕺🏻";
   static const String courierOrderX = "Kuryer sifariş et 🕺🏻";
-  static const String trendyolSms = "Trendyol SMS 📩";
   static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
+  static const String version = 'Versiya';
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
   static const String userRulesandAgreements = "Şərtlər və qaydalar";
@@ -247,6 +249,7 @@ class MyText {
   static const String menu = 'Menu';
   static const String calculateTitle = 'Çəki və həcmə görə hesabla';
   static const String trendyolOtp = 'Trendyoldan təsdiq kodu al';
+  static const String pasajOtp = 'Türkcelldən təsdiq kodu al';
   static const String contactTitle = 'Caspa ilə əlaqə vasitələri';
   static const String courierInfo =
       'Kuryer sifariş etməklə,bağlamanızı daha tez əldə edin!';
@@ -305,12 +308,15 @@ class MyText {
   static const String tapForselectCategory = "Kateqoriya seçmək üçün toxunun";
   static const String tapForselectRegion = "Rayon seçmək üçün toxunun";
   static const String topWares = "Məntəqəni seçmək üçün toxunun";
+  static const String topBranch = "Filiali seçmək üçün toxunun";
   static const String deliveryPoint = "Təhvil Məntəqəsi";
+  static const String branch = "Filial";
 
   static const String sub_category = "Alt kateqoriya";
   static const String category_is_not_found = "Kateqoriya tapılmadı";
   static const String none_category_is_found = "Heç bir kateqoriya tapılmadı.";
   static const String none_wares_is_found = "Heç bir məntəqə tapılmadı.";
+  static const String none_branch_is_found = "Heç bir filial tapılmadı.";
   static const String none_region_is_found = "Heç bir rayon tapılmadı.";
   static const String first_select_main_category =
       "Əvvəlcə, əsas kateqoriyanı seçməlisiniz";
@@ -360,11 +366,20 @@ class MyText {
   static const String touchPayButtonText =
       "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” butonuna toxunun.";
 
+  //pasaj sms
+  static const String pasajSMS = 'Turkcell Pasaj SMS';
+  static const String pasajSMSx = 'Turkcell Pasaj SMS 📩';
+  static const String pasajSMSHowToWork =
+      'Turkcell Pasaj SMS necə işləyir ? 🛍';
+  static const String pasajSMSHowToWorkText =
+      'Turkcell Pasaj tərəfindən, bizim nömrəyə göndərilən sms-i,burada görə bilərsiniz. (Vaxtlara diqqət edin)';
+
   //trendyol sms
   static const String trendyolSMS = 'Trendyol SMS';
+  static const String trendyolSMSx = "Trendyol SMS 📩";
   static const String trendyolSMSHowToWork = 'Trendyol SMS necə işləyir ? 🛍';
   static const String trendyolSMSHowToWorkText =
-      'Trendyol tərəfindən, bizim nömrəyə göndərdikləri sms-i,tətbiqdən götürə bilərsiniz.(Vaxtlara diqqət edin)';
+      'Trendyol tərəfindən, bizim nömrəyə göndərilən sms-i,burada görə bilərsiniz. (Vaxtlara diqqət edin)';
 
   //calculate
   static const String kg_text = 'Çəkiyə görə';
@@ -458,7 +473,7 @@ class MyText {
 
   ///linkpage
   static const String linkTxt =
-      "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+      "Bu addımda siz məhsulları qeyd edirsiz. Sifariş etmək istədiyiniz məhsul haqqında aşağıdakı xanaları doldurmalısınız.";
   static const String weAdviceSaveMoneyOnBalance =
       "Sürətli ödəniş etmək üçün balansınızda vəsait saxlamağı tövsiyyə edirik. ";
 
@@ -470,7 +485,7 @@ class MyText {
 
   ///beyan et
   static const String declareText =
-      "Bu addımda siz məhsulları qeyd edirsiz. Bu pəncərədə 1,2,3 və daha çox məhsul eyni anda əlavə etmək olur.";
+      "Bu addımda siz məhsulları qeyd edirsiz. Sifariş etmək istədiyiniz məhsul haqqında aşağıdakı xanaları doldurmalısınız.";
   static const String facturaText =
       "Faktura nədir və müştəri hardan bu faylı əldə edə bilməsi haqqda ən azı 3 sətirdən ibarət olan mətn ilə burada qey etmək gərəkdir.";
 

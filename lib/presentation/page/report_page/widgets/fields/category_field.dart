@@ -11,6 +11,7 @@ import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/caspa_radio.dart';
+import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -220,7 +221,7 @@ class CategoryFields extends StatelessWidget {
                               .selectedSubCategoryStream,
                           builder: (contextP, snapShoot) {
                             return subCategories.isEmpty
-                                ? CaspaLoading()
+                                ? EmptyWidget()
                                 : SizedBox(
                                     height: sH - 75,
                                     //  height: min(listHeight - 75, sH - 75),

@@ -1,13 +1,9 @@
 import 'dart:io';
 
-import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_state.dart';
-import 'package:caspa_v2/infrastructure/data_source/address_provider.dart';
 import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../locator.dart';

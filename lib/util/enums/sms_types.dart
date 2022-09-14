@@ -1,0 +1,1 @@
+enum SmsTypes { pasaj, trendyol }

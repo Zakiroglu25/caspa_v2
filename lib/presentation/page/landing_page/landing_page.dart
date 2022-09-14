@@ -1,9 +1,3 @@
-import 'package:caspa_v2/infrastructure/cubits/tarif/tarif_cubit.dart';
-import 'package:caspa_v2/presentation/page/address_page/address_page.dart';
-import 'package:caspa_v2/presentation/page/home_page/home_page.dart';
-import 'package:caspa_v2/presentation/page/new_order_page/new_order_page.dart';
-import 'package:caspa_v2/presentation/page/other_page/other_page.dart';
-import 'package:caspa_v2/presentation/page/package_page/package_page.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
@@ -11,10 +5,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import 'widget/bottom_element.dart';
 
 final globalPageController = PageController(initialPage: 1);
 

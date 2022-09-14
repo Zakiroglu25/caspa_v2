@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +20,14 @@ class LenghtField extends StatelessWidget {
           maxLines: 1,
           hint: MyText.lenght_hint,
           upperCase: true,
-          textInputType: TextInputType.numberWithOptions(
-              signed: true,decimal: true),
+          textInputType:
+              TextInputType.numberWithOptions(signed: true, decimal: true),
           formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,
-          onChanged: (value) =>
-              BlocProvider.of<CalculateCapacityCubit>(context).updateLenght(value),
+          onChanged: (value) => BlocProvider.of<CalculateCapacityCubit>(context)
+              .updateLenght(value),
         );
       },
     );

@@ -1,12 +1,3 @@
-import 'package:caspa_v2/infrastructure/cubits/payment_balance/payment_balance_cubit.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-// class WebviewPage extends StatelessWidget {
-//   String url;
-//   WebviewPage({Key? key, required this.url}) : super(key: key);
-
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
@@ -23,7 +14,10 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 import 'dart:collection';
 import 'dart:io';
+
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebviewPage extends StatefulWidget {
   String url;

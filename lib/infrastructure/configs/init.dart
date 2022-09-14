@@ -4,6 +4,7 @@ import 'package:caspa_v2/infrastructure/services/interceptor_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -22,6 +23,11 @@ Future<void> init() async {
 
   // FirebaseCrashlytics.instance.crash();
   //FirebaseCrashlytics.instance.crash();
+  final remoteConfig = FirebaseRemoteConfig.instance;
+  await remoteConfig.setConfigSettings(RemoteConfigSettings(
+    fetchTimeout: const Duration(minutes: 1),
+    minimumFetchInterval: const Duration(minutes: 15),
+  ));
 
   FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
 

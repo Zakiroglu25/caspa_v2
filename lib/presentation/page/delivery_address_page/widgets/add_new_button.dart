@@ -18,4 +18,5 @@ class AddNewAdressButton extends StatelessWidget {
           .goToAddPage(context: context, regions: regions),
     );
   }
+
 }

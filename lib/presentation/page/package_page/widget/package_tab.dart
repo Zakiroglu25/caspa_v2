@@ -1,15 +1,11 @@
 import 'package:caspa_v2/presentation/page/package_page/widget/tab_count.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../infrastructure/cubits/package_statuses/package_statuses_cubit.dart';
-import '../../../../infrastructure/cubits/package_statuses/packages_statuses_state.dart';
 import '../../../../util/constants/app_text_styles.dart';
 import '../../../../util/constants/sized_box.dart';
 import '../../../../util/delegate/my_printer.dart';
-import '../../../../widget/general/caspa_loading.dart';
 
 class PackageTab extends StatelessWidget {
   const PackageTab({Key? key, required this.count, required this.title})

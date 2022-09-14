@@ -44,20 +44,20 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Widget buildNavigationButton({String? text, Function()? onPressedFn}) {
-    return FlatButton(
-      color: Color.fromRGBO(255, 255, 255, 0.3),
-      textColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50.0),
-      ),
-      onPressed: onPressedFn,
-      child: Text(
-        text!,
-        style: TextStyle(color: Colors.white, fontSize: 18.0),
-      ),
-    );
-  }
+  // Widget buildNavigationButton({String? text, Function()? onPressedFn}) {
+  //   return FlatButton(
+  //     color: Color.fromRGBO(255, 255, 255, 0.3),
+  //     textColor: Colors.white,
+  //     shape: RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.circular(50.0),
+  //     ),
+  //     onPressed: onPressedFn,
+  //     child: Text(
+  //       text!,
+  //       style: TextStyle(color: Colors.white, fontSize: 18.0),
+  //     ),
+  //   );
+  // }
 }
 
 class Basic extends StatelessWidget {
@@ -110,6 +110,7 @@ class BasicScore extends StatelessWidget {
     2: 'Magenta',
     3: 'Red',
     4: 'Dark Orange',
+    5: 'Dark Orange',
   };
 
   BasicScore(this.selected);
@@ -146,13 +147,13 @@ class Roulette extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SpinningWheel(
-                Image.asset(Assets.sekkiz300),
+                Image.asset(Assets.whell),
                 width: 310,
                 height: 310,
-                initialSpinAngle: _generateRandomAngle(),
+                // initialSpinAngle: _generateRandomAngle(),
                 spinResistance: 0.6,
                 canInteractWhileSpinning: false,
-                dividers: 8,
+                dividers: 5,
                 onUpdate: _dividerController.add,
                 onEnd: _dividerController.add,
                 secondaryImage: Image.asset(Assets.center300),
@@ -168,11 +169,11 @@ class Roulette extends StatelessWidget {
                     : Container(),
               ),
               SizedBox(height: 30),
-              new RaisedButton(
-                child: new Text("Start"),
-                onPressed: () =>
-                    _wheelNotifier.sink.add(_generateRandomVelocity()),
-              )
+              // new RaisedButton(
+              //   child: new Text("Start"),
+              //   onPressed: () =>
+              //       _wheelNotifier.sink.add(_generateRandomVelocity()),
+              // )
             ],
           ),
         ),
@@ -180,19 +181,23 @@ class Roulette extends StatelessWidget {
     );
   }
 
-  double _generateRandomVelocity() => (Random().nextDouble() * 8000) + 2000;
+  double _generateRandomVelocity() =>  10000 + 1000;
 
-  double _generateRandomAngle() => Random().nextDouble() * pi * 2;
+  // double _generateRandomAngle() => Random().nextDouble() * pi * 2;
 }
 
 class RouletteScore extends StatelessWidget {
   final int? selected;
 
   final Map<int, String> labels = {
-    1: '1000\$',
-    2: '400\$',
-    3: '800\$',
-    4: '7000\$',
+    1: '1 ₼',
+    2: '1.50 ₼',
+    3: '2 ₼',
+    4: '2.50 ₼',
+    5: '3 ₼',
+    6: '3.50 ₼',
+    7: '4 ₼',
+    8: '5 ₼',
   };
 
   RouletteScore(this.selected);

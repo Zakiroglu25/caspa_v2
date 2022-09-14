@@ -12,33 +12,9 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  // void getLocation() async {
-  //   bool serviceEnabled;
-  //   LocationPermission permission;
-  //
-  //   serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  //   if (!serviceEnabled) {
-  //     return Future.error('Location services are disabled.');
-  //   }
-  //
-  //   permission = await Geolocator.checkPermission();
-  //   if (permission == LocationPermission.denied) {
-  //     permission = await Geolocator.requestPermission();
-  //     if (permission == LocationPermission.denied) {
-  //       return Future.error('Location permissions are denied');
-  //     }
-  //   }
-  //
-  //   if (permission == LocationPermission.deniedForever) {
-  //     return Future.error(
-  //         'Location permissions are permanently denied, we cannot request permissions.');
-  //   }
-  //
-  // }
 
   GoogleMapController? mapController; //contrller for Google map
 
-  //String googleAPiKey = "AIzaSyCl9unOJXetN8qXHPdfH9jmvpRYesUu750";
 
   Set<Marker> markers = Set(); //markers for google map
   var lat = 40.387281;

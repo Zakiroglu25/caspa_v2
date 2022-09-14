@@ -170,7 +170,7 @@ class UserCabinetPage extends StatelessWidget {
                   ///carx
                   NewBalanceBox(
                     onTap: () {
-                      Go.to(context, MyHomePage());
+                      Go.to(context, Roulette());
                     },
                     icon: Assets.pngNote,
                     boxTitle: "Carx",

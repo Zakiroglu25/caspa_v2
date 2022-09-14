@@ -1,13 +1,9 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/string_operations.dart';
-import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/copy_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CopiableField extends StatelessWidget {

@@ -17,9 +17,9 @@ class AdressFieldCourier extends StatelessWidget {
       stream: BlocProvider.of<CourierCubit>(context).adressStream,
       builder: (context, snapshot) {
         return CaspaField(
-          title: MyText.adress,
+          title: MyText.address,
           maxLines: 1,
-          hint: MyText.adress,
+          hint: MyText.address,
           upperCase: true,
           textInputType: TextInputType.text,
           textCapitalization: TextCapitalization.sentences,

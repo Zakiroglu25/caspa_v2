@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
-import 'package:caspa_v2/util/constants/boxx.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

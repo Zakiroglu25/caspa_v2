@@ -1,9 +1,6 @@
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/material.dart';

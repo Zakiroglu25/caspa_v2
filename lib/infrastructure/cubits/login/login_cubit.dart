@@ -31,7 +31,6 @@ import 'package:rxdart/rxdart.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
-  HiveService get _prefs => locator<HiveService>();
 
   FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
 

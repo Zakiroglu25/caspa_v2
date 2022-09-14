@@ -1,7 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/calculate/calculate_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/login/login_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../util/formatter/decimal_input_formatter.dart';
 
 class WidthField extends StatelessWidget {
-  final TextEditingController ?controller;
+  final TextEditingController? controller;
 
   WidthField({this.controller}); //= new TextEditingController();
   @override
@@ -23,14 +20,14 @@ class WidthField extends StatelessWidget {
           maxLines: 1,
           hint: MyText.width_hint,
           upperCase: true,
-          textInputType: TextInputType.numberWithOptions(
-              signed: true,decimal: true),
+          textInputType:
+              TextInputType.numberWithOptions(signed: true, decimal: true),
           formatters: [DecimalTextInputFormatter(decimalRange: 5)],
           textCapitalization: TextCapitalization.sentences,
           errorMessage: snapshot.error == null ? null : '${snapshot.error}',
           //  controller: controller,
-          onChanged: (value) =>
-              BlocProvider.of<CalculateCapacityCubit>(context).updateWidth(value),
+          onChanged: (value) => BlocProvider.of<CalculateCapacityCubit>(context)
+              .updateWidth(value),
         );
       },
     );

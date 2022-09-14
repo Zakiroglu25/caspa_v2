@@ -5,6 +5,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'presentation/page/splash_page/splash_page.dart';
 import 'util/delegate/pager.dart';
 
@@ -40,7 +41,6 @@ class App extends StatelessWidget {
         return Pager.landing;
       } else {
         return Pager.login;
-
       }
     });
   }

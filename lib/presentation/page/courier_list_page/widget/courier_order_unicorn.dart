@@ -1,14 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/courier_orders_model.dart';
-import 'package:caspa_v2/util/constants/text.dart';
-import 'package:flutter/material.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/colorfull_bordered.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../util/constants/app_text_styles.dart';
-import 'courier_pay_button.dart';
 
 class CourierOrderUnicorn extends StatelessWidget {
   const CourierOrderUnicorn({Key? key, required this.courier})

@@ -15,6 +15,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../locator.dart';
@@ -28,6 +29,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   ConfigService get _configs => locator<ConfigService>();
   // MyUser? userData = MyUser();
   FirebaseMessaging _fcm = FirebaseMessaging.instance;
+  final remoteConfig = FirebaseRemoteConfig.instance;
 
   bool? goOn; //go on prosesler bitdiyini bildirir ve davam etmeye icaze verir
 
@@ -43,8 +45,11 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String? accessToken = await _prefs.accessToken;
 
+      await remoteConfig.fetchAndActivate();
+      await remoteConfig.fetch();
+
       bbbb("fcm: $fcm");
-      bbbb("islog: $isLoggedIn");
+      // bbbb("islog: $deleteAccount");
       bbbb("accessToken: $accessToken");
       if (isLoggedIn && accessToken != null) {
         //userin girish edib etmemeyi yoxlanilir
@@ -60,7 +65,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         //}
 
       } else {
-        bbbb("jjjj: ");
         await Future.wait([
           delay(showSplash),
           // configGuest(context),

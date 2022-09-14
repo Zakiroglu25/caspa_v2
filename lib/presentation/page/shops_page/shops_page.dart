@@ -6,6 +6,7 @@ import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/general/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'widgets/shop_list.dart';
 
 class ShopPage extends StatelessWidget {
@@ -27,7 +28,7 @@ class ShopPage extends StatelessWidget {
           } else if (state is ShopInProgress) {
             return CaspaLoading();
           } else if (state is ShopError) {
-            return EmptyWidget(text:"Magazalar tapılmadı");
+            return EmptyWidget(text: "Magazalar tapılmadı");
           } else
             return EmptyWidget();
         },

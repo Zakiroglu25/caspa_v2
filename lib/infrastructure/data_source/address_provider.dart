@@ -1,4 +1,3 @@
-import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/address_model.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';

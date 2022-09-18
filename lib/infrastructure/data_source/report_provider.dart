@@ -12,9 +12,6 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:dio/dio.dart';
 
-// Package imports:
-import 'dart:io';
-
 import '../../locator.dart';
 
 class ReportProvider {

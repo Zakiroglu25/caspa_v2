@@ -1,4 +1,4 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
+
 
 class DataModel {
   Map<String, Map<String, dynamic>>? data;

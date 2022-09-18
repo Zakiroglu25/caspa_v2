@@ -22,6 +22,10 @@ class MyText {
   static const String registration = "Qeydiyyat";
   static const String civilRegistration = 'Vətəndaş qeydiyyatı';
   static const String businessRegistration = 'Biznes qeydiyyat';
+  static const String activeNotificationSound =
+      'Bildiriş səslərini aktivləşdirin';
+  static const String clickContinueButtonAndAllowSounds =
+      'Bildirişlərdən vaxtında xəbərdar olmaq üçün "Davam et" butonuna toxunaraq bildiriş səslərinə icazə verin.';
 
   //registration
   static const String adress_minumum_10 = "Adres minimum 10 simvol olmalıdır";
@@ -133,6 +137,8 @@ class MyText {
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
   static const String tariffs = "Tariflər";
+  static const String tapAgainForCloseTheApp =
+      "Çıxış etmək üçün bir daha toxunun";
 
   //user cabinet
   static const String settings = "Tənzimləmələr";
@@ -220,6 +226,7 @@ class MyText {
   static const String settingsX = 'Tənzimləmələr ⚙️';
   static const String calculate = 'Hesabla 🛍';
   static const String about_app = 'Tətbiq haqqında️';
+  static const String notificationSettings = 'Bildiriş tənzimləmələri';
   static const String version = 'Versiya';
   static const String help = "Yardım";
   static const String app_license = "Lisenziya sazişi";
@@ -245,6 +252,7 @@ class MyText {
   static const String instagram = "İnstagram";
   static const String caspa_azerbaijan = 'Caspa Azerbaijan';
   static const String contact = 'Əlaqə';
+
   static const String contactX = "Əlaqə ☎️";
   static const String menu = 'Menu';
   static const String calculateTitle = 'Çəki və həcmə görə hesabla';

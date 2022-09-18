@@ -13,9 +13,10 @@ import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../../../../../infrastructure/models/remote/response/branches_model.dart';
 import '../../../locator.dart';
 import '../../models/remote/response/wares.dart';
-import '../../../../../../infrastructure/models/remote/response/branches_model.dart';
 
 part 'register_state.dart';
 
@@ -498,6 +499,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     permanentBranches = value;
     branch.sink.add(permanentBranches);
   }
+
   ///update branch list
 
   ///wares list
@@ -505,6 +507,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       BehaviorSubject<List<Data>>.seeded([]);
 
   Stream<List<Data>> get waresListStream => wares.stream;
+
   ///wares list
 
   ///update wares list
@@ -512,6 +515,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     permanentWares = value;
     wares.sink.add(permanentWares);
   }
+
   ///update wares list
 
   @override

@@ -8,7 +8,6 @@ import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:http/http.dart' as http;
 

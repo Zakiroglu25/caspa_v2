@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/cubits/report/report_cubit.dart';
-import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/formatter/decimal_input_formatter.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';

@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:app_settings/app_settings.dart';
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
@@ -12,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AppOperations {
+  AppOperations._();
+
   static int getTime(index) {
     return (index * 150) < 2000 ? index * 150 : 400;
   }
@@ -140,5 +143,10 @@ class AppOperations {
       // bbbb("image picked succesfully!");
       return imageFile;
     }
+  }
+
+  static Future<File?> openNotificationSettings(
+      {ImageSource? imageSource}) async {
+    AppSettings.openNotificationSettings(asAnotherTask: true);
   }
 }

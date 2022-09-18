@@ -2,13 +2,13 @@
 
 import 'dart:io';
 
+import 'package:app_settings/app_settings.dart';
 import 'package:caspa_v2/util/delegate/foreground_notification.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../util/constants/durations.dart';
 
@@ -18,9 +18,9 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
-  debugPrint('onBackgroundMessage: ${message.data}');
+  debugPrint('onBackgroundMessage: ${message}');
   await Future.delayed(Durations.s2);
-  _showNotificationCustomSound();
+  showNotificationCustomSound(message);
 }
 
 void configureFcm({String? topic, required BuildContext? context}) async {
@@ -31,13 +31,15 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   //_createNotificationChannel("0", "0");
   FirebaseMessaging.instance.getInitialMessage().then((value) {
     final Map<String, dynamic>? data = value?.data;
+    //AppSettings.openNotificationSettings();
     // GeneralOperations.determineTab(data);
   });
 
-  FirebaseMessaging.onMessage.listen((event) {
+  FirebaseMessaging.onMessage.listen((message) {
     //bbbb("sss: " + event.notification!.title.toString());
-    _showNotificationCustomSound();
-    ForegroundNotification.show(event);
+    showNotificationCustomSound(message);
+
+    ForegroundNotification.show(message);
   });
 
   FirebaseMessaging.onMessageOpenedApp.listen((event) {
@@ -48,7 +50,7 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
   messaging.subscribeToTopic('all');
   messaging.subscribeToTopic('1.0.0');
-  messaging.subscribeToTopic('test4');
+  messaging.subscribeToTopic('test5');
 }
 
 initializeFCMNotification() async {
@@ -74,11 +76,16 @@ initializeFCMNotification() async {
   // generalSubscribtion();
 }
 
-Future<void> _showNotificationCustomSound() async {
+Future<void> showNotificationCustomSound(RemoteMessage message) async {
   const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
     'your other channel id',
     'your other channel name',
+    importance: Importance.min,
+    priority: Priority.min,
+    autoCancel: true,
+    playSound: true,
+    enableLights: true,
     channelDescription: 'your other channel description',
     sound: RawResourceAndroidNotificationSound('alert'),
   );
@@ -91,8 +98,8 @@ Future<void> _showNotificationCustomSound() async {
   );
   await flutterLocalNotificationsPlugin.show(
     0,
-    '',
-    '',
+    '${message.notification?.title}',
+    '${message.notification?.body}',
     platformChannelSpecifics,
   );
   await Future.delayed(Durations.s4);
@@ -109,10 +116,10 @@ Future onSelectNotification(var payload) async {
 Future<bool> requestPermission() async {
   var settings = await messaging.requestPermission(
     alert: true,
-    announcement: false,
+    announcement: true,
     badge: true,
     carPlay: false,
-    criticalAlert: false,
+    criticalAlert: true,
     provisional: true,
     sound: true,
   );
@@ -140,3 +147,30 @@ Future<void> _createNotificationChannel(String id, String name) async {
 // void unsubscribe({String topic}) {
 //   messaging.unsubscribeFromTopic(topic);
 // }
+class Helper {
+  static Future<void> showNotificationCustomSound(
+      {required String title, required String body}) async {
+    AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      '$title',
+      '$body',
+      channelDescription: 'your other channel description',
+      sound: RawResourceAndroidNotificationSound('alert'),
+    );
+    IOSNotificationDetails iOSPlatformChannelSpecifics =
+        IOSNotificationDetails(sound: 'alert.aiff');
+
+    final NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iOSPlatformChannelSpecifics,
+    );
+    await flutterLocalNotificationsPlugin.show(
+      0,
+      '',
+      '',
+      platformChannelSpecifics,
+    );
+    await Future.delayed(Durations.s4);
+    await flutterLocalNotificationsPlugin.cancel(0);
+  }
+}

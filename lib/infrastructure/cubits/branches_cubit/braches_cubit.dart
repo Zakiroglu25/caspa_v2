@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:caspa_v2/infrastructure/cubits/wares_cubit/wares_state.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

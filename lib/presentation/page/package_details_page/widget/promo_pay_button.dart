@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../infrastructure/cubits/promo_code/promo_code_cubit.dart';
 import '../../../../infrastructure/cubits/promo_code/promo_code_state.dart';
-import '../../../../infrastructure/models/remote/response/packages_data.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/delegate/my_printer.dart';
 import '../../../../util/screen/widget_or_empty.dart';

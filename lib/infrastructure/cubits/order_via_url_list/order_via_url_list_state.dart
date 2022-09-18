@@ -1,5 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/address_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 
 abstract class OrderViaUrlListState {}

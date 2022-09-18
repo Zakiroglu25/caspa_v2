@@ -1,4 +1,5 @@
 // Flutter imports:
+import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -24,7 +25,7 @@ class Alert {
       bool cancelButton = false,
       Function? onTap}) {
     showDialog(
-        context: context,
+        context: NavigationService.instance.navigationKey!.currentContext!,
         useSafeArea: false,
         builder: (BuildContext context) {
           final sW = MediaQuery.of(context).size.width;
@@ -68,6 +69,7 @@ class Alert {
                     padding: Paddings.paddingH16,
                     child: Text(
                       content ?? '',
+                      textAlign: TextAlign.center,
                       style: AppTextStyles.sanF400
                           .copyWith(fontSize: 16.sm, color: MyColors.grey163),
                     ),

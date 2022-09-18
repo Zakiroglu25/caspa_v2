@@ -1,7 +1,6 @@
 // Package imports:
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
-import 'package:caspa_v2/util/delegate/user_operations.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';

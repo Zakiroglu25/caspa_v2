@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/wares_cubit/wares_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/wares_cubit/wares_state.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -46,16 +44,16 @@ class BrachesRegisterField extends StatelessWidget {
                       controller: TextEditingController.fromValue(
                           TextEditingValue(
                               text: (BlocProvider.of<RegisterCubit>(context)
-                                  .selectedBranch
-                                  .valueOrNull
-                                  ?.name) ??
+                                      .selectedBranch
+                                      .valueOrNull
+                                      ?.name) ??
                                   '')),
                       title: MyText.branch,
                       onTap: () => branch != null
                           ? showSheet(context, branch)
                           : Snack.display(
-                          context: context,
-                          message: MyText.none_branch_is_found),
+                              context: context,
+                              message: MyText.none_branch_is_found),
                     );
                   }),
             ],
@@ -90,33 +88,33 @@ class BrachesRegisterField extends StatelessWidget {
                             return branch.isEmpty
                                 ? CaspaLoading()
                                 : SizedBox(
-                              height: min(listHeight, sH),
-                              //height: min(listHeight - 75, sH - 75),
-                              child: ListView.builder(
-                                  physics: Physics.alwaysBounce,
-                                  shrinkWrap: false,
-                                  itemCount: branch.length,
-                                  itemBuilder: (contextK, index) {
-                                    Branch category = branch[index];
+                                    height: min(listHeight, sH),
+                                    //height: min(listHeight - 75, sH - 75),
+                                    child: ListView.builder(
+                                        physics: Physics.alwaysBounce,
+                                        shrinkWrap: false,
+                                        itemCount: branch.length,
+                                        itemBuilder: (contextK, index) {
+                                          Branch category = branch[index];
 
-                                    return CaspaRadio(
-                                      onTap: () {
-                                        BlocProvider.of<RegisterCubit>(
-                                            context)
-                                            .updateBranch(category);
-                                        Go.pop(context);
-                                      },
-                                      title: category.name,
-                                      isActive:
-                                      BlocProvider.of<RegisterCubit>(
-                                          context)
-                                          .selectedBranch
-                                          .valueOrNull
-                                          ?.id ==
-                                          category.id,
-                                    );
-                                  }),
-                            );
+                                          return CaspaRadio(
+                                            onTap: () {
+                                              BlocProvider.of<RegisterCubit>(
+                                                      context)
+                                                  .updateBranch(category);
+                                              Go.pop(context);
+                                            },
+                                            title: category.name,
+                                            isActive:
+                                                BlocProvider.of<RegisterCubit>(
+                                                            context)
+                                                        .selectedBranch
+                                                        .valueOrNull
+                                                        ?.id ==
+                                                    category.id,
+                                          );
+                                        }),
+                                  );
                           }),
                     ],
                   ),

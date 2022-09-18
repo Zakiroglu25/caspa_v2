@@ -1,6 +1,3 @@
-import '../../models/remote/response/delivery_address_model.dart';
-import '../../models/remote/response/regions_model.dart';
-
 abstract class DeliveryAddressCurrentState {}
 
 abstract class DeliveryAddressCurrentError {}

@@ -1,18 +1,12 @@
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../infrastructure/cubits/package_details/package_details_cubit.dart';
-import '../../../../infrastructure/models/remote/response/packages_data.dart';
-import '../../../../infrastructure/models/remote/response/regions_model.dart';
-import '../../../../util/constants/assets.dart';
-import '../../../../util/constants/paddings.dart';
-import '../../../../util/constants/text.dart';
-import '../../../../util/screen/alert.dart';
-import '../../../../widget/custom/buttons/fade_raised_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../widget/general/caspa_radio.dart';
+import '../../../../infrastructure/models/remote/response/packages_data.dart';
+import '../../../../infrastructure/models/remote/response/regions_model.dart';
+import '../../../../util/constants/text.dart';
+import '../../../../widget/custom/buttons/fade_raised_button.dart';
 
 class ConfirmButton extends StatelessWidget {
   const ConfirmButton(

@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/data_source/calculate_provider.dart';
-import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -11,7 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'calculate_capacity_state.dart';
-
 
 class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
   CalculateCapacityCubit() : super(CalculateCapacityInitial());

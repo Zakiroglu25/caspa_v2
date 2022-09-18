@@ -1,25 +1,14 @@
 // Dart imports:
-import 'dart:convert';
-
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
-import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/data_model.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:flutter/foundation.dart';
-
-// Package imports:
-import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
 import '../../util/constants/text.dart';
-import '../models/local/my_user.dart';
-import '../models/remote/response/user_result.dart';
 
 class PackageProvider {
   static DioAuth get dioAuth => locator<DioAuth>();

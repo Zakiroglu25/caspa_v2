@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../infrastructure/models/remote/response/regions_model.dart';
+import 'widgets/fields/branch_field.dart';
 import 'widgets/fields/category_field.dart';
 import 'widgets/fields/count_field.dart';
 import 'widgets/fields/note_field.dart';
@@ -83,6 +84,7 @@ class ReportPage extends StatelessWidget {
                 TrackingIdFieldReport(
                     controller: TextEditingController(text: package?.tracking)),
                 WaresField(),
+                BranchField(),
                 NoteFieldReport(
                     controller: TextEditingController(text: package?.note)),
                 SectionName(title: MyText.factura),

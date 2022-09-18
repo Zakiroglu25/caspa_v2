@@ -62,7 +62,9 @@ class ProductProperties extends StatelessWidget {
             name: MyText.shipping_price, value: '${package.cargoPrice} \$'),
 
         ProductPropertyV(
-            name: MyText.product_kind, value: '${package.category!.name} '),
+            name: MyText.product_kind,
+            value:
+                '${package.category!.parent?.name} - ${package.category!.name} '),
         ProductPropertyV(
           name: MyText.status,
           value: package.status,

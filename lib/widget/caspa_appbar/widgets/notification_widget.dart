@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
@@ -21,7 +22,7 @@ class NotificationWidget extends StatelessWidget {
               width: 24,
               height: 24,
               child: SvgPicture.asset(
-                'assets/svg/bell.svg',
+                Assets.svgNotificationBell,
                 color: MyColors.black,
               ),
             ),

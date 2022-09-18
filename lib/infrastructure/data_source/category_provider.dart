@@ -1,9 +1,7 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/models/remote/response/categories_response.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -25,8 +23,8 @@ class CategoryProvider {
       final gelenCavabJson = jsonDecode(response.body);
       CategoriesData categoriesData = CategoriesData.fromJson(gelenCavabJson);
 
-      statusDynamic.data  = categoriesData.data ;
-     // bbbb("st: "+(statusDynamic.data) .toString());
+      statusDynamic.data = categoriesData.data;
+      // bbbb("st: "+(statusDynamic.data) .toString());
     } else {
       eeee("getCategory bad url :$url,response: ${response}");
     }

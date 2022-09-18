@@ -7,8 +7,6 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-// Package imports:
-import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
 

@@ -24,7 +24,6 @@ class RegisterPage extends StatelessWidget {
       text: MyText.businessRegistration,
     ),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

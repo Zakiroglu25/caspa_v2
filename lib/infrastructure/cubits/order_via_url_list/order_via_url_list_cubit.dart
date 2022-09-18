@@ -1,15 +1,12 @@
 import 'dart:io';
-import 'package:caspa_v2/infrastructure/data_source/attorneys_provider.dart';
+
 import 'package:caspa_v2/infrastructure/data_source/order_via_link_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
-import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-import '../../../../locator.dart';
-import '../../../util/delegate/my_printer.dart';
+
 import '../../configs/recorder.dart';
 import 'order_via_url_list_state.dart';
 

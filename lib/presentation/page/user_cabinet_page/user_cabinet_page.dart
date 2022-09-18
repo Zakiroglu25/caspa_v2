@@ -5,7 +5,6 @@ import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
-import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/cabinet_menu_item.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -14,11 +13,9 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
-import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +25,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../infrastructure/cubits/user/user_cubit.dart';
-import '../../../infrastructure/services/hive_service.dart';
-import '../../../locator.dart';
 import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'widget/new_balans_box.dart';
@@ -37,7 +32,8 @@ import 'widget/new_balans_box.dart';
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
-  static HiveService get _prefs => locator<HiveService>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,28 +51,36 @@ class UserCabinetPage extends StatelessWidget {
             context: context,
             builder: (BuildContext contextA) => CupertinoActionSheet(
                 actions: <Widget>[
-                  CabinetMenuItem(
-                    title: MyText.settings,
-                    icon: SvgPicture.asset(Assets.svgFile),
+                  CupertinoActionSheetAction(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.svgFile),
+                        MySizedBox.w20,
+                        Text(
+                          MyText.settings,
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
+                        ),
+                      ],
+                    ),
                     onPressed: () => Go.to(contextA, Pager.userSettingsPage),
                   ),
-                  WidgetOrEmpty(
-                    value: _prefs.deleteAccount,
-                    child: CabinetMenuItem(
-                      title: MyText.deleteAccount,
-                      icon: Icon(Icons.delete_forever_rounded),
-                      onPressed: () => context
-                          .read<AuthenticationCubit>()
-                          .showLogoutDialog(context, goWithPager: true),
+                  CupertinoActionSheetAction(
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(Assets.svgLogOut),
+                        MySizedBox.w20,
+                        Text(
+                          MyText.logout,
+                          style: AppTextStyles.sanF500
+                              .copyWith(color: Colors.black, fontSize: 16.sp),
+                        ),
+                      ],
                     ),
-                  ),
-                  CabinetMenuItem(
-                    title: MyText.logout,
-                    icon: SvgPicture.asset(Assets.svgLogOut),
                     onPressed: () => context
                         .read<AuthenticationCubit>()
                         .showLogoutDialog(context, goWithPager: true),
-                  ),
+                  )
                 ],
                 cancelButton: CupertinoActionSheetAction(
                   child: Text(
@@ -96,11 +100,13 @@ class UserCabinetPage extends StatelessWidget {
         valueListenable: Hive.box('main').listenable(),
         builder: (context, Box box, widget) {
           final MyUser user =
-              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
             color: MyColors.mainColor,
             onRefresh: () async {
-              context.read<UserCubit>().getUserData();
+              context.read<UserCubit>().getUserData(
+
+              );
             },
             child: SingleChildScrollView(
               padding: Paddings.paddingH16,
@@ -151,30 +157,31 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.h16,
 
                   NewBalanceBox(
-                    onTap: () => Go.to(context, Pager.bonus),
+                    onTap: () => Go.to(
+                        context,
+                        Pager.bonus),
                     icon: Assets.pngGift,
                     boxTitle: MyText.bonus,
-                    title: "${MyText.balance}: " + "${user.bonus}" + " \$",
+                    title: "${MyText.balance}: "+"${user.bonus}"+" \$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: "",
                     color: MyColors.shop,
                   ),
-                  MySizedBox.h16,
-
+                  MySizedBox.h32,
                   ///carx
-                  NewBalanceBox(
-                    onTap: () {
-                      Go.to(context, MyHomePage());
-                    },
-                    icon: Assets.pngNote,
-                    boxTitle: "Carx",
-                    title: "${MyText.balance}: ${user.balance} TL ",
-                    subtitle: MyText.giftBalance,
-                    subtitleColor: MyColors.balanceBoxRedAlternativ,
-                    desc: MyText.desc,
-                    color: MyColors.shop,
-                  ),
+                  // NewBalanceBox(
+                  //   onTap: () {
+                  //     Go.to(context, Roulette());
+                  //   },
+                  //   icon: Assets.pngNote,
+                  //   boxTitle: "Carx",
+                  //   title: "${MyText.balance}: ${user.balance} TL ",
+                  //   subtitle: MyText.giftBalance,
+                  //   subtitleColor: MyColors.balanceBoxRedAlternativ,
+                  //   desc: MyText.desc,
+                  //   color: MyColors.shop,
+                  // ),
                   // MySizedBox.h16,
                   // BalanceBox(
                   //     title: "Balans TL",

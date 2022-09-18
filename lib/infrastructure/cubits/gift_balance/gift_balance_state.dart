@@ -1,7 +1,4 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/gift_balance.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/promo_code_response.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/shop_list.dart';
-import 'package:caspa_v2/presentation/page/gift_balance_page/gift_balance_page.dart';
 
 abstract class GiftBalanceState {}
 

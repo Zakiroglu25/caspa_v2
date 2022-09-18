@@ -12,6 +12,8 @@ class PriceFieldReport extends StatelessWidget {
   PriceFieldReport({this.controller}); //= new TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // Container().runtimeType
+
     if (controller!.text != '')
       BlocProvider.of<ReportCubit>(context).updatePrice(controller!.text);
     return SizedBox(

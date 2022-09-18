@@ -1,16 +1,9 @@
-import 'dart:convert';
-import 'dart:developer';
-
-import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
-import 'package:caspa_v2/infrastructure/configs/dio_general.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/tarif_response_model.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/locator.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 
 class TarifProvider {
   static HiveService get _prefs => locator<HiveService>();

@@ -1,8 +1,10 @@
 // Package imports:
 import 'dart:convert';
+
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import '../models/local/app_member.dart';
 
 class AppMembersService {

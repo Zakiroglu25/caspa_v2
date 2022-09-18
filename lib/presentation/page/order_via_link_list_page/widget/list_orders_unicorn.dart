@@ -21,6 +21,14 @@ class OrderUnicorn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // order.date = null;
+    // order.price = null;
+    // order.total = null;
+    // order.id = null;
+    // order.cargoPrice = null;
+    // order.payment = null;
+    // order.note = null;
+    // order.link = null;
     return Stack(
       children: [
         Column(

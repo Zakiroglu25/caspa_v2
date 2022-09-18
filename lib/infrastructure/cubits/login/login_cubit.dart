@@ -2,12 +2,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-// Flutter imports:
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/auth_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/infrastructure/services/config_service.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/alerts.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
@@ -20,6 +20,7 @@ import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -33,6 +34,7 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
   HiveService get _prefs => locator<HiveService>();
+
   ConfigService get _configS => locator<ConfigService>();
 
   FirebaseMessaging get _fcm => locator<FirebaseMessaging>();
@@ -67,8 +69,7 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
-  bool get isPassIncorrect =>
-      (!uPass.hasValue || uPass.value == null || uPass.value.isEmpty);
+  bool get isPassIncorrect => (!uPass.hasValue || uPass.value.isEmpty);
 
   bool get isEmailIncorrect => (!uEmail.hasValue ||
       uEmail.value == null ||
@@ -93,7 +94,8 @@ class LoginCubit extends Cubit<LoginState> {
 
       final deviceCode = await _fcm.getToken();
       final response = await AuthProvider.login(
-          email: uEmail.valueOrNull, //?? MyText.testMail,
+          email: uEmail.valueOrNull,
+          //?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,
@@ -105,8 +107,8 @@ class LoginCubit extends Cubit<LoginState> {
             accessToken: response.data,
             fcmToken: deviceCode!,
             path: uPass.valueOrNull);
-        //  bbbb("yuyu: " + response.data.toString());
         Go.andRemove(context, Pager.app(showSplash: true));
+        Alerts.notificationSettings;
         emit(LoginSuccess(''));
       } else {
         List<String> errors = response.data;

@@ -3,10 +3,8 @@ import 'package:caspa_v2/infrastructure/cubits/package_statuses/packages_statuse
 import 'package:caspa_v2/infrastructure/models/remote/response/package_and_count_model.dart';
 import 'package:caspa_v2/presentation/page/package_page/widget/tab_count.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
-import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:caspa_v2/widget/main/sliver_caspa_bar/sliver_caspa_bar.dart';

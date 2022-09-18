@@ -1,5 +1,4 @@
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
-import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/general_response_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';

@@ -1,3 +1,4 @@
+import 'package:caspa_v2/infrastructure/services/navigation_service.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import '../../infrastructure/cubits/package_details/package_details_cubit.dart';
 import '../../infrastructure/services/hive_service.dart';
 import '../../locator.dart';
 import '../../widget/custom/caspa_payment_radio.dart';
+import '../delegate/app_operations.dart';
 import '../screen/alert.dart';
 import 'assets.dart';
 
@@ -137,4 +139,12 @@ class Alerts {
               );
             },
           ));
+
+  static get notificationSettings =>
+      Alert.show(NavigationService.instance.navigationKey!.currentContext!,
+          cancelButton: true,
+          onTap: () => AppOperations.openNotificationSettings(),
+          title: MyText.activeNotificationSound,
+          content: MyText.clickContinueButtonAndAllowSounds,
+          buttonText: MyText.goOn);
 }

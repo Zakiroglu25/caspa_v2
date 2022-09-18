@@ -13,6 +13,8 @@ import 'package:caspa_v2/util/validators/validator.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../../../../../infrastructure/models/remote/response/branches_model.dart';
 import '../../../locator.dart';
 import '../../models/remote/response/wares.dart';
 
@@ -23,6 +25,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
   List<Data> permanentWares = [];
+  List<Branch> permanentBranches = [];
 
   HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
@@ -56,22 +59,24 @@ class RegisterCubit extends Cubit<RegisterState> {
       final deviceCode = await _firebaseMessaging.getToken();
 
       final response = await AuthProvider.registrationPersonal(
-          name: uName.valueOrNull,
-          surname: surName.valueOrNull,
-          address: adress.valueOrNull,
-          email: uEmail.valueOrNull,
-          password: uPassMain.value,
-          password_confirmation: uPassSecond.value,
-          phone: phone.valueOrNull,
-          accept: 1,
-          birthday: birthDate.valueOrNull,
-          fin: fin.value,
-          id_number: idNumber.value,
-          gender: gender.valueOrNull,
-          deviceCode: deviceCode,
-          deviceTypeId: StringOperations.platformId(),
-          language: _prefs.language,
-          ware_house: selectedWares.valueOrNull!.id);
+        name: uName.valueOrNull,
+        surname: surName.valueOrNull,
+        address: adress.valueOrNull,
+        email: uEmail.valueOrNull,
+        password: uPassMain.value,
+        password_confirmation: uPassSecond.value,
+        phone: phone.valueOrNull,
+        accept: 1,
+        birthday: birthDate.valueOrNull,
+        fin: fin.value,
+        id_number: idNumber.value,
+        gender: gender.valueOrNull,
+        deviceCode: deviceCode,
+        deviceTypeId: StringOperations.platformId(),
+        language: _prefs.language,
+        ware_house: selectedWares.valueOrNull!.id,
+        branch: selectedBranch.valueOrNull!.id,
+      );
 
       bbbb("register bloc result: " + response.toString());
 
@@ -460,6 +465,42 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   ///selectedWares
+
+  ///selectedBranch
+  final BehaviorSubject<Branch?> selectedBranch = BehaviorSubject<Branch>();
+
+  Stream<Branch?> get selectedBranchStream => selectedBranch.stream;
+
+  updateBranch(Branch value) {
+    if (value == null) {
+      selectedBranch.value = null;
+      //taxNumber.sink.addError(MyText.field_is_not_correct);
+    } else {
+      if (selectedBranch.valueOrNull?.id != value.id) {
+        selectedBranch.sink.add(value);
+      }
+    }
+
+    //isUserInfoValid(registerType: _registerType);
+  }
+
+  ///selectedWares
+
+  ///branch list
+  final BehaviorSubject<List<Branch>> branch =
+      BehaviorSubject<List<Branch>>.seeded([]);
+
+  Stream<List<Branch>> get branchListStream => branch.stream;
+
+  ///branch list
+
+  ///update branch list
+  updateBranchList(List<Branch> value) {
+    permanentBranches = value;
+    branch.sink.add(permanentBranches);
+  }
+
+  ///update branch list
 
   ///wares list
   final BehaviorSubject<List<Data>> wares =

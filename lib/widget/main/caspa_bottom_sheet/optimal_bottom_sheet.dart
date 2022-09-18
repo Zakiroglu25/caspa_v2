@@ -1,5 +1,6 @@
 // Flutter imports:
 
+import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class OptimalBottomSheet extends StatelessWidget {
       // height: 270,
       child: ListView(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
+        physics: Physics.never,
         children: [
           MySizedBox.h10,
           Center(child: HandleLine(sW)),

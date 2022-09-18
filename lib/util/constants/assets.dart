@@ -37,6 +37,7 @@ class Assets {
   static const String sekkiz300 = "assets/png/roulette-8-300.png";
   static const String center300 = "assets/png/roulette-center-300.png";
   static const String bckgame = "assets/png/bckgame.png";
+  static const String whell = "assets/png/whell.png";
 
   //--svg
   static const String svgCaspaLogoWithName =
@@ -65,6 +66,7 @@ class Assets {
   static const String svgEditIcon = "assets/svg/edit-icon.svg";
   static const String svgSend = "assets/svg/send.svg";
   static const String svgClose = "assets/svg/close.svg";
+  static const String svgNotificationBell = "assets/svg/bell.svg";
   static const String svgTrashIcon = "assets/svg/trash-icon.svg";
   static const String svgFile = "assets/svg/file.svg";
   static const String svgCalendar = "assets/svg/calendar.svg";

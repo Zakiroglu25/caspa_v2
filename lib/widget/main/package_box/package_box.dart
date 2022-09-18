@@ -89,7 +89,9 @@ class PackageBox extends StatelessWidget {
                   MySizedBox.h4,
                   PackageBoxDetailText(
                       title: MyText.price,
-                      value: "${package.price} ${MyText.tryy}"),
+                      value: package.price != null
+                          ? "${package.price} ${MyText.tryy}"
+                          : '-'),
                   MySizedBox.h4,
                   PackageBoxDetailText(
                       title: MyText.tracking_id, value: package.tracking),

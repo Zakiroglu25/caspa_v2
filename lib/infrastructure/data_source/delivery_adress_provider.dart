@@ -1,15 +1,9 @@
 // Dart imports:
-import 'dart:convert';
-
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-
-// Package imports:
-import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
 import '../models/remote/response/delivery_address_model.dart';

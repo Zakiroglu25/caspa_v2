@@ -1,6 +1,3 @@
-import 'package:caspa_v2/presentation/page/auth/register/widgets/selectable/gender_list.dart';
-import 'package:caspa_v2/util/enums/gender_type.dart';
-
 class ConfigFIre {
   bool? writeUser;
   bool? writePath;

@@ -20,7 +20,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   debugPrint('onBackgroundMessage: ${message}');
   await Future.delayed(Durations.s2);
-  showNotificationCustomSound(message);
+  // showNotificationCustomSound(message);
 }
 
 void configureFcm({String? topic, required BuildContext? context}) async {
@@ -37,7 +37,7 @@ void configureFcm({String? topic, required BuildContext? context}) async {
 
   FirebaseMessaging.onMessage.listen((message) {
     //bbbb("sss: " + event.notification!.title.toString());
-    showNotificationCustomSound(message);
+    //  showNotificationCustomSound(message);
 
     ForegroundNotification.show(message);
   });

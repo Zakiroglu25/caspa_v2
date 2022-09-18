@@ -86,7 +86,7 @@ class CivilRegisterTab extends StatelessWidget {
                   CardIdFieldRegister(),
                   MySizedBox.h3,
                   GenderFieldRegister(),
-                  WaresRegisterField(),
+                  // WaresRegisterField(),
                   MySizedBox.h3,
 
                   BrachesRegisterField(),

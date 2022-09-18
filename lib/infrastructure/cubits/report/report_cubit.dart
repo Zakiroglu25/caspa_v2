@@ -521,6 +521,8 @@ class ReportCubit extends Cubit<ReportState> {
     image.close();
     price.close();
     seller.close();
+    selectedWares.close();
+    selectedBranch.close();
     return super.close();
   }
 }

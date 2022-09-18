@@ -100,7 +100,7 @@ class UserCabinetPage extends StatelessWidget {
         valueListenable: Hive.box('main').listenable(),
         builder: (context, Box box, widget) {
           final MyUser user =
-              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
             color: MyColors.mainColor,
             onRefresh: () async {
@@ -168,20 +168,20 @@ class UserCabinetPage extends StatelessWidget {
                     desc: "",
                     color: MyColors.shop,
                   ),
-                  MySizedBox.h16,
+                  MySizedBox.h32,
                   ///carx
-                  NewBalanceBox(
-                    onTap: () {
-                      Go.to(context, Roulette());
-                    },
-                    icon: Assets.pngNote,
-                    boxTitle: "Carx",
-                    title: "${MyText.balance}: ${user.balance} TL ",
-                    subtitle: MyText.giftBalance,
-                    subtitleColor: MyColors.balanceBoxRedAlternativ,
-                    desc: MyText.desc,
-                    color: MyColors.shop,
-                  ),
+                  // NewBalanceBox(
+                  //   onTap: () {
+                  //     Go.to(context, Roulette());
+                  //   },
+                  //   icon: Assets.pngNote,
+                  //   boxTitle: "Carx",
+                  //   title: "${MyText.balance}: ${user.balance} TL ",
+                  //   subtitle: MyText.giftBalance,
+                  //   subtitleColor: MyColors.balanceBoxRedAlternativ,
+                  //   desc: MyText.desc,
+                  //   color: MyColors.shop,
+                  // ),
                   // MySizedBox.h16,
                   // BalanceBox(
                   //     title: "Balans TL",

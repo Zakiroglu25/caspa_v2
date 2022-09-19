@@ -170,18 +170,18 @@ class UserCabinetPage extends StatelessWidget {
                   ),
                   MySizedBox.h32,
                   ///carx
-                  // NewBalanceBox(
-                  //   onTap: () {
-                  //     Go.to(context, Roulette());
-                  //   },
-                  //   icon: Assets.pngNote,
-                  //   boxTitle: "Carx",
-                  //   title: "${MyText.balance}: ${user.balance} TL ",
-                  //   subtitle: MyText.giftBalance,
-                  //   subtitleColor: MyColors.balanceBoxRedAlternativ,
-                  //   desc: MyText.desc,
-                  //   color: MyColors.shop,
-                  // ),
+                  NewBalanceBox(
+                    onTap: () {
+                      Go.to(context, Roulette());
+                    },
+                    icon: Assets.pngNote,
+                    boxTitle: "Carx",
+                    title: "${MyText.balance}: ${user.balance} TL ",
+                    subtitle: MyText.giftBalance,
+                    subtitleColor: MyColors.balanceBoxRedAlternativ,
+                    desc: MyText.desc,
+                    color: MyColors.shop,
+                  ),
                   // MySizedBox.h16,
                   // BalanceBox(
                   //     title: "Balans TL",

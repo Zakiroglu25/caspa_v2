@@ -1,126 +1,16 @@
 import 'dart:async';
-import 'dart:math';
 
+import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../../util/constants/colors.dart';
+import '../../../util/delegate/navigate_utils.dart';
+import '../whell_page/well_win_page.dart';
 import 'spinner_well.dart';
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Container(
-              color: Color(0xffB0F9D2),
-              child: InkWell(
-                  child: Center(child: Text('B A S I C')),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Basic()),
-                    );
-                  }),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              color: Color(0xffDDC3FF),
-              child: InkWell(
-                  child: Center(child: Text('R O U L E T T E')),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Roulette()),
-                    );
-                  }),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Widget buildNavigationButton({String? text, Function()? onPressedFn}) {
-  //   return FlatButton(
-  //     color: Color.fromRGBO(255, 255, 255, 0.3),
-  //     textColor: Colors.white,
-  //     shape: RoundedRectangleBorder(
-  //       borderRadius: BorderRadius.circular(50.0),
-  //     ),
-  //     onPressed: onPressedFn,
-  //     child: Text(
-  //       text!,
-  //       style: TextStyle(color: Colors.white, fontSize: 18.0),
-  //     ),
-  //   );
-  // }
-}
-
-class Basic extends StatelessWidget {
-  final StreamController<int>? _dividerController = StreamController<int>();
-
-  dispose() {
-    _dividerController!.close();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(backgroundColor: Color(0xffB0F9D2), elevation: 0.0),
-      backgroundColor: Color(0xffB0F9D2),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SpinningWheel(
-              Image.asset('assets/images/wheel-6-300.png'),
-              width: 310,
-              height: 310,
-              initialSpinAngle: _generateRandomAngle(),
-              spinResistance: 0.2,
-              dividers: 6,
-              onUpdate: _dividerController!.add,
-              onEnd: _dividerController!.add,
-              secondaryImage: Image.asset("name"),
-              secondaryImageTop: 0,
-            ),
-            StreamBuilder<int>(
-              stream: _dividerController!.stream,
-              builder: (context, snapshot) =>
-                  snapshot.hasData ? BasicScore(snapshot.data) : Container(),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  double _generateRandomAngle() => Random().nextDouble() * pi * 2;
-}
-
-class BasicScore extends StatelessWidget {
-  final int? selected;
-
-  final Map<int, String> labels = {
-    1: 'Purple',
-    2: 'Magenta',
-    3: 'Red',
-    4: 'Dark Orange',
-    5: 'Dark Orange',
-  };
-
-  BasicScore(this.selected);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text('${labels[selected]}',
-        style: TextStyle(fontStyle: FontStyle.italic));
-  }
-}
 
 class Roulette extends StatelessWidget {
   final StreamController<int> _dividerController = StreamController<int>();
@@ -134,46 +24,80 @@ class Roulette extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var timer = Timer(
+        Duration(seconds: 4), //the wanted duration for the timer
+        () => Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const WellWinPage(),
+            )));
+
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.bckgame),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SpinningWheel(
-                Image.asset(Assets.whell),
-                width: 310,
-                height: 310,
-                // initialSpinAngle: _generateRandomAngle(),
-                spinResistance: 0.6,
-                canInteractWhileSpinning: false,
-                dividers: 5,
-                onUpdate: _dividerController.add,
-                onEnd: _dividerController.add,
-                secondaryImage: Image.asset(Assets.center300),
-                secondaryImageHeight: 110,
-                secondaryImageWidth: 110,
-                shouldStartOrStop: _wheelNotifier.stream,
+              MySizedBox.h26,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  InkWell(
+                    onTap: () =>Go.pop(context),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: MyColors.black),
+                        width: 24,
+                        height: 24,
+                        child: Center(
+                            child: Icon(
+                          Icons.clear_outlined,
+                          color: MyColors.white,
+                        ))),
+                  )
+                ],
               ),
-              SizedBox(height: 30),
-              StreamBuilder<int>(
-                stream: _dividerController.stream,
-                builder: (context, snapshot) => snapshot.hasData
-                    ? RouletteScore(snapshot.data)
-                    : Container(),
+              MySizedBox.h22,
+              Text(
+                "Çarxı oyunu",
+                style: AppTextStyles.coHead400.copyWith(fontSize: 25),
               ),
-              SizedBox(height: 30),
-              // new RaisedButton(
-              //   child: new Text("Start"),
-              //   onPressed: () =>
-              //       _wheelNotifier.sink.add(_generateRandomVelocity()),
-              // )
+              MySizedBox.h22,
+              SvgPicture.asset(Assets.svgCarx),
+              MySizedBox.h8,
+              Text(
+                  "Hər həftə oyna və hədiyyə sahibi ol. Sadəcə çarxı fırlat və bəxtini sına",
+                  style: AppTextStyles.coHead400.copyWith(fontSize: 16)),
+              Center(
+                child: SpinningWheel(
+                  Image.asset(Assets.whell),
+                  width: 310,
+                  height: 310,
+                  spinResistance: 0.6,
+                  canInteractWhileSpinning: false,
+                  dividers: 5,
+                  onUpdate: _dividerController.add,
+                  onEnd: _dividerController.add,
+                  secondaryImage: Image.asset(Assets.center300),
+                  secondaryImageHeight: 110,
+                  secondaryImageWidth: 110,
+                  shouldStartOrStop: _wheelNotifier.stream,
+                ),
+              ),
+              Spacer(),
+              CaspaButton(
+                  borderRadius: 100,
+                  h: 64,
+                  textSize: 25,
+                  text: "Çarxı fırla",
+                  color: MyColors.black,
+                  onTap: () {
+                    _wheelNotifier.sink.add(_generateRandomVelocity());
+                    timer;
+                  }),
+              MySizedBox.h70,
             ],
           ),
         ),
@@ -181,30 +105,5 @@ class Roulette extends StatelessWidget {
     );
   }
 
-  double _generateRandomVelocity() =>  10000 + 1000;
-
-  // double _generateRandomAngle() => Random().nextDouble() * pi * 2;
-}
-
-class RouletteScore extends StatelessWidget {
-  final int? selected;
-
-  final Map<int, String> labels = {
-    1: '1 ₼',
-    2: '1.50 ₼',
-    3: '2 ₼',
-    4: '2.50 ₼',
-    5: '3 ₼',
-    6: '3.50 ₼',
-    7: '4 ₼',
-    8: '5 ₼',
-  };
-
-  RouletteScore(this.selected);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text('${labels[selected]}',
-        style: TextStyle(fontStyle: FontStyle.italic, fontSize: 24.0));
-  }
+  double _generateRandomVelocity() => 10000 + 1200;
 }

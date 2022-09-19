@@ -37,7 +37,8 @@ class Assets {
   static const String sekkiz300 = "assets/png/roulette-8-300.png";
   static const String center300 = "assets/png/roulette-center-300.png";
   static const String bckgame = "assets/png/bckgame.png";
-  static const String whell = "assets/png/whell.png";
+  static const String whell = "assets/png/whelltwo.png";
+  static const String winWin = "assets/png/winwin.png";
 
 
   //--svg
@@ -88,6 +89,7 @@ class Assets {
   static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
   static const String svgBonusIn = "assets/svg/inbonus.svg";
   static const String svgClock = "assets/svg/clock.svg";
+  static const String svgCarx = "assets/svg/carx.svg";
 
   //test url
   static const String testImageURL =

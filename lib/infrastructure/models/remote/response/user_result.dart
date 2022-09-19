@@ -58,9 +58,4 @@ Map<String, dynamic> toJson() {
   return data;
 }
 
-
-
-
-
-//</editor-fold>
 }

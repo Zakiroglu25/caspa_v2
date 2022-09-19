@@ -20,6 +20,7 @@ class MyUser {
   City? city;
   int? business;
   WareHouse? wareHouse;
+  DateTime? wheelTime;
   String? taxNumber;
   String? companyName;
   String? monthly;
@@ -58,6 +59,7 @@ class MyUser {
       this.notifications,
       this.packages_count,
       this.companyName,
+      this.wheelTime,
       this.activePackages});
 
   MyUser.fromJson(Map<String, dynamic> json) {
@@ -74,6 +76,7 @@ class MyUser {
     gender = json['gender'];
     avatar = json['avatar'];
     bonus = json['bonus'];
+    wheelTime = json['wheel_time'];
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
       json['notifications'].forEach((v) {

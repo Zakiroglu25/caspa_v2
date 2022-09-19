@@ -1,13 +1,12 @@
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
-import 'package:caspa_v2/infrastructure/data_source/tarif_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/promo_code_response.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.dart';
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+
 //import 'package:http/http.dart' as http;
 import '../../locator.dart';
-import 'tarif_provider.dart';
 
 class PromoCodeProvider {
   static DioAuth get dioAuth => locator<DioAuth>();

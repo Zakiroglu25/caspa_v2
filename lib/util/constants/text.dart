@@ -129,6 +129,7 @@ class MyText {
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
   static const String add = "Əlavə et";
   static const String changeUser = "Profili dəyiş";
+  static const String wheel = "Çarx";
 
   //home
   static const String welcome = "Salam";
@@ -436,7 +437,7 @@ class MyText {
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 
-  //test
+  //wheel_bonus_page
   static const String testMail = "esev.sv@gmail.com";
 
   /////////////////////////////////////////////

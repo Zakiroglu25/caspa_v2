@@ -1,3 +1,6 @@
+import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/wheel_balance_box.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 import 'dart:convert';
 
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
@@ -13,26 +16,29 @@ import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
+import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:intl/intl.dart';
 
 import '../../../infrastructure/cubits/user/user_cubit.dart';
-import '../test/spinner_game.dart';
+import '../../../util/formatter/date_formatter.dart';
 import 'widget/cabinet_header.dart';
 import 'widget/new_balans_box.dart';
 
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
-
 
   @override
   Widget build(BuildContext context) {
@@ -100,13 +106,11 @@ class UserCabinetPage extends StatelessWidget {
         valueListenable: Hive.box('main').listenable(),
         builder: (context, Box box, widget) {
           final MyUser user =
-          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
             color: MyColors.mainColor,
             onRefresh: () async {
-              context.read<UserCubit>().getUserData(
-
-              );
+              context.read<UserCubit>().getUserData();
             },
             child: SingleChildScrollView(
               padding: Paddings.paddingH16,
@@ -157,32 +161,24 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.h16,
 
                   NewBalanceBox(
-                    onTap: () => Go.to(
-                        context,
-                        Pager.bonus),
+                    onTap: () => Go.to(context, Pager.bonus),
                     icon: Assets.pngGift,
                     boxTitle: MyText.bonus,
-                    title: "${MyText.balance}: "+"${user.bonus}"+" \$",
+                    title: "${MyText.balance}: " +
+                        "${user.bonus?.toStringAsFixed(2)}" +
+                        " \$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: "",
                     color: MyColors.shop,
                   ),
-                  MySizedBox.h32,
+                  MySizedBox.h16,
+
                   ///carx
-                  // NewBalanceBox(
-                  //   onTap: () {
-                  //     Go.to(context, Roulette());
-                  //   },
-                  //   icon: Assets.pngNote,
-                  //   boxTitle: "Carx",
-                  //   title: "${MyText.balance}: ${user.balance} TL ",
-                  //   subtitle: MyText.giftBalance,
-                  //   subtitleColor: MyColors.balanceBoxRedAlternativ,
-                  //   desc: MyText.desc,
-                  //   color: MyColors.shop,
-                  // ),
-                  // MySizedBox.h16,
+                  WheelBalanceBox(
+                    user: user,
+                  ),
+                  MySizedBox.h16,
                   // BalanceBox(
                   //     title: "Balans TL",
                   //     price: "${user.balance ?? 0} TL",

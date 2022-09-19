@@ -73,7 +73,7 @@ import 'package:caspa_v2/presentation/page/webview_page/webview_page.dart';
 import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import '../../../infrastructure/cubits/wheel_cubit/index.dart';
 import '../../app.dart';
 import '../../infrastructure/cubits/calculate/calculate_capacity/calculate_capacity_cubit.dart';
 import '../../infrastructure/cubits/calculate/calculate_cubit.dart';
@@ -90,6 +90,8 @@ import '../../presentation/page/calculate_page/calculate_page.dart';
 import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
+import '../../presentation/page/wheel_bonus_page/spinner_game.dart';
+import '../../presentation/page/whell_page/well_win_page.dart';
 import '../enums/sms_types.dart';
 
 class Pager {
@@ -355,6 +357,18 @@ class Pager {
           create: (context) => BonusCubit()..fetch(),
         )
       ], child: const BonusPage());
+
+  static get wheel => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => WheelCubit(),
+        )
+      ], child: RoulettePage());
+
+  static get wheelWin => MultiBlocProvider(providers: [
+        BlocProvider.value(
+          value: WheelCubit()..fetch(),
+        )
+      ], child: WellWinPage());
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [

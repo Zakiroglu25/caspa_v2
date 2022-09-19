@@ -141,6 +141,9 @@ class ApiKeys {
   //bonus
   static const bonus = "$baseUrl/user/bonus";
 
+  //bonus
+  static const wheel = "$baseUrl/user/wheel";
+
   static loginBody({
     required String? email,
     required String? password,

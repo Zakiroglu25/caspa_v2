@@ -129,6 +129,7 @@ class MyText {
       "Hörmətli müştəri, əlavə məlumat əldə etmək üçün qaynar xətt: ";
   static const String add = "Əlavə et";
   static const String changeUser = "Profili dəyiş";
+  static const String wheel = "Çarx";
 
   //home
   static const String welcome = "Salam";

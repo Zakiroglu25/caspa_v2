@@ -5,13 +5,10 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../locator.dart';
 import '../../data_source/public_provider.dart';
-import '../../services/hive_service.dart';
 
 class WaresCubit extends Cubit<WaresState> {
   WaresCubit() : super(WaresInitial());
-
 
   void fetch([bool loading = true]) async {
     if (loading) {

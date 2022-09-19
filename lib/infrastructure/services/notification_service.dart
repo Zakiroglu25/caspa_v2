@@ -2,7 +2,6 @@
 
 import 'dart:io';
 
-import 'package:app_settings/app_settings.dart';
 import 'package:caspa_v2/util/delegate/foreground_notification.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

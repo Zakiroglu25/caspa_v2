@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+
 import 'infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'infrastructure/provider/close_provider.dart';
 import 'util/constants/colors.dart';

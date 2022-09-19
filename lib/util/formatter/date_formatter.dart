@@ -1,0 +1,3 @@
+class DateFormatter {
+  DateFormatter._();
+}

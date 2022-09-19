@@ -10,7 +10,6 @@ import 'package:caspa_v2/presentation/page/auth/register/widgets/register_button
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/single_child_bounce.dart';
@@ -25,7 +24,6 @@ import '../fields/email_field.dart';
 import '../fields/gender_field.dart';
 import '../fields/name_field.dart';
 import '../fields/policy_checkbox.dart';
-import '../fields/wares_field.dart';
 
 class CivilRegisterTab extends StatelessWidget {
   @override

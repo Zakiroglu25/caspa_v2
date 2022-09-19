@@ -1,7 +1,3 @@
-import 'package:caspa_v2/infrastructure/models/remote/response/wares.dart';
-
-import '../../models/remote/response/wheel_response.dart';
-
 abstract class WheelState {}
 
 class WheelInitial extends WheelState {}

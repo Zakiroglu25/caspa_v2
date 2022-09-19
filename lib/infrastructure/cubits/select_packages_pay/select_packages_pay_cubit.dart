@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/packages_data.dart';
-import 'package:caspa_v2/infrastructure/models/remote/response/regions_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';

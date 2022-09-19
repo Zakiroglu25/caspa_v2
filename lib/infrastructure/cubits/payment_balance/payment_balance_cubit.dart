@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:io';
+
 import 'package:caspa_v2/infrastructure/data_source/payments_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -12,9 +12,9 @@ import 'package:caspa_v2/util/enums/payment_balance.dart';
 import 'package:caspa_v2/util/enums/payment_type.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
+
 import '../../../locator.dart';
 import 'payment_balance_state.dart';
 
@@ -36,7 +36,7 @@ class PaymentBalanceCubit extends Cubit<PaymentBalanceState> {
             amount: price.valueOrNull, paymentBalanceType: paymentBalanceType);
         if (isSuccess(result.statusCode)) {
           emit(PaymentBalanceUrlFetched(url: result.data));
-        }else if(result.statusCode == 302){
+        } else if (result.statusCode == 302) {
           emit(PaymentPriceError(
               error: MyText.errorPrice + " ${result.statusCode}"));
         } else {

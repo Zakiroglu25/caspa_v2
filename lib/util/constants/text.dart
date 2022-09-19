@@ -428,7 +428,7 @@ class MyText {
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 
-  //test
+  //wheel_bonus_page
   static const String testMail = "esev.sv@gmail.com";
 
   /////////////////////////////////////////////

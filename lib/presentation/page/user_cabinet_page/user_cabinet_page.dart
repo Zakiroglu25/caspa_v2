@@ -25,7 +25,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../infrastructure/cubits/user/user_cubit.dart';
-import '../test/spinner_game.dart';
 import 'widget/cabinet_header.dart';
 import 'widget/new_balans_box.dart';
 
@@ -172,7 +171,7 @@ class UserCabinetPage extends StatelessWidget {
                   ///carx
                   NewBalanceBox(
                     onTap: () {
-                      Go.to(context, Roulette());
+                      Go.to(context, Pager.wheel);
                     },
                     icon: Assets.pngNote,
                     boxTitle: "Carx",

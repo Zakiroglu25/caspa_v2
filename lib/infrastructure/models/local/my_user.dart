@@ -20,7 +20,7 @@ class MyUser {
   City? city;
   int? business;
   WareHouse? wareHouse;
-  DateTime? wheelTime;
+  String? wheelTime;
   String? taxNumber;
   String? companyName;
   String? monthly;
@@ -76,7 +76,7 @@ class MyUser {
     gender = json['gender'];
     avatar = json['avatar'];
     bonus = json['bonus'];
-    wheelTime = json['wheel_time'];
+    wheelTime =json['wheel_time'];
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
       json['notifications'].forEach((v) {
@@ -85,7 +85,7 @@ class MyUser {
     } else {
       notifications = <MyNotification>[];
     }
-    ;
+
     address = json['address'];
     balance = json['balance'];
     cashback_balance = json['cashback_balance'];
@@ -98,6 +98,7 @@ class MyUser {
         ? WareHouse.fromJson(json['wareHouse'])
         : null;
     taxNumber = json['taxNumber'];
+    wheelTime = json['wheel_time'];
     companyName = json['companyName'];
     active_package_count = json['active_package_count'];
     if (json['active_packages'] != null) {
@@ -133,6 +134,7 @@ class MyUser {
     data['address'] = address;
     data['balance'] = balance;
     data['bonus'] = this.bonus;
+    data['wheel_time'] = this.wheelTime;
 
     data['cargoBalance'] = cargoBalance;
     data['active_package_count'] = active_package_count;

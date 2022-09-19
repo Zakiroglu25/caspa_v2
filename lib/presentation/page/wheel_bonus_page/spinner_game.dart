@@ -5,15 +5,20 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../infrastructure/cubits/whell_cubit/whell_cubit.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
 import '../../../util/constants/colors.dart';
 import '../../../util/delegate/navigate_utils.dart';
-import '../whell_page/well_win_page.dart';
+import '../../../util/delegate/pager.dart';
 import 'spinner_well.dart';
 
-class Roulette extends StatelessWidget {
+class RoulettePage extends StatelessWidget {
   final StreamController<int> _dividerController = StreamController<int>();
+  HiveService get _prefs => locator<HiveService>();
 
   final _wheelNotifier = StreamController<double>();
 
@@ -24,14 +29,6 @@ class Roulette extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var timer = Timer(
-        Duration(seconds: 4), //the wanted duration for the timer
-        () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const WellWinPage(),
-            )));
-
     return Scaffold(
       body: Container(
         child: Padding(
@@ -44,7 +41,7 @@ class Roulette extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: () =>Go.pop(context),
+                    onTap: () => Go.pop(context),
                     child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -53,9 +50,9 @@ class Roulette extends StatelessWidget {
                         height: 24,
                         child: Center(
                             child: Icon(
-                          Icons.clear_outlined,
-                          color: MyColors.white,
-                        ))),
+                              Icons.clear_outlined,
+                              color: MyColors.white,
+                            ))),
                   )
                 ],
               ),
@@ -95,7 +92,16 @@ class Roulette extends StatelessWidget {
                   color: MyColors.black,
                   onTap: () {
                     _wheelNotifier.sink.add(_generateRandomVelocity());
-                    timer;
+                    context.read<WheelCubit>().fetch();
+                    Timer(
+                        Duration(seconds: 4),
+                            () =>
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      Pager.wheelWin,
+                                )));
                   }),
               MySizedBox.h70,
             ],

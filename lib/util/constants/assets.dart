@@ -9,6 +9,7 @@ class Assets {
   static const String pngSebet = 'assets/png/sebet.png';
   static const String pngFlyingGirl = "assets/png/flying_girl.png";
   static const String pngColorfulBack = "assets/png/bck.png";
+  static const String pngWheelGirl = "assets/png/wheelgirl.png";
   static const String pngMoto = 'assets/png/moto.png';
   static const String pngSucs = 'assets/png/sucs.png';
   static const String pngSad = 'assets/png/sad.png';
@@ -33,16 +34,18 @@ class Assets {
   static const String shopMobile = "assets/png/shopMobile.png";
   static const String bottomBirthday = "assets/png/birthdayimage.png";
 
-  // test
+  // wheel_bonus_page
   static const String sekkiz300 = "assets/png/roulette-8-300.png";
   static const String center300 = "assets/png/roulette-center-300.png";
   static const String bckgame = "assets/png/bckgame.png";
-  static const String whell = "assets/png/whell.png";
+  static const String whell = "assets/png/whelltwo.png";
+  static const String winWin = "assets/png/winwin.png";
 
   //--svg
   static const String svgCaspaLogoWithName =
       "assets/svg/caspa_logo_with_name.svg";
   static const String svgMinus = "assets/svg/minus.svg";
+  static const String svgOneYear = "assets/svg/oneyear.svg";
   static const String svgUser = "assets/svg/user.svg";
   static const String svgUserCircle = "assets/svg/usernew.svg";
   static const String svgEllipse = "assets/svg/ellipse.svg";
@@ -88,8 +91,9 @@ class Assets {
   static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
   static const String svgBonusIn = "assets/svg/inbonus.svg";
   static const String svgClock = "assets/svg/clock.svg";
+  static const String svgCarx = "assets/svg/des.svg";
 
-  //test url
+  //wheel_bonus_page url
   static const String testImageURL =
       "https://caspa.az/storage/stores/IVMOmydV4O1i81NXfpS3oC1DjSEutcZeiKw23kzT.png";
 

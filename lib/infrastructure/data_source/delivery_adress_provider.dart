@@ -75,7 +75,6 @@ class DeliveryAdressProvider {
   static Future<DeliveryAdressResponse?> getAddresses() async {
     DeliveryAdressResponse? deliveryAdressResponse;
     const api = ApiKeys.addresses;
-
     final response = await dioAuth.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;

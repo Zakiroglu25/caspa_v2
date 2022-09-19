@@ -1,5 +1,6 @@
 // Flutter imports:
 
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/address/address_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
@@ -82,6 +83,8 @@ import '../../infrastructure/cubits/delivery_address_current/delivery_address_cu
 import '../../infrastructure/cubits/delivery_adress_operations/delivery_address_operations_cubit.dart';
 import '../../infrastructure/cubits/sms_codes/sms_codes_cubit.dart';
 import '../../infrastructure/cubits/tarif/courier_tariff/courier_tariff_cubit.dart';
+
+import '../../../infrastructure/cubits/wheel_cubit/index.dart';
 import '../../infrastructure/models/remote/response/delivery_address_model.dart';
 import '../../infrastructure/models/remote/response/regions_model.dart';
 import '../../presentation/page/any_info_page/any_info_page.dart';
@@ -90,6 +93,8 @@ import '../../presentation/page/calculate_page/calculate_page.dart';
 import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
+import '../../presentation/page/wheel_bonus_page/spinner_game.dart';
+import '../../presentation/page/whell_page/well_win_page.dart';
 import '../enums/sms_types.dart';
 
 class Pager {
@@ -355,6 +360,18 @@ class Pager {
           create: (context) => BonusCubit()..fetch(),
         )
       ], child: const BonusPage());
+
+  static get wheel => MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) => WheelCubit(),
+        )
+      ], child: RoulettePage());
+
+  static get wheelWin => MultiBlocProvider(providers: [
+        BlocProvider.value(
+          value: WheelCubit()..fetch(),
+        )
+      ], child: WellWinPage());
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [

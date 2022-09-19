@@ -8,7 +8,6 @@ import 'package:caspa_v2/util/screen/widget_or_empty.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../util/delegate/date_operations.dart';
-import '../../../../util/formatter/date_formatter.dart';
 import 'new_balans_box.dart';
 
 class WheelBalanceBox extends StatelessWidget {
@@ -18,11 +17,9 @@ class WheelBalanceBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WidgetOrEmpty(
-      value: DateOperations.isWeekCompleted(user.wheelTime!),
+      value: !DateOperations.isWeekCompleted(user.wheelTime!),
       child: NewBalanceBox(
-        onTap: () {
-          Go.to(context, Pager.wheel);
-        },
+        onTap: () => Go.to(context, Pager.wheel),
         icon: Assets.pngNote,
         boxTitle: MyText.wheel,
         title: "${MyText.balance}: ${user.balance} ${MyText.tryy} ",

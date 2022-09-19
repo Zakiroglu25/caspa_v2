@@ -15,11 +15,11 @@ class WellWinPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WheelCubit, WheelState>(builder: (context, state) {
-      if (state is WheelSuccess) {
-        String? res = state.wheel;
-        return Scaffold(
-          body: Stack(
+    return Scaffold(
+      body: BlocBuilder<WheelCubit, WheelState>(builder: (context, state) {
+        if (state is WheelSuccess) {
+          String? res = state.wheel;
+          return Stack(
             children: [
               Positioned(
                 top: 54,
@@ -57,7 +57,7 @@ class WellWinPage extends StatelessWidget {
                     SizedBox(
                       width: 295,
                       child: Text(
-                          "Siz Caspa-dan ${res} ₼ məbləğində hədiyyə çatdırılma balansə qazandınız!",
+                          "Siz Caspa-dan ${res} ₼ məbləğində hədiyyə çatdırılma balansı qazandınız!",
                           style:
                               AppTextStyles.coHead400.copyWith(fontSize: 16)),
                     ),
@@ -68,13 +68,13 @@ class WellWinPage extends StatelessWidget {
               ),
               Positioned(bottom: 0, child: Image.asset(Assets.winWin))
             ],
-          ),
-        );
-      } else if (state is WheelInProgress) {
-        return CaspaLoading();
-      } else {
-        return Center(child: Text("Error"));
-      }
-    });
+          );
+        } else if (state is WheelInProgress) {
+          return CaspaLoading();
+        } else {
+          return Center(child: Text("Error"));
+        }
+      }),
+    );
   }
 }

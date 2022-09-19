@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -58,7 +59,7 @@ class RoulettePage extends StatelessWidget {
               ),
               MySizedBox.h22,
               Text(
-                "Çarxı oyunu",
+                "Çarx oyunu",
                 style: AppTextStyles.coHead400.copyWith(fontSize: 25),
               ),
               MySizedBox.h22,

@@ -156,19 +156,22 @@ class UserCabinetPage extends StatelessWidget {
                     onTap: () => Go.to(context, Pager.bonus),
                     icon: Assets.pngGift,
                     boxTitle: MyText.bonus,
-                    title: "${MyText.balance}: " + "${user.bonus}" + " \$",
+                    title: "${MyText.balance}: " +
+                        "${user.bonus!.toStringAsFixed(2)}" +
+                        " \$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: "",
                     color: MyColors.shop,
                   ),
+                  Image.network(
+                      "https://static.remove.bg/remove-bg-web/c4b29bf4b97131238fda6316e24c9b3606c18000/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg"),
                   MySizedBox.h16,
 
-                  ///carx
                   if (user.wheel == true)
                     NewBalanceBox(
                       onTap: () {
-                        if (user.wheel_active == false)
+                        if (user.wheel_active == true)
                           Go.to(context, Pager.wheel);
                       },
                       icon: Assets.svgCarx,
@@ -185,7 +188,6 @@ class UserCabinetPage extends StatelessWidget {
                       color: MyColors.mainBlue127,
                     ),
                   MySizedBox.h32,
-
                 ],
               ),
             ),

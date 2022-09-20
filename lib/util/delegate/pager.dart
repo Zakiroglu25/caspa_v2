@@ -360,17 +360,15 @@ class Pager {
         )
       ], child: const BonusPage());
 
-  static get wheel => MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (context) => WheelCubit(),
-        )
-      ], child: RoulettePage());
+  static get wheel => RoulettePage();
 
-  static get wheelWin => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: WheelCubit()..fetch(),
-        )
-      ], child: WellWinPage());
+  static  wheelWin(BuildContext context) {
+    return MultiBlocProvider(providers: [
+      BlocProvider.value(
+        value: WheelCubit()..fetch(),
+      ),
+    ], child: WellWinPage());
+  }
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [

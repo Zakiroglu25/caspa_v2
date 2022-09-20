@@ -91,7 +91,7 @@ class Assets {
   static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
   static const String svgBonusIn = "assets/svg/inbonus.svg";
   static const String svgClock = "assets/svg/clock.svg";
-  static const String svgCarx = "assets/svg/des.svg";
+  static const String svgCarx = "assets/png/carx.png";
 
   //wheel_bonus_page url
   static const String testImageURL =

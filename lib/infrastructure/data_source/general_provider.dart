@@ -80,12 +80,17 @@ class GeneralProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.bonus;
     var url = Uri.parse(api);
-    final response = await http.get(url, headers: ApiKeys.header(token: token));
+
+    log(url.toString());
+    final response = await dioAuth.dio.get(api);
+    log(response.data.toString());
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
-      final gelenCavabJson = jsonDecode(response.body);
+      final gelenCavabJson = response.data;
+      log("gelenCavabJson"+gelenCavabJson.toString());
       Bonus data = Bonus.fromJson(gelenCavabJson);
       statusDynamic.data = data.data;
+      log("statusDynamic"+statusDynamic.data.toString());
     } else {
       eeee("fetchBonus bad url :$url,response: ${response}");
     }

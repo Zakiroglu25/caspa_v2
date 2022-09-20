@@ -18,6 +18,7 @@ import 'spinner_well.dart';
 
 class RoulettePage extends StatelessWidget {
   final StreamController<int> _dividerController = StreamController<int>();
+
   HiveService get _prefs => locator<HiveService>();
 
   final _wheelNotifier = StreamController<double>();
@@ -50,9 +51,9 @@ class RoulettePage extends StatelessWidget {
                         height: 24,
                         child: Center(
                             child: Icon(
-                              Icons.clear_outlined,
-                              color: MyColors.white,
-                            ))),
+                          Icons.clear_outlined,
+                          color: MyColors.white,
+                        ))),
                   )
                 ],
               ),
@@ -62,7 +63,8 @@ class RoulettePage extends StatelessWidget {
                 style: AppTextStyles.coHead400.copyWith(fontSize: 25),
               ),
               MySizedBox.h22,
-              SvgPicture.asset(Assets.svgCarx),
+              SizedBox(
+                  width: 24, height: 24, child: Image.asset(Assets.svgCarx)),
               MySizedBox.h8,
               Text(
                   "Hər həftə oyna və hədiyyə sahibi ol. Sadəcə çarxı fırlat və bəxtini sına",
@@ -92,16 +94,13 @@ class RoulettePage extends StatelessWidget {
                   color: MyColors.black,
                   onTap: () {
                     _wheelNotifier.sink.add(_generateRandomVelocity());
-                    context.read<WheelCubit>().fetch();
                     Timer(
-                        Duration(seconds: 4),
-                            () =>
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      Pager.wheelWin,
-                                )));
+                        Duration(seconds: 3),
+                        () => Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => Pager.wheelWin(context),
+                            )));
                   }),
               MySizedBox.h70,
             ],
@@ -111,5 +110,5 @@ class RoulettePage extends StatelessWidget {
     );
   }
 
-  double _generateRandomVelocity() => 10000 + 1200;
+  double _generateRandomVelocity() => 11000 + 1200;
 }

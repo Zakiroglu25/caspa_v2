@@ -20,13 +20,15 @@ class MyUser {
   City? city;
   int? business;
   WareHouse? wareHouse;
-  String? wheelTime;
   String? taxNumber;
   String? companyName;
   String? monthly;
   int? packages_count;
   int? active_package_count;
   List<MyNotification>? notifications;
+  String? wheelTime;
+  bool? wheel;
+  bool? wheel_active;
 
   // List<ActivePackages>? activePackages;
   List<Package>? activePackages;
@@ -60,6 +62,8 @@ class MyUser {
       this.packages_count,
       this.companyName,
       this.wheelTime,
+      this.wheel,
+      this.wheel_active,
       this.activePackages});
 
   MyUser.fromJson(Map<String, dynamic> json) {
@@ -76,7 +80,9 @@ class MyUser {
     gender = json['gender'];
     avatar = json['avatar'];
     bonus = json['bonus'];
-    wheelTime =json['wheel_time'];
+    wheelTime = json['wheel_time'];
+    wheel = json['wheel'];
+    wheel_active = json['wheel_active'];
     if (json['notifications'] != null) {
       notifications = <MyNotification>[];
       json['notifications'].forEach((v) {
@@ -133,8 +139,10 @@ class MyUser {
     data['avatar'] = avatar;
     data['address'] = address;
     data['balance'] = balance;
-    data['bonus'] = this.bonus;
-    data['wheel_time'] = this.wheelTime;
+    data['bonus'] = bonus;
+    data['wheel_time'] = wheelTime;
+    data['wheel'] = wheel;
+    data['wheel_active'] = wheel_active;
 
     data['cargoBalance'] = cargoBalance;
     data['active_package_count'] = active_package_count;

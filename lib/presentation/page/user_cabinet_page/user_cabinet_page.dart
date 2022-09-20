@@ -32,7 +32,6 @@ class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,13 +98,11 @@ class UserCabinetPage extends StatelessWidget {
         valueListenable: Hive.box('main').listenable(),
         builder: (context, Box box, widget) {
           final MyUser user =
-          MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+              MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
           return RefreshIndicator(
             color: MyColors.mainColor,
             onRefresh: () async {
-              context.read<UserCubit>().getUserData(
-
-              );
+              context.read<UserCubit>().getUserData();
             },
             child: SingleChildScrollView(
               padding: Paddings.paddingH16,
@@ -156,98 +153,39 @@ class UserCabinetPage extends StatelessWidget {
                   MySizedBox.h16,
 
                   NewBalanceBox(
-                    onTap: () => Go.to(
-                        context,
-                        Pager.bonus),
+                    onTap: () => Go.to(context, Pager.bonus),
                     icon: Assets.pngGift,
                     boxTitle: MyText.bonus,
-                    title: "${MyText.balance}: "+"${user.bonus}"+" \$",
+                    title: "${MyText.balance}: " + "${user.bonus}" + " \$",
                     subtitle: MyText.giftBalance,
                     subtitleColor: MyColors.balanceBoxRedAlternativ,
                     desc: "",
                     color: MyColors.shop,
                   ),
-                  MySizedBox.h32,
+                  MySizedBox.h16,
+
                   ///carx
-                  NewBalanceBox(
-                    onTap: () {
-                      Go.to(context, Pager.wheel);
-                    },
-                    icon: Assets.pngNote,
-                    boxTitle: "Carx",
-                    title: "${MyText.balance}: ${user.balance} TL ",
-                    subtitle: MyText.giftBalance,
-                    subtitleColor: MyColors.balanceBoxRedAlternativ,
-                    desc: MyText.desc,
-                    color: MyColors.shop,
-                  ),
-                  // MySizedBox.h16,
-                  // BalanceBox(
-                  //     title: "Balans TL",
-                  //     price: "${user.balance ?? 0} TL",
-                  //     subtitle: "(Sifariş)",
-                  //     color: MyColors.balansOrder,
-                  //     btnText: MyText.increaseBalance,
-                  //     colorbtn: MyColors.btnBlanceOrder,
-                  //     onTap: () => Go.to(
-                  //         context,
-                  //         Pager.paymentPage(
-                  //           paymentBalanceType: PaymentBalanceType.order,
-                  //         ))),
-                  //
-                  // ///bu hediyye balansi novbeti update de olacaq
-                  // // MySizedBox.h16,
-                  // // BalansMiniBox(
-                  // //   title: "Caspa-dan hədiyyə",
-                  // //   w: MediaQuery.of(context).size.width,
-                  // //   content: "\$ ${_prefs.user.monthly}",
-                  // //   color: MyColors.balanceCountPackage,
-                  // //   priceColor: MyColors.balanceBoxOrange,
-                  // //   icon: Text("Bitmə vaxtı"),
-                  // //   finishTime: "14 gün",
-                  // // ),
-                  // MySizedBox.h16,
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     BalansMiniBox(
-                  //       title: MyText.durtingCurrentMonth,
-                  //       content: "\$ ${_prefs.user.monthly}",
-                  //       color: MyColors.shop,
-                  //       priceColor: MyColors.balanceBoxRed,
-                  //       icon: const Icon(null),
-                  //       finishTime: "",
-                  //     ),
-                  //     MySizedBox.w16,
-                  //     BalansMiniBox(
-                  //       title: MyText.countOfOrders,
-                  //       content: "${_prefs.user.active_package_count}",
-                  //       color: MyColors.balanceCountPackage,
-                  //       onTap: () => Go.to(
-                  //         context,
-                  //         Pager.package(back: true),
-                  //       ),
-                  //       priceColor: MyColors.balanceBoxOrange,
-                  //       icon: SvgPicture.asset(Assets.svgBalanceUp),
-                  //       finishTime: "",
-                  //     ),
-                  //   ],
-                  // ),
-                  // // MySizedBox.h16,
-                  // //
-                  // // Row(
-                  // //   children: [
-                  // //     BalansMiniBox(
-                  // //       title: MyText.cashbackProfile,
-                  // //       content: "${_prefs.user.cashback_balance}\$ ",
-                  // //       color: MyColors.balansCargo,
-                  // //       priceColor: MyColors.mainColor,
-                  // //       icon: const Icon(null),
-                  // //       finishTime: "",
-                  // //     ),
-                  // //   ],
-                  // // ),
-                  // MySizedBox.h50,
+                  if (user.wheel == true)
+                    NewBalanceBox(
+                      onTap: () {
+                        if (user.wheel_active == false)
+                          Go.to(context, Pager.wheel);
+                      },
+                      icon: Assets.svgCarx,
+                      boxTitle: "Çarx",
+                      title: user.wheel_active == false
+                          ? "Yeni həftədə çarx aktiv olacaq"
+                          : "",
+                      subtitle: user.wheel_active == false
+                          ? "Çarx aktiv deyil"
+                          : "Çarx aktivdir",
+                      subtitleColor: MyColors.balanceBoxRedAlternativ,
+                      desc:
+                          "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ",
+                      color: MyColors.mainBlue127,
+                    ),
+                  MySizedBox.h32,
+
                 ],
               ),
             ),

@@ -152,7 +152,7 @@ class MyText {
   static const String bonus = "Bonuslar";
   static const String balance = "Balans";
   static const String desc =
-      "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";
+      "Yanlız həftədə 1 dəfə, Çarxı fırlada bilərsiniz";
 
   //user settings
   static const String main = "Əsas";

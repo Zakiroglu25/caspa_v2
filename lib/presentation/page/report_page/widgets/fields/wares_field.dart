@@ -38,7 +38,6 @@ class WaresField extends StatelessWidget {
                   builder: (contextP, snapShoot) {
                     return CaspaField(
                       readOnly: true,
-                      // suffixIcon: FieldLoading(state),
                       hint: MyText.topWares,
                       controller: TextEditingController.fromValue(
                           TextEditingValue(

@@ -68,7 +68,8 @@ class ReportProvider {
         "price": price,
         "currency": currency,
         "note": note,
-        "ware_house": ware
+        "ware_house": ware,
+        "branch": branch,
       });
     }
 

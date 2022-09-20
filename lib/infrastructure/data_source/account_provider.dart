@@ -75,6 +75,7 @@ class AccountProvider {
         birthday: birthday,
         company_name: company_name,
         tax_number: tax_number,
+
         ware_house: 1);
 
     final response = await dioAuth.dio.post(api,

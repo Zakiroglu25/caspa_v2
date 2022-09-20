@@ -22,9 +22,9 @@ class Bonus {
 }
 
 class Data {
-  int? id;
+  num? id;
   num? amount;
-  int? used;
+  num? used;
   String? type;
   String? deleteDays;
 

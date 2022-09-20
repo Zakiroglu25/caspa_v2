@@ -85,7 +85,7 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id,
+          ware: selectedWares.value!.id,
           branch: selectedBranch.valueOrNull!.id,
         );
         log(result.toString());

@@ -135,15 +135,14 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  void getUserData({bool? isLoading = true}) async {
-    if (isLoading!) {
+  void getUserData({bool isLoading = true}) async {
+    if (isLoading) {
       emit(UserLoading());
     }
     try {
       await UserOperations.configUserDataWhenOpenApp(
-        // fcmToken: _prefs.fcmToken,
-        accessToken: _prefs.accessToken!, fcm: _prefs.fcmToken,
-        //  path: _prefs.userPath
+        accessToken: _prefs.accessToken!,
+        fcm: _prefs.fcmToken,
       );
     } catch (e, s) {
       Recorder.recordCatchError(e, s);
@@ -200,6 +199,7 @@ class UserCubit extends Cubit<UserState> {
   bool get isOldPasswordIncorrect => (!old_password.hasValue ||
       old_password.value == null ||
       old_password.value.isEmpty);
+
   //email
   bool emailValid = false;
   final BehaviorSubject<String> uEmail = BehaviorSubject<String>();

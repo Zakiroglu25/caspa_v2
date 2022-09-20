@@ -8,6 +8,7 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 
 import '../../locator.dart';
 import '../configs/dio_auth.dart';
+import '../models/remote/response/bonus_model.dart';
 import '../models/remote/response/wheel_response.dart';
 
 class WheelProvider {
@@ -35,6 +36,29 @@ class WheelProvider {
       wtf("Provider8 Errot$e");
     }
 
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic?> bonus(
+    String? token,
+  ) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.bonus;
+    var url = Uri.parse(api);
+
+    log(url.toString());
+    final response = await dioAuth.dio.get(api);
+    log(response.data.toString());
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
+      final gelenCavabJson = response.data;
+      log("gelenCavabJson" + gelenCavabJson.toString());
+      Bonus data = Bonus.fromJson(gelenCavabJson);
+      statusDynamic.data = data.data;
+      log("statusDynamic" + statusDynamic.data.toString());
+    } else {
+      eeee("fetchBonus bad url :$url,response: ${response}");
+    }
     return statusDynamic;
   }
 }

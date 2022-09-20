@@ -184,7 +184,7 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     );
   }
 
-  //wheel_bonus_page
+  //wheel_page
 
   @override
   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {

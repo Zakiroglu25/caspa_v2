@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:caspa_v2/infrastructure/configs/dio_auth.dart';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
@@ -69,8 +71,6 @@ class UserOperations {
         deleteAccount = value.data()![SharedKeys.deleteAccount] ?? false;
       }));
 
-      // final deleteAccount = false;
-      //bbbb("jghjhjggh:  ${deleteAccount}");
       if (isSuccess(result!.statusCode)) {
         final MyUser user = result.data;
         //userData.cargoBalance = "0.55";

@@ -1,5 +1,6 @@
 // Dart imports:
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:caspa_v2/infrastructure/models/remote/response/ads_model.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/bonus_model.dart';
@@ -61,24 +62,6 @@ class GeneralProvider {
       statusDynamic.data = data.data;
     } else {
       eeee("fetchCommission bad url :$url,response: ${response}");
-    }
-    return statusDynamic;
-  }
-
-  static Future<StatusDynamic?> bonus(
-    String? token,
-  ) async {
-    StatusDynamic statusDynamic = StatusDynamic();
-    var api = ApiKeys.bonus;
-    var url = Uri.parse(api);
-    final response = await http.get(url, headers: ApiKeys.header(token: token));
-    statusDynamic.statusCode = response.statusCode;
-    if (response.statusCode == ResultKey.successCode) {
-      final gelenCavabJson = jsonDecode(response.body);
-      Bonus data = Bonus.fromJson(gelenCavabJson);
-      statusDynamic.data = data.data;
-    } else {
-      eeee("fetchBonus bad url :$url,response: ${response}");
     }
     return statusDynamic;
   }

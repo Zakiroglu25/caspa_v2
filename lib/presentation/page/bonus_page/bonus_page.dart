@@ -29,7 +29,7 @@ class BonusPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          MySizedBox.h40,
+          MySizedBox.h20,
           Text(
             "Bonuslar",
             style: AppTextStyles.coHead400.copyWith(fontSize: 20),
@@ -46,7 +46,7 @@ class BonusPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  _prefs.user.bonus.toString() + " \$",
+                  _prefs.user.bonus!.toStringAsFixed(2)+ " \$",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Text(

@@ -30,12 +30,6 @@ class RegisterCubit extends Cubit<RegisterState> {
   HiveService get _prefs => locator<HiveService>();
   RegisterType _registerType = RegisterType.personal;
 
-  //bool registerActive = false;
-
-  // set registerType(RegisterType value) {
-  //   _registerType = value;
-  //   isUserInfoValid(registerType: _registerType);
-  // }
   set updateRegisterType(int index) {
     if (index == 0) {
       _registerType = RegisterType.personal;

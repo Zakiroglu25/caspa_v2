@@ -90,8 +90,8 @@ import '../../presentation/page/calculate_page/calculate_page.dart';
 import '../../presentation/page/home_page/widgets/tariffs_courier_details.dart';
 import '../../presentation/page/select_packages_pay_page/select_packages_pay_page.dart';
 import '../../presentation/page/sms_codes_page/sms_codes_page.dart';
-import '../../presentation/page/wheel_bonus_page/spinner_game.dart';
-import '../../presentation/page/whell_page/well_win_page.dart';
+import '../../presentation/page/wheel_page/wheel_page.dart';
+import '../../presentation/page/wheel_result_page/wheel_result_page.dart';
 import '../enums/sms_types.dart';
 
 class Pager {
@@ -358,17 +358,21 @@ class Pager {
         )
       ], child: const BonusPage());
 
-  static get wheel => MultiBlocProvider(providers: [
-        BlocProvider(
-          create: (context) => WheelCubit(),
-        )
-      ], child: RoulettePage());
+  static wheelResult() {
+    return MultiBlocProvider(providers: [
+      BlocProvider.value(
+        value: WheelCubit()..fetch(),
+      ),
+    ], child: WheelResultPage());
+  }
 
-  static get wheelWin => MultiBlocProvider(providers: [
-        BlocProvider.value(
-          value: WheelCubit()..fetch(),
-        )
-      ], child: WellWinPage());
+  static wheel() {
+    return MultiBlocProvider(providers: [
+      BlocProvider.value(
+        value: WheelCubit()..fetch(),
+      ),
+    ], child: WheelPage());
+  }
 
   static deliveryAddress({CourierOrder? courierOrder}) =>
       MultiBlocProvider(providers: [

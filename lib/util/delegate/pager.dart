@@ -360,18 +360,14 @@ class Pager {
 
   static wheelResult() {
     return MultiBlocProvider(providers: [
-      BlocProvider.value(
-        value: WheelCubit()..fetch(),
+      BlocProvider(
+        create: (_) => WheelCubit()..fetch(),
       ),
     ], child: WheelResultPage());
   }
 
   static wheel() {
-    return MultiBlocProvider(providers: [
-      BlocProvider.value(
-        value: WheelCubit()..fetch(),
-      ),
-    ], child: WheelPage());
+    return  WheelPage();
   }
 
   static deliveryAddress({CourierOrder? courierOrder}) =>

@@ -29,6 +29,7 @@ class BranchField extends StatelessWidget {
           List<Branch>? branch;
           if (state is BranchesSuccess) {
             branch = state.branches;
+            BlocProvider.of<ReportCubit>(context).updateBranch(branch.first);
             context.read<ReportCubit>().updateBranchList(branch);
           }
           return Column(

@@ -9,6 +9,8 @@ class Bonus {
       json['data'].forEach((v) {
         data!.add(new Data.fromJson(v));
       });
+
+      data = data!.reversed.toList();
     }
   }
 

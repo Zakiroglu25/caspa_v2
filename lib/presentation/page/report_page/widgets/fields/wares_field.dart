@@ -27,7 +27,11 @@ class WaresField extends StatelessWidget {
         builder: (context, state) {
           List<Data>? wares;
           if (state is WaresSuccess) {
+
             wares = state.wares;
+            BlocProvider.of<ReportCubit>(
+                context)
+                .updateWares(wares.first);
             context.read<ReportCubit>().updateWaresList(wares);
           }
           return Column(
@@ -94,7 +98,6 @@ class WaresField extends StatelessWidget {
                                         itemCount: wares.length,
                                         itemBuilder: (contextK, index) {
                                           Data category = wares[index];
-
                                           return CaspaRadio(
                                             onTap: () {
                                               BlocProvider.of<ReportCubit>(

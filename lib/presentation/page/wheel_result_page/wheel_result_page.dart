@@ -88,7 +88,7 @@ class WheelResultPage extends StatelessWidget {
                     SizedBox(
                       width: 295,
                       child: Text(
-                          "Siz Caspa-dan ${res} ₼ məbləğində hədiyyə çatdırılma balansə qazandınız!",
+                          "Siz Caspa-dan ${res} azn məbləğində hədiyyə çatdırılma balansə qazandınız!",
                           style:
                               AppTextStyles.coHead400.copyWith(fontSize: 16)),
                     ),

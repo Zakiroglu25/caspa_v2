@@ -117,9 +117,10 @@ class LoginCubit extends Cubit<LoginState> {
             "login result bad: ${ResponseMessage.fromJson(jsonDecode(response.data)).message}");
       }
     } on SocketException catch (_) {
-      emit(LoginError(error: 'network_error'));
-    } catch (e) {
-      emit(LoginError(error: e.toString()));
+      emit(LoginError(error: MyText.network_error));
+    } catch (e, s) {
+      emit(LoginError());
+      Recorder.recordCatchError(e, s);
     }
   }
 

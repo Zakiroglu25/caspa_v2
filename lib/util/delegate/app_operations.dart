@@ -79,10 +79,14 @@ class AppOperations {
 
   static List<String> errorFromListOfListAsList2(String body) {
     List<String> esilErrorList = <String>[];
-    List errorList = ((jsonDecode(body)['errors']['errors']));
-    errorList.forEach((e) {
-      esilErrorList.add(e[0]);
-    });
+    List? errorList = ((jsonDecode(body)['errors']['errors']));
+    if (errorList != null) {
+      errorList.forEach((e) {
+        e[0] != null ? esilErrorList.add(e[0]) : null;
+      });
+    } else {
+      esilErrorList.add(MyText.unknownError);
+    }
 
     return esilErrorList;
   }

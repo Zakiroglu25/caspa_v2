@@ -65,6 +65,7 @@ class WheelPage extends StatelessWidget {
                             child: Icon(
                           Icons.clear_outlined,
                           color: MyColors.white,
+                              size: 16,
                         ))),
                   )
                 ],

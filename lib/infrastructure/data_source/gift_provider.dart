@@ -33,8 +33,7 @@ class GiftProvider {
 
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      statusDynamic.data =
-          GiftBalanceData.fromJson(gelenCavabJson).giftBalanceList;
+      statusDynamic.data = GiftBalanceData.fromJson(gelenCavabJson).giftBalanceList;
     } else {
       eeee(
           "getGiftCodes bad url :${response.requestOptions.path},response: $response");

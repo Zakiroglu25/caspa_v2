@@ -140,7 +140,7 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
   updateEmail(String value) {
     if (value == null || value.isEmpty) {
       uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
+      uEmail.sink.addError(MyText.emailAddressIsNotCorrect);
     } else {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);

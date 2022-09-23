@@ -24,8 +24,6 @@ class CourierEditAndDelete extends StatelessWidget {
   final CourierOrder courier;
   final List<Package> packages;
 
-  static HiveService get _prefs => locator<HiveService>();
-
   @override
   Widget build(BuildContext context) {
     return WidgetOrEmpty(

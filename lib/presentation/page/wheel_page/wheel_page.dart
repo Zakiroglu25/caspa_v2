@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:math';
 
-import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
+import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,11 +19,14 @@ import '../../../util/delegate/navigate_utils.dart';
 import '../../../util/delegate/pager.dart';
 import 'spinner_well.dart';
 
-class RoulettePage extends StatelessWidget {
+class WheelPage extends StatelessWidget {
   final StreamController<int> _dividerController = StreamController<int>();
+
   HiveService get _prefs => locator<HiveService>();
 
   final _wheelNotifier = StreamController<double>();
+
+  final ValueNotifier<bool> _wheelActivityNotifier = ValueNotifier<bool>(false);
 
   dispose() {
     _dividerController.close();
@@ -30,10 +35,13 @@ class RoulettePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+    return WillPopScope(
+      onWillPop: () async {
+        return Future.value(false);
+      },
+      child: Scaffold(
+        body: Padding(
+          padding: Paddings.paddingA16,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -42,7 +50,11 @@ class RoulettePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
-                    onTap: () => Go.pop(context),
+                    onTap: () {
+                      if (!_wheelActivityNotifier.value) {
+                        Go.pop(context);
+                      }
+                    },
                     child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
@@ -53,6 +65,7 @@ class RoulettePage extends StatelessWidget {
                             child: Icon(
                           Icons.clear_outlined,
                           color: MyColors.white,
+                              size: 16,
                         ))),
                   )
                 ],
@@ -63,11 +76,13 @@ class RoulettePage extends StatelessWidget {
                 style: AppTextStyles.coHead400.copyWith(fontSize: 25),
               ),
               MySizedBox.h22,
-              SvgPicture.asset(Assets.svgCarx),
+              SizedBox(
+                  width: 24, height: 24, child: Image.asset(Assets.svgCarx)),
               MySizedBox.h8,
               Text(
                   "Hər həftə oyna və hədiyyə sahibi ol. Sadəcə çarxı fırlat və bəxtini sına",
                   style: AppTextStyles.coHead400.copyWith(fontSize: 16)),
+              Spacer(),
               Center(
                 child: SpinningWheel(
                   Image.asset(Assets.whell),
@@ -78,6 +93,7 @@ class RoulettePage extends StatelessWidget {
                   dividers: 5,
                   onUpdate: _dividerController.add,
                   onEnd: _dividerController.add,
+                  //onEnd: () {},
                   secondaryImage: Image.asset(Assets.center300),
                   secondaryImageHeight: 110,
                   secondaryImageWidth: 110,
@@ -85,23 +101,28 @@ class RoulettePage extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              CaspaButton(
-                  borderRadius: 100,
-                  h: 64,
-                  textSize: 25,
-                  text: "Çarxı fırla",
-                  color: MyColors.black,
-                  onTap: () {
-                    _wheelNotifier.sink.add(_generateRandomVelocity());
-                    context.read<WheelCubit>().fetch();
-                    Timer(
-                        Duration(seconds: 4),
-                        () => Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Pager.wheelWin,
-                            )));
-                  }),
+              ValueListenableBuilder<bool>(
+                valueListenable: _wheelActivityNotifier,
+                builder: (_, value, child) {
+                  if (!value) {
+                    return CaspaButton(
+                        borderRadius: 100,
+                        h: 64,
+                        textSize: 25,
+                        text: "Çarxı fırla",
+                        color: MyColors.black,
+                        onTap: () {
+                          _wheelNotifier.sink.add(_generateRandomVelocity());
+                          _wheelActivityNotifier.value = true;
+                          // context.read<WheelCubit>().fetch();
+                          Timer(Duration(seconds: 3),
+                              () => Go.replace(context, Pager.wheelResult()));
+                        });
+                  }
+
+                  return SizedBox.shrink();
+                },
+              ),
               MySizedBox.h70,
             ],
           ),
@@ -110,5 +131,5 @@ class RoulettePage extends StatelessWidget {
     );
   }
 
-  double _generateRandomVelocity() => 10000 + 1200;
+  double _generateRandomVelocity() => 10000.0 + Random().nextInt(2000);
 }

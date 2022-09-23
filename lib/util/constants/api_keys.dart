@@ -291,7 +291,6 @@ class ApiKeys {
     required String? fin,
     required String? birthday,
     required String? gender,
-    required int? ware_house,
     required int? branch,
   }) {
     final map = {
@@ -307,7 +306,6 @@ class ApiKeys {
       "fin": fin,
       "birthday": birthday,
       "gender": gender,
-      "ware_house": ware_house,
       "branch": branch,
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,

@@ -9,6 +9,7 @@ class MyColors {
   static const Color mainBlue02 = Color.fromRGBO(64, 157, 209, 0.2);
   static const Color mainBlue03 = Color.fromRGBO(64, 157, 209, 0.3);
   static const Color greyWhite = Color.fromRGBO(245, 245, 245, 1);
+  static const Color mainBlue127 = Color(0xFFE0F0FC);
   static const Color white = Colors.white;
 
   // static const Color white70 = Color.fromRGBO(255, 255, 255, .7);
@@ -124,6 +125,7 @@ class MyColors {
   //new dark text color
   static const Color dark51 = Color.fromRGBO(51, 51, 51, 1);
   static const Color deleteREd = Color.fromRGBO(253, 242, 244, 1);
+  static const Color wheelBck = Color(0xFFE0F0FC);
 
 //bonus background
   static const Color bonus = Color.fromRGBO(251, 228, 228, 1);

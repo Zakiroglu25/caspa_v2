@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/cubits/bonus_cubit/bonus_state.dart';
 import 'package:caspa_v2/infrastructure/data_source/general_provider.dart';
+import 'package:caspa_v2/infrastructure/data_source/wheel_provider.dart';
 import 'package:caspa_v2/infrastructure/models/remote/general/MyMessage.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
@@ -21,7 +22,7 @@ class BonusCubit extends Cubit<BonusState> {
       emit(BonusInProgress());
     }
     try {
-      final result = await GeneralProvider.bonus(_prefs.accessToken);
+      final result = await WheelProvider.bonus(_prefs.accessToken);
       try {
         if (isSuccess(result!.statusCode)) {
           emit(BonusSuccess(result.data));

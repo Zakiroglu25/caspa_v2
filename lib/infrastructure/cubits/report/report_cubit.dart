@@ -34,7 +34,7 @@ class ReportCubit extends Cubit<ReportState> {
   TextEditingController categoryFilterController = TextEditingController();
 
   List<Category> permanentCategories = [];
-  List<Data> permanentWares = [];
+  List<WareHouse> permanentWares = [];
   List<Branch> permanentBranch = [];
 
   Future<File?> checkAndPickImage(BuildContext context) async {
@@ -85,8 +85,8 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id,
-          branch: selectedBranch.valueOrNull!.id,
+          ware: selectedWares.valueOrNull?.id,
+          branch: selectedBranch.valueOrNull?.id,
         );
         log(result.toString());
         if (isSuccess(result?.statusCode)) {
@@ -210,11 +210,12 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   ///selectedWares
-  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
+  final BehaviorSubject<WareHouse?> selectedWares =
+      BehaviorSubject<WareHouse>();
 
-  Stream<Data?> get selectedWaresStream => selectedWares.stream;
+  Stream<WareHouse?> get selectedWaresStream => selectedWares.stream;
 
-  updateWares(Data value) {
+  updateWares(WareHouse? value) {
     print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
@@ -285,10 +286,10 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<List<Category>> get categoriesListStream => categories.stream;
 
   ///wares list
-  final BehaviorSubject<List<Data>> wares =
-      BehaviorSubject<List<Data>>.seeded([]);
+  final BehaviorSubject<List<WareHouse>> wares =
+      BehaviorSubject<List<WareHouse>>.seeded([]);
 
-  Stream<List<Data>> get waresListStream => wares.stream;
+  Stream<List<WareHouse>> get waresListStream => wares.stream;
 
   ///wares list
 
@@ -319,7 +320,7 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   //update wares list
-  updateWaresList(List<Data> value) {
+  updateWaresList(List<WareHouse> value) {
     permanentWares = value;
     wares.sink.add(permanentWares);
   }
@@ -389,7 +390,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get trackingIDStream => trackingID.stream;
 
   updateTrackingID(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       trackingID.value = '';
       trackingID.sink.addError(MyText.field_is_not_correct);
     } else {

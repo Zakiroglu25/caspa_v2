@@ -16,6 +16,7 @@ class MyText {
   static const String log_in = "Daxil ol";
   static const String login = "Giriş";
   static const String email = "E-poçt";
+  static const String emailAddressIsNotCorrect = "E-poçt düzgün deyil";
   static const String password = "Şifrə";
   static const String passwordAgain = "Şifrənin təkrarı";
   static const String forgot_pass = "Şifrəni unutmuşam";
@@ -158,8 +159,8 @@ class MyText {
   static const String giftBalance = "Hədiyyə balansı";
   static const String bonus = "Bonuslar";
   static const String balance = "Balans";
-  static const String desc =
-      "Bu kart sizin bütün balanslarınızı xərclərinizi özündə birləşdirir.";
+  static const String balances = "Balanslar";
+  static const String desc = "Yanlız həftədə 1 dəfə, Çarxı fırlada bilərsiniz";
 
   //user settings
   static const String main = "Əsas";
@@ -437,7 +438,7 @@ class MyText {
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 
-  //wheel_bonus_page
+  //wheel_page
   static const String testMail = "esev.sv@gmail.com";
 
   /////////////////////////////////////////////

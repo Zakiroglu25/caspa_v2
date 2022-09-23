@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../infrastructure/cubits/bonus_cubit/bonus_cubit.dart';
 import '../../../../infrastructure/cubits/bonus_cubit/bonus_state.dart';
@@ -18,7 +19,7 @@ class BottomConyainerBonus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 375,
+      height: 450.h,
       width: MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(

@@ -1,13 +1,13 @@
-class Wares {
-  List<Data>? data;
+class WareHouseData {
+  List<WareHouse>? data;
 
-  Wares({this.data});
+  WareHouseData({this.data});
 
-  Wares.fromJson(Map<String, dynamic> json) {
+  WareHouseData.fromJson(Map<String, dynamic> json) {
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <WareHouse>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(new WareHouse.fromJson(v));
       });
     }
   }
@@ -21,14 +21,14 @@ class Wares {
   }
 }
 
-class Data {
+class WareHouse {
   int? id;
   String? name;
   City? city;
 
-  Data({this.id, this.name, this.city});
+  WareHouse({this.id, this.name, this.city});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  WareHouse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     city = json['city'] != null ? new City.fromJson(json['city']) : null;

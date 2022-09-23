@@ -25,9 +25,10 @@ class WaresField extends StatelessWidget {
       value: WaresCubit()..fetch(),
       child: BlocBuilder<WaresCubit, WaresState>(
         builder: (context, state) {
-          List<Data>? wares;
+          List<WareHouse>? wares;
           if (state is WaresSuccess) {
             wares = state.wares;
+            BlocProvider.of<ReportCubit>(context).updateWares(wares.first);
             context.read<ReportCubit>().updateWaresList(wares);
           }
           return Column(
@@ -38,7 +39,6 @@ class WaresField extends StatelessWidget {
                   builder: (contextP, snapShoot) {
                     return CaspaField(
                       readOnly: true,
-                      // suffixIcon: FieldLoading(state),
                       hint: MyText.topWares,
                       controller: TextEditingController.fromValue(
                           TextEditingValue(
@@ -62,14 +62,14 @@ class WaresField extends StatelessWidget {
     );
   }
 
-  showSheet(BuildContext context, List<Data>? waresList) {
+  showSheet(BuildContext context, List<WareHouse>? waresList) {
     if (waresList != null && waresList.isNotEmpty) {
       Sheet.display(
           context: context,
-          child: StreamBuilder<List<Data>>(
+          child: StreamBuilder<List<WareHouse>>(
               stream: BlocProvider.of<ReportCubit>(context).waresListStream,
               builder: (contextZ, listSnapshot) {
-                List<Data> wares = (listSnapshot.data ?? []);
+                List<WareHouse> wares = (listSnapshot.data ?? []);
                 final itemCount = wares.length;
                 final sH = MediaQuery.of(context).size.height - 56 - 90;
                 //   final listHeight = (itemCount) * 50.0 + 75;
@@ -94,8 +94,7 @@ class WaresField extends StatelessWidget {
                                         shrinkWrap: false,
                                         itemCount: wares.length,
                                         itemBuilder: (contextK, index) {
-                                          Data category = wares[index];
-
+                                          WareHouse category = wares[index];
                                           return CaspaRadio(
                                             onTap: () {
                                               BlocProvider.of<ReportCubit>(

@@ -19,7 +19,7 @@ class WheelBalanceBox extends StatelessWidget {
     return WidgetOrEmpty(
       value: !DateOperations.isWeekCompleted(user.wheelTime!),
       child: NewBalanceBox(
-        onTap: () => Go.to(context, Pager.wheel),
+        onTap: () => Go.to(context, Pager.wheel()),
         icon: Assets.pngNote,
         boxTitle: MyText.wheel,
         title: "${MyText.balance}: ${user.balance} ${MyText.tryy} ",

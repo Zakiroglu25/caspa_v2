@@ -71,7 +71,7 @@ class PublicProvider {
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
-      statusDynamic.data = Wares.fromJson(gelenCavabJson).data;
+      statusDynamic.data = WareHouseData.fromJson(gelenCavabJson).data;
     } else {
       eeee(
           "getWares bad url :${response.requestOptions.path},response: $response");

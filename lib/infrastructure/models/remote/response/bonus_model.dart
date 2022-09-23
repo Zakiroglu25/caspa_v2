@@ -9,6 +9,8 @@ class Bonus {
       json['data'].forEach((v) {
         data!.add(new Data.fromJson(v));
       });
+
+      data = data!.reversed.toList();
     }
   }
 
@@ -22,9 +24,9 @@ class Bonus {
 }
 
 class Data {
-  int? id;
+  num? id;
   num? amount;
-  int? used;
+  num? used;
   String? type;
   String? deleteDays;
 

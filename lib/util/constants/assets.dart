@@ -34,7 +34,7 @@ class Assets {
   static const String shopMobile = "assets/png/shopMobile.png";
   static const String bottomBirthday = "assets/png/birthdayimage.png";
 
-  // wheel_bonus_page
+  // wheel_page
   static const String sekkiz300 = "assets/png/roulette-8-300.png";
   static const String center300 = "assets/png/roulette-center-300.png";
   static const String bckgame = "assets/png/bckgame.png";
@@ -91,9 +91,9 @@ class Assets {
   static const String svgMiniWhatsapp = "assets/svg/wpvector.svg";
   static const String svgBonusIn = "assets/svg/inbonus.svg";
   static const String svgClock = "assets/svg/clock.svg";
-  static const String svgCarx = "assets/svg/des.svg";
+  static const String svgCarx = "assets/png/carx.png";
 
-  //wheel_bonus_page url
+  //wheel_page url
   static const String testImageURL =
       "https://caspa.az/storage/stores/IVMOmydV4O1i81NXfpS3oC1DjSEutcZeiKw23kzT.png";
 

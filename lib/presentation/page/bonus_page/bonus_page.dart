@@ -29,14 +29,14 @@ class BonusPage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          MySizedBox.h40,
+          MySizedBox.h12,
           Text(
             "Bonuslar",
             style: AppTextStyles.coHead400.copyWith(fontSize: 20),
           ),
-          MySizedBox.h26,
+          MySizedBox.h18,
           Container(
-            height: 62,
+            height: 62.h,
             width: 130,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
@@ -46,7 +46,7 @@ class BonusPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  _prefs.user.bonus.toString() + " \$",
+                  _prefs.user.bonus!.toStringAsFixed(2) + " \$",
                   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
                 ),
                 Text(
@@ -57,12 +57,11 @@ class BonusPage extends StatelessWidget {
               ],
             ),
           ),
-          MySizedBox.h16,
+          MySizedBox.h12,
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
               padding: const EdgeInsets.all(8.0),
-              height: 62,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   color: Color.fromRGBO(0, 0, 0, 0.05)),

@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
 import 'package:caspa_v2/infrastructure/data_source/account_provider.dart';
 import 'package:caspa_v2/infrastructure/services/hive_service.dart';
+import 'package:caspa_v2/util/constants/durations.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
@@ -209,7 +210,7 @@ class UserCubit extends Cubit<UserState> {
   updateEmail(String value) {
     if (value == null || value.isEmpty) {
       uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
+      uEmail.sink.addError(MyText.emailAddressIsNotCorrect);
     } else {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
@@ -295,26 +296,8 @@ class UserCubit extends Cubit<UserState> {
     isUserInfoValid();
   }
 
-  bool get isAdressIncorrect =>
+  bool get isAddressIncorrect =>
       (!adress.hasValue || adress.value == null || adress.value.isEmpty);
-
-  //anbar
-  final BehaviorSubject<String> anbar = BehaviorSubject<String>();
-
-  Stream<String> get anbarStream => anbar.stream;
-
-  updateAnbar(String value) {
-    if (value == null || value.isEmpty) {
-      anbar.value = '';
-      anbar.sink.addError("field_is_not_correct");
-    } else {
-      anbar.sink.add(value);
-    }
-    isUserInfoValid();
-  }
-
-  bool get isAnbarIncorrect =>
-      (!anbar.hasValue || anbar.value == null || anbar.value.isEmpty);
 
   ///////uMainPass
   final BehaviorSubject<String> uPassMain = BehaviorSubject<String>();
@@ -448,7 +431,7 @@ class UserCubit extends Cubit<UserState> {
     uPassMain.close();
     adress.close();
     image.close();
-    anbar.close();
+
     phone.close();
     return super.close();
   }

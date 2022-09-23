@@ -1,11 +1,10 @@
 import 'dart:convert';
-import 'dart:math';
-
 import 'package:caspa_v2/infrastructure/cubits/authentication/authentication_cubit.dart';
 import 'package:caspa_v2/infrastructure/models/local/my_user.dart';
 import 'package:caspa_v2/presentation/page/address_page/widget/sliver_info.dart';
 import 'package:caspa_v2/presentation/page/home_page/widgets/section_name.dart';
 import 'package:caspa_v2/presentation/page/landing_page/landing_page.dart';
+import 'package:caspa_v2/presentation/page/user_cabinet_page/widget/cabinet_menu_item.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
@@ -27,13 +26,16 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../infrastructure/cubits/user/user_cubit.dart';
+import '../../../infrastructure/services/hive_service.dart';
+import '../../../locator.dart';
+import '../../../util/screen/widget_or_empty.dart';
 import 'widget/cabinet_header.dart';
 import 'widget/new_balans_box.dart';
 
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
-
+  static HiveService get _prefs => locator<HiveService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +128,7 @@ class UserCabinetPage extends StatelessWidget {
 
                     if (showWheel)
                       NewBalanceBox(
-                        onTap: true
+                        onTap: wheelActive
                             ? () => Go.to(context, Pager.wheel())
                             : null,
                         icon: Assets.svgCarx,
@@ -170,6 +172,16 @@ class UserCabinetPage extends StatelessWidget {
                 ],
               ),
               onPressed: () => Go.to(contextA, Pager.userSettingsPage),
+            ),
+            WidgetOrEmpty(
+              value: _prefs.deleteAccount,
+              child: CabinetMenuItem(
+                title: MyText.deleteAccount,
+                icon: Icon(Icons.delete_forever_rounded),
+                onPressed: () => context
+                    .read<AuthenticationCubit>()
+                    .showLogoutDialog(context, goWithPager: true),
+              ),
             ),
             CupertinoActionSheetAction(
               child: Row(

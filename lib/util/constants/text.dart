@@ -16,6 +16,7 @@ class MyText {
   static const String log_in = "Daxil ol";
   static const String login = "Giriş";
   static const String email = "E-poçt";
+  static const String emailAddressIsNotCorrect = "E-poçt düzgün deyil";
   static const String password = "Şifrə";
   static const String passwordAgain = "Şifrənin təkrarı";
   static const String forgot_pass = "Şifrəni unutmuşam";

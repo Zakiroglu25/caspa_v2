@@ -32,7 +32,10 @@ import 'widgets/report_contiue_button.dart';
 class ReportPage extends StatelessWidget {
   final Package? package;
   final List<Region>? regionList;
+
   ReportPage({this.package, this.regionList});
+
+  final ValueNotifier<int?> _activityNotifier = ValueNotifier<int?>(null);
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +86,18 @@ class ReportPage extends StatelessWidget {
                 CountFieldReport(),
                 TrackingIdFieldReport(
                     controller: TextEditingController(text: package?.tracking)),
-                WaresField(),
-                BranchField(),
+                BranchField(
+                  activityNotifier: _activityNotifier,
+                ),
+                ValueListenableBuilder<int?>(
+                    valueListenable: _activityNotifier,
+                    builder: (_, value, child) {
+                      print("value $value");
+                      if (value != null && value ==1) {
+                        return WaresField();
+                      }
+                      return SizedBox.shrink();
+                    }),
                 NoteFieldReport(
                     controller: TextEditingController(text: package?.note)),
                 SectionName(title: MyText.factura),

@@ -24,7 +24,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit() : super(RegisterInitial());
 
   FirebaseMessaging get _firebaseMessaging => locator<FirebaseMessaging>();
-  List<Data> permanentWares = [];
+  List<WareHouse> permanentWares = [];
   List<Branch> permanentBranches = [];
 
   HiveService get _prefs => locator<HiveService>();
@@ -68,7 +68,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         deviceCode: deviceCode,
         deviceTypeId: StringOperations.platformId(),
         language: _prefs.language,
-        ware_house: selectedWares.valueOrNull!.id,
         branch: selectedBranch.valueOrNull!.id,
       );
 
@@ -143,7 +142,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   updateEmail(String value) {
     if (value == null || value.isEmpty) {
       uEmail.value = '';
-      uEmail.sink.addError("email_address_is_not_correct");
+      uEmail.sink.addError(MyText.emailAddressIsNotCorrect);
     } else {
       emailValid = Validator.mail(value);
       uEmail.sink.add(value);
@@ -381,12 +380,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   Stream<bool> get checkBoxStream => checkbox.stream;
 
   updateCheckBox(bool value) {
-    // if (value) {
-    //   checkbox.value = false;
-    //   checkbox.sink.addError(MyText.field_is_not_correct);
-    // } else {
     checkbox.sink.add(value);
-    //}
     isUserInfoValid(registerType: _registerType);
   }
 
@@ -440,26 +434,6 @@ class RegisterCubit extends Cubit<RegisterState> {
     registerActive.sink.add(value);
   }
 
-  ///selectedWares
-  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
-
-  Stream<Data?> get selectedWaresStream => selectedWares.stream;
-
-  updateWares(Data value) {
-    if (value == null) {
-      selectedWares.value = null;
-      //taxNumber.sink.addError(MyText.field_is_not_correct);
-    } else {
-      if (selectedWares.valueOrNull?.id != value.id) {
-        selectedWares.sink.add(value);
-      }
-    }
-
-    //isUserInfoValid(registerType: _registerType);
-  }
-
-  ///selectedWares
-
   ///selectedBranch
   final BehaviorSubject<Branch?> selectedBranch = BehaviorSubject<Branch>();
 
@@ -475,42 +449,25 @@ class RegisterCubit extends Cubit<RegisterState> {
       }
     }
 
-    //isUserInfoValid(registerType: _registerType);
+    isUserInfoValid(registerType: _registerType);
   }
 
-  ///selectedWares
+  bool get isBranchIncorrect =>
+      (!selectedBranch.hasValue || selectedBranch.value == null);
 
   ///branch list
-  final BehaviorSubject<List<Branch>> branch =
+  final BehaviorSubject<List<Branch>> branchList =
       BehaviorSubject<List<Branch>>.seeded([]);
 
-  Stream<List<Branch>> get branchListStream => branch.stream;
+  Stream<List<Branch>> get branchListStream => branchList.stream;
 
   ///branch list
 
   ///update branch list
   updateBranchList(List<Branch> value) {
     permanentBranches = value;
-    branch.sink.add(permanentBranches);
+    branchList.sink.add(permanentBranches);
   }
-
-  ///update branch list
-
-  ///wares list
-  final BehaviorSubject<List<Data>> wares =
-      BehaviorSubject<List<Data>>.seeded([]);
-
-  Stream<List<Data>> get waresListStream => wares.stream;
-
-  ///wares list
-
-  ///update wares list
-  updateWaresList(List<Data> value) {
-    permanentWares = value;
-    wares.sink.add(permanentWares);
-  }
-
-  ///update wares list
 
   @override
   Future<void> close() {
@@ -523,6 +480,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     fin.close();
     uPassSecond.close();
     uPassMain.close();
+    selectedBranch.close();
     adress.close();
     checkbox.close();
     anbar.close();
@@ -554,6 +512,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           !isIdNumberIncorrect &&
           !isMainPassInCorrect &&
           !isCheckBoxIncorrect &&
+          !isBranchIncorrect &&
           //!isAnbarIncorrect &&
           !isSecondPassInCorrect &&
           // !isBirtdayIncorrect &&

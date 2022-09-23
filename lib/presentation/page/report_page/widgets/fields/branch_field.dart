@@ -17,8 +17,9 @@ import '../../../../../../infrastructure/models/remote/response/branches_model.d
 import '../../../../../infrastructure/cubits/report/report_cubit.dart';
 
 class BranchField extends StatelessWidget {
-  BranchField({Key? key, this.selectedWaresId}) : super(key: key);
+  BranchField({Key? key, this.selectedWaresId, required this.activityNotifier}) : super(key: key);
   int? selectedWaresId;
+  final ValueNotifier<int?> activityNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,6 @@ class BranchField extends StatelessWidget {
           List<Branch>? branch;
           if (state is BranchesSuccess) {
             branch = state.branches;
-            BlocProvider.of<ReportCubit>(context).updateBranch(branch.first);
             context.read<ReportCubit>().updateBranchList(branch);
           }
           return Column(
@@ -38,6 +38,8 @@ class BranchField extends StatelessWidget {
                   stream: BlocProvider.of<ReportCubit>(context)
                       .selectedBranchStream,
                   builder: (contextP, snapShoot) {
+
+
                     return CaspaField(
                       readOnly: true,
                       // suffixIcon: FieldLoading(state),
@@ -103,6 +105,8 @@ class BranchField extends StatelessWidget {
                                               BlocProvider.of<ReportCubit>(
                                                       context)
                                                   .updateBranch(category);
+
+                                              activityNotifier.value = category.id;
                                               Go.pop(context);
                                             },
                                             title: category.name,

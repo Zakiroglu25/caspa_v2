@@ -34,7 +34,7 @@ class ReportCubit extends Cubit<ReportState> {
   TextEditingController categoryFilterController = TextEditingController();
 
   List<Category> permanentCategories = [];
-  List<Data> permanentWares = [];
+  List<WareHouse> permanentWares = [];
   List<Branch> permanentBranch = [];
 
   Future<File?> checkAndPickImage(BuildContext context) async {
@@ -210,16 +210,20 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   ///selectedWares
-  final BehaviorSubject<Data?> selectedWares = BehaviorSubject<Data>();
+  final BehaviorSubject<WareHouse?> selectedWares =
+      BehaviorSubject<WareHouse>();
 
-  Stream<Data?> get selectedWaresStream => selectedWares.stream;
+  Stream<WareHouse?> get selectedWaresStream => selectedWares.stream;
 
-  updateWares(Data value) {
+  updateWares(WareHouse? value) {
+    print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {
+        print(selectedWares.valueOrNull?.id);
+
         selectedWares.sink.add(value);
       }
     }
@@ -282,10 +286,10 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<List<Category>> get categoriesListStream => categories.stream;
 
   ///wares list
-  final BehaviorSubject<List<Data>> wares =
-      BehaviorSubject<List<Data>>.seeded([]);
+  final BehaviorSubject<List<WareHouse>> wares =
+      BehaviorSubject<List<WareHouse>>.seeded([]);
 
-  Stream<List<Data>> get waresListStream => wares.stream;
+  Stream<List<WareHouse>> get waresListStream => wares.stream;
 
   ///wares list
 
@@ -316,7 +320,7 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   //update wares list
-  updateWaresList(List<Data> value) {
+  updateWaresList(List<WareHouse> value) {
     permanentWares = value;
     wares.sink.add(permanentWares);
   }
@@ -368,7 +372,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get sellerStream => seller.stream;
 
   updateSeller(String value) {
-    if (value.isEmpty) {
+    if (value == null || value.isEmpty) {
       seller.value = '';
       seller.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -377,7 +381,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSellerIncorrect => (!seller.hasValue || seller.value.isEmpty);
+  bool get isSellerIncorrect =>
+      (!seller.hasValue || seller.value == null || seller.value.isEmpty);
 
   //trackingID
   final BehaviorSubject<String> trackingID = BehaviorSubject<String>();
@@ -394,8 +399,9 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isTrackingIDIncorrect =>
-      (!trackingID.hasValue || trackingID.value.isEmpty);
+  bool get isTrackingIDIncorrect => (!trackingID.hasValue ||
+      trackingID.value == null ||
+      trackingID.value.isEmpty);
 
 //productCount
   final BehaviorSubject<int> productCount = BehaviorSubject<int>();
@@ -403,7 +409,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<int> get productCountStream => productCount.stream;
 
   updateProductCount(String value) {
-    if (value.isEmpty) {
+    if (value == null || value.isEmpty) {
       // productCount.value = '';
       productCount.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -412,7 +418,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isProductCountIncorrect => (!productCount.hasValue);
+  bool get isProductCountIncorrect =>
+      (!productCount.hasValue || productCount.value == null);
 
 //note
   final BehaviorSubject<String> note = BehaviorSubject<String>();
@@ -420,7 +427,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get noteStream => note.stream;
 
   updateNote(String value) {
-    if (value.isEmpty) {
+    if (value == null || value.isEmpty) {
       note.value = '';
       note.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -429,7 +436,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isNoteIncorrect => (!note.hasValue || note.value.isEmpty);
+  bool get isNoteIncorrect =>
+      (!note.hasValue || note.value == null || note.value.isEmpty);
 
   //price
   final BehaviorSubject<double> price = BehaviorSubject<double>();
@@ -437,7 +445,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<double> get priceStream => price.stream;
 
   updatePrice(String value) {
-    if (value.isEmpty) {
+    if (value == null || value.isEmpty) {
       price.sink.addError(MyText.field_is_not_correct);
     } else {
       price.sink.add(double.parse(value));
@@ -445,7 +453,7 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceIncorrect => (!price.hasValue);
+  bool get isPriceIncorrect => (!price.hasValue || price.value == null);
 
   //priceType
   final BehaviorSubject<String> priceType =
@@ -454,7 +462,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get priceTypeStream => priceType.stream;
 
   updatepriceType(String value) {
-    if (value.isEmpty) {
+    if (value == null || value.isEmpty) {
       priceType.value = '';
       priceType.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -463,8 +471,9 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceTypeIncorrect =>
-      (!priceType.hasValue || priceType.value.isEmpty);
+  bool get isPriceTypeIncorrect => (!priceType.hasValue ||
+      priceType.value == null ||
+      priceType.value.isEmpty);
 
   ////validation
   bool isUserInfoValid({int? id}) {
@@ -492,7 +501,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<File?> get imageStream => image.stream;
 
   updateImage(File? value) {
-    if (value == null) {
+    if (value == null || value.path == null) {
       image.sink.addError(MyText.field_is_not_correct);
     } else {
       image.sink.add(value);

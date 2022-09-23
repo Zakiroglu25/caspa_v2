@@ -15,7 +15,7 @@ class WaresError extends WaresState {
 class WaresSuccess extends WaresState {
   WaresSuccess(this.wares);
 
-  List<Data> wares;
+  List<WareHouse> wares;
 }
 
 class WaresNetworkError extends WaresState {}

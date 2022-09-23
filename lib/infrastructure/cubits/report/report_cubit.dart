@@ -215,14 +215,11 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<Data?> get selectedWaresStream => selectedWares.stream;
 
   updateWares(Data value) {
-    print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {
-        print(selectedWares.valueOrNull?.id);
-
         selectedWares.sink.add(value);
       }
     }
@@ -371,7 +368,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get sellerStream => seller.stream;
 
   updateSeller(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       seller.value = '';
       seller.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -380,8 +377,7 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSellerIncorrect =>
-      (!seller.hasValue || seller.value == null || seller.value.isEmpty);
+  bool get isSellerIncorrect => (!seller.hasValue || seller.value.isEmpty);
 
   //trackingID
   final BehaviorSubject<String> trackingID = BehaviorSubject<String>();
@@ -389,7 +385,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get trackingIDStream => trackingID.stream;
 
   updateTrackingID(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       trackingID.value = '';
       trackingID.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -398,9 +394,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isTrackingIDIncorrect => (!trackingID.hasValue ||
-      trackingID.value == null ||
-      trackingID.value.isEmpty);
+  bool get isTrackingIDIncorrect =>
+      (!trackingID.hasValue || trackingID.value.isEmpty);
 
 //productCount
   final BehaviorSubject<int> productCount = BehaviorSubject<int>();
@@ -408,7 +403,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<int> get productCountStream => productCount.stream;
 
   updateProductCount(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       // productCount.value = '';
       productCount.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -417,8 +412,7 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isProductCountIncorrect =>
-      (!productCount.hasValue || productCount.value == null);
+  bool get isProductCountIncorrect => (!productCount.hasValue);
 
 //note
   final BehaviorSubject<String> note = BehaviorSubject<String>();
@@ -426,7 +420,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get noteStream => note.stream;
 
   updateNote(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       note.value = '';
       note.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -435,8 +429,7 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isNoteIncorrect =>
-      (!note.hasValue || note.value == null || note.value.isEmpty);
+  bool get isNoteIncorrect => (!note.hasValue || note.value.isEmpty);
 
   //price
   final BehaviorSubject<double> price = BehaviorSubject<double>();
@@ -444,7 +437,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<double> get priceStream => price.stream;
 
   updatePrice(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       price.sink.addError(MyText.field_is_not_correct);
     } else {
       price.sink.add(double.parse(value));
@@ -452,7 +445,7 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceIncorrect => (!price.hasValue || price.value == null);
+  bool get isPriceIncorrect => (!price.hasValue);
 
   //priceType
   final BehaviorSubject<String> priceType =
@@ -461,7 +454,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<String> get priceTypeStream => priceType.stream;
 
   updatepriceType(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       priceType.value = '';
       priceType.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -470,9 +463,8 @@ class ReportCubit extends Cubit<ReportState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isPriceTypeIncorrect => (!priceType.hasValue ||
-      priceType.value == null ||
-      priceType.value.isEmpty);
+  bool get isPriceTypeIncorrect =>
+      (!priceType.hasValue || priceType.value.isEmpty);
 
   ////validation
   bool isUserInfoValid({int? id}) {
@@ -500,7 +492,7 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<File?> get imageStream => image.stream;
 
   updateImage(File? value) {
-    if (value == null || value.path == null) {
+    if (value == null) {
       image.sink.addError(MyText.field_is_not_correct);
     } else {
       image.sink.add(value);

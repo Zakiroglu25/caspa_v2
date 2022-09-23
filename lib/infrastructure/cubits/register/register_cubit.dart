@@ -68,7 +68,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         deviceCode: deviceCode,
         deviceTypeId: StringOperations.platformId(),
         language: _prefs.language,
-        ware_house: selectedWares.valueOrNull!.id,
         branch: selectedBranch.valueOrNull!.id,
       );
 

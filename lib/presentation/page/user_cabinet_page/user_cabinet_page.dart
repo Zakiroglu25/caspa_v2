@@ -126,7 +126,7 @@ class UserCabinetPage extends StatelessWidget {
 
                     if (showWheel)
                       NewBalanceBox(
-                        onTap: true
+                        onTap: wheelActive
                             ? () => Go.to(context, Pager.wheel())
                             : null,
                         icon: Assets.svgCarx,

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
@@ -85,13 +84,11 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.value!.id,
+          ware: selectedWares.valueOrNull!.id,
           branch: selectedBranch.valueOrNull!.id,
         );
-        log(result.toString());
         if (isSuccess(result?.statusCode)) {
           emit(ReportSuccess());
-          log(result.toString());
         } else {
           emit(ReportError(
               error: MyText.error + " ${result!.statusCode ?? ''}"));
@@ -123,7 +120,7 @@ class ReportCubit extends Cubit<ReportState> {
           currency: priceType.valueOrNull!.toLowerCase(),
           invoice: image.valueOrNull,
           note: note.valueOrNull,
-          ware: selectedWares.valueOrNull!.id,
+          ware: selectedWares.value!.id,
           branch: selectedBranch.valueOrNull!.id,
         );
 
@@ -205,8 +202,6 @@ class ReportCubit extends Cubit<ReportState> {
       clearFilter();
       filterSubCategoriesList('');
     }
-
-    //isUserInfoValid(registerType: _registerType);
   }
 
   ///selectedWares
@@ -214,10 +209,12 @@ class ReportCubit extends Cubit<ReportState> {
 
   Stream<Data?> get selectedWaresStream => selectedWares.stream;
 
-  updateWares(Data value) {
+  updateWares(Data? value) {
     print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
+      print(value);
       selectedWares.value = null;
+
       //taxNumber.sink.addError(MyText.field_is_not_correct);
     } else {
       if (selectedWares.valueOrNull?.id != value.id) {

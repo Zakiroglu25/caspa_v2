@@ -53,7 +53,6 @@ class CourierEditAndDelete extends StatelessWidget {
                     .read<CourierListCubit>().
                     delete(context, courier.id, loading: true),
                 image: SizedBox(
-
                   width: 120.sm,
                   height: 120.sm,
                   child: Image.asset(Assets.pngSad),

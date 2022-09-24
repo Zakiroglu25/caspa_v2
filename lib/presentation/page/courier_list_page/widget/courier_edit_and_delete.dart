@@ -50,8 +50,8 @@ class CourierEditAndDelete extends StatelessWidget {
                 buttonText: MyText.yes,
                 cancelButton: true,
                 onTap: () => context
-                    .read<CourierListCubit>()
-                    .delete(context, courier.id, loading: true),
+                    .read<CourierListCubit>().
+                    delete(context, courier.id, loading: true),
                 image: SizedBox(
                   width: 120.sm,
                   height: 120.sm,

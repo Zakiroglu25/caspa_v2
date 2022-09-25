@@ -1,10 +1,12 @@
 // Flutter imports:
 import 'dart:io';
 
+import '../../infrastructure/configs/base.dart';
+
 class ApiKeys {
   ApiKeys._();
 
-  static const baseUrl = 'https://caspa.az/api';
+  static const baseUrl = Configs.baseUrl;
   static const bigDataCloud = 'https://api.bigdatacloud.net/data';
   static const googleMap = 'https://maps.googleapis.com/maps/api/geocode';
 

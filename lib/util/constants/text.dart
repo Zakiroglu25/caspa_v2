@@ -16,6 +16,7 @@ class MyText {
   static const String log_in = "Daxil ol";
   static const String login = "Giriş";
   static const String email = "E-poçt";
+  static const String emailAddressIsNotCorrect = "E-poçt düzgün deyil";
   static const String password = "Şifrə";
   static const String passwordAgain = "Şifrənin təkrarı";
   static const String forgot_pass = "Şifrəni unutmuşam";
@@ -301,6 +302,7 @@ class MyText {
   static const String stores = "Mağazalar";
   static const String no_result = "Heç bir nəticə tapılmadı";
   static const String error = "Əməliyyat zamanı xəta yarandı!";
+  static const String unknownError = "Bilinməyən xəta yarandı!";
   static const String errorPrice = "Minumum 1 USD balansa yüklənməlidir";
   static const String sure_all_fields_correct_contact_us =
       "Bütün məlumatları düzgün doldurduğunuzdan əminsinizsə, bizimlə əlaqə saxlayın. (*1453) ";

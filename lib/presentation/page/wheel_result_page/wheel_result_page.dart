@@ -15,103 +15,106 @@ class WheelResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: MyColors.wheelBck,
         body: BlocBuilder<WheelCubit, WheelState>(builder: (context, state) {
-      if (state is WheelSuccess) {
-        String? res = state.wheel;
-        return Stack(
-          children: [
-            Positioned(
-              top: 54,
-              right: 16,
-              child: InkWell(
-                onTap: () => Go.pop(context),
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: MyColors.black),
-                    width: 24,
-                    height: 24,
-                    child: Center(
-                        child: Icon(
-                      Icons.clear_outlined,
-                      color: MyColors.white,
-                      size: 16,
-                    ))),
-              ),
-            ),
-            if (res == "0")
-              Positioned(
-                top: 98,
-                left: 16,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 295,
-                      child: Text(
-                        "Cəmi 7 gün sonra hədiyyə ilə qayıdacaqsan",
-                        style: AppTextStyles.coHead400.copyWith(fontSize: 25),
-                      ),
-                    ),
-                    SizedBox(
+          if (state is WheelSuccess) {
+            String? res = state.wheel;
+            return Stack(
+              children: [
+                Positioned(
+                  top: 54,
+                  right: 16,
+                  child: InkWell(
+                    onTap: () => Go.pop(context),
+                    child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: MyColors.black),
                         width: 24,
                         height: 24,
-                        child: Image.asset(Assets.svgCarx)),
-                    MySizedBox.h8,
-                    SizedBox(
-                      width: 295,
-                      child: Text(
-                          "Hörmətli müştəri, bəxtini bir daha 7 gün sonra sına. Növbəti dəfə hədiyyə qazanacaqsan 😎",
-                          style:
-                              AppTextStyles.coHead400.copyWith(fontSize: 16)),
-                    ),
-                    MySizedBox.h16,
-                    Image.asset(Assets.pngColorfulBack)
-                  ],
+                        child: Center(
+                            child: Icon(
+                          Icons.clear_outlined,
+                          color: MyColors.white,
+                          size: 16,
+                        ))),
+                  ),
                 ),
-              )
-            else
-              Positioned(
-                top: 98,
-                left: 16,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Təbrik edirik!",
-                      style: AppTextStyles.coHead400.copyWith(fontSize: 25),
+                if (res == "0")
+                  Positioned(
+                    top: 98,
+                    left: 16,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 295,
+                          child: Text(
+                            "Cəmi 7 gün sonra hədiyyə ilə qayıdacaqsan",
+                            style: AppTextStyles.coHead400
+                                .copyWith(fontSize: 25, height: 1.3),
+                          ),
+                        ),
+                        MySizedBox.h24,
+                        SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Image.asset(Assets.svgCarx)),
+                        MySizedBox.h8,
+                        SizedBox(
+                          width: 295,
+                          child: Text(
+                              "Hörmətli müştəri, bəxtini bir daha 7 gün sonra sına. Növbəti dəfə hədiyyə qazanacaqsan 😎",
+                              style: AppTextStyles.coHead400
+                                  .copyWith(fontSize: 16, height: 1.3)),
+                        ),
+                        MySizedBox.h16,
+                        Image.asset(Assets.pngColorfulBack)
+                      ],
                     ),
-                    SizedBox(
-                        width: 24,
-                        height: 24,
-                        child: Image.asset(Assets.pngGift)),
-                    MySizedBox.h8,
-                    SizedBox(
-                      width: 295,
-                      child: Text(
-                          "Siz Caspa-dan ${res} azn məbləğində hədiyyə çatdırılma balansə qazandınız!",
-                          style:
-                              AppTextStyles.coHead400.copyWith(fontSize: 16)),
+                  )
+                else
+                  Positioned(
+                    top: 98,
+                    left: 16,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Təbrik edirik!",
+                          style: AppTextStyles.coHead400.copyWith(fontSize: 25),
+                        ),
+                        SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: Image.asset(Assets.pngGift)),
+                        MySizedBox.h8,
+                        SizedBox(
+                          width: 295,
+                          child: Text(
+                              "Siz Caspa-dan ${res} azn məbləğində hədiyyə çatdırılma balansə qazandınız!",
+                              style: AppTextStyles.coHead400
+                                  .copyWith(fontSize: 16)),
+                        ),
+                        MySizedBox.h16,
+                        Image.asset(Assets.pngColorfulBack)
+                      ],
                     ),
-                    MySizedBox.h16,
-                    Image.asset(Assets.pngColorfulBack)
-                  ],
-                ),
-              ),
-            if (res == "0")
-              Positioned(bottom: 0, child: Image.asset(Assets.pngWheelGirl))
-            else
-              Positioned(
-                bottom: 0,
-                child: Image.asset(Assets.winWin),
-              )
-          ],
-        );
-      } else if (state is WheelInProgress) {
-        return Scaffold(body: Center(child: CaspaLoading()));
-      } else {
-        return CaspaLoading();
-      }
-    }));
+                  ),
+                if (res == "0")
+                  Positioned(bottom: 0, child: Image.asset(Assets.pngWheelGirl))
+                else
+                  Positioned(
+                    bottom: 0,
+                    child: Image.asset(Assets.winWin),
+                  )
+              ],
+            );
+          } else if (state is WheelInProgress) {
+            return Scaffold(body: Center(child: CaspaLoading()));
+          } else {
+            return CaspaLoading();
+          }
+        }));
   }
 }

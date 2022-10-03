@@ -40,12 +40,13 @@ class WheelPage extends StatelessWidget {
         return Future.value(false);
       },
       child: Scaffold(
+        backgroundColor: MyColors.wheelBck,
         body: Padding(
           padding: Paddings.paddingA16,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MySizedBox.h26,
+              MySizedBox.h32,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -65,7 +66,7 @@ class WheelPage extends StatelessWidget {
                             child: Icon(
                           Icons.clear_outlined,
                           color: MyColors.white,
-                              size: 16,
+                          size: 16,
                         ))),
                   )
                 ],
@@ -81,7 +82,8 @@ class WheelPage extends StatelessWidget {
               MySizedBox.h8,
               Text(
                   "Hər həftə oyna və hədiyyə sahibi ol. Sadəcə çarxı fırlat və bəxtini sına",
-                  style: AppTextStyles.coHead400.copyWith(fontSize: 16)),
+                  style: AppTextStyles.coHead400
+                      .copyWith(fontSize: 16, height: 1.3)),
               Spacer(),
               Center(
                 child: SpinningWheel(
@@ -109,7 +111,7 @@ class WheelPage extends StatelessWidget {
                         borderRadius: 100,
                         h: 64,
                         textSize: 25,
-                        text: "Çarxı fırla",
+                        text: "Çarxı fırlat",
                         color: MyColors.black,
                         onTap: () {
                           _wheelNotifier.sink.add(_generateRandomVelocity());

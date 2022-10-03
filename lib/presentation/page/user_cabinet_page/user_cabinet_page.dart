@@ -132,13 +132,14 @@ class UserCabinetPage extends StatelessWidget {
                             ? () => Go.to(context, Pager.wheel())
                             : null,
                         icon: Assets.svgCarx,
+
                         boxTitle: "Çarx",
                         title: !wheelActive
                             ? "Yeni həftədə çarx aktiv olacaq"
                             : "",
                         subtitle:
                             !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
-                        subtitleColor: MyColors.balanceBoxRedAlternativ,
+                        subtitleColor: MyColors.black,
                         desc:
                             "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ",
                         color: MyColors.mainBlue127,

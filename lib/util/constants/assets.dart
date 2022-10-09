@@ -103,4 +103,5 @@ class Assets {
   static const String animSuccessOpt = "assets/anim/success_operation.json";
   static const String animProgressbar = "assets/anim/progressbar.json";
   static const String animPasta = "assets/anim/birthday_pasta.json";
+  static const String oneYear = "assets/anim/oneyear.json";
 }

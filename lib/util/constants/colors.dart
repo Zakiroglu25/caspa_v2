@@ -129,9 +129,4 @@ class MyColors {
 
 //bonus background
   static const Color bonus = Color.fromRGBO(251, 228, 228, 1);
-// static const Color shopPurple =Color(0xFF5D5FEF);
-// static const Color shopBlue =Color(0xFF27E3D8);
-// static const Color shopRed =Color(0xFFE32E2E);
-// static const Color shopYellow =Color(0xFFFEB201);
-
 }

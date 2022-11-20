@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Lottie.asset(Assets.oneYear, repeat: true),
+            // Lottie.asset(Assets.oneYear, repeat: true),
             CaspaLogoWithName(),
             CaspaAzText()
           ],

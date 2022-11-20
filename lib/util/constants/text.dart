@@ -1,5 +1,6 @@
 class MyText {
   MyText._();
+
   static const String coppied = "Kopyalandı";
 
   ///etibarname
@@ -278,8 +279,10 @@ class MyText {
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromBalance = "Balansdan";
+
   //static const String fromCashback = "Cashback ilə";
   static const String fromBonus = "Bonus ilə";
+
   //static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
   static const String packageGift = "Paketlər";
@@ -429,6 +432,7 @@ class MyText {
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
   static const String adressError = "Çatdırılma ünvanı seçilməyib";
+
   //static const String locationAccessDenied = "Ərazi məlumatları üçün icazə rədd edildi";
   static const String locationAccessDenied = "İcazə rədd edildi";
   static const String locationAccessDisabled =
@@ -439,8 +443,15 @@ class MyText {
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 
+  //bonus
+  static const String bonusInfo =
+      'Bonuslar qazandığınız gündən etibarən, 30 gün ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə, silinəcəkdir xoş alışverişlər 😎';
+
   //wheel_page
   static const String testMail = "esev.sv@gmail.com";
+
+  static const String badResultWheel =
+      "Hörmətli müştəri, bəxtini bir daha 7 gün sonra sına.😎";
 
   /////////////////////////////////////////////
   static const String splashText0 =
@@ -461,6 +472,10 @@ class MyText {
 
   static const String courierInfoTime =
       "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 17:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
+
+
+  static const String infoCourier =
+      "28 may flialına, kuryer çatdırlıması yoxdur.";
 
   ///login
   static const String loginText =

@@ -14,8 +14,7 @@ class SaveAttorneyButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CaspaButton(
-      loading:
-          context.read<AddAttorneysCubit>().state is AddAttorneysInProgress,
+      loading: context.read<AddAttorneysCubit>().state is AddAttorneysInProgress,
       text: MyText.save,
       onTap: () {
         attorney != null

@@ -92,6 +92,7 @@ class Assets {
   static const String svgBonusIn = "assets/svg/inbonus.svg";
   static const String svgClock = "assets/svg/clock.svg";
   static const String svgCarx = "assets/png/carx.png";
+  static const String svgBonusOut = "assets/svg/mexarixc.svg";
 
   //wheel_page url
   static const String testImageURL =

@@ -38,8 +38,6 @@ class BranchField extends StatelessWidget {
                   stream: BlocProvider.of<ReportCubit>(context)
                       .selectedBranchStream,
                   builder: (contextP, snapShoot) {
-
-
                     return CaspaField(
                       readOnly: true,
                       // suffixIcon: FieldLoading(state),
@@ -105,7 +103,6 @@ class BranchField extends StatelessWidget {
                                               BlocProvider.of<ReportCubit>(
                                                       context)
                                                   .updateBranch(category);
-
                                               activityNotifier.value = category.id;
                                               Go.pop(context);
                                             },

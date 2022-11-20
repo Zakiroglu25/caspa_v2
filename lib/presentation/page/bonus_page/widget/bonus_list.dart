@@ -26,7 +26,8 @@ class BonusListWidget extends StatelessWidget {
       child: RefreshIndicator(
         color: MyColors.mainColor,
         onRefresh: () async {
-      context.read<BonusCubit>().fetch();},
+          context.read<BonusCubit>().fetch();
+        },
         child: ListView.builder(
             itemCount: bonus.length,
             itemBuilder: (context, index) {
@@ -35,13 +36,15 @@ class BonusListWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SvgPicture.asset(Assets.svgBonusIn),
+                    bonus[index].used == 0
+                        ? SvgPicture.asset(Assets.svgBonusIn)
+                        : SvgPicture.asset(Assets.svgBonusOut),
                     MySizedBox.w12,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Mədaxil",
+                          bonus[index].used == 0 ? "Mədaxil" : "Məxaric",
                           style: AppTextStyles.sanF600,
                         ),
                         Text(
@@ -62,8 +65,7 @@ class BonusListWidget extends StatelessWidget {
                               Text(
                                 "${bonus[index].deleteDays}",
                                 style: AppTextStyles.sanF500
-                                    .copyWith(
-                                    color: MyColors.black34),
+                                    .copyWith(color: MyColors.black34),
                               )
                             ],
                           ),
@@ -72,9 +74,9 @@ class BonusListWidget extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      "+"+"${bonus[index].amount}"+ "\$",
-                      style: AppTextStyles.sanF600.copyWith(
-                          color: MyColors.black34, fontSize: 16.sp),
+                      "+" + "${bonus[index].amount}" + "\$",
+                      style: AppTextStyles.sanF600
+                          .copyWith(color: MyColors.black34, fontSize: 16.sp),
                     ),
                   ],
                 ),

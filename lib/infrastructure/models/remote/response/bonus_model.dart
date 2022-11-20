@@ -26,7 +26,7 @@ class Bonus {
 class Data {
   num? id;
   num? amount;
-  num? used;
+  int? used;
   String? type;
   String? deleteDays;
 

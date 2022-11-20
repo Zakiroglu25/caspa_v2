@@ -52,7 +52,9 @@ class BirthdayFieldUser extends StatelessWidget {
       TextEditingController? birtController, String? initial) async {
     if (birtController?.text == null) {
       initial = DateFormat("dd-MM-yyyy")
-          .format(DateTime(DateTime.now().year - 18, 12, 31))
+          .format(
+            DateTime(DateTime.now().year - 18, 12, 31),
+          )
           .toString();
       birtController?.text = initial;
       BlocProvider.of<UserCubit>(context).updateBirthDate(

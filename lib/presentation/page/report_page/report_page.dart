@@ -15,8 +15,12 @@ import 'package:caspa_v2/widget/general/single_child_bounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../infrastructure/models/remote/response/regions_model.dart';
+import '../../../util/constants/app_text_styles.dart';
+import '../../../util/constants/colors.dart';
+import '../../../util/constants/text_styles.dart';
 import 'widgets/fields/branch_field.dart';
 import 'widgets/fields/category_field.dart';
 import 'widgets/fields/count_field.dart';
@@ -93,8 +97,51 @@ class ReportPage extends StatelessWidget {
                     valueListenable: _activityNotifier,
                     builder: (_, value, child) {
                       print("value $value");
-                      if (value != null && value ==1) {
+                      if (value != null && value == 1) {
                         return WaresField();
+                      }
+                      return SizedBox.shrink();
+                    }),
+                ValueListenableBuilder<int?>(
+                    valueListenable: _activityNotifier,
+                    builder: (_, value, child) {
+                      print("value $value");
+                      if (value != null && value == 2) {
+                        return Column(
+                          children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width,
+                              child: Padding(
+                                padding: Paddings.paddingA16 +
+                                    EdgeInsets.only(right: 16),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Diqqət!",
+                                      style: UITextStyle.tW600Black.copyWith(
+                                          fontSize: 14, letterSpacing: 0.3),
+                                    ),
+                                    MySizedBox.h4,
+                                    Text(
+                                      MyText.infoCourier,
+                                      style: AppTextStyles.sanF400.copyWith(
+                                          fontSize: 14,
+                                          letterSpacing: 0.3,
+                                          color: MyColors.dark51),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: MyColors.mainOpacity,
+                              ),
+                            ),
+                            MySizedBox.h16
+                          ],
+                        );
                       }
                       return SizedBox.shrink();
                     }),

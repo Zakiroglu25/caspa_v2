@@ -1,3 +1,4 @@
+import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -50,7 +51,7 @@ class WheelResultPage extends StatelessWidget {
                         SizedBox(
                           width: 295,
                           child: Text(
-                            "Cəmi 7 gün sonra hədiyyə ilə qayıdacaqsan",
+                            "Cəmi 7 gün sonra ,bir daha cəhd edin",
                             style: AppTextStyles.coHead400
                                 .copyWith(fontSize: 25, height: 1.3),
                           ),
@@ -63,8 +64,7 @@ class WheelResultPage extends StatelessWidget {
                         MySizedBox.h8,
                         SizedBox(
                           width: 295,
-                          child: Text(
-                              "Hörmətli müştəri, bəxtini bir daha 7 gün sonra sına. Növbəti dəfə hədiyyə qazanacaqsan 😎",
+                          child: Text(MyText.badResultWheel,
                               style: AppTextStyles.coHead400
                                   .copyWith(fontSize: 16, height: 1.3)),
                         ),

@@ -4,14 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../infrastructure/cubits/wheel_cubit/index.dart';
+import '../../../infrastructure/services/sound_service.dart';
 import '../../../util/constants/app_text_styles.dart';
 import '../../../util/constants/assets.dart';
 import '../../../util/constants/colors.dart';
 import '../../../util/constants/sized_box.dart';
 import '../../../util/delegate/navigate_utils.dart';
 
-class WheelResultPage extends StatelessWidget {
+class WheelResultPage extends StatefulWidget {
   const WheelResultPage({Key? key}) : super(key: key);
+
+  @override
+  State<WheelResultPage> createState() => _WheelResultPageState();
+}
+
+class _WheelResultPageState extends State<WheelResultPage> {
+  late final SoundManager _pageManager;
+
+
+  @override
+  void dispose() {
+    _pageManager.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

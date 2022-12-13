@@ -22,15 +22,19 @@ class AdsModel {
 }
 
 class Data {
+  int? id;
   String? image;
   String? title;
   String? description;
+  bool? is_active;
 
   Data({this.image, this.title, this.description});
 
   Data.fromJson(Map<String, dynamic> json) {
     image = json['image'];
     title = json['title'];
+    is_active = json['is_active'];
+    id = json['id'];
     description = json['description'];
   }
 
@@ -38,6 +42,8 @@ class Data {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['image'] = image;
     data['title'] = title;
+    data['id'] = id;
+    data['is_active'] = is_active;
     data['description'] = description;
     return data;
   }

@@ -6,6 +6,7 @@ import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/app_operations.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+
 // Package imports:
 import 'package:http/http.dart' as http;
 
@@ -127,6 +128,7 @@ class AuthProvider {
     required int? deviceTypeId,
     required String? deviceCode,
     required String? language,
+    required String? ext,
   }) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.registerPersonal;
@@ -148,6 +150,7 @@ class AuthProvider {
         id_number: id_number,
         deviceCode: deviceCode,
         deviceTypeId: deviceTypeId,
+        ext: ext,
         language: language);
 
     final response =

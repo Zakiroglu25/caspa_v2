@@ -1,5 +1,6 @@
 // Package imports:
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:caspa_v2/util/delegate/foreground_notification.dart';
@@ -31,17 +32,73 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   FirebaseMessaging.instance.getInitialMessage().then((value) {
     final Map<String, dynamic>? data = value?.data;
     //AppSettings.openNotificationSettings();
+    print("notifiaction");
+
     // GeneralOperations.determineTab(data);
   });
 
   FirebaseMessaging.onMessage.listen((message) {
     //bbbb("sss: " + event.notification!.title.toString());
     //  showNotificationCustomSound(message);
+    final type = message.data["data"];
+    print(type);
+    if (type != null && type == 'report') {
+      print("bu odur");
+    } else {
+      print("1");
+      print("================");
+      print(message.toString());
+      print(message.data.toString());
+      print("================");
+    }
+    print("notifiaction" + type);
+    print("2");
+    print("================");
+    print(message.toString());
+    print(message.data.toString());
+    print("================");
 
     ForegroundNotification.show(message);
   });
 
   FirebaseMessaging.onMessageOpenedApp.listen((event) {
+    // {
+    //   "id": 30343,
+    // "title": "Bağlamanız Xarici anbardadır",
+    // "description": "A459378 kodlu bağlamanız Xarici anbardadır",
+    // "created_at": "2022-04-15 00:41:40",
+    // "updated_at": "2022-04-15 00:41:40",
+    // "read": 0,
+    // "data": {
+    // "type": "package",
+    // "id": 25654
+    // }
+    // },
+    print("notifiaction"+event.toString());
+    print("3");
+    print("================");
+    print(event.toString());
+    iiii(event.notification.toString());
+    dddd(event.notification!.body.toString());
+    bbbb(event.data.toString());
+    wtf(event.notification.toString());
+    llll(event.notification!.body.toString());
+    print(event.notification!.body);
+
+    // final type = jsonDecode(event.notification!.body!)['data']['type'];
+    // if (type == 'package') {
+    //   iiii("package dir");
+    // } else {
+    //   wtf("package deyil");
+    // }
+    // if (type == 'report') {
+    //   iiii("report dir");
+    // } else {
+    //   wtf("package deyil");
+    // }
+
+
+
     final Map<String, dynamic> data = event.data;
     //GeneralOperations.determineTab(data);
   });

@@ -96,6 +96,8 @@ dependencies:
 
   #permissions
   app_settings: ^4.1.8
+  #audio
+  just_audio: ^0.9.30
 
 dev_dependencies:
   flutter_test:

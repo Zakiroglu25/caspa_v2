@@ -362,6 +362,8 @@ class MyText {
   static const String tryy = "TRY";
   static const String aa = "AA";
   static const String aze = "AZE";
+  static const String myi = "MYI";
+  static const String dyi = "DYI";
   static const String invoice = "İnvoys";
   static const String factura = "Faktura";
   static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';
@@ -517,6 +519,7 @@ class MyText {
 
   ///promocode
   static const String getPackageFree = "Pulsuz bağlama aparın 😊";
+  static const String whellDetails = "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ";
   static const String infoPromo =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
 

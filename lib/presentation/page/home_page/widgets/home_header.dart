@@ -33,7 +33,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16),
+      padding: const EdgeInsets.only(left: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,7 +45,7 @@ class HomeHeader extends StatelessWidget {
           SizedBox(
             width: 120,
             height: 120,
-            child: Image.asset(Assets.homeMoto),
+            child: Image.asset(Assets.santaHome),
           ),
           MySizedBox.h16,
           Text("Kuryer xidməti 1₼-dan başlayaraq",
@@ -65,8 +65,6 @@ class HomeHeader extends StatelessWidget {
                   fontSize: 14.sm, color: MyColors.grey165, height: 20 / 14),
             ),
           ),
-          // Text(MyText.homePageText,
-          //     style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153)),
           MySizedBox.h18,
           TariffsCourier(),
           MySizedBox.h12,
@@ -88,6 +86,7 @@ class HomeHeader extends StatelessWidget {
               final bool wheelActive = user.wheel_active;
               if (showWheel) {
                 return InkWrapper(
+
                   onTap:
                       wheelActive ? () => Go.to(context, Pager.wheel()) : null,
                   child: Padding(
@@ -95,7 +94,8 @@ class HomeHeader extends StatelessWidget {
                     child: Container(
                       height: 64,
                       decoration: BoxDecoration(
-                        color: Color(0xFFF1F1F9),
+                        color:
+                            wheelActive ? const Color(0xFFF1F1F9) : const Color(0xFFF5F5F5),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Row(
@@ -104,28 +104,38 @@ class HomeHeader extends StatelessWidget {
                           SizedBox(
                             width: 24,
                             height: 24,
-                            child: Image.asset(Assets.svgCarx),
+                            child: wheelActive
+                                ? Image.asset(Assets.svgCarx)
+                                : Image.asset(
+                                    Assets.svgCarx,
+                                    color: MyColors.black,
+                                  ),
                           ),
                           MySizedBox.w12,
                           Text(
                             "Çarx oyna, hədiyyə qazan",
                             style: AppTextStyles.sanF600.copyWith(
-                                fontSize: 16.sm, color: MyColors.blue24),
+                                fontSize: 16.sm,
+                                color: wheelActive
+                                    ? MyColors.blue24
+                                    : MyColors.black),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Transform(
-                              alignment: Alignment.center,
-                              transform: Matrix4.rotationY(math.pi),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(Assets.winWin)))
+                            alignment: Alignment.center,
+                            transform: Matrix4.rotationY(math.pi),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(Assets.winWin),
+                            ),
+                          )
                         ],
                       ),
                     ),
                   ),
                 );
               }
-              return SizedBox.shrink();
+              return const SizedBox.shrink();
             },
           )
         ],

@@ -24,6 +24,7 @@ import '../fields/email_field.dart';
 import '../fields/gender_field.dart';
 import '../fields/name_field.dart';
 import '../fields/policy_checkbox.dart';
+import '../fields/seria_field_register.dart';
 
 class CivilRegisterTab extends StatelessWidget {
   @override
@@ -81,12 +82,19 @@ class CivilRegisterTab extends StatelessWidget {
                   MySizedBox.h3,
                   FinFieldRegister(),
                   MySizedBox.h3,
-                  CardIdFieldRegister(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IdSerieFieldRegister(),
+                      SizedBox(
+                          width: (MediaQuery.of(context).size.width / 1.5) + 10,
+                          child: CardIdFieldRegister()),
+                    ],
+                  ),
                   MySizedBox.h3,
                   GenderFieldRegister(),
                   // WaresRegisterField(),
                   MySizedBox.h3,
-
                   BrachesRegisterField(),
                   PolicyCheckbox(),
                   MySizedBox.h90,

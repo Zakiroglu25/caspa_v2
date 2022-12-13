@@ -20,7 +20,11 @@ class Assets {
   static const String pngCaspacard = "assets/png/caspacard.png";
   static const String pngInstagram = "assets/png/instagram.png";
   static const String pngNote = "assets/png/note.png";
+
   static const String homeMoto = "assets/png/motoNewPng.png";
+  static const String santaHome = "assets/png/santahome.png";
+
+
   static const String pngHeart = "assets/png/heart.png";
   static const String pngAirplane = "assets/png/airplane.png";
   static const String pngDollar = "assets/png/dollar.png";
@@ -97,6 +101,8 @@ class Assets {
   //wheel_page url
   static const String testImageURL =
       "https://caspa.az/storage/stores/IVMOmydV4O1i81NXfpS3oC1DjSEutcZeiKw23kzT.png";
+  static const String pngSanta = "assets/png/santa.png";
+
 
   //--anim
   static const String animEmptyBox = "assets/anim/empty_box.json";
@@ -105,4 +111,11 @@ class Assets {
   static const String animProgressbar = "assets/anim/progressbar.json";
   static const String animPasta = "assets/anim/birthday_pasta.json";
   static const String oneYear = "assets/anim/oneyear.json";
+  static const String santaAnim = "assets/anim/santa.json";
+
+
+  //sound
+  static const String win = "assets/sounds/win.mp3";
+
+
 }

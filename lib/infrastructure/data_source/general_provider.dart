@@ -10,10 +10,16 @@ import 'package:caspa_v2/infrastructure/models/remote/response/status_dynamic.da
 import 'package:caspa_v2/util/constants/api_keys.dart';
 import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+
 // Package imports:
 import 'package:http/http.dart' as http;
 
+import '../../locator.dart';
+import '../services/hive_service.dart';
+
 class GeneralProvider {
+  static HiveService get _prefs => locator<HiveService>();
+
   static Future<StatusDynamic?> fetchShops() async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.shop;
@@ -50,16 +56,35 @@ class GeneralProvider {
   }
 
   static Future<StatusDynamic?> ads() async {
+    print(_prefs.accessToken);
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.ads;
     var url = Uri.parse(api);
-    final response = await http.get(url, headers: ApiKeys.headers);
+    final response =
+        await http.get(url, headers: ApiKeys.header(token: _prefs.accessToken));
+    wtf(response.body.toString());
+
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = jsonDecode(response.body);
       AdsModel data = AdsModel.fromJson(gelenCavabJson);
 
       statusDynamic.data = data.data;
+    } else {
+      eeee("fetchCommission bad url :$url,response: ${response}");
+    }
+    return statusDynamic;
+  }
+
+  static Future<StatusDynamic?> adsIsActive(int id) async {
+    StatusDynamic statusDynamic = StatusDynamic();
+    var api = ApiKeys.adsIsActive;
+    var url = Uri.parse(api);
+    var body = {"ad": id};
+    final response = await http.post(url,
+        headers: ApiKeys.header(token: _prefs.accessToken),body: id);
+    statusDynamic.statusCode = response.statusCode;
+    if (response.statusCode == ResultKey.successCode) {
     } else {
       eeee("fetchCommission bad url :$url,response: ${response}");
     }

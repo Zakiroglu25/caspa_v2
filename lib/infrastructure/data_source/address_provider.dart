@@ -11,7 +11,6 @@ class AddressProvider {
   static Future<AddressList> getAddress() async {
     late AddressList addressModel;
     const api = ApiKeys.getAddress;
-    llll(api);
     final response = await dioG.dio.get(api);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = (response.data);

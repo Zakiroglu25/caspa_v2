@@ -1,3 +1,5 @@
+import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
+import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -6,13 +8,17 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../infrastructure/models/remote/response/ads_model.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
+import '../../../util/constants/assets.dart';
 import '../../../util/delegate/navigate_utils.dart';
+import '../../../util/screen/alert.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
@@ -37,6 +43,17 @@ class _HomePageState extends State<HomePage> {
       _prefs = prefs;
       issheetShown = prefs.getBool('show_sheet') ?? false;
       setState(() {});
+      // showAds();
+
+      // SharedPreferences.getInstance().then((prefs) {
+      //   final int dialogOpen = prefs.getInt('dialog_open') ?? 0;
+      //   if (dialogOpen == 0) {
+      //     //show dialog for one time only
+      //     Future.delayed(const Duration(milliseconds: 1000), () {
+      //     prefs.setInt("dialog_open", 1);
+      //   });
+      // }
+      // });
     });
   }
 
@@ -51,6 +68,23 @@ class _HomePageState extends State<HomePage> {
         _prefs!.setBool('show_sheet', issheetShown);
       }
     }
+  }
+
+  showAds() {
+    // BlocProvider.value(
+    //   value:  AdsCubit(),
+    //   child: CustomDialog(),
+    // );
+    final exampleCubit = context.read<AdsCubit>();
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return BlocProvider<AdsCubit>.value(
+          value: exampleCubit,
+          child: CustomDialog(),
+        );
+      },
+    );
   }
 
   bool issheetShown = true;
@@ -88,7 +122,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 MySizedBox.h16,
                 BlocProvider(
-                  create: (context) => PackageCubit()..fetchActive(),
+                  create: (context) =>
+                  PackageCubit()
+                    ..fetchActive(),
                   child: HomePackageList(),
                 ),
                 MySizedBox.h36,
@@ -114,11 +150,41 @@ class _HomePageState extends State<HomePage> {
 
 modalBottomSheetMenu(context) {
   WidgetsBinding.instance.addPostFrameCallback(
-    (_) async {
+        (_) async {
       Sheet.display(
         context: context,
         child: BirthdaySheet(),
       );
     },
   );
+}
+
+class CustomDialog extends StatelessWidget {
+  const CustomDialog({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AdsCubit, AdsState>(builder: (context, state) {
+      if (state is AdsSuccess) {
+        final List<Data> ads = state.adsList;
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await  Alert.show(
+            context,
+            title: ads.last.title,
+            buttonText: "Tanış oldum 😎",
+            content: ads.last.description,
+            image: SizedBox(
+              width: 120,
+              height: 120,
+              child: Image.network(ads.last.image.toString()),
+            ),
+          );
+        });
+
+      }
+      return Text("Salam");
+    });
+  }
 }

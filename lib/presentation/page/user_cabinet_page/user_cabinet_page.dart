@@ -35,7 +35,9 @@ import 'widget/new_balans_box.dart';
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
+
   static HiveService get _prefs => locator<HiveService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,24 +128,23 @@ class UserCabinetPage extends StatelessWidget {
                     ),
                     MySizedBox.h16,
 
-                    // if (showWheel)
-                    //   NewBalanceBox(
-                    //     onTap: wheelActive
-                    //         ? () => Go.to(context, Pager.wheel())
-                    //         : null,
-                    //     icon: Assets.svgCarx,
-                    //
-                    //     boxTitle: "Çarx",
-                    //     title: !wheelActive
-                    //         ? "Yeni həftədə çarx aktiv olacaq"
-                    //         : "",
-                    //     subtitle:
-                    //         !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
-                    //     subtitleColor: MyColors.black,
-                    //     desc:
-                    //         "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ",
-                    //     color: MyColors.mainBlue127,
-                    //   ),
+                    if (showWheel)
+                      NewBalanceBox(
+                        onTap: wheelActive
+                            ? () => Go.to(context, Pager.wheel())
+                            : null,
+                        icon: Assets.svgCarx,
+                        boxTitle: "Çarx",
+                        title: !wheelActive
+                            ? "Yeni həftədə çarx aktiv olacaq"
+                            : "",
+                        subtitle:
+                            !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
+                        subtitleColor: MyColors.black,
+                        desc:
+                            MyText.whellDetails,
+                        color: MyColors.mainBlue127,
+                      ),
                     MySizedBox.h32,
                   ],
                 ),

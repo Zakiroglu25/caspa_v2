@@ -15,10 +15,12 @@ import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:http/http.dart' as http;
 
 import '../../locator.dart';
+import '../configs/dio_auth.dart';
 import '../services/hive_service.dart';
 
 class GeneralProvider {
   static HiveService get _prefs => locator<HiveService>();
+  static DioAuth get dioAuth => locator<DioAuth>();
 
   static Future<StatusDynamic?> fetchShops() async {
     StatusDynamic statusDynamic = StatusDynamic();
@@ -60,13 +62,14 @@ class GeneralProvider {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.ads;
     var url = Uri.parse(api);
-    final response =
-        await http.get(url, headers: ApiKeys.header(token: _prefs.accessToken));
-    wtf(response.body.toString());
+    final response = await dioAuth.dio.get(api);
+    // final response =
+    //     await http.get(url, headers: ApiKeys.header(token: _prefs.accessToken));
+    wtf(response.data.toString());
 
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
-      final gelenCavabJson = jsonDecode(response.body);
+      final gelenCavabJson = response.data;
       AdsModel data = AdsModel.fromJson(gelenCavabJson);
 
       statusDynamic.data = data.data;
@@ -79,14 +82,14 @@ class GeneralProvider {
   static Future<StatusDynamic?> adsIsActive(int id) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.adsIsActive;
-    var url = Uri.parse(api);
+    // var url = Uri.parse(api);
     var body = {"ad": id};
-    final response = await http.post(url,
-        headers: ApiKeys.header(token: _prefs.accessToken),body: id);
+    final response = await dioAuth.dio.post(api,data: body);
+    wtf(response.statusCode.toString());
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
     } else {
-      eeee("fetchCommission bad url :$url,response: ${response}");
+      eeee("fetchCommission bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

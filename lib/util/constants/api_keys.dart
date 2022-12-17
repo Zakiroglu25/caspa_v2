@@ -71,7 +71,7 @@ class ApiKeys {
   static const tariff = "$baseUrl/public/prices";
 
   //get ads
-  static const ads = "$baseUrl/public/ads";
+  static const ads = "$baseUrl/user/ads";
   //postAds
   static const adsIsActive = "$baseUrl/user/ad";
 

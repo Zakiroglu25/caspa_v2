@@ -21,7 +21,6 @@ class WheelResultPage extends StatefulWidget {
 class _WheelResultPageState extends State<WheelResultPage> {
   late final SoundManager _pageManager;
 
-
   @override
   void dispose() {
     _pageManager.dispose();
@@ -66,7 +65,7 @@ class _WheelResultPageState extends State<WheelResultPage> {
                         SizedBox(
                           width: 295,
                           child: Text(
-                            "Cəmi 7 gün sonra ,bir daha cəhd edin",
+                            "Cəmi 7 gün sonra, bir daha cəhd edin",
                             style: AppTextStyles.coHead400
                                 .copyWith(fontSize: 25, height: 1.3),
                           ),
@@ -96,7 +95,7 @@ class _WheelResultPageState extends State<WheelResultPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Təbrik edirik!",
+                          MyText.congrated,
                           style: AppTextStyles.coHead400.copyWith(fontSize: 25),
                         ),
                         SizedBox(
@@ -107,7 +106,7 @@ class _WheelResultPageState extends State<WheelResultPage> {
                         SizedBox(
                           width: 295,
                           child: Text(
-                              "Siz Caspa-dan ${res} azn məbləğində hədiyyə çatdırılma balansə qazandınız!",
+                              "Siz Caspa-dan ${res} azn məbləğində hədiyyə çatdırılma balansı qazandınız!",
                               style: AppTextStyles.coHead400
                                   .copyWith(fontSize: 16)),
                         ),

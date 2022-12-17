@@ -20,14 +20,13 @@ class Ads extends StatelessWidget {
         builder: (context, state) {
           if (state is AdsSuccess) {
             List<Data>? adsList = state.adsList.reversed.toList();
-            if (adsList.first.is_active == false) {
+            if (adsList.first.is_active == true) {
               WidgetsBinding.instance.addPostFrameCallback((_) async {
                 await Alert.show(
                   context,
                   title: adsList.first.title,
                   buttonText: "Tanış oldum 😎",
                   onTap: () {
-                    print(adsList.first.id);
                     context.read<AdsCubit>().sendIsActive(adsList.first.id!);
                   },
                   content: adsList.first.description,

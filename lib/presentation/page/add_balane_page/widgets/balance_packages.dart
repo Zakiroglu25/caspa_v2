@@ -25,6 +25,11 @@ class BalancePackages extends StatelessWidget {
           // ),
           // MySizedBox.h16,
           PricePackage(
+            price: '10',
+            gift: '1',
+            index: 5,
+          ),
+          PricePackage(
             price: '25',
             gift: '5',
             index: 1,
@@ -44,6 +49,7 @@ class BalancePackages extends StatelessWidget {
             gift: '50',
             index: 4,
           ),
+
           MySizedBox.h100
         ],
       ),

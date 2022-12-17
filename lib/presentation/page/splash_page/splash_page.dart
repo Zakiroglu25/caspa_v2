@@ -18,13 +18,13 @@ class SplashPage extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Lottie.asset(Assets.oneYear, repeat: true),
+            Lottie.asset(Assets.snow, repeat: true),
             Positioned(
                 left: 0,
                 bottom: 0,
                 child: SizedBox(
-                    width: 157.w,
-                    height: 290.h,
+                    width: 220.w,
+                    height: 340.h,
                     child: Lottie.asset(Assets.santaAnim, repeat: false))),
             CaspaLogoWithName(),
             CaspaAzText()

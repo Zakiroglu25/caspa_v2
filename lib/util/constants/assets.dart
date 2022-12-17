@@ -112,6 +112,7 @@ class Assets {
   static const String animPasta = "assets/anim/birthday_pasta.json";
   static const String oneYear = "assets/anim/oneyear.json";
   static const String santaAnim = "assets/anim/santa.json";
+  static const String snow = "assets/anim/snow.json";
 
 
   //sound

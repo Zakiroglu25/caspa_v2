@@ -447,7 +447,7 @@ class MyText {
 
   //bonus
   static const String bonusInfo =
-      'Bonuslar qazandığınız gündən etibarən, 30 gün ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə, silinəcəkdir xoş alışverişlər 😎';
+      'Çarxdan qazanılan bonus 1 həftə ,"Endirim" kampaniyamızdan qazanılan bonuslar isə 1 ay keçərlidir😎';
 
   //wheel_page
   static const String testMail = "esev.sv@gmail.com";
@@ -475,9 +475,8 @@ class MyText {
   static const String courierInfoTime =
       "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 17:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
 
-
   static const String infoCourier =
-      "28 may flialına, kuryer çatdırlıması yoxdur.";
+      "28 may filialindan, kuryer çatdırılması mövcud deyil.";
 
   ///login
   static const String loginText =
@@ -519,7 +518,8 @@ class MyText {
 
   ///promocode
   static const String getPackageFree = "Pulsuz bağlama aparın 😊";
-  static const String whellDetails = "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ";
+  static const String whellDetails =
+      "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ";
   static const String infoPromo =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
 

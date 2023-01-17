@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +22,26 @@ class WheelResultPage extends StatefulWidget {
 class _WheelResultPageState extends State<WheelResultPage> {
   late final SoundManager _pageManager;
 
-  @override
-  void dispose() {
-    _pageManager.dispose();
-    super.dispose();
+  playWinSound() async {
+    AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
+    await audioPlayer.open(
+      Audio(
+        'assets/sounds/win.mp3',
+      ),
+    );
   }
+
+  playFailSound() async {
+    AssetsAudioPlayer audioPlayer = AssetsAudioPlayer();
+    await audioPlayer.open(
+      Audio(
+        'assets/sounds/fail.mp3',
+      ),
+    );
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +50,11 @@ class _WheelResultPageState extends State<WheelResultPage> {
         body: BlocBuilder<WheelCubit, WheelState>(builder: (context, state) {
           if (state is WheelSuccess) {
             String? res = state.wheel;
+            if(res != "0"){
+              playWinSound();
+            }else{
+              playFailSound();
+            }
             return Stack(
               children: [
                 Positioned(
@@ -112,6 +133,7 @@ class _WheelResultPageState extends State<WheelResultPage> {
                         ),
                         MySizedBox.h16,
                         Image.asset(Assets.pngColorfulBack)
+
                       ],
                     ),
                   ),

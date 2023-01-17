@@ -44,6 +44,8 @@ class Assets {
   static const String bckgame = "assets/png/bckgame.png";
   static const String whell = "assets/png/whelltwo.png";
   static const String winWin = "assets/png/winwin.png";
+  static const String pngHalfWhell = "assets/png/whellhalf.png";
+
 
   //--svg
   static const String svgCaspaLogoWithName =
@@ -113,6 +115,7 @@ class Assets {
   static const String oneYear = "assets/anim/oneyear.json";
   static const String santaAnim = "assets/anim/santa.json";
   static const String snow = "assets/anim/snow.json";
+  static const String valentine = "assets/anim/valentine.json";
 
 
   //sound

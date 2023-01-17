@@ -1,12 +1,16 @@
+import 'dart:convert';
+
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
 import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
+import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/widget/caspa_appbar/caspa_appbar.dart';
 import 'package:caspa_v2/widget/general/more_button.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,9 +40,11 @@ class HomePage extends StatefulWidget {
 HiveService get _prefsLocale => locator<HiveService>();
 
 class _HomePageState extends State<HomePage> {
+
   @override
-  void initState() {
+  void initState(){
     super.initState();
+    // handleMessageOnBackground();
     SharedPreferences.getInstance().then((prefs) {
       _prefs = prefs;
       issheetShown = prefs.getBool('show_sheet') ?? false;
@@ -69,6 +75,20 @@ class _HomePageState extends State<HomePage> {
       }
     }
   }
+
+  // void handleMessageOnBackground() {
+  //   FirebaseMessaging.instance.getInitialMessage().then(
+  //         (remoteMessage) {
+  //       if (remoteMessage != null) {
+  //         String payload = json.encode(remoteMessage.data);
+  //         if(remoteMessage.data['page'] == "campaigns"){
+  //           Go.to(context, Pager.shops);
+  //         }
+  //         //navigator two orther screen
+  //       }
+  //     },
+  //   );
+  // }
 
   showAds() {
     // BlocProvider.value(

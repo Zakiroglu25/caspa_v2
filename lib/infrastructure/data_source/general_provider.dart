@@ -82,14 +82,13 @@ class GeneralProvider {
   static Future<StatusDynamic?> adsIsActive(int id) async {
     StatusDynamic statusDynamic = StatusDynamic();
     var api = ApiKeys.adsIsActive;
-    // var url = Uri.parse(api);
     var body = {"ad": id};
     final response = await dioAuth.dio.post(api,data: body);
     wtf(response.statusCode.toString());
     statusDynamic.statusCode = response.statusCode;
     if (response.statusCode == ResultKey.successCode) {
     } else {
-      eeee("fetchCommission bad url :$api,response: ${response}");
+      eeee("adsIsActive bad url :$api,response: ${response}");
     }
     return statusDynamic;
   }

@@ -5,6 +5,8 @@ import 'dart:io';
 
 import 'package:caspa_v2/util/delegate/foreground_notification.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -31,73 +33,35 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   //_createNotificationChannel("0", "0");
   FirebaseMessaging.instance.getInitialMessage().then((value) {
     final Map<String, dynamic>? data = value?.data;
-    //AppSettings.openNotificationSettings();
     print("notifiaction");
-
-    // GeneralOperations.determineTab(data);
+    if(value!.notification!.body == "test"){
+      print("Salam");
+      Go.to(context!, Pager.notifications);
+    }
   });
 
   FirebaseMessaging.onMessage.listen((message) {
     //bbbb("sss: " + event.notification!.title.toString());
     //  showNotificationCustomSound(message);
-    final type = message.data["data"];
-    print(type);
-    if (type != null && type == 'report') {
-      print("bu odur");
-    } else {
-      print("1");
-      print("================");
-      print(message.toString());
-      print(message.data.toString());
-      print("================");
-    }
-    print("notifiaction" + type);
-    print("2");
-    print("================");
-    print(message.toString());
-    print(message.data.toString());
-    print("================");
+    ///bu app aciq oldugu halda ishe yariyir
 
+    wtf("1"+message.data['type'].toString());
+    wtf("2"+message.data['data'].toString());
+    wtf("3"+message.notification!.body.toString());
+    wtf("4"+message.notification!.body.toString());
+    // wtf("5"+message.data['data']['page'].toString());
+    wtf("6"+message.data['page'].toString());
     ForegroundNotification.show(message);
   });
 
   FirebaseMessaging.onMessageOpenedApp.listen((event) {
-    // {
-    //   "id": 30343,
-    // "title": "Bağlamanız Xarici anbardadır",
-    // "description": "A459378 kodlu bağlamanız Xarici anbardadır",
-    // "created_at": "2022-04-15 00:41:40",
-    // "updated_at": "2022-04-15 00:41:40",
-    // "read": 0,
-    // "data": {
-    // "type": "package",
-    // "id": 25654
-    // }
-    // },
-    print("notifiaction"+event.toString());
-    print("3");
-    print("================");
-    print(event.toString());
-    iiii(event.notification.toString());
-    dddd(event.notification!.body.toString());
-    bbbb(event.data.toString());
-    wtf(event.notification.toString());
-    llll(event.notification!.body.toString());
-    print(event.notification!.body);
 
-    // final type = jsonDecode(event.notification!.body!)['data']['type'];
-    // if (type == 'package') {
-    //   iiii("package dir");
-    // } else {
-    //   wtf("package deyil");
-    // }
-    // if (type == 'report') {
-    //   iiii("report dir");
-    // } else {
-    //   wtf("package deyil");
-    // }
+    if(event.notification!.body == "test"){
 
+      print("Sagol");
 
+      Go.to(context!, Pager.notifications);
+    }
 
     final Map<String, dynamic> data = event.data;
     //GeneralOperations.determineTab(data);

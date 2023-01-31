@@ -70,7 +70,7 @@ Future<void> init() async {
     ],
     channelGroups: [
       NotificationChannelGroup(
-          channelGroupkey: 'sound_tests', channelGroupName: 'Basic group')
+          channelGroupKey: 'sound_tests', channelGroupName: 'Basic group')
     ],
   );
 

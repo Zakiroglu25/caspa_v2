@@ -50,9 +50,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>App need camera permission for select user photo</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>This app needs access to location when open.</string>
+	<string>Location permission is required for the courier to find your address.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app needs access to location when open.</string>
+	<string>Location permission is required for the courier to find your address.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>App need microphone permission for take a video</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -69,5 +69,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 </dict>
 </plist>

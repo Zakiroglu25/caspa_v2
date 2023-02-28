@@ -23,6 +23,7 @@ class Assets {
 
   static const String homeMoto = "assets/png/motoNewPng.png";
   static const String santaHome = "assets/png/santahome.png";
+  static const String pngNovruz = "assets/png/novruz.png";
 
 
   static const String pngHeart = "assets/png/heart.png";

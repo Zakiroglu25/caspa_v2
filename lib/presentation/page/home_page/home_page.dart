@@ -44,22 +44,10 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState(){
     super.initState();
-    // handleMessageOnBackground();
     SharedPreferences.getInstance().then((prefs) {
       _prefs = prefs;
       issheetShown = prefs.getBool('show_sheet') ?? false;
       setState(() {});
-      // showAds();
-
-      // SharedPreferences.getInstance().then((prefs) {
-      //   final int dialogOpen = prefs.getInt('dialog_open') ?? 0;
-      //   if (dialogOpen == 0) {
-      //     //show dialog for one time only
-      //     Future.delayed(const Duration(milliseconds: 1000), () {
-      //     prefs.setInt("dialog_open", 1);
-      //   });
-      // }
-      // });
     });
   }
 
@@ -76,25 +64,8 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  // void handleMessageOnBackground() {
-  //   FirebaseMessaging.instance.getInitialMessage().then(
-  //         (remoteMessage) {
-  //       if (remoteMessage != null) {
-  //         String payload = json.encode(remoteMessage.data);
-  //         if(remoteMessage.data['page'] == "campaigns"){
-  //           Go.to(context, Pager.shops);
-  //         }
-  //         //navigator two orther screen
-  //       }
-  //     },
-  //   );
-  // }
 
   showAds() {
-    // BlocProvider.value(
-    //   value:  AdsCubit(),
-    //   child: CustomDialog(),
-    // );
     final exampleCubit = context.read<AdsCubit>();
     showDialog(
       context: context,

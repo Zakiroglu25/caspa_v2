@@ -19,7 +19,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
 
 
-    VideoPlayerController? _controller;
+    // VideoPlayerController? _controller;
   bool _visible = false;
 
   @override
@@ -30,54 +30,52 @@ class _SplashPageState extends State<SplashPage> {
       DeviceOrientation.portraitUp,
     ]);
 
-    _controller = VideoPlayerController.asset("assets/video/fly.mp4");
-    _controller!.initialize().then((_) {
-      _controller!.setLooping(true);
-      Timer(Duration(milliseconds: 100), () {
-        setState(() {
-          _controller!.play();
-          _visible = true;
-        });
-      });
-    });
+    // _controller = VideoPlayerController.asset("assets/video/fly.mp4");
+    // _controller!.initialize().then((_) {
+    //   _controller!.setLooping(true);
+      // Timer(Duration(milliseconds: 100), () {
+      //   setState(() {
+          // _controller!.play();
+          // _visible = true;
+        // });
+      // });
+    // });
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    if (_controller != null) {
-      _controller!.dispose();
-      _controller = null;
-    }
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   if (_controller != null) {
+  //     _controller!.dispose();
+  //     _controller = null;
+  //   }
+  // }
 
-  _getVideoBackground() {
-    return AnimatedOpacity(
-      opacity: _visible ? 1.0 : 0.0,
-      duration: Duration(milliseconds: 1000),
-      child: VideoPlayer(_controller!),
-    );
-  }
+  // _getVideoBackground() {
+  //   return AnimatedOpacity(
+  //     opacity: _visible ? 1.0 : 0.0,
+  //     duration: Duration(milliseconds: 1000),
+  //     child: VideoPlayer(_controller!),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColors.transparent,
+      backgroundColor: MyColors.white,
       body: Container(
         width: double.maxFinite,
         height: double.maxFinite,
         child: Stack(
           alignment: Alignment.center,
           children: [
-            _getVideoBackground(),
+            // _getVideoBackground(),
             // Lottie.asset(Assets.snow, repeat: true),
-            // Positioned(
-            //     left: 0,
-            //     bottom: 0,
-            //     child: SizedBox(
-            //         width: 220.w,
-            //         height: 340.h,
-            //         child: Lottie.asset(Assets.santaAnim, repeat: false))),
+            Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Image.asset(Assets.pngNovruz,)),
             CaspaLogoWithName(),
             CaspaAzText()
           ],

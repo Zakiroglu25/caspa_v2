@@ -1,6 +1,6 @@
 // Flutter imports:
 import 'package:caspa_v2/util/constants/colors.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 
 class FadeRaisedButton extends StatelessWidget {
@@ -50,7 +50,7 @@ class FadeRaisedButton extends StatelessWidget {
             right: 0,
             child: Padding(
               padding: const EdgeInsets.only(top: 55, bottom: 20),
-              child: CaspaButton(
+              child: AppButton(
                 loading: loading ?? false,
                 textColor: Colors.white,
                 onTap: onTap,

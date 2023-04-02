@@ -11,7 +11,7 @@
 // import 'package:caspa_v2/util/screen/snack.dart';
 // import 'package:caspa_v2/widget/general/caspa_field.dart';
 // import 'package:caspa_v2/widget/general/caspa_loading.dart';
-// import 'package:caspa_v2/widget/general/caspa_radio.dart';
+// import 'package:caspa_v2/widget/general/app_radio.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 //

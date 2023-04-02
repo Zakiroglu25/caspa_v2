@@ -13,7 +13,7 @@ import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/sized_box.dart';
 import '../../../../util/constants/text.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 import 'location_button_text.dart';
 
 class CurrentAddressButton extends StatelessWidget {
@@ -25,11 +25,10 @@ class CurrentAddressButton extends StatelessWidget {
       right: 16,
       left: 16,
       bottom: 30,
-      child: CaspaButton(
+      child: AppButton(
         h: 76,
         //isButtonActive: !(state is DeliveryAddressCurrentError),
         onTap: () async {
-          bbbb('kllllll: ${context.read<DeliveryAddressCurrentCubit>().state}');
           final state = context.read<DeliveryAddressCurrentCubit>().state;
           if (state is DeliveryAdressCurrentDisabled) {
             context

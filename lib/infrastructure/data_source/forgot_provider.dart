@@ -48,22 +48,4 @@ class ForgotProvider {
     }
     return statusDynamic;
   }
-
-  static Future<AttorneyListModel> getAttorneys(
-      {required String? accessToken}) async {
-    late AttorneyListModel attorneyListModel;
-    const api = ApiKeys.addAttorneys;
-    final headers = ApiKeys.header(token: accessToken);
-
-    llll(api);
-    //final response = await http.get(url, headers: headers);
-    final response = await dioAuth.dio.get(api);
-    if (response.statusCode == ResultKey.successCode) {
-      final gelenCavabJson = response.data;
-      attorneyListModel = AttorneyListModel.fromJson(gelenCavabJson);
-    } else {
-      eeee("bad url :$api ,response: $response");
-    }
-    return attorneyListModel;
-  }
 }

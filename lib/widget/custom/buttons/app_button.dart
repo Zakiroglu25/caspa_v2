@@ -4,7 +4,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
 import 'package:flutter/material.dart';
 
-class CaspaButton extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final Color? color;
   final Color? textColor;
   final Color? splashColor;
@@ -23,7 +23,7 @@ class CaspaButton extends StatelessWidget {
   late final bool? isButtonActive;
   final double? h;
 
-  CaspaButton(
+  AppButton(
       {this.color,
       this.loading,
       this.child,

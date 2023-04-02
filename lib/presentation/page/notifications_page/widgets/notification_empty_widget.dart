@@ -7,7 +7,7 @@ import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/sized_box.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/delegate/pager.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 
 class NotificationEmptyWidget extends StatelessWidget {
   const NotificationEmptyWidget({
@@ -37,7 +37,7 @@ class NotificationEmptyWidget extends StatelessWidget {
           ),
         ),
         MySizedBox.h16,
-        CaspaButton(
+        AppButton(
           text: "Bağlama sifariş et",
           w: 140,
           onTap: () {

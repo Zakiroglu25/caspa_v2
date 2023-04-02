@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../infrastructure/services/hive_service.dart';
 import '../../../../locator.dart';
 import '../../../../util/constants/colors.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 
 class CourierPayButton extends StatelessWidget {
   const CourierPayButton({Key? key, required this.courier}) : super(key: key);
@@ -24,7 +24,7 @@ class CourierPayButton extends StatelessWidget {
       bottom: 16,
       child: WidgetOrEmpty(
         value: courier.payment == 0,
-        child: CaspaButton(
+        child: AppButton(
           h: 44.sp,
           w: 135.sp,
           onTap: () => Alerts.courierPaymentAlert(

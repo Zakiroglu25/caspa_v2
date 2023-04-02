@@ -10,7 +10,7 @@ import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/screen/alert.dart';
 import '../../../../util/screen/widget_or_empty.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 import '../../../../widget/custom/caspa_payment_radio.dart';
 
 class PayButton extends StatelessWidget {
@@ -29,7 +29,7 @@ class PayButton extends StatelessWidget {
           child: SizedBox(
             height: 40,
             width: 80,
-            child: CaspaButton(
+            child: AppButton(
               text: MyText.pay,
               textSize: 13,
               onTap: () => Alert.body(context,

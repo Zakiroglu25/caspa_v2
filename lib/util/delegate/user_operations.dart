@@ -32,21 +32,10 @@ class UserOperations {
       required String accessToken,
       required String? path}) async {
     try {
-      // await _prefs.persistIsLoggedIn(true);
-      // await _prefs.persistIsGuest(false);
       await _prefs.persistAccessToken(accessToken: accessToken);
       await _prefs.persistPath(path!);
-
-      // await _prefs.persistFcmToken(fcmToken: fcmToken);
-
       await configUserDataWhenOpenApp(
           fcm: fcmToken, path: path, accessToken: accessToken);
-      // final result = await AccountProvider.fetchUserInfo(token: accessToken);
-      // MyUser user = (result!.data as MyUser);
-      // await _prefs.persistUser(user: user);
-      // await _configs.persistEmail(email: user.email);
-      // locator.resetLazySingleton(instance: DioAuth.instance);
-
     } catch (e, s) {
       bbbb("configureUserData e: $e => s: $s");
       Recorder.recordCatchError(e, s);

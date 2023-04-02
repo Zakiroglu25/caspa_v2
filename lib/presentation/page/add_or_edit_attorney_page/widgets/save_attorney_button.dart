@@ -2,7 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_state.dart';
 import 'package:caspa_v2/infrastructure/models/remote/response/attorney_list_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +13,7 @@ class SaveAttorneyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CaspaButton(
+    return AppButton(
       loading:
           context.read<AddAttorneysCubit>().state is AddAttorneysInProgress,
       text: MyText.save,

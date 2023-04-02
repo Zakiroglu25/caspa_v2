@@ -3,7 +3,7 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-import 'caspa_button.dart';
+import 'app_button.dart';
 
 class CaspaTextButton extends StatelessWidget {
   final Color? color;
@@ -36,7 +36,7 @@ class CaspaTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CaspaButton(
+    return AppButton(
       text: text,
       color: Colors.transparent,
       splashColor: splashColor ?? MyColors.mainColor.withOpacity(0.2),

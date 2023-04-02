@@ -1,6 +1,6 @@
 import 'package:caspa_v2/infrastructure/models/remote/response/link_order_model.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +20,7 @@ class OrdersPayButton extends StatelessWidget {
             (selectedOrders?.fold<double>(0, (previousValue, element) {
           return previousValue + double.parse(element.total ?? '0');
         }).toStringAsFixed(2));
-        return CaspaButton(
+        return AppButton(
           isButtonActive: snapshot.data?.isNotEmpty,
           text: '${MyText.pay} (${totalPrice} ${MyText.tryy})',
           onTap: () => context.read<OrderViaUrlListCubit>().paySelectedOrders(),

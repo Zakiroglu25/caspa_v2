@@ -10,10 +10,12 @@ class SectionName extends StatelessWidget {
   double? size;
   Widget? tile;
   int? maxLines;
+  bool? right;
 
   SectionName(
       {required this.title,
       this.vP,
+      this.right,
       this.hP,
       this.size,
       this.tile,
@@ -23,7 +25,9 @@ class SectionName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      padding: EdgeInsets.symmetric(horizontal: hP ?? 0, vertical: vP ?? 0),
+      padding: right == false
+          ? EdgeInsets.symmetric(horizontal: hP ?? 0, vertical: vP ?? 0)
+          : const EdgeInsets.only(right: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -39,7 +43,7 @@ class SectionName extends StatelessWidget {
           WidgetOrEmpty(
             value: tile != null,
             child: tile,
-          )
+          ),
         ],
       ),
     );

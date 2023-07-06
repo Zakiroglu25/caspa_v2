@@ -29,6 +29,7 @@ class Assets {
   static const String pngHeart = "assets/png/heart.png";
   static const String pngAirplane = "assets/png/airplane.png";
   static const String pngDollar = "assets/png/dollar.png";
+  static const String bank = "assets/png/banknotes.png";
   static const String pngGift = "assets/png/giftBox.png";
 
   static const String news1 = "assets/png/news1.png";

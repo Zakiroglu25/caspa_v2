@@ -24,31 +24,31 @@ class BalancePackages extends StatelessWidget {
           //   style: AppTextStyles.sanF600.copyWith(fontSize: 16.sp),
           // ),
           // MySizedBox.h16,
-          PricePackage(
-            price: '10',
-            gift: '1',
-            index: 5,
-          ),
-          PricePackage(
-            price: '25',
-            gift: '5',
-            index: 1,
-          ),
-          PricePackage(
-            price: '50',
-            gift: '15',
-            index: 2,
-          ),
-          PricePackage(
-            price: '75',
-            gift: '25',
-            index: 3,
-          ),
-          PricePackage(
-            price: '100',
-            gift: '50',
-            index: 4,
-          ),
+          // PricePackage(
+          //   price: '10',
+          //   gift: '1',
+          //   index: 5,
+          // ),
+          // PricePackage(
+          //   price: '25',
+          //   gift: '5',
+          //   index: 1,
+          // ),
+          // PricePackage(
+          //   price: '50',
+          //   gift: '15',
+          //   index: 2,
+          // ),
+          // PricePackage(
+          //   price: '75',
+          //   gift: '25',
+          //   index: 3,
+          // ),
+          // PricePackage(
+          //   price: '100',
+          //   gift: '50',
+          //   index: 4,
+          // ),
 
           MySizedBox.h100
         ],

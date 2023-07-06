@@ -23,6 +23,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   debugPrint('onBackgroundMessage: ${message}');
+
   await Future.delayed(Durations.s2);
 
   // showNotificationCustomSound(message);
@@ -43,7 +44,6 @@ void configureFcm({String? topic, required BuildContext? context}) async {
   });
 
   FirebaseMessaging.onMessage.listen((message) {
-    iiii("onMessage");
     if (message.data['type'] == 'package') {
       Go.to(context!, Pager.package(back: true));
       //GeneralOperations.determineTab(data);

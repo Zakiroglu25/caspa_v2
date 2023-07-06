@@ -116,6 +116,23 @@ class UserCabinetPage extends StatelessWidget {
                     MySizedBox.h16,
 
                     NewBalanceBox(
+                      onTap: () {
+                        Go.to(
+                            context,
+                            Pager.paymentPage(
+                                paymentBalanceType: PaymentBalanceType.order));
+                      },
+                      icon: Assets.bank,
+                      boxTitle: MyText.last30days,
+                      title: "${MyText.priceBalance}: ${user.monthly} \$ ",
+                      subtitle: MyText.last30days,
+                      subtitleColor: MyColors.greenOrderBalance,
+                      desc: "",
+                      color: MyColors.balanceCountPackage,
+                    ),
+                    MySizedBox.h16,
+
+                    NewBalanceBox(
                       onTap: () => Go.to(context, Pager.bonus),
                       icon: Assets.pngGift,
                       boxTitle: MyText.bonus,

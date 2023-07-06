@@ -136,6 +136,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Xaricdən çatdırılma tarifləri ✈️";
+  static const String courierTarriffs = "Kuryer tarifləri 🚗";
   static const String activePackages = "Aktiv bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
@@ -160,6 +161,8 @@ class MyText {
   static const String giftBalance = "Hədiyyə balansı";
   static const String bonus = "Bonuslar";
   static const String balance = "Balans";
+  static const String priceBalance = "Xərclənən";
+  static const String mothly = "Ayl";
   static const String balances = "Balanslar";
   static const String desc = "Yanlız həftədə 1 dəfə, Çarxı fırlada bilərsiniz";
 
@@ -380,7 +383,7 @@ class MyText {
 
   //selected packages pag
   static const String touchPayButtonText =
-      "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” butonuna toxunun.";
+      "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” düyməsinə toxunun.";
 
   //pasaj sms
   static const String pasajSMS = 'Turkcell Pasaj SMS';

@@ -23,6 +23,8 @@ import '../../../../infrastructure/models/local/my_user.dart';
 import '../../../../locator.dart';
 import '../../../../util/constants/preferences_keys.dart';
 import '../../../../util/screen/snack.dart';
+import '../../../../widget/general/more_button.dart';
+import 'section_name.dart';
 import 'tariffs_courier.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -69,6 +71,14 @@ class HomeHeader extends StatelessWidget {
             ),
           ),
           MySizedBox.h18,
+          SectionName(
+            title: MyText.courierTarriffs,
+            hP: 0,
+            tile: MoreButton(
+              onTap: () => Go.to(context, Pager.courierTarifDetails),
+            ),
+          ),
+          MySizedBox.h4,
           TariffsCourier(),
           MySizedBox.h12,
           CaspaButton(

@@ -93,58 +93,7 @@ class ReportPage extends StatelessWidget {
                 BranchField(
                   activityNotifier: _activityNotifier,
                 ),
-                ValueListenableBuilder<int?>(
-                    valueListenable: _activityNotifier,
-                    builder: (_, value, child) {
-                      print("value $value");
-                      if (value != null && value == 1) {
-                        return WaresField();
-                      }
-                      return SizedBox.shrink();
-                    }),
-                ValueListenableBuilder<int?>(
-                    valueListenable: _activityNotifier,
-                    builder: (_, value, child) {
-                      print("value $value");
-                      if (value != null && value == 2) {
-                        return Column(
-                          children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: Padding(
-                                padding: Paddings.paddingA16 +
-                                    EdgeInsets.only(right: 16),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      "Diqqət!",
-                                      style: UITextStyle.tW600Black.copyWith(
-                                          fontSize: 14, letterSpacing: 0.3),
-                                    ),
-                                    MySizedBox.h4,
-                                    Text(
-                                      MyText.infoCourier,
-                                      style: AppTextStyles.sanF400.copyWith(
-                                          fontSize: 14,
-                                          letterSpacing: 0.3,
-                                          color: MyColors.dark51),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: MyColors.mainOpacity,
-                              ),
-                            ),
-                            MySizedBox.h16
-                          ],
-                        );
-                      }
-                      return SizedBox.shrink();
-                    }),
+                WaresField(),
                 NoteFieldReport(
                     controller: TextEditingController(text: package?.note)),
                 SectionName(title: MyText.factura),

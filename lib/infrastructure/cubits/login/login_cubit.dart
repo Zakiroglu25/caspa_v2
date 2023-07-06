@@ -90,7 +90,6 @@ class LoginCubit extends Cubit<LoginState> {
       final deviceCode = await _fcm.getToken();
       final response = await AuthProvider.login(
           email: uEmail.valueOrNull,
-          //?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,

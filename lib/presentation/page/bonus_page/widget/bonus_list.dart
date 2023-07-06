@@ -74,7 +74,9 @@ class BonusListWidget extends StatelessWidget {
                     ),
                     Spacer(),
                     Text(
-                      "+" + "${bonus[index].amount}" + "\$",
+                      bonus[index].used == 0
+                          ? "+" + "${bonus[index].amount}" + "\$"
+                          : "-" + "${bonus[index].amount}" + "\$",
                       style: AppTextStyles.sanF600
                           .copyWith(color: MyColors.black34, fontSize: 16.sp),
                     ),

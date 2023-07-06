@@ -130,41 +130,7 @@ class CourierCubit extends Cubit<CourierState> {
       emit(CourierError(error: e.toString()));
     }
   }
-  // void configureCourier(
-  //   BuildContext context, {
-  //   bool loading = true,
-  //   int? courierId,
-  // }) async {
-  //   try {
-  //     if (isUserDataValid()) {
-  //       if (loading) {
-  //         emit(CourierInProgressButton());
-  //       }
-  //       ;
-  //       Go.to(
-  //           context,
-  //           Pager.courier_order(
-  //             phone: phone.value,
-  //             packages: selectedOrders.value,
-  //             adress: adress.value,
-  //             courierId: courierId,
-  //             price: region.value!.price!,
-  //             region: region.value!,
-  //           ));
-  //       emit(CourierConfigured());
-  //     } else {
-  //       Snack.display(
-  //           context: context, message: MyText.all_fields_must_be_filled);
-  //       emit(CourierOperationFail());
-  //     }
-  //   } on SocketException catch (_) {
-  //     //network olacaq
-  //     emit(CourierError());
-  //   } catch (e, s) {
-  //     Recorder.recordCatchError(e, s, where: 'CourierCubit.configureCourier');
-  //     emit(CourierError(error: e.toString()));
-  //   }
-  // }
+
 
   void fetchPackagesForCourier({bool loading = true}) async {
     if (loading) {
@@ -200,28 +166,6 @@ class CourierCubit extends Cubit<CourierState> {
     }
   }
 
-  // void fetchRegions([bool loading = true]) async {
-  //   if (loading) {
-  //     emit(CourierInProgress());
-  //   }
-  //
-  //   try {
-  //     final result = await PublicProvider.getRegions();
-  //     if (isSuccess(result.statusCode)) {
-  //       emit(CourierableFetched(result.data));
-  //     } else {
-  //       emit(CourierError());
-  //     }
-  //   } on SocketException catch (_) {
-  //     //network olacaq
-  //     emit(CourierError());
-  //   } catch (e, s) {
-  //     eeee("fetchPackagesForCourier catch: $e => $s");
-  //     emit(CourierError(error: e.toString()));
-  //   }
-  // }
-
-  ////////////////////////////fields
 
 //deliveryAddress
   final BehaviorSubject<String> deliveryAddress = BehaviorSubject<String>();
@@ -320,6 +264,7 @@ class CourierCubit extends Cubit<CourierState> {
   //selected orders
   final BehaviorSubject<List<Package>> selectedOrders =
       BehaviorSubject<List<Package>>.seeded([]);
+
 
   Stream<List<Package>> get selectedOrdersStream => selectedOrders.stream;
 

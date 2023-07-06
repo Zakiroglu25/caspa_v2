@@ -27,11 +27,12 @@ class SelectPackagesContinueButton extends StatelessWidget {
               0,
               (double previousValue, Package element) =>
                   previousValue + (double.parse(element.cargoPrice!)));
+          final priceString = price?.toStringAsFixed(2);
           return CaspaButton(
             loading: (context.read<SelectPackagesPayCubit>().state
                 is CourierInProgressButton),
             isButtonActive: snapshot.data?.isNotEmpty,
-            text: '${MyText.pay} (${selectedOrders?.length} ədəd) $price USD',
+            text: '${MyText.pay} (${selectedOrders?.length} ədəd) $priceString USD',
             onTap: () =>
                 context.read<SelectPackagesPayCubit>().paySelectedOrders(),
           );

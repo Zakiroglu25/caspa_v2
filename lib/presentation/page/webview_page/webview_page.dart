@@ -59,38 +59,6 @@ class _WebviewPageState extends State<WebviewPage> {
   @override
   void initState() {
     super.initState();
-
-    // contextMenu = ContextMenu(
-    //     menuItems: [
-    //       ContextMenuItem(
-    //           androidId: 1,
-    //           iosId: "1",
-    //           title: "Special",
-    //           action: () async {
-    //             print("Menu item Special clicked!");
-    //             print(await webViewController?.getSelectedText());
-    //             await webViewController?.clearFocus();
-    //           })
-    //     ],
-    //     options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
-    //     onCreateContextMenu: (hitTestResult) async {
-    //       print("onCreateContextMenu");
-    //       print(hitTestResult.extra);
-    //       print(await webViewController?.getSelectedText());
-    //     },
-    //     onHideContextMenu: () {
-    //       print("onHideContextMenu");
-    //     },
-    //     onContextMenuActionItemClicked: (contextMenuItemClicked) async {
-    //       var id = (Platform.isAndroid)
-    //           ? contextMenuItemClicked.androidId
-    //           : contextMenuItemClicked.iosId;
-    //       print("onContextMenuActionItemClicked: " +
-    //           id.toString() +
-    //           " " +
-    //           contextMenuItemClicked.title);
-    //     });
-
     pullToRefreshController = PullToRefreshController(
       options: PullToRefreshOptions(
         color: Colors.blue,
@@ -132,21 +100,7 @@ class _WebviewPageState extends State<WebviewPage> {
       onWillPop: () => _exitApp(context),
       child: SafeArea(
           child: Column(children: <Widget>[
-        // TextField(
-        //   decoration: InputDecoration(
-        //       prefixIcon: Icon(Icons.search)
-        //   ),
-        //   controller: urlController,
-        //   keyboardType: TextInputType.url,
-        //   onSubmitted: (value) {
-        //     var url = Uri.parse(value);
-        //     if (url.scheme.isEmpty) {
-        //       url = Uri.parse("https://www.google.com/search?q=" + value);
-        //     }
-        //     webViewController?.loadUrl(
-        //         urlRequest: URLRequest(url: url));
-        //   },
-        // ),
+
         Expanded(
           child: Stack(
             children: [
@@ -178,24 +132,6 @@ class _WebviewPageState extends State<WebviewPage> {
                 shouldOverrideUrlLoading: (controller, navigationAction) async {
                   var uri = navigationAction.request.url;
                   bbbb("url:  $uri");
-                  // if (![
-                  //   "http",
-                  //   "https",
-                  //   "file",
-                  //   "chrome",
-                  //   "data",
-                  //   "javascript",
-                  //   "about"
-                  // ].contains(uri!.scheme)) {
-                  //   if (await canLaunch(url)) {
-                  //     // Launch the App
-                  //     await launch(
-                  //       url,
-                  //     );
-                  //     // and cancel the request
-                  //     return NavigationActionPolicy.CANCEL;
-                  //   }
-                  // }
                   if (('$uri').contains('https://caspa.az/?modal=true')) {
                     //  webViewController.
                     eeee("url containe");
@@ -242,29 +178,6 @@ class _WebviewPageState extends State<WebviewPage> {
             ],
           ),
         ),
-        // ButtonBar(
-        //   alignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     ElevatedButton(
-        //       child: Icon(Icons.arrow_back),
-        //       onPressed: () {
-        //         webViewController?.goBack();
-        //       },
-        //     ),
-        //     ElevatedButton(
-        //       child: Icon(Icons.arrow_forward),
-        //       onPressed: () {
-        //         webViewController?.goForward();
-        //       },
-        //     ),
-        //     ElevatedButton(
-        //       child: Icon(Icons.refresh),
-        //       onPressed: () {
-        //         webViewController?.reload();
-        //       },
-        //     ),
-        //   ],
-        // ),
       ])),
     );
   }

@@ -11,7 +11,7 @@ class CaspaLogoWithName extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(Assets.svgCaspaLogoWithName,color:MyColors.mainColor,),
+        SvgPicture.asset(Assets.svgCaspaLogoWithName),
         // SvgPicture.asset(Assets.svgOneYear),
       ],
     ));

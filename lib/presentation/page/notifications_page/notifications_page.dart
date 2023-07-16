@@ -28,14 +28,6 @@ class NotificationsPage extends StatelessWidget {
             context.read<NotificationCubit>().fetch();
           }
         },
-        // buildWhen: (context, state) {
-        //   if (state is NotificationRemoveSuccess) {
-        //     return false;
-        //   } else if (state is NotificationStatusUpdated) {
-        //     return false;
-        //   }
-        //   return true;
-        // },
         builder: (context, state) {
           if (state is NotificationSuccess) {
             if (state.notificationList.isEmpty) {

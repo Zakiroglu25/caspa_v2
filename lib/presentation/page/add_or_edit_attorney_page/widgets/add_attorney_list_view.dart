@@ -75,9 +75,7 @@ class AddOrEditFieldsAttorneyListView extends StatelessWidget {
           hint: MyText.phone_example,
           textInputType: TextInputType.phone,
           formatters: [
-            // PhoneNumberFormatter(with994: false),
-            // PhoneMaskFormatter(),
-            //_NumberTextInputFormatter(1)
+
           ],
           maxLenght: 15,
           controller: addAttorneysCubit.phone_controller,

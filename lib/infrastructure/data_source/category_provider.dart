@@ -11,10 +11,9 @@ class CategoryProvider {
   static Future<StatusDynamic> getCategory() async {
     StatusDynamic statusDynamic = StatusDynamic();
 
-    final api = ApiKeys.categories;
-    final headers = ApiKeys.headers;
+    const api = ApiKeys.categories;
+    const headers = ApiKeys.headers;
     var url = Uri.parse(api);
-    llll(api);
 
     final response = await http.get(url, headers: headers);
     statusDynamic.statusCode = response.statusCode;

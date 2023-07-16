@@ -17,6 +17,7 @@ class AdsCubit extends Cubit<AdsState> {
     }
     try {
       final result = await GeneralProvider.ads();
+
       try {
         if (isSuccess(result!.statusCode)) {
           emit(AdsSuccess(result.data));
@@ -33,6 +34,27 @@ class AdsCubit extends Cubit<AdsState> {
       emit(AdsNetworkError());
     } catch (e) {
       eeee("ads cubit catch: $e");
+      emit(AdsError(error: e.toString()));
+    }
+  }
+  void sendIsActive(int id) async {
+    try {
+      final result = await GeneralProvider.adsIsActive(id);
+      try {
+        if (isSuccess(result!.statusCode)) {
+          emit(AdsSuccess(result.data));
+        } else {
+          emit(AdsError());
+          eeee(
+              "Ads: ${ResponseMessage.fromJson(jsonDecode(result.data)).message}");
+        }
+      } catch (e) {
+        print(e);
+      }
+    } on SocketException catch (_) {
+      emit(AdsNetworkError());
+    } catch (e) {
+      eeee("ads send IsActive cubit catch: $e");
       emit(AdsError(error: e.toString()));
     }
   }

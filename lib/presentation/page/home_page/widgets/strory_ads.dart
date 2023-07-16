@@ -16,6 +16,7 @@ class MoreStories extends StatefulWidget {
 class _MoreStoriesState extends State<MoreStories> {
   final storyController = StoryController();
   List<StoryItem> stories = [];
+
   @override
   void initState() {
     super.initState();
@@ -49,6 +50,11 @@ class _MoreStoriesState extends State<MoreStories> {
           Container(
             padding: Paddings.paddingT24,
             child: StoryView(
+              onVerticalSwipeComplete: (direction) {
+                if (direction == Direction.down) {
+                  Navigator.pop(context);
+                }
+              },
               storyItems: stories,
               onComplete: () {
                 Navigator.pop(context);

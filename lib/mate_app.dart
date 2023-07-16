@@ -15,7 +15,7 @@ import 'util/constants/colors.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
 class MateApp extends StatelessWidget {
-  const MateApp({Key? key}) : super(key: key);
+  const  MateApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

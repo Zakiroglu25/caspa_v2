@@ -58,21 +58,8 @@ class CourierPageListView extends StatelessWidget {
                 MySizedBox.h24,
                 SectionName(title: MyText.deliveryInfo),
                 MySizedBox.h16,
-
                 DeliveryAddressSelectField(address: address),
                 MySizedBox.h16,
-                // PhoneFieldCourier(
-                //   controller: MaskedTextController.app(
-                //       text:
-                //           "${AppOperations.formatNumber(courierOrder?.phone, addZero: false, fromSpaceToLine: false)}"),
-                // ),
-                // RegionFieldCourier(
-                //   regionList: regionList,
-                //   selectedRegion: courierOrder?.region,
-                // ),
-                // AdressFieldCourier(
-                //     controller: TextEditingController(
-                //         text: "${courierOrder?.address ?? ''}")),
                 SectionName(title: MyText.selectOrder),
                 MySizedBox.h20,
                 OrderList(

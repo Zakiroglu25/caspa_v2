@@ -86,7 +86,7 @@ class ReportCubit extends Cubit<ReportState> {
           invoice: image.valueOrNull,
           note: note.valueOrNull,
           ware: selectedWares.valueOrNull?.id,
-          branch: selectedBranch.valueOrNull?.id,
+          branch: selectedBranch.valueOrNull!.id,
         );
         log(result.toString());
         if (isSuccess(result?.statusCode)) {
@@ -216,7 +216,6 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<WareHouse?> get selectedWaresStream => selectedWares.stream;
 
   updateWares(WareHouse? value) {
-    print("selectedWaresStream" + selectedWares.toString());
     if (value == null) {
       selectedWares.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);

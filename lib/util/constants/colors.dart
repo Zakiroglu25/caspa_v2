@@ -125,10 +125,12 @@ class MyColors {
   //new dark text color
   static const Color dark51 = Color.fromRGBO(51, 51, 51, 1);
   static const Color deleteREd = Color.fromRGBO(253, 242, 244, 1);
-  static const Color wheelBck = Color(0xFFE0F0FC);
+  static const Color wheelBck = Color(0xFFF1F1F9);
+  //whell background
 
 //bonus background
   static const Color bonus = Color.fromRGBO(251, 228, 228, 1);
+  static const Color blue24 = Color(0xFF0042E4);
 // static const Color shopPurple =Color(0xFF5D5FEF);
 // static const Color shopBlue =Color(0xFF27E3D8);
 // static const Color shopRed =Color(0xFFE32E2E);

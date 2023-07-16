@@ -38,17 +38,12 @@ class CourierTarifListWidget extends StatelessWidget {
             return FadeInUp(
               duration: Duration(
                   milliseconds: isVertical! ? AppOperations.getTime(index) : 0),
-              child: InkWell(
-                onTap: () {
-                  Go.to(context, Pager.courierTarifDetails);
-                },
-                child: TariffCard(
-                  w: 120,
-                  tarifName: tariff.name,
-                  price: tariff.price,
-                  isVertical: isVertical,
-                  //w: (isVertical ?? false) ? null : 284.sp,
-                ),
+              child: TariffCard(
+                w: 120,
+                tarifName: tariff.name,
+                price: tariff.price,
+                isVertical: isVertical,
+                //w: (isVertical ?? false) ? null : 284.sp,
               ),
             );
           },

@@ -29,13 +29,7 @@ Future<dynamic> onBackgroundMessageHandler(Map<String, dynamic> message) async {
 }
 
 void main() async {
-  // for (int i = 0; i < 10; i++) {
-  //   if (i.isEven) {
-  //     Future.microtask(() => print("$i"));
-  //   } else {
-  //     Future.delayed(Duration(milliseconds: 1)).whenComplete(() => print("$i"));
-  //   }
-  // }
+
   HttpOverrides.global = MyHttpOverrides();
   runZonedGuarded(() async {
     await init();

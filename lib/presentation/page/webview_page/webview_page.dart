@@ -133,6 +133,7 @@ class _WebviewPageState extends State<WebviewPage> {
                   var uri = navigationAction.request.url;
                   bbbb("url:  $uri");
                   if (('$uri').contains('https://caspa.az/?modal=true')) {
+
                     //  webViewController.
                     eeee("url containe");
 

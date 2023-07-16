@@ -7,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../../util/constants/app_text_styles.dart';
 import '../../../../util/constants/assets.dart';
 import '../../../../util/constants/colors.dart';
+import '../../../../util/screen/alert.dart';
 import '../../../../widget/custom/fab/fab_animation.dart';
 
 class HomeWhatsappWidget extends StatelessWidget {
@@ -50,6 +51,7 @@ class HomeWhatsappWidget extends StatelessWidget {
                   .copyWith(color: MyColors.white, fontSize: 14.sp),
             ),
           ),
+
           onPress: () =>
               launch('https://api.whatsapp.com/send?phone=994997261453'),
           inverted: false,

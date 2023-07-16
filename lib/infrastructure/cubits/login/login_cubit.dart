@@ -87,14 +87,9 @@ class LoginCubit extends Cubit<LoginState> {
       if (loading ?? true) {
         emit(LoginInProgress());
       }
-
-//final email="esev.sv@gmail.com";
-//final pass= 'salam';
-
       final deviceCode = await _fcm.getToken();
       final response = await AuthProvider.login(
           email: uEmail.valueOrNull,
-          //?? MyText.testMail,
           password: uPass.valueOrNull,
           deviceTypeId: StringOperations.platformId(),
           deviceCode: deviceCode,

@@ -7,7 +7,7 @@ import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
 import 'package:caspa_v2/widget/general/caspa_loading.dart';
-import 'package:caspa_v2/widget/general/app_radio.dart';
+import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,8 +17,7 @@ import '../../../../../../infrastructure/models/remote/response/branches_model.d
 import '../../../../../infrastructure/cubits/report/report_cubit.dart';
 
 class BranchField extends StatelessWidget {
-  BranchField({Key? key, this.selectedWaresId, required this.activityNotifier})
-      : super(key: key);
+  BranchField({Key? key, this.selectedWaresId, required this.activityNotifier}) : super(key: key);
   int? selectedWaresId;
   final ValueNotifier<int?> activityNotifier;
 
@@ -99,14 +98,12 @@ class BranchField extends StatelessWidget {
                                         itemBuilder: (contextK, index) {
                                           Branch category = branch[index];
 
-                                          return AppRadio(
+                                          return CaspaRadio(
                                             onTap: () {
                                               BlocProvider.of<ReportCubit>(
                                                       context)
                                                   .updateBranch(category);
-
-                                              activityNotifier.value =
-                                                  category.id;
+                                              activityNotifier.value = category.id;
                                               Go.pop(context);
                                             },
                                             title: category.name,

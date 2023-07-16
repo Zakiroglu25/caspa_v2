@@ -35,7 +35,9 @@ import 'widget/new_balans_box.dart';
 class UserCabinetPage extends StatelessWidget {
   UserCabinetPage({Key? key, this.showBack}) : super(key: key);
   bool? showBack;
+
   static HiveService get _prefs => locator<HiveService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +116,23 @@ class UserCabinetPage extends StatelessWidget {
                     MySizedBox.h16,
 
                     NewBalanceBox(
+                      onTap: () {
+                        Go.to(
+                            context,
+                            Pager.paymentPage(
+                                paymentBalanceType: PaymentBalanceType.order));
+                      },
+                      icon: Assets.bank,
+                      boxTitle: MyText.last30days,
+                      title: "${MyText.priceBalance}: ${user.monthly} \$ ",
+                      subtitle: MyText.last30days,
+                      subtitleColor: MyColors.greenOrderBalance,
+                      desc: "",
+                      color: MyColors.balanceCountPackage,
+                    ),
+                    MySizedBox.h16,
+
+                    NewBalanceBox(
                       onTap: () => Go.to(context, Pager.bonus),
                       icon: Assets.pngGift,
                       boxTitle: MyText.bonus,
@@ -132,7 +151,6 @@ class UserCabinetPage extends StatelessWidget {
                             ? () => Go.to(context, Pager.wheel())
                             : null,
                         icon: Assets.svgCarx,
-
                         boxTitle: "Çarx",
                         title: !wheelActive
                             ? "Yeni həftədə çarx aktiv olacaq"
@@ -141,7 +159,7 @@ class UserCabinetPage extends StatelessWidget {
                             !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
                         subtitleColor: MyColors.black,
                         desc:
-                            "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ",
+                            MyText.whellDetails,
                         color: MyColors.mainBlue127,
                       ),
                     MySizedBox.h32,

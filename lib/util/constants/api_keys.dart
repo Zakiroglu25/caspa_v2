@@ -14,6 +14,7 @@ class ApiKeys {
   static const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+
   };
 
   //reg and login
@@ -72,7 +73,9 @@ class ApiKeys {
   static const tariff = "$baseUrl/public/prices";
 
   //get ads
-  static const ads = "$baseUrl/public/ads";
+  static const ads = "$baseUrl/user/ads";
+  //postAds
+  static const adsIsActive = "$baseUrl/user/ad";
 
   //get category
   static const categories = "$baseUrl/public/categories";
@@ -293,6 +296,7 @@ class ApiKeys {
     required String? fin,
     required String? birthday,
     required String? gender,
+    required String? ext,
     required int? branch,
   }) {
     final map = {
@@ -312,6 +316,7 @@ class ApiKeys {
       "deviceCode": deviceCode,
       "deviceTypeId": deviceTypeId,
       "language": language,
+      "ext": ext,
     };
 
     map.removeWhere(

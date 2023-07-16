@@ -45,6 +45,8 @@ class WheelProvider {
       final gelenCavabJson = response.data;
       Bonus data = Bonus.fromJson(gelenCavabJson);
       statusDynamic.data = data.data;
+      wtf(data.toString());
+
     } else {
       eeee("fetchBonus bad url :$url,response: ${response}");
     }

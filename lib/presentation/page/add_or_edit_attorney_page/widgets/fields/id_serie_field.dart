@@ -29,11 +29,13 @@ class IdSerieFieldAddAttorney extends StatelessWidget {
             textCapitalization: TextCapitalization.sentences,
             errorMessage: snapshot.error == null ? null : '${snapshot.error}',
             //  controller: controller,
-            controller: TextEditingController.fromValue(TextEditingValue(
-                text: (BlocProvider.of<AddAttorneysCubit>(context)
-                        .serieType
-                        .valueOrNull) ??
-                    '')),
+            controller: TextEditingController.fromValue(
+              TextEditingValue(
+                  text: (BlocProvider.of<AddAttorneysCubit>(context)
+                          .serieType
+                          .valueOrNull) ??
+                      ''),
+            ),
             onTap: () => Sheet.display(
                 context: context,
                 child: SizedBox(

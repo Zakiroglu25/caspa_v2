@@ -39,7 +39,6 @@ class AttorneyListCubit extends Cubit<AttorneyListState> {
     if (loading) {
       emit(AttorneyListInProgress());
     }
-
     try {
       final result = await AttorneyProvider.deleteAttorney(
           accessToken: _prefs.accessToken, id: id!);

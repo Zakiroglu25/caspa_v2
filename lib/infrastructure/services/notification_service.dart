@@ -1,14 +1,19 @@
 // Package imports:
 
+import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/util/delegate/foreground_notification.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
+import 'package:caspa_v2/util/delegate/navigate_utils.dart';
+import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../presentation/page/notifications_page/notifications_page.dart';
 import '../../util/constants/durations.dart';
 
 final messaging = FirebaseMessaging.instance;
@@ -18,32 +23,44 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   debugPrint('onBackgroundMessage: ${message}');
+
   await Future.delayed(Durations.s2);
+
   // showNotificationCustomSound(message);
 }
 
 void configureFcm({String? topic, required BuildContext? context}) async {
+  var fcm = messaging.getToken();
+  log(fcm.toString());
   await initializeFCMNotification();
   if (Platform.isIOS) {
     await requestPermission();
   }
-  //_createNotificationChannel("0", "0");
+
   FirebaseMessaging.instance.getInitialMessage().then((value) {
     final Map<String, dynamic>? data = value?.data;
-    //AppSettings.openNotificationSettings();
-    // GeneralOperations.determineTab(data);
+    iiii("getInitialMessage");
+    iiii(data.toString());
   });
 
   FirebaseMessaging.onMessage.listen((message) {
-    //bbbb("sss: " + event.notification!.title.toString());
-    //  showNotificationCustomSound(message);
-
+    if (message.data['type'] == 'package') {
+      Go.to(context!, Pager.package(back: true));
+      //GeneralOperations.determineTab(data);
+    } else {
+      Go.to(context!, Pager.notifications);
+    }
     ForegroundNotification.show(message);
   });
 
   FirebaseMessaging.onMessageOpenedApp.listen((event) {
-    final Map<String, dynamic> data = event.data;
-    //GeneralOperations.determineTab(data);
+    iiii("Bura onMessageOpenedApp");
+    if (event.data['type'] == 'package') {
+      Go.to(context!, Pager.package(back: true));
+      //GeneralOperations.determineTab(data);
+    } else {
+      Go.to(context!, Pager.notifications);
+    }
   });
 
   FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
@@ -69,7 +86,7 @@ initializeFCMNotification() async {
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onSelectNotification: (var payload) {
     //return
-    onSelectNotification(payload);
+    // onSelectNotification(payload);
   });
 
   // generalSubscribtion();
@@ -105,9 +122,9 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
   await flutterLocalNotificationsPlugin.cancel(0);
 }
 
-Future onSelectNotification(var payload) async {
+Future onSelectNotification(var payload, BuildContext? context) async {
   if (payload != null) {
-    //debugPrint('notification payload: ' + payload);
+    Go.to(context!, Pager.notifications);
     launch(payload);
   }
 }
@@ -131,21 +148,6 @@ Future<bool> requestPermission() async {
   return false;
 }
 
-Future<void> _createNotificationChannel(String id, String name) async {
-  final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
-  var androidNotificationChannel = AndroidNotificationChannel(id, name);
-  await flutterLocalNotificationsPlugin
-      .resolvePlatformSpecificImplementation<
-          AndroidFlutterLocalNotificationsPlugin>()
-      ?.createNotificationChannel(androidNotificationChannel);
-}
-
-// Future onDidReceiveLocalNotification(
-//     int id, String title, String body, String payload) {}
-//
-// void unsubscribe({String topic}) {
-//   messaging.unsubscribeFromTopic(topic);
-// }
 class Helper {
   static Future<void> showNotificationCustomSound(
       {required String title, required String body}) async {

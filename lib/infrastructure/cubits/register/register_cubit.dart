@@ -69,6 +69,7 @@ class RegisterCubit extends Cubit<RegisterState> {
         deviceTypeId: StringOperations.platformId(),
         language: _prefs.language,
         branch: selectedBranch.valueOrNull!.id,
+        ext: serieType.valueOrNull,
       );
 
       bbbb("register bloc result: " + response.toString());
@@ -132,6 +133,28 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   //////VALUES///////////VALUES//////////VALUES/////////////VALUES///////////////////
+
+  //serieType
+  final BehaviorSubject<String> serieType =
+  BehaviorSubject<String>.seeded(MyText.aze);
+
+  Stream<String> get serieTypeStream => serieType.stream;
+
+  updatepriceType(String value) {
+    if (value == null || value.isEmpty) {
+      serieType.value = '';
+      serieType.sink.addError(MyText.field_is_not_correct);
+    } else {
+      serieType.sink.add(value);
+    }
+    // isUserInfoValid(registerType: _registerType);
+  }
+
+  bool get isSerieTypeIncorrect => (!serieType.hasValue ||
+      serieType.value == null ||
+      serieType.value.isEmpty);
+
+
 
   //email
   bool emailValid = false;

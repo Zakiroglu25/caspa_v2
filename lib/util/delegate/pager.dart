@@ -129,6 +129,7 @@ class Pager {
         BlocProvider.value(
           value: PackageStatusesCubit()..fetch(),
         ),
+
       ], child: NewOrderPage());
 
   static webviewPage({required String url, required BuildContext context}) =>

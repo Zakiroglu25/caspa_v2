@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
@@ -10,7 +11,8 @@ import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:just_audio/just_audio.dart';
+import 'package:vibration/vibration.dart';
 import '../../../infrastructure/cubits/wheel_cubit/index.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
@@ -27,6 +29,8 @@ class WheelPage extends StatelessWidget {
   final _wheelNotifier = StreamController<double>();
 
   final ValueNotifier<bool> _wheelActivityNotifier = ValueNotifier<bool>(false);
+
+
 
   dispose() {
     _dividerController.close();
@@ -114,6 +118,7 @@ class WheelPage extends StatelessWidget {
                         text: "Çarxı fırlat",
                         color: MyColors.black,
                         onTap: () {
+                          Vibration.vibrate(duration: 2000);
                           _wheelNotifier.sink.add(_generateRandomVelocity());
                           _wheelActivityNotifier.value = true;
                           // context.read<WheelCubit>().fetch();

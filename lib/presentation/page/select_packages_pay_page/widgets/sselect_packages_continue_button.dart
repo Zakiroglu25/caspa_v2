@@ -1,7 +1,7 @@
 import 'package:caspa_v2/infrastructure/cubits/courier/courier_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/select_packages_pay/select_packages_pay_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,11 +27,12 @@ class SelectPackagesContinueButton extends StatelessWidget {
               0,
               (double previousValue, Package element) =>
                   previousValue + (double.parse(element.cargoPrice!)));
-          return AppButton(
+          final priceString = price?.toStringAsFixed(2);
+          return CaspaButton(
             loading: (context.read<SelectPackagesPayCubit>().state
                 is CourierInProgressButton),
             isButtonActive: snapshot.data?.isNotEmpty,
-            text: '${MyText.pay} (${selectedOrders?.length} ədəd) $price USD',
+            text: '${MyText.pay} (${selectedOrders?.length} ədəd) $priceString USD',
             onTap: () =>
                 context.read<SelectPackagesPayCubit>().paySelectedOrders(),
           );

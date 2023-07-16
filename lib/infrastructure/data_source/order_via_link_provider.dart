@@ -86,6 +86,7 @@ class OrderViaLinkProvider {
     late LinkOrderResponse attorneyListModel;
     const api = ApiKeys.orderViaLink;
     final response = await dioAuth.dio.get(api);
+    print(response);
     if (response.statusCode == ResultKey.successCode) {
       final gelenCavabJson = response.data;
       attorneyListModel = LinkOrderResponse.fromJson(gelenCavabJson);

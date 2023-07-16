@@ -6,7 +6,6 @@ import 'package:caspa_v2/util/constants/result_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 
 class TarifProvider {
-  static HiveService get _prefs => locator<HiveService>();
 
   static Future<TariffData> getTarif() async {
     late TariffData priceModel;

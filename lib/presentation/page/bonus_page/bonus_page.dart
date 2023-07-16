@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
 import '../../../util/constants/app_text_styles.dart';
+import '../../../util/constants/text.dart';
 import 'widget/bottom_container_bonus_widget.dart';
 
 class BonusPage extends StatelessWidget {
@@ -67,7 +68,7 @@ class BonusPage extends StatelessWidget {
                   color: Color.fromRGBO(0, 0, 0, 0.05)),
               child: Center(
                 child: Text(
-                  "Bonuslar qazandığınız gündən etibarən, 30 gün ərzində istifadə edə bilərsiniz.İstifadə etmədiyiniz təqdirdə, silinəcəkdir xoş alışverişlər 😎",
+                  MyText.bonusInfo,
                   textAlign: TextAlign.center,
                   style: AppTextStyles.sanF400
                       .copyWith(fontSize: 12.sp, color: MyColors.grey153),

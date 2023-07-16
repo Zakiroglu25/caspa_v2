@@ -19,9 +19,12 @@ class PackageSliverList extends StatelessWidget {
       delegate: SliverChildListDelegate(
         [
           MySizedBox.h26,
-          SectionName(
-            title: MyText.status,
-            hP: 16,
+          Padding(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: SectionName(
+              title: MyText.status,
+              hP: 16,
+            ),
           ),
           MySizedBox.h26,
           PackageStepper(

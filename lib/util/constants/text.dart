@@ -1,5 +1,6 @@
 class MyText {
   MyText._();
+
   static const String coppied = "Kopyalandı";
 
   ///etibarname
@@ -135,6 +136,7 @@ class MyText {
   //home
   static const String welcome = "Salam";
   static const String recognizeTariffs = "Xaricdən çatdırılma tarifləri ✈️";
+  static const String courierTarriffs = "Kuryer tarifləri 🚗";
   static const String activePackages = "Aktiv bağlamalarım";
   static const String packages = "Bağlamalar";
   static const String package = "Bağlama";
@@ -159,6 +161,8 @@ class MyText {
   static const String giftBalance = "Hədiyyə balansı";
   static const String bonus = "Bonuslar";
   static const String balance = "Balans";
+  static const String priceBalance = "Xərclənən";
+  static const String mothly = "Ayl";
   static const String balances = "Balanslar";
   static const String desc = "Yanlız həftədə 1 dəfə, Çarxı fırlada bilərsiniz";
 
@@ -278,8 +282,10 @@ class MyText {
   static const String step = "Addım";
   static const String makePayment = "Ödəniş edin";
   static const String fromBalance = "Balansdan";
+
   //static const String fromCashback = "Cashback ilə";
   static const String fromBonus = "Bonus ilə";
+
   //static const String withPromocode = "Cashback ilə";
   static const String balanceIncrease = "Balans artımı";
   static const String packageGift = "Paketlər";
@@ -359,6 +365,8 @@ class MyText {
   static const String tryy = "TRY";
   static const String aa = "AA";
   static const String aze = "AZE";
+  static const String myi = "MYI";
+  static const String dyi = "DYI";
   static const String invoice = "İnvoys";
   static const String factura = "Faktura";
   static const String reportIsNotAdded = 'Bəyannamə əlavə edilmədi!';
@@ -375,7 +383,7 @@ class MyText {
 
   //selected packages pag
   static const String touchPayButtonText =
-      "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” butonuna toxunun.";
+      "Ödəniş edəcəyiniz bağlamaları seçdikdə alt hissədə toplam məbləğ əks olunacaq. Əgər məbləğ sizi qane edirsə, “Ödəniş et” düyməsinə toxunun.";
 
   //pasaj sms
   static const String pasajSMS = 'Turkcell Pasaj SMS';
@@ -429,6 +437,7 @@ class MyText {
   static const String addNewAdressX = "+ Yeni ünvan əlavə et";
   static const String addNewAdress = "Yeni ünvan əlavə et";
   static const String adressError = "Çatdırılma ünvanı seçilməyib";
+
   //static const String locationAccessDenied = "Ərazi məlumatları üçün icazə rədd edildi";
   static const String locationAccessDenied = "İcazə rədd edildi";
   static const String locationAccessDisabled =
@@ -439,8 +448,15 @@ class MyText {
   //whatsapp
   static const String whatsappMessage = 'Salam, mən mobil tətbiqdən gəlmişəm.';
 
+  //bonus
+  static const String bonusInfo =
+      'Çarxdan qazanılan bonus 1 həftə ,"Endirim" kampaniyamızdan qazanılan bonuslar isə 1 ay keçərlidir😎';
+
   //wheel_page
   static const String testMail = "esev.sv@gmail.com";
+
+  static const String badResultWheel =
+      "Hörmətli müştəri, bəxtini bir daha 7 gün sonra sına.😎";
 
   /////////////////////////////////////////////
   static const String splashText0 =
@@ -460,7 +476,10 @@ class MyText {
   ///courier info
 
   static const String courierInfoTime =
-      "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 17:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
+      "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 14:53 -а qədər olan sifarişlər eyni gün çatdırılır.";
+
+  static const String infoCourier =
+      "28 may filialindan, kuryer çatdırılması mövcud deyil.";
 
   ///login
   static const String loginText =
@@ -502,6 +521,8 @@ class MyText {
 
   ///promocode
   static const String getPackageFree = "Pulsuz bağlama aparın 😊";
+  static const String whellDetails =
+      "Çarx həftə ərzinde 1 dəfə oyananılır.1 həftə tamam olduqda,çarxa klik edə bilərsiniz. ";
   static const String infoPromo =
       "Hər bir promokod ilə 1kq-a qədər olan istənilən bağlamanı ayda yalnız bir dəfə pulsuz apara bilərsiniz";
 

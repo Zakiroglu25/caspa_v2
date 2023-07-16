@@ -96,7 +96,7 @@
 //                                         itemBuilder: (contextK, index) {
 //                                           Data category = wares[index];
 //
-//                                           return CaspaRadio(
+//                                           return AppRadio(
 //                                             onTap: () {
 //                                               BlocProvider.of<RegisterCubit>(
 //                                                       context)

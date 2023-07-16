@@ -65,7 +65,7 @@ class PayButton extends StatelessWidget {
                           //     snapShoot: snapShoot,
                           //     description: "(${_prefs.user.bonus} \$)",
                           //     value: MyText.fromBonus),
-                          // buildCaspaRadio(context, snapShoot,
+                          // buildAppRadio(context, snapShoot,
                           //     value: MyText.withPromoCode),
                         ],
                       );

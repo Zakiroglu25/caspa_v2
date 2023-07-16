@@ -37,7 +37,7 @@ class CourierContinueButton extends StatelessWidget {
     );
   }
 
-  AppRadio buildCaspaRadio(
+  AppRadio buildAppRadio(
       BuildContext context, AsyncSnapshot<Object?> snapShoot,
       {required String value}) {
     return AppRadio(

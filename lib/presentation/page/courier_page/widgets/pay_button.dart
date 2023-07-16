@@ -36,10 +36,10 @@ class PayButton extends StatelessWidget {
                 return ListView(
                   shrinkWrap: true,
                   children: [
-                    buildCaspaRadio(context, snapShoot,
+                    buildAppRadio(context, snapShoot,
                         value: MyText.fromBalance),
-                    buildCaspaRadio(context, snapShoot, value: MyText.byCard),
-                    // buildCaspaRadio(context, snapShoot,
+                    buildAppRadio(context, snapShoot, value: MyText.byCard),
+                    // buildAppRadio(context, snapShoot,
                     //     value: MyText.withPromoCode),
                   ],
                 );
@@ -47,7 +47,7 @@ class PayButton extends StatelessWidget {
             )));
   }
 
-  AppRadio buildCaspaRadio(
+  AppRadio buildAppRadio(
       BuildContext context, AsyncSnapshot<Object?> snapShoot,
       {required String value}) {
     return AppRadio(

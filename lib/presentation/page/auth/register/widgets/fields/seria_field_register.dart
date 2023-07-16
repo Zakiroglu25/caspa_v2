@@ -1,8 +1,8 @@
 import 'package:caspa_v2/infrastructure/cubits/add_attorneys/add_attorneys_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
+import 'package:caspa_v2/widget/general/app_radio.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
-import 'package:caspa_v2/widget/general/caspa_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -47,7 +47,7 @@ class IdSerieFieldRegister extends StatelessWidget {
                   builder: (contextP, snapShoot) {
                     return ListView(
                       children: [
-                        CaspaRadio(
+                        AppRadio(
                           onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
                                 .updatepriceType(MyText.aa);
@@ -59,7 +59,7 @@ class IdSerieFieldRegister extends StatelessWidget {
                                   .valueOrNull ==
                               MyText.aa,
                         ),
-                        CaspaRadio(
+                        AppRadio(
                           onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
                                 .updatepriceType(MyText.aze);
@@ -71,7 +71,8 @@ class IdSerieFieldRegister extends StatelessWidget {
                                   .valueOrNull ==
                               MyText.aze,
                         ),
-                        CaspaRadio(
+                        
+                        AppRadio(
                           onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
                                 .updatepriceType(MyText.myi);
@@ -83,7 +84,7 @@ class IdSerieFieldRegister extends StatelessWidget {
                                   .valueOrNull ==
                               MyText.myi,
                         ),
-                        CaspaRadio(
+                        AppRadio(
                           onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
                                 .updatepriceType(MyText.dyi);

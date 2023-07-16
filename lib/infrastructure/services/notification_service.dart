@@ -105,12 +105,12 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
     channelDescription: 'your other channel description',
     sound: RawResourceAndroidNotificationSound('alert'),
   );
-  const IOSNotificationDetails iOSPlatformChannelSpecifics =
-      IOSNotificationDetails(sound: 'alert.aiff');
+  // const IOSNotificationDetails iOSPlatformChannelSpecifics =
+  //     IOSNotificationDetails(sound: 'alert.aiff');
 
   final NotificationDetails platformChannelSpecifics = NotificationDetails(
     android: androidPlatformChannelSpecifics,
-    iOS: iOSPlatformChannelSpecifics,
+   // iOS: iOSPlatformChannelSpecifics,
   );
   await flutterLocalNotificationsPlugin.show(
     0,

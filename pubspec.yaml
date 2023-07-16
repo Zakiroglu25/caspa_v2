@@ -80,7 +80,7 @@ dependencies:
 
   #webiew
   webview_flutter: ^3.0.4
-  flutter_inappwebview: ^5.4.3+7
+  flutter_inappwebview: ^5.7.2+3
   external_app_launcher: ^2.0.2
 
 

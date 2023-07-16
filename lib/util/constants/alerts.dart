@@ -49,7 +49,7 @@ class Alerts {
                       description: "(${_prefs.user.bonus} \$)",
                       value: MyText.fromBonus),
 
-                  // buildCaspaRadio(context, snapShoot,
+                  // buildAppRadio(context, snapShoot,
                   //     value: MyText.withPromoCode),
                 ],
               );
@@ -89,7 +89,7 @@ class Alerts {
                   //     snapShoot: snapShoot,
                   //     description: "(${_prefs.user.bonus} \$)",
                   //     value: MyText.fromBonus),
-                  // buildCaspaRadio(context, snapShoot,
+                  // buildAppRadio(context, snapShoot,
                   //     value: MyText.withPromoCode),
                 ],
               );
@@ -133,7 +133,7 @@ class Alerts {
                   //     snapShoot: snapShoot,
                   //     description: "(${_prefs.user.cashback_balance} \$)",
                   //     value: MyText.fromCashback),
-                  // buildCaspaRadio(context, snapShoot,
+                  // buildAppRadio(context, snapShoot,
                   //     value: MyText.withPromoCode),
                 ],
               );

@@ -167,13 +167,13 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   clearSubFilter() async {
-    await Future.delayed(Durations.ms500);
+    await Future.delayed(AppDurations.ms500);
     subCategories.sink.add(selectedCategory.value?.children ?? []);
     subCategoryFilterController.clear();
   }
 
   clearFilter() async {
-    await Future.delayed(Durations.ms500);
+    await Future.delayed(AppDurations.ms500);
     updateCategoriesList(permanentCategories);
     categoryFilterController.clear();
   }

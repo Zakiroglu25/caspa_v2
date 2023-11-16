@@ -42,7 +42,7 @@ class CurrentAddressButton extends StatelessWidget {
           context.read<DeliveryAddressCurrentCubit>().add(context);
         },
         child: AnimatedContainer(
-          duration: Durations.ms500,
+          duration: AppDurations.ms500,
           child: Padding(
             padding: Paddings.paddingA16 - Paddings.paddingV4,
             child: Row(

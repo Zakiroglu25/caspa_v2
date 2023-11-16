@@ -48,7 +48,7 @@ class UserCabinetPage extends StatelessWidget {
         user: false,
         back: showBack ?? true,
         onBack: () => globalPageController.nextPage(
-            duration: Durations.ms300, curve: Curves.linear),
+            duration: AppDurations.ms300, curve: Curves.linear),
         notification: false,
         onTapActions: () => buildShowCupertinoModalPopup(context),
       ),
@@ -158,8 +158,7 @@ class UserCabinetPage extends StatelessWidget {
                         subtitle:
                             !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
                         subtitleColor: MyColors.black,
-                        desc:
-                            MyText.whellDetails,
+                        desc: MyText.whellDetails,
                         color: MyColors.mainBlue127,
                       ),
                     MySizedBox.h32,

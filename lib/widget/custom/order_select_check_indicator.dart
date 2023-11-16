@@ -18,7 +18,7 @@ class OrderSelectCheckIndicator extends StatelessWidget {
     return InkWrapper(
       onTap: () => onTap?.call(),
       child: AnimatedContainer(
-        duration: Durations.ms200,
+        duration: AppDurations.ms200,
         width: w ?? 22,
         height: h ?? 22,
         child: WidgetOrEmpty(

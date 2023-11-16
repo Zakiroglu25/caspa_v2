@@ -91,7 +91,6 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   stretchTriggerOffset: widget.appbarHeight ?? 300,
                   leadingWidth: 0,
                   elevation: 0,
-                  backwardsCompatibility: false,
                   backgroundColor: Colors.white,
                   flexibleSpace: FadeIn(
                     child: FlexibleSpaceBar(

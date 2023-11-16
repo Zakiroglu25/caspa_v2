@@ -1,5 +1,5 @@
-class Durations {
-  Durations._();
+class AppDurations {
+  AppDurations._();
 
   //milliseconds
   static const Duration ms0 = Duration(milliseconds: 0);

@@ -19,7 +19,7 @@ class UserButton extends StatelessWidget {
             onPressed: () {
               // Go.to(context, Pager.userCabinet());
               globalPageController.animateTo(0,
-                  duration: Durations.ms300, curve: Curves.linear);
+                  duration: AppDurations.ms300, curve: Curves.linear);
             },
             icon: UserPhoto(
               editOnTap: false,

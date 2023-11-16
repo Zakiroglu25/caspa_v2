@@ -77,7 +77,7 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
         address = _address;
         // regionTitle = first.subAdministrativeArea;
         coordinates = _location;
-        await Future<void>.delayed(Durations.ms100);
+        await Future<void>.delayed(AppDurations.ms100);
         emit(DeliveryAdressCurrentSuccess(
             location: _location, address: _address));
       } else {
@@ -151,7 +151,6 @@ class DeliveryAddressCurrentCubit extends Cubit<DeliveryAddressCurrentState> {
       emit(DeliveryAdressCurrentSuccess(
           location: coordinates!, address: address!));
       // emit(DeliveryAdressOperationsInProgress());
-
     } on SocketException catch (_) {
       //network olacaq
       emit(DeliveryAdressCurrentError(error: MyText.network_error));

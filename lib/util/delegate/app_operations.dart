@@ -151,6 +151,6 @@ class AppOperations {
 
   static Future<File?> openNotificationSettings(
       {ImageSource? imageSource}) async {
-    AppSettings.openNotificationSettings(asAnotherTask: true);
+    AppSettings.openAppSettings(asAnotherTask: true);
   }
 }

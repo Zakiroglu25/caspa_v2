@@ -42,7 +42,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       emit(AuthenticationLoading());
     }
     try {
-      await Future.delayed(Durations.ms500);
+      await Future.delayed(AppDurations.ms500);
       configureFcm(context: context);
       final String? fcm = await _fcm.getToken();
       final bool isLoggedIn = await _prefs.isLoggedIn;
@@ -75,7 +75,6 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         // if (goOn!) {
         emit(AuthenticationAuthenticated());
         //}
-
       } else if (appMembers.isNotEmpty) {
         await Future.wait([
           //splah screen ucun min 4 san. gozledilir
@@ -173,7 +172,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       _memS.removeAppMember(_prefs.user);
 
       //esas HIveServiceni boshaldir
-      Future.delayed(Durations.ms400).then((value) => _prefs.clear());
+      Future.delayed(AppDurations.ms400).then((value) => _prefs.clear());
       //_prefs.clear();
 
       //"startApp" mentigini ishledir

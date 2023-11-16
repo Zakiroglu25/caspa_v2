@@ -14,7 +14,7 @@ class CloseProvider with ChangeNotifier {
   }
 
   Future<bool> clickBack() async {
-    Future.delayed(Durations.s3).whenComplete(() => backCount = 0);
+    Future.delayed(AppDurations.s3).whenComplete(() => backCount = 0);
     backCount++;
     notifyListeners();
 

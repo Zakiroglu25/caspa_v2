@@ -24,7 +24,7 @@ FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   debugPrint('onBackgroundMessage: ${message}');
 
-  await Future.delayed(Durations.s2);
+  await Future.delayed(AppDurations.s2);
 
   // showNotificationCustomSound(message);
 }
@@ -118,7 +118,7 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
     '${message.notification?.body}',
     platformChannelSpecifics,
   );
-  await Future.delayed(Durations.s4);
+  await Future.delayed(AppDurations.s4);
   await flutterLocalNotificationsPlugin.cancel(0);
 }
 
@@ -171,7 +171,7 @@ class Helper {
       '',
       platformChannelSpecifics,
     );
-    await Future.delayed(Durations.s4);
+    await Future.delayed(AppDurations.s4);
     await flutterLocalNotificationsPlugin.cancel(0);
   }
 }

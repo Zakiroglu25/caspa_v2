@@ -43,7 +43,7 @@ class SmsCodesCubit extends Cubit<SmsCodesState> {
     a++;
     if (refresh) {
       fetch(loading: a == 1, smsType: smsType);
-      Timer(Durations.s5, () => start(smsType: smsType));
+      Timer(AppDurations.s5, () => start(smsType: smsType));
     }
   }
 

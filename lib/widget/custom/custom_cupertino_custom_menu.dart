@@ -212,7 +212,7 @@ class _CustomCupertinoContextMenuState extends State<CustomCupertinoContextMenu>
   void initState() {
     super.initState();
     _openController = AnimationController(
-      duration: Durations.ms0,
+      duration: AppDurations.ms0,
       vsync: this,
     );
     _openController.addStatusListener(_onDecoyAnimationStatusChange);

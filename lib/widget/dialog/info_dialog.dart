@@ -11,9 +11,9 @@ class _RoundedAlertBoxState extends State<RoundedAlertBox> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: openAlertBox,
-        color: MyColors.mainColor,
+        // color: MyColors.mainColor,
         child: Text(
           "Open Alert Box",
           style: TextStyle(color: Colors.white),

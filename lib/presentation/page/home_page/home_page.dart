@@ -1,6 +1,3 @@
-
-import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_cubit.dart';
-import 'package:caspa_v2/infrastructure/cubits/ads_cubit/ads_state.dart';
 import 'package:caspa_v2/infrastructure/cubits/packages/packages_cubit.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
@@ -13,11 +10,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../infrastructure/models/remote/response/ads_model.dart';
 import '../../../infrastructure/services/hive_service.dart';
 import '../../../locator.dart';
 import '../../../util/delegate/navigate_utils.dart';
-import '../../../util/screen/alert.dart';
 import '../../../util/screen/sheet.dart';
 import 'widgets/bitrhday_sheet_widget.dart';
 import 'widgets/home_header.dart';
@@ -35,9 +30,8 @@ class HomePage extends StatefulWidget {
 HiveService get _prefsLocale => locator<HiveService>();
 
 class _HomePageState extends State<HomePage> {
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
@@ -53,8 +47,6 @@ class _HomePageState extends State<HomePage> {
       }
     }
   }
-
-
 
   bool issheetShown = true;
   SharedPreferences? _prefs;
@@ -93,9 +85,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 MySizedBox.h16,
                 BlocProvider(
-                  create: (context) =>
-                  PackageCubit()
-                    ..fetchActive(),
+                  create: (context) => PackageCubit()..fetchActive(),
                   child: HomePackageList(),
                 ),
                 MySizedBox.h36,
@@ -122,7 +112,7 @@ class _HomePageState extends State<HomePage> {
 
 modalBottomSheetMenu(context) {
   WidgetsBinding.instance.addPostFrameCallback(
-        (_) async {
+    (_) async {
       Sheet.display(
         context: context,
         child: BirthdaySheet(),

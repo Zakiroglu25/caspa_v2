@@ -72,8 +72,7 @@ dependencies:
   keyboard_attachable: ^2.1.0
   custom_pop_up_menu: ^1.2.4
   flutter_slidable: ^2.0.0
-  story_view:
-    path: ../story_view/
+  story_view: ^0.16.0
   #  modal_bottom_sheet: ^2.1.0
   modal_bottom_sheet: ^3.0.0-pre
 

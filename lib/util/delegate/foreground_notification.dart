@@ -2,7 +2,7 @@
 import 'dart:math';
 
 import 'package:animate_do/animate_do.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/widget/main/notification_popup/notification_popup.dart';
@@ -23,15 +23,15 @@ class ForegroundNotification {
       duration: Duration(seconds: 10),
     );
 
-    AwesomeNotifications().createNotification(
-        content: NotificationContent(
-            color: MyColors.mainColor,
-            id: Random.secure().nextInt(999),
-            displayOnBackground: true,
-            channelKey: 'custom_sound',
-            //    customSound: 'assets/sounds/alert.mp3',
-            title: (event!.notification!.title)!,
-            showWhen: true,
-            body: event.notification!.body));
+    // AwesomeNotifications().createNotification(
+    //     content: NotificationContent(
+    //         color: MyColors.mainColor,
+    //         id: Random.secure().nextInt(999),
+    //         displayOnBackground: true,
+    //         channelKey: 'custom_sound',
+    //         //    customSound: 'assets/sounds/alert.mp3',
+    //         title: (event!.notification!.title)!,
+    //         showWhen: true,
+    //         body: event.notification!.body));
   }
 }

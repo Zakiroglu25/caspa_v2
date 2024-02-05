@@ -2,7 +2,6 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:flutter/material.dart';
-
 import 'widgets/sliver_back.dart';
 import 'widgets/sliver_body.dart';
 import 'widgets/sliver_notification.dart';
@@ -31,13 +30,13 @@ class SliverCaspaBar extends StatefulWidget {
     this.tabs,
     this.tabPages,
     this.title,
-    this.onRefresh,
     this.tabbarPadding,
     this.tabController,
     this.selectedTabColor,
     this.unSelectedLabelColor,
-    this.isScrollable,
+    this.onRefresh,
     this.first,
+    this.isScrollable,
     this.selectedLabelColor,
     this.back,
     this.notification,
@@ -60,7 +59,6 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     _tabController!.addListener(() {
       widget.tabController?.call(_tabController!.index);
     });
-
     if (widget.first != null && widget.first != -1) {
       _tabController!.animateTo(widget.first!);
     }
@@ -91,32 +89,34 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   stretchTriggerOffset: widget.appbarHeight ?? 300,
                   leadingWidth: 0,
                   elevation: 0,
+                  // backwardsCompatibility: false,
                   backgroundColor: Colors.white,
                   flexibleSpace: FadeIn(
                     child: FlexibleSpaceBar(
+                      title: SliverTitleTop(widget.title),
+                      centerTitle: false,
                       background: Stack(
-                          alignment: Alignment.bottomCenter,
+                          alignment: Alignment.topCenter,
                           children: <Widget>[
                             SliverBack(back: widget.back),
                             SliverNotification(widget.notification),
                             SliverTitle(widget.title),
                             SliverBody(widget.sliverChild),
                           ]),
-                      centerTitle: true,
-                      title: Container(
-                        color: Colors.transparent,
-                        width: double.maxFinite,
-                        height: 300,
-                        child: Stack(
-                            alignment: Alignment.topCenter,
-                            children: <Widget>[
-                              SliverBack(
-                                back: widget.back,
-                              ),
-                              SliverNotification(widget.notification),
-                              SliverTitleTop(widget.title)
-                            ]),
-                      ),
+                      // title: Container(
+                      //   color: Colors.transparent,
+                      //   width: double.maxFinite,
+                      //   // height: 300,
+                      //   // child: Stack(
+                      //   //     alignment: Alignment.topCenter,
+                      //   //     children: <Widget>[
+                      //   //       // SliverBack(
+                      //   //       //   back: widget.back,
+                      //   //       // ),
+                      //   //       // SliverNotification(widget.notification),
+                      //   //       SliverTitleTop(widget.title)
+                      //   //     ]),
+                      // ),
                     ),
                   ),
                 ),
@@ -136,9 +136,9 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                         color: widget.selectedTabColor ?? MyColors.mainGrey,
                       ),
                       labelColor:
-                          widget.selectedLabelColor ?? MyColors.textBlack,
+                      widget.selectedLabelColor ?? MyColors.textBlack,
                       unselectedLabelColor:
-                          widget.unSelectedLabelColor ?? MyColors.grey153,
+                      widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                       //indicatorSize: TabBarIndicatorSize(),
@@ -183,11 +183,11 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     );
   }
 
-  //wheel_page
+  //test
 
   @override
   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return true;
+    return false;
   }
 }
 

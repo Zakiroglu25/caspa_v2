@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'infrastructure/configs/init.dart';
@@ -35,8 +35,8 @@ void main() async {
   //   }
   // }
 
-  runZonedGuarded(() async {
+  // runZonedGuarded(() async {
     await init();
     runApp(const MateApp());
-  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
+  // }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack));
 }

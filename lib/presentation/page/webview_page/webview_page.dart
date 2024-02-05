@@ -108,7 +108,7 @@ class _WebviewPageState extends State<WebviewPage> {
                 key: webViewKey,
                 // contextMenu: contextMenu,
 
-                initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+                initialUrlRequest: URLRequest(url: WebUri(widget.url)),
                 // initialFile: "assets/index.html",
                 initialUserScripts: UnmodifiableListView<UserScript>([]),
                 initialOptions: options,

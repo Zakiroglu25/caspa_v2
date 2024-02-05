@@ -1,5 +1,7 @@
-import 'package:caspa_v2/util/constants/app_text_styles.dart';
+// import 'package:caspa_v2/util/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../util/constants/app_text_styles.dart';
 
 class SliverTitle extends StatelessWidget {
   final String? title;

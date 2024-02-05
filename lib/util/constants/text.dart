@@ -476,7 +476,7 @@ class MyText {
   ///courier info
 
   static const String courierInfoTime =
-      "Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 11:00 -а qədər olan sifarişlər eyni gün çatdırılır.";
+      "Diqqət! Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 11:00-a qədər olan sifarişlər 48 saat ərzində  çatdırılır (bölgələr və bazar günü xaric)";
 
   static const String infoCourier =
       "28 may filialindan, kuryer çatdırılması mövcud deyil.";

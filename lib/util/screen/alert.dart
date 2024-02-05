@@ -6,7 +6,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -94,7 +94,7 @@ class Alert {
                           ),
                           elseChild: WidgetOrEmpty(
                               value: cancelButton || onTapCancel != null,
-                              child: CaspaButton(
+                              child: AppButton(
                                   w: buttonSize,
                                   color: MyColors.grey245,
                                   text: MyText.reject,
@@ -106,7 +106,7 @@ class Alert {
                         ),
                         SizedBox(
                           width: buttonSize,
-                          child: CaspaButton(
+                          child: AppButton(
                             text: buttonText ?? MyText.ok,
                             onTap: () {
                               Go.pop(context);
@@ -193,7 +193,7 @@ class Alert {
                           ),
                           elseChild: WidgetOrEmpty(
                               value: cancelButton || onTapCancel != null,
-                              child: CaspaButton(
+                              child: AppButton(
                                   w: buttonSize,
                                   color: MyColors.grey245,
                                   text: MyText.reject,
@@ -205,7 +205,7 @@ class Alert {
                         ),
                         SizedBox(
                           width: buttonSize,
-                          child: CaspaButton(
+                          child: AppButton(
                             text: buttonText ?? MyText.ok,
                             onTap: () {
                               Go.pop(context);

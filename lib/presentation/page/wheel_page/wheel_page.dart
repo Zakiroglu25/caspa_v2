@@ -7,7 +7,7 @@ import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -111,7 +111,7 @@ class WheelPage extends StatelessWidget {
                 valueListenable: _wheelActivityNotifier,
                 builder: (_, value, child) {
                   if (!value) {
-                    return CaspaButton(
+                    return AppButton(
                         borderRadius: 100,
                         h: 64,
                         textSize: 25,

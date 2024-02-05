@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../infrastructure/cubits/package_details/package_details_cubit.dart';
-import '../general/caspa_radio.dart';
+import '../general/app_radio.dart';
 
 class CaspaPaymentRadio extends StatelessWidget {
   const CaspaPaymentRadio(this.mainContext,
@@ -17,7 +17,7 @@ class CaspaPaymentRadio extends StatelessWidget {
   final String? description;
   @override
   Widget build(BuildContext context) {
-    return CaspaRadio(
+    return AppRadio(
         onTap: () =>
             mainContext.read<PackageDetailsCubit>().updatePayType(value),
         title: "${value} ${description ?? ""}",

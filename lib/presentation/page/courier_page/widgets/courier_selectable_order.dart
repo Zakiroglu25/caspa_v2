@@ -6,7 +6,7 @@ import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../widget/main/selectable_package/selectable_package.dart';
@@ -47,7 +47,7 @@ class CourierSelectableOrder extends StatelessWidget {
                     size: 80,
                   ),
                   title: MyText.youHaveNotPay,
-                  secondButton: CaspaButton(
+                  secondButton: AppButton(
                     text: MyText.pay,
                     color: MyColors.grey245,
                     textColor: MyColors.black,

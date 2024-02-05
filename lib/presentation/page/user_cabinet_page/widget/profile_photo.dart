@@ -14,7 +14,7 @@ import '../../../../util/constants/sized_box.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/screen/alert.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 
 class ProfilePhoto extends StatelessWidget {
   final double? w;
@@ -33,7 +33,7 @@ class ProfilePhoto extends StatelessWidget {
               title: MyText.youMustSelectOneOfThem,
               image: MySizedBox.h16,
               onTap: () => context.read<UserCubit>().checkAndPickImage(context),
-              secondButton: CaspaButton(
+              secondButton: AppButton(
                 onTap: () {
                   Go.pop(context);
                   context.read<UserCubit>().checkAndTake(context);

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,7 +8,7 @@ import '../../../../util/constants/sized_box.dart';
 import '../../../../util/constants/text.dart';
 import '../../../../util/delegate/navigate_utils.dart';
 import '../../../../util/delegate/pager.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 
 class EmptyPackagesWidget extends StatelessWidget {
   const EmptyPackagesWidget({
@@ -35,11 +34,12 @@ class EmptyPackagesWidget extends StatelessWidget {
           child: Text(
             MyText.emptyDesc,
             textAlign: TextAlign.center,
-            style: AppTextStyles.sanF400.copyWith(color: MyColors.grey153,height: 20/14),
+            style: AppTextStyles.sanF400
+                .copyWith(color: MyColors.grey153, height: 20 / 14),
           ),
         ),
         MySizedBox.h16,
-        CaspaButton(
+        AppButton(
           text: MyText.emptyButton,
           textSize: 14,
           w: 142,

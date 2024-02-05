@@ -96,7 +96,7 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   Stream<String> get serieTypeStream => serieType.stream;
 
   updatepriceType(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       serieType.value = '';
       serieType.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -105,9 +105,8 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isSerieTypeIncorrect => (!serieType.hasValue ||
-      serieType.value == null ||
-      serieType.value.isEmpty);
+  bool get isSerieTypeIncorrect =>
+      (!serieType.hasValue || serieType.value.isEmpty);
 
   //birthDate
   final BehaviorSubject<String> birthDate = BehaviorSubject<String>();
@@ -115,7 +114,7 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
   Stream<String> get birthDateStream => birthDate.stream;
 
   updateBirthDate(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       birthDate.value = '';
       //  birthDate.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -124,9 +123,8 @@ class AddAttorneysCubit extends Cubit<AddAttorneysState> {
     //isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isBirthDateIncorrect => (!birthDate.hasValue ||
-      birthDate.value == null ||
-      birthDate.value.isEmpty);
+  bool get isBirthDateIncorrect =>
+      (!birthDate.hasValue || birthDate.value.isEmpty);
 
   @override
   close() {

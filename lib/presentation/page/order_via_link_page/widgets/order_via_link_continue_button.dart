@@ -1,6 +1,6 @@
 import 'package:caspa_v2/infrastructure/cubits/order_via_url/order_via_url_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +14,7 @@ class OrderViaLinkContinueButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CaspaButton(
+    return AppButton(
       loading:
           (context.watch<OrderViaUrlCubit>().state is OrderViaUrlInProgress),
       onTap: () {

@@ -4,7 +4,7 @@ import 'package:caspa_v2/presentation/page/package_details_page/widget/package_m
 import 'package:caspa_v2/util/constants/assets.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
-import 'package:caspa_v2/widget/general/caspa_radio.dart';
+import 'package:caspa_v2/widget/general/app_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,10 +36,10 @@ class PayButton extends StatelessWidget {
                 return ListView(
                   shrinkWrap: true,
                   children: [
-                    buildCaspaRadio(context, snapShoot,
+                    buildAppRadio(context, snapShoot,
                         value: MyText.fromBalance),
-                    buildCaspaRadio(context, snapShoot, value: MyText.byCard),
-                    // buildCaspaRadio(context, snapShoot,
+                    buildAppRadio(context, snapShoot, value: MyText.byCard),
+                    // buildAppRadio(context, snapShoot,
                     //     value: MyText.withPromoCode),
                   ],
                 );
@@ -47,10 +47,10 @@ class PayButton extends StatelessWidget {
             )));
   }
 
-  CaspaRadio buildCaspaRadio(
+  AppRadio buildAppRadio(
       BuildContext context, AsyncSnapshot<Object?> snapShoot,
       {required String value}) {
-    return CaspaRadio(
+    return AppRadio(
         onTap: () => context.read<PackageDetailsCubit>().updatePayType(value),
         title: value,
         isActive: snapShoot.data == value);

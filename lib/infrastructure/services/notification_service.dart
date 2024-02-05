@@ -109,9 +109,10 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
   const DarwinNotificationDetails iOSPlatformChannelSpecifics =
   DarwinNotificationDetails(sound: 'alert.aiff');
 
+
   final NotificationDetails platformChannelSpecifics = NotificationDetails(
     android: androidPlatformChannelSpecifics,
-    iOS: iOSPlatformChannelSpecifics,
+    // iOS: iOSPlatformChannelSpecifics,
   );
   await flutterLocalNotificationsPlugin.show(
     0,
@@ -161,6 +162,7 @@ class Helper {
     );
     DarwinNotificationDetails iOSPlatformChannelSpecifics =
     DarwinNotificationDetails(sound: 'alert.aiff');
+
 
     final NotificationDetails platformChannelSpecifics = NotificationDetails(
       android: androidPlatformChannelSpecifics,

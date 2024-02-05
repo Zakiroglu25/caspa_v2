@@ -366,7 +366,7 @@ class _CustomCupertinoContextMenuState extends State<CustomCupertinoContextMenu>
         );
       },
     );
-    Overlay.of(context, rootOverlay: true)!.insert(_lastOverlayEntry!);
+    Overlay.of(context, rootOverlay: true).insert(_lastOverlayEntry!);
     _openController.forward();
   }
 

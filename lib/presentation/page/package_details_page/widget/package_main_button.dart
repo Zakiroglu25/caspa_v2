@@ -1,4 +1,4 @@
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 
 class PackageMainButton extends StatelessWidget {
@@ -15,6 +15,6 @@ class PackageMainButton extends StatelessWidget {
     return SizedBox(
         width: w,
         height: 45,
-        child: CaspaButton(onTap: () => onTap.call(), text: text));
+        child: AppButton(onTap: () => onTap.call(), text: text));
   }
 }

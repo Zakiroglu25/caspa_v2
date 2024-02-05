@@ -12,6 +12,7 @@ import 'calculate_state.dart';
 
 class CalculateKgCubit extends Cubit<CalculateKgState> {
   CalculateKgCubit() : super(CalculateKgInitial());
+    // static const double usdToAznRate = 1.7;
 
   void addKg(BuildContext context, [bool loading = true]) async {
     double weight = double.parse(kg.valueOrNull!);
@@ -21,6 +22,7 @@ class CalculateKgCubit extends Cubit<CalculateKgState> {
     try {
       final result = await CalculateKgProvider.addKg(kg: kg.valueOrNull!);
       if (isSuccess(result.statusCode)) {
+        // double resultAzn = weight * double.parse(result.data.price) * usdToAznRate;
         double resultKg;
         if (weight >= 1) {
           resultKg = weight * double.parse(result.data.price);

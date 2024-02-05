@@ -12,7 +12,7 @@ import 'package:caspa_v2/util/constants/preferences_keys.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:firebase_remote_config/firebase_remote_config.dart';
 
 import '../../infrastructure/services/app_members_service.dart';
 import '../../locator.dart';
@@ -21,7 +21,7 @@ class UserOperations {
   static HiveService get _prefs => locator<HiveService>();
 
   static ConfigService get _configs => locator<ConfigService>();
-  static final remoteConfig = FirebaseRemoteConfig.instance;
+  // static final remoteConfig = FirebaseRemoteConfig.instance;
   static final fireStore = FirebaseFirestore.instance;
 
   static AppMembersService get _memS => locator<AppMembersService>();

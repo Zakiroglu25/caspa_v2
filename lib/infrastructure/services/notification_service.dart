@@ -74,7 +74,7 @@ initializeFCMNotification() async {
   var initializationSettingsAndroid = AndroidInitializationSettings(
     '@mipmap/ic_launcher_notf',
   );
-  var initializationSettingsIOS = IOSInitializationSettings(
+  var initializationSettingsIOS = DarwinInitializationSettings(
     requestSoundPermission: true,
     requestBadgePermission: true,
     requestAlertPermission: true,
@@ -84,10 +84,11 @@ initializeFCMNotification() async {
   var initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,
-      onSelectNotification: (var payload) {
+      // onSelectNotification: (var payload) {
     //return
     // onSelectNotification(payload);
-  });
+  // },
+);
 
   // generalSubscribtion();
 }
@@ -105,8 +106,9 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
     channelDescription: 'your other channel description',
     sound: RawResourceAndroidNotificationSound('alert'),
   );
-  // const IOSNotificationDetails iOSPlatformChannelSpecifics =
-  //     IOSNotificationDetails(sound: 'alert.aiff');
+  const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+  DarwinNotificationDetails(sound: 'alert.aiff');
+
 
   final NotificationDetails platformChannelSpecifics = NotificationDetails(
     android: androidPlatformChannelSpecifics,
@@ -158,8 +160,9 @@ class Helper {
       channelDescription: 'your other channel description',
       sound: RawResourceAndroidNotificationSound('alert'),
     );
-    IOSNotificationDetails iOSPlatformChannelSpecifics =
-        IOSNotificationDetails(sound: 'slow_spring_board.aiff');
+    DarwinNotificationDetails iOSPlatformChannelSpecifics =
+    DarwinNotificationDetails(sound: 'alert.aiff');
+
 
     final NotificationDetails platformChannelSpecifics = NotificationDetails(
       android: androidPlatformChannelSpecifics,

@@ -9,8 +9,14 @@ class ResultCalculate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    double azn = double.parse(result.toString());
+    double convertAzn = azn * 1.7;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(convertAzn.toStringAsFixed(2) + " AZN",
+            style: AppTextStyles.coHead400.copyWith(fontSize: 25.sp)),
         Text(
           "\$" + " " + "$result",
           style: AppTextStyles.coHead400.copyWith(fontSize: 25.sp),

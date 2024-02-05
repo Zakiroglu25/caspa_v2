@@ -1,11 +1,11 @@
 // import 'package:firebase_core/firebase_core.dart';
-import 'package:awesome_notifications/awesome_notifications.dart';
+// import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:caspa_v2/infrastructure/services/interceptor_service.dart';
 import 'package:caspa_v2/infrastructure/services/notification_service.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_remote_config/firebase_remote_config.dart';
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+// import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -24,15 +24,15 @@ Future<void> init() async {
 
   // FirebaseCrashlytics.instance.crash();
   //FirebaseCrashlytics.instance.crash();
-  final remoteConfig = FirebaseRemoteConfig.instance;
-  await remoteConfig.setConfigSettings(RemoteConfigSettings(
-    fetchTimeout: const Duration(seconds: 1),
-    minimumFetchInterval: const Duration(seconds: 1),
-  ));
+  // final remoteConfig = FirebaseRemoteConfig.instance;
+  // await remoteConfig.setConfigSettings(RemoteConfigSettings(
+  //   fetchTimeout: const Duration(seconds: 1),
+  //   minimumFetchInterval: const Duration(seconds: 1),
+  // ));
 
-  FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  // FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
 
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   if (Configs.enableLogging) {
     //LoggingService(Configs.enableLogging);
     //Bloc.observer = AppBlocObserver();
@@ -52,33 +52,32 @@ Future<void> init() async {
     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp],
   );
 
-  AwesomeNotifications().initialize(
-    // set the icon to null if you want to use the default app icon
-    'resource://drawable/circle_icon',
-    [
-      NotificationChannel(
-          channelGroupKey: 'sound_tests',
-          //icon: 'resource://drawable/res_power_ranger_thunder',
-          channelKey: "custom_sound",
-          channelName: "Custom sound notifications",
-          channelDescription: "Notifications with custom sound",
-          playSound: false,
-          soundSource: 'resource://raw/alert',
-          defaultColor: Colors.red,
-          ledColor: Colors.red,
-          vibrationPattern: lowVibrationPattern),
-    ],
-    channelGroups: [
-      NotificationChannelGroup(
-          channelGroupKey: 'sound_tests', channelGroupName: 'Basic group', )
-    ],
-  );
-
-  AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
-    if (!isAllowed) {
-      // Insert here your friendly dialog box before call the request method
-      // This is very important to not harm the user experience
-      AwesomeNotifications().requestPermissionToSendNotifications();
-    }
-  });
+  // AwesomeNotifications().initialize(
+  //   // set the icon to null if you want to use the default app icon
+  //   'resource://drawable/circle_icon',
+  //   [
+  //     NotificationChannel(
+  //         channelGroupKey: 'sound_tests',
+  //         //icon: 'resource://drawable/res_power_ranger_thunder',
+  //         channelKey: "custom_sound",
+  //         channelName: "Custom sound notifications",
+  //         channelDescription: "Notifications with custom sound",
+  //         playSound: false,
+  //         soundSource: 'resource://raw/alert',
+  //         defaultColor: Colors.red,
+  //         ledColor: Colors.red,
+  //         vibrationPattern: lowVibrationPattern),
+  //   ],
+  //   channelGroups: [
+  //     NotificationChannelGroup(
+  //         channelGroupKey: 'sound_tests', channelGroupName: 'Basic group', )
+  //   ],
+  // );
+  // AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+  //   if (!isAllowed) {
+  //     // Insert here your friendly dialog box before call the request method
+  //     // This is very important to not harm the user experience
+  //     AwesomeNotifications().requestPermissionToSendNotifications();
+  //   }
+  // });
 }

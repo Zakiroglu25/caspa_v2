@@ -53,7 +53,7 @@ class HomeHeader extends StatelessWidget {
             child: Image.asset(Assets.homeMoto),
           ),
           MySizedBox.h16,
-          Text("Kuryer xidməti 1₼-dan başlayaraq",
+          Text("Kuryer xidməti 2₼-dan başlayaraq",
               style: UITextStyle.tW600Black.copyWith(fontSize: 16)),
           MySizedBox.h8,
           RichText(

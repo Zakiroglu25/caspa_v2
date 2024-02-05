@@ -15,7 +15,7 @@ import 'util/constants/colors.dart';
 import 'util/delegate/scroll_behaivor.dart';
 
 class MateApp extends StatelessWidget {
-  const  MateApp({Key? key}) : super(key: key);
+  const MateApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -33,6 +33,7 @@ class MateApp extends StatelessWidget {
                     navigatorObservers: [BotToastNavigatorObserver()],
                     // navigatorObservers: [ if (Configs.enableSentry) SentryNavigatorObserver(),],
                     theme: ThemeData(
+                        useMaterial3: false,
                         pageTransitionsTheme: const PageTransitionsTheme(
                           builders: <TargetPlatform, PageTransitionsBuilder>{
                             TargetPlatform.android:

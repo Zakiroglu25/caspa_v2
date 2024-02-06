@@ -7,7 +7,6 @@ import '../../../locator.dart';
 import '../../../presentation/page/landing_page/landing_page.dart';
 
 class UserButton extends StatelessWidget {
-  HiveService get _prefs => locator<HiveService>();
 
   @override
   Widget build(BuildContext context) {

@@ -143,24 +143,24 @@ class UserCabinetPage extends StatelessWidget {
                       desc: "",
                       color: MyColors.shop,
                     ),
-                    MySizedBox.h16,
+                    // MySizedBox.h16,
 
-                    if (showWheel)
-                      NewBalanceBox(
-                        onTap: wheelActive
-                            ? () => Go.to(context, Pager.wheel())
-                            : null,
-                        icon: Assets.svgCarx,
-                        boxTitle: "Çarx",
-                        title: !wheelActive
-                            ? "Yeni həftədə çarx aktiv olacaq"
-                            : "",
-                        subtitle:
-                            !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
-                        subtitleColor: MyColors.black,
-                        desc: MyText.whellDetails,
-                        color: MyColors.mainBlue127,
-                      ),
+                    // if (showWheel)
+                    //   NewBalanceBox(
+                    //     onTap: wheelActive
+                    //         ? () => Go.to(context, Pager.wheel())
+                    //         : null,
+                    //     icon: Assets.svgCarx,
+                    //     boxTitle: "Çarx",
+                    //     title: !wheelActive
+                    //         ? "Yeni həftədə çarx aktiv olacaq"
+                    //         : "",
+                    //     subtitle:
+                    //         !wheelActive ? "Çarx aktiv deyil" : "Çarx aktivdir",
+                    //     subtitleColor: MyColors.black,
+                    //     desc: MyText.whellDetails,
+                    //     color: MyColors.mainBlue127,
+                    //   ),
                     MySizedBox.h32,
                   ],
                 ),

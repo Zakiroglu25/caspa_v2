@@ -2,6 +2,8 @@ import 'package:animate_do/animate_do.dart';
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/physics.dart';
 import 'package:flutter/material.dart';
+
+import '../../../util/constants/app_text_styles.dart';
 import 'widgets/sliver_back.dart';
 import 'widgets/sliver_body.dart';
 import 'widgets/sliver_notification.dart';
@@ -30,13 +32,13 @@ class SliverCaspaBar extends StatefulWidget {
     this.tabs,
     this.tabPages,
     this.title,
+    this.onRefresh,
     this.tabbarPadding,
     this.tabController,
     this.selectedTabColor,
     this.unSelectedLabelColor,
-    this.onRefresh,
-    this.first,
     this.isScrollable,
+    this.first,
     this.selectedLabelColor,
     this.back,
     this.notification,
@@ -59,6 +61,7 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
     _tabController!.addListener(() {
       widget.tabController?.call(_tabController!.index);
     });
+
     if (widget.first != null && widget.first != -1) {
       _tabController!.animateTo(widget.first!);
     }
@@ -92,29 +95,38 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                   backgroundColor: Colors.white,
                   flexibleSpace: FadeIn(
                     child: FlexibleSpaceBar(
-                      title: SliverTitleTop(widget.title),
-                      centerTitle: false,
                       background: Stack(
-                          alignment: Alignment.topCenter,
+                          alignment: Alignment.bottomCenter,
                           children: <Widget>[
                             SliverBack(back: widget.back),
                             SliverNotification(widget.notification),
-                            SliverTitle(widget.title),
+                            Positioned(
+                                top: 18,
+                                left:0,
+                                right: 0,
+                                bottom: 0,
+                                child:Text(widget.title!,
+                                    softWrap: true,
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: AppTextStyles.coHead500
+                                        .copyWith(color: Colors.black, fontSize: 18))),
                             SliverBody(widget.sliverChild),
                           ]),
+                      centerTitle: true,
                       // title: Container(
                       //   color: Colors.transparent,
                       //   width: double.maxFinite,
-                      //   // height: 300,
-                      //   // child: Stack(
-                      //   //     alignment: Alignment.topCenter,
-                      //   //     children: <Widget>[
-                      //   //       // SliverBack(
-                      //   //       //   back: widget.back,
-                      //   //       // ),
-                      //   //       // SliverNotification(widget.notification),
-                      //   //       SliverTitleTop(widget.title)
-                      //   //     ]),
+                      //   height: 300,
+                      //   child: Stack(
+                      //       alignment: Alignment.topCenter,
+                      //       children: <Widget>[
+                      //         SliverBack(
+                      //           back: widget.back,
+                      //         ),
+                      //         SliverNotification(widget.notification),
+                      //         SliverTitleTop(widget.title)
+                      //       ]),
                       // ),
                     ),
                   ),
@@ -135,9 +147,9 @@ class _SliverCaspaBarState extends State<SliverCaspaBar>
                         color: widget.selectedTabColor ?? MyColors.mainGrey,
                       ),
                       labelColor:
-                      widget.selectedLabelColor ?? MyColors.textBlack,
+                          widget.selectedLabelColor ?? MyColors.textBlack,
                       unselectedLabelColor:
-                      widget.unSelectedLabelColor ?? MyColors.grey153,
+                          widget.unSelectedLabelColor ?? MyColors.grey153,
                       physics: Physics.alwaysBounce,
                       tabs: widget.tabs!,
                       //indicatorSize: TabBarIndicatorSize(),
@@ -182,11 +194,11 @@ class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     );
   }
 
-  //test
+  //wheel_page
 
   @override
   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-    return false;
+    return true;
   }
 }
 

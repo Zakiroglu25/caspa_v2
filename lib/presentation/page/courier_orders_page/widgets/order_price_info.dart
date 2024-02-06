@@ -1,7 +1,7 @@
 import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/screen/widget_or_empty.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:caspa_v2/widget/main/product_box/widgets/product_property_v.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,7 +44,7 @@ class OrderPriceInfo extends StatelessWidget {
             child: Container(
               width: 91.sm,
               height: 40.sm,
-              child: CaspaButton(
+              child: AppButton(
                 color: MyColors.black,
                 textColor: MyColors.white,
                 borderRadius: 12,

@@ -5,4 +5,5 @@
 class AssetsRes {
   static const String PLUGIN_NAME = 'caspa_v2';
   static const String PLUGIN_VERSION = '1.2.9+32';
+
 }

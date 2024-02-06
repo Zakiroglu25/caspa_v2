@@ -83,7 +83,6 @@ class UserCubit extends Cubit<UserState> {
       eeee("error: " + e.toString());
       await showGalleryAccessAlert(context);
     } catch (e) {
-      eeee("error: " + e.toString());
       Snack.display(context: context, message: e.toString());
     }
   }

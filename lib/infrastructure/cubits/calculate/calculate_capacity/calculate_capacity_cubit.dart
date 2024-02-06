@@ -45,7 +45,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
   Stream<String> get lenghtStream => lenght.stream;
 
   updateLenght(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       lenght.value = '';
       lenght.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -54,8 +54,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get islenghtIncorrect =>
-      (!lenght.hasValue || lenght.value == null || lenght.value.isEmpty);
+  bool get islenghtIncorrect => (!lenght.hasValue || lenght.value.isEmpty);
 
 //width
   final BehaviorSubject<String> width = BehaviorSubject<String>();
@@ -63,7 +62,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
   Stream<String> get widthStream => width.stream;
 
   updateWidth(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       width.value = '';
       width.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -72,8 +71,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get iswidthIncorrect =>
-      (!width.hasValue || width.value == null || width.value.isEmpty);
+  bool get iswidthIncorrect => (!width.hasValue || width.value.isEmpty);
 
 //height
   final BehaviorSubject<String> height = BehaviorSubject<String>();
@@ -81,7 +79,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
   Stream<String> get heightStream => height.stream;
 
   updateHeight(String value) {
-    if (value == null || value.isEmpty) {
+    if (value.isEmpty) {
       height.value = '';
       height.sink.addError(MyText.field_is_not_correct);
     } else {
@@ -90,8 +88,7 @@ class CalculateCapacityCubit extends Cubit<CalculateCapacityState> {
     // isUserInfoValid(registerType: _registerType);
   }
 
-  bool get isheightIncorrect =>
-      (!height.hasValue || height.value == null || height.value.isEmpty);
+  bool get isheightIncorrect => (!height.hasValue || height.value.isEmpty);
 
   //--------------------values:-----------------
   @override

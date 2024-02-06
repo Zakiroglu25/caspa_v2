@@ -4,7 +4,7 @@ import 'package:caspa_v2/util/constants/colors.dart';
 import 'package:caspa_v2/util/constants/paddings.dart';
 import 'package:caspa_v2/util/constants/sized_box.dart';
 import 'package:caspa_v2/util/constants/text.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,7 +44,7 @@ class PageViewThree extends StatelessWidget {
           const Spacer(
             flex: 3,
           ),
-          CaspaButton(
+          AppButton(
             text: MyText.start,
             onTap: () {
               context.read<AuthenticationCubit>().onBoardHaveSeen(context);

@@ -4,7 +4,7 @@ import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/screen/sheet.dart';
 import 'package:caspa_v2/widget/general/caspa_field.dart';
-import 'package:caspa_v2/widget/general/caspa_radio.dart';
+import 'package:caspa_v2/widget/general/app_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,7 +51,7 @@ class PriceTypeFieldReport extends StatelessWidget {
                             itemCount: priceTypes.length,
                             itemBuilder: (contextL, index) {
                               final value = priceTypes[index];
-                              return CaspaRadio(
+                              return AppRadio(
                                 onTap: () {
                                   BlocProvider.of<ReportCubit>(context)
                                       .updatepriceType(value);

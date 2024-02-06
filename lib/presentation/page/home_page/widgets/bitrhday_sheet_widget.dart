@@ -10,7 +10,7 @@ import '../../../../util/constants/colors.dart';
 import '../../../../util/constants/paddings.dart';
 import '../../../../util/constants/sized_box.dart';
 import '../../../../util/delegate/navigate_utils.dart';
-import '../../../../widget/custom/buttons/caspa_button.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 
 class BirthdaySheet extends StatelessWidget {
   const BirthdaySheet({
@@ -32,7 +32,7 @@ class BirthdaySheet extends StatelessWidget {
           SizedBox(
             width: 375,
             height: 375,
-            child:Lottie.asset(Assets.animPasta, repeat: true),
+            child: Lottie.asset(Assets.animPasta, repeat: true),
           ),
           Padding(
             padding: Paddings.paddingH16,
@@ -49,7 +49,7 @@ class BirthdaySheet extends StatelessWidget {
                   style: AppTextStyles.sanF400.copyWith(fontSize: 14.sp),
                 ),
                 MySizedBox.h30,
-                CaspaButton(
+                AppButton(
                   onTap: () {
                     Go.pop(context);
                   },

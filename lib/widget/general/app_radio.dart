@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 
 import '../custom/order_select_radio_indicator.dart';
 
-class CaspaRadio extends StatelessWidget {
+class AppRadio extends StatelessWidget {
   Function? onTap;
   String? title;
   int? id;
   bool? isActive;
 
-  CaspaRadio(
+  AppRadio(
       {required this.onTap,
       required this.title,
       this.id,

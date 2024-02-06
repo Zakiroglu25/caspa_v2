@@ -238,7 +238,6 @@ class ReportCubit extends Cubit<ReportState> {
   Stream<Branch?> get selectedBranchStream => selectedBranch.stream;
 
   updateBranch(Branch value) {
-    print("selectedBranchStream" + selectedBranch.toString());
     if (value == null) {
       selectedBranch.value = null;
       //taxNumber.sink.addError(MyText.field_is_not_correct);

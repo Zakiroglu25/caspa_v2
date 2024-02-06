@@ -73,7 +73,6 @@ Future<void> init() async {
   //         channelGroupKey: 'sound_tests', channelGroupName: 'Basic group', )
   //   ],
   // );
-
   // AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
   //   if (!isAllowed) {
   //     // Insert here your friendly dialog box before call the request method

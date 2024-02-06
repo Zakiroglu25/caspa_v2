@@ -368,7 +368,7 @@ class Pager {
   }
 
   static wheel() {
-    return  WheelPage();
+    return WheelPage();
   }
 
   static deliveryAddress({CourierOrder? courierOrder}) =>

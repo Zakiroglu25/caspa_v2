@@ -12,7 +12,6 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/pager.dart';
 import 'package:caspa_v2/util/extensions/smart.dart';
 import 'package:caspa_v2/util/screen/ink_wrapper.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive/hive.dart';
@@ -23,6 +22,7 @@ import '../../../../infrastructure/models/local/my_user.dart';
 import '../../../../locator.dart';
 import '../../../../util/constants/preferences_keys.dart';
 import '../../../../util/screen/snack.dart';
+import '../../../../widget/custom/buttons/app_button.dart';
 import '../../../../widget/general/more_button.dart';
 import 'section_name.dart';
 import 'tariffs_courier.dart';
@@ -81,7 +81,7 @@ class HomeHeader extends StatelessWidget {
           MySizedBox.h4,
           TariffsCourier(),
           MySizedBox.h12,
-          CaspaButton(
+          AppButton(
             w: 129,
             h: 44,
             borderRadius: 12,

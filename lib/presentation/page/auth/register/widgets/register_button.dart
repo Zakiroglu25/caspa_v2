@@ -2,7 +2,7 @@ import 'package:caspa_v2/infrastructure/cubits/register/register_cubit.dart';
 import 'package:caspa_v2/util/constants/text.dart';
 import 'package:caspa_v2/util/delegate/my_printer.dart';
 import 'package:caspa_v2/util/enums/register_type.dart';
-import 'package:caspa_v2/widget/custom/buttons/caspa_button.dart';
+import 'package:caspa_v2/widget/custom/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,7 +22,7 @@ class RegisterButton extends StatelessWidget {
       child: StreamBuilder<bool>(
           stream: BlocProvider.of<RegisterCubit>(context).registerActiveeStream,
           builder: (context, snapshot) {
-            return CaspaButton(
+            return AppButton(
               isButtonActive: snapshot.data,
               loading:
                   (context.watch<RegisterCubit>().state is RegisterLoading),

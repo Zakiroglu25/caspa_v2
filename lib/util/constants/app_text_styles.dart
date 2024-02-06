@@ -46,4 +46,16 @@ abstract class AppTextStyles {
       fontWeight: FontWeight.w600,
       fontStyle: FontStyle.normal,
       letterSpacing: 0.3);
+
+  static const main600 = TextStyle(
+    fontFamily: 'Co Headline',
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
+
+  static const main600s20 = TextStyle(
+    fontFamily: 'Co Headline',
+    fontWeight: FontWeight.w600,
+    fontStyle: FontStyle.normal,
+  );
 }

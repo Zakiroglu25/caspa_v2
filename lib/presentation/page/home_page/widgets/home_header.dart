@@ -90,60 +90,60 @@ class HomeHeader extends StatelessWidget {
             onTap: () => Go.to(context, Pager.courier()),
           ),
           MySizedBox.h24,
-          ValueListenableBuilder(
-            valueListenable: Hive.box('main').listenable(),
-            builder: (context, Box box, widget) {
-              final MyUser user =
-                  MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
-              final showWheel = user.wheel;
-              final bool wheelActive = user.wheel_active;
-              if (showWheel) {
-                return InkWrapper(
-                  onTap: () {
-                    if (wheelActive) {
-                      Go.to(context, Pager.wheel());
-                    } else {
-                      Snack.positive(
-                          message:
-                              "Həftədə bir dəfə qazana bilərsiniz. Növbəti həftə sizi bir daha gözləyirik");
-                    }
-                  },
-                  // wheelActive ? () => Go.to(context, Pager.wheel()) : null,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 16),
-                    child: Container(
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: wheelActive
-                            ? const Color(0xFFF1F1F9)
-                            : const Color(0xFFF5F5F5),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        children: [
-                          MySizedBox.w24,
-                          Text(
-                            "Çarx oyna, hədiyyə qazan",
-                            style: AppTextStyles.sanF600.copyWith(
-                                fontSize: 16.sm,
-                                color: wheelActive
-                                    ? MyColors.blue24
-                                    : MyColors.black),
-                          ),
-                          const Spacer(),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(Assets.pngHalfWhell),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              }
-              return const SizedBox.shrink();
-            },
-          )
+          // ValueListenableBuilder(
+          //   valueListenable: Hive.box('main').listenable(),
+          //   builder: (context, Box box, widget) {
+          //     final MyUser user =
+          //         MyUser.fromJson(json.decode(box.get(SharedKeys.user)));
+          //     final showWheel = user.wheel;
+          //     final bool wheelActive = user.wheel_active;
+          //     if (showWheel) {
+          //       return InkWrapper(
+          //         onTap: () {
+          //           if (wheelActive) {
+          //             Go.to(context, Pager.wheel());
+          //           } else {
+          //             Snack.positive(
+          //                 message:
+          //                     "Həftədə bir dəfə qazana bilərsiniz. Növbəti həftə sizi bir daha gözləyirik");
+          //           }
+          //         },
+          //         // wheelActive ? () => Go.to(context, Pager.wheel()) : null,
+          //         child: Padding(
+          //           padding: const EdgeInsets.only(right: 16),
+          //           child: Container(
+          //             height: 64,
+          //             decoration: BoxDecoration(
+          //               color: wheelActive
+          //                   ? const Color(0xFFF1F1F9)
+          //                   : const Color(0xFFF5F5F5),
+          //               borderRadius: BorderRadius.circular(12),
+          //             ),
+          //             child: Row(
+          //               children: [
+          //                 MySizedBox.w24,
+          //                 Text(
+          //                   "Çarx oyna, hədiyyə qazan",
+          //                   style: AppTextStyles.sanF600.copyWith(
+          //                       fontSize: 16.sm,
+          //                       color: wheelActive
+          //                           ? MyColors.blue24
+          //                           : MyColors.black),
+          //                 ),
+          //                 const Spacer(),
+          //                 ClipRRect(
+          //                   borderRadius: BorderRadius.circular(8.0),
+          //                   child: Image.asset(Assets.pngHalfWhell),
+          //                 )
+          //               ],
+          //             ),
+          //           ),
+          //         ),
+          //       );
+          //     }
+          //     return const SizedBox.shrink();
+          //   },
+          // )
         ],
       ),
     );

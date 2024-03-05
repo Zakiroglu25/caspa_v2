@@ -13,6 +13,7 @@ import 'package:caspa_v2/util/delegate/navigate_utils.dart';
 import 'package:caspa_v2/util/delegate/request_control.dart';
 import 'package:caspa_v2/util/screen/alert.dart';
 import 'package:caspa_v2/util/screen/snack.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -42,13 +43,30 @@ class ReportCubit extends Cubit<ReportState> {
       var galleryAccessStatus = await Permission.photos.status;
       await Permission.photos.request();
       if (galleryAccessStatus != PermissionStatus.granted) {
+        log("1");
         var status = await Permission.photos.request();
+        if (Platform.isAndroid) {
+          final androidInfo = await DeviceInfoPlugin().androidInfo;
+          if (androidInfo.version.sdkInt <= 32) {
+            log("32");
+
+            /// use [Permissions.storage.status]
+          }  else {
+            log("33");
+            return updateImage(await AppOperations.pickPhotoFromGallery());
+
+            /// use [Permissions.photos.status]
+          }
+        }
         if (status != PermissionStatus.granted) {
+          log("2");
           await showGalleryAccessAlert(context);
         } else {
+          log("3");
           return updateImage(await AppOperations.pickPhotoFromGallery());
         }
       } else {
+        log("4");
         return updateImage(await AppOperations.pickPhotoFromGallery());
       }
     } on PlatformException catch (e) {

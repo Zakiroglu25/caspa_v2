@@ -23,6 +23,7 @@ class AdressPage extends StatelessWidget {
             return ListOrEmpty(
                 list: adressList,
                 child: SliverCaspaBar(
+                  back: false,
                   appbarHeight: 1,
                   tabs: tabs(adressList),
                   tabPages: tabPages(adressList),

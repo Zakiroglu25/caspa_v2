@@ -40,7 +40,7 @@ class SliverAppBarWidget extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     minimumSize: const Size(159, 44),
-                    primary: MyColors.mainColor,
+                    // primary: MyColors.mainColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12))),
                 onPressed: () {

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:caspa_v2/infrastructure/configs/recorder.dart';
@@ -45,6 +46,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       await Future.delayed(AppDurations.ms500);
       configureFcm(context: context);
       final String? fcm = await _fcm.getToken();
+      log("FCM$fcm");
       final bool isLoggedIn = await _prefs.isLoggedIn;
       final String? accessToken = token ?? _prefs.accessToken;
 

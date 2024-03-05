@@ -38,7 +38,7 @@ class CourierOrder {
   String? address;
   String? price;
   Region? region;
-  double? usdPrice;
+  num? usdPrice;
   String? date;
   String? updateDate;
   List<Package>? products;

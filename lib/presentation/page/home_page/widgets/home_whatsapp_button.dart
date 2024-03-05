@@ -48,7 +48,7 @@ class HomeWhatsappWidget extends StatelessWidget {
             child: Text(
               MyText.whatsapp,
               style: AppTextStyles.sanF500
-                  .copyWith(color: MyColors.white, fontSize: 14.sp),
+                  .copyWith(color: MyColors.white, fontSize: 12.sp),
             ),
           ),
 

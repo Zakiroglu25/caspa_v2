@@ -20,8 +20,8 @@ class TariffCard extends StatelessWidget {
 
     double priceInUsd = double.tryParse(price ?? "0") ?? 0;
     double priceInAzn = priceInUsd * 1.7;
-    String formattedUsdPrice = "${priceInUsd.toStringAsFixed(2)} USD";
-    String formattedAznPrice = "${priceInAzn.toStringAsFixed(2)} AZN";
+    String formattedUsdPrice = "${priceInUsd.toStringAsFixed(2)} AZN";
+    String formattedAznPrice = "${priceInAzn.toStringAsFixed(2)} USD";
 
     return Container(
       width: (isVertical!) ? null : 280.sp,

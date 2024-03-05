@@ -106,8 +106,8 @@ Future<void> showNotificationCustomSound(RemoteMessage message) async {
     channelDescription: 'your other channel description',
     sound: RawResourceAndroidNotificationSound('alert'),
   );
-  const DarwinNotificationDetails iOSPlatformChannelSpecifics =
-  DarwinNotificationDetails(sound: 'alert.aiff');
+  // const DarwinNotificationDetails iOSPlatformChannelSpecifics =
+  // DarwinNotificationDetails(sound: 'alert.aiff');
 
 
   final NotificationDetails platformChannelSpecifics = NotificationDetails(
@@ -158,10 +158,10 @@ class Helper {
       '$title',
       '$body',
       channelDescription: 'your other channel description',
-      sound: RawResourceAndroidNotificationSound('alert'),
+      // sound: RawResourceAndroidNotificationSound('alert'),
     );
     DarwinNotificationDetails iOSPlatformChannelSpecifics =
-    DarwinNotificationDetails(sound: 'alert.aiff');
+    DarwinNotificationDetails();
 
 
     final NotificationDetails platformChannelSpecifics = NotificationDetails(

@@ -38,7 +38,7 @@ class TarifListWidget extends StatelessWidget {
               duration: Duration(
                   milliseconds: isVertical! ? AppOperations.getTime(index) : 0),
               child: TariffCard(
-
+                showUSD: true,
                 tarifName: tariff.description,
                 price: tariff.price,
                 isVertical: isVertical,

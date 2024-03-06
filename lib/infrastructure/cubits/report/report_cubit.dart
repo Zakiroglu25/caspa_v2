@@ -49,6 +49,7 @@ class ReportCubit extends Cubit<ReportState> {
           final androidInfo = await DeviceInfoPlugin().androidInfo;
           if (androidInfo.version.sdkInt <= 32) {
             log("32");
+            return updateImage(await AppOperations.pickPhotoFromGallery());
 
             /// use [Permissions.storage.status]
           }  else {

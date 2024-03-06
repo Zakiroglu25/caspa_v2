@@ -11,8 +11,9 @@ class TariffCard extends StatelessWidget {
   final String? type;
   final double? w;
   bool? isVertical;
+  final bool? showUSD;
 
-  TariffCard({Key? key, this.tarifName, this.price, this.w, this.isVertical, this.type}) : super(key: key);
+  TariffCard({Key? key, this.tarifName, this.price, this.w, this.isVertical, this.type, this.showUSD}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,8 @@ class TariffCard extends StatelessWidget {
 
     double priceInUsd = double.tryParse(price ?? "0") ?? 0;
     double priceInAzn = priceInUsd * 1.7;
-    String formattedUsdPrice = "${priceInUsd.toStringAsFixed(2)} AZN";
-    String formattedAznPrice = "${priceInAzn.toStringAsFixed(2)} USD";
+    String formattedUsdPrice = "${priceInUsd.toStringAsFixed(2)} USD";
+    String formattedAznPrice = "${priceInAzn.toStringAsFixed(2)} AZN";
 
     return Container(
       width: (isVertical!) ? null : 280.sp,
@@ -37,8 +38,9 @@ class TariffCard extends StatelessWidget {
             style: TextStyle(fontSize: 16.sm, fontWeight: FontWeight.w600),
           ),
           MySizedBox.h5,
+
           Text(
-            "$formattedUsdPrice | $formattedAznPrice",
+            showUSD == true ? "$formattedUsdPrice | $formattedAznPrice" : price!+"AZN",
             style: AppTextStyles.sanF600.copyWith(color: MyColors.green, fontSize: 16.sm),
           ),
         ],

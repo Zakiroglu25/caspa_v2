@@ -39,6 +39,7 @@ class CourierTarifListWidget extends StatelessWidget {
               duration: Duration(
                   milliseconds: isVertical! ? AppOperations.getTime(index) : 0),
               child: TariffCard(
+                showUSD: false,
                 w: 120,
                 tarifName: tariff.name,
                 price: tariff.price,

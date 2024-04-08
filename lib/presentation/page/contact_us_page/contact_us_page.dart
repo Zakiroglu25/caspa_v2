@@ -78,12 +78,12 @@ class ContactPage extends StatelessWidget {
                     onTap: () => Go.to(context, MapPage()),
                   ),
                   MySizedBox.h16,
-                  SocialItem(
-                    name: MyText.c1453,
-                    content: MyText.hot_contact,
-                    path: Assets.svgContact,
-                    onTap: () => StringOperations.launchCaller(MyText.c1453),
-                  ),
+                  // SocialItem(
+                  //   name: MyText.c1453,
+                  //   content: MyText.hot_contact,
+                  //   path: Assets.svgContact,
+                  //   onTap: () => StringOperations.launchCaller(MyText.c1453),
+                  // ),
                   MySizedBox.h16,
                 ],
               );

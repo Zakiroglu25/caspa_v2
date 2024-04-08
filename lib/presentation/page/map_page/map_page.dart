@@ -13,10 +13,10 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
 
-  GoogleMapController? mapController; //contrller for Google map
+  GoogleMapController? mapController;
 
 
-  Set<Marker> markers = Set(); //markers for google map
+  Set<Marker> markers = Set();
   var lat = 40.387281;
   var long = 49.804749;
   var locationStart = LatLng(40.387281, 49.804749);
@@ -42,7 +42,7 @@ class _MapPageState extends State<MapPage> {
       infoWindow: InfoWindow(
         title: 'Caspa Bakı Anbar',
       ),
-      icon: BitmapDescriptor.defaultMarker, //Icon for Marker
+      icon: BitmapDescriptor.defaultMarker,
     ));
 
     super.initState();

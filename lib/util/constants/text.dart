@@ -476,7 +476,7 @@ class MyText {
   ///courier info
 
   static const String courierInfoTime =
-      "Diqqət! Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 11:00-a qədər olan sifarişlər 48 saat ərzində  çatdırılır (bölgələr və bazar günü xaric)";
+      "Diqqət! Ödəniş edildikdən sonra kuryer sifarişləri icra edilir. Gün ərzində 11:00-a qədər olan sifarişlər minumum 12-24 maksimum 36-48 saat ərzində  çatdırılır (bölgələr və bazar günü xaric)";
 
   static const String infoCourier =
       "28 may filialindan, kuryer çatdırılması mövcud deyil.";
@@ -491,7 +491,7 @@ class MyText {
 
   /// esas sehife text
   static const String homePageText =
-      "Kuryer xidmətinin keyfiyyəti ilə sizi təəccübləndirəcəyimizə inanırıq 😎. Əgər əlavə məlumat əldə etmək istəsəniz, qaynar xətt: ";
+      "Kuryer xidmətinin keyfiyyəti ilə sizi təəccübləndirəcəyimizə inanırıq 😎";
 
   ///otherpage
   static const String emptyDesc =

@@ -61,10 +61,10 @@ class HomeHeader extends StatelessWidget {
             text: TextSpan(
               text: MyText.homePageText,
               children: [
-                TextSpan(
-                    text: ' *1453',
-                    style: AppTextStyles.sanF400
-                        .copyWith(color: MyColors.mainColor))
+                // TextSpan(
+                //     text: ' *1453',
+                //     style: AppTextStyles.sanF400
+                //         .copyWith(color: MyColors.mainColor))
               ],
               style: AppTextStyles.sanF400.copyWith(
                   fontSize: 14.sm, color: MyColors.grey165, height: 20 / 14),
